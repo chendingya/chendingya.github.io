@@ -14,7 +14,7 @@
   
 
   
-  <title>ch16-parser-lr0-LR0 语法分析器 | Hexo</title>
+  <title>ch16-parser-lr0-LR0 语法分析器 | Asimov&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
@@ -24,46 +24,46 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="ch16-parser-lr0-LR0 语法分析器">
 <meta property="og:url" content="https://chendingya.github.io/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="Asimov&#39;s Blog">
 <meta property="og:description" content="ch16-parser-lr0-LR0 语法分析器只考虑无二义性的文法 这意味着, 每个句子对应唯一的一棵语法分析树  LL(K)特点：自顶向下的、 递归下降的、 预测分析的、 适用于LL(1) 文法的、 LL(1) 语法分析器 LL(k) 的弱点: 在仅看到右部的前 k 个词法单元时就必须预测要使用哪条产生式 LR(K)自底向上的、 不断归约的、 基于句柄识别自动机的、 适用于LR 文法的、 L">
-<meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://chendingya.github.io/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230622223756217.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623102847885.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623111206053.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623111246373.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623111328219.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623112412746.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623112524482.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623112542197.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623112916007.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623113558741.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623114459589.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623114609881.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623114709797.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623115102421.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623115144711.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623115704292.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623115821465.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623115931589.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623120044803.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623141822699.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623142536514.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623142834277.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623143646808.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623143933638.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623144052061.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623144108366.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623144142757.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623144213885.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623144347512.png">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230622223756217.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623102847885.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623111206053.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623111246373.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623111328219.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623112412746.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623112524482.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623112542197.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623112916007.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623113558741.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623114459589.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623114609881.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623114709797.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623115102421.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623115144711.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623115704292.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623115821465.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623115931589.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623120044803.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623141822699.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623142536514.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623142834277.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623143646808.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623143933638.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623144052061.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623144108366.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623144142757.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623144213885.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623144347512.png">
 <meta property="article:published_time" content="2023-04-08T02:02:34.000Z">
-<meta property="article:modified_time" content="2023-07-25T14:23:49.234Z">
-<meta property="article:author" content="John Doe">
-<meta property="article:tag" content="-编译原理">
+<meta property="article:modified_time" content="2023-09-14T11:11:00.347Z">
+<meta property="article:author" content="Asimov">
+<meta property="article:tag" content="编译原理">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://chendingya.github.io/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230622223756217.png">
+<meta name="twitter:image" content="https://chendingya.github.io/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230622223756217.png">
   
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="Asimov's Blog" type="application/atom+xml">
   
   
     <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-32.png" sizes="32x32">
@@ -101,7 +101,7 @@
         <div class="dot"></div>
         <div class="dot"></div>
       </div>
-      <div>Hexo </div>
+      <div>Asimov's Blog </div>
     </a>
   </nav>
   <nav id="main-nav">
@@ -119,7 +119,7 @@
       <span class="dark-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M480.239-116.413q-152.63 0-258.228-105.478Q116.413-327.37 116.413-480q0-130.935 77.739-227.435t206.304-125.043q43.022-9.631 63.87 10.869t3.478 62.805q-8.891 22.043-14.315 44.463-5.424 22.42-5.424 46.689 0 91.694 64.326 155.879 64.325 64.186 156.218 64.186 24.369 0 46.978-4.946 22.609-4.945 44.413-14.076 42.826-17.369 62.967 1.142 20.142 18.511 10.511 61.054Q807.174-280 712.63-198.206q-94.543 81.793-232.391 81.793Zm0-95q79.783 0 143.337-40.217 63.554-40.218 95.793-108.283-15.608 4.044-31.097 5.326-15.49 1.283-31.859.805-123.706-4.066-210.777-90.539-87.071-86.473-91.614-212.092-.24-16.369.923-31.978 1.164-15.609 5.446-30.978-67.826 32.478-108.282 96.152Q211.652-559.543 211.652-480q0 111.929 78.329 190.258 78.329 78.329 190.258 78.329ZM466.13-465.891Z"/></svg></span>
     </a>
     
-      <a id="nav-rss-link" class="nav-icon mobile-hide" href="/atom.xml" title="RSS Feed">
+      <a id="nav-rss-link" class="nav-icon mobile-hide" href="/atom.xml" title="RSS 订阅">
         <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-120q-25.846 0-44.23-18.384-18.384-18.385-18.384-44.23 0-25.846 18.384-44.23 18.384-18.385 44.23-18.385 25.846 0 44.23 18.385 18.384 18.384 18.384 44.23 0 25.845-18.384 44.23Q223.846-120 198-120Zm538.385 0q-18.846 0-32.923-13.769-14.076-13.769-15.922-33.23-8.692-100.616-51.077-188.654-42.385-88.039-109.885-155.539-67.5-67.501-155.539-109.885Q283-663.462 182.385-672.154q-19.461-1.846-33.23-16.23-13.769-14.385-13.769-33.846t14.076-32.922q14.077-13.461 32.923-12.23 120.076 8.692 226.038 58.768 105.961 50.077 185.73 129.846 79.769 79.769 129.846 185.731 50.077 105.961 58.769 226.038 1.231 18.846-12.538 32.922Q756.461-120 736.385-120Zm-252 0q-18.231 0-32.423-13.461t-18.653-33.538Q418.155-264.23 348.886-333.5q-69.27-69.27-166.501-84.423-20.077-4.462-33.538-18.961-13.461-14.5-13.461-33.346 0-19.076 13.884-33.23 13.884-14.153 33.115-10.922 136.769 15.384 234.384 112.999 97.615 97.615 112.999 234.384 3.231 19.23-10.538 33.115Q505.461-120 484.385-120Z"/></svg>
       </a>
     
@@ -138,7 +138,7 @@
       <a class="nav-dropdown-link" href="/about">About</a>
     
     
-      <a class="nav-dropdown-link" href="/atom.xml" title="RSS Feed">RSS</a>
+      <a class="nav-dropdown-link" href="/atom.xml" title="RSS 订阅">RSS</a>
      
     </div>
 </div>
@@ -182,7 +182,7 @@
 
   <div class="widget-wrap">
     <div class="widget">
-      <h3 class="widget-title">Categories</h3>
+      <h3 class="widget-title">分类</h3>
       <div class="category-box">
             <a class="category-link" href="/categories/hello-world/">
                 hello world
@@ -190,18 +190,18 @@
             </a>
         
             <a class="category-link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
-                -编译原理
+                编译原理
                 <div class="category-count">13</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E9%A9%BE%E8%80%83/">
+                驾考
+                <div class="category-count">2</div>
             </a>
         
             <a class="category-link" href="/categories/Hexo/">
                 Hexo
                 <div class="category-count">1</div>
-            </a>
-        
-            <a class="category-link" href="/categories/%E9%A9%BE%E8%80%83/">
-                -驾考
-                <div class="category-count">2</div>
             </a>
         </div>
     </div>
@@ -212,8 +212,8 @@
       
   <div class="widget-wrap">
     <div class="widget">
-      <h3 class="widget-title">Tags</h3>
-      <ul class="widget-tag-list" itemprop="keywords"><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" rel="tag">-编译原理</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E9%A9%BE%E8%80%83/" rel="tag">-驾考</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/hello-world/" rel="tag">hello world</a></li></ul>
+      <h3 class="widget-title">标签</h3>
+      <ul class="widget-tag-list" itemprop="keywords"><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/hello-world/" rel="tag">hello world</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" rel="tag">编译原理</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E9%A9%BE%E8%80%83/" rel="tag">驾考</a></li></ul>
     </div>
   </div>
 
@@ -222,31 +222,31 @@
       
   <div class="widget-wrap">
     <div class="widget">
-      <h3 class="widget-title">Archives</h3>
+      <h3 class="widget-title">归档</h3>
       
       
         <a class="archive-link" href="/archives/2023/09 ">
-          September 2023 
+          九月 2023 
           <div class="archive-count">1 </div>
         </a>
       
         <a class="archive-link" href="/archives/2023/07 ">
-          July 2023 
+          七月 2023 
           <div class="archive-count">2 </div>
         </a>
       
         <a class="archive-link" href="/archives/2023/04 ">
-          April 2023 
+          四月 2023 
           <div class="archive-count">10 </div>
         </a>
       
         <a class="archive-link" href="/archives/2023/03 ">
-          March 2023 
+          三月 2023 
           <div class="archive-count">3 </div>
         </a>
       
         <a class="archive-link" href="/archives/2022/10 ">
-          October 2022 
+          十月 2022 
           <div class="archive-count">1 </div>
         </a>
       
@@ -258,7 +258,7 @@
       
   <div class="widget-wrap">
     <div class="widget">
-      <h3 class="widget-title">Recent Posts</h3>
+      <h3 class="widget-title">最新文章</h3>
       <ul>
         
           <a class="recent-link" href="/2023/09/12/%E9%A9%BE%E8%80%83-%E7%A7%91%E7%9B%AE%E4%BA%8C/" title="驾考-科目二" >
@@ -328,23 +328,23 @@
           <div class="need-seperator meta-info">
             <div class="meta-cate-flex">
   
-  <a class="meta-cate-link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">-编译原理</a>
+  <a class="meta-cate-link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">编译原理</a>
    
 </div>
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            1.9k words 
+            1.9k 词 
           </div>
         </div>
         
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" rel="tag">-编译原理</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" rel="tag">编译原理</a></li></ul>
 
       </header>
       <div class="e-content article-entry" itemprop="articleBody">
         
           <h1 id="ch16-parser-lr0-LR0-语法分析器"><a href="#ch16-parser-lr0-LR0-语法分析器" class="headerlink" title="ch16-parser-lr0-LR0 语法分析器"></a>ch16-parser-lr0-LR0 语法分析器</h1><p>只考虑无二义性的文法 这意味着, 每个句子对应唯一的一棵语法分析树</p>
-<p><img src="/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230622223756217.png" alt="image-20230622223756217"></p>
+<p><img src="/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230622223756217.png" alt="image-20230622223756217"></p>
 <h2 id="LL-K"><a href="#LL-K" class="headerlink" title="LL(K)"></a>LL(K)</h2><p><strong>特点</strong>：自顶向下的、 递归下降的、 预测分析的、 适用于LL(1) 文法的、 LL(1) 语法分析器</p>
 <p>LL(k) 的<strong>弱点</strong>: 在仅看到<strong>右部的前 k 个词法单元时</strong>就必须预测要使用哪条产生式</p>
 <h2 id="LR-K"><a href="#LR-K" class="headerlink" title="LR(K)"></a>LR(K)</h2><p>自底向上的、 不断归约的、 基于句柄识别自动机的、 适用于<strong>LR 文法</strong>的、 LR 语法分析器</p>
@@ -364,16 +364,16 @@
 <li>叶节点是词法单元流 w$ </li>
 <li>仅包含终结符号与特殊的文件结束符 $</li>
 </ul>
-<h2 id="自顶向下的-“推导”-与-自底向上的-“归约”"><a href="#自顶向下的-“推导”-与-自底向上的-“归约”" class="headerlink" title="自顶向下的 “推导” 与 自底向上的 “归约”"></a>自顶向下的 “推导” 与 自底向上的 “归约”</h2><p><img src="/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623102847885.png" alt="image-20230623102847885"></p>
+<h2 id="自顶向下的-“推导”-与-自底向上的-“归约”"><a href="#自顶向下的-“推导”-与-自底向上的-“归约”" class="headerlink" title="自顶向下的 “推导” 与 自底向上的 “归约”"></a>自顶向下的 “推导” 与 自底向上的 “归约”</h2><p><img src="/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623102847885.png" alt="image-20230623102847885"></p>
 <ul>
 <li>一般默认第一条展开式的左部就是起始符号</li>
 <li>最右推导rm：当有多个终结符可选，选右边的：T * F -&gt; T * id</li>
 <li>先把id规约为F，再把F规约为T，但是T不能盲目规约为E，然后把第二个id规约到F</li>
 <li>希望从左往右扫描的时候就把规约做完，所以规约的顺序是一个反向的最右推导</li>
 </ul>
-<p><img src="/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623111206053.png" alt="image-20230623111206053"></p>
-<h2 id="LR语法分析器"><a href="#LR语法分析器" class="headerlink" title="LR语法分析器"></a>LR语法分析器</h2><p><img src="/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623111246373.png" alt="image-20230623111246373"></p>
-<h3 id="LR-语法分析器的状态"><a href="#LR-语法分析器的状态" class="headerlink" title="LR 语法分析器的状态"></a>LR 语法分析器的状态</h3><p><img src="/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623111328219.png" alt="image-20230623111328219"></p>
+<p><img src="/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623111206053.png" alt="image-20230623111206053"></p>
+<h2 id="LR语法分析器"><a href="#LR语法分析器" class="headerlink" title="LR语法分析器"></a>LR语法分析器</h2><p><img src="/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623111246373.png" alt="image-20230623111246373"></p>
+<h3 id="LR-语法分析器的状态"><a href="#LR-语法分析器的状态" class="headerlink" title="LR 语法分析器的状态"></a>LR 语法分析器的状态</h3><p><img src="/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623111328219.png" alt="image-20230623111328219"></p>
 <p>顺序：</p>
 <ul>
 <li>把id弹出，F压入</li>
@@ -385,29 +385,29 @@
 </ul>
 <p>优点：</p>
 <p>句柄一定是从栈顶往下的某段完成的，所以句柄空间大大减小，性能高，但是也会付出额外的代价：能识别的语言少一些</p>
-<p><img src="/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623112412746.png" alt="image-20230623112412746"></p>
+<p><img src="/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623112412746.png" alt="image-20230623112412746"></p>
 <h2 id="基于栈的-LR-语法分析器"><a href="#基于栈的-LR-语法分析器" class="headerlink" title="基于栈的 LR 语法分析器"></a>基于栈的 LR 语法分析器</h2><ul>
 <li><p>Q1 : 何时归约? (何时移入?不规约就移入) </p>
 </li>
 <li><p>Q2 : 按哪条产生式进行归约?</p>
 </li>
 </ul>
-<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><p><img src="/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623112524482.png" alt="image-20230623112524482"></p>
+<h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><p><img src="/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623112524482.png" alt="image-20230623112524482"></p>
 <p>在某个时刻能否将F规约为T，是与语法分析器的状态有关的</p>
-<h2 id="LR-实际为-SLR-分析表指导-LR-语法分析器"><a href="#LR-实际为-SLR-分析表指导-LR-语法分析器" class="headerlink" title="LR (实际为 SLR) 分析表指导 LR 语法分析器"></a>LR (实际为 SLR) 分析表指导 LR 语法分析器</h2><p><img src="/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623112542197.png" alt="image-20230623112542197"></p>
+<h2 id="LR-实际为-SLR-分析表指导-LR-语法分析器"><a href="#LR-实际为-SLR-分析表指导-LR-语法分析器" class="headerlink" title="LR (实际为 SLR) 分析表指导 LR 语法分析器"></a>LR (实际为 SLR) 分析表指导 LR 语法分析器</h2><p><img src="/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623112542197.png" alt="image-20230623112542197"></p>
 <ul>
 <li>action表：列为终结符</li>
 <li>goto表：列为所有可能的非终结符</li>
 </ul>
 <p><strong>每读入一个词法单元，就查一遍表，表会指导做出动作，并且调整状态</strong></p>
-<h4 id="单元格的种类"><a href="#单元格的种类" class="headerlink" title="单元格的种类"></a>单元格的种类</h4><p><img src="/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623112916007.png" alt="image-20230623112916007"></p>
+<h4 id="单元格的种类"><a href="#单元格的种类" class="headerlink" title="单元格的种类"></a>单元格的种类</h4><p><img src="/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623112916007.png" alt="image-20230623112916007"></p>
 <ul>
 <li>s：shift移入</li>
 <li>r：reduce规约</li>
 <li>g：goto</li>
 <li>入栈时放入一个非终结符，也会改变状态</li>
 </ul>
-<h4 id="实例演示"><a href="#实例演示" class="headerlink" title="实例演示"></a>实例演示</h4><p><img src="/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623113558741.png" alt="image-20230623113558741"></p>
+<h4 id="实例演示"><a href="#实例演示" class="headerlink" title="实例演示"></a>实例演示</h4><p><img src="/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623113558741.png" alt="image-20230623113558741"></p>
 <ul>
 <li>一开始状态是0号状态，压入$</li>
 <li>s5：遇到id， s5，压入id，状态转为5，<strong>指针移动</strong>（指针在压入的时候移动）</li>
@@ -421,17 +421,17 @@
 <li>acc：状态1遇到$，被接受</li>
 </ul>
 <p>伪代码：</p>
-<p><img src="/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623114459589.png" alt="image-20230623114459589"></p>
+<p><img src="/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623114459589.png" alt="image-20230623114459589"></p>
 <h2 id="如何构造-LR-分析表"><a href="#如何构造-LR-分析表" class="headerlink" title="如何构造 LR 分析表?"></a>如何构造 LR 分析表?</h2><p>在当前状态 (编号)下, 面对当前文法符号时, 该采取什么动作</p>
 <h3 id="状态是什么-如何跟踪状态"><a href="#状态是什么-如何跟踪状态" class="headerlink" title="状态是什么? 如何跟踪状态?"></a>状态是什么? 如何跟踪状态?</h3><p>状态是语法分析树的<strong>上边缘</strong>, 存储在<strong>栈</strong>中</p>
-<h3 id="何时归约-使用哪条产生式进行归约"><a href="#何时归约-使用哪条产生式进行归约" class="headerlink" title="何时归约? 使用哪条产生式进行归约?"></a>何时归约? 使用哪条产生式进行归约?</h3><h4 id="Definition-句柄-Handle"><a href="#Definition-句柄-Handle" class="headerlink" title="Definition (句柄 (Handle))"></a>Definition (句柄 (Handle))</h4><p><img src="/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623114609881.png" alt="image-20230623114609881"></p>
+<h3 id="何时归约-使用哪条产生式进行归约"><a href="#何时归约-使用哪条产生式进行归约" class="headerlink" title="何时归约? 使用哪条产生式进行归约?"></a>何时归约? 使用哪条产生式进行归约?</h3><h4 id="Definition-句柄-Handle"><a href="#Definition-句柄-Handle" class="headerlink" title="Definition (句柄 (Handle))"></a>Definition (句柄 (Handle))</h4><p><img src="/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623114609881.png" alt="image-20230623114609881"></p>
 <p>前提</p>
 <ul>
 <li>反向最右推导唯一，所以规约过程唯一</li>
 <li>所以规约条件是唯一确定的</li>
 </ul>
 <p>称完整右部为句柄</p>
-<h4 id="句柄可能在哪里"><a href="#句柄可能在哪里" class="headerlink" title="句柄可能在哪里?"></a>句柄可能在哪里?</h4><p><img src="/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623114709797.png" alt="image-20230623114709797"></p>
+<h4 id="句柄可能在哪里"><a href="#句柄可能在哪里" class="headerlink" title="句柄可能在哪里?"></a>句柄可能在哪里?</h4><p><img src="/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623114709797.png" alt="image-20230623114709797"></p>
 <ul>
 <li>可以设计一个句柄不在栈顶的语法，但是性能可能比较差</li>
 <li>证明在书上</li>
@@ -445,24 +445,24 @@
 <li>状态</li>
 <li>跳转：边</li>
 </ul>
-<h3 id="项"><a href="#项" class="headerlink" title="项"></a>项</h3><p><img src="/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623115102421.png" alt="image-20230623115102421"></p>
-<p><img src="/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623115144711.png" alt="image-20230623115144711"></p>
+<h3 id="项"><a href="#项" class="headerlink" title="项"></a>项</h3><p><img src="/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623115102421.png" alt="image-20230623115102421"></p>
+<p><img src="/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623115144711.png" alt="image-20230623115144711"></p>
 <ul>
 <li>小数点.表示：追踪xyz可能得句柄，到了什么程度，左边表示已经看到，右边表示还没有看到，希望能看到</li>
 <li>动态过程，如果确实看到y，小数点就右移</li>
 <li>如果全看到了xyz，就根据其他规则判断是否是句柄</li>
 </ul>
-<h3 id="项集"><a href="#项集" class="headerlink" title="项集"></a>项集</h3><p><img src="/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623115704292.png" alt="image-20230623115704292"></p>
+<h3 id="项集"><a href="#项集" class="headerlink" title="项集"></a>项集</h3><p><img src="/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623115704292.png" alt="image-20230623115704292"></p>
 <p>项集：对所有产生式的右部，都在追踪状态</p>
-<p><img src="/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623115821465.png" alt="image-20230623115821465"></p>
+<p><img src="/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623115821465.png" alt="image-20230623115821465"></p>
 <ul>
 <li>每个框，不管有没有标红，都是自动机的一个状态，都是一个项集</li>
 <li>每个项集中的每一行，都是一个项</li>
 <li>所有状态就是一个项集族</li>
 </ul>
 <h3 id="Definition-增广文法-Augmented-Grammar"><a href="#Definition-增广文法-Augmented-Grammar" class="headerlink" title="Definition (增广文法 (Augmented Grammar))"></a>Definition (增广文法 (Augmented Grammar))</h3><p>单纯是技术上的处理</p>
-<p><img src="/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623115931589.png" alt="image-20230623115931589"></p>
-<h4 id="LR-0-句柄识别自动机初始状态是什么"><a href="#LR-0-句柄识别自动机初始状态是什么" class="headerlink" title="LR(0) 句柄识别自动机初始状态是什么?"></a>LR(0) 句柄识别自动机初始状态是什么?</h4><p><img src="/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623120044803.png" alt="image-20230623120044803"></p>
+<p><img src="/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623115931589.png" alt="image-20230623115931589"></p>
+<h4 id="LR-0-句柄识别自动机初始状态是什么"><a href="#LR-0-句柄识别自动机初始状态是什么" class="headerlink" title="LR(0) 句柄识别自动机初始状态是什么?"></a>LR(0) 句柄识别自动机初始状态是什么?</h4><p><img src="/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623120044803.png" alt="image-20230623120044803"></p>
 <ul>
 <li>增广加上了第0条产生式</li>
 <li>展开的过程就是求这个项的<strong>闭包</strong></li>
@@ -474,7 +474,7 @@
 </ul>
 <h3 id="状态之间如何转移-如何产生别的状态"><a href="#状态之间如何转移-如何产生别的状态" class="headerlink" title="状态之间如何转移?如何产生别的状态"></a>状态之间如何转移?如何产生别的状态</h3><p>看压入终结符和非终结符的时候状态怎么转换</p>
 <p>起始状态I0</p>
-<p><img src="/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623141822699.png" alt="image-20230623141822699"></p>
+<p><img src="/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623141822699.png" alt="image-20230623141822699"></p>
 <ul>
 <li>I1：如果压入E，1、2条.就右移<ul>
 <li>不是说一定会遇到E，而是说在某个过程中，规约后的将E压入栈</li>
@@ -487,13 +487,13 @@
 <li>直到生成了所有的状态，就把自动机构建起来了</li>
 <li>当前状态I，要跑到下一个状态J，检查I 的每一个项，首先把.右移一位，得到一个项，然后做一个闭包</li>
 </ul>
-<h4 id="接收状态"><a href="#接收状态" class="headerlink" title="接收状态"></a>接收状态</h4><p><img src="/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623142536514.png" alt="image-20230623142536514"></p>
+<h4 id="接收状态"><a href="#接收状态" class="headerlink" title="接收状态"></a>接收状态</h4><p><img src="/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623142536514.png" alt="image-20230623142536514"></p>
 <ul>
 <li>构建自动机的目的是：寻找所有可能的句柄</li>
 <li>如果在某一个状态中有这样一个项：他的点是在产生式的最右端，就找到了一个可能得产生式句柄</li>
 <li>但是句柄不一定能拿来做规约</li>
 </ul>
-<h3 id="如何根据自动机构建右边的LR-0-分析表"><a href="#如何根据自动机构建右边的LR-0-分析表" class="headerlink" title="如何根据自动机构建右边的LR(0)分析表"></a>如何根据自动机构建右边的LR(0)分析表</h3><p><img src="/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623142834277.png" alt="image-20230623142834277"></p>
+<h3 id="如何根据自动机构建右边的LR-0-分析表"><a href="#如何根据自动机构建右边的LR-0-分析表" class="headerlink" title="如何根据自动机构建右边的LR(0)分析表"></a>如何根据自动机构建右边的LR(0)分析表</h3><p><img src="/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623142834277.png" alt="image-20230623142834277"></p>
 <ul>
 <li>先写下所有可能的状态作为行</li>
 <li>写下所有非终结符和终结符作为行列</li>
@@ -504,22 +504,23 @@
 </ul>
 </li>
 </ul>
-<h3 id="能否规约"><a href="#能否规约" class="headerlink" title="能否规约"></a>能否规约</h3><p><img src="/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623143646808.png" alt="image-20230623143646808"></p>
+<h3 id="能否规约"><a href="#能否规约" class="headerlink" title="能否规约"></a>能否规约</h3><p><img src="/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623143646808.png" alt="image-20230623143646808"></p>
 <ul>
 <li>已经发现了一个完整的右部α，只有不是左边不是S‘，就在action填上根据k号产生式规约（LR(0)没有额外条件）</li>
 <li>2号状态：一行都用2号产生式规约</li>
 </ul>
-<h3 id="特殊情况"><a href="#特殊情况" class="headerlink" title="特殊情况"></a>特殊情况</h3><p><img src="/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623143933638.png" alt="image-20230623143933638"></p>
+<h3 id="特殊情况"><a href="#特殊情况" class="headerlink" title="特殊情况"></a>特殊情况</h3><p><img src="/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623143933638.png" alt="image-20230623143933638"></p>
 <ul>
 <li>如果遇到$就接受acc</li>
 </ul>
-<p><img src="/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623144052061.png" alt="image-20230623144052061"></p>
-<h2 id="LR-0-语法"><a href="#LR-0-语法" class="headerlink" title="LR(0)语法"></a>LR(0)语法</h2><p><img src="/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623144108366.png" alt="image-20230623144108366"></p>
+<p><img src="/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623144052061.png" alt="image-20230623144052061"></p>
+<h2 id="LR-0-语法"><a href="#LR-0-语法" class="headerlink" title="LR(0)语法"></a>LR(0)语法</h2><p><img src="/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623144108366.png" alt="image-20230623144108366"></p>
 <ul>
 <li>该表中存在红色的冲突</li>
 </ul>
-<h3 id="LR-0-中0的含义"><a href="#LR-0-中0的含义" class="headerlink" title="LR(0)中0的含义"></a>LR(0)中0的含义<img src="/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623144142757.png" alt="image-20230623144142757"></h3><p><img src="/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623144213885.png" alt="image-20230623144213885"></p>
-<p><img src="/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623144347512.png" alt="image-20230623144347512"></p>
+<h3 id="LR-0-中0的含义"><a href="#LR-0-中0的含义" class="headerlink" title="LR(0)中0的含义"></a>LR(0)中0的含义</h3><p><img src="/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623144142757.png" alt="image-20230623144142757"></p>
+<p><img src="/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623144213885.png" alt="image-20230623144213885"></p>
+<p><img src="/2023/04/08/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623144347512.png" alt="image-20230623144347512"></p>
 
         
       </div>
@@ -569,12 +570,12 @@
   <div id="comment-card" class="comment-card">
     <div class="main-title-bar">
       <div class="main-title-dot"></div>
-      <div class="main-title">Comments </div>
+      <div class="main-title">留言 </div>
     </div>
     <div id="vcomments"></div>
   </div>
   <script>
-      new Valine({"enable":true,"appId":null,"appKey":null,"placeholder":"Just go go","pageSize":10,"highlight":true,"serverURLs":null,"el":"#vcomments"});
+      new Valine({"enable":true,"appId":null,"appKey":null,"placeholder":"Just go go","pageSize":20,"highlight":true,"serverURLs":null,"el":"#vcomments"});
   </script>
  
     </div>

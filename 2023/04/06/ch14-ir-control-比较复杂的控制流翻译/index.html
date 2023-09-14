@@ -14,7 +14,7 @@
   
 
   
-  <title>ch14-ir-control-比较复杂的控制流翻译 | Hexo</title>
+  <title>ch14-ir-control-比较复杂的控制流翻译 | Asimov&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
@@ -24,45 +24,45 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="ch14-ir-control-比较复杂的控制流翻译">
 <meta property="og:url" content="https://chendingya.github.io/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/index.html">
-<meta property="og:site_name" content="Hexo">
+<meta property="og:site_name" content="Asimov&#39;s Blog">
 <meta property="og:description" content="ch14-ir-control-比较复杂的控制流翻译如何生成更短、更高效的代码?   t3 &#x3D; true的赋值不是必须的：我只要知道根据bool表达式跳转到哪即可  直接用布尔表达式改变控制流br 使用控制流跳转间接表明布尔表达式的值 实现思路：分工 合作 父节点为子节点准备跳转指令的目标标签  子节点通过继承属性确定跳转目标  P → S 	S → if (B) S1  S知道B.tr">
-<meta property="og:locale" content="en_US">
-<meta property="og:image" content="https://chendingya.github.io/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230527195529306.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230527172334371.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230602165059117.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230602165250139.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230602165511532.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230602165726202.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230602172026619.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230602172406328.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230602172619741.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230602172818803.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230602174248576.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230602174407487.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622140613381.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622141509300.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622141501782.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622141759361.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622141830570.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622141844111.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622142051115.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622142016347.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622142003589.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622142430258.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622142500877.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622142815003.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622142833550.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622145040712.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622145434253.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622145443217.png">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230527195529306.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230527172334371.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230602165059117.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230602165250139.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230602165511532.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230602165726202.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230602172026619.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230602172406328.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230602172619741.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230602172818803.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230602174248576.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230602174407487.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622140613381.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622141509300.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622141501782.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622141759361.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622141830570.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622141844111.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622142051115.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622142016347.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622142003589.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622142430258.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622142500877.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622142815003.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622142833550.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622145040712.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622145434253.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622145443217.png">
 <meta property="article:published_time" content="2023-04-06T02:02:34.000Z">
-<meta property="article:modified_time" content="2023-07-25T14:23:33.595Z">
-<meta property="article:author" content="John Doe">
-<meta property="article:tag" content="-编译原理">
+<meta property="article:modified_time" content="2023-09-14T11:01:55.090Z">
+<meta property="article:author" content="Asimov">
+<meta property="article:tag" content="编译原理">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://chendingya.github.io/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230527195529306.png">
+<meta name="twitter:image" content="https://chendingya.github.io/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230527195529306.png">
   
-    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+    <link rel="alternate" href="/atom.xml" title="Asimov's Blog" type="application/atom+xml">
   
   
     <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-32.png" sizes="32x32">
@@ -100,7 +100,7 @@
         <div class="dot"></div>
         <div class="dot"></div>
       </div>
-      <div>Hexo </div>
+      <div>Asimov's Blog </div>
     </a>
   </nav>
   <nav id="main-nav">
@@ -118,7 +118,7 @@
       <span class="dark-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M480.239-116.413q-152.63 0-258.228-105.478Q116.413-327.37 116.413-480q0-130.935 77.739-227.435t206.304-125.043q43.022-9.631 63.87 10.869t3.478 62.805q-8.891 22.043-14.315 44.463-5.424 22.42-5.424 46.689 0 91.694 64.326 155.879 64.325 64.186 156.218 64.186 24.369 0 46.978-4.946 22.609-4.945 44.413-14.076 42.826-17.369 62.967 1.142 20.142 18.511 10.511 61.054Q807.174-280 712.63-198.206q-94.543 81.793-232.391 81.793Zm0-95q79.783 0 143.337-40.217 63.554-40.218 95.793-108.283-15.608 4.044-31.097 5.326-15.49 1.283-31.859.805-123.706-4.066-210.777-90.539-87.071-86.473-91.614-212.092-.24-16.369.923-31.978 1.164-15.609 5.446-30.978-67.826 32.478-108.282 96.152Q211.652-559.543 211.652-480q0 111.929 78.329 190.258 78.329 78.329 190.258 78.329ZM466.13-465.891Z"/></svg></span>
     </a>
     
-      <a id="nav-rss-link" class="nav-icon mobile-hide" href="/atom.xml" title="RSS Feed">
+      <a id="nav-rss-link" class="nav-icon mobile-hide" href="/atom.xml" title="RSS 订阅">
         <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-120q-25.846 0-44.23-18.384-18.384-18.385-18.384-44.23 0-25.846 18.384-44.23 18.384-18.385 44.23-18.385 25.846 0 44.23 18.385 18.384 18.384 18.384 44.23 0 25.845-18.384 44.23Q223.846-120 198-120Zm538.385 0q-18.846 0-32.923-13.769-14.076-13.769-15.922-33.23-8.692-100.616-51.077-188.654-42.385-88.039-109.885-155.539-67.5-67.501-155.539-109.885Q283-663.462 182.385-672.154q-19.461-1.846-33.23-16.23-13.769-14.385-13.769-33.846t14.076-32.922q14.077-13.461 32.923-12.23 120.076 8.692 226.038 58.768 105.961 50.077 185.73 129.846 79.769 79.769 129.846 185.731 50.077 105.961 58.769 226.038 1.231 18.846-12.538 32.922Q756.461-120 736.385-120Zm-252 0q-18.231 0-32.423-13.461t-18.653-33.538Q418.155-264.23 348.886-333.5q-69.27-69.27-166.501-84.423-20.077-4.462-33.538-18.961-13.461-14.5-13.461-33.346 0-19.076 13.884-33.23 13.884-14.153 33.115-10.922 136.769 15.384 234.384 112.999 97.615 97.615 112.999 234.384 3.231 19.23-10.538 33.115Q505.461-120 484.385-120Z"/></svg>
       </a>
     
@@ -137,7 +137,7 @@
       <a class="nav-dropdown-link" href="/about">About</a>
     
     
-      <a class="nav-dropdown-link" href="/atom.xml" title="RSS Feed">RSS</a>
+      <a class="nav-dropdown-link" href="/atom.xml" title="RSS 订阅">RSS</a>
      
     </div>
 </div>
@@ -181,7 +181,7 @@
 
   <div class="widget-wrap">
     <div class="widget">
-      <h3 class="widget-title">Categories</h3>
+      <h3 class="widget-title">分类</h3>
       <div class="category-box">
             <a class="category-link" href="/categories/hello-world/">
                 hello world
@@ -189,18 +189,18 @@
             </a>
         
             <a class="category-link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
-                -编译原理
+                编译原理
                 <div class="category-count">13</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E9%A9%BE%E8%80%83/">
+                驾考
+                <div class="category-count">2</div>
             </a>
         
             <a class="category-link" href="/categories/Hexo/">
                 Hexo
                 <div class="category-count">1</div>
-            </a>
-        
-            <a class="category-link" href="/categories/%E9%A9%BE%E8%80%83/">
-                -驾考
-                <div class="category-count">2</div>
             </a>
         </div>
     </div>
@@ -211,8 +211,8 @@
       
   <div class="widget-wrap">
     <div class="widget">
-      <h3 class="widget-title">Tags</h3>
-      <ul class="widget-tag-list" itemprop="keywords"><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" rel="tag">-编译原理</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E9%A9%BE%E8%80%83/" rel="tag">-驾考</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/hello-world/" rel="tag">hello world</a></li></ul>
+      <h3 class="widget-title">标签</h3>
+      <ul class="widget-tag-list" itemprop="keywords"><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/hello-world/" rel="tag">hello world</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" rel="tag">编译原理</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E9%A9%BE%E8%80%83/" rel="tag">驾考</a></li></ul>
     </div>
   </div>
 
@@ -221,31 +221,31 @@
       
   <div class="widget-wrap">
     <div class="widget">
-      <h3 class="widget-title">Archives</h3>
+      <h3 class="widget-title">归档</h3>
       
       
         <a class="archive-link" href="/archives/2023/09 ">
-          September 2023 
+          九月 2023 
           <div class="archive-count">1 </div>
         </a>
       
         <a class="archive-link" href="/archives/2023/07 ">
-          July 2023 
+          七月 2023 
           <div class="archive-count">2 </div>
         </a>
       
         <a class="archive-link" href="/archives/2023/04 ">
-          April 2023 
+          四月 2023 
           <div class="archive-count">10 </div>
         </a>
       
         <a class="archive-link" href="/archives/2023/03 ">
-          March 2023 
+          三月 2023 
           <div class="archive-count">3 </div>
         </a>
       
         <a class="archive-link" href="/archives/2022/10 ">
-          October 2022 
+          十月 2022 
           <div class="archive-count">1 </div>
         </a>
       
@@ -257,7 +257,7 @@
       
   <div class="widget-wrap">
     <div class="widget">
-      <h3 class="widget-title">Recent Posts</h3>
+      <h3 class="widget-title">最新文章</h3>
       <ul>
         
           <a class="recent-link" href="/2023/09/12/%E9%A9%BE%E8%80%83-%E7%A7%91%E7%9B%AE%E4%BA%8C/" title="驾考-科目二" >
@@ -327,23 +327,23 @@
           <div class="need-seperator meta-info">
             <div class="meta-cate-flex">
   
-  <a class="meta-cate-link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">-编译原理</a>
+  <a class="meta-cate-link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">编译原理</a>
    
 </div>
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            1.1k words 
+            1.1k 词 
           </div>
         </div>
         
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" rel="tag">-编译原理</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" rel="tag">编译原理</a></li></ul>
 
       </header>
       <div class="e-content article-entry" itemprop="articleBody">
         
-          <h1 id="ch14-ir-control-比较复杂的控制流翻译"><a href="#ch14-ir-control-比较复杂的控制流翻译" class="headerlink" title="ch14-ir-control-比较复杂的控制流翻译"></a>ch14-ir-control-比较复杂的控制流翻译</h1><h2 id="如何生成更短、更高效的代码"><a href="#如何生成更短、更高效的代码" class="headerlink" title="如何生成更短、更高效的代码?"></a>如何生成更短、更高效的代码?</h2><p><img src="/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230527195529306.png" alt="image-20230527195529306"></p>
-<p><img src="/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230527172334371.png" alt="image-20230527172334371"></p>
+          <h1 id="ch14-ir-control-比较复杂的控制流翻译"><a href="#ch14-ir-control-比较复杂的控制流翻译" class="headerlink" title="ch14-ir-control-比较复杂的控制流翻译"></a>ch14-ir-control-比较复杂的控制流翻译</h1><h2 id="如何生成更短、更高效的代码"><a href="#如何生成更短、更高效的代码" class="headerlink" title="如何生成更短、更高效的代码?"></a>如何生成更短、更高效的代码?</h2><p><img src="/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230527195529306.png" alt="image-20230527195529306"></p>
+<p><img src="/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230527172334371.png" alt="image-20230527172334371"></p>
 <ul>
 <li>t3 &#x3D; true的赋值不是必须的：我只要知道根据bool表达式跳转到哪即可</li>
 </ul>
@@ -356,84 +356,85 @@
 <ul>
 <li>S知道B.true和B.false这两个继承属性</li>
 </ul>
-<h3 id="具体翻译方案"><a href="#具体翻译方案" class="headerlink" title="具体翻译方案"></a>具体翻译方案</h3><p><img src="/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230602165059117.png" alt="image-20230602165059117"></p>
+<h3 id="具体翻译方案"><a href="#具体翻译方案" class="headerlink" title="具体翻译方案"></a>具体翻译方案</h3><p><img src="/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230602165059117.png" alt="image-20230602165059117"></p>
 <ul>
 <li>对于每一个B，都有B.true和B.false这两个继承属性（标签）</li>
 <li>对于每一个S，都有S.next：当S内部发生控制流跳转，会跳转到哪</li>
 </ul>
-<h4 id="每一个产生式的三个继承属性如何生成"><a href="#每一个产生式的三个继承属性如何生成" class="headerlink" title="每一个产生式的三个继承属性如何生成"></a>每一个产生式的三个继承属性如何生成</h4><p><img src="/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230602165250139.png" alt="image-20230602165250139"></p>
+<h4 id="每一个产生式的三个继承属性如何生成"><a href="#每一个产生式的三个继承属性如何生成" class="headerlink" title="每一个产生式的三个继承属性如何生成"></a>每一个产生式的三个继承属性如何生成</h4><p><img src="/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230602165250139.png" alt="image-20230602165250139"></p>
 <ul>
 <li>P.code是综合属性，即S.code</li>
 <li>可能会有跳转语句跳出S本身，所以需要有一个label：S.code翻译完之后紧接的下一条指令的位置</li>
 </ul>
 <h5 id="赋值语句的翻译"><a href="#赋值语句的翻译" class="headerlink" title="赋值语句的翻译"></a>赋值语句的翻译</h5><p>代表了表达式的翻译, 包括数组引用</p>
-<p><img src="/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230602165511532.png" alt="image-20230602165511532"></p>
+<p><img src="/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230602165511532.png" alt="image-20230602165511532"></p>
 <p>没有S和B，不需要准备继承属性</p>
-<h3 id="if语句的翻译"><a href="#if语句的翻译" class="headerlink" title="if语句的翻译"></a>if语句的翻译</h3><p><img src="/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230602165726202.png" alt="image-20230602165726202"></p>
+<h3 id="if语句的翻译"><a href="#if语句的翻译" class="headerlink" title="if语句的翻译"></a>if语句的翻译</h3><p><img src="/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230602165726202.png" alt="image-20230602165726202"></p>
 <ul>
 <li>label加在B.code和S<del>1</del>.code之间：作用：当我翻译B的时候，里面可能会有goto语句，如果B为true，就会goto到B.true这个label</li>
 <li>B.true：new label()，新建一个label</li>
 <li>B.false：S.next</li>
 </ul>
-<p><img src="/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230602172026619.png" alt="image-20230602172026619"></p>
+<p><img src="/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230602172026619.png" alt="image-20230602172026619"></p>
 <p>蚂蚁老师的注释：</p>
-<p><img src="/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230602172406328.png" alt="image-20230602172406328"></p>
+<p><img src="/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230602172406328.png" alt="image-20230602172406328"></p>
 <p>代码框架：</p>
-<p><img src="/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230602172619741.png" alt="image-20230602172619741"></p>
-<h3 id="更复杂的if-else模式："><a href="#更复杂的if-else模式：" class="headerlink" title="更复杂的if-else模式："></a>更复杂的if-else模式：</h3><h3 id><a href="#" class="headerlink" title></a><img src="/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230602172818803.png" alt="image-20230602172818803"></h3><ul>
+<p><img src="/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230602172619741.png" alt="image-20230602172619741"></p>
+<h3 id="更复杂的if-else模式："><a href="#更复杂的if-else模式：" class="headerlink" title="更复杂的if-else模式："></a>更复杂的if-else模式：</h3><p><img src="/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230602172818803.png" alt="image-20230602172818803"></p>
+<ul>
 <li>B.true和B.false生成和放置的位置和之前的if-assign相似</li>
 <li>goto S.next是B.true之后，执行了S<del>1</del>.code，不执行S<del>2</del>.code，所以跳转到S.next</li>
 </ul>
 <p>例子详解：</p>
-<p><img src="/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230602174248576.png" alt="image-20230602174248576"></p>
+<p><img src="/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230602174248576.png" alt="image-20230602174248576"></p>
 <ul>
 <li>S<del>11</del>和S<del>12</del>都继承了S<del>1</del>的next，S<del>1</del>和S<del>2</del>都继承了S的next</li>
 <li>S.code是根据上面的生成规则生成的，对应蚂蚁注释里的L1-L4</li>
 </ul>
-<h3 id="while语句的翻译"><a href="#while语句的翻译" class="headerlink" title="while语句的翻译"></a>while语句的翻译</h3><p><img src="/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230602174407487.png" alt="image-20230602174407487"></p>
+<h3 id="while语句的翻译"><a href="#while语句的翻译" class="headerlink" title="while语句的翻译"></a>while语句的翻译</h3><p><img src="/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230602174407487.png" alt="image-20230602174407487"></p>
 <p>蚂蚁的注释：</p>
-<p><img src="/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622140613381.png" alt="image-20230622140613381"></p>
-<p><img src="/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622141509300.png" alt="image-20230622141509300"></p>
+<p><img src="/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622140613381.png" alt="image-20230622140613381"></p>
+<p><img src="/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622141509300.png" alt="image-20230622141509300"></p>
 <p>蚂蚁的注释：</p>
-<p><img src="/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622141501782.png" alt="image-20230622141501782"></p>
+<p><img src="/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622141501782.png" alt="image-20230622141501782"></p>
 <p><strong>考试的时候可能是二分查找之类的</strong></p>
 <p>产生式与语法规则：</p>
-<p><img src="/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622141759361.png" alt="image-20230622141759361"></p>
-<p><img src="/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622141830570.png" alt="image-20230622141830570"></p>
+<p><img src="/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622141759361.png" alt="image-20230622141759361"></p>
+<p><img src="/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622141830570.png" alt="image-20230622141830570"></p>
 <p>取反的话跳转方向换一下就行：</p>
-<p><img src="/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622141844111.png" alt="image-20230622141844111"></p>
-<h3 id="短路求值"><a href="#短路求值" class="headerlink" title="短路求值"></a>短路求值</h3><p><img src="/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622142051115.png" alt="image-20230622142051115"></p>
+<p><img src="/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622141844111.png" alt="image-20230622141844111"></p>
+<h3 id="短路求值"><a href="#短路求值" class="headerlink" title="短路求值"></a>短路求值</h3><p><img src="/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622142051115.png" alt="image-20230622142051115"></p>
 <ul>
 <li>B1为true，意味着B为true</li>
 <li>B1为true并且B2为true，整个为true</li>
 <li>B2为false，意味着B1也为false，所以整个为false</li>
 </ul>
-<p><img src="/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622142016347.png" alt="image-20230622142016347"></p>
+<p><img src="/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622142016347.png" alt="image-20230622142016347"></p>
 <ul>
 <li>B1为true，意味着还需要看B2</li>
 <li>如果B1为false，意味着整个为false</li>
 <li>B2决定最后B为true还是false</li>
 </ul>
-<p><img src="/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622142003589.png" alt="image-20230622142003589"></p>
+<p><img src="/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622142003589.png" alt="image-20230622142003589"></p>
 <p>例子</p>
-<p><img src="/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622142430258.png" alt="image-20230622142430258"></p>
-<p><img src="/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622142500877.png" alt="image-20230622142500877"></p>
+<p><img src="/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622142430258.png" alt="image-20230622142430258"></p>
+<p><img src="/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622142500877.png" alt="image-20230622142500877"></p>
 <ul>
 <li>如果x &lt; 100 ，意味着短路</li>
 <li>如果x &gt; 200，意味着不短路</li>
 <li>如果x&lt;&#x3D; 200，意味着短路</li>
 </ul>
-<h4 id="命令执行验证："><a href="#命令执行验证：" class="headerlink" title="命令执行验证："></a>命令执行验证：</h4><p><img src="/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622142815003.png" alt="image-20230622142815003"></p>
+<h4 id="命令执行验证："><a href="#命令执行验证：" class="headerlink" title="命令执行验证："></a>命令执行验证：</h4><p><img src="/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622142815003.png" alt="image-20230622142815003"></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">生成中间代码</span><br><span class="line">clang -S -emit-llvm if-boolexpr.c -o if-boolexpr-opt0.ll</span><br><span class="line">生成dot文件</span><br><span class="line">opt -dot-cfg if-boolexpr-opt0.ll</span><br><span class="line">让dot文件画图</span><br><span class="line">dot -Tpdf .main.dot -o if-boolexpr-opt0-cfg.pdf</span><br></pre></td></tr></table></figure>
 
-<p><img src="/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622142833550.png" alt="image-20230622142833550"></p>
+<p><img src="/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622142833550.png" alt="image-20230622142833550"></p>
 <h2 id="ANTLR实现"><a href="#ANTLR实现" class="headerlink" title="ANTLR实现"></a>ANTLR实现</h2><p>CodeGenListener.java</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> codegen;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.antlr.v4.runtime.tree.ParseTreeProperty;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.FileWriter;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CodeGenListener</span> <span class="keyword">extends</span> <span class="title class_">ControlBaseListener</span> &#123;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">final</span> ParseTreeProperty&lt;String&gt; trueLabel = <span class="keyword">new</span> <span class="title class_">ParseTreeProperty</span>&lt;&gt;();</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">final</span> ParseTreeProperty&lt;String&gt; falseLabel = <span class="keyword">new</span> <span class="title class_">ParseTreeProperty</span>&lt;&gt;();</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">final</span> ParseTreeProperty&lt;String&gt; nextLabel = <span class="keyword">new</span> <span class="title class_">ParseTreeProperty</span>&lt;&gt;();</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">final</span> ParseTreeProperty&lt;String&gt; beginLabel = <span class="keyword">new</span> <span class="title class_">ParseTreeProperty</span>&lt;&gt;();</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">final</span> ParseTreeProperty&lt;String&gt; codeProperty = <span class="keyword">new</span> <span class="title class_">ParseTreeProperty</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> FileWriter fileWriter;</span><br><span class="line">  <span class="keyword">private</span> <span class="type">int</span> <span class="variable">labelCounter</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="title function_">CodeGenListener</span><span class="params">(String file)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">    fileWriter = <span class="keyword">new</span> <span class="title class_">FileWriter</span>(file);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">enterProg</span><span class="params">(ControlParser.ProgContext ctx)</span> &#123;</span><br><span class="line">    nextLabel.put(ctx.stat(), getNewLabel());</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">exitProg</span><span class="params">(ControlParser.ProgContext ctx)</span> &#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">code</span> <span class="operator">=</span> String.format(<span class="string">&quot;%s%n%s:&quot;</span>,</span><br><span class="line">        codeProperty.get(ctx.stat()),</span><br><span class="line">        nextLabel.get(ctx.stat()));</span><br><span class="line"></span><br><span class="line">    codeProperty.put(ctx, code);</span><br><span class="line"></span><br><span class="line">    dump(codeProperty.get(ctx));</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">exitAssignStat</span><span class="params">(ControlParser.AssignStatContext ctx)</span> &#123;</span><br><span class="line">    codeProperty.put(ctx, <span class="string">&quot;ASSIGN&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">enterWhileStat</span><span class="params">(ControlParser.WhileStatContext ctx)</span> &#123;</span><br><span class="line">    beginLabel.put(ctx, getNewLabel() + <span class="string">&quot;begin&quot;</span>);</span><br><span class="line"></span><br><span class="line">    trueLabel.put(ctx.bool(), getNewLabel());</span><br><span class="line">    falseLabel.put(ctx.bool(), nextLabel.get(ctx));</span><br><span class="line">    nextLabel.put(ctx.stat(), beginLabel.get(ctx));</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">exitWhileStat</span><span class="params">(ControlParser.WhileStatContext ctx)</span> &#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">code</span> <span class="operator">=</span> String.format(<span class="string">&quot;%s:%n%s%n%s:%n%s%n%s&quot;</span>,</span><br><span class="line">        <span class="comment">//对着规则一行一行翻译</span></span><br><span class="line">        beginLabel.get(ctx),</span><br><span class="line">        codeProperty.get(ctx.bool()),</span><br><span class="line">        trueLabel.get(ctx.bool()),</span><br><span class="line">        codeProperty.get(ctx.stat()),</span><br><span class="line">        <span class="string">&quot;goto &quot;</span> + beginLabel.get(ctx));</span><br><span class="line"></span><br><span class="line">    codeProperty.put(ctx, code);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">enterIfStat</span><span class="params">(ControlParser.IfStatContext ctx)</span> &#123;</span><br><span class="line">    trueLabel.put(ctx.bool(), getNewLabel());</span><br><span class="line">    falseLabel.put(ctx.bool(), nextLabel.get(ctx));</span><br><span class="line">    nextLabel.put(ctx.stat(), nextLabel.get(ctx));</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">exitIfStat</span><span class="params">(ControlParser.IfStatContext ctx)</span> &#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">code</span> <span class="operator">=</span> String.format(<span class="string">&quot;%s%n%s:%n%s&quot;</span>,</span><br><span class="line">        codeProperty.get(ctx.bool()),</span><br><span class="line">        trueLabel.get(ctx.bool()),</span><br><span class="line">        codeProperty.get(ctx.stat()));</span><br><span class="line"></span><br><span class="line">    codeProperty.put(ctx, code);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">enterAndExpr</span><span class="params">(ControlParser.AndExprContext ctx)</span> &#123;</span><br><span class="line">    trueLabel.put(ctx.lhs, getNewLabel());</span><br><span class="line">    falseLabel.put(ctx.lhs, falseLabel.get(ctx));</span><br><span class="line"></span><br><span class="line">    trueLabel.put(ctx.rhs, trueLabel.get(ctx));</span><br><span class="line">    falseLabel.put(ctx.rhs, falseLabel.get(ctx));</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">exitAndExpr</span><span class="params">(ControlParser.AndExprContext ctx)</span> &#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">code</span> <span class="operator">=</span> String.format(<span class="string">&quot;%s%n%s:%n%s&quot;</span>,</span><br><span class="line">        codeProperty.get(ctx.lhs),</span><br><span class="line">        trueLabel.get(ctx.lhs),</span><br><span class="line">        codeProperty.get(ctx.rhs));</span><br><span class="line"></span><br><span class="line">    codeProperty.put(ctx, code);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">exitOrExpr</span><span class="params">(ControlParser.OrExprContext ctx)</span> &#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">code</span> <span class="operator">=</span> String.format(<span class="string">&quot;%s%n%s:%n%s&quot;</span>,</span><br><span class="line">        codeProperty.get(ctx.lhs),</span><br><span class="line">        falseLabel.get(ctx.lhs),</span><br><span class="line">        codeProperty.get(ctx.rhs));</span><br><span class="line"></span><br><span class="line">    codeProperty.put(ctx, code);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">enterOrExpr</span><span class="params">(ControlParser.OrExprContext ctx)</span> &#123;</span><br><span class="line">    trueLabel.put(ctx.lhs, trueLabel.get(ctx));</span><br><span class="line">    falseLabel.put(ctx.lhs, getNewLabel());</span><br><span class="line"></span><br><span class="line">    trueLabel.put(ctx.rhs, trueLabel.get(ctx));</span><br><span class="line">    falseLabel.put(ctx.rhs, falseLabel.get(ctx));</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">exitRelExpr</span><span class="params">(ControlParser.RelExprContext ctx)</span> &#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">code</span> <span class="operator">=</span> String.format(<span class="string">&quot;if %s goto %s%ngoto %s&quot;</span>,</span><br><span class="line">        ctx.getText(),</span><br><span class="line">        trueLabel.get(ctx),</span><br><span class="line">        falseLabel.get(ctx));</span><br><span class="line"></span><br><span class="line">    codeProperty.put(ctx, code);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">exitTrueExpr</span><span class="params">(ControlParser.TrueExprContext ctx)</span> &#123;</span><br><span class="line">    codeProperty.put(ctx, <span class="string">&quot;goto &quot;</span> + trueLabel.get(ctx));</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">exitFalseExpr</span><span class="params">(ControlParser.FalseExprContext ctx)</span> &#123;</span><br><span class="line">    codeProperty.put(ctx, <span class="string">&quot;goto &quot;</span> + falseLabel.get(ctx));</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">dump</span><span class="params">(String code)</span> &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      fileWriter.write(code);</span><br><span class="line">      fileWriter.close();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException ioe) &#123;</span><br><span class="line">      System.err.println(ioe.getMessage() + <span class="string">&quot; : &quot;</span> + code);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> String <span class="title function_">getNewLabel</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;L&quot;</span> + labelCounter++;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <p>死循环</p>
-<p><img src="/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622145040712.png" alt="image-20230622145040712"></p>
-<h2 id="布尔表达式的作用"><a href="#布尔表达式的作用" class="headerlink" title="布尔表达式的作用"></a>布尔表达式的作用</h2><p><img src="/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622145434253.png" alt="image-20230622145434253"></p>
-<p><img src="/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622145443217.png" alt="image-20230622145443217"></p>
+<p><img src="/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622145040712.png" alt="image-20230622145040712"></p>
+<h2 id="布尔表达式的作用"><a href="#布尔表达式的作用" class="headerlink" title="布尔表达式的作用"></a>布尔表达式的作用</h2><p><img src="/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622145434253.png" alt="image-20230622145434253"></p>
+<p><img src="/2023/04/06/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622145443217.png" alt="image-20230622145443217"></p>
 
         
       </div>
@@ -483,12 +484,12 @@
   <div id="comment-card" class="comment-card">
     <div class="main-title-bar">
       <div class="main-title-dot"></div>
-      <div class="main-title">Comments </div>
+      <div class="main-title">留言 </div>
     </div>
     <div id="vcomments"></div>
   </div>
   <script>
-      new Valine({"enable":true,"appId":null,"appKey":null,"placeholder":"Just go go","pageSize":10,"highlight":true,"serverURLs":null,"el":"#vcomments"});
+      new Valine({"enable":true,"appId":null,"appKey":null,"placeholder":"Just go go","pageSize":20,"highlight":true,"serverURLs":null,"el":"#vcomments"});
   </script>
  
     </div>
