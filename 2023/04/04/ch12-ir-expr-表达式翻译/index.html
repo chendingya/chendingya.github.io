@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+
+
+<html theme="dark" showBanner="true" hasBanner="false" > 
+<link href="/fontawesome/css/fontawesome.css" rel="stylesheet">
+<link href="/fontawesome/css/brands.css" rel="stylesheet">
+<link href="/fontawesome/css/solid.css" rel="stylesheet">
+<script src="/js/color.global.min.js" ></script>
+<script src="/js/load-settings.js" ></script>
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+
+  
+  <title>ch12-ir-expr-表达式翻译 | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+  <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+
+  <meta name="description" content="ch12-ir-expr-表达式翻译分工和合作 父节点为子节点准备跳转指令的目标标签  子节点通过继承属性确定跳转目标   P → S  S → if (B) S1   一部分是B的中间代码，应该由B生成 B需要有一个B.code综合属性来表示B节点所生成的对于复合表达式的中间代码   一部分是S1的中间代码 S1需要有一个S1.code   S最终拿到的中间代码是由B和S1合作分工，在退出S的时">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ch12-ir-expr-表达式翻译">
+<meta property="og:url" content="https://chendingya.github.io/2023/04/04/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/index.html">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="ch12-ir-expr-表达式翻译分工和合作 父节点为子节点准备跳转指令的目标标签  子节点通过继承属性确定跳转目标   P → S  S → if (B) S1   一部分是B的中间代码，应该由B生成 B需要有一个B.code综合属性来表示B节点所生成的对于复合表达式的中间代码   一部分是S1的中间代码 S1需要有一个S1.code   S最终拿到的中间代码是由B和S1合作分工，在退出S的时">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/04/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230516210447611.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/04/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230516220923086.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/04/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230516221022961.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/04/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230517102715247.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/04/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230517102751516.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/04/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230517102917148.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/04/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230517103107441.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/04/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230517103200135.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/04/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230517105825714.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/04/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230517105433166.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/04/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230517113346696.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/04/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230526171547949.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/04/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230526173312021.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/04/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230526173353737.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/04/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230526174708008.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/04/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230527111740130.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/04/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230527112636937.png">
+<meta property="article:published_time" content="2023-04-04T02:02:34.000Z">
+<meta property="article:modified_time" content="2023-07-25T14:22:50.201Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="-编译原理">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://chendingya.github.io/2023/04/04/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230516210447611.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Hexo" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/./source/pic/back.jpg">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  
+   
+  <div id="main-grid" class="shadow   ">
+    <div id="nav" class=""  >
+      <navbar id="navbar">
+  <nav id="title-nav">
+    <a href="/">
+      <div id="vivia-logo">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div>Hexo </div>
+    </a>
+  </nav>
+  <nav id="main-nav">
+    
+      <a class="main-nav-link" href="/">Home</a>
+    
+      <a class="main-nav-link" href="/archives">Archives</a>
+    
+      <a class="main-nav-link" href="/about">About</a>
+    
+  </nav>
+  <nav id="sub-nav">
+    <a id="theme-btn" class="nav-icon">
+      <span class="light-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M438.5-829.913v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-829.913Zm0 747.826v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-82.087ZM877.913-438.5h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537t29.476-12.174h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T877.913-438.5Zm-747.826 0h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T82.087-521.5h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T130.087-438.5Zm660.174-290.87-34.239 32q-12.913 12.674-29.565 12.174-16.653-.5-29.327-13.174-12.674-12.673-12.554-28.826.12-16.152 12.794-28.826l33-35q12.913-12.674 30.454-12.674t30.163 12.847q12.709 12.846 12.328 30.826-.38 17.98-13.054 30.653ZM262.63-203.978l-32 34q-12.913 12.674-30.454 12.674t-30.163-12.847q-12.709-12.846-12.328-30.826.38-17.98 13.054-30.653l33.239-31q12.913-12.674 29.565-12.174 16.653.5 29.327 13.174 12.674 12.673 12.554 28.826-.12 16.152-12.794 28.826Zm466.74 33.239-32-33.239q-12.674-12.913-12.174-29.565.5-16.653 13.174-29.327 12.673-12.674 28.826-13.054 16.152-.38 28.826 12.294l35 33q12.674 12.913 12.674 30.454t-12.847 30.163q-12.846 12.709-30.826 12.328-17.98-.38-30.653-13.054ZM203.978-697.37l-34-33q-12.674-12.913-13.174-29.945-.5-17.033 12.174-29.707t31.326-13.293q18.653-.62 31.326 13.054l32 34.239q11.674 12.913 11.174 29.565-.5 16.653-13.174 29.327-12.673 12.674-28.826 12.554-16.152-.12-28.826-12.794ZM480-240q-100 0-170-70t-70-170q0-100 70-170t170-70q100 0 170 70t70 170q0 100-70 170t-170 70Zm-.247-82q65.703 0 111.475-46.272Q637-414.544 637-480.247t-45.525-111.228Q545.95-637 480.247-637t-111.475 45.525Q323-545.95 323-480.247t45.525 111.975Q414.05-322 479.753-322ZM481-481Z"/></svg></span>
+      <span class="dark-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M480.239-116.413q-152.63 0-258.228-105.478Q116.413-327.37 116.413-480q0-130.935 77.739-227.435t206.304-125.043q43.022-9.631 63.87 10.869t3.478 62.805q-8.891 22.043-14.315 44.463-5.424 22.42-5.424 46.689 0 91.694 64.326 155.879 64.325 64.186 156.218 64.186 24.369 0 46.978-4.946 22.609-4.945 44.413-14.076 42.826-17.369 62.967 1.142 20.142 18.511 10.511 61.054Q807.174-280 712.63-198.206q-94.543 81.793-232.391 81.793Zm0-95q79.783 0 143.337-40.217 63.554-40.218 95.793-108.283-15.608 4.044-31.097 5.326-15.49 1.283-31.859.805-123.706-4.066-210.777-90.539-87.071-86.473-91.614-212.092-.24-16.369.923-31.978 1.164-15.609 5.446-30.978-67.826 32.478-108.282 96.152Q211.652-559.543 211.652-480q0 111.929 78.329 190.258 78.329 78.329 190.258 78.329ZM466.13-465.891Z"/></svg></span>
+    </a>
+    
+      <a id="nav-rss-link" class="nav-icon mobile-hide" href="/atom.xml" title="RSS Feed">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-120q-25.846 0-44.23-18.384-18.384-18.385-18.384-44.23 0-25.846 18.384-44.23 18.384-18.385 44.23-18.385 25.846 0 44.23 18.385 18.384 18.384 18.384 44.23 0 25.845-18.384 44.23Q223.846-120 198-120Zm538.385 0q-18.846 0-32.923-13.769-14.076-13.769-15.922-33.23-8.692-100.616-51.077-188.654-42.385-88.039-109.885-155.539-67.5-67.501-155.539-109.885Q283-663.462 182.385-672.154q-19.461-1.846-33.23-16.23-13.769-14.385-13.769-33.846t14.076-32.922q14.077-13.461 32.923-12.23 120.076 8.692 226.038 58.768 105.961 50.077 185.73 129.846 79.769 79.769 129.846 185.731 50.077 105.961 58.769 226.038 1.231 18.846-12.538 32.922Q756.461-120 736.385-120Zm-252 0q-18.231 0-32.423-13.461t-18.653-33.538Q418.155-264.23 348.886-333.5q-69.27-69.27-166.501-84.423-20.077-4.462-33.538-18.961-13.461-14.5-13.461-33.346 0-19.076 13.884-33.23 13.884-14.153 33.115-10.922 136.769 15.384 234.384 112.999 97.615 97.615 112.999 234.384 3.231 19.23-10.538 33.115Q505.461-120 484.385-120Z"/></svg>
+      </a>
+    
+    <div id="nav-menu-btn" class="nav-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M177.37-252.282q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Zm0-186.218q-17.453 0-29.477-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T177.37-521.5h605.26q17.453 0 29.477 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T782.63-438.5H177.37Zm0-186.217q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Z"/></svg>
+    </div>
+  </nav>
+</navbar>
+<div id="nav-dropdown" class="hidden">
+  <div id="dropdown-link-list">
+    
+      <a class="nav-dropdown-link" href="/">Home</a>
+    
+      <a class="nav-dropdown-link" href="/archives">Archives</a>
+    
+      <a class="nav-dropdown-link" href="/about">About</a>
+    
+    
+      <a class="nav-dropdown-link" href="/atom.xml" title="RSS Feed">RSS</a>
+     
+    </div>
+</div>
+<script>
+  let dropdownBtn = document.getElementById("nav-menu-btn");
+  let dropdownEle = document.getElementById("nav-dropdown");
+  dropdownBtn.onclick = function() {
+    dropdownEle.classList.toggle("hidden");
+  }
+</script>
+    </div>
+    <div id="sidebar-wrapper">
+      <sidebar id="sidebar">
+  
+    <div class="widget-wrap">
+  <div class="info-card">
+    <div class="avatar">
+      
+      <div class="img-dim"></div>
+    </div>
+    <div class="info">
+      <div class="username">Asimov </div>
+      <div class="dot"></div>
+      <div class="subtitle">Asimov's Blog </div>
+      <div class="link-list">
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://github.com/chendingya" title="GitHub"><i class="fa-brands fa-github"></i></a>
+         
+      </div>  
+    </div>
+  </div>
+</div>
+
+  
+  <div class="sticky">
+    
+      
+
+
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">Categories</h3>
+      <div class="category-box">
+            <a class="category-link" href="/categories/hello-world/">
+                hello world
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
+                -编译原理
+                <div class="category-count">13</div>
+            </a>
+        
+            <a class="category-link" href="/categories/Hexo/">
+                Hexo
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E9%A9%BE%E8%80%83/">
+                -驾考
+                <div class="category-count">2</div>
+            </a>
+        </div>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">Tags</h3>
+      <ul class="widget-tag-list" itemprop="keywords"><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" rel="tag">-编译原理</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E9%A9%BE%E8%80%83/" rel="tag">-驾考</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/hello-world/" rel="tag">hello world</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">Archives</h3>
+      
+      
+        <a class="archive-link" href="/archives/2023/09 ">
+          September 2023 
+          <div class="archive-count">1 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/07 ">
+          July 2023 
+          <div class="archive-count">2 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/04 ">
+          April 2023 
+          <div class="archive-count">10 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/03 ">
+          March 2023 
+          <div class="archive-count">3 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2022/10 ">
+          October 2022 
+          <div class="archive-count">1 </div>
+        </a>
+      
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">Recent Posts</h3>
+      <ul>
+        
+          <a class="recent-link" href="/2023/09/12/%E9%A9%BE%E8%80%83-%E7%A7%91%E7%9B%AE%E4%BA%8C/" title="驾考-科目二" >
+            <div class="recent-link-text">
+              驾考-科目二
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/07/18/blog/" title="blog" >
+            <div class="recent-link-text">
+              blog
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/07/17/%E9%A9%BE%E8%80%83-%E7%A7%91%E7%9B%AE%E4%B8%80/" title="驾考-科目一" >
+            <div class="recent-link-text">
+              驾考-科目一
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/04/10/ch18-codegen-riscv-RISC-V%20%E6%A6%82%E8%BF%B0/" title="ch18-codegen-riscv-RISC-V 概述" >
+            <div class="recent-link-text">
+              ch18-codegen-riscv-RISC-V 概述
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/04/09/ch17-LR(1)-LR(1)%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/" title="ch17-LR(1)-LR(1) 语法分析器" >
+            <div class="recent-link-text">
+              ch17-LR(1)-LR(1) 语法分析器
+            </div>
+          </a>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+  </div>
+</sidebar>
+    </div>
+    <div id="content-body">
+       
+
+<article id="post-ch12-ir-expr-表达式翻译" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 class="p-name article-title" itemprop="headline name">
+        ch12-ir-expr-表达式翻译
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2023-04-04T02:02:34.000Z" itemprop="datePublished">2023-04-04</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">-编译原理</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            1.2k words 
+          </div>
+        </div>
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" rel="tag">-编译原理</a></li></ul>
+
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <h1 id="ch12-ir-expr-表达式翻译"><a href="#ch12-ir-expr-表达式翻译" class="headerlink" title="ch12-ir-expr-表达式翻译"></a>ch12-ir-expr-表达式翻译</h1><h2 id="分工和合作"><a href="#分工和合作" class="headerlink" title="分工和合作"></a>分工和合作</h2><ul>
+<li><p><strong>父节点为子节点准备跳转指令的目标标签</strong></p>
+</li>
+<li><p><strong>子节点通过继承属性确定跳转目标</strong></p>
+</li>
+</ul>
+<p>P → S </p>
+<p>S → if (B) S1</p>
+<p><img src="/2023/04/04/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230516210447611.png" alt="image-20230516210447611"></p>
+<ul>
+<li>一部分是B的中间代码，应该由B生成<ul>
+<li>B需要有一个B.code综合属性来表示B节点所生成的对于复合表达式的中间代码</li>
+</ul>
+</li>
+<li>一部分是S1的中间代码<ul>
+<li>S1需要有一个S1.code</li>
+</ul>
+</li>
+<li>S最终拿到的中间代码是由B和S1合作分工，在退出S的时候生成代码</li>
+</ul>
+<p><img src="/2023/04/04/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230516220923086.png" alt="image-20230516220923086"></p>
+<ul>
+<li><p>假设S1的开头为B.true的标签</p>
+</li>
+<li><p>B中需要有goto跳转，但是B自己本身是不知道这些L1, L2 标签在哪</p>
+</li>
+<li><p>但是S知道，所以B goto的时候应该跳过S1，到S1后：</p>
+<ul>
+<li>当B为true，S会通过<strong>继承属性</strong>B.true告诉B应该跳转到S1的位置</li>
+<li>同样，B.false会告诉B应该跳转到B.false：但是B.false在哪S也不知道，P知道</li>
+<li><img src="/2023/04/04/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230516221022961.png" alt="image-20230516221022961"></li>
+<li>P知道S.next在哪</li>
+<li>S知道B.true在哪</li>
+</ul>
+</li>
+<li><p><strong>需要父节点通过继承属性将一些子节点需要知道的信息传递下去</strong></p>
+</li>
+<li><p>准备：S初始化的时候，B.true和B.false都需要确定下来，然后作为参数传给B；s1.next也需要提前准备好，传给S1</p>
+</li>
+</ul>
+<h2 id="实例解释"><a href="#实例解释" class="headerlink" title="实例解释"></a>实例解释</h2><h3 id="文法"><a href="#文法" class="headerlink" title="文法"></a>文法</h3><p><img src="/2023/04/04/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230517102715247.png" alt="image-20230517102715247"></p>
+<h3 id="具体的赋值语句"><a href="#具体的赋值语句" class="headerlink" title="具体的赋值语句"></a>具体的赋值语句</h3><p><img src="/2023/04/04/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230517102751516.png" alt="image-20230517102751516"></p>
+<p>可以生成数组引用的拓展版</p>
+<p>下图在上图的基础上添加了L</p>
+<p><img src="/2023/04/04/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230517102917148.png" alt="image-20230517102917148"></p>
+<ul>
+<li>L是用来生成数组引用</li>
+</ul>
+<h3 id="控制流语句"><a href="#控制流语句" class="headerlink" title="控制流语句"></a>控制流语句</h3><p><img src="/2023/04/04/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230517103107441.png" alt="image-20230517103107441"></p>
+<ul>
+<li><p>do while本质上是while的变种</p>
+</li>
+<li><p>布尔表达式的具体形态由下图刻画</p>
+</li>
+</ul>
+<p><img src="/2023/04/04/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230517103200135.png" alt="image-20230517103200135"></p>
+<ul>
+<li>rel：relation operation关系运算符</li>
+</ul>
+<p>以上四张图人为划分了expr表达式的类型</p>
+<ul>
+<li>bool：B：<strong>会需要生成goto这种跳转</strong></li>
+<li>non-bool：E：不需要生成跳转</li>
+<li><strong>两种表达式的作用不同，分开来能让中间代码的生成变简单</strong></li>
+</ul>
+<h3 id="表达式的中间代码翻译"><a href="#表达式的中间代码翻译" class="headerlink" title="表达式的中间代码翻译"></a>表达式的中间代码翻译</h3><p><strong>例子：a &#x3D; b + −c</strong></p>
+<p>结果：</p>
+<p><img src="/2023/04/04/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230517105825714.png" alt="image-20230517105825714"></p>
+<ul>
+<li>综合属性 E.code: 中间代码</li>
+<li>综合属性 E.addr: 变量名 (包括临时变量)、常量<ul>
+<li>a,b,c就是地址</li>
+</ul>
+</li>
+</ul>
+<h4 id="先画语法分析树"><a href="#先画语法分析树" class="headerlink" title="先画语法分析树"></a>先画语法分析树</h4><p><img src="/2023/04/04/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230517105433166.png" alt="image-20230517105433166"></p>
+<ul>
+<li>第一行是E2.code</li>
+<li>E.addr &#x3D; top.get(id.lexeme)：从当前作用域的最顶层拿到id</li>
+<li>E1没有生成code</li>
+<li>然后是生成E.code，先生成一个临时变量t2来保存</li>
+<li>S.code是把E.code加上生成的表达赋值的code，是第三条</li>
+</ul>
+<h4 id="LLVM-O0"><a href="#LLVM-O0" class="headerlink" title="LLVM -O0"></a>LLVM -O0</h4><p><img src="/2023/04/04/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230517113346696.png" alt="image-20230517113346696"></p>
+<ul>
+<li>minus c：<ul>
+<li>用0 - %6对应的变量，放在%7中</li>
+</ul>
+</li>
+</ul>
+<h2 id="数组的引用"><a href="#数组的引用" class="headerlink" title="数组的引用"></a>数组的引用</h2><p>声明 : int a[2][3] </p>
+<p>数组引用 : x &#x3D; a[1][2]; a[1][2] &#x3D; x </p>
+<p>需要计算 a[1][2] 相对于数组基地址 a 的偏移地址 </p>
+<p>addr(a[1][2]) &#x3D; base + 1 × 12 + 2 × 4</p>
+<p><img src="/2023/04/04/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230526171547949.png" alt="image-20230526171547949"></p>
+<h2 id="实例：c-a-i-j"><a href="#实例：c-a-i-j" class="headerlink" title="实例：c + a[i][j]"></a>实例：c + a[i][j]</h2><p><img src="/2023/04/04/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230526173312021.png" alt="image-20230526173312021"></p>
+<p>综合属性 L.array(.base) : 数组基地址 (即, 数组名)</p>
+<p><strong>综合属性 L.addr : 计算偏移地址</strong></p>
+<p><img src="/2023/04/04/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230526173353737.png" alt="image-20230526173353737"></p>
+<ul>
+<li>在声明int a[i][j]就已经处理好a的类型和大小宽度了，已经放入符号表</li>
+<li>左边红框缺少宽度：L.type.width &#x3D; 12</li>
+<li>每往上一层就剥掉一层括号[]，将得到的宽度存入t<del>1</del>，t<del>2</del></li>
+<li>t<del>3</del>是在做累加，就是需要访问的元素的下标所对应的真实地址</li>
+</ul>
+<h2 id="LLVM中真实的IR"><a href="#LLVM中真实的IR" class="headerlink" title="LLVM中真实的IR"></a>LLVM中真实的IR</h2><p><img src="/2023/04/04/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230526174708008.png" alt="image-20230526174708008"></p>
+<ul>
+<li>在IR中，用getelementptr指令GEP做数组下标访问，简化了计算</li>
+<li>%2的类型是：[2 * [3 * i32]]*</li>
+<li>%8：c</li>
+<li>%9：i，类型为i32，在%10中变成i64</li>
+<li>%12：j</li>
+<li>getelementptr:&lt;base-type&gt;, &lt;base-type&gt;* &lt;base-addr&gt; , [i32 &lt;index&gt;]+</li>
+<li>&lt;base-type&gt;：若干个整数下标中的第一个：base type used for the first index：<ul>
+<li>It does not change the pointer type. 不改变</li>
+<li>It offsets by the &lt;base-type&gt;.</li>
+<li>&lt;index1&gt;：不是在做访问数组元素，而是在做数组指针的移动，做一个偏移，根据类型的大小 </li>
+<li><img src="/2023/04/04/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230527111740130.png" alt="image-20230527111740130"></li>
+<li>如果第一个index为1，则指针移动到24bytes之后</li>
+<li>接下来的下标，每访问一层就脱掉一层</li>
+<li>数组下标被称作“聚合式信息”</li>
+</ul>
+</li>
+<li>GEP不只是用于数组这种聚合数据类型，结构体（作为是多个不同类型元素放在一起）也可以用，可以通过偏移量来访问其中的元素</li>
+<li>%11：先是i64 0，表示访问的是(2, (3, int))类型，指针指着数组开头；接着是i64 %10，即访问i，i为1，指针移动到第一行开头，类型为(3, int)。%11的类型已经是(3, i32)*</li>
+<li>%14同理：符号拓展j，然后访问第一行的最后一个元素，%14的类型已经是i32*了</li>
+</ul>
+<p><img src="/2023/04/04/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230527112636937.png" alt="image-20230527112636937"></p>
+<h3 id="GEP"><a href="#GEP" class="headerlink" title="GEP"></a>GEP</h3><p>GEP provides a way to access arrays and manipulate pointers. </p>
+<p>GEP abstract away details like size of types</p>
+
+        
+      </div>
+
+         
+    </div>
+    
+     
+  </div>
+  
+    
+<nav id="article-nav">
+  <a class="article-nav-btn left "
+    
+      href="/2023/04/05/ch13-ir-control-%E6%8E%A7%E5%88%B6%E6%B5%81%E8%AF%AD%E5%8F%A5%E7%9A%84%E7%BF%BB%E8%AF%91/"
+      title="ch13-ir-control-控制流语句的翻译"
+     >
+    <i class="fa-solid fa-angle-left"></i>
+    <p class="title-text">
+      
+        ch13-ir-control-控制流语句的翻译
+        
+    </p>
+  </a>
+  <a class="article-nav-btn right "
+    
+      href="/2023/04/03/ch11-llvm-ir/"
+      title="ch11-llvm-ir-中间代码生成"
+     >
+
+    <p class="title-text">
+      
+        ch11-llvm-ir-中间代码生成
+        
+    </p>
+    <i class="fa-solid fa-angle-right"></i>
+  </a>
+</nav>
+
+
+  
+</article>
+
+
+  
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <div id="comment-card" class="comment-card">
+    <div class="main-title-bar">
+      <div class="main-title-dot"></div>
+      <div class="main-title">Comments </div>
+    </div>
+    <div id="vcomments"></div>
+  </div>
+  <script>
+      new Valine({"enable":true,"appId":null,"appKey":null,"placeholder":"Just go go","pageSize":10,"highlight":true,"serverURLs":null,"el":"#vcomments"});
+  </script>
+ 
+    </div>
+    <div id="footer-wrapper">
+      <footer id="footer">
+  
+  <div id="footer-info" class="inner">
+    
+      <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris"></a>
+    
+    &copy; 2023 Asimov<br>
+    Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & Theme <a target="_blank" rel="noopener" href="https://github.com/saicaca/hexo-theme-vivia">Vivia</a>
+  </div>
+</footer>
+
+    </div>
+    <div class="back-to-top-wrapper">
+    <button id="back-to-top-btn" class="back-to-top-btn hide" onclick="topFunction()">
+        <i class="fa-solid fa-angle-up"></i>
+    </button>
+</div>
+
+<script>
+    function topFunction() {
+        window.scroll({ top: 0, behavior: 'smooth' });
+    }
+    let btn = document.getElementById('back-to-top-btn');
+    function scrollFunction() {
+        if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+            btn.classList.remove('hide')
+        } else {
+            btn.classList.add('hide')
+        }
+    }
+    window.onscroll = function() {
+        scrollFunction();
+    }
+</script>
+
+  </div>
+  <script src="/js/light-dark-switch.js"></script>
+</body>
+</html>
