@@ -14,26 +14,42 @@
   
 
   
-  <title>Hello World | Asimov&#39;s Blog</title>
+  <title>ch12-ir-expr-表达式翻译 | Asimov&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
   <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="ch12-ir-expr-表达式翻译分工和合作 父节点为子节点准备跳转指令的目标标签  子节点通过继承属性确定跳转目标   P → S  S → if (B) S1  一部分是B的中间代码，应该由B生成 B需要有一个B.code综合属性来表示B节点所生成的对于复合表达式的中间代码   一部分是S1的中间代码 S1需要有一个S1.code   S最终拿到的中间代码是由B和S1合作分工，在退出S的时候">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://chendingya.github.io/2022/10/25/hello-world/index.html">
+<meta property="og:title" content="ch12-ir-expr-表达式翻译">
+<meta property="og:url" content="https://chendingya.github.io/2023/04/04/23-Compilers/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/index.html">
 <meta property="og:site_name" content="Asimov&#39;s Blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="ch12-ir-expr-表达式翻译分工和合作 父节点为子节点准备跳转指令的目标标签  子节点通过继承属性确定跳转目标   P → S  S → if (B) S1  一部分是B的中间代码，应该由B生成 B需要有一个B.code综合属性来表示B节点所生成的对于复合表达式的中间代码   一部分是S1的中间代码 S1需要有一个S1.code   S最终拿到的中间代码是由B和S1合作分工，在退出S的时候">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://chendingya.github.io/2022/10/25/hello-world/image-20230725225413949.png">
-<meta property="article:published_time" content="2022-10-25T03:40:36.000Z">
-<meta property="article:modified_time" content="2023-07-25T14:58:59.957Z">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/04/23-Compilers/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230516210447611.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/04/23-Compilers/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230516220923086.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/04/23-Compilers/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230516221022961.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/04/23-Compilers/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230517102715247.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/04/23-Compilers/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230517102751516.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/04/23-Compilers/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230517102917148.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/04/23-Compilers/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230517103107441.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/04/23-Compilers/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230517103200135.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/04/23-Compilers/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230517105825714.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/04/23-Compilers/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230517105433166.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/04/23-Compilers/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230517113346696.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/04/23-Compilers/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230526171547949.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/04/23-Compilers/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230526173312021.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/04/23-Compilers/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230526173353737.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/04/23-Compilers/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230526174708008.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/04/23-Compilers/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230527111740130.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/04/23-Compilers/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230527112636937.png">
+<meta property="article:published_time" content="2023-04-04T02:02:34.000Z">
+<meta property="article:modified_time" content="2023-09-14T10:59:06.367Z">
 <meta property="article:author" content="Asimov">
-<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="编译原理">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://chendingya.github.io/2022/10/25/hello-world/image-20230725225413949.png">
+<meta name="twitter:image" content="https://chendingya.github.io/2023/04/04/23-Compilers/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230516210447611.png">
   
     <link rel="alternate" href="/atom.xml" title="Asimov's Blog" type="application/atom+xml">
   
@@ -274,7 +290,7 @@
     <div id="content-body">
        
 
-<article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+<article id="post-23-Compilers/ch12-ir-expr-表达式翻译" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   
     
    
@@ -287,7 +303,7 @@
   
     
       <h1 class="p-name article-title" itemprop="headline name">
-        Hello World
+        ch12-ir-expr-表达式翻译
       </h1>
     
   
@@ -295,40 +311,155 @@
 
         <div class='meta-info-bar'>
           <div class="meta-info">
-  <time class="dt-published" datetime="2022-10-25T03:40:36.000Z" itemprop="datePublished">2022-10-25</time>
+  <time class="dt-published" datetime="2023-04-04T02:02:34.000Z" itemprop="datePublished">2023-04-04</time>
 </div>
           <div class="need-seperator meta-info">
             <div class="meta-cate-flex">
   
-  <a class="meta-cate-link" href="/categories/Hexo/">Hexo</a>
+  <a class="meta-cate-link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">编译原理</a>
    
 </div>
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            80 词 
+            1.2k 词 
           </div>
         </div>
         
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" rel="tag">编译原理</a></li></ul>
 
       </header>
       <div class="e-content article-entry" itemprop="articleBody">
         
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-<p><img src="/2022/10/25/hello-world/image-20230725225413949.png" alt="image-20230725225413949"></p>
+          <h1 id="ch12-ir-expr-表达式翻译"><a href="#ch12-ir-expr-表达式翻译" class="headerlink" title="ch12-ir-expr-表达式翻译"></a>ch12-ir-expr-表达式翻译</h1><h2 id="分工和合作"><a href="#分工和合作" class="headerlink" title="分工和合作"></a>分工和合作</h2><ul>
+<li><p><strong>父节点为子节点准备跳转指令的目标标签</strong></p>
+</li>
+<li><p><strong>子节点通过继承属性确定跳转目标</strong></p>
+</li>
+</ul>
+<p>P → S </p>
+<p>S → if (B) S1<img src="/2023/04/04/23-Compilers/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230516210447611.png" alt="image-20230516210447611"></p>
+<ul>
+<li>一部分是B的中间代码，应该由B生成<ul>
+<li>B需要有一个B.code综合属性来表示B节点所生成的对于复合表达式的中间代码</li>
+</ul>
+</li>
+<li>一部分是S1的中间代码<ul>
+<li>S1需要有一个S1.code</li>
+</ul>
+</li>
+<li>S最终拿到的中间代码是由B和S1合作分工，在退出S的时候生成代码</li>
+</ul>
+<p><img src="/2023/04/04/23-Compilers/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230516220923086.png" alt="image-20230516220923086"></p>
+<ul>
+<li><p>假设S1的开头为B.true的标签</p>
+</li>
+<li><p>B中需要有goto跳转，但是B自己本身是不知道这些L1, L2 标签在哪</p>
+</li>
+<li><p>但是S知道，所以B goto的时候应该跳过S1，到S1后：</p>
+<ul>
+<li>当B为true，S会通过<strong>继承属性</strong>B.true告诉B应该跳转到S1的位置</li>
+<li>同样，B.false会告诉B应该跳转到B.false：但是B.false在哪S也不知道，P知道</li>
+<li><img src="/2023/04/04/23-Compilers/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230516221022961.png" alt="image-20230516221022961"></li>
+<li>P知道S.next在哪</li>
+<li>S知道B.true在哪</li>
+</ul>
+</li>
+<li><p><strong>需要父节点通过继承属性将一些子节点需要知道的信息传递下去</strong></p>
+</li>
+<li><p>准备：S初始化的时候，B.true和B.false都需要确定下来，然后作为参数传给B；s1.next也需要提前准备好，传给S1</p>
+</li>
+</ul>
+<h2 id="实例解释"><a href="#实例解释" class="headerlink" title="实例解释"></a>实例解释</h2><h3 id="文法"><a href="#文法" class="headerlink" title="文法"></a>文法</h3><p><img src="/2023/04/04/23-Compilers/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230517102715247.png" alt="image-20230517102715247"></p>
+<h3 id="具体的赋值语句"><a href="#具体的赋值语句" class="headerlink" title="具体的赋值语句"></a>具体的赋值语句</h3><p><img src="/2023/04/04/23-Compilers/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230517102751516.png" alt="image-20230517102751516"></p>
+<p>可以生成数组引用的拓展版</p>
+<p>下图在上图的基础上添加了L</p>
+<p><img src="/2023/04/04/23-Compilers/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230517102917148.png" alt="image-20230517102917148"></p>
+<ul>
+<li>L是用来生成数组引用</li>
+</ul>
+<h3 id="控制流语句"><a href="#控制流语句" class="headerlink" title="控制流语句"></a>控制流语句</h3><p><img src="/2023/04/04/23-Compilers/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230517103107441.png" alt="image-20230517103107441"></p>
+<ul>
+<li><p>do while本质上是while的变种</p>
+</li>
+<li><p>布尔表达式的具体形态由下图刻画</p>
+</li>
+</ul>
+<p><img src="/2023/04/04/23-Compilers/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230517103200135.png" alt="image-20230517103200135"></p>
+<ul>
+<li>rel：relation operation关系运算符</li>
+</ul>
+<p>以上四张图人为划分了expr表达式的类型</p>
+<ul>
+<li>bool：B：<strong>会需要生成goto这种跳转</strong></li>
+<li>non-bool：E：不需要生成跳转</li>
+<li><strong>两种表达式的作用不同，分开来能让中间代码的生成变简单</strong></li>
+</ul>
+<h3 id="表达式的中间代码翻译"><a href="#表达式的中间代码翻译" class="headerlink" title="表达式的中间代码翻译"></a>表达式的中间代码翻译</h3><p><strong>例子：a &#x3D; b + −c</strong></p>
+<p>结果：</p>
+<p><img src="/2023/04/04/23-Compilers/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230517105825714.png" alt="image-20230517105825714"></p>
+<ul>
+<li>综合属性 E.code: 中间代码</li>
+<li>综合属性 E.addr: 变量名 (包括临时变量)、常量<ul>
+<li>a,b,c就是地址</li>
+</ul>
+</li>
+</ul>
+<h4 id="先画语法分析树"><a href="#先画语法分析树" class="headerlink" title="先画语法分析树"></a>先画语法分析树</h4><p><img src="/2023/04/04/23-Compilers/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230517105433166.png" alt="image-20230517105433166"></p>
+<ul>
+<li>第一行是E2.code</li>
+<li>E.addr &#x3D; top.get(id.lexeme)：从当前作用域的最顶层拿到id</li>
+<li>E1没有生成code</li>
+<li>然后是生成E.code，先生成一个临时变量t2来保存</li>
+<li>S.code是把E.code加上生成的表达赋值的code，是第三条</li>
+</ul>
+<h4 id="LLVM-O0"><a href="#LLVM-O0" class="headerlink" title="LLVM -O0"></a>LLVM -O0</h4><p><img src="/2023/04/04/23-Compilers/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230517113346696.png" alt="image-20230517113346696"></p>
+<ul>
+<li>minus c：<ul>
+<li>用0 - %6对应的变量，放在%7中</li>
+</ul>
+</li>
+</ul>
+<h2 id="数组的引用"><a href="#数组的引用" class="headerlink" title="数组的引用"></a>数组的引用</h2><p>声明 : int a[2][3] </p>
+<p>数组引用 : x &#x3D; a[1][2]; a[1][2] &#x3D; x </p>
+<p>需要计算 a[1][2] 相对于数组基地址 a 的偏移地址 </p>
+<p>addr(a[1][2]) &#x3D; base + 1 × 12 + 2 × 4</p>
+<p><img src="/2023/04/04/23-Compilers/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230526171547949.png" alt="image-20230526171547949"></p>
+<h2 id="实例：c-a-i-j"><a href="#实例：c-a-i-j" class="headerlink" title="实例：c + a[i][j]"></a>实例：c + a[i][j]</h2><p><img src="/2023/04/04/23-Compilers/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230526173312021.png" alt="image-20230526173312021"></p>
+<p>综合属性 L.array(.base) : 数组基地址 (即, 数组名)</p>
+<p><strong>综合属性 L.addr : 计算偏移地址</strong></p>
+<p><img src="/2023/04/04/23-Compilers/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230526173353737.png" alt="image-20230526173353737"></p>
+<ul>
+<li>在声明int a[i][j]就已经处理好a的类型和大小宽度了，已经放入符号表</li>
+<li>左边红框缺少宽度：L.type.width &#x3D; 12</li>
+<li>每往上一层就剥掉一层括号[]，将得到的宽度存入t<del>1</del>，t<del>2</del></li>
+<li>t<del>3</del>是在做累加，就是需要访问的元素的下标所对应的真实地址</li>
+</ul>
+<h2 id="LLVM中真实的IR"><a href="#LLVM中真实的IR" class="headerlink" title="LLVM中真实的IR"></a>LLVM中真实的IR</h2><p><img src="/2023/04/04/23-Compilers/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230526174708008.png" alt="image-20230526174708008"></p>
+<ul>
+<li>在IR中，用getelementptr指令GEP做数组下标访问，简化了计算</li>
+<li>%2的类型是：[2 * [3 * i32]]*</li>
+<li>%8：c</li>
+<li>%9：i，类型为i32，在%10中变成i64</li>
+<li>%12：j</li>
+<li>getelementptr:&lt;base-type&gt;, &lt;base-type&gt;* &lt;base-addr&gt; , [i32 &lt;index&gt;]+</li>
+<li>&lt;base-type&gt;：若干个整数下标中的第一个：base type used for the first index：<ul>
+<li>It does not change the pointer type. 不改变</li>
+<li>It offsets by the &lt;base-type&gt;.</li>
+<li>&lt;index1&gt;：不是在做访问数组元素，而是在做数组指针的移动，做一个偏移，根据类型的大小 </li>
+<li><img src="/2023/04/04/23-Compilers/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230527111740130.png" alt="image-20230527111740130"></li>
+<li>如果第一个index为1，则指针移动到24bytes之后</li>
+<li>接下来的下标，每访问一层就脱掉一层</li>
+<li>数组下标被称作“聚合式信息”</li>
+</ul>
+</li>
+<li>GEP不只是用于数组这种聚合数据类型，结构体（作为是多个不同类型元素放在一起）也可以用，可以通过偏移量来访问其中的元素</li>
+<li>%11：先是i64 0，表示访问的是(2, (3, int))类型，指针指着数组开头；接着是i64 %10，即访问i，i为1，指针移动到第一行开头，类型为(3, int)。%11的类型已经是(3, i32)*</li>
+<li>%14同理：符号拓展j，然后访问第一行的最后一个元素，%14的类型已经是i32*了</li>
+</ul>
+<p><img src="/2023/04/04/23-Compilers/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230527112636937.png" alt="image-20230527112636937"></p>
+<h3 id="GEP"><a href="#GEP" class="headerlink" title="GEP"></a>GEP</h3><p>GEP provides a way to access arrays and manipulate pointers. </p>
+<p>GEP abstract away details like size of types</p>
 
         
       </div>
@@ -343,20 +474,25 @@
 <nav id="article-nav">
   <a class="article-nav-btn left "
     
-      href="/2023/03/29/23-Compilers/ch06/"
-      title="ch06-Listener & Visitor & 上下文无关文法"
+      href="/2023/04/05/23-Compilers/ch13-ir-control-%E6%8E%A7%E5%88%B6%E6%B5%81%E8%AF%AD%E5%8F%A5%E7%9A%84%E7%BF%BB%E8%AF%91/"
+      title="ch13-ir-control-控制流语句的翻译"
      >
     <i class="fa-solid fa-angle-left"></i>
     <p class="title-text">
       
-        ch06-Listener &amp; Visitor &amp; 上下文无关文法
+        ch13-ir-control-控制流语句的翻译
         
     </p>
   </a>
-  <a class="article-nav-btn right  disabled "
+  <a class="article-nav-btn right "
+    
+      href="/2023/04/03/23-Compilers/ch11-llvm-ir/"
+      title="ch11-llvm-ir-中间代码生成"
      >
 
     <p class="title-text">
+      
+        ch11-llvm-ir-中间代码生成
         
     </p>
     <i class="fa-solid fa-angle-right"></i>

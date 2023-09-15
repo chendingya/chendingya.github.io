@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+
+
+<html theme="dark" showBanner="true" hasBanner="true" > 
+<link href="/fontawesome/css/fontawesome.css" rel="stylesheet">
+<link href="/fontawesome/css/brands.css" rel="stylesheet">
+<link href="/fontawesome/css/solid.css" rel="stylesheet">
+<script src="/js/color.global.min.js" ></script>
+<script src="/js/load-settings.js" ></script>
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+
+  
+  <title>ch08-parser-allstar | Asimov&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+  <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+
+  <meta name="description" content="ch08-parser-allstar ANTLR 4 自动将类似 expr 的左递归规则重写成非左递归形式  ANTLR 4 提供优秀的错误报告功能和复杂的错误恢复机制  ANTLR 4 使用了一种名为 Adaptive LL(∗) 的新技术 ANTLR 4 几乎能处理任何文法 (二义性文法✓ 间接左递归✗)  ANTLR 4 如何处理直接左递归与优先级的写在前面就是优先级 antlr4 LRE">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ch08-parser-allstar">
+<meta property="og:url" content="https://chendingya.github.io/2023/03/31/23-Compilers/ch08/index.html">
+<meta property="og:site_name" content="Asimov&#39;s Blog">
+<meta property="og:description" content="ch08-parser-allstar ANTLR 4 自动将类似 expr 的左递归规则重写成非左递归形式  ANTLR 4 提供优秀的错误报告功能和复杂的错误恢复机制  ANTLR 4 使用了一种名为 Adaptive LL(∗) 的新技术 ANTLR 4 几乎能处理任何文法 (二义性文法✓ 间接左递归✗)  ANTLR 4 如何处理直接左递归与优先级的写在前面就是优先级 antlr4 LRE">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/31/23-Compilers/ch08/image-20230412194105648.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/31/23-Compilers/ch08/image-20230412194122240.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/31/23-Compilers/ch08/image-20230412212337814.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/31/23-Compilers/ch08/image-20230412213204400.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/31/23-Compilers/ch08/image-20230412213348701.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/31/23-Compilers/ch08/image-20230413133253765.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/31/23-Compilers/ch08/image-20230413133519855.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/31/23-Compilers/ch08/image-20230413133602180.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/31/23-Compilers/ch08/image-20230413133608565.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/31/23-Compilers/ch08/image-20230413134629242.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/31/23-Compilers/ch08/image-20230413134842985.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/31/23-Compilers/ch08/image-20230413134959352.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/31/23-Compilers/ch08/image-20230413135128393.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/31/23-Compilers/ch08/image-20230419135522732.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/31/23-Compilers/ch08/image-20230419135549559.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/31/23-Compilers/ch08/image-20230419135623549.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/31/23-Compilers/ch08/image-20230421131629488.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/31/23-Compilers/ch08/image-20230419135832643.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/31/23-Compilers/ch08/image-20230421131926277.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/31/23-Compilers/ch08/image-20230419135849798.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/31/23-Compilers/ch08/image-20230419153244753.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/31/23-Compilers/ch08/image-20230419153252803.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/31/23-Compilers/ch08/image-20230421182649302.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/31/23-Compilers/ch08/image-20230421184118231.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/31/23-Compilers/ch08/image-20230421195857108.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/31/23-Compilers/ch08/image-20230421184717974.png">
+<meta property="article:published_time" content="2023-03-31T02:02:34.000Z">
+<meta property="article:modified_time" content="2023-09-14T10:47:39.250Z">
+<meta property="article:author" content="Asimov">
+<meta property="article:tag" content="编译原理">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://chendingya.github.io/2023/03/31/23-Compilers/ch08/image-20230412194105648.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Asimov's Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-192.png" sizes="192x192">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-192.png" sizes="192x192">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  
+  
+    
+<div id="banner" class="">
+  <img src="/pic/back.png" itemprop="image">
+  <div id="banner-dim"></div>
+</div>
+ 
+   
+  <div id="main-grid" class="shadow   ">
+    <div id="nav" class=""  >
+      <navbar id="navbar">
+  <nav id="title-nav">
+    <a href="/">
+      <div id="vivia-logo">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div>Asimov's Blog </div>
+    </a>
+  </nav>
+  <nav id="main-nav">
+    
+      <a class="main-nav-link" href="/">Home</a>
+    
+      <a class="main-nav-link" href="/archives">Archives</a>
+    
+      <a class="main-nav-link" href="/about">About</a>
+    
+  </nav>
+  <nav id="sub-nav">
+    <a id="theme-btn" class="nav-icon">
+      <span class="light-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M438.5-829.913v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-829.913Zm0 747.826v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-82.087ZM877.913-438.5h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537t29.476-12.174h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T877.913-438.5Zm-747.826 0h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T82.087-521.5h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T130.087-438.5Zm660.174-290.87-34.239 32q-12.913 12.674-29.565 12.174-16.653-.5-29.327-13.174-12.674-12.673-12.554-28.826.12-16.152 12.794-28.826l33-35q12.913-12.674 30.454-12.674t30.163 12.847q12.709 12.846 12.328 30.826-.38 17.98-13.054 30.653ZM262.63-203.978l-32 34q-12.913 12.674-30.454 12.674t-30.163-12.847q-12.709-12.846-12.328-30.826.38-17.98 13.054-30.653l33.239-31q12.913-12.674 29.565-12.174 16.653.5 29.327 13.174 12.674 12.673 12.554 28.826-.12 16.152-12.794 28.826Zm466.74 33.239-32-33.239q-12.674-12.913-12.174-29.565.5-16.653 13.174-29.327 12.673-12.674 28.826-13.054 16.152-.38 28.826 12.294l35 33q12.674 12.913 12.674 30.454t-12.847 30.163q-12.846 12.709-30.826 12.328-17.98-.38-30.653-13.054ZM203.978-697.37l-34-33q-12.674-12.913-13.174-29.945-.5-17.033 12.174-29.707t31.326-13.293q18.653-.62 31.326 13.054l32 34.239q11.674 12.913 11.174 29.565-.5 16.653-13.174 29.327-12.673 12.674-28.826 12.554-16.152-.12-28.826-12.794ZM480-240q-100 0-170-70t-70-170q0-100 70-170t170-70q100 0 170 70t70 170q0 100-70 170t-170 70Zm-.247-82q65.703 0 111.475-46.272Q637-414.544 637-480.247t-45.525-111.228Q545.95-637 480.247-637t-111.475 45.525Q323-545.95 323-480.247t45.525 111.975Q414.05-322 479.753-322ZM481-481Z"/></svg></span>
+      <span class="dark-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M480.239-116.413q-152.63 0-258.228-105.478Q116.413-327.37 116.413-480q0-130.935 77.739-227.435t206.304-125.043q43.022-9.631 63.87 10.869t3.478 62.805q-8.891 22.043-14.315 44.463-5.424 22.42-5.424 46.689 0 91.694 64.326 155.879 64.325 64.186 156.218 64.186 24.369 0 46.978-4.946 22.609-4.945 44.413-14.076 42.826-17.369 62.967 1.142 20.142 18.511 10.511 61.054Q807.174-280 712.63-198.206q-94.543 81.793-232.391 81.793Zm0-95q79.783 0 143.337-40.217 63.554-40.218 95.793-108.283-15.608 4.044-31.097 5.326-15.49 1.283-31.859.805-123.706-4.066-210.777-90.539-87.071-86.473-91.614-212.092-.24-16.369.923-31.978 1.164-15.609 5.446-30.978-67.826 32.478-108.282 96.152Q211.652-559.543 211.652-480q0 111.929 78.329 190.258 78.329 78.329 190.258 78.329ZM466.13-465.891Z"/></svg></span>
+    </a>
+    
+      <a id="nav-rss-link" class="nav-icon mobile-hide" href="/atom.xml" title="RSS 订阅">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-120q-25.846 0-44.23-18.384-18.384-18.385-18.384-44.23 0-25.846 18.384-44.23 18.384-18.385 44.23-18.385 25.846 0 44.23 18.385 18.384 18.384 18.384 44.23 0 25.845-18.384 44.23Q223.846-120 198-120Zm538.385 0q-18.846 0-32.923-13.769-14.076-13.769-15.922-33.23-8.692-100.616-51.077-188.654-42.385-88.039-109.885-155.539-67.5-67.501-155.539-109.885Q283-663.462 182.385-672.154q-19.461-1.846-33.23-16.23-13.769-14.385-13.769-33.846t14.076-32.922q14.077-13.461 32.923-12.23 120.076 8.692 226.038 58.768 105.961 50.077 185.73 129.846 79.769 79.769 129.846 185.731 50.077 105.961 58.769 226.038 1.231 18.846-12.538 32.922Q756.461-120 736.385-120Zm-252 0q-18.231 0-32.423-13.461t-18.653-33.538Q418.155-264.23 348.886-333.5q-69.27-69.27-166.501-84.423-20.077-4.462-33.538-18.961-13.461-14.5-13.461-33.346 0-19.076 13.884-33.23 13.884-14.153 33.115-10.922 136.769 15.384 234.384 112.999 97.615 97.615 112.999 234.384 3.231 19.23-10.538 33.115Q505.461-120 484.385-120Z"/></svg>
+      </a>
+    
+    <div id="nav-menu-btn" class="nav-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M177.37-252.282q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Zm0-186.218q-17.453 0-29.477-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T177.37-521.5h605.26q17.453 0 29.477 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T782.63-438.5H177.37Zm0-186.217q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Z"/></svg>
+    </div>
+  </nav>
+</navbar>
+<div id="nav-dropdown" class="hidden">
+  <div id="dropdown-link-list">
+    
+      <a class="nav-dropdown-link" href="/">Home</a>
+    
+      <a class="nav-dropdown-link" href="/archives">Archives</a>
+    
+      <a class="nav-dropdown-link" href="/about">About</a>
+    
+    
+      <a class="nav-dropdown-link" href="/atom.xml" title="RSS 订阅">RSS</a>
+     
+    </div>
+</div>
+<script>
+  let dropdownBtn = document.getElementById("nav-menu-btn");
+  let dropdownEle = document.getElementById("nav-dropdown");
+  dropdownBtn.onclick = function() {
+    dropdownEle.classList.toggle("hidden");
+  }
+</script>
+    </div>
+    <div id="sidebar-wrapper">
+      <sidebar id="sidebar">
+  
+    <div class="widget-wrap">
+  <div class="info-card">
+    <div class="avatar">
+      
+        <image src=/pic/avatar.png></image>
+      
+      <div class="img-dim"></div>
+    </div>
+    <div class="info">
+      <div class="username">Asimov </div>
+      <div class="dot"></div>
+      <div class="subtitle">Asimov's Blog </div>
+      <div class="link-list">
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://github.com/chendingya" title="GitHub"><i class="fa-brands fa-github"></i></a>
+         
+      </div>  
+    </div>
+  </div>
+</div>
+
+  
+  <div class="sticky">
+    
+      
+
+
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">分类</h3>
+      <div class="category-box">
+            <a class="category-link" href="/categories/hello-world/">
+                hello world
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/Hexo/">
+                Hexo
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
+                编译原理
+                <div class="category-count">13</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E9%A9%BE%E8%80%83/">
+                驾考
+                <div class="category-count">2</div>
+            </a>
+        </div>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">标签</h3>
+      <ul class="widget-tag-list" itemprop="keywords"><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/hello-world/" rel="tag">hello world</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" rel="tag">编译原理</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E9%A9%BE%E8%80%83/" rel="tag">驾考</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">归档</h3>
+      
+      
+        <a class="archive-link" href="/archives/2023/09 ">
+          九月 2023 
+          <div class="archive-count">1 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/07 ">
+          七月 2023 
+          <div class="archive-count">2 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/04 ">
+          四月 2023 
+          <div class="archive-count">10 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/03 ">
+          三月 2023 
+          <div class="archive-count">3 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2022/10 ">
+          十月 2022 
+          <div class="archive-count">1 </div>
+        </a>
+      
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">最新文章</h3>
+      <ul>
+        
+          <a class="recent-link" href="/2023/09/12/%E9%A9%BE%E8%80%83/%E9%A9%BE%E8%80%83-%E7%A7%91%E7%9B%AE%E4%BA%8C/" title="驾考-科目二" >
+            <div class="recent-link-text">
+              驾考-科目二
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/07/18/blog/" title="blog" >
+            <div class="recent-link-text">
+              blog
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/07/17/%E9%A9%BE%E8%80%83/%E9%A9%BE%E8%80%83-%E7%A7%91%E7%9B%AE%E4%B8%80/" title="驾考-科目一" >
+            <div class="recent-link-text">
+              驾考-科目一
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/04/10/23-Compilers/ch18-codegen-riscv-RISC-V%20%E6%A6%82%E8%BF%B0/" title="ch18-codegen-riscv-RISC-V 概述" >
+            <div class="recent-link-text">
+              ch18-codegen-riscv-RISC-V 概述
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/04/09/23-Compilers/ch17-LR(1)-LR(1)%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/" title="ch17-LR(1)-LR(1) 语法分析器" >
+            <div class="recent-link-text">
+              ch17-LR(1)-LR(1) 语法分析器
+            </div>
+          </a>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+  </div>
+</sidebar>
+    </div>
+    <div id="content-body">
+       
+
+<article id="post-23-Compilers/ch08" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 class="p-name article-title" itemprop="headline name">
+        ch08-parser-allstar
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2023-03-31T02:02:34.000Z" itemprop="datePublished">2023-03-31</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">编译原理</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            2.8k 词 
+          </div>
+        </div>
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" rel="tag">编译原理</a></li></ul>
+
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <h1 id="ch08-parser-allstar"><a href="#ch08-parser-allstar" class="headerlink" title="ch08-parser-allstar"></a>ch08-parser-allstar</h1><ul>
+<li>ANTLR 4 自动将类似 expr 的<strong>左递归规则重写成非左递归形式</strong> </li>
+<li>ANTLR 4 提供<strong>优秀的错误报告功能</strong>和<strong>复杂的错误恢复机制</strong> </li>
+<li>ANTLR 4 使用了一种名为 <strong>Adaptive LL(∗)</strong> 的新技术</li>
+<li>ANTLR 4 <strong>几乎能处理任何文法</strong> (<strong>二义性文法✓ 间接左递归✗</strong>)</li>
+</ul>
+<h2 id="ANTLR-4-如何处理直接左递归与优先级的"><a href="#ANTLR-4-如何处理直接左递归与优先级的" class="headerlink" title="ANTLR 4 如何处理直接左递归与优先级的"></a>ANTLR 4 如何处理直接左递归与优先级的</h2><p>写在前面就是优先级</p>
+<p>antlr4 LRExpr -Xlog   生成(.log)文件，即可查看直接左递归文法修改后的样子</p>
+<p><img src="/2023/03/31/23-Compilers/ch08/image-20230412194105648.png" alt="image-20230412194105648"></p>
+<p>简化后：把递归改成循环</p>
+<p><img src="/2023/03/31/23-Compilers/ch08/image-20230412194122240.png" alt="image-20230412194122240"></p>
+<p>4、3、5都是优先级</p>
+<p>初始的优先级是倒着从下往上ID: 1、int: 2、expr * ：3、expr +: 4</p>
+<p>每match一次就是往下走一层，优先级就要高</p>
+<p>如果我想要展开加法，优先级就得大于3</p>
+<p><img src="/2023/03/31/23-Compilers/ch08/image-20230412212337814.png" alt="image-20230412212337814"></p>
+<h3 id="优先级上升算法（期末考试要考，画语法树）"><a href="#优先级上升算法（期末考试要考，画语法树）" class="headerlink" title="优先级上升算法（期末考试要考，画语法树）"></a>优先级上升算法（期末考试要考，画语法树）</h3><p>一旦进入加法，优先级升为4，因为乘法优先级比加法高，希望乘法的展开在加法后面，乘法更加靠近叶子、更深，所以优先级至少要比加法高；同时避免了加法的右结合（例如1 + 2 + 3）</p>
+<p><img src="/2023/03/31/23-Compilers/ch08/image-20230412213204400.png" alt="image-20230412213204400"></p>
+<p>当递归指针直到2后面的+，无法展开，所以递归结束，返回到E[0]（E[0]处在while循环，因为发生调用了所以优先处理E[4]），然后匹配+，然后递归调用E[4]，E[4]匹配3，结束返回，结束E[0]循环</p>
+<p><img src="/2023/03/31/23-Compilers/ch08/image-20230412213348701.png" alt="image-20230412213348701"></p>
+<p>实现了左结合，并且优先级上升</p>
+<p><strong>根本问题: 究竟是在 expr 的当前调用中匹配下一个运算符, 还是让 expr 的调用者匹配下一个运算符。</strong></p>
+<h4 id="例子："><a href="#例子：" class="headerlink" title="例子："></a>例子：</h4><p>例子1：</p>
+<p>1 + 2 * 3</p>
+<p><img src="/2023/03/31/23-Compilers/ch08/image-20230413133253765.png" alt="image-20230413133253765"></p>
+<p>1 * 2 + 3</p>
+<p>但是不是所有左递归优先级都是上升</p>
+<p><img src="/2023/03/31/23-Compilers/ch08/image-20230413133519855.png" alt="image-20230413133519855"></p>
+<ul>
+<li>前置运算符：右结合：  -(-(-x))  </li>
+<li>后置运算符：左结合：( ( ( x!)! )! )</li>
+<li><strong>左结合的含义：1 + 2 + 3中 1 + 2 要先展开：调用的优先级参数要上升</strong></li>
+<li><strong>右结合：调用的优先级参数要不变</strong></li>
+</ul>
+<p><img src="/2023/03/31/23-Compilers/ch08/image-20230413133602180.png" alt="image-20230413133602180"></p>
+<p><img src="/2023/03/31/23-Compilers/ch08/image-20230413133608565.png" alt="image-20230413133608565"></p>
+<p>例子2： -a!!</p>
+<ul>
+<li>优先级：<ul>
+<li>- : 4 ;  </li>
+<li>! : 3 ;</li>
+</ul>
+</li>
+<li>- 想要 实现右结合：不是左递归，所以改写的时候在上面和ID一起，优先级不变</li>
+<li>！是一元运算符，所以没有E[]</li>
+<li>+左结合，优先级应该上升</li>
+</ul>
+<p>例子：-a + b!</p>
+<ul>
+<li>E[4]返回时返回到第一个()的结尾，进入while循环，<strong>返回上一层调用前的时候注意返回后指针指向代码段在哪(返回的地址)</strong></li>
+</ul>
+<p><img src="/2023/03/31/23-Compilers/ch08/image-20230413134629242.png" alt="image-20230413134629242"></p>
+<p>例子3：</p>
+<p><img src="/2023/03/31/23-Compilers/ch08/image-20230413134842985.png" alt="image-20230413134842985"></p>
+<p>^是右结合，所以展开时调用优先级不变</p>
+<p><img src="/2023/03/31/23-Compilers/ch08/image-20230413134959352.png" alt="image-20230413134959352"></p>
+<ul>
+<li><p>For left-associative operators, the right operand gets one more precedence level than the operator itself</p>
+</li>
+<li><p>For right-associative operators, the right operand gets the same precedence level as the current operand.</p>
+</li>
+</ul>
+<h2 id="ANTLR-4-如何进行错误报告与恢复的"><a href="#ANTLR-4-如何进行错误报告与恢复的" class="headerlink" title="ANTLR 4 如何进行错误报告与恢复的"></a>ANTLR 4 如何进行错误报告与恢复的</h2><h3 id="报错"><a href="#报错" class="headerlink" title="报错"></a>报错</h3><p><img src="/2023/03/31/23-Compilers/ch08/image-20230413135128393.png" alt="image-20230413135128393"></p>
+<ul>
+<li>LexerNoViableAltException是词法错误：识别到了一个不在词法规约中的字符</li>
+</ul>
+<p><img src="/2023/03/31/23-Compilers/ch08/image-20230419135522732.png" alt="image-20230419135522732"></p>
+<ul>
+<li>NoViableAltException是文法错误：要对某个非终结符展开的时候，如果有多个备选分支，但是分析后都不能用<ul>
+<li>输入流中的当前词法单元与当前规则所期望的词法单元不匹配</li>
+</ul>
+</li>
+</ul>
+<p><img src="/2023/03/31/23-Compilers/ch08/image-20230419135549559.png" alt="image-20230419135549559"></p>
+<ul>
+<li>InputMismatchException是文法错误：选择了某个备选分支，开始分析时，期望是t这个词法单元，但是指针指向的是a，t !&#x3D; a，想匹配的词法单元不是我想要的<ul>
+<li>剩余输入不符合当前规则的任何一个备选分支</li>
+</ul>
+</li>
+</ul>
+<p><img src="/2023/03/31/23-Compilers/ch08/image-20230419135623549.png" alt="image-20230419135623549"></p>
+<p>《ANTLR 4 权威指南》第 9.2 节: 修改和转发 ANTLR 的错误消息</p>
+<p>如果想要更加详细的信息：覆写接口方法</p>
+<p><img src="/2023/03/31/23-Compilers/ch08/image-20230421131629488.png" alt="image-20230421131629488"></p>
+<h3 id="恢复"><a href="#恢复" class="headerlink" title="恢复"></a>恢复</h3><h4 id="恐慌-应急-Panic-模式"><a href="#恐慌-应急-Panic-模式" class="headerlink" title="恐慌&#x2F;应急 (Panic) 模式:"></a>恐慌&#x2F;应急 (Panic) 模式:</h4><p>假装成功、调整状态、继续进行</p>
+<h4 id="四项基本原则"><a href="#四项基本原则" class="headerlink" title="四项基本原则:"></a>四项基本原则:</h4><h5 id="1-特殊情况-特殊处理"><a href="#1-特殊情况-特殊处理" class="headerlink" title="(1) 特殊情况, 特殊处理"></a>(1) 特殊情况, 特殊处理</h5><p>如果下一个词法单元符合预期, 则采用 <strong>“单词法符号移除 (single-token deletion)”</strong> 或 <strong>“单词法符号补全 (single-token insertion)” 策略”</strong></p>
+<ul>
+<li>单词法符号移除</li>
+</ul>
+<p><img src="/2023/03/31/23-Compilers/ch08/image-20230419135832643.png" alt="image-20230419135832643"></p>
+<p>符号移除：多出一个符号，接下来的符号是期望的，就把多出来的移除</p>
+<p>​	<img src="/2023/03/31/23-Compilers/ch08/image-20230421131926277.png" alt="image-20230421131926277"></p>
+<ul>
+<li>单词法符号补全</li>
+</ul>
+<p><img src="/2023/03/31/23-Compilers/ch08/image-20230419135849798.png" alt="image-20230419135849798"></p>
+<p>符号补全：缺一个类名，补全</p>
+<p><strong>单词法：只处理一个单词的情况</strong></p>
+<h5 id="2-一般情况-统一处理"><a href="#2-一般情况-统一处理" class="headerlink" title="(2) 一般情况, 统一处理"></a>(2) 一般情况, 统一处理</h5><p>采用 <strong>“同步-返回 (sync-and-return)”</strong> 策略, 使用 <strong>“重新同步集合 (resynchronization set)”</strong> 从当前规则中恢复</p>
+<p>例子：</p>
+<p><img src="/2023/03/31/23-Compilers/ch08/image-20230419153244753.png" alt="image-20230419153244753"></p>
+<p>Following({expr, atom}) &#x3D; { ˆ , ]} </p>
+<p><img src="/2023/03/31/23-Compilers/ch08/image-20230419153252803.png" alt="image-20230419153252803"></p>
+<p>Following({expr}) &#x3D; {]}</p>
+<p>输入为一对中括号[]：</p>
+<ul>
+<li>ANTLR4能识别，并且补全中间缺少的应该有的内容</li>
+<li>正常匹配expr和atom：因为没有别的可选项</li>
+<li>int与]不匹配，持续往后扫描，<strong>抛弃一些符号，直到找到一个想要的词法单元</strong>：<strong>即following({expr, atom})集合</strong>，要么是^要么是]，找到了就表明可以恢复</li>
+<li>这个例子没有抛弃任何符号</li>
+<li>从atom恢复到expr这一层，下面期望^，但指向的符号是]，所以<strong>扔一些词法单元，直到找到following({expr})&#x3D;&#x3D; {]}</strong></li>
+<li>这一层也没有抛弃任何词法单元</li>
+<li>从expr恢复到group，group需要]，匹配上了，完成恢复过程</li>
+<li>恢复：当前符号不是我想要的，哪些符号是我想要的：假设能够匹配成功atom，期望一个幂运算的符号^，假设能够匹配成功expr，期望一个]或)（ 但是‘)’是不可能的，因为前面已经匹配成功‘]’，已经选定了第一条规则 ），这时候正好下一个字符是]，于是匹配掉了，后面的内容就可以正常匹配了</li>
+<li><strong>恢复是一层一层完成的</strong></li>
+<li>蚂蚁蚂蚁的恢复解释：丢弃词法单元直到碰到当前 Following 集合中的某个词法单元，然后从当前规则中恢复，也就是返回上一层，继续分析。比如，在 <code>【】</code> 例子中，atom 期望 INT&#x2F;ID，与 ] 不匹配，则不断丢弃输入中的词法单元，直到遇到 ^ 或者 ]。对于这个例子，恰巧当前词法单元就是 ]，所以并没有丢弃任何词法单元，就能从 atom 中恢复，返回到 expr 层。expr 期望看到 ^，与 ] 也不匹配，则不断丢弃词法单元直到遇到 ]。这里同样也没有丢弃任何词法单元，就能从 expr 中恢复，返回到 group 层。group 期望看到 ]，与当前词法单元匹配，成功恢复。</li>
+</ul>
+<p>Follow (静态) 集合与 Following (动态) 集合的区别：</p>
+<ul>
+<li>这是一个正在进行时的集合</li>
+<li>就当前来看，一定是选择了某个备选分支才到现在，所以是动态的概念</li>
+</ul>
+<h5 id="3-统一处理-精细控制"><a href="#3-统一处理-精细控制" class="headerlink" title="(3) 统一处理, 精细控制"></a>(3) 统一处理, 精细控制</h5><p>如何从子规则中优雅地恢复出来?</p>
+<p>如果循环出错：跳过当前的（即continue），但是继续循环</p>
+<p>Class-Subrule-Start.txt <strong>(“单词法符号移除</strong>”) </p>
+<p>Class-Subrule-Loop.txt (<strong>“另一次 member 迭代”</strong>) </p>
+<p>Class-Subrule-End.txt (<strong>“退出当前 classDef 规则”</strong>)</p>
+<p>具体实现不讲，可以自行阅读代码</p>
+<h5 id="4-自定义错误处理策略"><a href="#4-自定义错误处理策略" class="headerlink" title="(4) 自定义错误处理策略"></a>(4) 自定义错误处理策略</h5><ul>
+<li>比如, (已知语法正确) 关闭默认错误处理功能, 提高运行效率  </li>
+<li>比如, (出错代价太大) 在遇到第一个语法错误时, 就停止分析</li>
+</ul>
+<p>第 9 章: 错误报告与恢复：有点乱</p>
+<h3 id="ALL-文法"><a href="#ALL-文法" class="headerlink" title="ALL(*)文法"></a>ALL(*)文法</h3><p>例子1：</p>
+<p><img src="/2023/03/31/23-Compilers/ch08/image-20230421182649302.png" alt="image-20230421182649302"></p>
+<p>这不是 LL(1) 文法，也不是 LL(k) 文法 (∀k ≥ 1)</p>
+<p>对任意可能输入，这是一个LL(*)文法，因为没有办法通过向前看一个固定数量（常数）的字符来确定选用哪个展开式，即LL(K)</p>
+<p>但是ANTLR4能解决，因为和输入有关，是动态的视角，只根据当前的字符串</p>
+<p>bc或者bd选择哪一个生成式：</p>
+<p>bc选第一条，因为c只能由第一条产生</p>
+<h3 id="文法用图示表示：增强迁移网络ATN"><a href="#文法用图示表示：增强迁移网络ATN" class="headerlink" title="文法用图示表示：增强迁移网络ATN"></a>文法用图示表示：增强迁移网络ATN</h3><p><img src="/2023/03/31/23-Compilers/ch08/image-20230421184118231.png" alt="image-20230421184118231"></p>
+<ul>
+<li>起始状态：Ps</li>
+<li>接受状态：P’s</li>
+<li>如果A和c都能匹配，说明第一条备选分支能被选择</li>
+<li><strong>因为A不是终结符，所以A也有ATN</strong></li>
+<li><strong>Incrementally and dynamically</strong> build up a <strong>lookahead DFA</strong> that <strong>map lookahead phrases to predicated productions</strong>.</li>
+<li>ANTLR4识别文本的时候，是在增量式的、动态式的构建一个DFA，叫向前看DFA<ul>
+<li>为每个非终结符都构建一个向前看DFA</li>
+</ul>
+</li>
+</ul>
+<p>假设要匹配的文本是bc和bd</p>
+<p>状态转移是由输入字符驱动的</p>
+<p>向前看DFA的<strong>作用</strong>，把当前输入的前缀（够判断使用哪一条展开式的前缀）映射到对应的备选分支上，如果前两个字符为bc，就选第一条，前两个字符为bd，就选第二条</p>
+<p>构建完DFA后，就跟LL(1)一样了</p>
+<h4 id="向前看DFA核心思想"><a href="#向前看DFA核心思想" class="headerlink" title="向前看DFA核心思想"></a>向前看DFA核心思想</h4><p>▶ Launch subparsers at a decision point, one per alternative productions. </p>
+<p>▶ These subparsers run in pseudo-parallel to explore all possible paths. </p>
+<p>▶ Subparsers die off as their paths fail to match the remaining input. </p>
+<p>▶ Ambiguity: Multiple subparsers coalesce together or reach EOF. </p>
+<p>▶ Resolution: The first production associated with a surviving subparser.</p>
+<ul>
+<li>多个分析器同时探测多个备选分支</li>
+<li>同步：输入1个词法，各个分析器调整自己的状态，循环</li>
+<li>死亡：如果探测器期望的词法单元和当前的词法单元不匹配，分析不下去了，分支就die了</li>
+<li>有歧义：<ul>
+<li>如果有多条分析器在分支上都走到了输入被消耗完的情况，意味着，根据当前的输入无法决定使用哪个备选分支，即<strong>有歧义</strong></li>
+<li><strong>有歧义</strong>的另一种情况：如果多条分支在分析某个input的时候，走到了同一个状态，接下来路径也必定一样，意味着当前输入也无法确定到底是哪个</li>
+</ul>
+</li>
+<li>正常的情况：有且仅有一条路径成功活到某个节点，即选择这个分支</li>
+</ul>
+<h4 id="例子讲解"><a href="#例子讲解" class="headerlink" title="例子讲解"></a>例子讲解</h4><p><img src="/2023/03/31/23-Compilers/ch08/image-20230421195857108.png" alt="image-20230421195857108"></p>
+<p><img src="/2023/03/31/23-Compilers/ch08/image-20230421184717974.png" alt="image-20230421184717974"></p>
+<p>以bc和bd为输入</p>
+<p>展开S非终结符</p>
+<ul>
+<li>D0：三元组：第一个分量是所处状态的符号，第二个分量表示正在探索第几条分支<ul>
+<li>一些状态是等价的、无法区分的：A是非终结符，展开S，等价于展开A：S可能生成哪些橘子取决于A能展开成哪些词法单元，S依赖于A，所以ps和Pa无法分开，因为Pa和Pa.1和Pa.2无法分开，所以这四个状态相同</li>
+<li>p1和p3和null：p1：A的递归调用结束后返回的指针</li>
+</ul>
+</li>
+<li>D’：只在Pa.2上有b：P7是由Ps1来的，ε转移到P‘a，上下第二组返回到p1和p3</li>
+<li>f1：看到c，于是只有第一条还活着</li>
+<li>f2：看到d，于是只有第二条活着</li>
+<li>只有第二次bd看到d，f2状态才被构建</li>
+</ul>
+<p>然后可以选择哪个备选分支，接下来就是常规处理</p>
+<p><strong>转移，然后ε转移求闭包、不动点，整个过程和从NFA生成DFA的子集构造法一模一样：</strong></p>
+<p>通过一个符号move一步，构建黑体粗体所写的正确状态，然后再由这些状态通过一个闭包去生成等价的状态</p>
+<p>不同的是：NFA构造DFA过程中，只是通过ε转移去扩展新的状态，但在这，碰到非终结符，要调用非终结符对应的子网络</p>
+<p><strong>语法分析暂时告一段落：LL语法已学，LR语法未学</strong></p>
+
+        
+      </div>
+
+         
+    </div>
+    
+     
+  </div>
+  
+    
+<nav id="article-nav">
+  <a class="article-nav-btn left "
+    
+      href="/2023/04/01/23-Compilers/ch09-%E8%AF%AD%E4%B9%89%E5%88%86%E6%9E%90-%E7%AC%A6%E5%8F%B7%E8%A1%A8/"
+      title="ch09-语义分析-符号表"
+     >
+    <i class="fa-solid fa-angle-left"></i>
+    <p class="title-text">
+      
+        ch09-语义分析-符号表
+        
+    </p>
+  </a>
+  <a class="article-nav-btn right "
+    
+      href="/2023/03/30/23-Compilers/ch07/"
+      title="ch07- LL(1) 语法分析器"
+     >
+
+    <p class="title-text">
+      
+        ch07- LL(1) 语法分析器
+        
+    </p>
+    <i class="fa-solid fa-angle-right"></i>
+  </a>
+</nav>
+
+
+  
+</article>
+
+
+  
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <div id="comment-card" class="comment-card">
+    <div class="main-title-bar">
+      <div class="main-title-dot"></div>
+      <div class="main-title">留言 </div>
+    </div>
+    <div id="vcomments"></div>
+  </div>
+  <script>
+      new Valine({"enable":true,"appId":null,"appKey":null,"placeholder":"Just go go","pageSize":20,"highlight":true,"serverURLs":null,"el":"#vcomments"});
+  </script>
+ 
+    </div>
+    <div id="footer-wrapper">
+      <footer id="footer">
+  
+  <div id="footer-info" class="inner">
+    
+      <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris"></a>
+    
+    &copy; 2023 Asimov<br>
+    Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & Theme <a target="_blank" rel="noopener" href="https://github.com/saicaca/hexo-theme-vivia">Vivia</a>
+  </div>
+</footer>
+
+    </div>
+    <div class="back-to-top-wrapper">
+    <button id="back-to-top-btn" class="back-to-top-btn hide" onclick="topFunction()">
+        <i class="fa-solid fa-angle-up"></i>
+    </button>
+</div>
+
+<script>
+    function topFunction() {
+        window.scroll({ top: 0, behavior: 'smooth' });
+    }
+    let btn = document.getElementById('back-to-top-btn');
+    function scrollFunction() {
+        if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+            btn.classList.remove('hide')
+        } else {
+            btn.classList.add('hide')
+        }
+    }
+    window.onscroll = function() {
+        scrollFunction();
+    }
+</script>
+
+  </div>
+  <script src="/js/light-dark-switch.js"></script>
+</body>
+</html>

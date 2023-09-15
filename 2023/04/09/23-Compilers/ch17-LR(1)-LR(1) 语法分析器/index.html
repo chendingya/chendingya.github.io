@@ -14,26 +14,49 @@
   
 
   
-  <title>Hello World | Asimov&#39;s Blog</title>
+  <title>ch17-LR(1)-LR(1) 语法分析器 | Asimov&#39;s Blog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
   <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
   <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="ch17-LR(1)-LR(1) 语法分析器SLR(1)文法FOLLOW(E) SLR(1) 分析表   算一下FOLLOW(A)后面能跟哪些终结符，这些终结符所对应的单元格才填规约，其他的都不规约  分析表和两种冲突 非 SLR(1) 文法举例指针文法   看到&#x3D;，先移入，&#x3D;也属于follow(R)，所以也要规约，所以冲突  即使考虑了&#x3D; ∈ Follow(R),">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="https://chendingya.github.io/2022/10/25/hello-world/index.html">
+<meta property="og:title" content="ch17-LR(1)-LR(1) 语法分析器">
+<meta property="og:url" content="https://chendingya.github.io/2023/04/09/23-Compilers/ch17-LR(1)-LR(1)%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/index.html">
 <meta property="og:site_name" content="Asimov&#39;s Blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="ch17-LR(1)-LR(1) 语法分析器SLR(1)文法FOLLOW(E) SLR(1) 分析表   算一下FOLLOW(A)后面能跟哪些终结符，这些终结符所对应的单元格才填规约，其他的都不规约  分析表和两种冲突 非 SLR(1) 文法举例指针文法   看到&#x3D;，先移入，&#x3D;也属于follow(R)，所以也要规约，所以冲突  即使考虑了&#x3D; ∈ Follow(R),">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://chendingya.github.io/2022/10/25/hello-world/image-20230725225413949.png">
-<meta property="article:published_time" content="2022-10-25T03:40:36.000Z">
-<meta property="article:modified_time" content="2023-07-25T14:58:59.957Z">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/09/23-Compilers/ch17-LR(1)-LR(1)%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623144436433.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/09/23-Compilers/ch17-LR(1)-LR(1)%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623144505895.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/09/23-Compilers/ch17-LR(1)-LR(1)%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623162238320.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/09/23-Compilers/ch17-LR(1)-LR(1)%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623162311620.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/09/23-Compilers/ch17-LR(1)-LR(1)%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623162747639.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/09/23-Compilers/ch17-LR(1)-LR(1)%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623163057551.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/09/23-Compilers/ch17-LR(1)-LR(1)%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623164005201.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/09/23-Compilers/ch17-LR(1)-LR(1)%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623164317410.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/09/23-Compilers/ch17-LR(1)-LR(1)%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623164938536.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/09/23-Compilers/ch17-LR(1)-LR(1)%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623165244815.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/09/23-Compilers/ch17-LR(1)-LR(1)%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623165301238.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/09/23-Compilers/ch17-LR(1)-LR(1)%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623165522966.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/09/23-Compilers/ch17-LR(1)-LR(1)%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623165538722.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/09/23-Compilers/ch17-LR(1)-LR(1)%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623171716722.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/09/23-Compilers/ch17-LR(1)-LR(1)%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623171816213.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/09/23-Compilers/ch17-LR(1)-LR(1)%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623172636378.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/09/23-Compilers/ch17-LR(1)-LR(1)%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623172840842.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/09/23-Compilers/ch17-LR(1)-LR(1)%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623173217112.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/09/23-Compilers/ch17-LR(1)-LR(1)%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623173404935.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/09/23-Compilers/ch17-LR(1)-LR(1)%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623175153629.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/09/23-Compilers/ch17-LR(1)-LR(1)%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623195442549.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/09/23-Compilers/ch17-LR(1)-LR(1)%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623195453068.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/09/23-Compilers/ch17-LR(1)-LR(1)%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623195500871.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/04/09/23-Compilers/ch17-LR(1)-LR(1)%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623195510420.png">
+<meta property="article:published_time" content="2023-04-09T02:02:34.000Z">
+<meta property="article:modified_time" content="2023-09-14T11:12:56.036Z">
 <meta property="article:author" content="Asimov">
-<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="编译原理">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://chendingya.github.io/2022/10/25/hello-world/image-20230725225413949.png">
+<meta name="twitter:image" content="https://chendingya.github.io/2023/04/09/23-Compilers/ch17-LR(1)-LR(1)%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623144436433.png">
   
     <link rel="alternate" href="/atom.xml" title="Asimov's Blog" type="application/atom+xml">
   
@@ -274,7 +297,7 @@
     <div id="content-body">
        
 
-<article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+<article id="post-23-Compilers/ch17-LR(1)-LR(1) 语法分析器" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   
     
    
@@ -287,7 +310,7 @@
   
     
       <h1 class="p-name article-title" itemprop="headline name">
-        Hello World
+        ch17-LR(1)-LR(1) 语法分析器
       </h1>
     
   
@@ -295,40 +318,130 @@
 
         <div class='meta-info-bar'>
           <div class="meta-info">
-  <time class="dt-published" datetime="2022-10-25T03:40:36.000Z" itemprop="datePublished">2022-10-25</time>
+  <time class="dt-published" datetime="2023-04-09T02:02:34.000Z" itemprop="datePublished">2023-04-09</time>
 </div>
           <div class="need-seperator meta-info">
             <div class="meta-cate-flex">
   
-  <a class="meta-cate-link" href="/categories/Hexo/">Hexo</a>
+  <a class="meta-cate-link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">编译原理</a>
    
 </div>
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            80 词 
+            1.3k 词 
           </div>
         </div>
         
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" rel="tag">编译原理</a></li></ul>
 
       </header>
       <div class="e-content article-entry" itemprop="articleBody">
         
-          <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-<p><img src="/2022/10/25/hello-world/image-20230725225413949.png" alt="image-20230725225413949"></p>
+          <h1 id="ch17-LR-1-LR-1-语法分析器"><a href="#ch17-LR-1-LR-1-语法分析器" class="headerlink" title="ch17-LR(1)-LR(1) 语法分析器"></a>ch17-LR(1)-LR(1) 语法分析器</h1><h2 id="SLR-1"><a href="#SLR-1" class="headerlink" title="SLR(1)"></a>SLR(1)</h2><h3 id="文法FOLLOW-E"><a href="#文法FOLLOW-E" class="headerlink" title="文法FOLLOW(E)"></a>文法FOLLOW(E)</h3><p><img src="/2023/04/09/23-Compilers/ch17-LR(1)-LR(1)%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623144436433.png" alt="image-20230623144436433"></p>
+<p>SLR(1) 分析表</p>
+<p><img src="/2023/04/09/23-Compilers/ch17-LR(1)-LR(1)%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623144505895.png" alt="image-20230623144505895"></p>
+<ul>
+<li>算一下FOLLOW(A)后面能跟哪些终结符，这些终结符所对应的单元格才填规约，其他的都不规约</li>
+</ul>
+<h3 id="分析表和两种冲突"><a href="#分析表和两种冲突" class="headerlink" title="分析表和两种冲突"></a>分析表和两种冲突</h3><p><img src="/2023/04/09/23-Compilers/ch17-LR(1)-LR(1)%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623162238320.png" alt="image-20230623162238320"></p>
+<h4 id="非-SLR-1-文法举例"><a href="#非-SLR-1-文法举例" class="headerlink" title="非 SLR(1) 文法举例"></a>非 SLR(1) 文法举例</h4><p>指针文法</p>
+<p><img src="/2023/04/09/23-Compilers/ch17-LR(1)-LR(1)%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623162311620.png" alt="image-20230623162311620"></p>
+<ul>
+<li><p>看到&#x3D;，先移入，&#x3D;也属于follow(R)，所以也要规约，所以冲突</p>
+</li>
+<li><p>即使考虑了&#x3D; ∈ Follow(R), 对该文法来说仍然不够 </p>
+</li>
+<li><p>因为, 这仅仅说明 &#x3D; 可能跟在 R 后面, 是一种 “粗糙” 的估计</p>
+</li>
+</ul>
+<p><img src="/2023/04/09/23-Compilers/ch17-LR(1)-LR(1)%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623162747639.png" alt="image-20230623162747639"></p>
+<p><strong>实际上, 该文法没有以 R &#x3D; · · · 开头的最右句型</strong></p>
+<p><img src="/2023/04/09/23-Compilers/ch17-LR(1)-LR(1)%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623163057551.png" alt="image-20230623163057551"></p>
+<ul>
+<li>FIRST(γ)肯定包含在FOLLOW(A)中，所以缩小了范围</li>
+</ul>
+<p><img src="/2023/04/09/23-Compilers/ch17-LR(1)-LR(1)%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623164005201.png" alt="image-20230623164005201"></p>
+<ul>
+<li>规约的时候的依据</li>
+<li>是怎么来的，follow(A)</li>
+<li>来的时候谁跟在后面，first(γ)</li>
+</ul>
+<h2 id="LR-1"><a href="#LR-1" class="headerlink" title="LR(1)"></a>LR(1)</h2><p><img src="/2023/04/09/23-Compilers/ch17-LR(1)-LR(1)%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623164317410.png" alt="image-20230623164317410"></p>
+<p>核心是看a怎么计算</p>
+<p>每一个项，都要计算 , 后面的部分</p>
+<ul>
+<li>求闭包closure</li>
+<li>从一个状态goto到另一个状态</li>
+</ul>
+<p><img src="/2023/04/09/23-Compilers/ch17-LR(1)-LR(1)%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623164938536.png" alt="image-20230623164938536"></p>
+<ul>
+<li>β有可能是空，所以FIRST(βa) !&#x3D; FIRST(a)</li>
+<li>这是唯一区别</li>
+</ul>
+<p><img src="/2023/04/09/23-Compilers/ch17-LR(1)-LR(1)%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623165244815.png" alt="image-20230623165244815"></p>
+<p><img src="/2023/04/09/23-Compilers/ch17-LR(1)-LR(1)%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623165301238.png" alt="image-20230623165301238"></p>
+<ul>
+<li>增广的文法，期望输入以S开头，$结束</li>
+</ul>
+<h3 id="实例演示"><a href="#实例演示" class="headerlink" title="实例演示"></a>实例演示</h3><p><img src="/2023/04/09/23-Compilers/ch17-LR(1)-LR(1)%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623165522966.png" alt="image-20230623165522966"></p>
+<ul>
+<li>先算FIRST和FOLLOW</li>
+</ul>
+<h3 id="构造规则："><a href="#构造规则：" class="headerlink" title="构造规则："></a>构造规则：</h3><p><img src="/2023/04/09/23-Compilers/ch17-LR(1)-LR(1)%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623165538722.png" alt="image-20230623165538722"></p>
+<ul>
+<li>可能的句柄能不能规约只看是不是a，只在a这个位置上规约他</li>
+<li>a可能是集合，比如之前例子里的c&#x2F;d，那么只在c和d那两个终结符的单元格里规约他</li>
+</ul>
+<p>Definition (LR(1) 文法) </p>
+<p>如果文法 G 的LR(1) 分析表是无冲突的, 则 G 是 LR(1) 文法</p>
+<p><img src="/2023/04/09/23-Compilers/ch17-LR(1)-LR(1)%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623171716722.png" alt="image-20230623171716722"></p>
+<p>对应的正则表达式：L(G) &#x3D; c ∗ dc∗ d</p>
+<p>输入ccdcd$过程：</p>
+<ul>
+<li>移入0$</li>
+<li>移入c3</li>
+<li>移入c3</li>
+<li>看到d，d4</li>
+<li>看到c，弹出d，状态3，加入C，状态8</li>
+<li>看到c，规约，弹出c，C，状态0，压入C，状态2</li>
+<li>看到c，状态6</li>
+<li>看到d，状态7</li>
+<li>看到$，弹出d，状态6，移入C，状态9</li>
+<li>看到$，弹出C，c，状态,2，移入C，状态5</li>
+<li>看到$，弹出CC，状态0，移入S，状态1</li>
+<li></li>
+</ul>
+<p><img src="/2023/04/09/23-Compilers/ch17-LR(1)-LR(1)%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623171816213.png" alt="image-20230623171816213"></p>
+<p>LR(1) 虽然强大, 但是生成的 LR(1) <strong>分析表可能过大</strong>, 状态过多</p>
+<p>LALR(1) : 合并具有相同核心 LR(0)项的状态 (忽略不同的向前看符号)</p>
+<ul>
+<li><p>但是合并完并不是完全的LR(0)，比如例子里的0125状态都比LR(0)有更多的信息</p>
+</li>
+<li><p>36状态合并，出边都是相同的C,c,d（ LR(0)相同，决定了出边相同）</p>
+</li>
+<li><p>47合并状态也是一样的，36通过d去往47，同理89状态也可以合并</p>
+</li>
+<li><p><strong>合并时先选没有出边的状态</strong></p>
+</li>
+</ul>
+<p><img src="/2023/04/09/23-Compilers/ch17-LR(1)-LR(1)%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623172636378.png" alt="image-20230623172636378"></p>
+<p>LALR(1)能力比LR(1)弱，但事实上很多语言的实现都是LALR(1)</p>
+<h4 id="关于冲突的证明"><a href="#关于冲突的证明" class="headerlink" title="关于冲突的证明"></a>关于冲突的证明</h4><p><img src="/2023/04/09/23-Compilers/ch17-LR(1)-LR(1)%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623172840842.png" alt="image-20230623172840842"></p>
+<ul>
+<li>不可能同时包含下面的两个状态，因为A表示规约，B表示移入</li>
+<li>还有一段没听懂（</li>
+</ul>
+<p><img src="/2023/04/09/23-Compilers/ch17-LR(1)-LR(1)%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623173217112.png" alt="image-20230623173217112"></p>
+<p><img src="/2023/04/09/23-Compilers/ch17-LR(1)-LR(1)%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623173404935.png" alt="image-20230623173404935"></p>
+<p>Q: 但是你却通过 LR(1) 自动机构造 LALR(1) 项集族? </p>
+<p>第 4.7.5 节 (本科教学版): 高效构造 LALR(1) 语法分析表的方法</p>
+<p><img src="/2023/04/09/23-Compilers/ch17-LR(1)-LR(1)%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623175153629.png" alt="image-20230623175153629"></p>
+<p>与直觉上认知矛盾</p>
+<p><img src="/2023/04/09/23-Compilers/ch17-LR(1)-LR(1)%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623195442549.png" alt="image-20230623195442549"></p>
+<p><img src="/2023/04/09/23-Compilers/ch17-LR(1)-LR(1)%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623195453068.png" alt="image-20230623195453068"></p>
+<p><img src="/2023/04/09/23-Compilers/ch17-LR(1)-LR(1)%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623195500871.png" alt="image-20230623195500871"></p>
+<p><img src="/2023/04/09/23-Compilers/ch17-LR(1)-LR(1)%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623195510420.png" alt="image-20230623195510420"></p>
 
         
       </div>
@@ -343,20 +456,25 @@
 <nav id="article-nav">
   <a class="article-nav-btn left "
     
-      href="/2023/03/29/23-Compilers/ch06/"
-      title="ch06-Listener & Visitor & 上下文无关文法"
+      href="/2023/04/10/23-Compilers/ch18-codegen-riscv-RISC-V%20%E6%A6%82%E8%BF%B0/"
+      title="ch18-codegen-riscv-RISC-V 概述"
      >
     <i class="fa-solid fa-angle-left"></i>
     <p class="title-text">
       
-        ch06-Listener &amp; Visitor &amp; 上下文无关文法
+        ch18-codegen-riscv-RISC-V 概述
         
     </p>
   </a>
-  <a class="article-nav-btn right  disabled "
+  <a class="article-nav-btn right "
+    
+      href="/2023/04/08/23-Compilers/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/"
+      title="ch16-parser-lr0-LR0 语法分析器"
      >
 
     <p class="title-text">
+      
+        ch16-parser-lr0-LR0 语法分析器
         
     </p>
     <i class="fa-solid fa-angle-right"></i>

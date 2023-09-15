@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+
+
+<html theme="dark" showBanner="true" hasBanner="true" > 
+<link href="/fontawesome/css/fontawesome.css" rel="stylesheet">
+<link href="/fontawesome/css/brands.css" rel="stylesheet">
+<link href="/fontawesome/css/solid.css" rel="stylesheet">
+<script src="/js/color.global.min.js" ></script>
+<script src="/js/load-settings.js" ></script>
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+
+  
+  <title>ch07- LL(1) 语法分析器 | Asimov&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+  <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+
+  <meta name="description" content="ch07 LL(1) 语法分析器 构建语法分析树: 自顶向下 vs. 自底向上 只考虑无二义性的文法 这意味着, 每个句子对应唯一的一棵语法分析树 自顶向下的、 递归下降的、 基于预测分析表的、 适用于LL(1) 文法的、 LL(1) 语法分析器 自顶向下构建语法分析树 根节点是文法的起始符号 S  每个中间节点表示对某个非终结符应用某个产生式进行推导 (Q : 选择哪个非终结符, 以及选择哪个产">
+<meta property="og:type" content="article">
+<meta property="og:title" content="ch07- LL(1) 语法分析器">
+<meta property="og:url" content="https://chendingya.github.io/2023/03/30/23-Compilers/ch07/index.html">
+<meta property="og:site_name" content="Asimov&#39;s Blog">
+<meta property="og:description" content="ch07 LL(1) 语法分析器 构建语法分析树: 自顶向下 vs. 自底向上 只考虑无二义性的文法 这意味着, 每个句子对应唯一的一棵语法分析树 自顶向下的、 递归下降的、 基于预测分析表的、 适用于LL(1) 文法的、 LL(1) 语法分析器 自顶向下构建语法分析树 根节点是文法的起始符号 S  每个中间节点表示对某个非终结符应用某个产生式进行推导 (Q : 选择哪个非终结符, 以及选择哪个产">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/30/23-Compilers/ch07/image-20230407130558399.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/30/23-Compilers/ch07/image-20230407131743295.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/30/23-Compilers/ch07/image-20230407131921718.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/30/23-Compilers/ch07/image-20230407173718296.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/30/23-Compilers/ch07/image-20230407182730941.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/30/23-Compilers/ch07/image-20230407190235069.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/30/23-Compilers/ch07/image-20230407190325780.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/30/23-Compilers/ch07/image-20230407191229025.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/30/23-Compilers/ch07/image-20230407200206884.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/30/23-Compilers/ch07/image-20230407200810018.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/30/23-Compilers/ch07/image-20230407200908885.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/30/23-Compilers/ch07/image-20230407200929058.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/30/23-Compilers/ch07/image-20230407201805026.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/30/23-Compilers/ch07/image-20230412111153214.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/30/23-Compilers/ch07/image-20230412111233114.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/30/23-Compilers/ch07/image-20230412170532841.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/30/23-Compilers/ch07/image-20230412170913024.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/30/23-Compilers/ch07/image-20230412171009946.png">
+<meta property="article:published_time" content="2023-03-30T02:02:34.000Z">
+<meta property="article:modified_time" content="2023-09-14T10:47:32.697Z">
+<meta property="article:author" content="Asimov">
+<meta property="article:tag" content="编译原理">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://chendingya.github.io/2023/03/30/23-Compilers/ch07/image-20230407130558399.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Asimov's Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-192.png" sizes="192x192">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-192.png" sizes="192x192">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  
+  
+    
+<div id="banner" class="">
+  <img src="/pic/back.png" itemprop="image">
+  <div id="banner-dim"></div>
+</div>
+ 
+   
+  <div id="main-grid" class="shadow   ">
+    <div id="nav" class=""  >
+      <navbar id="navbar">
+  <nav id="title-nav">
+    <a href="/">
+      <div id="vivia-logo">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div>Asimov's Blog </div>
+    </a>
+  </nav>
+  <nav id="main-nav">
+    
+      <a class="main-nav-link" href="/">Home</a>
+    
+      <a class="main-nav-link" href="/archives">Archives</a>
+    
+      <a class="main-nav-link" href="/about">About</a>
+    
+  </nav>
+  <nav id="sub-nav">
+    <a id="theme-btn" class="nav-icon">
+      <span class="light-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M438.5-829.913v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-829.913Zm0 747.826v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-82.087ZM877.913-438.5h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537t29.476-12.174h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T877.913-438.5Zm-747.826 0h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T82.087-521.5h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T130.087-438.5Zm660.174-290.87-34.239 32q-12.913 12.674-29.565 12.174-16.653-.5-29.327-13.174-12.674-12.673-12.554-28.826.12-16.152 12.794-28.826l33-35q12.913-12.674 30.454-12.674t30.163 12.847q12.709 12.846 12.328 30.826-.38 17.98-13.054 30.653ZM262.63-203.978l-32 34q-12.913 12.674-30.454 12.674t-30.163-12.847q-12.709-12.846-12.328-30.826.38-17.98 13.054-30.653l33.239-31q12.913-12.674 29.565-12.174 16.653.5 29.327 13.174 12.674 12.673 12.554 28.826-.12 16.152-12.794 28.826Zm466.74 33.239-32-33.239q-12.674-12.913-12.174-29.565.5-16.653 13.174-29.327 12.673-12.674 28.826-13.054 16.152-.38 28.826 12.294l35 33q12.674 12.913 12.674 30.454t-12.847 30.163q-12.846 12.709-30.826 12.328-17.98-.38-30.653-13.054ZM203.978-697.37l-34-33q-12.674-12.913-13.174-29.945-.5-17.033 12.174-29.707t31.326-13.293q18.653-.62 31.326 13.054l32 34.239q11.674 12.913 11.174 29.565-.5 16.653-13.174 29.327-12.673 12.674-28.826 12.554-16.152-.12-28.826-12.794ZM480-240q-100 0-170-70t-70-170q0-100 70-170t170-70q100 0 170 70t70 170q0 100-70 170t-170 70Zm-.247-82q65.703 0 111.475-46.272Q637-414.544 637-480.247t-45.525-111.228Q545.95-637 480.247-637t-111.475 45.525Q323-545.95 323-480.247t45.525 111.975Q414.05-322 479.753-322ZM481-481Z"/></svg></span>
+      <span class="dark-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M480.239-116.413q-152.63 0-258.228-105.478Q116.413-327.37 116.413-480q0-130.935 77.739-227.435t206.304-125.043q43.022-9.631 63.87 10.869t3.478 62.805q-8.891 22.043-14.315 44.463-5.424 22.42-5.424 46.689 0 91.694 64.326 155.879 64.325 64.186 156.218 64.186 24.369 0 46.978-4.946 22.609-4.945 44.413-14.076 42.826-17.369 62.967 1.142 20.142 18.511 10.511 61.054Q807.174-280 712.63-198.206q-94.543 81.793-232.391 81.793Zm0-95q79.783 0 143.337-40.217 63.554-40.218 95.793-108.283-15.608 4.044-31.097 5.326-15.49 1.283-31.859.805-123.706-4.066-210.777-90.539-87.071-86.473-91.614-212.092-.24-16.369.923-31.978 1.164-15.609 5.446-30.978-67.826 32.478-108.282 96.152Q211.652-559.543 211.652-480q0 111.929 78.329 190.258 78.329 78.329 190.258 78.329ZM466.13-465.891Z"/></svg></span>
+    </a>
+    
+      <a id="nav-rss-link" class="nav-icon mobile-hide" href="/atom.xml" title="RSS 订阅">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-120q-25.846 0-44.23-18.384-18.384-18.385-18.384-44.23 0-25.846 18.384-44.23 18.384-18.385 44.23-18.385 25.846 0 44.23 18.385 18.384 18.384 18.384 44.23 0 25.845-18.384 44.23Q223.846-120 198-120Zm538.385 0q-18.846 0-32.923-13.769-14.076-13.769-15.922-33.23-8.692-100.616-51.077-188.654-42.385-88.039-109.885-155.539-67.5-67.501-155.539-109.885Q283-663.462 182.385-672.154q-19.461-1.846-33.23-16.23-13.769-14.385-13.769-33.846t14.076-32.922q14.077-13.461 32.923-12.23 120.076 8.692 226.038 58.768 105.961 50.077 185.73 129.846 79.769 79.769 129.846 185.731 50.077 105.961 58.769 226.038 1.231 18.846-12.538 32.922Q756.461-120 736.385-120Zm-252 0q-18.231 0-32.423-13.461t-18.653-33.538Q418.155-264.23 348.886-333.5q-69.27-69.27-166.501-84.423-20.077-4.462-33.538-18.961-13.461-14.5-13.461-33.346 0-19.076 13.884-33.23 13.884-14.153 33.115-10.922 136.769 15.384 234.384 112.999 97.615 97.615 112.999 234.384 3.231 19.23-10.538 33.115Q505.461-120 484.385-120Z"/></svg>
+      </a>
+    
+    <div id="nav-menu-btn" class="nav-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M177.37-252.282q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Zm0-186.218q-17.453 0-29.477-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T177.37-521.5h605.26q17.453 0 29.477 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T782.63-438.5H177.37Zm0-186.217q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Z"/></svg>
+    </div>
+  </nav>
+</navbar>
+<div id="nav-dropdown" class="hidden">
+  <div id="dropdown-link-list">
+    
+      <a class="nav-dropdown-link" href="/">Home</a>
+    
+      <a class="nav-dropdown-link" href="/archives">Archives</a>
+    
+      <a class="nav-dropdown-link" href="/about">About</a>
+    
+    
+      <a class="nav-dropdown-link" href="/atom.xml" title="RSS 订阅">RSS</a>
+     
+    </div>
+</div>
+<script>
+  let dropdownBtn = document.getElementById("nav-menu-btn");
+  let dropdownEle = document.getElementById("nav-dropdown");
+  dropdownBtn.onclick = function() {
+    dropdownEle.classList.toggle("hidden");
+  }
+</script>
+    </div>
+    <div id="sidebar-wrapper">
+      <sidebar id="sidebar">
+  
+    <div class="widget-wrap">
+  <div class="info-card">
+    <div class="avatar">
+      
+        <image src=/pic/avatar.png></image>
+      
+      <div class="img-dim"></div>
+    </div>
+    <div class="info">
+      <div class="username">Asimov </div>
+      <div class="dot"></div>
+      <div class="subtitle">Asimov's Blog </div>
+      <div class="link-list">
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://github.com/chendingya" title="GitHub"><i class="fa-brands fa-github"></i></a>
+         
+      </div>  
+    </div>
+  </div>
+</div>
+
+  
+  <div class="sticky">
+    
+      
+
+
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">分类</h3>
+      <div class="category-box">
+            <a class="category-link" href="/categories/hello-world/">
+                hello world
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/Hexo/">
+                Hexo
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
+                编译原理
+                <div class="category-count">13</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E9%A9%BE%E8%80%83/">
+                驾考
+                <div class="category-count">2</div>
+            </a>
+        </div>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">标签</h3>
+      <ul class="widget-tag-list" itemprop="keywords"><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/hello-world/" rel="tag">hello world</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" rel="tag">编译原理</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E9%A9%BE%E8%80%83/" rel="tag">驾考</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">归档</h3>
+      
+      
+        <a class="archive-link" href="/archives/2023/09 ">
+          九月 2023 
+          <div class="archive-count">1 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/07 ">
+          七月 2023 
+          <div class="archive-count">2 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/04 ">
+          四月 2023 
+          <div class="archive-count">10 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/03 ">
+          三月 2023 
+          <div class="archive-count">3 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2022/10 ">
+          十月 2022 
+          <div class="archive-count">1 </div>
+        </a>
+      
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">最新文章</h3>
+      <ul>
+        
+          <a class="recent-link" href="/2023/09/12/%E9%A9%BE%E8%80%83/%E9%A9%BE%E8%80%83-%E7%A7%91%E7%9B%AE%E4%BA%8C/" title="驾考-科目二" >
+            <div class="recent-link-text">
+              驾考-科目二
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/07/18/blog/" title="blog" >
+            <div class="recent-link-text">
+              blog
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/07/17/%E9%A9%BE%E8%80%83/%E9%A9%BE%E8%80%83-%E7%A7%91%E7%9B%AE%E4%B8%80/" title="驾考-科目一" >
+            <div class="recent-link-text">
+              驾考-科目一
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/04/10/23-Compilers/ch18-codegen-riscv-RISC-V%20%E6%A6%82%E8%BF%B0/" title="ch18-codegen-riscv-RISC-V 概述" >
+            <div class="recent-link-text">
+              ch18-codegen-riscv-RISC-V 概述
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/04/09/23-Compilers/ch17-LR(1)-LR(1)%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/" title="ch17-LR(1)-LR(1) 语法分析器" >
+            <div class="recent-link-text">
+              ch17-LR(1)-LR(1) 语法分析器
+            </div>
+          </a>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+  </div>
+</sidebar>
+    </div>
+    <div id="content-body">
+       
+
+<article id="post-23-Compilers/ch07" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 class="p-name article-title" itemprop="headline name">
+        ch07- LL(1) 语法分析器
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2023-03-30T02:02:34.000Z" itemprop="datePublished">2023-03-30</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">编译原理</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            2.5k 词 
+          </div>
+        </div>
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" rel="tag">编译原理</a></li></ul>
+
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <h1 id="ch07"><a href="#ch07" class="headerlink" title="ch07"></a>ch07</h1><p> LL(1) 语法分析器</p>
+<p>构建语法分析树: 自顶向下 vs. 自底向上</p>
+<p>只考虑无二义性的文法 这意味着, 每个句子对应唯一的一棵语法分析树</p>
+<p>自顶向下的、 递归下降的、 基于预测分析表的、 适用于LL(1) 文法的、 LL(1) 语法分析器</p>
+<h2 id="自顶向下构建语法分析树"><a href="#自顶向下构建语法分析树" class="headerlink" title="自顶向下构建语法分析树"></a>自顶向下构建语法分析树</h2><ul>
+<li>根节点是文法的起始符号 S </li>
+<li>每个中间节点表示对某个非终结符应用某个产生式进行推导 (Q : 选择哪个非终结符, 以及选择哪个产生式) </li>
+<li>在推导的每一步, L<strong>L</strong>(1) 总是选择最左边的非终结符进行展开</li>
+<li><strong>L</strong>L(1): 从左向右读入词法单元</li>
+<li>叶节点是词法单元流 w$ 仅包含终结符号与特殊的文件结束符 $ (EOF)</li>
+</ul>
+<h3 id="递归下降"><a href="#递归下降" class="headerlink" title="递归下降"></a>递归下降</h3><p><img src="/2023/03/30/23-Compilers/ch07/image-20230407130558399.png" alt="image-20230407130558399"></p>
+<p>递归下降是LL(1)语法分析器常用的实现方式</p>
+<p>为每个非终结符写一个递归函数 内部按需调用其它非终结符对应的递归函数, 下降一层</p>
+<p>为了实现额外的任务，可以加参数和返回值</p>
+<h4 id="实现过程"><a href="#实现过程" class="headerlink" title="实现过程"></a>实现过程</h4><ul>
+<li>先选择一个A的产生式，1-k</li>
+<li>for循环处理每个X<del>1</del> ~ X <del>k</del></li>
+<li>X为非终结符，调用X对应的递归函数</li>
+<li>X为终结符<ul>
+<li>X<del>i</del>&#x3D;a 匹配上当前的词法单元</li>
+<li>X<del>i</del>！&#x3D;a 出现错误</li>
+</ul>
+</li>
+</ul>
+<h3 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h3><h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><p>算法简单</p>
+<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><p>能处理文法（上下文无关文法）的种类很少</p>
+<p>如果不能处理，改造文法复杂</p>
+<h3 id="演示递归下降过程"><a href="#演示递归下降过程" class="headerlink" title="演示递归下降过程"></a>演示递归下降过程</h3><p><img src="/2023/03/30/23-Compilers/ch07/image-20230407131743295.png" alt="image-20230407131743295"></p>
+<p>每次都选择语法分析树最左边的非终结符进行展开</p>
+<h4 id="同样是展开非终结符-S-为什么前两次选择了-S-→-S-F-而第三次选择了-S-→-F"><a href="#同样是展开非终结符-S-为什么前两次选择了-S-→-S-F-而第三次选择了-S-→-F" class="headerlink" title="同样是展开非终结符 S, 为什么前两次选择了 S → (S + F), 而第三次选择了 S → F?"></a>同样是展开非终结符 S, 为什么前两次选择了 S → (S + F), 而第三次选择了 S → F?</h4><p>因为它们面对的当前词法单元不同</p>
+<h4 id="使用-预测分析表-确定产生式"><a href="#使用-预测分析表-确定产生式" class="headerlink" title="使用&#x3D;&#x3D;预测分析表&#x3D;&#x3D;确定产生式"></a>使用&#x3D;&#x3D;预测分析表&#x3D;&#x3D;确定产生式</h4><p><img src="/2023/03/30/23-Compilers/ch07/image-20230407131921718.png" alt="image-20230407131921718"></p>
+<p>指明了每个<strong>非终结符</strong>在面对不同的<strong>词法单元或文件结束符</strong>时, 该选择哪个<strong>产生式</strong> (按编号进行索引) 或者<strong>报错</strong> (空单元格)</p>
+<ul>
+<li>只有第二条会产生小括号，如果读入字符是（，就只能选第二条</li>
+<li>第三次是F，面对的读入字符是a，所以只会选择3</li>
+</ul>
+<h3 id="LL-1-文法Definition-："><a href="#LL-1-文法Definition-：" class="headerlink" title="LL(1) 文法Definition ："></a>LL(1) 文法Definition ：</h3><p>如果文法 G 的预测分析表是无冲突的, 则 G 是 LL(1) 文法。</p>
+<p>无冲突: 每个单元格里只有一个产生式 (编号)</p>
+<p>对于当前选择的<strong>非终结符</strong>, 仅根据输入中<strong>当前的词法单元</strong> (LL(1)) 即可确定需要使用哪条<strong>产生式</strong></p>
+<h3 id="递归下降的、预测分析实现方法"><a href="#递归下降的、预测分析实现方法" class="headerlink" title="递归下降的、预测分析实现方法"></a>递归下降的、预测分析实现方法</h3><h4 id="框架："><a href="#框架：" class="headerlink" title="框架："></a>框架：</h4><p>假定<strong>预测分析表</strong>已经被构建出来了</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">procedure <span class="title function_">match</span><span class="params">(t)</span></span><br><span class="line"> <span class="keyword">if</span> token = t then</span><br><span class="line"> token ← next-token()</span><br><span class="line"> <span class="keyword">else</span></span><br><span class="line"> error(token, t)</span><br><span class="line">     </span><br><span class="line">procedure S()</span><br><span class="line"> <span class="keyword">if</span> token = ‘(’ then</span><br><span class="line"> match(‘(’)</span><br><span class="line"> S()</span><br><span class="line"> match(‘+’)</span><br><span class="line"> F()</span><br><span class="line"> match(‘)’)</span><br><span class="line"> <span class="keyword">else</span> <span class="keyword">if</span> token = ‘a’ then</span><br><span class="line"> F()</span><br><span class="line"> <span class="keyword">else</span></span><br><span class="line"> error(token, &#123;‘(’, ‘a’&#125;)</span><br><span class="line"></span><br><span class="line">procedure F()</span><br><span class="line"> <span class="keyword">if</span> token = ‘a’ then</span><br><span class="line"> match(‘a’)</span><br><span class="line"> <span class="keyword">else</span></span><br><span class="line"> error(token, &#123;‘a’&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="计算给定文法-G-的预测分析表"><a href="#计算给定文法-G-的预测分析表" class="headerlink" title="计算给定文法 G 的预测分析表"></a>计算给定文法 G 的预测分析表</h3><p><img src="/2023/03/30/23-Compilers/ch07/image-20230407173718296.png" alt="image-20230407173718296"></p>
+<ul>
+<li>选择decl展开因为只有这样才能在后面产生int</li>
+<li>选择func_call是因为只有这样才能产生ID这个终结符</li>
+</ul>
+<p><img src="/2023/03/30/23-Compilers/ch07/image-20230407182730941.png" alt="image-20230407182730941"></p>
+<h4 id="什么时候选择非终结符的ε产生式"><a href="#什么时候选择非终结符的ε产生式" class="headerlink" title="什么时候选择非终结符的ε产生式"></a>什么时候选择非终结符的ε产生式</h4><p>只有在这个非终结符的后面的这个终结符可能是我想要的终结符的情况下，才可以选择将其变无</p>
+<p>如果有一个终结符，而且这个终结符有一个产生式，变成ε，或者经过很多步推导可以生成ε，后面的非终结符使我们接下来要匹配的终结符，接下来要匹配的终结符最好就是当前指针要指向的终结符</p>
+<p>要看这个非终结符有哪些终结符跟在后面</p>
+<h4 id="First-α-集合-Definition"><a href="#First-α-集合-Definition" class="headerlink" title="First(α) 集合 Definition"></a>First(α) 集合 Definition</h4><p><strong>First(α) 是可从 α 推导得到的句型的&#x3D;&#x3D;首终结符号&#x3D;&#x3D;的集合</strong></p>
+<p>对于任意的 (产生式的右部) α ∈ (N ∪ T) ∗ : </p>
+<p>First(α) &#x3D; { t ∈ T ∪ {ϵ} | α ∗&#x3D;⇒ tβ ∨ α ∗&#x3D;⇒ ϵ } .  （*&#x3D;&#x3D;&gt;指经过任意步推导）β是任意非终结符和终结符的集合，可能为空</p>
+<p>考虑非终结符 A 的所有产生式 A → α1, A → α2, . . . , A → αm, 如果它们<strong>对应的 First(αi) 集合互不相交</strong>, 则只需查看当前输入词法单元, 即可确定选择哪个产生式 (<strong>或报错</strong>)</p>
+<p>例：</p>
+<p>First(prog) &#x3D; {‘int’, ID}</p>
+<p><strong>First是想知道，如果选择了某种特定的展开方式，会产生哪些首终结符，有没有可能是指针指向的字符</strong></p>
+<h4 id="Follow-A-集合-Definition"><a href="#Follow-A-集合-Definition" class="headerlink" title="Follow(A) 集合 Definition"></a>Follow(A) 集合 Definition</h4><p><strong>Follow(A) 是可能在某些句型中紧跟在 A 右边的终结符的集合</strong></p>
+<p>对于任意的 (产生式的左部) 非终结符 A ∈ N : </p>
+<p>​	Follow(A) &#x3D; { t ∈ T ∪ {$} | ∃s. S ∗&#x3D;⇒ s ≜ βAtγ } .</p>
+<p>β和γ是任意非终结符和终结符的集合，可能为空</p>
+<p>如果退出来A这个非终结符，而且后面是终结符，t ∈ Follow(A)， t有可能是$（s是开始符号，而$是输入右端的结束标记）</p>
+<p>考虑产生式 A → α, <strong>如果从 α 可能推导出空串 (α ∗&#x3D;⇒ ϵ), 则只有当当前词法单元 t ∈ Follow(A), 才可以选择该产生式</strong>(意味着A会消失)</p>
+<h4 id="计算算法"><a href="#计算算法" class="headerlink" title="计算算法"></a>计算算法</h4><h5 id="先计算每个符号-X-的-First-X-集合"><a href="#先计算每个符号-X-的-First-X-集合" class="headerlink" title="先计算每个符号 X 的 First(X) 集合"></a>先计算每个符号 X 的 First(X) 集合</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">procedure <span class="title function_">first</span><span class="params">(X)</span></span><br><span class="line"> <span class="keyword">if</span> X ∈ T then ▷ 规则 1: X 是终结符</span><br><span class="line"> 	<span class="title function_">First</span><span class="params">(X)</span> = X</span><br><span class="line"> <span class="keyword">for</span> X → Y1Y2 . . . Yk <span class="keyword">do</span> ▷ 规则 <span class="number">2</span>: X 是非终结符</span><br><span class="line">     <span class="comment">//Y的首终结符包含于X的首终结符</span></span><br><span class="line">     <span class="comment">//Y如果变成ε不代表X也会变成ε</span></span><br><span class="line"> 	First(X) ← First(X) ∪ &#123;First(Y1) \ &#123;ϵ&#125;&#125;  </span><br><span class="line"> 	<span class="keyword">for</span> i ← <span class="number">2</span> to k <span class="keyword">do</span></span><br><span class="line">        <span class="comment">//看ε能不能由Y1推出来</span></span><br><span class="line"> 		<span class="keyword">if</span> ϵ ∈ L(Y1 . . . Yi−<span class="number">1</span>) then</span><br><span class="line"> 			<span class="title function_">First</span><span class="params">(X)</span> ← <span class="title function_">First</span><span class="params">(X)</span> ∪ &#123;First(Yi) \ &#123;ϵ&#125;&#125;</span><br><span class="line">	<span class="comment">//看完1~k</span></span><br><span class="line">	<span class="comment">//L(Y1 . . . Yk)表示Y1~Yk都能退出ε</span></span><br><span class="line"> 	<span class="keyword">if</span> ϵ ∈ L(Y1 . . . Yk) then ▷ 规则 <span class="number">3</span>: X 可推导出空串</span><br><span class="line"> 		First(X) ← First(X) ∪ &#123;ϵ&#125;</span><br></pre></td></tr></table></figure>
+
+<p>不断应用上面的规则, 直到每个 First(X) 都不再变化 <strong>(不动点!!!)</strong></p>
+<h5 id="再计算每个符号串-α-的-First-α"><a href="#再计算每个符号串-α-的-First-α" class="headerlink" title="再计算每个符号串 α 的 First(α)"></a>再计算每个符号串 α 的 First(α)</h5><p><img src="/2023/03/30/23-Compilers/ch07/image-20230407190235069.png" alt="image-20230407190235069"></p>
+<h5 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h5><p><img src="/2023/03/30/23-Compilers/ch07/image-20230407190325780.png" alt="image-20230407190325780"></p>
+<h5 id="为每个非终结符-X-计算-Follow-X-集合"><a href="#为每个非终结符-X-计算-Follow-X-集合" class="headerlink" title="为每个非终结符 X 计算 Follow(X) 集合"></a>为每个非终结符 X 计算 Follow(X) 集合</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">procedure <span class="title function_">follow</span><span class="params">(X)</span></span><br><span class="line">	<span class="keyword">for</span> X 是开始符号 <span class="keyword">do</span> ▷ 规则 1: X 是开始符号</span><br><span class="line">		<span class="title function_">Follow</span><span class="params">(X)</span> ← <span class="title function_">Follow</span><span class="params">(X)</span> ∪ &#123;$&#125;</span><br><span class="line">	<span class="keyword">for</span> A → αX <span class="keyword">do</span> ▷ 规则 <span class="number">2</span>: X 是某产生式右部的最后一个符号</span><br><span class="line">       <span class="comment">//所有能跟在A后的终结符都可能跟在S后面</span></span><br><span class="line">		Follow(X) ← Follow(X) ∪ Follow(A)</span><br><span class="line">	<span class="keyword">for</span> A → αXβ <span class="keyword">do</span> ▷ 规则 <span class="number">3</span>: X 是某产生式右部中间的一个符号、</span><br><span class="line">       <span class="comment">//X是某个产生式中间的符号</span></span><br><span class="line">       <span class="comment">//β能推出来的终结符一定能跟在X后面</span></span><br><span class="line">       <span class="comment">//ε不一定在X后面</span></span><br><span class="line">		Follow(X) ← Follow(X) ∪ (First(β) \ &#123;ϵ&#125;)</span><br><span class="line">		<span class="keyword">if</span> ϵ ∈ First(β) then</span><br><span class="line">		 <span class="title function_">Follow</span><span class="params">(X)</span> ← <span class="title function_">Follow</span><span class="params">(X)</span> ∪ <span class="title function_">Follow</span><span class="params">(A)</span></span><br></pre></td></tr></table></figure>
+
+<p>不断应用上面的规则, 直到每个 Follow(X) 都不再变化 <strong>(不动点!!!)</strong></p>
+<h5 id="例子-1"><a href="#例子-1" class="headerlink" title="例子"></a>例子</h5><p><img src="/2023/03/30/23-Compilers/ch07/image-20230407191229025.png" alt="image-20230407191229025"></p>
+<p>FL(X)先看F(Y)，再看F(Z)，再看ε是否属于F(XYZ)</p>
+<p>FL(X)⊆FL(Y)  F(Z)⊆FL(Y)，再看Z能不能产生ε，不能，FL(Y)结束</p>
+<p>FL(Z)⊆FL(Z) FL(Z)&#x3D;∅</p>
+<h3 id="根据First-与-Follow-集合计算给定文法-G-的预测分析表"><a href="#根据First-与-Follow-集合计算给定文法-G-的预测分析表" class="headerlink" title="根据First 与 Follow 集合计算给定文法 G 的预测分析表"></a>根据First 与 Follow 集合计算给定文法 G 的预测分析表</h3><p>对应每条产生式 A → α 与终结符 t, 如果 </p>
+<ul>
+<li><p>t ∈ First(α)  </p>
+</li>
+<li><p>α ∗&#x3D;⇒ ϵ ∧ t ∈ Follow(A)  &#x2F;&#x2F;α被变为ε消掉</p>
+</li>
+</ul>
+<p>则在表格 [A,t] 中填入 A → α (编号)。</p>
+<h5 id="例子-2"><a href="#例子-2" class="headerlink" title="例子"></a>例子</h5><p><img src="/2023/03/30/23-Compilers/ch07/image-20230407200206884.png" alt="image-20230407200206884"></p>
+<p>(Y,3)出现冲突，该文法不是LL(1)文法</p>
+<h3 id="LL-1-文法-Definition"><a href="#LL-1-文法-Definition" class="headerlink" title="LL(1) 文法 Definition"></a>LL(1) 文法 Definition</h3><p>如果文法 G 的&#x3D;&#x3D;预测分析表&#x3D;&#x3D;是无冲突的, 则 G 是 LL(1) 文法。</p>
+<h3 id="LL-1-文法不能够处理的"><a href="#LL-1-文法不能够处理的" class="headerlink" title="LL(1) 文法不能够处理的"></a>LL(1) 文法不能够处理的</h3><p>当前要展开A，看到t这个词法单元，可以选择一个没有冲突的、唯一的产生式，但不意味着接着走下去不会出错</p>
+<ul>
+<li><p>t ∈ First(α) (1)</p>
+</li>
+<li><p>ϵ ∈ First(α) ∧ t ∈ Follow(A) (2)</p>
+</li>
+</ul>
+<p>当下的选择未必正确, 但 “你别无选择”。</p>
+<h3 id="总结LL-1-语法分析器"><a href="#总结LL-1-语法分析器" class="headerlink" title="总结LL(1) 语法分析器"></a>总结LL(1) 语法分析器</h3><ul>
+<li><p>L : 从左向右 (left-to-right) 扫描输入 </p>
+</li>
+<li><p>L : 构建最左 (leftmost) 推导 </p>
+</li>
+<li><p>1 : 只需向前看一个输入符号便可确定使用哪条产生式</p>
+</li>
+</ul>
+<h3 id="LL-0"><a href="#LL-0" class="headerlink" title="LL(0)"></a>LL(0)</h3><p>输入什么都不看，闭着眼的语法分析器:</p>
+<p>只包含一个字符串的文法</p>
+<p><img src="/2023/03/30/23-Compilers/ch07/image-20230407200810018.png" alt="image-20230407200810018"></p>
+<h3 id="非递归的预测分析算法（非重点，现在一般写递归的，模块性强）"><a href="#非递归的预测分析算法（非重点，现在一般写递归的，模块性强）" class="headerlink" title="非递归的预测分析算法（非重点，现在一般写递归的，模块性强）"></a>非递归的预测分析算法（非重点，现在一般写递归的，模块性强）</h3><p><img src="/2023/03/30/23-Compilers/ch07/image-20230407200908885.png" alt="image-20230407200908885"></p>
+<p><img src="/2023/03/30/23-Compilers/ch07/image-20230407200929058.png" alt="image-20230407200929058"></p>
+<h3 id="不是LL-1-文法的改造文法办法"><a href="#不是LL-1-文法的改造文法办法" class="headerlink" title="不是LL(1)文法的改造文法办法"></a>不是LL(1)文法的改造文法办法</h3><ul>
+<li><strong>消除左递归</strong> </li>
+<li><strong>提取左公因子</strong></li>
+</ul>
+<p><img src="/2023/03/30/23-Compilers/ch07/image-20230407201805026.png" alt="image-20230407201805026"></p>
+<p>左递归改完是左递归</p>
+<p>E 在不消耗任何词法单元的情况下, 直接递归调用 E, 造成死循环</p>
+<p>解决方案：</p>
+<p>左递归改为右递归</p>
+<p><img src="/2023/03/30/23-Compilers/ch07/image-20230412111153214.png" alt="image-20230412111153214"></p>
+<p><img src="/2023/03/30/23-Compilers/ch07/image-20230412111233114.png" alt="image-20230412111233114"></p>
+<h3 id="直接左递归-Direct-Left-Recursion-消除左递归"><a href="#直接左递归-Direct-Left-Recursion-消除左递归" class="headerlink" title="直接左递归 (Direct Left Recursion)消除左递归"></a>直接左递归 (Direct Left Recursion)消除左递归</h3><h4 id="例子："><a href="#例子：" class="headerlink" title="例子："></a>例子：</h4><ul>
+<li><p>A → Aα | β</p>
+</li>
+<li><p>A → βA′</p>
+<p>A ′ → αA′ | ϵ</p>
+</li>
+</ul>
+<h4 id="范式"><a href="#范式" class="headerlink" title="范式"></a>范式</h4><ul>
+<li>A → Aα1 | Aα2 | . . . Aαm | β1 | β2 | . . . βn</li>
+<li>其中, βi 都不以 A 开头</li>
+</ul>
+<p>改为：</p>
+<ul>
+<li><p>A → β1A ′ | β2A ′ | · · · | βnA′ </p>
+<p>A ′ → α1A ′ | α2A ′ | · · · | αmA ′ | ϵ</p>
+</li>
+</ul>
+<h3 id="间接左递归-Indirect-Left-Recursion-消除左递归"><a href="#间接左递归-Indirect-Left-Recursion-消除左递归" class="headerlink" title="间接左递归 (Indirect Left Recursion)消除左递归"></a>间接左递归 (Indirect Left Recursion)消除左递归</h3><p>单看每一条产生式都没有左递归</p>
+<ul>
+<li><p>S → Ac | c </p>
+<p>A → Bb | b </p>
+<p>B → Sa | a</p>
+<ul>
+<li>S &#x3D;⇒ Ac &#x3D;⇒ Bbc &#x3D;⇒ Sabc：构成了左递归</li>
+</ul>
+</li>
+</ul>
+<p>改间接左递归比较麻烦，绕了一圈回到自己，消除需要满足这样的性质：</p>
+<p>如果对满足这样条件的产生式：</p>
+<p>A<del>i</del> → A<del>j</del>α &#x3D;⇒ i &lt; j</p>
+<p>即：如果右部第一个为非终结符，则要求i &lt; j</p>
+<p>即：每推一步，产生出来的非终结符的编号越来越大，所以不可能绕回自己，不可能产生左递归</p>
+<p><img src="/2023/03/30/23-Compilers/ch07/image-20230412170532841.png" alt="image-20230412170532841"></p>
+<ul>
+<li>产生直接左递归：可以按照之前的方式处理了</li>
+<li>算法要求: <ul>
+<li>文法中不存在环 (形如 A ∗&#x3D;⇒ A 的推导) </li>
+<li>文法中不存在 ϵ 产生式 (形如 A → ϵ 的产生式)</li>
+</ul>
+</li>
+</ul>
+<p>间接左递归的处理在工程上不是必须的：很多实用的文法不会有间接左递归，为了少量的文法在工程上实现一个理论可行的东西是不明智的</p>
+<h3 id="提取左公因子-Left-Factoring"><a href="#提取左公因子-Left-Factoring" class="headerlink" title="提取左公因子 (Left-Factoring)"></a>提取左公因子 (Left-Factoring)</h3><p><img src="/2023/03/30/23-Compilers/ch07/image-20230412170913024.png" alt="image-20230412170913024"></p>
+<p><strong>ANTLR 4 可以处理有左公因子的文法，不需要自己提取</strong></p>
+<p>提取公共部分’int’ ID</p>
+<p>如果提取完是空就空着</p>
+<p><img src="/2023/03/30/23-Compilers/ch07/image-20230412171009946.png" alt="image-20230412171009946"></p>
+<p>很明显, <strong>提取左公因子无助于消除文法二义性</strong></p>
+
+        
+      </div>
+
+         
+    </div>
+    
+     
+  </div>
+  
+    
+<nav id="article-nav">
+  <a class="article-nav-btn left "
+    
+      href="/2023/03/31/23-Compilers/ch08/"
+      title="ch08-parser-allstar"
+     >
+    <i class="fa-solid fa-angle-left"></i>
+    <p class="title-text">
+      
+        ch08-parser-allstar
+        
+    </p>
+  </a>
+  <a class="article-nav-btn right "
+    
+      href="/2023/03/29/23-Compilers/ch06/"
+      title="ch06-Listener & Visitor & 上下文无关文法"
+     >
+
+    <p class="title-text">
+      
+        ch06-Listener &amp; Visitor &amp; 上下文无关文法
+        
+    </p>
+    <i class="fa-solid fa-angle-right"></i>
+  </a>
+</nav>
+
+
+  
+</article>
+
+
+  
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <div id="comment-card" class="comment-card">
+    <div class="main-title-bar">
+      <div class="main-title-dot"></div>
+      <div class="main-title">留言 </div>
+    </div>
+    <div id="vcomments"></div>
+  </div>
+  <script>
+      new Valine({"enable":true,"appId":null,"appKey":null,"placeholder":"Just go go","pageSize":20,"highlight":true,"serverURLs":null,"el":"#vcomments"});
+  </script>
+ 
+    </div>
+    <div id="footer-wrapper">
+      <footer id="footer">
+  
+  <div id="footer-info" class="inner">
+    
+      <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris"></a>
+    
+    &copy; 2023 Asimov<br>
+    Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & Theme <a target="_blank" rel="noopener" href="https://github.com/saicaca/hexo-theme-vivia">Vivia</a>
+  </div>
+</footer>
+
+    </div>
+    <div class="back-to-top-wrapper">
+    <button id="back-to-top-btn" class="back-to-top-btn hide" onclick="topFunction()">
+        <i class="fa-solid fa-angle-up"></i>
+    </button>
+</div>
+
+<script>
+    function topFunction() {
+        window.scroll({ top: 0, behavior: 'smooth' });
+    }
+    let btn = document.getElementById('back-to-top-btn');
+    function scrollFunction() {
+        if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+            btn.classList.remove('hide')
+        } else {
+            btn.classList.add('hide')
+        }
+    }
+    window.onscroll = function() {
+        scrollFunction();
+    }
+</script>
+
+  </div>
+  <script src="/js/light-dark-switch.js"></script>
+</body>
+</html>
