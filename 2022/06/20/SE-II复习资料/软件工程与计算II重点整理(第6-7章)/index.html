@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+
+
+<html theme="dark" showBanner="true" hasBanner="true" > 
+<link href="/fontawesome/css/fontawesome.css" rel="stylesheet">
+<link href="/fontawesome/css/brands.css" rel="stylesheet">
+<link href="/fontawesome/css/solid.css" rel="stylesheet">
+<script src="/js/color.global.min.js" ></script>
+<script src="/js/load-settings.js" ></script>
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+
+  
+  <title>SE-II-软件工程与计算II重点整理(第6-7章) | Asimov&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+  <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+
+  <meta name="description" content="软件工程与计算II重点整理(第6-7章)1.建立用例图四要素：用例（椭圆）、参与者（小人）、关系（连线）、边界（方框）  参与者是与开发的系统进行交互的用户或其他系统等角色。 用例图中一个单一的参与者可以代表多个用户（或系统），一个单一的用户（或系统）可能扮演多种角色。 参与者不一定是人，例如，需要从当前系统获取信息的外部系统也是参与者。 步骤： 1）目标分析与解决方向确定  2）寻找参与者  3">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SE-II-软件工程与计算II重点整理(第6-7章)">
+<meta property="og:url" content="https://chendingya.github.io/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/index.html">
+<meta property="og:site_name" content="Asimov&#39;s Blog">
+<meta property="og:description" content="软件工程与计算II重点整理(第6-7章)1.建立用例图四要素：用例（椭圆）、参与者（小人）、关系（连线）、边界（方框）  参与者是与开发的系统进行交互的用户或其他系统等角色。 用例图中一个单一的参与者可以代表多个用户（或系统），一个单一的用户（或系统）可能扮演多种角色。 参与者不一定是人，例如，需要从当前系统获取信息的外部系统也是参与者。 步骤： 1）目标分析与解决方向确定  2）寻找参与者  3">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://chendingya.github.io/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/image-20230616145545772.png">
+<meta property="og:image" content="https://chendingya.github.io/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/image-20230616145646089.png">
+<meta property="og:image" content="https://chendingya.github.io/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/image-20230616145704404.png">
+<meta property="og:image" content="https://chendingya.github.io/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/image-20230616145741461.png">
+<meta property="og:image" content="https://chendingya.github.io/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/image-20230616145820828.png">
+<meta property="og:image" content="https://chendingya.github.io/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/image-20230616145847178.png">
+<meta property="og:image" content="https://chendingya.github.io/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/image-20230616145921830.png">
+<meta property="og:image" content="https://chendingya.github.io/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/image-20230616145947322.png">
+<meta property="og:image" content="https://chendingya.github.io/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/image-20230616150059982.png">
+<meta property="og:image" content="https://chendingya.github.io/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/image-20230616150117987.png">
+<meta property="article:published_time" content="2022-06-20T08:02:34.000Z">
+<meta property="article:modified_time" content="2023-09-17T08:06:38.350Z">
+<meta property="article:author" content="Asimov">
+<meta property="article:tag" content="软件工程与计算II">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://chendingya.github.io/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/image-20230616145545772.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Asimov's Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-192.png" sizes="192x192">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-192.png" sizes="192x192">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  
+  
+    
+<div id="banner" class="">
+  <img src="/pic/back.png" itemprop="image">
+  <div id="banner-dim"></div>
+</div>
+ 
+   
+  <div id="main-grid" class="shadow   ">
+    <div id="nav" class=""  >
+      <navbar id="navbar">
+  <nav id="title-nav">
+    <a href="/">
+      <div id="vivia-logo">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div>Asimov's Blog </div>
+    </a>
+  </nav>
+  <nav id="main-nav">
+    
+      <a class="main-nav-link" href="/">Home</a>
+    
+      <a class="main-nav-link" href="/archives">Archives</a>
+    
+      <a class="main-nav-link" href="/about">About</a>
+    
+  </nav>
+  <nav id="sub-nav">
+    <a id="theme-btn" class="nav-icon">
+      <span class="light-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M438.5-829.913v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-829.913Zm0 747.826v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-82.087ZM877.913-438.5h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537t29.476-12.174h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T877.913-438.5Zm-747.826 0h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T82.087-521.5h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T130.087-438.5Zm660.174-290.87-34.239 32q-12.913 12.674-29.565 12.174-16.653-.5-29.327-13.174-12.674-12.673-12.554-28.826.12-16.152 12.794-28.826l33-35q12.913-12.674 30.454-12.674t30.163 12.847q12.709 12.846 12.328 30.826-.38 17.98-13.054 30.653ZM262.63-203.978l-32 34q-12.913 12.674-30.454 12.674t-30.163-12.847q-12.709-12.846-12.328-30.826.38-17.98 13.054-30.653l33.239-31q12.913-12.674 29.565-12.174 16.653.5 29.327 13.174 12.674 12.673 12.554 28.826-.12 16.152-12.794 28.826Zm466.74 33.239-32-33.239q-12.674-12.913-12.174-29.565.5-16.653 13.174-29.327 12.673-12.674 28.826-13.054 16.152-.38 28.826 12.294l35 33q12.674 12.913 12.674 30.454t-12.847 30.163q-12.846 12.709-30.826 12.328-17.98-.38-30.653-13.054ZM203.978-697.37l-34-33q-12.674-12.913-13.174-29.945-.5-17.033 12.174-29.707t31.326-13.293q18.653-.62 31.326 13.054l32 34.239q11.674 12.913 11.174 29.565-.5 16.653-13.174 29.327-12.673 12.674-28.826 12.554-16.152-.12-28.826-12.794ZM480-240q-100 0-170-70t-70-170q0-100 70-170t170-70q100 0 170 70t70 170q0 100-70 170t-170 70Zm-.247-82q65.703 0 111.475-46.272Q637-414.544 637-480.247t-45.525-111.228Q545.95-637 480.247-637t-111.475 45.525Q323-545.95 323-480.247t45.525 111.975Q414.05-322 479.753-322ZM481-481Z"/></svg></span>
+      <span class="dark-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M480.239-116.413q-152.63 0-258.228-105.478Q116.413-327.37 116.413-480q0-130.935 77.739-227.435t206.304-125.043q43.022-9.631 63.87 10.869t3.478 62.805q-8.891 22.043-14.315 44.463-5.424 22.42-5.424 46.689 0 91.694 64.326 155.879 64.325 64.186 156.218 64.186 24.369 0 46.978-4.946 22.609-4.945 44.413-14.076 42.826-17.369 62.967 1.142 20.142 18.511 10.511 61.054Q807.174-280 712.63-198.206q-94.543 81.793-232.391 81.793Zm0-95q79.783 0 143.337-40.217 63.554-40.218 95.793-108.283-15.608 4.044-31.097 5.326-15.49 1.283-31.859.805-123.706-4.066-210.777-90.539-87.071-86.473-91.614-212.092-.24-16.369.923-31.978 1.164-15.609 5.446-30.978-67.826 32.478-108.282 96.152Q211.652-559.543 211.652-480q0 111.929 78.329 190.258 78.329 78.329 190.258 78.329ZM466.13-465.891Z"/></svg></span>
+    </a>
+    
+      <a id="nav-rss-link" class="nav-icon mobile-hide" href="/atom.xml" title="RSS 订阅">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-120q-25.846 0-44.23-18.384-18.384-18.385-18.384-44.23 0-25.846 18.384-44.23 18.384-18.385 44.23-18.385 25.846 0 44.23 18.385 18.384 18.384 18.384 44.23 0 25.845-18.384 44.23Q223.846-120 198-120Zm538.385 0q-18.846 0-32.923-13.769-14.076-13.769-15.922-33.23-8.692-100.616-51.077-188.654-42.385-88.039-109.885-155.539-67.5-67.501-155.539-109.885Q283-663.462 182.385-672.154q-19.461-1.846-33.23-16.23-13.769-14.385-13.769-33.846t14.076-32.922q14.077-13.461 32.923-12.23 120.076 8.692 226.038 58.768 105.961 50.077 185.73 129.846 79.769 79.769 129.846 185.731 50.077 105.961 58.769 226.038 1.231 18.846-12.538 32.922Q756.461-120 736.385-120Zm-252 0q-18.231 0-32.423-13.461t-18.653-33.538Q418.155-264.23 348.886-333.5q-69.27-69.27-166.501-84.423-20.077-4.462-33.538-18.961-13.461-14.5-13.461-33.346 0-19.076 13.884-33.23 13.884-14.153 33.115-10.922 136.769 15.384 234.384 112.999 97.615 97.615 112.999 234.384 3.231 19.23-10.538 33.115Q505.461-120 484.385-120Z"/></svg>
+      </a>
+    
+    <div id="nav-menu-btn" class="nav-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M177.37-252.282q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Zm0-186.218q-17.453 0-29.477-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T177.37-521.5h605.26q17.453 0 29.477 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T782.63-438.5H177.37Zm0-186.217q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Z"/></svg>
+    </div>
+  </nav>
+</navbar>
+<div id="nav-dropdown" class="hidden">
+  <div id="dropdown-link-list">
+    
+      <a class="nav-dropdown-link" href="/">Home</a>
+    
+      <a class="nav-dropdown-link" href="/archives">Archives</a>
+    
+      <a class="nav-dropdown-link" href="/about">About</a>
+    
+    
+      <a class="nav-dropdown-link" href="/atom.xml" title="RSS 订阅">RSS</a>
+     
+    </div>
+</div>
+<script>
+  let dropdownBtn = document.getElementById("nav-menu-btn");
+  let dropdownEle = document.getElementById("nav-dropdown");
+  dropdownBtn.onclick = function() {
+    dropdownEle.classList.toggle("hidden");
+  }
+</script>
+    </div>
+    <div id="sidebar-wrapper">
+      <sidebar id="sidebar">
+  
+    <div class="widget-wrap">
+  <div class="info-card">
+    <div class="avatar">
+      
+        <image src=/pic/avatar.png></image>
+      
+      <div class="img-dim"></div>
+    </div>
+    <div class="info">
+      <div class="username">Asimov </div>
+      <div class="dot"></div>
+      <div class="subtitle">Asimov's Blog </div>
+      <div class="link-list">
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://github.com/chendingya" title="GitHub"><i class="fa-brands fa-github"></i></a>
+         
+      </div>  
+    </div>
+  </div>
+</div>
+
+  
+  <div class="sticky">
+    
+      
+
+
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">分类</h3>
+      <div class="category-box">
+            <a class="category-link" href="/categories/hello-world/">
+                hello world
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/Hexo/">
+                Hexo
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
+                编译原理
+                <div class="category-count">13</div>
+            </a>
+        
+            <a class="category-link" href="/categories/tdesign/">
+                tdesign
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">
+                软件工程与计算II
+                <div class="category-count">30</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E9%A9%BE%E8%80%83/">
+                驾考
+                <div class="category-count">2</div>
+            </a>
+        </div>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">标签</h3>
+      <ul class="widget-tag-list" itemprop="keywords"><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/hello-world/" rel="tag">hello world</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/tdesign/" rel="tag">tdesign</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" rel="tag">编译原理</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/" rel="tag">软件工程与计算II</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E9%A9%BE%E8%80%83/" rel="tag">驾考</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">归档</h3>
+      
+      
+        <a class="archive-link" href="/archives/2023/09 ">
+          九月 2023 
+          <div class="archive-count">2 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/07 ">
+          七月 2023 
+          <div class="archive-count">2 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/04 ">
+          四月 2023 
+          <div class="archive-count">10 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/03 ">
+          三月 2023 
+          <div class="archive-count">3 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2022/10 ">
+          十月 2022 
+          <div class="archive-count">1 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2022/06 ">
+          六月 2022 
+          <div class="archive-count">30 </div>
+        </a>
+      
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">最新文章</h3>
+      <ul>
+        
+          <a class="recent-link" href="/2023/09/15/23-tdesign/Mock%E4%BD%BF%E7%94%A8/" title="微信小程序中Mock使用" >
+            <div class="recent-link-text">
+              微信小程序中Mock使用
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/09/12/%E9%A9%BE%E8%80%83/%E9%A9%BE%E8%80%83-%E7%A7%91%E7%9B%AE%E4%BA%8C/" title="驾考-科目二" >
+            <div class="recent-link-text">
+              驾考-科目二
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/07/18/blog/" title="blog" >
+            <div class="recent-link-text">
+              blog
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/07/17/%E9%A9%BE%E8%80%83/%E9%A9%BE%E8%80%83-%E7%A7%91%E7%9B%AE%E4%B8%80/" title="驾考-科目一" >
+            <div class="recent-link-text">
+              驾考-科目一
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/04/10/23-Compilers/ch18-codegen-riscv-RISC-V%20%E6%A6%82%E8%BF%B0/" title="ch18-codegen-riscv-RISC-V 概述" >
+            <div class="recent-link-text">
+              ch18-codegen-riscv-RISC-V 概述
+            </div>
+          </a>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+  </div>
+</sidebar>
+    </div>
+    <div id="content-body">
+       
+
+<article id="post-SE-II复习资料/软件工程与计算II重点整理(第6-7章)" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 class="p-name article-title" itemprop="headline name">
+        SE-II-软件工程与计算II重点整理(第6-7章)
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2022-06-20T08:02:34.000Z" itemprop="datePublished">2022-06-20</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">软件工程与计算II</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            3.9k 词 
+          </div>
+        </div>
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/" rel="tag">软件工程与计算II</a></li></ul>
+
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <h1 id="软件工程与计算II重点整理-第6-7章"><a href="#软件工程与计算II重点整理-第6-7章" class="headerlink" title="软件工程与计算II重点整理(第6-7章)"></a>软件工程与计算II重点整理(第6-7章)</h1><h2 id="1-建立用例图"><a href="#1-建立用例图" class="headerlink" title="1.建立用例图"></a>1.建立用例图</h2><p>四要素：用例（椭圆）、参与者（小人）、关系（连线）、边界（方框）</p>
+<p><img src="/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/image-20230616145545772.png"></p>
+<p>参与者是与开发的系统进行交互的用户或其他系统等角色。</p>
+<p>用例图中一个单一的参与者可以代表多个用户（或系统），一个单一的用户（或系统）可能扮演多种角色。</p>
+<p>参与者不一定是人，例如，需要从当前系统获取信息的外部系统也是参与者。</p>
+<p>步骤：</p>
+<p>1）目标分析与解决方向确定 </p>
+<p>2）寻找参与者 </p>
+<p>3）寻找用例 </p>
+<p>4）细化用例</p>
+<blockquote>
+<p>【示例1】×××连锁商店是一家刚刚发展起来的小型连锁商店，其前身是一家独立的小百货门面店。  </p>
+</blockquote>
+<blockquote>
+<p>首先是随着商店规模的扩大，顾客量大幅增长，手工作业销售迟缓，顾客购物排队现象严重，导致流失客源。其次是商店的商品品种增多，无法准确掌握库存，商品积压、缺货和报废的现象上升明显。再次是商店面临的竞争比以前更大，希望在降低成本，吸引顾客，增强竞争力的同时，保持盈利水平。  </p>
+</blockquote>
+<blockquote>
+<p>BR1：在系统使用6个月后，商品积压、缺货和报废的现象要减少50%</p>
+<p>BR2：在系统使用3个月后，销售人员工作效率提高50%</p>
+<p>BR3：在系统使用6个月后，运营成本要降低15%范围：人力成本和库存成本，度量：检查平均员工数量和平均每10,000元销售额的库存成本  </p>
+<p>BR4：在系统使用6个月后，销售额度要提高20%，</p>
+<p>最好情况：40%，最可能情况：20%，最坏情况：10%  </p>
+</blockquote>
+<blockquote>
+<p>SF1：分析商品库存，发现可能的商品积压、缺货和报废现象</p>
+<p>SF2：根据市场变化调整销售的商品</p>
+<p>SF3：制定促销手段，处理积压商品</p>
+<p>SF4：与生产厂家联合进行商品促销</p>
+<p>SF5：制定促销手段进行销售竞争</p>
+<p>SF6：掌握员工变动和授权情况</p>
+<p>SF7：处理商品入库与出库</p>
+<p>SF8：发展会员，提高顾客回头率</p>
+<p>SF9：允许积分兑换商品和赠送吸引会员的礼品，提高会员满意度   </p>
+<p>SF10：帮助收银员处理销售与退货任务  </p>
+</blockquote>
+<blockquote>
+<p>从上述特性可以发现涉及的用户类别：总经理，客户经理，收银员，</p>
+<p>管理员总经理的目标有：产品调整（增删改产品信息），特价策略制定（增删改特价策略），赠送策略制定（增删改赠送策略），库存分析；（分析可能的商品积压）</p>
+<p>客户经理的目标有：会员管理；（会员发展、礼品赠送），库存管理；（商品入库、出库和库存分析）</p>
+<p>收银员的目标有：销售处理（销售），退货；（退货）  </p>
+<p>管理员的目标有：用户管理（增删改用户信息）  </p>
+</blockquote>
+<p>如果用例的粒度不合适就需要进行细化和调整。</p>
+<p>判断标准是：用例描述了为应对一个业务事件，由一个用户发起，并在一个连续时间段内完成，<strong>可以增加业务价值</strong>的任务。<br><strong>不要将没有业务价值（而是技术实现需要）的事件作为用例（例如，登录（安全性需求）、输入&#x2F;输入数据检查（数据需求或者业务规则）、连接数据库、网络传输等等）</strong><br><strong>不要将没有独立业务价值的单个操作（仅仅是技术实现上独立）作为用例，例如删除、增加、修改、保存</strong></p>
+<blockquote>
+<p>总经理的目标有：特价策略制定、赠送策略制定两个用例的业务目的、发起源和过程基本相同，仅仅是业务数据不同，所以可以合并为一个用例销售策略制定。</p>
+<p>客户经理的目标有：会员管理用例有两个明显不同的业务事件，可以被细化为发展会员和礼品赠送2个更细粒度的用例。  </p>
+<p>客户经理的库存管理用例也有三个不同的业务目标：出库、入库和库存分析，所以也应该细化为三个用例商品出库、商品入库和库存分析，其中库存分析用例与总经理的库存分析用例相同。  </p>
+</blockquote>
+<p>【常见错误】不要将用例细化为单个操作不要将单个步骤细化为用例不要将片面的一个方面细化为用例</p>
+<p><strong>不要将“登录”、“数据验证”、“连接数据库”等没有业务价值的内容作为用例</strong></p>
+<blockquote>
+<p>【示例2】网上书店系统（OBS）是一个基于web的应用程序，允许用户浏览和购买网上产品。该应用程序支持网上购物车的概念，类似于其他网上零售商，如Amazon.com,。该系统的结账功能将集成信用卡交易处理以及内部计费系统。该系统还提供管理员视图，允许授权的员工查看和管理产品、用户和订单。用户：购买、浏览 员工：查看用户、订单、产品 管理管理员：授权信用卡：结账 内部计费：结账  </p>
+</blockquote>
+<blockquote>
+<p>注意：内部计费指的是单位内部，而不是系统内部  </p>
+</blockquote>
+<p>示例</p>
+<p><img src="/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/image-20230616145646089.png"></p>
+<p><img src="/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/image-20230616145704404.png"></p>
+<h2 id="2-建立分析类图（概念类图／领域模型）"><a href="#2-建立分析类图（概念类图／领域模型）" class="headerlink" title="2.建立分析类图（概念类图／领域模型）"></a>2.建立分析类图（概念类图／领域模型）</h2><p>注意：与设计类图有所不同，<strong>分析类图关注现实世界问题域，而不是软件系统的内部构造机制</strong>；</p>
+<p>类型、方法、可见性等复杂的软件构造细节不会在概念类图中，不允许出现与现实无关的内容对象：标识（对象自治、对象请求协作）、状态（存储数据，如密码、名称……）、行为（利用数据做什么）链接：对象间交互的路径（a拥有b的引用——a拥有b的可见性——a可以导航到b）</p>
+<p>类：对象的集合</p>
+<p>关联：潜在的链接抽象</p>
+<p>要写出分析的步骤：</p>
+<p>1）识别候选类（名词分析法）</p>
+<p>2）确定概念类 （<strong>看是否满足既有状态又有行为</strong>）<strong>既需要维持一定的状态，又需要依据状态表现一定的行为</strong></p>
+<p>——确定为一个概念类如只需要维护状态，不需要表现行为</p>
+<p>——其他概念类的属性不需要维护状态，却需要表现行为</p>
+<p>——首先重新审视需求是否有遗漏，<strong>因为没有状态支持的对象无法表现行为</strong>；</p>
+<p>如果确定没有需求的遗漏，就需要剔除该候选类，并将行为转交给具备状态支持能力的其他概念类既不需要维护状态，又不需要表现行为——应该被完全剔除</p>
+<p>3）识别关联（文本中提取出“名词＋动词＋名词”的结构）</p>
+<p>第一标准是满足需求的要求，第二标准是现实状况</p>
+<p>4）识别重要属性<br>概念类图只需要用到四种关系线：聚合关系不必可以使用，但是组合关系要适当的使用</p>
+<p><img src="/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/image-20230616145741461.png"></p>
+<p>继承关系、组合关系、聚合关系、普通关联</p>
+<p>组合：整体的生命周期结束也就意味着部分的生命周期结束</p>
+<p>聚合：聚合的整体和部分之间在生命周期上没有什么必然的联系，部分对象可以在整体对象创建之前创建，也可以在整体对象销毁之后销毁。</p>
+<p>关联：在java语言中，关联关系一般表现为被关联类B以类属性的形式出现在关联类A中，也可能是关联类A引用了一个类型为被关联类B的全局变量；</p>
+<p><strong>组合&gt;聚合&gt;关联&gt;依赖</strong></p>
+<blockquote>
+<p>【示例1】</p>
+<p>1、如果是会员，收银员输入客户编号（属性、无行为）</p>
+<p>2、系统显示会员信息（就是会员），包括姓名（属性、无行为）与积分（属性、无行为）</p>
+<p>3、收银员输入商品标识（商品属性、无行为）</p>
+<p>4、系统记录并显示商品信息（有状态、有行为），商品信息包括商品标识、描述、数量、价格、特价（如果有商品特价策略的话）和本项商品总价（商品属性）</p>
+<p>5、系统显示已购入的商品清单（有状态、有行为），商品清单包括商品标识、描述、数量、价格、特价、各项商品总价和所有品总价（商品属性）</p>
+<p>收银员重复3-5步，直到完成所有商品的输入</p>
+<p>6、收银员结束输入，系统计算并显示总价（存储在账单中，有行为），计算根据总额特价策略（有状态、有行为）进行</p>
+<p>7、系统根据商品赠送策略和总额赠送策略计算并显示赠品清单（要），赠品清单包括各项赠品的标识、描述与数量（不要）</p>
+<p>8、收银员请顾客（就是会员）支付账单（有状态、有行为）</p>
+<p>9、顾客支付，收银员输入收取的现金数额（有属性、无行为、不要）</p>
+<p>10、系统给出应找的余额（有属性、无行为、不要），收银员找零</p>
+<p>11、收银员结束销售，系统记录销售信息（有状态、有行为）、商品清单、赠品清单和账单信息，并更新库存（有状态、有行为）   </p>
+<p>12、系统打印收据（根据需求，如果是一次性就无状态无行为，如果是丢了还可以打印就有状态有行为）  </p>
+</blockquote>
+<blockquote>
+<p>注意：一切看需求。</p>
+<p>（1）若商品ID必须符合标准，则ID有状态、有行为</p>
+<p>（2）若商品数量单位不同，则单位换算的职责交给数量，有状态、有行为  </p>
+<p>（3）若商品价格按照国际汇率有不同定位，则价格有状态、有行为  </p>
+</blockquote>
+<blockquote>
+<p>【示例2】ATM系统通过显示屏，输入键盘（有数字和特殊输入按键），银行卡读卡器，存款插槽，收据打印机等与用户交互。客户使用ATM机存款，取款，余额查询，对账户的更新交由账户系统的一个接口来处理。安全系统将为每个客户分配一个PIN码和安全级别。每次事物执行之前都需要验证PIN码。将来，银行计划使用ATM机支持一些常规操作，例如使用地址和电话号码修改。<br>分析：显示器、按键、读卡器、存款插槽、收据打印机 不属于  </p>
+<p>现实世界客户：属性：PIN、地址、电话号码、安全级别账户：余额   交易  </p>
+</blockquote>
+<p>【示例3】  </p>
+<blockquote>
+<ol>
+<li><p>顾客向系统提起查询请求 </p>
+</li>
+<li><p>系统根据请求为顾客提供一个CD的推荐列表 </p>
+</li>
+<li><p>顾客在推荐列表中选定一个CD，然后要求查看更详细的信息 </p>
+</li>
+<li><p>系统为顾客提供选定CD的详细信息 </p>
+</li>
+<li><p>顾客购买选定CD. </p>
+</li>
+<li><p>顾客离开 </p>
+</li>
+<li><p>分析：</p>
+<p>查询请求：有状态、有行为 </p>
+<p>顾客和CD：看需求，不确定是否存储详细信息   </p>
+<p>推荐列表：有状态、有行为（增删改）</p>
+</li>
+</ol>
+</blockquote>
+<p><img src="/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/image-20230616145820828.png"></p>
+<p><img src="/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/image-20230616145847178.png"></p>
+<h2 id="3-建立系统顺序图（交互图）"><a href="#3-建立系统顺序图（交互图）" class="headerlink" title="3.建立系统顺序图（交互图）"></a>3.建立系统顺序图（交互图）</h2><p>步骤：</p>
+<p>1）确定上下文环境 </p>
+<p>2）根据用例描述找到交互对象</p>
+<p>3）按照用例描述中的流程顺序逐步添加消息同步消息、异步消息、返回消息</p>
+<p>注意：</p>
+<p>（1）异步消息的箭头无论是从用户到系统还是从系统到用户都是一样的</p>
+<p>（2）opt标签表示可选；</p>
+<p>​	loop标签表示循环，要在旁边用［］内写循环条件；</p>
+<p>​	alt标签表示候选（基本上只会放一次返回消息），每一种可选分支之间要用虚线分割，而且在表示执行态的圆柱上面要写监护条件，放在［］里面。</p>
+<p><img src="/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/image-20230616145921830.png"></p>
+<h2 id="4-建立状态图"><a href="#4-建立状态图" class="headerlink" title="4.建立状态图"></a>4.建立状态图</h2><p>状态: 一组观察到的情况，在一个给定的时间描述系统行为状态转换: 从一个状态到另一个状态的转移事件: 导致系统表现出可预测行为的事件活动: </p>
+<p>作为产生转换的结果而发生的过程步骤：</p>
+<p>1）确定上下文环境 </p>
+<p>2）识别状态 </p>
+<p>3）建立状态转换 </p>
+<p>4）补充详细信息，完善状态图</p>
+<p>注意：并不是所有的状态图都有开始态和结束态，<strong>开始态通常只有一个，结束态可以有多个</strong></p>
+<blockquote>
+<p>【示例】明确状态图的主体：用例UC1销售处理。</p>
+<p>空闲状态（开始状态）：收银员已经登录和获得授权，但并没有请求开始销售工作的状态；</p>
+<p>销售开始状态：开始一个新销售事务，系统开始执行一个销售任务的状态；</p>
+<p>会员信息显示状态：输入了客户编号，系统显示该会员信息的状态；</p>
+<p>商品信息显示状态：刚刚输入了一个物品项，显示该物品（和赠品）描述信息的状态；</p>
+<p>列表显示状态：以列表方式显示所有已输入物品项（和赠品）信息的状态；</p>
+<p>错误提示状态：输入信息错误的状态；</p>
+<p>账单处理状态：输入结束，系统显示账单信息，收银员进行结帐处理的状态。  </p>
+<p>销售结束状态：更新信息，打印收据的状态。  </p>
+</blockquote>
+<p><img src="/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/image-20230616145947322.png"></p>
+<h2 id="第七章-需求文档化与验证"><a href="#第七章-需求文档化与验证" class="headerlink" title="第七章 需求文档化与验证"></a>第七章 需求文档化与验证</h2><h2 id="1-为什么需要需求规格说明？"><a href="#1-为什么需要需求规格说明？" class="headerlink" title="1.为什么需要需求规格说明？"></a>1.为什么需要需求规格说明？</h2><p>（1）软件开发过程中，子任务与人员之间存在错综复杂的关系，存在大量的沟通和交流，所以要编写软件开发中要编写不同类型的文档，每种文档都是针对项目中需要广泛交流的内容。</p>
+<p><strong>因为软件需求需要进行广泛交流，所以要把需求文档化。</strong></p>
+<p>（2）需求规格说明是在软件产品的角度以系统级需求列表的方式描述软件系统解决方案。<br><strong>用例侧重于交互流程，规格（解决方案）侧重于独立需求</strong><br><strong>用例以一次交互为基础，规格需求以一次交互中的软件系统处理细节为基础</strong></p>
+<h2 id="2-对给定的需求规格说明示例，判定并修正其错误。"><a href="#2-对给定的需求规格说明示例，判定并修正其错误。" class="headerlink" title="2.对给定的需求规格说明示例，判定并修正其错误。"></a>2.对给定的需求规格说明示例，判定并修正其错误。</h2><p>首先了解需求文档化要点：</p>
+<p>1）技术文档写作要点（<strong>简洁，精确，易读，易修改</strong>）；</p>
+<p>2）需求书写要点（<strong>使用用户术语，可验证，可行性</strong>）；</p>
+<p>3）需求规格说明文档书写要点（<strong>充分利用标准的文档模板</strong>，保持所有内容位置得当；<strong>保持文档内的需求集具有完备性和一致性；为需求划分优先级</strong>）</p>
+<blockquote>
+<p>【错误示例】付款过程完成后，相关信息应被添加到日志文件<br>该系统应被构造成将来很容易添加新功能计算<br>购买的汽油的价格：该类汽油每加仑的价格乘以购买的加仑数（使用两位小数点表示加仑小数部分）<br>该系统一周7天，一天24小时都可用  </p>
+</blockquote>
+<p><img src="/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/image-20230616150059982.png"></p>
+<h2 id="3-给定的需求示例，设计功能测试用例"><a href="#3-给定的需求示例，设计功能测试用例" class="headerlink" title="3.给定的需求示例，设计功能测试用例"></a>3.给定的需求示例，设计功能测试用例</h2><p>结合测试方法</p>
+<p><img src="/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/image-20230616150117987.png"></p>
+
+        
+      </div>
+
+         
+    </div>
+    
+     
+  </div>
+  
+    
+<nav id="article-nav">
+  <a class="article-nav-btn left "
+    
+      href="/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC20-23%E7%AB%A0)%20/"
+      title="SE-II-软件工程与计算II重点整理(第20-23章)"
+     >
+    <i class="fa-solid fa-angle-left"></i>
+    <p class="title-text">
+      
+        SE-II-软件工程与计算II重点整理(第20-23章)
+        
+    </p>
+  </a>
+  <a class="article-nav-btn right "
+    
+      href="/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC8-11%E7%AB%A0)/"
+      title="SE-II-软件工程与计算II重点整理(第8-11章)"
+     >
+
+    <p class="title-text">
+      
+        SE-II-软件工程与计算II重点整理(第8-11章)
+        
+    </p>
+    <i class="fa-solid fa-angle-right"></i>
+  </a>
+</nav>
+
+
+  
+</article>
+
+
+  
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <div id="comment-card" class="comment-card">
+    <div class="main-title-bar">
+      <div class="main-title-dot"></div>
+      <div class="main-title">留言 </div>
+    </div>
+    <div id="vcomments"></div>
+  </div>
+  <script>
+      new Valine({"enable":true,"appId":null,"appKey":null,"placeholder":"Just go go","pageSize":20,"highlight":true,"serverURLs":null,"el":"#vcomments"});
+  </script>
+ 
+    </div>
+    <div id="footer-wrapper">
+      <footer id="footer">
+  
+  <div id="footer-info" class="inner">
+    
+      <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris"></a>
+    
+    &copy; 2023 Asimov<br>
+    Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & Theme <a target="_blank" rel="noopener" href="https://github.com/saicaca/hexo-theme-vivia">Vivia</a>
+  </div>
+</footer>
+
+    </div>
+    <div class="back-to-top-wrapper">
+    <button id="back-to-top-btn" class="back-to-top-btn hide" onclick="topFunction()">
+        <i class="fa-solid fa-angle-up"></i>
+    </button>
+</div>
+
+<script>
+    function topFunction() {
+        window.scroll({ top: 0, behavior: 'smooth' });
+    }
+    let btn = document.getElementById('back-to-top-btn');
+    function scrollFunction() {
+        if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+            btn.classList.remove('hide')
+        } else {
+            btn.classList.add('hide')
+        }
+    }
+    window.onscroll = function() {
+        scrollFunction();
+    }
+</script>
+
+  </div>
+  <script src="/js/light-dark-switch.js"></script>
+</body>
+</html>

@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+
+
+<html theme="dark" showBanner="true" hasBanner="true" > 
+<link href="/fontawesome/css/fontawesome.css" rel="stylesheet">
+<link href="/fontawesome/css/brands.css" rel="stylesheet">
+<link href="/fontawesome/css/solid.css" rel="stylesheet">
+<script src="/js/color.global.min.js" ></script>
+<script src="/js/load-settings.js" ></script>
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+
+  
+  <title>SE-II-ch21-软件的维护与演化 | Asimov&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+  <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+
+  <meta name="description" content="21-软件的维护与演化   1. 维护 1.1. 软件维护的主要工作是”修改” 1.1.1. 维护是什么 1.1.2. 软件维护   1.2. 软件变更的常见情景 1.2.1. 软件维护类型划分[Lientz1980] 1.2.2. 软件维护   1.3. 软件维护代价高昂 1.3.1. 软件维护成本远远超出开发 1.3.2. 从事维护工作的人员比率在上升 1.3.3. 为什么软件维护有这么高的代">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SE-II-ch21-软件的维护与演化">
+<meta property="og:url" content="https://chendingya.github.io/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/21-%E8%BD%AF%E4%BB%B6%E7%9A%84%E7%BB%B4%E6%8A%A4%E4%B8%8E%E6%BC%94%E5%8C%96/index.html">
+<meta property="og:site_name" content="Asimov&#39;s Blog">
+<meta property="og:description" content="21-软件的维护与演化   1. 维护 1.1. 软件维护的主要工作是”修改” 1.1.1. 维护是什么 1.1.2. 软件维护   1.2. 软件变更的常见情景 1.2.1. 软件维护类型划分[Lientz1980] 1.2.2. 软件维护   1.3. 软件维护代价高昂 1.3.1. 软件维护成本远远超出开发 1.3.2. 从事维护工作的人员比率在上升 1.3.3. 为什么软件维护有这么高的代">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://chendingya.github.io/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/21-%E8%BD%AF%E4%BB%B6%E7%9A%84%E7%BB%B4%E6%8A%A4%E4%B8%8E%E6%BC%94%E5%8C%96/Users/wbl/AppData/Roaming/Typora/typora-user-images/image-20220607102741273.png">
+<meta property="og:image" content="https://chendingya.github.io/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/21-%E8%BD%AF%E4%BB%B6%E7%9A%84%E7%BB%B4%E6%8A%A4%E4%B8%8E%E6%BC%94%E5%8C%96/Users/wbl/AppData/Roaming/Typora/typora-user-images/image-20220607103137390.png">
+<meta property="og:image" content="https://chendingya.github.io/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/21-%E8%BD%AF%E4%BB%B6%E7%9A%84%E7%BB%B4%E6%8A%A4%E4%B8%8E%E6%BC%94%E5%8C%96/Users/wbl/AppData/Roaming/Typora/typora-user-images/image-20220607105019191.png">
+<meta property="og:image" content="https://chendingya.github.io/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/21-%E8%BD%AF%E4%BB%B6%E7%9A%84%E7%BB%B4%E6%8A%A4%E4%B8%8E%E6%BC%94%E5%8C%96/Users/wbl/AppData/Roaming/Typora/typora-user-images/image-20220607105310072.png">
+<meta property="og:image" content="https://chendingya.github.io/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/21-%E8%BD%AF%E4%BB%B6%E7%9A%84%E7%BB%B4%E6%8A%A4%E4%B8%8E%E6%BC%94%E5%8C%96/Users/wbl/AppData/Roaming/Typora/typora-user-images/image-20220607110030412.png">
+<meta property="article:published_time" content="2022-06-18T08:02:34.000Z">
+<meta property="article:modified_time" content="2023-09-17T07:55:16.061Z">
+<meta property="article:author" content="Asimov">
+<meta property="article:tag" content="软件工程与计算II">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://chendingya.github.io/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/21-%E8%BD%AF%E4%BB%B6%E7%9A%84%E7%BB%B4%E6%8A%A4%E4%B8%8E%E6%BC%94%E5%8C%96/Users/wbl/AppData/Roaming/Typora/typora-user-images/image-20220607102741273.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Asimov's Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-192.png" sizes="192x192">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-192.png" sizes="192x192">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  
+  
+    
+<div id="banner" class="">
+  <img src="/pic/back.png" itemprop="image">
+  <div id="banner-dim"></div>
+</div>
+ 
+   
+  <div id="main-grid" class="shadow   ">
+    <div id="nav" class=""  >
+      <navbar id="navbar">
+  <nav id="title-nav">
+    <a href="/">
+      <div id="vivia-logo">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div>Asimov's Blog </div>
+    </a>
+  </nav>
+  <nav id="main-nav">
+    
+      <a class="main-nav-link" href="/">Home</a>
+    
+      <a class="main-nav-link" href="/archives">Archives</a>
+    
+      <a class="main-nav-link" href="/about">About</a>
+    
+  </nav>
+  <nav id="sub-nav">
+    <a id="theme-btn" class="nav-icon">
+      <span class="light-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M438.5-829.913v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-829.913Zm0 747.826v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-82.087ZM877.913-438.5h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537t29.476-12.174h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T877.913-438.5Zm-747.826 0h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T82.087-521.5h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T130.087-438.5Zm660.174-290.87-34.239 32q-12.913 12.674-29.565 12.174-16.653-.5-29.327-13.174-12.674-12.673-12.554-28.826.12-16.152 12.794-28.826l33-35q12.913-12.674 30.454-12.674t30.163 12.847q12.709 12.846 12.328 30.826-.38 17.98-13.054 30.653ZM262.63-203.978l-32 34q-12.913 12.674-30.454 12.674t-30.163-12.847q-12.709-12.846-12.328-30.826.38-17.98 13.054-30.653l33.239-31q12.913-12.674 29.565-12.174 16.653.5 29.327 13.174 12.674 12.673 12.554 28.826-.12 16.152-12.794 28.826Zm466.74 33.239-32-33.239q-12.674-12.913-12.174-29.565.5-16.653 13.174-29.327 12.673-12.674 28.826-13.054 16.152-.38 28.826 12.294l35 33q12.674 12.913 12.674 30.454t-12.847 30.163q-12.846 12.709-30.826 12.328-17.98-.38-30.653-13.054ZM203.978-697.37l-34-33q-12.674-12.913-13.174-29.945-.5-17.033 12.174-29.707t31.326-13.293q18.653-.62 31.326 13.054l32 34.239q11.674 12.913 11.174 29.565-.5 16.653-13.174 29.327-12.673 12.674-28.826 12.554-16.152-.12-28.826-12.794ZM480-240q-100 0-170-70t-70-170q0-100 70-170t170-70q100 0 170 70t70 170q0 100-70 170t-170 70Zm-.247-82q65.703 0 111.475-46.272Q637-414.544 637-480.247t-45.525-111.228Q545.95-637 480.247-637t-111.475 45.525Q323-545.95 323-480.247t45.525 111.975Q414.05-322 479.753-322ZM481-481Z"/></svg></span>
+      <span class="dark-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M480.239-116.413q-152.63 0-258.228-105.478Q116.413-327.37 116.413-480q0-130.935 77.739-227.435t206.304-125.043q43.022-9.631 63.87 10.869t3.478 62.805q-8.891 22.043-14.315 44.463-5.424 22.42-5.424 46.689 0 91.694 64.326 155.879 64.325 64.186 156.218 64.186 24.369 0 46.978-4.946 22.609-4.945 44.413-14.076 42.826-17.369 62.967 1.142 20.142 18.511 10.511 61.054Q807.174-280 712.63-198.206q-94.543 81.793-232.391 81.793Zm0-95q79.783 0 143.337-40.217 63.554-40.218 95.793-108.283-15.608 4.044-31.097 5.326-15.49 1.283-31.859.805-123.706-4.066-210.777-90.539-87.071-86.473-91.614-212.092-.24-16.369.923-31.978 1.164-15.609 5.446-30.978-67.826 32.478-108.282 96.152Q211.652-559.543 211.652-480q0 111.929 78.329 190.258 78.329 78.329 190.258 78.329ZM466.13-465.891Z"/></svg></span>
+    </a>
+    
+      <a id="nav-rss-link" class="nav-icon mobile-hide" href="/atom.xml" title="RSS 订阅">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-120q-25.846 0-44.23-18.384-18.384-18.385-18.384-44.23 0-25.846 18.384-44.23 18.384-18.385 44.23-18.385 25.846 0 44.23 18.385 18.384 18.384 18.384 44.23 0 25.845-18.384 44.23Q223.846-120 198-120Zm538.385 0q-18.846 0-32.923-13.769-14.076-13.769-15.922-33.23-8.692-100.616-51.077-188.654-42.385-88.039-109.885-155.539-67.5-67.501-155.539-109.885Q283-663.462 182.385-672.154q-19.461-1.846-33.23-16.23-13.769-14.385-13.769-33.846t14.076-32.922q14.077-13.461 32.923-12.23 120.076 8.692 226.038 58.768 105.961 50.077 185.73 129.846 79.769 79.769 129.846 185.731 50.077 105.961 58.769 226.038 1.231 18.846-12.538 32.922Q756.461-120 736.385-120Zm-252 0q-18.231 0-32.423-13.461t-18.653-33.538Q418.155-264.23 348.886-333.5q-69.27-69.27-166.501-84.423-20.077-4.462-33.538-18.961-13.461-14.5-13.461-33.346 0-19.076 13.884-33.23 13.884-14.153 33.115-10.922 136.769 15.384 234.384 112.999 97.615 97.615 112.999 234.384 3.231 19.23-10.538 33.115Q505.461-120 484.385-120Z"/></svg>
+      </a>
+    
+    <div id="nav-menu-btn" class="nav-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M177.37-252.282q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Zm0-186.218q-17.453 0-29.477-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T177.37-521.5h605.26q17.453 0 29.477 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T782.63-438.5H177.37Zm0-186.217q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Z"/></svg>
+    </div>
+  </nav>
+</navbar>
+<div id="nav-dropdown" class="hidden">
+  <div id="dropdown-link-list">
+    
+      <a class="nav-dropdown-link" href="/">Home</a>
+    
+      <a class="nav-dropdown-link" href="/archives">Archives</a>
+    
+      <a class="nav-dropdown-link" href="/about">About</a>
+    
+    
+      <a class="nav-dropdown-link" href="/atom.xml" title="RSS 订阅">RSS</a>
+     
+    </div>
+</div>
+<script>
+  let dropdownBtn = document.getElementById("nav-menu-btn");
+  let dropdownEle = document.getElementById("nav-dropdown");
+  dropdownBtn.onclick = function() {
+    dropdownEle.classList.toggle("hidden");
+  }
+</script>
+    </div>
+    <div id="sidebar-wrapper">
+      <sidebar id="sidebar">
+  
+    <div class="widget-wrap">
+  <div class="info-card">
+    <div class="avatar">
+      
+        <image src=/pic/avatar.png></image>
+      
+      <div class="img-dim"></div>
+    </div>
+    <div class="info">
+      <div class="username">Asimov </div>
+      <div class="dot"></div>
+      <div class="subtitle">Asimov's Blog </div>
+      <div class="link-list">
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://github.com/chendingya" title="GitHub"><i class="fa-brands fa-github"></i></a>
+         
+      </div>  
+    </div>
+  </div>
+</div>
+
+  
+  <div class="sticky">
+    
+      
+
+
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">分类</h3>
+      <div class="category-box">
+            <a class="category-link" href="/categories/hello-world/">
+                hello world
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/Hexo/">
+                Hexo
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
+                编译原理
+                <div class="category-count">13</div>
+            </a>
+        
+            <a class="category-link" href="/categories/tdesign/">
+                tdesign
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">
+                软件工程与计算II
+                <div class="category-count">30</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E9%A9%BE%E8%80%83/">
+                驾考
+                <div class="category-count">2</div>
+            </a>
+        </div>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">标签</h3>
+      <ul class="widget-tag-list" itemprop="keywords"><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/hello-world/" rel="tag">hello world</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/tdesign/" rel="tag">tdesign</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" rel="tag">编译原理</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/" rel="tag">软件工程与计算II</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E9%A9%BE%E8%80%83/" rel="tag">驾考</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">归档</h3>
+      
+      
+        <a class="archive-link" href="/archives/2023/09 ">
+          九月 2023 
+          <div class="archive-count">2 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/07 ">
+          七月 2023 
+          <div class="archive-count">2 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/04 ">
+          四月 2023 
+          <div class="archive-count">10 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/03 ">
+          三月 2023 
+          <div class="archive-count">3 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2022/10 ">
+          十月 2022 
+          <div class="archive-count">1 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2022/06 ">
+          六月 2022 
+          <div class="archive-count">30 </div>
+        </a>
+      
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">最新文章</h3>
+      <ul>
+        
+          <a class="recent-link" href="/2023/09/15/23-tdesign/Mock%E4%BD%BF%E7%94%A8/" title="微信小程序中Mock使用" >
+            <div class="recent-link-text">
+              微信小程序中Mock使用
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/09/12/%E9%A9%BE%E8%80%83/%E9%A9%BE%E8%80%83-%E7%A7%91%E7%9B%AE%E4%BA%8C/" title="驾考-科目二" >
+            <div class="recent-link-text">
+              驾考-科目二
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/07/18/blog/" title="blog" >
+            <div class="recent-link-text">
+              blog
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/07/17/%E9%A9%BE%E8%80%83/%E9%A9%BE%E8%80%83-%E7%A7%91%E7%9B%AE%E4%B8%80/" title="驾考-科目一" >
+            <div class="recent-link-text">
+              驾考-科目一
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/04/10/23-Compilers/ch18-codegen-riscv-RISC-V%20%E6%A6%82%E8%BF%B0/" title="ch18-codegen-riscv-RISC-V 概述" >
+            <div class="recent-link-text">
+              ch18-codegen-riscv-RISC-V 概述
+            </div>
+          </a>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+  </div>
+</sidebar>
+    </div>
+    <div id="content-body">
+       
+
+<article id="post-SE-II笔记/21-软件的维护与演化" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 class="p-name article-title" itemprop="headline name">
+        SE-II-ch21-软件的维护与演化
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2022-06-18T08:02:34.000Z" itemprop="datePublished">2022-06-18</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">软件工程与计算II</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            6.3k 词 
+          </div>
+        </div>
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/" rel="tag">软件工程与计算II</a></li></ul>
+
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <h2 id="21-软件的维护与演化"><a href="#21-软件的维护与演化" class="headerlink" title="21-软件的维护与演化"></a>21-软件的维护与演化</h2><!-- TOC -->
+
+<ul>
+<li><a href="#1-%E7%BB%B4%E6%8A%A4">1. 维护</a><ul>
+<li><a href="#11-%E8%BD%AF%E4%BB%B6%E7%BB%B4%E6%8A%A4%E7%9A%84%E4%B8%BB%E8%A6%81%E5%B7%A5%E4%BD%9C%E6%98%AF%E4%BF%AE%E6%94%B9">1.1. 软件维护的主要工作是”修改”</a><ul>
+<li><a href="#111-%E7%BB%B4%E6%8A%A4%E6%98%AF%E4%BB%80%E4%B9%88">1.1.1. 维护是什么</a></li>
+<li><a href="#112-%E8%BD%AF%E4%BB%B6%E7%BB%B4%E6%8A%A4">1.1.2. 软件维护</a></li>
+</ul>
+</li>
+<li><a href="#12-%E8%BD%AF%E4%BB%B6%E5%8F%98%E6%9B%B4%E7%9A%84%E5%B8%B8%E8%A7%81%E6%83%85%E6%99%AF">1.2. 软件变更的常见情景</a><ul>
+<li><a href="#121-%E8%BD%AF%E4%BB%B6%E7%BB%B4%E6%8A%A4%E7%B1%BB%E5%9E%8B%E5%88%92%E5%88%86lientz1980">1.2.1. 软件维护类型划分[Lientz1980]</a></li>
+<li><a href="#122-%E8%BD%AF%E4%BB%B6%E7%BB%B4%E6%8A%A4">1.2.2. 软件维护</a></li>
+</ul>
+</li>
+<li><a href="#13-%E8%BD%AF%E4%BB%B6%E7%BB%B4%E6%8A%A4%E4%BB%A3%E4%BB%B7%E9%AB%98%E6%98%82">1.3. 软件维护代价高昂</a><ul>
+<li><a href="#131-%E8%BD%AF%E4%BB%B6%E7%BB%B4%E6%8A%A4%E6%88%90%E6%9C%AC%E8%BF%9C%E8%BF%9C%E8%B6%85%E5%87%BA%E5%BC%80%E5%8F%91">1.3.1. 软件维护成本远远超出开发</a></li>
+<li><a href="#132-%E4%BB%8E%E4%BA%8B%E7%BB%B4%E6%8A%A4%E5%B7%A5%E4%BD%9C%E7%9A%84%E4%BA%BA%E5%91%98%E6%AF%94%E7%8E%87%E5%9C%A8%E4%B8%8A%E5%8D%87">1.3.2. 从事维护工作的人员比率在上升</a></li>
+<li><a href="#133-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BD%AF%E4%BB%B6%E7%BB%B4%E6%8A%A4%E6%9C%89%E8%BF%99%E4%B9%88%E9%AB%98%E7%9A%84%E4%BB%A3%E4%BB%B7">1.3.3. 为什么软件维护有这么高的代价？</a></li>
+<li><a href="#134-%E9%9C%80%E6%B1%82%E5%8F%98%E6%9B%B4%E9%9D%9E%E5%B8%B8%E9%A2%91%E7%B9%81">1.3.4. 需求变更非常频繁</a></li>
+<li><a href="#135-%E9%A2%91%E7%B9%81%E5%8F%98%E6%9B%B4%E7%9A%84%E9%9C%80%E6%B1%82%E6%8E%A8%E9%AB%98%E4%BA%86%E7%BB%B4%E6%8A%A4%E6%88%90%E6%9C%AC">1.3.5. 频繁变更的需求推高了维护成本</a></li>
+<li><a href="#136-%E7%BB%B4%E6%8A%A4%E7%9A%84%E5%9B%B0%E9%9A%BE%E6%80%A7">1.3.6. 维护的困难性</a></li>
+</ul>
+</li>
+<li><a href="#14-%E5%BC%80%E5%8F%91%E5%8F%AF%E7%BB%B4%E6%8A%A4%E7%9A%84%E8%BD%AF%E4%BB%B6">1.4. 开发可维护的软件</a><ul>
+<li><a href="#141-%E5%89%8D%E6%9C%9F%E5%BC%80%E5%8F%91%E9%98%B6%E6%AE%B5%E6%9B%B4%E5%85%85%E5%88%86%E7%9A%84%E5%87%86%E5%A4%87%E5%8F%AF%E4%BB%A5%E5%87%8F%E8%BD%BB%E5%90%8E%E6%9C%9F%E7%BB%B4%E6%8A%A4%E7%9A%84%E5%8E%8B%E5%8A%9B%E5%92%8C%E5%9B%B0%E9%9A%BE">1.4.1. 前期(开发阶段)更充分的准备可以减轻后期维护的压力和困难</a></li>
+<li><a href="#142-%E8%80%83%E8%99%91%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%8F%AF%E5%8F%98%E6%9B%B4%E6%80%A7">1.4.2. 考虑软件的可变更性</a></li>
+<li><a href="#143-%E4%B8%BA%E9%99%8D%E4%BD%8E%E7%BB%B4%E6%8A%A4%E5%9B%B0%E9%9A%BE%E8%80%8C%E5%BC%80%E5%8F%91">1.4.3. 为降低维护困难而开发</a></li>
+</ul>
+</li>
+<li><a href="#15-%E8%BD%AF%E4%BB%B6%E7%BB%B4%E6%8A%A4%E7%9A%84%E8%BF%87%E7%A8%8B">1.5. 软件维护的过程</a><ul>
+<li><a href="#151-%E6%AD%A5%E9%AA%A41%E9%97%AE%E9%A2%98%E4%BF%AE%E6%94%B9%E7%9A%84%E6%A0%87%E8%AF%86%E5%88%86%E7%B1%BB%E4%B8%8E%E5%88%92%E5%88%86%E4%BC%98%E5%85%88%E7%BA%A7">1.5.1. 步骤1:问题&#x2F;修改的标识、分类与划分优先级</a></li>
+<li><a href="#152-%E6%AD%A5%E9%AA%A42%E5%88%86%E6%9E%90">1.5.2. 步骤2:分析</a></li>
+<li><a href="#153-%E6%AD%A5%E9%AA%A43%E8%AE%BE%E8%AE%A1">1.5.3. 步骤3:设计</a></li>
+<li><a href="#154-%E6%AD%A5%E9%AA%A44%E5%AE%9E%E7%8E%B0">1.5.4. 步骤4:实现</a></li>
+<li><a href="#155-%E6%AD%A5%E9%AA%A45%E5%9B%9E%E5%BD%92%E6%B5%8B%E8%AF%95">1.5.5. 步骤5:回归测试</a></li>
+<li><a href="#156-%E6%AD%A5%E9%AA%A46%E9%AA%8C%E6%94%B6%E6%B5%8B%E8%AF%95">1.5.6. 步骤6:验收测试</a></li>
+<li><a href="#157-%E6%AD%A5%E9%AA%A47%E7%A7%BB%E4%BA%A4">1.5.7. 步骤7:移交</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#2-%E8%BD%AF%E4%BB%B6%E6%BC%94%E5%8C%96">2. 软件演化</a><ul>
+<li><a href="#21-%E7%BB%B4%E6%8A%A4%E5%92%8C%E6%BC%94%E5%8C%96">2.1. 维护和演化</a></li>
+<li><a href="#22-%E8%BD%AF%E4%BB%B6%E6%BC%94%E5%8C%96%E5%AE%9A%E5%BE%8B">2.2. 软件演化定律</a></li>
+<li><a href="#23-%E8%BD%AF%E4%BB%B6%E6%BC%94%E5%8C%96%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%A8%A1%E5%9E%8B">2.3. 软件演化生命周期模型</a><ul>
+<li><a href="#231-%E6%AD%A5%E9%AA%A4%E4%B8%80%E5%88%9D%E5%A7%8B%E5%BC%80%E5%8F%91">2.3.1. 步骤一:初始开发</a></li>
+<li><a href="#232-%E6%AD%A5%E9%AA%A4%E4%BA%8C%E6%BC%94%E5%8C%96">2.3.2. 步骤二:演化</a></li>
+<li><a href="#233-%E6%AD%A5%E9%AA%A4%E4%B8%89%E6%9C%8D%E5%8A%A1">2.3.3. 步骤三:服务</a></li>
+<li><a href="#234-%E6%AD%A5%E9%AA%A4%E5%9B%9B%E9%80%90%E6%AD%A5%E6%B7%98%E6%B1%B0">2.3.4. 步骤四:逐步淘汰</a></li>
+<li><a href="#235-%E6%AD%A5%E9%AA%A4%E4%BA%94%E5%81%9C%E6%AD%A2">2.3.5. 步骤五:停止</a></li>
+</ul>
+</li>
+<li><a href="#24-%E5%BC%80%E5%8F%91%E5%9B%A2%E9%98%9F%E5%9C%A8%E4%B8%8D%E5%90%8C%E9%98%B6%E6%AE%B5%E7%9A%84%E4%B8%8D%E5%90%8C%E5%B7%A5%E4%BD%9C">2.4. 开发团队在不同阶段的不同工作</a></li>
+</ul>
+</li>
+<li><a href="#3-%E8%BD%AF%E4%BB%B6%E7%BB%B4%E6%8A%A4%E4%B8%8E%E6%BC%94%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF">3. 软件维护与演化的技术</a><ul>
+<li><a href="#31-%E9%81%97%E7%95%99%E8%BD%AF%E4%BB%B6">3.1. 遗留软件</a><ul>
+<li><a href="#311-%E5%AF%B9%E4%BA%8E%E9%81%97%E7%95%99%E8%BD%AF%E4%BB%B6%E7%9A%84%E4%B8%8D%E5%90%8C%E5%A4%84%E7%90%86%E6%96%B9%E5%BC%8F">3.1.1. 对于遗留软件的不同处理方式</a></li>
+</ul>
+</li>
+<li><a href="#32-%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B">3.2. 逆向工程</a></li>
+<li><a href="#33-%E5%86%8D%E5%B7%A5%E7%A8%8B">3.3. 再工程</a><ul>
+<li><a href="#331-%E5%86%8D%E5%B7%A5%E7%A8%8B%E4%B8%8E%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B%E7%9A%84%E5%85%B3%E7%B3%BB">3.3.1. 再工程与逆向工程的关系</a></li>
+<li><a href="#332-%E5%86%8D%E5%B7%A5%E7%A8%8B">3.3.2. 再工程</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#4-%E6%80%BB%E7%BB%93">4. 总结</a></li>
+</ul>
+<!-- /TOC -->
+
+
+<h1 id="1-维护"><a href="#1-维护" class="headerlink" title="1. 维护"></a>1. 维护</h1><ol>
+<li>软件维护的<strong>主要工作是”修改”</strong></li>
+<li>软件维护代价高昂</li>
+<li>软件维护的过程</li>
+</ol>
+<h2 id="1-1-软件维护的主要工作是”修改”"><a href="#1-1-软件维护的主要工作是”修改”" class="headerlink" title="1.1. 软件维护的主要工作是”修改”"></a>1.1. 软件维护的主要工作是”修改”</h2><h3 id="1-1-1-维护是什么"><a href="#1-1-1-维护是什么" class="headerlink" title="1.1.1. 维护是什么"></a>1.1.1. 维护是什么</h3><ol>
+<li>各个工程领域都会在将产品交付给用户之后进行维护工作<ol>
+<li>主要是为了保证产品的正常运转而进行使用帮助、故障解决和磨损处理等工作。</li>
+</ol>
+</li>
+<li>软件的维护主要是”修改”<ol>
+<li>软件不会磨损，硬件的变更会影响软件产品</li>
+<li>软件维护只需要完成少量的使用帮助、故障解决和磨损处理等工作</li>
+<li>软件特性上是易于修改的</li>
+<li>软件只有持续修改才能保持价值</li>
+</ol>
+</li>
+</ol>
+<h3 id="1-1-2-软件维护"><a href="#1-1-2-软件维护" class="headerlink" title="1.1.2. 软件维护"></a>1.1.2. 软件维护</h3><ol>
+<li>修改软件的代价非常高，软件维护的重点在于软件修改和变更上。</li>
+<li>IEEE就定义软件维护为[IEEE610.12-1990]：<strong>软件维护是在交付之后修改软件系统或其部件的活动过程，以修正缺陷、提高性能或其他属性、适应变化的环境。</strong></li>
+</ol>
+<h2 id="1-2-软件变更的常见情景"><a href="#1-2-软件变更的常见情景" class="headerlink" title="1.2. 软件变更的常见情景"></a>1.2. 软件变更的常见情景</h2><ol>
+<li>问题发生了改变。<ol>
+<li>随着时间的发展，形势可能会发生变化，导致用户的问题发生变化。这些使得软件的需求发生变化，出现新的需求，否则软件将减小甚至失去服务用户的作用。</li>
+</ol>
+</li>
+<li>环境发生了改变。<ol>
+<li>随着软件产品的生命周期越来越长，在软件生存期内外界环境发生变化的可能性越来越大，因此，软件经常需要修改以适应外界环境的改变。</li>
+<li>比如硬件上出现了变更。</li>
+</ol>
+</li>
+<li>软件产品中存在缺陷。<ol>
+<li>软件开发的理想结果当然是建立一个完全无缺陷的软件产品，<strong>但这是不可能达到的目标</strong>。最终的软件产品总是或多或少的会遗留下一些缺陷。当这些缺陷在使用中暴露出来时，必须予以及时的解决。</li>
+</ol>
+</li>
+</ol>
+<h3 id="1-2-1-软件维护类型划分-Lientz1980"><a href="#1-2-1-软件维护类型划分-Lientz1980" class="headerlink" title="1.2.1. 软件维护类型划分[Lientz1980]"></a>1.2.1. 软件维护类型划分[Lientz1980]</h3><ol>
+<li>完善性维护(Perfective maintenance)：为了满足用户新的需求、增加软件功能而进行的软件修改活动。</li>
+<li>适应性维护(Adaptive maintenance)：为了使软件能适应新的环境而进行的软件修改活动。</li>
+<li>修正性维护(Corrective maintenance)：为了排除软件产品中遗留缺陷而进行的软件修改活动。</li>
+<li>预防性维护(Preventive maintenance)：<strong>为了让软件产品在将来可维护，提升可维护性的软件修改活动</strong>。【如重构软件】<ol>
+<li>随着持续的修改，软件的复杂度会上升，质量会下降。预防性修改是为了解决上述问题而进行的软件调整，是一种特殊类型的”修改”</li>
+<li><strong>只有这一种维护是根源于软件维护中的规律性</strong>。</li>
+</ol>
+</li>
+</ol>
+<h3 id="1-2-2-软件维护"><a href="#1-2-2-软件维护" class="headerlink" title="1.2.2. 软件维护"></a>1.2.2. 软件维护</h3><ol>
+<li>理想情况下，为满足一些变更而执行的维护活动应该不会降低软件产品的质量，尤其是可维护性，否则，本次的维护活动将使得未来的维护活动更加困难。</li>
+<li>但是<strong>实践表明软件维护活动的确会降低软件产品的质量</strong>，甚至导致一个软件产品在进行一系列维护活动之后会失去可维护性。</li>
+<li>[Lehman1980,1984]将这种现象表述为：在一个程序发生变更时，它的结构倾向于变得更复杂，因此需要投入一些额外的资源以在保持功能的同时简化程序结构。<ol>
+<li>别人来维护代码，可能会降低代码效率等等</li>
+</ol>
+</li>
+<li>预防性维护就是为了简化维护后的软件结构以提高软件可维护性的额外投入。</li>
+</ol>
+<h2 id="1-3-软件维护代价高昂"><a href="#1-3-软件维护代价高昂" class="headerlink" title="1.3. 软件维护代价高昂"></a>1.3. 软件维护代价高昂</h2><h3 id="1-3-1-软件维护成本远远超出开发"><a href="#1-3-1-软件维护成本远远超出开发" class="headerlink" title="1.3.1. 软件维护成本远远超出开发"></a>1.3.1. 软件维护成本远远超出开发</h3><ol>
+<li>一般认为，<strong>维护成本是开发成本的3倍以上(目前可能是4倍以上)</strong></li>
+</ol>
+<h3 id="1-3-2-从事维护工作的人员比率在上升"><a href="#1-3-2-从事维护工作的人员比率在上升" class="headerlink" title="1.3.2. 从事维护工作的人员比率在上升"></a>1.3.2. 从事维护工作的人员比率在上升</h3><ol>
+<li>[Jones2006]在对美国的软件开发者进行调查时发现：1975年时有不超过75,000人在从事维护工作，占所有开发人员的17%；1990年时有大概800,000人在从事维护工作，占所有开发人员的47%；2005 年时有2,500,000人在从事维护工作，占所有开发人员的76%。</li>
+<li>软件工程的成功绝不仅是开发的成功，更要求维护工作的成功；只有降低软件维护的成本，才能降低整个软件工程的成本。</li>
+</ol>
+<h3 id="1-3-3-为什么软件维护有这么高的代价？"><a href="#1-3-3-为什么软件维护有这么高的代价？" class="headerlink" title="1.3.3. 为什么软件维护有这么高的代价？"></a>1.3.3. 为什么软件维护有这么高的代价？</h3><ol>
+<li>变更频繁</li>
+<li>维护工作困难</li>
+</ol>
+<h3 id="1-3-4-需求变更非常频繁"><a href="#1-3-4-需求变更非常频繁" class="headerlink" title="1.3.4. 需求变更非常频繁"></a>1.3.4. 需求变更非常频繁</h3><ol>
+<li>[Jones1996]发现：对于管理信息系统，其需求一般每月增长1％左右；商业软件的增长率可以高达3.5％；其他类型的软件介于这两者之间。</li>
+<li>如果需求每个月变更2％，则相当于需求每年要变化1&#x2F;4，所以这是一个惊人的数字。n 在[Stark1999]的调查中，需求的可变性(可变性＝变化的需求数量÷总需求数量)也高达48％。</li>
+</ol>
+<h3 id="1-3-5-频繁变更的需求推高了维护成本"><a href="#1-3-5-频繁变更的需求推高了维护成本" class="headerlink" title="1.3.5. 频繁变更的需求推高了维护成本"></a>1.3.5. 频繁变更的需求推高了维护成本</h3><ol>
+<li><p>[Lientz1980]发现在各种变更中，为满足新需求而进行的<strong>完善性维护占用了最多的软件维护成本</strong></p>
+</li>
+<li><p>为什么在数量上少于新开发需求，但是变更需求却耗费了比新开发大得多的成本？</p>
+<ol>
+<li>程序理解</li>
+<li>影响分析</li>
+</ol>
+</li>
+<li><p>重构可以极强地降低了我们的维护成本</p>
+</li>
+</ol>
+<h3 id="1-3-6-维护的困难性"><a href="#1-3-6-维护的困难性" class="headerlink" title="1.3.6. 维护的困难性"></a>1.3.6. 维护的困难性</h3><ol>
+<li>程序的理解<ol>
+<li>在维护中修改软件时，不论被修改的是哪个部分，维护人员都需要全面理解整个软件系统的结构和行为，只有这样才能确定需要修改的程序位置和修改方法。理解软件系统的结构和行为就需要准确理解程序代码，而这是一个困难的任务。</li>
+<li>实践调查表明维护时间的**50%～90%**都被消耗在了程序理解上[Corbi1989, Livadas1994]。</li>
+</ol>
+</li>
+<li><strong>软件维护人员通常不是程序代码的编写者</strong>，不同人的思维方式不同，维护人员不仅要读懂程序逻辑还要理解编写者的思路</li>
+<li>实践中很多软件项目的文档不全或者更新不及时，维护人员无法获得足够的帮助，只能单纯依赖代码片段拼接来形成对系统的整体理解</li>
+<li>影响分析<ol>
+<li>在开发软件时，具体功能和需求并不是各自独立实现的，即不是每一个需求都被单独实现为一段代码。通常，每条需求会被实现为相互联系的多个程序代码片段，而且每个程序代码片段要同时承载多个具体需求的实现。程序代码片段与具体需求之间是多对多的复杂关系。而且软件的程序代码也是互相联系的，维护人员在修改一部分程序代码时，可能会影响到其他部分。</li>
+<li>有统计调查表明：每修正一个缺陷，都有20～50%的几率引入新的缺陷</li>
+<li>为了阻止修改带来坏的连锁反应，开发者需要耗费很多精力<ol>
+<li>回归测试、需求跟踪等</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="1-4-开发可维护的软件"><a href="#1-4-开发可维护的软件" class="headerlink" title="1.4. 开发可维护的软件"></a>1.4. 开发可维护的软件</h2><ol>
+<li>通过分析软件维护的高代价性可以发现，很多软件维护中的困难和问题根源于软件开发阶段。</li>
+<li>虽然软件维护工作表现在软件交付之后，但是需要在软件开发时就预备一些前期工作。</li>
+</ol>
+<h3 id="1-4-1-前期-开发阶段-更充分的准备可以减轻后期维护的压力和困难"><a href="#1-4-1-前期-开发阶段-更充分的准备可以减轻后期维护的压力和困难" class="headerlink" title="1.4.1. 前期(开发阶段)更充分的准备可以减轻后期维护的压力和困难"></a>1.4.1. 前期(开发阶段)更充分的准备可以减轻后期维护的压力和困难</h3><ol>
+<li>考虑软件的可变更性</li>
+<li>为降低维护困难而开发</li>
+</ol>
+<h3 id="1-4-2-考虑软件的可变更性"><a href="#1-4-2-考虑软件的可变更性" class="headerlink" title="1.4.2. 考虑软件的可变更性"></a>1.4.2. 考虑软件的可变更性</h3><ol>
+<li>预测变更并将其独立封装，便于修改时的程序定义与理解，防止修改时的连锁反应<ol>
+<li>分析需求的易变性，尽可能发现和预测可能的变更</li>
+<li>为变更进行设计，开发人员需要进行关注点分离，使用信息隐藏等设计思想为可能的变更进行设计，将其封装起来</li>
+</ol>
+</li>
+</ol>
+<h3 id="1-4-3-为降低维护困难而开发"><a href="#1-4-3-为降低维护困难而开发" class="headerlink" title="1.4.3. 为降低维护困难而开发"></a>1.4.3. 为降低维护困难而开发</h3><ol>
+<li>为后期理解程序和进行影响分析提供额外的便利<ol>
+<li>编写详细的技术文档并保持及时更新。</li>
+<li>保证代码的可读性。</li>
+<li>维护需求跟踪链。<ol>
+<li>需求跟踪链从正反两个方向纪录”需求、设计、编码、测试”之间的跟踪与回溯关系</li>
+</ol>
+</li>
+<li>维护回归测试基线。<ol>
+<li>回归测试基线包含了系统修改之前的有效测试用例集合， 因此只需要根据修改情况对回归测试基线进行简单的修正</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="1-5-软件维护的过程"><a href="#1-5-软件维护的过程" class="headerlink" title="1.5. 软件维护的过程"></a>1.5. 软件维护的过程</h2><h3 id="1-5-1-步骤1-问题-修改的标识、分类与划分优先级"><a href="#1-5-1-步骤1-问题-修改的标识、分类与划分优先级" class="headerlink" title="1.5.1. 步骤1:问题&#x2F;修改的标识、分类与划分优先级"></a>1.5.1. 步骤1:问题&#x2F;修改的标识、分类与划分优先级</h3><ol>
+<li>该步骤的主要任务是进行变更管理(Change Management)：<ol>
+<li>用户、客户或其他人员提出变更请求；</li>
+<li>维护人员为变更请求建立变更记录(Change Record)，赋予标识，进行变更类别分类，确定其优先级。</li>
+<li>初步评估变更的可能影响，并据此确定是否接受该变更请求。</li>
+<li>如果决定执行变更，就为其安排修改时间。通常多个小的修改会安排到一个时间内批量完成。</li>
+</ol>
+</li>
+</ol>
+<h3 id="1-5-2-步骤2-分析"><a href="#1-5-2-步骤2-分析" class="headerlink" title="1.5.2. 步骤2:分析"></a>1.5.2. 步骤2:分析</h3><ol>
+<li>该步骤的主要任务是为后续的修改(设计、实现、测试、交付发布等)确定一个基本的规划，包括2个阶段：<ol>
+<li>步骤2.1 可行性分析。<ol>
+<li>该步骤的任务是提出候选方案，并分析方案的可行性，建立可行性报告。</li>
+<li>可行性报告的内容包括：变更的影响范围、候选方案、需求变化分析、对安全性和保密性的影响、人的因素、短期和长期成本、修正的价值与效益等。</li>
+</ol>
+</li>
+<li>步骤2.2 详细分析<ol>
+<li>该步骤的任务是准确定义修改的需求，标识需要修改的元素、标识修改中的安全与保密因素、确定一个测试策略和建立一个实现计划。</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="1-5-3-步骤3-设计"><a href="#1-5-3-步骤3-设计" class="headerlink" title="1.5.3. 步骤3:设计"></a>1.5.3. 步骤3:设计</h3><ol>
+<li>该步骤的主要任务是依据变更分析的结果和已有系统的信息，完成对系统设计的变更。</li>
+<li>具体工作包括：<strong>标识被影响的软件模型、修改软件设计文档、为新的设计创建测试用例、更新回归测试集、更新需求文档。</strong><ol>
+<li>在进行完善性维护和适应性维护时，设计步骤要针对新的功能需求执行一个完整的详细设计过程。</li>
+<li>在进行修正性维护时，设计要防止程序修改带来连锁的负面效应。</li>
+<li>在进行预防性维护时，设计要重点关注软件结构的质量，以此为依据修改程序代码和软件系统结构。</li>
+</ol>
+</li>
+</ol>
+<h3 id="1-5-4-步骤4-实现"><a href="#1-5-4-步骤4-实现" class="headerlink" title="1.5.4. 步骤4:实现"></a>1.5.4. 步骤4:实现</h3><ol>
+<li>该步骤的主要任务是根据变更的设计，完成代码实现。</li>
+<li>具体工作包括：编码与单元测试、集成新修改代码、集成测试、风险分析和代码评审。</li>
+</ol>
+<h3 id="1-5-5-步骤5-回归测试"><a href="#1-5-5-步骤5-回归测试" class="headerlink" title="1.5.5. 步骤5:回归测试"></a>1.5.5. 步骤5:回归测试</h3><ol>
+<li>该步骤的主要任务是确保对变更的修改不会带来连锁的负面效应，要保证系统仍然能够满足其他未被修改的需求。</li>
+<li>具体工作包括：针对变更情况进行功能测试和界面测试、对整个系统进行回归测试、验证系统是否准备好进行验收测试。</li>
+</ol>
+<h3 id="1-5-6-步骤6-验收测试"><a href="#1-5-6-步骤6-验收测试" class="headerlink" title="1.5.6. 步骤6:验收测试"></a>1.5.6. 步骤6:验收测试</h3><ol>
+<li>该步骤的主要任务是由用户、客户或客户指定的第三方来验证系统是否满足用户的变更请求。</li>
+<li>具体工作包括：针对变更请求的功能测试、针对用户使用环境的兼容性测试、对整个系统进行回归测试。</li>
+</ol>
+<h3 id="1-5-7-步骤7-移交"><a href="#1-5-7-步骤7-移交" class="headerlink" title="1.5.7. 步骤7:移交"></a>1.5.7. 步骤7:移交</h3><ol>
+<li>该步骤的主要任务是将修正的系统发布用于安装和运营。</li>
+<li>具体工作包括：进行配置审计；通知用户团体、为了备份系统而开发一个阶段性版本、在客户的设施上进行安装和培训。其中配置审计是要通过配置管理系统确定一个系统的发布包，包括文档、软件程序、培训文档、以及其他相关文档。</li>
+</ol>
+<h1 id="2-软件演化"><a href="#2-软件演化" class="headerlink" title="2. 软件演化"></a>2. 软件演化</h1><h2 id="2-1-维护和演化"><a href="#2-1-维护和演化" class="headerlink" title="2.1. 维护和演化"></a>2.1. 维护和演化</h2><p><img src="/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/21-%E8%BD%AF%E4%BB%B6%E7%9A%84%E7%BB%B4%E6%8A%A4%E4%B8%8E%E6%BC%94%E5%8C%96/Users\wbl\AppData\Roaming\Typora\typora-user-images\image-20220607102741273.png" alt="image-20220607102741273"></p>
+<h2 id="2-2-软件演化定律"><a href="#2-2-软件演化定律" class="headerlink" title="2.2. 软件演化定律"></a>2.2. 软件演化定律</h2><ol>
+<li>在研究的基础上，Lehman提出了大型软件系统演化的8条定律，下面是其中的3条：<ol>
+<li><strong>持续变化</strong>：一个大型软件系统要么进行不断的变化，要么用处会越来越少。</li>
+<li>不断增加的复杂度：随着软件系统的发展，它的复杂性会不断增加，除非进行一定的工作来维持或降低复杂度。</li>
+<li>质量降低：系统的质量将出现下滑，除非进行一定的工作来适应环境变化。</li>
+</ol>
+</li>
+</ol>
+<h2 id="2-3-软件演化生命周期模型"><a href="#2-3-软件演化生命周期模型" class="headerlink" title="2.3. 软件演化生命周期模型"></a>2.3. 软件演化生命周期模型</h2><p><img src="/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/21-%E8%BD%AF%E4%BB%B6%E7%9A%84%E7%BB%B4%E6%8A%A4%E4%B8%8E%E6%BC%94%E5%8C%96/Users\wbl\AppData\Roaming\Typora\typora-user-images\image-20220607103137390.png" alt="image-20220607103137390"></p>
+<h3 id="2-3-1-步骤一-初始开发"><a href="#2-3-1-步骤一-初始开发" class="headerlink" title="2.3.1. 步骤一:初始开发"></a>2.3.1. 步骤一:初始开发</h3><ol>
+<li>初始开发阶段按照传统的软件开发方式完成第一个版本的软件产品开发。第一版的软件产品可以实现全部需求，也可以(通常是)只包含部分需求——对用户来说非常重要和紧急的最高优先级需求。</li>
+<li>初始阶段的一个极其重要的工作是建立一个好的软件体系结构。<ol>
+<li>具有很好的可扩展性，能够包容后续的演化增量。</li>
+<li>具有很好的可修改性，能够处理后续阶段中的预期变更请求和未预期变更请求。</li>
+<li>比较坚实、可靠，能够在后续演化保持稳定的表现。</li>
+</ol>
+</li>
+<li>在初始阶段的详细设计也要关注软件系统的可扩展性和可修改性，编程要关注程序的可读性以方便后续阶段的程序理解，技术文档的准备要充分以帮助后续阶段的程序理解</li>
+</ol>
+<h3 id="2-3-2-步骤二-演化"><a href="#2-3-2-步骤二-演化" class="headerlink" title="2.3.2. 步骤二:演化"></a>2.3.2. 步骤二:演化</h3><ol>
+<li>在完成初始开发之后，软件产品就进入演化阶段。该阶段可能会有预先安排的需求增量，也可能完全是对变更请求的处理，它们的共同点都是保持软件产品的持续增值，让软件产品能够满足用户越来越多的需要，实现更大的业务价值。</li>
+<li>总的来说，该阶段可能的演化增量有：<ol>
+<li>预先安排的需求增量；</li>
+<li>因为问题变化或者环境变化产生的变更请求；</li>
+<li>修正已有的缺陷；</li>
+<li>随着用户与开发者之间越来越相互熟悉对方领域而新增加的需求。</li>
+</ol>
+</li>
+<li>演化阶段的软件产品要具备两个特征：<ol>
+<li>软件产品具有<strong>较好的可演化性</strong>。一个软件产品在演化过程中复杂性会逐渐增高，可演化性会逐渐降低直至无法继续演化。演化阶段的软件产品虽然其可演化性低于初始开发阶段的软件产品，<strong>但是还没有到达无法演化的地步，还具有较好的可演化性</strong>。</li>
+<li>软件产品能够帮助用户实现较好的<strong>业务价值</strong>。只有这样，用户才会继续需要该产品，并持续提供资金支持。</li>
+</ol>
+</li>
+<li>如果在演化过程中，一个软件产品开始不满足第(2)条特征，那么该产品就会提前进入停止阶段。如果软件产品满足第(2)条的同时不满足第(1)条特征，那么该产品就会进入服务阶段。如果开发团队因为竞争产品的出现或者其他市场考虑，也可以让同时满足上面两条特征的软件产品提前进入服务阶段。</li>
+</ol>
+<h3 id="2-3-3-步骤三-服务"><a href="#2-3-3-步骤三-服务" class="headerlink" title="2.3.3. 步骤三:服务"></a>2.3.3. 步骤三:服务</h3><ol>
+<li><strong>服务阶段的软件产品不再持续的增加自己的价值，而只是周期性的修正已有的缺陷。</strong></li>
+<li>一个软件产品被置于服务阶段可能是因为它的软件结构已经无法继续演化，也可能是开发团队出于市场考虑，不再重点关注该产品。</li>
+<li>服务阶段的产品还仍然被用户使用，因为它仍然能够给用户提供一定的业务价值，所以开发团队仍然需要修正已有缺陷或者进行一些低程度的需求增量，保证用户的正常使用。</li>
+</ol>
+<h3 id="2-3-4-步骤四-逐步淘汰"><a href="#2-3-4-步骤四-逐步淘汰" class="headerlink" title="2.3.4. 步骤四:逐步淘汰"></a>2.3.4. 步骤四:逐步淘汰</h3><ol>
+<li>在逐步淘汰阶段，开发者已经不再提供软件产品的任何服务，也即<strong>不再继续维护该软件</strong>。</li>
+<li>虽然在开发者看来软件的生命周期已经结束，但是用户可能会继续使用处于该阶段的软件产品，因为它们仍然能够帮助用户实现一定的业务价值。只是用户在使用软件时必须要容忍软件产品中的各种不便，包括仍然存在的缺陷和对新环境的不适应。</li>
+<li>对于该阶段的产品，开发者需要考虑该产品是否可以作为有用的遗留资源用于新软件的开发，用户需要考虑如何更换新的软件产品并转移已有的业务数据。</li>
+</ol>
+<h3 id="2-3-5-步骤五-停止"><a href="#2-3-5-步骤五-停止" class="headerlink" title="2.3.5. 步骤五:停止"></a>2.3.5. 步骤五:停止</h3><ol>
+<li>一个软件正式退出使用状态之后就进行停止状态。开发者不再进行维护，用户也不再使用。</li>
+</ol>
+<h2 id="2-4-开发团队在不同阶段的不同工作"><a href="#2-4-开发团队在不同阶段的不同工作" class="headerlink" title="2.4. 开发团队在不同阶段的不同工作"></a>2.4. 开发团队在不同阶段的不同工作</h2><p><img src="/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/21-%E8%BD%AF%E4%BB%B6%E7%9A%84%E7%BB%B4%E6%8A%A4%E4%B8%8E%E6%BC%94%E5%8C%96/Users\wbl\AppData\Roaming\Typora\typora-user-images\image-20220607105019191.png" alt="image-20220607105019191"></p>
+<h1 id="3-软件维护与演化的技术"><a href="#3-软件维护与演化的技术" class="headerlink" title="3. 软件维护与演化的技术"></a>3. 软件维护与演化的技术</h1><ol>
+<li><strong>遗留软件</strong></li>
+<li><strong>逆向工程</strong></li>
+<li><strong>再工程</strong></li>
+</ol>
+<h2 id="3-1-遗留软件"><a href="#3-1-遗留软件" class="headerlink" title="3.1. 遗留软件"></a>3.1. 遗留软件</h2><ol>
+<li>这些软件可能非常古老，并且规模很大</li>
+<li>已经被严重修改过了</li>
+<li>基于过时的技术</li>
+<li>没有可用的文档</li>
+<li>找不到任何一个最初的开发人员</li>
+<li>拥有大量有用的数据</li>
+<li>这些软件通常是业务的核心元素，替换它们需要一大笔花费。</li>
+</ol>
+<h3 id="3-1-1-对于遗留软件的不同处理方式"><a href="#3-1-1-对于遗留软件的不同处理方式" class="headerlink" title="3.1.1. 对于遗留软件的不同处理方式"></a>3.1.1. 对于遗留软件的不同处理方式</h3><ol>
+<li>如果遗留软件已经没有使用价值，就直接丢弃该软件。</li>
+<li>如果遗留软件还有使用价值，但是其维护的成本效益比低于新开发一个软件系统的成本效益比，那么冻结遗留软件，将其作为一个新的更大系统的组成部分进行使用。</li>
+<li>如果遗留软件的成本效益比低于新开发一个软件系统的成本效益比，而且该遗留软件仍然<strong>具备较好的可维护性</strong>，那么就<strong>逆向工程</strong>遗留软件<strong>并继续维护一段时间</strong>；</li>
+<li>如果遗留软件的成本效益比高于新开发一个软件系统的成本效益比，而且该遗留软件已经<strong>不具备可维护性</strong>，那么就修改系统使其获得新生(即<strong>再工程</strong>该系统)，然后<strong>继续维护再造后的系统</strong>。</li>
+</ol>
+<h2 id="3-2-逆向工程"><a href="#3-2-逆向工程" class="headerlink" title="3.2. 逆向工程"></a>3.2. 逆向工程</h2><ol>
+<li>处理遗留软件时，维护人员接受的<strong>维护对象可能是一个&#x3D;&#x3D;没有任何文档也没有程序源代码&#x3D;&#x3D;的软件程序</strong>，此时，维护人员需要使用逆向工程技术</li>
+<li>逆向工程技术是指：”分析目标系统，标识系统的部件及其交互关系，并且使用其它形式或者更高层的抽象创建系统表现的过程[Chikofsky1990]”。</li>
+<li>逆向工程的基本原理是抽取软件系统的需求与设计而隐藏实现细节，然后在需求与设计的层次上描述软件系统，以建立对系统更加准确和清晰的理解。【<strong>正向工程即软件开发：从需求到软件；逆向工程即反着来：从已有的一个产品逆推代码和需求</strong>】</li>
+</ol>
+<p><img src="/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/21-%E8%BD%AF%E4%BB%B6%E7%9A%84%E7%BB%B4%E6%8A%A4%E4%B8%8E%E6%BC%94%E5%8C%96/Users\wbl\AppData\Roaming\Typora\typora-user-images\image-20220607105310072.png" alt="image-20220607105310072"></p>
+<ol start="4">
+<li>逆向工程技术在实践中得到了广泛的应用，并在下列方面取得了较大的成功：<ol>
+<li>识别可复用资产</li>
+<li>在过程程序中寻找对象</li>
+<li>发现软件体系结构</li>
+<li>推导概念数据结构(即数据的需求分析模型和设计模型)</li>
+<li>检测重复冗余</li>
+<li><strong>将二进制程序转换为某种源代码</strong></li>
+<li>重写用户界面</li>
+<li>将串行化程序并行化</li>
+<li>转换、约减、移植和包装遗留软件代码。</li>
+</ol>
+</li>
+</ol>
+<h2 id="3-3-再工程"><a href="#3-3-再工程" class="headerlink" title="3.3. 再工程"></a>3.3. 再工程</h2><ol>
+<li>再工程的目的是对遗留软件系统进行分析和重新开发，以便进一步利用新技术来改善系统或促进现存系统的再利用。[Chikofsky1990]将再工程定义为：检查和改造一个目标系统，<strong>用新的模式及其实现复原该目标系统</strong>。【<strong>分析一个软件的实现机制，然后复现它，重新写出一个新的类似的软件</strong>】</li>
+</ol>
+<h3 id="3-3-1-再工程与逆向工程的关系"><a href="#3-3-1-再工程与逆向工程的关系" class="headerlink" title="3.3.1. 再工程与逆向工程的关系"></a>3.3.1. 再工程与逆向工程的关系</h3><p><img src="/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/21-%E8%BD%AF%E4%BB%B6%E7%9A%84%E7%BB%B4%E6%8A%A4%E4%B8%8E%E6%BC%94%E5%8C%96/Users\wbl\AppData\Roaming\Typora\typora-user-images\image-20220607110030412.png" alt="image-20220607110030412"></p>
+<p>所以<strong>再工程前通常都需要有前导的逆向工程</strong></p>
+<h3 id="3-3-2-再工程"><a href="#3-3-2-再工程" class="headerlink" title="3.3.2. 再工程"></a>3.3.2. 再工程</h3><ol>
+<li>[Arnold1993]认为再工程主要是下列两类活动：<ol>
+<li>改进人们对软件的理解</li>
+<li>改进软件自身，通常是提高其可维护性、可复用性和可演化性</li>
+</ol>
+</li>
+<li>常见的具体活动有<ol>
+<li>重新文档化</li>
+<li>重组系统的结构</li>
+<li>将系统转换为更新的编程语言</li>
+<li>修改数据的结构组织。</li>
+</ol>
+</li>
+<li><strong>是抽象出来一个视图，然后完全重新开始开发，而不是基于逆向工程得到的结果进行再工程</strong></li>
+</ol>
+<h1 id="4-总结"><a href="#4-总结" class="headerlink" title="4. 总结"></a>4. 总结</h1><ol>
+<li>软件维护与一般工程领域的维护活动不同，<strong>软件维护主要是进行修改(尤其是需求变更)，而不是进行零件保养、维修与替换</strong></li>
+<li>虽然软件开发是软件工程的主要关注点，但软件维护耗费了更多的成本，所以需要在软件开发阶段进行一些预备工作以降低软件维护阶段的成本</li>
+<li>软件演化式的开发模糊了开发与维护的边界，既解决了软件开发周期太长的问题，又降低了”修改”所导致的软件质量下降的速度，延长了整个产品的有效生命周期</li>
+<li>软件维护与开发中常用的专门技术有：遗留软件处理、逆向工程和再工程</li>
+</ol>
+
+        
+      </div>
+
+         
+    </div>
+    
+     
+  </div>
+  
+    
+<nav id="article-nav">
+  <a class="article-nav-btn left "
+    
+      href="/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/22-%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B%E6%A8%A1%E5%9E%8B/"
+      title="SE-II-ch22-软件开发过程模型"
+     >
+    <i class="fa-solid fa-angle-left"></i>
+    <p class="title-text">
+      
+        SE-II-ch22-软件开发过程模型
+        
+    </p>
+  </a>
+  <a class="article-nav-btn right "
+    
+      href="/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/23-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E8%81%8C%E4%B8%9A%E5%9F%BA%E7%A1%80/"
+      title="SE-II-ch23-软件工程职业基础"
+     >
+
+    <p class="title-text">
+      
+        SE-II-ch23-软件工程职业基础
+        
+    </p>
+    <i class="fa-solid fa-angle-right"></i>
+  </a>
+</nav>
+
+
+  
+</article>
+
+
+  
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <div id="comment-card" class="comment-card">
+    <div class="main-title-bar">
+      <div class="main-title-dot"></div>
+      <div class="main-title">留言 </div>
+    </div>
+    <div id="vcomments"></div>
+  </div>
+  <script>
+      new Valine({"enable":true,"appId":null,"appKey":null,"placeholder":"Just go go","pageSize":20,"highlight":true,"serverURLs":null,"el":"#vcomments"});
+  </script>
+ 
+    </div>
+    <div id="footer-wrapper">
+      <footer id="footer">
+  
+  <div id="footer-info" class="inner">
+    
+      <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris"></a>
+    
+    &copy; 2023 Asimov<br>
+    Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & Theme <a target="_blank" rel="noopener" href="https://github.com/saicaca/hexo-theme-vivia">Vivia</a>
+  </div>
+</footer>
+
+    </div>
+    <div class="back-to-top-wrapper">
+    <button id="back-to-top-btn" class="back-to-top-btn hide" onclick="topFunction()">
+        <i class="fa-solid fa-angle-up"></i>
+    </button>
+</div>
+
+<script>
+    function topFunction() {
+        window.scroll({ top: 0, behavior: 'smooth' });
+    }
+    let btn = document.getElementById('back-to-top-btn');
+    function scrollFunction() {
+        if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+            btn.classList.remove('hide')
+        } else {
+            btn.classList.add('hide')
+        }
+    }
+    window.onscroll = function() {
+        scrollFunction();
+    }
+</script>
+
+  </div>
+  <script src="/js/light-dark-switch.js"></script>
+</body>
+</html>

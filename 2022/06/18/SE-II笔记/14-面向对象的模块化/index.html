@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+
+
+<html theme="dark" showBanner="true" hasBanner="true" > 
+<link href="/fontawesome/css/fontawesome.css" rel="stylesheet">
+<link href="/fontawesome/css/brands.css" rel="stylesheet">
+<link href="/fontawesome/css/solid.css" rel="stylesheet">
+<script src="/js/color.global.min.js" ></script>
+<script src="/js/load-settings.js" ></script>
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+
+  
+  <title>SE-II-ch14-面向对象的模块化 | Asimov&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+  <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+
+  <meta name="description" content="14-面向对象的模块化   1. 模块化的原则(总结) 2. 面向对象中的模块与耦合 2.1. 类 2.2. 模块 2.3. 耦合中的结构方法与OO方法 2.4. 降低耦合的设计原则   3. 访问耦合 3.1. 隐式耦合:Cascading Message 级联调用问题 3.1.1. 解决方案 — 引入局部变量 3.1.2. Cascading Message问题案例 3.1.3. 解决方案 —">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SE-II-ch14-面向对象的模块化">
+<meta property="og:url" content="https://chendingya.github.io/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/14-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%A8%A1%E5%9D%97%E5%8C%96/index.html">
+<meta property="og:site_name" content="Asimov&#39;s Blog">
+<meta property="og:description" content="14-面向对象的模块化   1. 模块化的原则(总结) 2. 面向对象中的模块与耦合 2.1. 类 2.2. 模块 2.3. 耦合中的结构方法与OO方法 2.4. 降低耦合的设计原则   3. 访问耦合 3.1. 隐式耦合:Cascading Message 级联调用问题 3.1.1. 解决方案 — 引入局部变量 3.1.2. Cascading Message问题案例 3.1.3. 解决方案 —">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/1.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/2.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/3.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/4.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/5.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/6.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/8.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/7.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/9.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/10.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/11.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/12.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/13.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/14.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/15.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/30.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/16.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/17.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/18.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/1.jpg">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/19.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/20.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/21.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/22.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/23.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/25.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/26.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/27.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/28.png">
+<meta property="article:published_time" content="2022-06-18T08:02:34.000Z">
+<meta property="article:modified_time" content="2023-09-17T07:49:33.122Z">
+<meta property="article:author" content="Asimov">
+<meta property="article:tag" content="软件工程与计算II">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Asimov's Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-192.png" sizes="192x192">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-192.png" sizes="192x192">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  
+  
+    
+<div id="banner" class="">
+  <img src="/pic/back.png" itemprop="image">
+  <div id="banner-dim"></div>
+</div>
+ 
+   
+  <div id="main-grid" class="shadow   ">
+    <div id="nav" class=""  >
+      <navbar id="navbar">
+  <nav id="title-nav">
+    <a href="/">
+      <div id="vivia-logo">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div>Asimov's Blog </div>
+    </a>
+  </nav>
+  <nav id="main-nav">
+    
+      <a class="main-nav-link" href="/">Home</a>
+    
+      <a class="main-nav-link" href="/archives">Archives</a>
+    
+      <a class="main-nav-link" href="/about">About</a>
+    
+  </nav>
+  <nav id="sub-nav">
+    <a id="theme-btn" class="nav-icon">
+      <span class="light-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M438.5-829.913v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-829.913Zm0 747.826v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-82.087ZM877.913-438.5h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537t29.476-12.174h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T877.913-438.5Zm-747.826 0h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T82.087-521.5h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T130.087-438.5Zm660.174-290.87-34.239 32q-12.913 12.674-29.565 12.174-16.653-.5-29.327-13.174-12.674-12.673-12.554-28.826.12-16.152 12.794-28.826l33-35q12.913-12.674 30.454-12.674t30.163 12.847q12.709 12.846 12.328 30.826-.38 17.98-13.054 30.653ZM262.63-203.978l-32 34q-12.913 12.674-30.454 12.674t-30.163-12.847q-12.709-12.846-12.328-30.826.38-17.98 13.054-30.653l33.239-31q12.913-12.674 29.565-12.174 16.653.5 29.327 13.174 12.674 12.673 12.554 28.826-.12 16.152-12.794 28.826Zm466.74 33.239-32-33.239q-12.674-12.913-12.174-29.565.5-16.653 13.174-29.327 12.673-12.674 28.826-13.054 16.152-.38 28.826 12.294l35 33q12.674 12.913 12.674 30.454t-12.847 30.163q-12.846 12.709-30.826 12.328-17.98-.38-30.653-13.054ZM203.978-697.37l-34-33q-12.674-12.913-13.174-29.945-.5-17.033 12.174-29.707t31.326-13.293q18.653-.62 31.326 13.054l32 34.239q11.674 12.913 11.174 29.565-.5 16.653-13.174 29.327-12.673 12.674-28.826 12.554-16.152-.12-28.826-12.794ZM480-240q-100 0-170-70t-70-170q0-100 70-170t170-70q100 0 170 70t70 170q0 100-70 170t-170 70Zm-.247-82q65.703 0 111.475-46.272Q637-414.544 637-480.247t-45.525-111.228Q545.95-637 480.247-637t-111.475 45.525Q323-545.95 323-480.247t45.525 111.975Q414.05-322 479.753-322ZM481-481Z"/></svg></span>
+      <span class="dark-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M480.239-116.413q-152.63 0-258.228-105.478Q116.413-327.37 116.413-480q0-130.935 77.739-227.435t206.304-125.043q43.022-9.631 63.87 10.869t3.478 62.805q-8.891 22.043-14.315 44.463-5.424 22.42-5.424 46.689 0 91.694 64.326 155.879 64.325 64.186 156.218 64.186 24.369 0 46.978-4.946 22.609-4.945 44.413-14.076 42.826-17.369 62.967 1.142 20.142 18.511 10.511 61.054Q807.174-280 712.63-198.206q-94.543 81.793-232.391 81.793Zm0-95q79.783 0 143.337-40.217 63.554-40.218 95.793-108.283-15.608 4.044-31.097 5.326-15.49 1.283-31.859.805-123.706-4.066-210.777-90.539-87.071-86.473-91.614-212.092-.24-16.369.923-31.978 1.164-15.609 5.446-30.978-67.826 32.478-108.282 96.152Q211.652-559.543 211.652-480q0 111.929 78.329 190.258 78.329 78.329 190.258 78.329ZM466.13-465.891Z"/></svg></span>
+    </a>
+    
+      <a id="nav-rss-link" class="nav-icon mobile-hide" href="/atom.xml" title="RSS 订阅">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-120q-25.846 0-44.23-18.384-18.384-18.385-18.384-44.23 0-25.846 18.384-44.23 18.384-18.385 44.23-18.385 25.846 0 44.23 18.385 18.384 18.384 18.384 44.23 0 25.845-18.384 44.23Q223.846-120 198-120Zm538.385 0q-18.846 0-32.923-13.769-14.076-13.769-15.922-33.23-8.692-100.616-51.077-188.654-42.385-88.039-109.885-155.539-67.5-67.501-155.539-109.885Q283-663.462 182.385-672.154q-19.461-1.846-33.23-16.23-13.769-14.385-13.769-33.846t14.076-32.922q14.077-13.461 32.923-12.23 120.076 8.692 226.038 58.768 105.961 50.077 185.73 129.846 79.769 79.769 129.846 185.731 50.077 105.961 58.769 226.038 1.231 18.846-12.538 32.922Q756.461-120 736.385-120Zm-252 0q-18.231 0-32.423-13.461t-18.653-33.538Q418.155-264.23 348.886-333.5q-69.27-69.27-166.501-84.423-20.077-4.462-33.538-18.961-13.461-14.5-13.461-33.346 0-19.076 13.884-33.23 13.884-14.153 33.115-10.922 136.769 15.384 234.384 112.999 97.615 97.615 112.999 234.384 3.231 19.23-10.538 33.115Q505.461-120 484.385-120Z"/></svg>
+      </a>
+    
+    <div id="nav-menu-btn" class="nav-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M177.37-252.282q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Zm0-186.218q-17.453 0-29.477-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T177.37-521.5h605.26q17.453 0 29.477 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T782.63-438.5H177.37Zm0-186.217q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Z"/></svg>
+    </div>
+  </nav>
+</navbar>
+<div id="nav-dropdown" class="hidden">
+  <div id="dropdown-link-list">
+    
+      <a class="nav-dropdown-link" href="/">Home</a>
+    
+      <a class="nav-dropdown-link" href="/archives">Archives</a>
+    
+      <a class="nav-dropdown-link" href="/about">About</a>
+    
+    
+      <a class="nav-dropdown-link" href="/atom.xml" title="RSS 订阅">RSS</a>
+     
+    </div>
+</div>
+<script>
+  let dropdownBtn = document.getElementById("nav-menu-btn");
+  let dropdownEle = document.getElementById("nav-dropdown");
+  dropdownBtn.onclick = function() {
+    dropdownEle.classList.toggle("hidden");
+  }
+</script>
+    </div>
+    <div id="sidebar-wrapper">
+      <sidebar id="sidebar">
+  
+    <div class="widget-wrap">
+  <div class="info-card">
+    <div class="avatar">
+      
+        <image src=/pic/avatar.png></image>
+      
+      <div class="img-dim"></div>
+    </div>
+    <div class="info">
+      <div class="username">Asimov </div>
+      <div class="dot"></div>
+      <div class="subtitle">Asimov's Blog </div>
+      <div class="link-list">
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://github.com/chendingya" title="GitHub"><i class="fa-brands fa-github"></i></a>
+         
+      </div>  
+    </div>
+  </div>
+</div>
+
+  
+  <div class="sticky">
+    
+      
+
+
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">分类</h3>
+      <div class="category-box">
+            <a class="category-link" href="/categories/hello-world/">
+                hello world
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/Hexo/">
+                Hexo
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
+                编译原理
+                <div class="category-count">13</div>
+            </a>
+        
+            <a class="category-link" href="/categories/tdesign/">
+                tdesign
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">
+                软件工程与计算II
+                <div class="category-count">30</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E9%A9%BE%E8%80%83/">
+                驾考
+                <div class="category-count">2</div>
+            </a>
+        </div>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">标签</h3>
+      <ul class="widget-tag-list" itemprop="keywords"><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/hello-world/" rel="tag">hello world</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/tdesign/" rel="tag">tdesign</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" rel="tag">编译原理</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/" rel="tag">软件工程与计算II</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E9%A9%BE%E8%80%83/" rel="tag">驾考</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">归档</h3>
+      
+      
+        <a class="archive-link" href="/archives/2023/09 ">
+          九月 2023 
+          <div class="archive-count">2 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/07 ">
+          七月 2023 
+          <div class="archive-count">2 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/04 ">
+          四月 2023 
+          <div class="archive-count">10 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/03 ">
+          三月 2023 
+          <div class="archive-count">3 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2022/10 ">
+          十月 2022 
+          <div class="archive-count">1 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2022/06 ">
+          六月 2022 
+          <div class="archive-count">30 </div>
+        </a>
+      
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">最新文章</h3>
+      <ul>
+        
+          <a class="recent-link" href="/2023/09/15/23-tdesign/Mock%E4%BD%BF%E7%94%A8/" title="微信小程序中Mock使用" >
+            <div class="recent-link-text">
+              微信小程序中Mock使用
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/09/12/%E9%A9%BE%E8%80%83/%E9%A9%BE%E8%80%83-%E7%A7%91%E7%9B%AE%E4%BA%8C/" title="驾考-科目二" >
+            <div class="recent-link-text">
+              驾考-科目二
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/07/18/blog/" title="blog" >
+            <div class="recent-link-text">
+              blog
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/07/17/%E9%A9%BE%E8%80%83/%E9%A9%BE%E8%80%83-%E7%A7%91%E7%9B%AE%E4%B8%80/" title="驾考-科目一" >
+            <div class="recent-link-text">
+              驾考-科目一
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/04/10/23-Compilers/ch18-codegen-riscv-RISC-V%20%E6%A6%82%E8%BF%B0/" title="ch18-codegen-riscv-RISC-V 概述" >
+            <div class="recent-link-text">
+              ch18-codegen-riscv-RISC-V 概述
+            </div>
+          </a>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+  </div>
+</sidebar>
+    </div>
+    <div id="content-body">
+       
+
+<article id="post-SE-II笔记/14-面向对象的模块化" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 class="p-name article-title" itemprop="headline name">
+        SE-II-ch14-面向对象的模块化
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2022-06-18T08:02:34.000Z" itemprop="datePublished">2022-06-18</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">软件工程与计算II</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            4.8k 词 
+          </div>
+        </div>
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/" rel="tag">软件工程与计算II</a></li></ul>
+
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <h2 id="14-面向对象的模块化"><a href="#14-面向对象的模块化" class="headerlink" title="14-面向对象的模块化"></a>14-面向对象的模块化</h2><!-- TOC -->
+
+<ul>
+<li><a href="#1-%E6%A8%A1%E5%9D%97%E5%8C%96%E7%9A%84%E5%8E%9F%E5%88%99%E6%80%BB%E7%BB%93">1. 模块化的原则(总结)</a></li>
+<li><a href="#2-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%AD%E7%9A%84%E6%A8%A1%E5%9D%97%E4%B8%8E%E8%80%A6%E5%90%88">2. 面向对象中的模块与耦合</a><ul>
+<li><a href="#21-%E7%B1%BB">2.1. 类</a></li>
+<li><a href="#22-%E6%A8%A1%E5%9D%97">2.2. 模块</a></li>
+<li><a href="#23-%E8%80%A6%E5%90%88%E4%B8%AD%E7%9A%84%E7%BB%93%E6%9E%84%E6%96%B9%E6%B3%95%E4%B8%8Eoo%E6%96%B9%E6%B3%95">2.3. 耦合中的结构方法与OO方法</a></li>
+<li><a href="#24-%E9%99%8D%E4%BD%8E%E8%80%A6%E5%90%88%E7%9A%84%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99">2.4. 降低耦合的设计原则</a></li>
+</ul>
+</li>
+<li><a href="#3-%E8%AE%BF%E9%97%AE%E8%80%A6%E5%90%88">3. 访问耦合</a><ul>
+<li><a href="#31-%E9%9A%90%E5%BC%8F%E8%80%A6%E5%90%88cascading-message-%E7%BA%A7%E8%81%94%E8%B0%83%E7%94%A8%E9%97%AE%E9%A2%98">3.1. 隐式耦合:Cascading Message 级联调用问题</a><ul>
+<li><a href="#311-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88--%E5%BC%95%E5%85%A5%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F">3.1.1. 解决方案 — 引入局部变量</a></li>
+<li><a href="#312-cascading-message%E9%97%AE%E9%A2%98%E6%A1%88%E4%BE%8B">3.1.2. Cascading Message问题案例</a></li>
+<li><a href="#313-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88--%E5%A7%94%E6%89%98">3.1.3. 解决方案 — 委托</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#4-%E7%BB%84%E4%BB%B6%E8%80%A6%E5%90%88%E5%8E%9F%E7%90%86">4. 组件耦合原理</a><ul>
+<li><a href="#41-%E5%8E%9F%E5%88%99%E5%9B%9B%E9%9D%A2%E5%90%91%E6%8E%A5%E5%8F%A3%E7%BC%96%E7%A8%8B">4.1. 原则四：面向接口编程</a></li>
+<li><a href="#42-%E5%8E%9F%E5%88%99%E4%BA%94%E8%BF%AA%E7%B1%B3%E7%89%B9%E6%B3%95%E5%88%99">4.2. 原则五:迪米特法则</a><ul>
+<li><a href="#421-%E9%97%AE%E9%A2%98%E6%A1%88%E4%BE%8B">4.2.1. 问题案例</a></li>
+</ul>
+</li>
+<li><a href="#43-%E5%8E%9F%E5%88%99%E5%85%AD%E6%8E%A5%E5%8F%A3%E9%9A%94%E7%A6%BB%E5%8E%9F%E5%88%99isp%E4%B9%9F%E5%8F%AB%E6%8E%A5%E5%8F%A3%E6%9C%80%E5%B0%8F%E5%8C%96%E5%8E%9F%E5%88%99">4.3. 原则六：接口隔离原则(ISP)&#x2F;也叫接口最小化原则</a></li>
+<li><a href="#44-%E8%A7%A3%E9%87%8A%E6%8E%A5%E5%8F%A3%E9%9A%94%E7%A6%BB%E5%8E%9F%E5%88%99">4.4. 解释接口隔离原则</a><ul>
+<li><a href="#441-%E6%A1%88%E4%BE%8B%E4%B8%80gui%E7%95%8C%E9%9D%A2%E9%97%AE%E9%A2%98">4.4.1. 案例一:GUI界面问题</a></li>
+<li><a href="#442-%E6%A1%88%E4%BE%8B%E4%BA%8Capplication%E7%9A%84%E4%BE%9D%E8%B5%96%E9%97%AE%E9%A2%98">4.4.2. 案例二:Application的依赖问题</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#5-%E7%BB%A7%E6%89%BF%E8%80%A6%E5%90%88">5. 继承耦合</a><ul>
+<li><a href="#51-%E4%BF%AE%E9%A5%B0%E7%BB%A7%E6%89%BF%E8%80%A6%E5%90%88">5.1. 修饰继承耦合</a><ul>
+<li><a href="#511-%E6%A1%88%E4%BE%8B">5.1.1. 案例</a></li>
+</ul>
+</li>
+<li><a href="#52-%E5%AE%8C%E5%96%84%E7%BB%A7%E6%89%BF%E8%80%A6%E5%90%88">5.2. 完善继承耦合</a></li>
+<li><a href="#53-%E6%89%A9%E5%B1%95%E7%BB%A7%E6%89%BF%E8%80%A6%E5%90%88">5.3. 扩展继承耦合</a></li>
+</ul>
+</li>
+<li><a href="#6-%E9%99%8D%E4%BD%8E%E7%BB%A7%E6%89%BF%E8%80%A6%E5%90%88%E7%9A%84%E6%96%B9%E6%B3%95">6. 降低继承耦合的方法</a><ul>
+<li><a href="#61-%E7%BB%A7%E6%89%BF%E8%80%A6%E5%90%88%E5%8E%9F%E7%90%86">6.1. 继承耦合原理</a></li>
+<li><a href="#62-%E5%8E%9F%E5%88%99%E4%B8%83%E9%87%8C%E6%B0%8F%E6%9B%BF%E6%8D%A2%E5%8E%9F%E5%88%99">6.2. 原则七：里氏替换原则</a><ul>
+<li><a href="#621-%E9%97%AE%E9%A2%98%E6%A1%88%E4%BE%8B%E4%B8%80%E9%93%B6%E8%A1%8C%E9%97%AE%E9%A2%98">6.2.1. 问题案例一:银行问题</a></li>
+<li><a href="#622-%E9%97%AE%E9%A2%98%E6%A1%88%E4%BE%8B%E4%BA%8Cis-a-square-a-rectangle">6.2.2. 问题案例二:Is a Square a Rectangle?</a></li>
+<li><a href="#623-%E9%97%AE%E9%A2%98%E6%A1%88%E4%BE%8B%E4%B8%89penguin-is-a-bird">6.2.3. 问题案例三:Penguin is a bird?</a></li>
+</ul>
+</li>
+<li><a href="#63-%E9%87%8C%E6%B0%8F%E6%9B%BF%E6%8D%A2%E5%8E%9F%E5%88%99%E6%80%BB%E7%BB%93">6.3. 里氏替换原则总结</a><ul>
+<li><a href="#631-%E8%AF%BE%E5%A0%82%E7%BB%83%E4%B9%A0">6.3.1. 课堂练习</a></li>
+</ul>
+</li>
+<li><a href="#64-%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99%E5%85%AB%E7%BB%84%E5%90%88%E4%BB%A3%E6%9B%BF%E7%BB%A7%E6%89%BF">6.4. 设计原则八:组合代替继承</a><ul>
+<li><a href="#641-coad%E7%9A%84%E7%BB%A7%E6%89%BF%E8%A7%84%E5%88%99">6.4.1. Coad的继承规则</a></li>
+<li><a href="#642-%E7%BB%A7%E6%89%BF%E7%BB%84%E5%90%88-%E5%AE%9E%E4%BE%8B%E4%B8%80">6.4.2. 继承&#x2F;组合 实例一</a></li>
+<li><a href="#643-%E7%BB%A7%E6%89%BF%E7%BB%84%E5%90%88-%E7%A4%BA%E4%BE%8B%E4%BA%8C">6.4.3. 继承&#x2F;组合 示例二</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#7-%E5%86%85%E8%81%9A">7. 内聚</a><ul>
+<li><a href="#71-%E6%96%B9%E6%B3%95%E5%86%85%E8%81%9A">7.1. 方法内聚</a></li>
+<li><a href="#72-%E6%8F%90%E9%AB%98%E5%86%85%E8%81%9A%E7%9A%84%E6%96%B9%E6%B3%95">7.2. 提高内聚的方法</a><ul>
+<li><a href="#721-%E5%8E%9F%E5%88%99%E4%B9%9D%E5%8D%95%E4%B8%80%E8%B4%A3%E4%BB%BB%E5%8E%9F%E5%88%99srp">7.2.1. 原则九：单一责任原则(SRP)</a><ul>
+<li><a href="#7211-%E9%97%AE%E9%A2%98%E6%A1%88%E4%BE%8B">7.2.1.1. 问题案例</a></li>
+<li><a href="#7212-%E7%BB%93%E5%B1%80%E6%96%B9%E6%A1%88">7.2.1.2. 结局方案</a></li>
+</ul>
+</li>
+<li><a href="#722-%E5%8D%95%E4%B8%80%E8%81%8C%E8%B4%A3%E5%8E%9F%E5%88%99">7.2.2. 单一职责原则</a></li>
+</ul>
+</li>
+<li><a href="#73-%E8%AF%BE%E5%A0%82%E7%BB%83%E4%B9%A0">7.3. 课堂练习</a></li>
+</ul>
+</li>
+<li><a href="#8-%E8%80%A6%E5%90%88%E5%92%8C%E5%86%85%E8%81%9A%E7%9A%84%E5%BA%A6%E9%87%8F">8. 耦合和内聚的度量</a><ul>
+<li><a href="#81-%E7%B1%BB%E4%B9%8B%E9%97%B4%E7%9A%84%E8%80%A6%E5%90%88%E5%BA%A6%E9%87%8F">8.1. 类之间的耦合度量</a><ul>
+<li><a href="#811-%E7%AC%AC%E4%B8%80%E7%A7%8D%E5%BA%A6%E9%87%8Fcbo%E6%96%B9%E6%B3%95%E8%B0%83%E7%94%A8%E8%80%A6%E5%90%88">8.1.1. 第一种度量:CBO(方法调用耦合)</a></li>
+<li><a href="#812-%E7%AC%AC%E4%BA%8C%E7%A7%8D%E5%BA%A6%E9%87%8Fdac%E6%95%B0%E6%8D%AE%E6%8A%BD%E8%B1%A1%E8%80%A6%E5%90%88">8.1.2. 第二种度量:DAC(数据抽象耦合)</a></li>
+<li><a href="#813-%E7%AC%AC%E4%B8%89%E7%A7%8D%E5%BA%A6%E9%87%8Fca%E5%92%8Cce%E6%9C%89%E6%95%88%E5%92%8C">8.1.3. 第三种度量:Ca和Ce(有效和)</a></li>
+<li><a href="#814-%E7%AC%AC%E5%9B%9B%E7%A7%8D%E5%BA%A6%E9%87%8Fdit-%E7%BB%A7%E6%89%BF%E6%A0%91%E7%9A%84%E6%B7%B1%E5%BA%A6">8.1.4. 第四种度量:DIT 继承树的深度</a></li>
+<li><a href="#815-%E7%AC%AC%E4%BA%94%E7%A7%8D%E5%BA%A6%E9%87%8F-number-of-children-noc-%E5%AD%90%E7%B1%BB%E7%9A%84%E6%95%B0%E9%87%8F">8.1.5. 第五种度量 Number of children (NOC) 子类的数量</a></li>
+<li><a href="#816-%E8%A1%A1%E9%87%8F%E7%B1%BB%E5%87%9D%E8%81%9A%E5%8A%9B-lcom">8.1.6. 衡量类凝聚力 LCOM</a></li>
+</ul>
+</li>
+<li><a href="#82-summaryprinciples-from-modularization-%E6%A8%A1%E5%9D%97%E5%8C%96%E7%9A%84%E5%8E%9F%E5%88%99">8.2. Summary:Principles from Modularization 模块化的原则</a></li>
+</ul>
+</li>
+</ul>
+<!-- /TOC -->
+
+<h1 id="1-模块化的原则-总结"><a href="#1-模块化的原则-总结" class="headerlink" title="1. 模块化的原则(总结)"></a>1. 模块化的原则(总结)</h1><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/1.png"></p>
+<ol>
+<li>核心就是上面的</li>
+<li>题目是，给例子，发现违反的原则并纠正</li>
+</ol>
+<h1 id="2-面向对象中的模块与耦合"><a href="#2-面向对象中的模块与耦合" class="headerlink" title="2. 面向对象中的模块与耦合"></a>2. 面向对象中的模块与耦合</h1><h2 id="2-1-类"><a href="#2-1-类" class="headerlink" title="2.1. 类"></a>2.1. 类</h2><ol>
+<li>模块化是消除软件复杂度的一个重要方法，它有效地将一个复杂系统分解为若干个代码片段，每一个代码片段完成一个功能，并且包含完成这个功能所需要的信息。</li>
+<li><strong>模块化希望代码片段由两部分组成:接口和实现。</strong></li>
+</ol>
+<h2 id="2-2-模块"><a href="#2-2-模块" class="headerlink" title="2.2. 模块"></a>2.2. 模块</h2><ol>
+<li>一段代码<ol>
+<li>方法</li>
+<li>类</li>
+<li>模块(包)</li>
+</ol>
+</li>
+<li>耦合:通过段</li>
+<li>聚合:内部段</li>
+</ol>
+<h2 id="2-3-耦合中的结构方法与OO方法"><a href="#2-3-耦合中的结构方法与OO方法" class="headerlink" title="2.3. 耦合中的结构方法与OO方法"></a>2.3. 耦合中的结构方法与OO方法</h2><ol>
+<li>耦合:耦合是对从一个模块到另一个模块的连接所建立的关联强度的度量。</li>
+<li>结构化方法:连接是对其他地方定义的某些标签或地址的引用</li>
+<li>面向对象方法:<ol>
+<li>访问耦合</li>
+<li>继承耦合</li>
+</ol>
+</li>
+</ol>
+<h2 id="2-4-降低耦合的设计原则"><a href="#2-4-降低耦合的设计原则" class="headerlink" title="2.4. 降低耦合的设计原则"></a>2.4. 降低耦合的设计原则</h2><p><strong>在13节中</strong></p>
+<ol>
+<li>原则一：Global Variables Consider Harmful</li>
+<li>原则二：To be Explicit</li>
+<li>原则三：Do not Repeat</li>
+<li>原则四：Programming to Interface</li>
+</ol>
+<h1 id="3-访问耦合"><a href="#3-访问耦合" class="headerlink" title="3. 访问耦合"></a>3. 访问耦合</h1><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/2.png"></p>
+<p>上面的规格是指参数。</p>
+<p>这里<strong>耦合性的强弱是根据在A中能否很轻易的看到B被引用</strong>，越容易看到，耦合度越低</p>
+<p>隐式访问是需要避免的，实现访问是可以接受的，后面两者是提倡的</p>
+<h2 id="3-1-隐式耦合-Cascading-Message-级联调用问题"><a href="#3-1-隐式耦合-Cascading-Message-级联调用问题" class="headerlink" title="3.1. 隐式耦合:Cascading Message 级联调用问题"></a>3.1. 隐式耦合:Cascading Message 级联调用问题</h2><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/3.png"></p>
+<h3 id="3-1-1-解决方案-—-引入局部变量"><a href="#3-1-1-解决方案-—-引入局部变量" class="headerlink" title="3.1.1. 解决方案 — 引入局部变量"></a>3.1.1. 解决方案 — 引入局部变量</h3><p>显式的展现耦合关系</p>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/4.png"></p>
+<ul>
+<li>避免隐式耦合，变为显式耦合，降低耦合度</li>
+</ul>
+<h3 id="3-1-2-Cascading-Message问题案例"><a href="#3-1-2-Cascading-Message问题案例" class="headerlink" title="3.1.2. Cascading Message问题案例"></a>3.1.2. Cascading Message问题案例</h3><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/5.png"></p>
+<ul>
+<li>上面的代码中通过A.b.c就实现了调用，看不出代码和customer之间是有关系的。这样的方式不合适</li>
+</ul>
+<h3 id="3-1-3-解决方案-—-委托"><a href="#3-1-3-解决方案-—-委托" class="headerlink" title="3.1.3. 解决方案 — 委托"></a>3.1.3. 解决方案 — 委托</h3><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/6.png"></p>
+<ul>
+<li>使用委托的方式来解决，委托给一个类来完成这个业务，让Account去完成下一步的调用，这样左边的类和customer就没关系了</li>
+</ul>
+<h1 id="4-组件耦合原理"><a href="#4-组件耦合原理" class="headerlink" title="4. 组件耦合原理"></a>4. 组件耦合原理</h1><h2 id="4-1-原则四：面向接口编程"><a href="#4-1-原则四：面向接口编程" class="headerlink" title="4.1. 原则四：面向接口编程"></a>4.1. 原则四：面向接口编程</h2><ol>
+<li>编程到所需的接口，不仅是受支持的接口</li>
+<li>按照约定设计<ol>
+<li>模块&#x2F;类合同：所需方法&#x2F;提供的方法</li>
+<li>方法合同：前提条件，后置条件，不变式</li>
+</ol>
+</li>
+<li>在考虑(非继承的)类与类之间的关系时，一方面要求值访问对方的接口，另一方面要避免隐式访问。</li>
+<li>课本231页关于契约的含义的补充:<ol>
+<li>前置条件</li>
+<li>后值条件</li>
+<li>不变式</li>
+</ol>
+</li>
+<li>案例</li>
+</ol>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/8.png"></p>
+<h2 id="4-2-原则五-迪米特法则"><a href="#4-2-原则五-迪米特法则" class="headerlink" title="4.2. 原则五:迪米特法则"></a>4.2. 原则五:迪米特法则</h2><ol>
+<li>通俗说法【<strong>不和陌生人说话</strong>】<ol>
+<li>你可以自己玩。(调用this的方法)</li>
+<li>你可以玩自己的玩具，但不能拆开它们(自己的成员变量)</li>
+<li>你可以玩送给你的玩具。(传进来的参数)</li>
+<li>你可以玩自己制作的玩具。(自己创建的对象)</li>
+</ol>
+</li>
+<li>更加形式化的说法:<ol>
+<li>每个单元对于其他单元只能拥有有限的知识，只是与当前单元紧密联系的单元</li>
+<li>每个单元只能和它的朋友交谈，不能和陌生单元交谈</li>
+<li>只和自己的直接的朋友交谈</li>
+</ol>
+</li>
+<li>例子：如果对象O有方法M，那么M只能调用下列对象中的方法【对应上面的四条】：<ol>
+<li>O自己</li>
+<li>O的成员变量</li>
+<li>M中的参数对象</li>
+<li>在M中创建的对象</li>
+</ol>
+</li>
+</ol>
+<p>迪米特法则特别强调不要出现如 a.b.Method的方法应该只有 a.Method，这与避免隐式耦合的观点一致</p>
+<h3 id="4-2-1-问题案例"><a href="#4-2-1-问题案例" class="headerlink" title="4.2.1. 问题案例"></a>4.2.1. 问题案例</h3><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/7.png"></p>
+<ul>
+<li>通过联系人获得信息</li>
+<li>如何获得其他的引用？<ol>
+<li>this</li>
+<li>成员变量:√在Contact里面持有PostalArea的一个成员变量。</li>
+<li>方法传入的参数</li>
+<li>自己创建</li>
+</ol>
+</li>
+</ul>
+<h2 id="4-3-原则六：接口隔离原则-ISP-也叫接口最小化原则"><a href="#4-3-原则六：接口隔离原则-ISP-也叫接口最小化原则" class="headerlink" title="4.3. 原则六：接口隔离原则(ISP)&#x2F;也叫接口最小化原则"></a>4.3. 原则六：接口隔离原则(ISP)&#x2F;也叫接口最小化原则</h2><ol>
+<li><p>不应强迫客户端依赖于不使用的接口。 马丁(R. Martin)，1996年</p>
+<p>【不应当依赖于一个大接口】</p>
+</li>
+<li><p>面向简单接口编程</p>
+</li>
+<li><p>许多客户专用接口比一个通用接口要好</p>
+</li>
+</ol>
+<h2 id="4-4-解释接口隔离原则"><a href="#4-4-解释接口隔离原则" class="headerlink" title="4.4. 解释接口隔离原则"></a>4.4. 解释接口隔离原则</h2><ol>
+<li>多用途的类<ol>
+<li>方法分成不同组</li>
+<li>没有一个用户使用所有的方法</li>
+</ol>
+</li>
+<li>可能会导致不想要的依赖：使用类的一个方面的接口也间接依赖于其他方面的依赖性</li>
+<li>ISP有助于解决问题：使用多个客户特定的接口</li>
+</ol>
+<h3 id="4-4-1-案例一-GUI界面问题"><a href="#4-4-1-案例一-GUI界面问题" class="headerlink" title="4.4.1. 案例一:GUI界面问题"></a>4.4.1. 案例一:GUI界面问题</h3><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/9.png"></p>
+<ul>
+<li>进一步细化接口，避免出现不必要的依赖。【<strong>把大接口分成小接口</strong>】</li>
+</ul>
+<h3 id="4-4-2-案例二-Application的依赖问题"><a href="#4-4-2-案例二-Application的依赖问题" class="headerlink" title="4.4.2. 案例二:Application的依赖问题"></a>4.4.2. 案例二:Application的依赖问题</h3><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/10.png"></p>
+<ul>
+<li>想法一:将ApplicationForm拆开</li>
+<li>想法二:将Controller合并</li>
+<li>根据具体情况选择想法一 和想法二</li>
+</ul>
+<h1 id="5-继承耦合"><a href="#5-继承耦合" class="headerlink" title="5. 继承耦合"></a>5. 继承耦合</h1><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/11.png"></p>
+<ol>
+<li>在以上的各种类型的继承关系中，<strong>修改规格、修改实现、精化规格是不可以接受的。</strong></li>
+<li>精化实现是可以接受的，也是经常被使用的，即方法的重写</li>
+<li>扩展是最好的继承耦合，但不可能每个继承都只是只拓展不调整的</li>
+</ol>
+<h2 id="5-1-修改继承耦合"><a href="#5-1-修改继承耦合" class="headerlink" title="5.1. 修改继承耦合"></a>5.1. 修改继承耦合</h2><ol>
+<li>没有任何规则和限制的修改</li>
+<li>最差的继承耦合</li>
+<li>如果客户端使用父引用，则需要使用parent和child方法<ol>
+<li>隐含的</li>
+<li>有两个连接，比较复杂</li>
+</ol>
+</li>
+<li>危害多态</li>
+</ol>
+<h3 id="5-1-1-案例"><a href="#5-1-1-案例" class="headerlink" title="5.1.1. 案例"></a>5.1.1. 案例</h3><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/12.png"></p>
+<ul>
+<li>父类能做的子类都能做吗?√</li>
+<li>子类能做的父类都能做吗?×</li>
+</ul>
+<h2 id="5-2-精化继承耦合"><a href="#5-2-精化继承耦合" class="headerlink" title="5.2. 精化继承耦合"></a>5.2. 精化继承耦合</h2><ol>
+<li>定义新信息</li>
+<li>继承的信息仅<strong>根据预定规则</strong>进行更改</li>
+<li>如果客户使用父母参考，则需要整个父母和子女的修饰<ol>
+<li>1+connections</li>
+</ol>
+</li>
+<li>常见的</li>
+</ol>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/13.png"></p>
+<h2 id="5-3-扩展继承耦合"><a href="#5-3-扩展继承耦合" class="headerlink" title="5.3. 扩展继承耦合"></a>5.3. 扩展继承耦合</h2><ol>
+<li>子类仅添加方法和实例变量，而没有修改或修饰任何继承的方法和实例变量</li>
+<li>如果客户端使用父引用，则仅需要父引用：一次引用</li>
+</ol>
+<h1 id="6-降低继承耦合的方法"><a href="#6-降低继承耦合的方法" class="headerlink" title="6. 降低继承耦合的方法"></a>6. 降低继承耦合的方法</h1><h2 id="6-1-继承耦合原理"><a href="#6-1-继承耦合原理" class="headerlink" title="6.1. 继承耦合原理"></a>6.1. 继承耦合原理</h2><h2 id="6-2-原则七：里氏替换原则-LSP"><a href="#6-2-原则七：里氏替换原则-LSP" class="headerlink" title="6.2. 原则七：里氏替换原则[LSP]"></a>6.2. 原则七：里氏替换原则[LSP]</h2><ol>
+<li><strong>所有派生类都必须可以替代其基类并起到相同的作用</strong>，如果违反了，那么父类和子类一定有较强的耦合</li>
+<li>“使用指针或对基类的引用的函数必须能够在不知道的情况下使用派生类的对象。” -R. Martin，1996年</li>
+</ol>
+<h3 id="6-2-1-问题案例一-银行问题"><a href="#6-2-1-问题案例一-银行问题" class="headerlink" title="6.2.1. 问题案例一:银行问题"></a>6.2.1. 问题案例一:银行问题</h3><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/14.png"></p>
+<ul>
+<li>继承关系有问题吗？</li>
+<li>继承后子类能够当做父类看待吗？不能，因为子类要求比父类更强，因此在execute中if判断余额是大于要取钱的数目时，会调用payer，但子类中要求余额减去债务才能取钱，要求更高了，所以方法调用会出错</li>
+<li>解决方案:在父类中增加新的变量完成，这样在execute方法中执行就不会出错了，因为此时判断的就是可</li>
+</ul>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/15.png"></p>
+<h3 id="6-2-2-问题案例二-Is-a-Square-a-Rectangle"><a href="#6-2-2-问题案例二-Is-a-Square-a-Rectangle" class="headerlink" title="6.2.2. 问题案例二:Is a Square a Rectangle?"></a>6.2.2. 问题案例二:Is a Square a Rectangle?</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Rect</span> <span class="variable">r</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Rect</span>();</span><br><span class="line">setWidth = <span class="number">4</span>;</span><br><span class="line">setHeight = <span class="number">5</span>;</span><br><span class="line"><span class="keyword">assert</span>(<span class="number">20</span> == getArea());</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Square</span> <span class="keyword">extends</span> <span class="title class_">Rect</span>&#123;</span><br><span class="line">   <span class="comment">// Square invariant, height = width</span></span><br><span class="line">   setWidth(x) &#123;</span><br><span class="line">      setHeight()=x;</span><br><span class="line">   &#125;</span><br><span class="line">   setHeight(x) &#123;</span><br><span class="line">      setWidth(x)</span><br><span class="line">   &#125;</span><br><span class="line">&#125; <span class="comment">// violate LSP?</span></span><br></pre></td></tr></table></figure>
+<ol>
+<li>正方形继承长方形:正方形条件比长方形条件更强，多限制条件。</li>
+<li>正方形继承长方形是不合适的。</li>
+<li>长方形继承正方形也是不合适的</li>
+</ol>
+<h3 id="6-2-3-问题案例三-Penguin-is-a-bird"><a href="#6-2-3-问题案例三-Penguin-is-a-bird" class="headerlink" title="6.2.3. 问题案例三:Penguin is a bird?"></a>6.2.3. 问题案例三:Penguin is a bird?</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Bird</span> &#123;</span><br><span class="line">   <span class="comment">// has beak, wings,...</span></span><br><span class="line">   <span class="keyword">public</span>: virtual <span class="keyword">void</span> <span class="title function_">fly</span><span class="params">()</span>;</span><br><span class="line">   <span class="comment">// Bird can ﬂy</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Parrot</span> : <span class="keyword">public</span> Bird &#123;</span><br><span class="line">   <span class="comment">// Parrot is a bird</span></span><br><span class="line">   <span class="keyword">public</span>: virtual <span class="keyword">void</span> <span class="title function_">mimic</span><span class="params">()</span>;</span><br><span class="line">   <span class="comment">// Can Repeat words...</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Penguin</span> : <span class="keyword">public</span> Bird &#123;</span><br><span class="line">   <span class="keyword">public</span>: <span class="keyword">void</span> <span class="title function_">fly</span><span class="params">()</span> &#123;</span><br><span class="line">      error (<span class="string">&quot;Penguins don’t fly!&quot;</span>);</span><br><span class="line">   &#125; </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>不应该被叫做brid，而应该是flyingBird</li>
+<li>Penguins Fail to Fly!</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">PlayWithBird</span> <span class="params">(Bird abird)</span> &#123;</span><br><span class="line">   abird.fly();</span><br><span class="line">   <span class="comment">// OK if Parrot.</span></span><br><span class="line">   <span class="comment">// if bird happens to be Penguin...OOOPS!!</span></span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+
+<ol>
+<li>不建模：”企鹅不可能”，它建模”企鹅可能很好，但如果他们尝试是错误的”，则尝试运行时错误→不可取</li>
+<li>考虑可替代性-LSP失败</li>
+</ol>
+<h2 id="6-3-里氏替换原则总结"><a href="#6-3-里氏替换原则总结" class="headerlink" title="6.3. 里氏替换原则总结"></a>6.3. 里氏替换原则总结</h2><ol>
+<li>LSP与语义和替换有关<ol>
+<li>设计前先了解<ol>
+<li>必须清楚地记录每个方法和类的含义和目的</li>
+<li>缺乏用户理解将导致事实上违反LSP</li>
+</ol>
+</li>
+<li>可替换性至关重要<ol>
+<li>每当任何系统中的任何代码引用任何类时，</li>
+<li>该类别的任何将来或现有的子类别都必须100％可替换</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<blockquote>
+<p>“在派生类中重写一种方法时，<strong>只能用一个较弱的方法代替其先决条件，而用一个较强的方法代替其后置条件”</strong> — B. Meyer，1988年</p>
+</blockquote>
+<ol>
+<li>合同设计<ol>
+<li>对象的行为：<ol>
+<li>更弱的前置条件</li>
+<li>更强的后置条件</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><strong>派生类服务应该require no more且 promise no less</strong>【要求不能更高，父类要求100就可以，子类不能要求超过；实现的不能更低，父类实现A，子类至少要实现A，可以实现ABC更多】</li>
+<li>LSP用来判断是否可以进行继承</li>
+<li><strong>符合 LSP 的继承关系可以减少耦合：</strong><ol>
+<li>在 client 类中持有 S，S 有 N 种子类，那么 client 只需要了解 S 即可，因为<strong>耦合度为 1</strong></li>
+<li>如果不使用继承，那么 client 需要了解 N 个子类，<strong>耦合度为 N</strong></li>
+<li>如果继承不符合 LSP，那么client 必须要知道引用的具体类型，因此不但要了解 S，还有了解 N 个子类，<strong>所以耦合度反而增加 N+1</strong></li>
+</ol>
+</li>
+</ol>
+<h3 id="6-3-1-课堂练习"><a href="#6-3-1-课堂练习" class="headerlink" title="6.3.1. 课堂练习"></a>6.3.1. 课堂练习</h3><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/30.png"></p>
+<ol>
+<li><p>两种设计都不好，都让 commonDoor 去实现了alarm，而它不应该能发出警报。因此子类不能当作父类来看待，因为父类要求的警报功能，子类 commonDoor 做不到，没有实现【<strong>注意不能把方法继承了，但里面什么都不做</strong>，这样是不对的】</p>
+</li>
+<li><p>正确的应该时，door 里面不能有 alarm()，两个子类继承 door，并且 alarmDoor 去实现 alarm接口。</p>
+<p>这样就能用子类去替换父类了</p>
+</li>
+</ol>
+<h2 id="6-4-设计原则八-组合代替继承"><a href="#6-4-设计原则八-组合代替继承" class="headerlink" title="6.4. 设计原则八:组合代替继承"></a>6.4. 设计原则八:组合代替继承</h2><ol>
+<li><strong>组合优于继承</strong></li>
+<li><strong>使用继承实现多态</strong>，否则尽量组合</li>
+<li><strong>使用委托【组合】</strong>而不是使用继承去重用代码！</li>
+<li>在<strong>希望复用代码又不能满足 LSP 时</strong>，往往会用组合来替代继承。用继承的时候一 定要符合 LSP, <strong>不要只为了代码复用而使用继承。</strong></li>
+</ol>
+<h3 id="6-4-1-Coad的继承规则"><a href="#6-4-1-Coad的继承规则" class="headerlink" title="6.4.1. Coad的继承规则"></a>6.4.1. Coad的继承规则</h3><ol>
+<li>仅在满足以下所有条件时才使用继承：<ol>
+<li>子类表示”是一种特殊的”，而不是”是一种角色”</li>
+<li>子类的实例永远不需要成为另一个类的对象</li>
+<li>子类扩展而不是覆盖或取消其父类的职责</li>
+<li>子类不会扩展仅是实用程序类的功能</li>
+</ol>
+</li>
+</ol>
+<h3 id="6-4-2-继承-组合-实例一"><a href="#6-4-2-继承-组合-实例一" class="headerlink" title="6.4.2. 继承&#x2F;组合 实例一"></a>6.4.2. 继承&#x2F;组合 实例一</h3><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/16.png"></p>
+<ul>
+<li>如果出现一个用户既是 Passenger 也是 Agent </li>
+<li>Java不允许多继承</li>
+</ul>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/17.png"></p>
+<ul>
+<li>直接的想法就是直接组合</li>
+<li>Person里面持有Passenger、Agent，但是这时候对于单一身份的人是很奇怪的</li>
+</ul>
+<h3 id="6-4-3-继承-组合-示例二【经典方式-star-】"><a href="#6-4-3-继承-组合-示例二【经典方式-star-】" class="headerlink" title="6.4.3. 继承&#x2F;组合 示例二【经典方式:star:】"></a>6.4.3. 继承&#x2F;组合 示例二【经典方式:star:】</h3><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/18.png"></p>
+<ul>
+<li>Person持有Role，Passenger和Agent实现抽象接口PersonRole</li>
+<li>Role可以是一个List，因此可以实现一个人既是 passenger 也是 agent</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Object</span> &#123;  </span><br><span class="line">	<span class="keyword">public</span>: <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">update</span><span class="params">()</span> </span>&#123;&#125;; </span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">draw</span><span class="params">()</span> </span>&#123;&#125;;</span><br><span class="line"> 	<span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">collide</span><span class="params">(Object objects[])</span> </span>&#123;&#125;; </span><br><span class="line">&#125;; </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Visible</span> : <span class="keyword">public</span> Object &#123; </span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">      <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">draw</span><span class="params">()</span> </span>&#123; </span><br><span class="line">        <span class="comment">/* draw model at position of this object */</span> &#125;; </span><br><span class="line">    <span class="keyword">private</span>: Model* model; </span><br><span class="line">&#125;; </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solid</span> : <span class="keyword">public</span> Object &#123; </span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">      <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">collide</span><span class="params">(Object objects[])</span> </span>&#123; </span><br><span class="line">	<span class="comment">/* check and react to collisions with objects */</span> &#125;; </span><br><span class="line">&#125;; </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Movable</span> : <span class="keyword">public</span> Object &#123; </span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">      <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">update</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		 <span class="comment">/* update position */</span> &#125;; </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>问题:游戏引擎中存在很多的对象,三个类分别实现方法之一</li>
+<li><strong>继承三件事但是只做了一件，Promise No Less不符合</strong></li>
+<li><strong>接口应该拆成3个</strong></li>
+</ul>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/1.jpg"></p>
+<h1 id="7-内聚"><a href="#7-内聚" class="headerlink" title="7. 内聚"></a>7. 内聚</h1><ol>
+<li><strong>方法内聚和结构化中的函数内聚一致</strong>，功能内聚、信息内聚、过程内聚、时间内聚、逻辑内聚、偶然内聚。</li>
+<li>类的内聚衡量类的成员变量和方法之间的内聚：类应该是信息内聚的又应该是功能内聚的</li>
+</ol>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/19.png"></p>
+<ul>
+<li>方法和属性保持一致</li>
+</ul>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/20.png"></p>
+<ul>
+<li>提高内聚性:将一个类分为三个类</li>
+</ul>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/21.png"></p>
+<ul>
+<li>将时间抽象出来，可以进一步抽象</li>
+</ul>
+<h2 id="7-1-方法内聚"><a href="#7-1-方法内聚" class="headerlink" title="7.1. 方法内聚"></a>7.1. 方法内聚</h2><ol>
+<li>一类方法是普通耦合</li>
+<li>所有方法尽一责<ol>
+<li>信息内聚</li>
+<li>相对功能(功能内聚)</li>
+<li>第九个原则:单一职责原理</li>
+</ol>
+</li>
+</ol>
+<h2 id="7-2-提高内聚的方法"><a href="#7-2-提高内聚的方法" class="headerlink" title="7.2. 提高内聚的方法"></a>7.2. 提高内聚的方法</h2><h3 id="7-2-1-原则九：单一责任原则-SRP"><a href="#7-2-1-原则九：单一责任原则-SRP" class="headerlink" title="7.2.1. 原则九：单一责任原则(SRP)"></a>7.2.1. 原则九：单一责任原则(SRP)</h3><p>一个高内聚的类不仅要是信息内聚的，还应该是功能内聚的，也就是说，<strong>信息与行为除了要集中之外，还要联合起来表达一个内聚的概念，而不是单纯的堆砌，这就是单一职责原则</strong></p>
+<blockquote>
+<p>“<strong>一个类只有一个改变的理由 a class should have only one reason to change</strong>“-罗伯特·马丁(Robert Martin)</p>
+</blockquote>
+<ol>
+<li>与内聚性相关并从中导出，即模块中的元素应在功能上紧密相关</li>
+<li><strong>类履行某种职责的责任也是类变化的原因</strong></li>
+<li>一个高内聚的类不仅要是功能内聚的，还应该是信息内聚的。</li>
+</ol>
+<h4 id="7-2-1-1-问题案例"><a href="#7-2-1-1-问题案例" class="headerlink" title="7.2.1.1. 问题案例"></a>7.2.1.1. 问题案例</h4><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/22.png"></p>
+<ul>
+<li>修改的原因:<ul>
+<li>业务逻辑</li>
+<li>XML格式</li>
+</ul>
+</li>
+<li>如何修改如何分开</li>
+</ul>
+<h4 id="7-2-1-2-结局方案"><a href="#7-2-1-2-结局方案" class="headerlink" title="7.2.1.2. 结局方案"></a>7.2.1.2. 结局方案</h4><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/23.png"></p>
+<ul>
+<li>我们将两部分职责分开</li>
+</ul>
+<h3 id="7-2-2-单一职责原则"><a href="#7-2-2-单一职责原则" class="headerlink" title="7.2.2. 单一职责原则"></a>7.2.2. 单一职责原则</h3><ol>
+<li><strong>类只有一个改变的理由：职能&#x2F;职责的凝聚力</strong></li>
+<li>几个职责：表示更改的几个原因→更频繁的更改</li>
+<li>听起来很简单<ol>
+<li>在现实生活中并非如此轻松</li>
+<li><strong>实现单一职责可能会导致具有复杂性，重复性，不透明性</strong>的</li>
+</ol>
+</li>
+</ol>
+<h2 id="7-3-课堂练习"><a href="#7-3-课堂练习" class="headerlink" title="7.3. 课堂练习"></a>7.3. 课堂练习</h2><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/25.png"></p>
+<ul>
+<li>打电话和挂起两个职责分离开</li>
+</ul>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/26.png"></p>
+<ul>
+<li>几何画板:Draw和Area的计算如何分开</li>
+</ul>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/27.png"></p>
+<ul>
+<li>解决方案:集合长方形和图形长方形一一对应</li>
+</ul>
+<h1 id="8-耦合和内聚的度量"><a href="#8-耦合和内聚的度量" class="headerlink" title="8. 耦合和内聚的度量"></a>8. 耦合和内聚的度量</h1><h2 id="8-1-类之间的耦合度量"><a href="#8-1-类之间的耦合度量" class="headerlink" title="8.1. 类之间的耦合度量"></a>8.1. 类之间的耦合度量</h2><h3 id="8-1-1-第一种度量-CBO-方法调用耦合"><a href="#8-1-1-第一种度量-CBO-方法调用耦合" class="headerlink" title="8.1.1. 第一种度量:CBO(方法调用耦合)"></a>8.1.1. 第一种度量:CBO(方法调用耦合)</h3><p><em>Coupling Between Objects</em></p>
+<ol>
+<li><p>对象类之间的耦合(CBO)</p>
+</li>
+<li><p>CBO &#x3D; <strong>该类访问其他类的成员方法的数量 + 其他类的成员访问该类的成员方法的数量</strong></p>
+<p>外界的其他类不包括存在继承关系的类。</p>
+</li>
+<li><p>越低越好</p>
+</li>
+</ol>
+<h3 id="8-1-2-第二种度量-DAC-数据抽象耦合"><a href="#8-1-2-第二种度量-DAC-数据抽象耦合" class="headerlink" title="8.1.2. 第二种度量:DAC(数据抽象耦合)"></a>8.1.2. 第二种度量:DAC(数据抽象耦合)</h3><p><em>Data Abstraction Coupling</em></p>
+<ol>
+<li><p>数据抽象耦合(DAC)</p>
+</li>
+<li><p>DAC &#x3D; <strong>统计一类包含的其他类的其他类的实例的数量，不包括继承关系带来的实例引用</strong></p>
+</li>
+<li><p>越低越好</p>
+</li>
+</ol>
+<h3 id="8-1-3-第三种度量-Ca和Ce-有效和"><a href="#8-1-3-第三种度量-Ca和Ce-有效和" class="headerlink" title="8.1.3. 第三种度量:Ca和Ce(有效和)"></a>8.1.3. 第三种度量:Ca和Ce(有效和)</h3><ol>
+<li>Ce和Ca(有效和有效偶联)<ol>
+<li>Ca:在此类之外依赖于这类内部的类的数量</li>
+<li>Ce:这个类中依赖于这个类的外部的类的数量</li>
+</ol>
+</li>
+<li>越低越好</li>
+</ol>
+<h3 id="8-1-4-第四种度量-DIT-继承树的深度"><a href="#8-1-4-第四种度量-DIT-继承树的深度" class="headerlink" title="8.1.4. 第四种度量:DIT 继承树的深度"></a>8.1.4. 第四种度量:DIT 继承树的深度</h3><p><em>Depth of the Inheritance Tree</em></p>
+<ol>
+<li><p>继承树的深度</p>
+</li>
+<li><p><strong>统计从继承树的根节点到叶节点的长度。</strong></p>
+</li>
+<li><p>随着DIT的增长，由于高度的继承性，很难预测类的行为</p>
+</li>
+<li><p>DIT 越大越好，因为 DIT <strong>越大意味着继承机制减少耦合的效果越强，复用代码的程度也越高</strong>。</p>
+<p>但 DIT 越大也意味着子类需要遵守的<strong>约束越多而且越隐晦</strong>（因为父类距离太远），<strong>越难以保证 LSP 的实现</strong>。</p>
+</li>
+<li><p>因此应当适中，当DIT&gt;3同样也需要审查继承机制的正确性，确保能遵守 LSP。</p>
+</li>
+</ol>
+<h3 id="8-1-5-第五种度量-NOC-子类的数量"><a href="#8-1-5-第五种度量-NOC-子类的数量" class="headerlink" title="8.1.5. 第五种度量: NOC 子类的数量"></a>8.1.5. 第五种度量: NOC 子类的数量</h3><p><em>Number of Children</em></p>
+<ol>
+<li><strong>是一个类的直接子类的数量</strong></li>
+<li>随着 NOC 的增长，可复用性增加，抽象减弱了【<strong>和 DIT 增长的效果一样</strong>】</li>
+<li>随着 NOC 的增长，抽象可能变得<strong>稀疏</strong>，**<font color="red">即当子类变多后，如果能将这么多子类都抽象成一个父类，难度比较大，因为子类多了，共性就会减少</font>**</li>
+<li>一般 NOC 超过 3，就需要认真审查继承机制的正确性，检查是否满足 LSP</li>
+</ol>
+<h3 id="8-1-6-衡量类凝聚力-LCOM（不考）"><a href="#8-1-6-衡量类凝聚力-LCOM（不考）" class="headerlink" title="8.1.6. 衡量类凝聚力 LCOM（不考）"></a>8.1.6. 衡量类凝聚力 LCOM（不考）</h3><blockquote>
+<p>Lack of cohesion in methods (LCOM) </p>
+</blockquote>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/28.png"></p>
+<ul>
+<li>交集为空则在P中，交集不为空则在Q中</li>
+</ul>
+<ol>
+<li><p>值越低越好</p>
+</li>
+<li><p><strong>如果LCOM&gt;&#x3D; 1，说明所有方法中的相互之间隔离比较大，相交的部分很少，因此它们不应该放在一个类中，应将类划分</strong></p>
+</li>
+<li><p>还定义了许多其他版本的LCOM</p>
+</li>
+<li><p>使用连通图【<em>如果两个方法有相交的实例变量，则连接</em>】的数目来表示方法之间的联系，<strong>如果连通图数目大于 1，说明有不相交的部分，这两个部分应该分开</strong></p>
+</li>
+</ol>
+<h2 id="8-2-Summary-Principles-from-Modularization-模块化的原则"><a href="#8-2-Summary-Principles-from-Modularization-模块化的原则" class="headerlink" title="8.2. Summary:Principles from Modularization 模块化的原则"></a>8.2. Summary:Principles from Modularization 模块化的原则</h2><ol>
+<li>《Global Variables Consider Harmful》 全局变量被认为是有害的</li>
+<li>《To be Explicit》让代码清晰一点</li>
+<li>《Do not Repeat》避免重复</li>
+<li>《Programming to Interface(Design by Contract)》面向接口编程，按照契约设计</li>
+<li>《The Law of Demeter》迪米特法则</li>
+<li>《Interface Segregation Principle(ISP)》接口分离原则</li>
+<li>《Liskov Substitution Principle (LSP)》里氏替换原则:Request No More, Promise No Less</li>
+<li>《Favor Composition Over Inheritance》 选择组合而不是继承</li>
+<li>《Single Responsibility Principle》单一职责原理</li>
+</ol>
+
+        
+      </div>
+
+         
+    </div>
+    
+     
+  </div>
+  
+    
+<nav id="article-nav">
+  <a class="article-nav-btn left "
+    
+      href="/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/12-%E8%AF%A6%E7%BB%86%E8%AE%BE%E8%AE%A1/"
+      title="SE-II-ch12-详细设计"
+     >
+    <i class="fa-solid fa-angle-left"></i>
+    <p class="title-text">
+      
+        SE-II-ch12-详细设计
+        
+    </p>
+  </a>
+  <a class="article-nav-btn right "
+    
+      href="/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/13-%E6%A8%A1%E5%9D%97%E5%8C%96%E4%B8%8E%E4%BF%A1%E6%81%AF%E9%9A%90%E8%97%8F/"
+      title="SE-II-ch13-详细设计中的模块化与信息隐藏"
+     >
+
+    <p class="title-text">
+      
+        SE-II-ch13-详细设计中的模块化与信息隐藏
+        
+    </p>
+    <i class="fa-solid fa-angle-right"></i>
+  </a>
+</nav>
+
+
+  
+</article>
+
+
+  
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <div id="comment-card" class="comment-card">
+    <div class="main-title-bar">
+      <div class="main-title-dot"></div>
+      <div class="main-title">留言 </div>
+    </div>
+    <div id="vcomments"></div>
+  </div>
+  <script>
+      new Valine({"enable":true,"appId":null,"appKey":null,"placeholder":"Just go go","pageSize":20,"highlight":true,"serverURLs":null,"el":"#vcomments"});
+  </script>
+ 
+    </div>
+    <div id="footer-wrapper">
+      <footer id="footer">
+  
+  <div id="footer-info" class="inner">
+    
+      <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris"></a>
+    
+    &copy; 2023 Asimov<br>
+    Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & Theme <a target="_blank" rel="noopener" href="https://github.com/saicaca/hexo-theme-vivia">Vivia</a>
+  </div>
+</footer>
+
+    </div>
+    <div class="back-to-top-wrapper">
+    <button id="back-to-top-btn" class="back-to-top-btn hide" onclick="topFunction()">
+        <i class="fa-solid fa-angle-up"></i>
+    </button>
+</div>
+
+<script>
+    function topFunction() {
+        window.scroll({ top: 0, behavior: 'smooth' });
+    }
+    let btn = document.getElementById('back-to-top-btn');
+    function scrollFunction() {
+        if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+            btn.classList.remove('hide')
+        } else {
+            btn.classList.add('hide')
+        }
+    }
+    window.onscroll = function() {
+        scrollFunction();
+    }
+</script>
+
+  </div>
+  <script src="/js/light-dark-switch.js"></script>
+</body>
+</html>

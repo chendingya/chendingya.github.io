@@ -1,0 +1,891 @@
+<!DOCTYPE html>
+
+
+<html theme="dark" showBanner="true" hasBanner="true" > 
+<link href="/fontawesome/css/fontawesome.css" rel="stylesheet">
+<link href="/fontawesome/css/brands.css" rel="stylesheet">
+<link href="/fontawesome/css/solid.css" rel="stylesheet">
+<script src="/js/color.global.min.js" ></script>
+<script src="/js/load-settings.js" ></script>
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+
+  
+  <title>SE-II-ch08-软件设计基础 | Asimov&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+  <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+
+  <meta name="description" content="08-软件设计基础   1. 什么是软件设计 1.1. 软件设计 重要 1.2. 软件设计的核心思想 1.3. 软件设计思想的发展 1.4. 软件设计的核心思想 1.4.1. 为什么要设计 1.4.2. 为什么软件是复杂的? 1.4.3. 设计的复杂度 1.4.4. 如何去控制复杂度？   1.5. 理解软件设计 1.5.1. 什么是设计   1.6. 工程设计还是艺术设计 1.7. Ration">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SE-II-ch08-软件设计基础">
+<meta property="og:url" content="https://chendingya.github.io/2022/06/17/SE-II%E7%AC%94%E8%AE%B0/08-%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:site_name" content="Asimov&#39;s Blog">
+<meta property="og:description" content="08-软件设计基础   1. 什么是软件设计 1.1. 软件设计 重要 1.2. 软件设计的核心思想 1.3. 软件设计思想的发展 1.4. 软件设计的核心思想 1.4.1. 为什么要设计 1.4.2. 为什么软件是复杂的? 1.4.3. 设计的复杂度 1.4.4. 如何去控制复杂度？   1.5. 理解软件设计 1.5.1. 什么是设计   1.6. 工程设计还是艺术设计 1.7. Ration">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt8/1.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt8/2.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt8/3.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt8/4.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt8/5.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt8/6.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt8/7.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt8/8.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt8/9.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt8/10.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt8/11.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt8/12.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt8/13.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt8/14.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt8/15.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt8/16.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt8/17.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt8/18.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt8/19.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt8/20.png">
+<meta property="article:published_time" content="2022-06-17T08:02:34.000Z">
+<meta property="article:modified_time" content="2023-09-17T07:47:30.599Z">
+<meta property="article:author" content="Asimov">
+<meta property="article:tag" content="软件工程与计算II">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt8/1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Asimov's Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-192.png" sizes="192x192">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-192.png" sizes="192x192">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  
+  
+    
+<div id="banner" class="">
+  <img src="/pic/back.png" itemprop="image">
+  <div id="banner-dim"></div>
+</div>
+ 
+   
+  <div id="main-grid" class="shadow   ">
+    <div id="nav" class=""  >
+      <navbar id="navbar">
+  <nav id="title-nav">
+    <a href="/">
+      <div id="vivia-logo">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div>Asimov's Blog </div>
+    </a>
+  </nav>
+  <nav id="main-nav">
+    
+      <a class="main-nav-link" href="/">Home</a>
+    
+      <a class="main-nav-link" href="/archives">Archives</a>
+    
+      <a class="main-nav-link" href="/about">About</a>
+    
+  </nav>
+  <nav id="sub-nav">
+    <a id="theme-btn" class="nav-icon">
+      <span class="light-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M438.5-829.913v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-829.913Zm0 747.826v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-82.087ZM877.913-438.5h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537t29.476-12.174h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T877.913-438.5Zm-747.826 0h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T82.087-521.5h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T130.087-438.5Zm660.174-290.87-34.239 32q-12.913 12.674-29.565 12.174-16.653-.5-29.327-13.174-12.674-12.673-12.554-28.826.12-16.152 12.794-28.826l33-35q12.913-12.674 30.454-12.674t30.163 12.847q12.709 12.846 12.328 30.826-.38 17.98-13.054 30.653ZM262.63-203.978l-32 34q-12.913 12.674-30.454 12.674t-30.163-12.847q-12.709-12.846-12.328-30.826.38-17.98 13.054-30.653l33.239-31q12.913-12.674 29.565-12.174 16.653.5 29.327 13.174 12.674 12.673 12.554 28.826-.12 16.152-12.794 28.826Zm466.74 33.239-32-33.239q-12.674-12.913-12.174-29.565.5-16.653 13.174-29.327 12.673-12.674 28.826-13.054 16.152-.38 28.826 12.294l35 33q12.674 12.913 12.674 30.454t-12.847 30.163q-12.846 12.709-30.826 12.328-17.98-.38-30.653-13.054ZM203.978-697.37l-34-33q-12.674-12.913-13.174-29.945-.5-17.033 12.174-29.707t31.326-13.293q18.653-.62 31.326 13.054l32 34.239q11.674 12.913 11.174 29.565-.5 16.653-13.174 29.327-12.673 12.674-28.826 12.554-16.152-.12-28.826-12.794ZM480-240q-100 0-170-70t-70-170q0-100 70-170t170-70q100 0 170 70t70 170q0 100-70 170t-170 70Zm-.247-82q65.703 0 111.475-46.272Q637-414.544 637-480.247t-45.525-111.228Q545.95-637 480.247-637t-111.475 45.525Q323-545.95 323-480.247t45.525 111.975Q414.05-322 479.753-322ZM481-481Z"/></svg></span>
+      <span class="dark-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M480.239-116.413q-152.63 0-258.228-105.478Q116.413-327.37 116.413-480q0-130.935 77.739-227.435t206.304-125.043q43.022-9.631 63.87 10.869t3.478 62.805q-8.891 22.043-14.315 44.463-5.424 22.42-5.424 46.689 0 91.694 64.326 155.879 64.325 64.186 156.218 64.186 24.369 0 46.978-4.946 22.609-4.945 44.413-14.076 42.826-17.369 62.967 1.142 20.142 18.511 10.511 61.054Q807.174-280 712.63-198.206q-94.543 81.793-232.391 81.793Zm0-95q79.783 0 143.337-40.217 63.554-40.218 95.793-108.283-15.608 4.044-31.097 5.326-15.49 1.283-31.859.805-123.706-4.066-210.777-90.539-87.071-86.473-91.614-212.092-.24-16.369.923-31.978 1.164-15.609 5.446-30.978-67.826 32.478-108.282 96.152Q211.652-559.543 211.652-480q0 111.929 78.329 190.258 78.329 78.329 190.258 78.329ZM466.13-465.891Z"/></svg></span>
+    </a>
+    
+      <a id="nav-rss-link" class="nav-icon mobile-hide" href="/atom.xml" title="RSS 订阅">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-120q-25.846 0-44.23-18.384-18.384-18.385-18.384-44.23 0-25.846 18.384-44.23 18.384-18.385 44.23-18.385 25.846 0 44.23 18.385 18.384 18.384 18.384 44.23 0 25.845-18.384 44.23Q223.846-120 198-120Zm538.385 0q-18.846 0-32.923-13.769-14.076-13.769-15.922-33.23-8.692-100.616-51.077-188.654-42.385-88.039-109.885-155.539-67.5-67.501-155.539-109.885Q283-663.462 182.385-672.154q-19.461-1.846-33.23-16.23-13.769-14.385-13.769-33.846t14.076-32.922q14.077-13.461 32.923-12.23 120.076 8.692 226.038 58.768 105.961 50.077 185.73 129.846 79.769 79.769 129.846 185.731 50.077 105.961 58.769 226.038 1.231 18.846-12.538 32.922Q756.461-120 736.385-120Zm-252 0q-18.231 0-32.423-13.461t-18.653-33.538Q418.155-264.23 348.886-333.5q-69.27-69.27-166.501-84.423-20.077-4.462-33.538-18.961-13.461-14.5-13.461-33.346 0-19.076 13.884-33.23 13.884-14.153 33.115-10.922 136.769 15.384 234.384 112.999 97.615 97.615 112.999 234.384 3.231 19.23-10.538 33.115Q505.461-120 484.385-120Z"/></svg>
+      </a>
+    
+    <div id="nav-menu-btn" class="nav-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M177.37-252.282q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Zm0-186.218q-17.453 0-29.477-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T177.37-521.5h605.26q17.453 0 29.477 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T782.63-438.5H177.37Zm0-186.217q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Z"/></svg>
+    </div>
+  </nav>
+</navbar>
+<div id="nav-dropdown" class="hidden">
+  <div id="dropdown-link-list">
+    
+      <a class="nav-dropdown-link" href="/">Home</a>
+    
+      <a class="nav-dropdown-link" href="/archives">Archives</a>
+    
+      <a class="nav-dropdown-link" href="/about">About</a>
+    
+    
+      <a class="nav-dropdown-link" href="/atom.xml" title="RSS 订阅">RSS</a>
+     
+    </div>
+</div>
+<script>
+  let dropdownBtn = document.getElementById("nav-menu-btn");
+  let dropdownEle = document.getElementById("nav-dropdown");
+  dropdownBtn.onclick = function() {
+    dropdownEle.classList.toggle("hidden");
+  }
+</script>
+    </div>
+    <div id="sidebar-wrapper">
+      <sidebar id="sidebar">
+  
+    <div class="widget-wrap">
+  <div class="info-card">
+    <div class="avatar">
+      
+        <image src=/pic/avatar.png></image>
+      
+      <div class="img-dim"></div>
+    </div>
+    <div class="info">
+      <div class="username">Asimov </div>
+      <div class="dot"></div>
+      <div class="subtitle">Asimov's Blog </div>
+      <div class="link-list">
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://github.com/chendingya" title="GitHub"><i class="fa-brands fa-github"></i></a>
+         
+      </div>  
+    </div>
+  </div>
+</div>
+
+  
+  <div class="sticky">
+    
+      
+
+
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">分类</h3>
+      <div class="category-box">
+            <a class="category-link" href="/categories/hello-world/">
+                hello world
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/Hexo/">
+                Hexo
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
+                编译原理
+                <div class="category-count">13</div>
+            </a>
+        
+            <a class="category-link" href="/categories/tdesign/">
+                tdesign
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">
+                软件工程与计算II
+                <div class="category-count">30</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E9%A9%BE%E8%80%83/">
+                驾考
+                <div class="category-count">2</div>
+            </a>
+        </div>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">标签</h3>
+      <ul class="widget-tag-list" itemprop="keywords"><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/hello-world/" rel="tag">hello world</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/tdesign/" rel="tag">tdesign</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" rel="tag">编译原理</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/" rel="tag">软件工程与计算II</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E9%A9%BE%E8%80%83/" rel="tag">驾考</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">归档</h3>
+      
+      
+        <a class="archive-link" href="/archives/2023/09 ">
+          九月 2023 
+          <div class="archive-count">2 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/07 ">
+          七月 2023 
+          <div class="archive-count">2 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/04 ">
+          四月 2023 
+          <div class="archive-count">10 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/03 ">
+          三月 2023 
+          <div class="archive-count">3 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2022/10 ">
+          十月 2022 
+          <div class="archive-count">1 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2022/06 ">
+          六月 2022 
+          <div class="archive-count">30 </div>
+        </a>
+      
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">最新文章</h3>
+      <ul>
+        
+          <a class="recent-link" href="/2023/09/15/23-tdesign/Mock%E4%BD%BF%E7%94%A8/" title="微信小程序中Mock使用" >
+            <div class="recent-link-text">
+              微信小程序中Mock使用
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/09/12/%E9%A9%BE%E8%80%83/%E9%A9%BE%E8%80%83-%E7%A7%91%E7%9B%AE%E4%BA%8C/" title="驾考-科目二" >
+            <div class="recent-link-text">
+              驾考-科目二
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/07/18/blog/" title="blog" >
+            <div class="recent-link-text">
+              blog
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/07/17/%E9%A9%BE%E8%80%83/%E9%A9%BE%E8%80%83-%E7%A7%91%E7%9B%AE%E4%B8%80/" title="驾考-科目一" >
+            <div class="recent-link-text">
+              驾考-科目一
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/04/10/23-Compilers/ch18-codegen-riscv-RISC-V%20%E6%A6%82%E8%BF%B0/" title="ch18-codegen-riscv-RISC-V 概述" >
+            <div class="recent-link-text">
+              ch18-codegen-riscv-RISC-V 概述
+            </div>
+          </a>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+  </div>
+</sidebar>
+    </div>
+    <div id="content-body">
+       
+
+<article id="post-SE-II笔记/08-软件设计基础" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 class="p-name article-title" itemprop="headline name">
+        SE-II-ch08-软件设计基础
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2022-06-17T08:02:34.000Z" itemprop="datePublished">2022-06-17</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">软件工程与计算II</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            5.3k 词 
+          </div>
+        </div>
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/" rel="tag">软件工程与计算II</a></li></ul>
+
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <h2 id="08-软件设计基础"><a href="#08-软件设计基础" class="headerlink" title="08-软件设计基础"></a>08-软件设计基础</h2><!-- TOC -->
+
+<ul>
+<li><a href="#1-%E4%BB%80%E4%B9%88%E6%98%AF%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1">1. 什么是软件设计</a><ul>
+<li><a href="#11-%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1-%E9%87%8D%E8%A6%81">1.1. 软件设计 重要</a></li>
+<li><a href="#12-%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E7%9A%84%E6%A0%B8%E5%BF%83%E6%80%9D%E6%83%B3">1.2. 软件设计的核心思想</a></li>
+<li><a href="#13-%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E6%80%9D%E6%83%B3%E7%9A%84%E5%8F%91%E5%B1%95">1.3. 软件设计思想的发展</a></li>
+<li><a href="#14-%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E7%9A%84%E6%A0%B8%E5%BF%83%E6%80%9D%E6%83%B3">1.4. 软件设计的核心思想</a><ul>
+<li><a href="#141-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E8%AE%BE%E8%AE%A1">1.4.1. 为什么要设计</a></li>
+<li><a href="#142-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BD%AF%E4%BB%B6%E6%98%AF%E5%A4%8D%E6%9D%82%E7%9A%84">1.4.2. 为什么软件是复杂的?</a></li>
+<li><a href="#143-%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%A4%8D%E6%9D%82%E5%BA%A6">1.4.3. 设计的复杂度</a></li>
+<li><a href="#144-%E5%A6%82%E4%BD%95%E5%8E%BB%E6%8E%A7%E5%88%B6%E5%A4%8D%E6%9D%82%E5%BA%A6">1.4.4. 如何去控制复杂度？</a></li>
+</ul>
+</li>
+<li><a href="#15-%E7%90%86%E8%A7%A3%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1">1.5. 理解软件设计</a><ul>
+<li><a href="#151-%E4%BB%80%E4%B9%88%E6%98%AF%E8%AE%BE%E8%AE%A1">1.5.1. 什么是设计</a></li>
+</ul>
+</li>
+<li><a href="#16-%E5%B7%A5%E7%A8%8B%E8%AE%BE%E8%AE%A1%E8%BF%98%E6%98%AF%E8%89%BA%E6%9C%AF%E8%AE%BE%E8%AE%A1">1.6. 工程设计还是艺术设计</a></li>
+<li><a href="#17-rational-or-pragmatic-%E7%90%86%E6%80%A7%E4%B8%BB%E4%B9%89or%E7%BB%8F%E9%AA%8C%E4%B8%BB%E4%B9%89">1.7. Rational or Pragmatic? 理性主义or经验主义？</a><ul>
+<li><a href="#171-%E7%90%86%E6%80%A7%E4%B8%BB%E4%B9%89%E4%BB%A3%E8%A1%A8">1.7.1. 理性主义代表</a></li>
+<li><a href="#172-%E7%BB%8F%E9%AA%8C%E4%B8%BB%E4%B9%89%E4%BB%A3%E8%A1%A8">1.7.2. 经验主义代表</a></li>
+</ul>
+</li>
+<li><a href="#18-%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E7%9A%84%E6%BC%94%E5%8C%96%E6%80%A7">1.8. 软件设计的演化性</a></li>
+<li><a href="#19-%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%86%B3%E7%AD%96">1.9. 设计的决策</a><ul>
+<li><a href="#191-%E5%86%B3%E7%AD%96%E7%9A%84%E7%BA%A6%E6%9D%9F%E6%80%A7">1.9.1. 决策的约束性</a></li>
+<li><a href="#192-%E5%86%B3%E7%AD%96%E7%9A%84%E5%A4%9A%E6%A0%B7%E6%80%A7">1.9.2. 决策的多样性</a></li>
+<li><a href="#193-%E5%86%B3%E7%AD%96%E7%9A%84%E6%BC%94%E5%8C%96%E6%80%A7">1.9.3. 决策的演化性</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#2-%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%88%86%E5%B1%82-%E9%87%8D%E8%A6%81">2. 软件设计的分层 重要</a><ul>
+<li><a href="#21-%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%BB%BA%E7%AB%8B">2.1. 程序设计的建立</a></li>
+<li><a href="#22-%E4%BD%8E%E5%B1%82%E8%AE%BE%E8%AE%A1">2.2. 低层设计</a><ul>
+<li><a href="#221-%E4%BD%8E%E5%B1%82%E8%AE%BE%E8%AE%A1%E7%9A%84%E6%9C%AC%E8%B4%A8">2.2.1. 低层设计的本质</a></li>
+<li><a href="#222-%E4%BD%8E%E5%B1%82%E8%AE%BE%E8%AE%A1-%E4%BB%A3%E7%A0%81%E8%AE%BE%E8%AE%A1">2.2.2. 低层设计: 代码设计</a></li>
+<li><a href="#223-%E6%A8%A1%E5%9D%97%E5%88%92%E5%88%86">2.2.3. 模块划分</a></li>
+</ul>
+</li>
+<li><a href="#23-%E4%B8%AD%E5%B1%82%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%BC%80%E5%A7%8B">2.3. 中层设计的开始</a><ul>
+<li><a href="#231-%E6%A8%A1%E5%9D%97%E5%8C%96%E7%9A%84%E7%9B%AE%E6%A0%87%E5%AE%8C%E5%85%A8%E7%8B%AC%E7%AB%8B%E6%80%A7">2.3.1. 模块化的目标：完全独立性</a></li>
+<li><a href="#232-%E6%A8%A1%E5%9D%97%E5%8C%96%E7%9A%84%E9%97%AE%E9%A2%98%E4%B8%8E%E5%9B%B0%E9%9A%BE">2.3.2. 模块化的问题与困难</a></li>
+<li><a href="#233-%E4%B8%AD%E5%B1%82%E8%AE%BE%E8%AE%A1%E6%80%BB%E7%BB%93%E8%AE%BE%E8%AE%A1%E7%9B%AE%E6%A0%87">2.3.3. 中层设计总结——设计目标</a></li>
+</ul>
+</li>
+<li><a href="#24-%E4%B8%AD%E4%BD%8E%E5%B1%82%E8%AE%BE%E8%AE%A1%E7%9A%84%E9%97%AE%E9%A2%98">2.4. 中低层设计的问题</a></li>
+<li><a href="#25-%E9%AB%98%E5%B1%82%E8%AE%BE%E8%AE%A1%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84">2.5. 高层设计：体系结构</a></li>
+<li><a href="#26-%E6%95%8F%E6%8D%B7%E8%A7%86%E7%82%B9">2.6. 敏捷视点</a></li>
+</ul>
+</li>
+<li><a href="#3-%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E8%BF%87%E7%A8%8B%E6%96%B9%E6%B3%95%E5%92%8C%E6%A8%A1%E5%9E%8B%E6%8F%8F%E8%BF%B0">3. 软件设计过程、方法和模型、描述</a><ul>
+<li><a href="#31-%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E8%BF%87%E7%A8%8B%E7%9A%84%E4%B8%BB%E8%A6%81%E6%B4%BB%E5%8A%A8">3.1. 软件设计过程的主要活动</a></li>
+<li><a href="#32-%E8%AE%BE%E8%AE%A1%E7%9A%84%E6%96%B9%E6%B3%95">3.2. 设计的方法</a><ul>
+<li><a href="#321-%E7%BB%93%E6%9E%84%E5%8C%96%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95">3.2.1. 结构化设计方法</a></li>
+<li><a href="#322-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1%E6%96%B9%E6%B3%95">3.2.2. 面向对象设计方法</a></li>
+<li><a href="#323-%E4%BB%A5%E6%95%B0%E6%8D%AE%E4%B8%BA%E4%B8%AD%E5%BF%83%E8%AE%BE%E8%AE%A1">3.2.3. 以数据为中心设计</a></li>
+<li><a href="#324-%E5%9F%BA%E4%BA%8E%E6%9E%84%E4%BB%B6%E7%9A%84%E8%AE%BE%E8%AE%A1">3.2.4. 基于构件的设计</a></li>
+<li><a href="#325-%E5%BD%A2%E5%BC%8F%E5%8C%96%E6%96%B9%E6%B3%95%E8%AE%BE%E8%AE%A1">3.2.5. 形式化方法设计</a></li>
+</ul>
+</li>
+<li><a href="#33-%E9%9D%99%E6%80%81%E6%A8%A1%E5%9E%8Bvs%E5%8A%A8%E6%80%81%E6%A8%A1%E5%9E%8B">3.3. 静态模型vs动态模型</a><ul>
+<li><a href="#331-%E9%9D%99%E6%80%81%E6%A8%A1%E5%9E%8B">3.3.1. 静态模型</a></li>
+<li><a href="#332-%E5%8A%A8%E6%80%81%E6%A8%A1%E5%9E%8B">3.3.2. 动态模型。</a></li>
+</ul>
+</li>
+<li><a href="#34-%E7%BB%93%E6%9E%84%E5%8C%96%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%9E%8B%E5%92%8C%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%9E%8B">3.4. 结构化设计模型和⾯向对象设计模型</a></li>
+<li><a href="#35-%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E6%8F%8F%E8%BF%B0%E8%A7%84%E8%8C%83">3.5. 软件设计描述规范</a></li>
+<li><a href="#36-%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E6%8F%8F%E8%BF%B0%E6%A8%A1%E5%9E%8B">3.6. 软件设计描述模型</a></li>
+<li><a href="#37-%E8%AE%BE%E8%AE%A1%E8%A7%86%E8%A7%92">3.7. 设计视角</a></li>
+<li><a href="#38-%E5%88%A9%E7%9B%8A%E7%9B%B8%E5%85%B3%E8%80%85">3.8. 利益相关者</a></li>
+<li><a href="#39-%E8%AE%BE%E8%AE%A1%E7%90%86%E7%94%B1">3.9. 设计理由</a></li>
+</ul>
+</li>
+<li><a href="#4-%E8%AE%BE%E8%AE%A1%E6%8F%8F%E8%BF%B0%E6%96%87%E6%A1%A3%E6%A8%A1%E7%89%88">4. 设计描述文档模版</a><ul>
+<li><a href="#41-%E8%AE%BE%E8%AE%A1%E6%96%87%E6%A1%A3%E4%B9%A6%E5%86%99%E8%A6%81%E7%82%B9">4.1. 设计文档书写要点</a></li>
+</ul>
+</li>
+</ul>
+<!-- /TOC -->
+
+<h1 id="1-什么是软件设计"><a href="#1-什么是软件设计" class="headerlink" title="1. 什么是软件设计"></a>1. 什么是软件设计</h1><h2 id="1-1-软件设计（重要）"><a href="#1-1-软件设计（重要）" class="headerlink" title="1.1. 软件设计（重要）"></a>1.1. 软件设计（重要）</h2><ol>
+<li>概念：<strong>软件设计是指关于软件对象的设计，是一种设计活动。软件设计既指软件对象实现的规格说明，又指这个规格说明产生的过程。</strong></li>
+<li>软件设计活动以需求开发的制品(需求规格说明和分析模型)为基础，构建软件设计方案描述和原型，为后期的构造活动提供规划或蓝图。</li>
+<li>软件设计兼具工程性和艺术性，由于软件系统的可变性，软件设计具有演化性，也因为软件设计的过程实际上就是一系列决策发生的过程，软件设计具有决策性。</li>
+</ol>
+<h2 id="1-2-软件设计的核心思想"><a href="#1-2-软件设计的核心思想" class="headerlink" title="1.2. 软件设计的核心思想"></a>1.2. 软件设计的核心思想</h2><ol>
+<li><strong>软件设计方法的核心问题：控制系统复杂度</strong></li>
+<li><strong>分解与抽象</strong>是软件设计的核心思想，两者都是有层次性的，彼此之间可以嵌套使用。<ol>
+<li>分解:横向上将系统分割为几个相对简单的子系统与子系统之间的关系</li>
+<li>抽象:在纵向上聚焦个子系统的接口(这里的接口与实现相对)，可以分离接口和实现，使得人们更好的关注软件系统本质，降低复杂度。</li>
+</ol>
+</li>
+</ol>
+<h2 id="1-3-软件设计思想的发展"><a href="#1-3-软件设计思想的发展" class="headerlink" title="1.3. 软件设计思想的发展"></a>1.3. 软件设计思想的发展</h2><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt8/1.png"></p>
+<ol>
+<li>从程序设计到软件设计，再到大规模软件设计</li>
+<li>在大规模软件设计的时候，一个产品目标可能要做很多的功能</li>
+</ol>
+<h2 id="1-4-软件设计的核心思想"><a href="#1-4-软件设计的核心思想" class="headerlink" title="1.4. 软件设计的核心思想"></a>1.4. 软件设计的核心思想</h2><h3 id="1-4-1-为什么要设计"><a href="#1-4-1-为什么要设计" class="headerlink" title="1.4.1. 为什么要设计"></a>1.4.1. 为什么要设计</h3><ol>
+<li>事物的复杂性 VS 思维的有限性<ol>
+<li>7±2规则:在一个屏幕上，同时出现多位数字或字母，瞬间出现和消失，超过7±2的话，可能比原来记住的更好</li>
+<li>关注点分离与层次性</li>
+</ol>
+</li>
+</ol>
+<h3 id="1-4-2-为什么软件是复杂的"><a href="#1-4-2-为什么软件是复杂的" class="headerlink" title="1.4.2. 为什么软件是复杂的?"></a>1.4.2. 为什么软件是复杂的?</h3><blockquote>
+<p>软件的复杂性是一个本质的东西，而不是一个偶然出现的</p>
+</blockquote>
+<ol>
+<li>解决的问题域时很复杂的</li>
+<li>管理的开发过程是复杂的</li>
+<li>软件的灵活性导致的复杂性</li>
+<li>离散系统行为的符号化的问题 <strong>The problems of charactering the behavior of discrete systems</strong></li>
+</ol>
+<h3 id="1-4-3-设计的复杂度"><a href="#1-4-3-设计的复杂度" class="headerlink" title="1.4.3. 设计的复杂度"></a>1.4.3. 设计的复杂度</h3><ol>
+<li>事物复杂度 VS 载体复杂度：对外表现 与 内部结构</li>
+<li>设计复杂度 &#x3D; 事物复杂度 + 载体与事物的适配复杂度</li>
+</ol>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt8/2.png"></p>
+<h3 id="1-4-4-如何去控制复杂度？"><a href="#1-4-4-如何去控制复杂度？" class="headerlink" title="1.4.4. 如何去控制复杂度？"></a>1.4.4. 如何去控制复杂度？</h3><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt8/3.png"></p>
+<ol>
+<li>软件设计的核⼼思想 —— 分解与抽象</li>
+</ol>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt8/4.png"></p>
+<h2 id="1-5-理解软件设计"><a href="#1-5-理解软件设计" class="headerlink" title="1.5. 理解软件设计"></a>1.5. 理解软件设计</h2><h3 id="1-5-1-什么是设计"><a href="#1-5-1-什么是设计" class="headerlink" title="1.5.1. 什么是设计"></a>1.5.1. 什么是设计</h3><ol>
+<li>Wiki：设计是为制作每个对象或系统奠定基础的计划。<strong>Design is the planning that lays the basis for the making of every object or system.</strong></li>
+<li>[Brooks 2010]认为上述定义的精髓在于<strong>计划、思维和后续执行</strong>。</li>
+<li>[Ralph 2009]将设计定义为:<ol>
+<li>设计(名词):⼀个对象的规格说明。它由⼈创造,有明确的⽬标,适⽤于特殊的环境,由⼀些基础类型构件组成,满⾜⼀个需求集合,受⼀定的限制条件约束。</li>
+<li>设计(动词):在⼀个环境中创建对象的规格说明</li>
+</ol>
+</li>
+</ol>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt8/5.png"></p>
+<ol start="4">
+<li>设计经常需要⼀个设计师考虑⼀个对象或过程的<strong>审美、功能以及其他方面</strong>，这通常需要进⾏相当的研究、思考、建模、交互调整和重新设计。</li>
+</ol>
+<h2 id="1-6-工程设计还是艺术设计"><a href="#1-6-工程设计还是艺术设计" class="headerlink" title="1.6. 工程设计还是艺术设计"></a>1.6. 工程设计还是艺术设计</h2><ol>
+<li>软件设计应该偏向工程还是设计？</li>
+<li>[Faste2001]认为软件设计要:时刻保持<strong>以用户为中心</strong>,为其建造有⽤的软件产品;将设计知识科学化、系统化,并能够通过<strong>职业教育</strong>产⽣合格的软件设计师; 能够进⾏设计<strong>决策与折中</strong>,解决设计过程中出现的不确定性、信息不充分、要求冲突等复杂情况。<ol>
+<li>为什么要折衷?因为问题是不确定的，是有冲突的</li>
+</ol>
+</li>
+<li>Vitruvius(《De Architectura》,公元前 22 年)认为好的建筑架构要满⾜”<strong>效用(Useful)、 坚固 (Solid)与美感(Beautiful)</strong>“三个⽅⾯的要求。</li>
+<li>[Brooks2010]认为重要的美感因素包括:<strong>简洁、结构清晰和⼀致。</strong></li>
+<li>[Smith1996]认为在软件设计(尤其是⼈机交互设计)中<strong>艺术始终都处于中心地位</strong>,⽐⼯程性更加重要,为此设计师需要学会:发散性思维和创新;<strong>与用户共情</strong>,体会他们的内⼼感受;进⾏相关因素的评价和平衡,例如可靠性与时尚(Fashion)、简洁性与可修改性等;构思与想象,设计软件产品的可视化外观(Visualization)。</li>
+<li>Design &#x3D; Engineering + Art 设计等于工程加艺术</li>
+<li>苹果手机与安卓手机<ol>
+<li>苹果手机是设计师设计出来的</li>
+<li>安卓手机是工程师设计出来的</li>
+<li>现在安卓手机和苹果手机之间的区别也在逐渐减小</li>
+</ol>
+</li>
+</ol>
+<h2 id="1-7-Rational-or-Pragmatic-理性主义or经验主义？"><a href="#1-7-Rational-or-Pragmatic-理性主义or经验主义？" class="headerlink" title="1.7. Rational or Pragmatic? 理性主义or经验主义？"></a>1.7. Rational or Pragmatic? 理性主义or经验主义？</h2><h3 id="1-7-1-理性主义代表"><a href="#1-7-1-理性主义代表" class="headerlink" title="1.7.1. 理性主义代表"></a>1.7.1. 理性主义代表</h3><ol>
+<li>理性主义更看重设计的工程性,希望以<strong>科学化知识</strong>为基础,利⽤<strong>模型语言、建模方法、工具支持</strong>,将软件设计过程组织成系统、规律的模型建立过程 [McPhee1996]。</li>
+<li>在考虑到⼈的因素时,理想主义认为⼈是<strong>优秀</strong>的,虽然会犯错,但是可以通过教育不断完善⾃⼰ [Brooks2010]。</li>
+<li>设计⽅法学的目标就是<strong>不断克服人的弱点</strong>,持续完善软件设计过程中的不⾜, 最终达到完美[McPhee1996]。</li>
+<li><strong>形式化软件工程</strong>的支持者是典型的理想主义:通过数学证明来证明软件工程</li>
+</ol>
+<h3 id="1-7-2-经验主义代表"><a href="#1-7-2-经验主义代表" class="headerlink" title="1.7.2. 经验主义代表"></a>1.7.2. 经验主义代表</h3><ol>
+<li>经验主义者则在重视<strong>工程性</strong>的同时,也强调<strong>艺术性</strong>,要求给软件设计过程框架添加⼀些灵活性以应对设计中<strong>人</strong>的因素。</li>
+<li>[Parnas1986]曾指出<strong>没有过程指导和完全依赖个⼈的软件设计活动是不能接受的</strong>,因为不能保证质量和工程性。但是[Parnas1986]也指出⼀些⼈的因素决定了<strong>完全理性</strong>的设计过程是不存在的:<ol>
+<li>⽤户并不知道他们到底想要怎样的需求;</li>
+<li>即使⽤户知道需要什么,仍然有些事情需要反复和迭代才能发现或理解;</li>
+<li>⼈类的认知能⼒有限;</li>
+<li><strong>需求的变更⽆法避免</strong>;</li>
+<li>⼈类总是会犯错的;</li>
+<li>⼈们会固守⼀些旧有的设计理念;比如诺基亚</li>
+<li>不合适复⽤。</li>
+</ol>
+</li>
+<li>所以,[Parnas1986]认为软件设计需要使⽤⼀些⽅法弥补⼈的缺陷,以建⽴⼀个<strong>尽可能好(不坏就行)的</strong>软件设计过程。<strong>⽂档化、原型、尽早验证、迭代式开发等都被实践证明能够有效弥补⼈类的缺陷</strong>[Parnas1986, Brooks 2010]</li>
+</ol>
+<h2 id="1-8-软件设计的演化性"><a href="#1-8-软件设计的演化性" class="headerlink" title="1.8. 软件设计的演化性"></a>1.8. 软件设计的演化性</h2><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt8/6.png"></p>
+<ol>
+<li>需求是外部表现，需求和内部结构是有鸿沟的。</li>
+<li>非功能需求(质量需求)</li>
+<li>始终进行迭代。</li>
+</ol>
+<h2 id="1-9-设计的决策"><a href="#1-9-设计的决策" class="headerlink" title="1.9. 设计的决策"></a>1.9. 设计的决策</h2><ol>
+<li>[Freeman1980]认为:软件设计是⼀种<strong>问题求解和决策</strong>的过程;问题空间是⽤户的需求和项⽬约束,解空间是软件设计⽅案;从问题空间到<strong>解空间</strong>的转换是⼀个跳跃性的过程,需要发挥设计师的创造性,设计师跳跃性地建⽴解决方案的过程被称为决策。</li>
+<li>软件设计的问题求解与决策比普通数学问题的求解与决策要<strong>困难的多</strong>,因为软件设计面对的问题通常都是<strong>不规则的</strong>(Ill-Structured)[Simon1978],包含有很多的<strong>不确定性和信息不充分情景</strong>,所以进行设计决策时并不能保证决策的正确性,往往需要在很⻓时间之后才能通过验证发现之前决策的正确与否。</li>
+</ol>
+<h3 id="1-9-1-决策的约束性"><a href="#1-9-1-决策的约束性" class="headerlink" title="1.9.1. 决策的约束性"></a>1.9.1. 决策的约束性</h3><ol>
+<li>约束满足与决策</li>
+<li>约束：<ol>
+<li>需求；环境；资源；技术 …</li>
+<li>最初的需求确定了对设计情况的最基本的约束和要求。</li>
+<li>通常，在设计工作本身中最终会发现更多的约束。</li>
+<li>约束既适用于设计的工件，也适用于设计活动中涉及的流程和参与者</li>
+</ol>
+</li>
+<li>约束满足</li>
+</ol>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt8/7.png"></p>
+<h3 id="1-9-2-决策的多样性"><a href="#1-9-2-决策的多样性" class="headerlink" title="1.9.2. 决策的多样性"></a>1.9.2. 决策的多样性</h3><ol>
+<li>决策的选择性</li>
+<li>多个<strong>同样好</strong>的方案，选择一个<ol>
+<li>对于方案进行筛选，找到一个合适的</li>
+<li>充分理解<strong>足够好</strong>的概念</li>
+</ol>
+</li>
+<li>设计问题的解决方案空间非常大，其庞大的规模消除了穷举搜索，这是一种可能的问题解决技术</li>
+<li>“设计”的特征在于各种设计备选方案之间的一系列决策</li>
+</ol>
+<h3 id="1-9-3-决策的演化性"><a href="#1-9-3-决策的演化性" class="headerlink" title="1.9.3. 决策的演化性"></a>1.9.3. 决策的演化性</h3><ol>
+<li>遵循路线：问题决策验证下⼀个问题</li>
+<li>决策的顺序影响:上一个决策会设计到下一步行为。</li>
+<li>前⼀个决策会影响后⼀个，⽽且不可预见</li>
+<li>每个不同的观点都可能以不同且不可预测的方式影响设计的进度。</li>
+<li>决策的<strong>不可逆性</strong>，设计决策一定要慎重！</li>
+<li><strong>无法完全消除⼀个前期错误的决策</strong></li>
+<li>决策要一致！</li>
+</ol>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt8/8.png"></p>
+<ol start="8">
+<li><strong>决策的概念完整性也⼗分重要！</strong><ol>
+<li>决策一定要慎重，不能过于随意。</li>
+<li>从服务、包装、售卖都会给你提供一种一致的体验。</li>
+<li>魅族的人机交互</li>
+</ol>
+</li>
+</ol>
+<h1 id="2-软件设计的分层-（重要）"><a href="#2-软件设计的分层-（重要）" class="headerlink" title="2. 软件设计的分层 （重要）"></a>2. 软件设计的分层 （重要）</h1><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt8/9.png"></p>
+<ol>
+<li><p>一种是分为软件体系结构和软件详细设计。</p>
+</li>
+<li><p>另一种是分为高层设计、中层设计和低层设计。</p>
+<ol>
+<li>高层设计：基于反映软件高层抽象的构件设计，描述系统的高层结构、关注点和设计决策。</li>
+<li>中层设计：更加关注组成构件的模块的设计、导入&#x2F;导出、过程之间调用关系或者类之间的写作</li>
+<li>低层设计：深入模块和类的内部，关注具体的数据结构、算法、类型、语句和控制结构等。</li>
+</ol>
+</li>
+<li><p>在设计过程中，按照抽象和分解的思想，<strong>一般先进行高层设计，接着进行中层设计，最后完成低层设计</strong>。</p>
+<p>&#x3D;&#x3D;体系结构设计阶段主要完成高层设计和部分中层设计。详细设计阶段主要完成中层设计和部分低层设计。部分低层设计是在构造阶段完成的&#x3D;&#x3D;。</p>
+</li>
+</ol>
+<h2 id="2-1-程序设计的建立"><a href="#2-1-程序设计的建立" class="headerlink" title="2.1. 程序设计的建立"></a>2.1. 程序设计的建立</h2><ol>
+<li>1950s<ul>
+<li>第一代语言 机器语言，第二代语言 汇编语言</li>
+<li>语句为最小单位</li>
+</ul>
+</li>
+<li>1960s<ul>
+<li>第三代语言</li>
+<li>类型与函数：第一次复杂系统分割</li>
+</ul>
+</li>
+<li>1970s<ul>
+<li>类型与函数的成熟：形式化⽅法</li>
+<li>数据结构 + 算法 &#x3D; 程序</li>
+</ul>
+</li>
+</ol>
+<h2 id="2-2-低层设计"><a href="#2-2-低层设计" class="headerlink" title="2.2. 低层设计"></a>2.2. 低层设计</h2><ol>
+<li>将基本的语言单位(类型与语句)，组织起来，建⽴⾼质量的数据结构+算法</li>
+<li>常见设计场景：<ul>
+<li>数组的使⽤，链表的使⽤，内存的使⽤，遍历算法，递归算法…</li>
+<li>一次问相对比较大的内存，然后我们自己在进行的内存的分配。</li>
+</ul>
+</li>
+<li>经典场景：<ol>
+<li>堆栈，队列，树，排序算法，查找算法…</li>
+</ol>
+</li>
+<li>数据结构与算法审美：<ol>
+<li>简洁、结构清晰，坚固(可靠、⾼效、易读)</li>
+<li>数据结构与算法课程</li>
+<li>&lt;计算机程序设计艺术&gt; 第四本</li>
+</ol>
+</li>
+</ol>
+<h3 id="2-2-1-低层设计的本质"><a href="#2-2-1-低层设计的本质" class="headerlink" title="2.2.1. 低层设计的本质"></a>2.2.1. 低层设计的本质</h3><ol>
+<li>屏蔽程序中<strong>复杂数据结构与算法</strong>的实现细节！<ul>
+<li>对于复杂数据结构与算法的实现细节隐藏。</li>
+</ul>
+</li>
+</ol>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt8/10.png"></p>
+<h3 id="2-2-2-低层设计-代码设计"><a href="#2-2-2-低层设计-代码设计" class="headerlink" title="2.2.2. 低层设计: 代码设计"></a>2.2.2. 低层设计: 代码设计</h3><ol>
+<li>对⼀个方法&#x2F;函数的内部代码进⾏设计</li>
+<li>又被称为<strong>软件构造</strong>，通常由程序员独立完成</li>
+<li>依赖于语⾔提供的机制(程序设计课程)<ol>
+<li>面向对象和结构化</li>
+<li>指针或地址</li>
+</ol>
+</li>
+</ol>
+<h3 id="2-2-3-模块划分"><a href="#2-2-3-模块划分" class="headerlink" title="2.2.3. 模块划分"></a>2.2.3. 模块划分</h3><ol>
+<li>1970s：函数的成熟与模块的出现</li>
+<li>模块划分：将系统分成简单片段：⽚段有名字，可以被反复使用</li>
+<li>名字和使⽤⽅法称为<strong>模块的抽象与接⼝</strong></li>
+<li>模块内部的程序⽚段为精化与实现</li>
+</ol>
+<h2 id="2-3-中层设计的开始"><a href="#2-3-中层设计的开始" class="headerlink" title="2.3. 中层设计的开始"></a>2.3. 中层设计的开始</h2><ol>
+<li>模块划分<strong>隐藏</strong>⼀些程序片段(数据结构+算法)的细节，暴露接口于外界</li>
+<li><strong>以模块作为概念</strong></li>
+</ol>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt8/11.png"></p>
+<h3 id="2-3-1-模块化的目标：完全独立性"><a href="#2-3-1-模块化的目标：完全独立性" class="headerlink" title="2.3.1. 模块化的目标：完全独立性"></a>2.3.1. 模块化的目标：完全独立性</h3><p>完全独⽴有助于理解、使用与<strong>复用</strong>、开发、修改</p>
+<h3 id="2-3-2-模块化的问题与困难"><a href="#2-3-2-模块化的问题与困难" class="headerlink" title="2.3.2. 模块化的问题与困难"></a>2.3.2. 模块化的问题与困难</h3><ol>
+<li>程序⽚段之间不可能是完全独立的</li>
+<li>⽅法：实现尽可能的独立<ol>
+<li>模块化</li>
+<li>信息隐藏</li>
+<li>抽象数据类型</li>
+<li>封装</li>
+<li>…</li>
+</ol>
+</li>
+</ol>
+<h3 id="2-3-3-中层设计总结——设计目标"><a href="#2-3-3-中层设计总结——设计目标" class="headerlink" title="2.3.3. 中层设计总结——设计目标"></a>2.3.3. 中层设计总结——设计目标</h3><ol>
+<li>最终审美目标：简洁性、结构清晰、⼀致性、质量(可修改、易开发(易理解、易测试、易调试)、易复用)</li>
+<li>直接评价标准：模块化；信息隐藏；OO原则</li>
+</ol>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt8/12.png"></p>
+<h2 id="2-4-中低层设计的问题"><a href="#2-4-中低层设计的问题" class="headerlink" title="2.4. 中低层设计的问题"></a>2.4. 中低层设计的问题</h2><ol>
+<li>《Programming-in-the-Small VS Programming-in-the-Large》</li>
+<li>过于依赖细节<ol>
+<li>连接与依赖</li>
+<li>接口与实现</li>
+</ol>
+</li>
+<li>忽略的关键因素: 无法有效抽象部件的整体特性<ol>
+<li>总体结构</li>
+<li>质量属性</li>
+</ol>
+</li>
+<li>⼤型软件开发的⼀个根本不同是它更关注如何将⼤批独⽴模块组织形成⼀个”系统”，也就是说更重视系统的<strong>总体组织</strong></li>
+<li>12306的宕机问题，我们也不能承受过亿的PV,使用硬件不划算，但是我们可以<strong>快速的恢复</strong>就很好<ol>
+<li>服务器之间的负载均衡，部分静态数据，缓存和反向代理</li>
+</ol>
+</li>
+</ol>
+<h2 id="2-5-高层设计：体系结构"><a href="#2-5-高层设计：体系结构" class="headerlink" title="2.5. 高层设计：体系结构"></a>2.5. 高层设计：体系结构</h2><ol>
+<li><strong>部件</strong>承载了系统主要的<strong>计算与状态</strong></li>
+<li><strong>连接件</strong>承载部件之间的<strong>交互</strong></li>
+<li>部件与连接件都是抽象的类型定义(就像类定义)，它们的实例(就像类的对象实例)组织构成软件系统的整体结构，配置将它们的实例连接起来</li>
+<li>连接件是⼀个与部件平等的单位<ul>
+<li>消息队列、方法调用都可以被我们理解为连接件</li>
+</ul>
+</li>
+</ol>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt8/13.png"></p>
+<ol start="5">
+<li>和中低层设计完全的不同</li>
+</ol>
+<h2 id="2-6-敏捷视点"><a href="#2-6-敏捷视点" class="headerlink" title="2.6. 敏捷视点"></a>2.6. 敏捷视点</h2><ol>
+<li>只有高层设计良好，底层设计才可能良好</li>
+<li>只有写完并测试代码之后，才能算是完成了设计！</li>
+<li>源代码可能是主要的设计⽂档，但它通常不是唯⼀⼀个必须的。</li>
+</ol>
+<h1 id="3-软件设计过程、方法和模型、描述"><a href="#3-软件设计过程、方法和模型、描述" class="headerlink" title="3. 软件设计过程、方法和模型、描述"></a>3. 软件设计过程、方法和模型、描述</h1><h2 id="3-1-软件设计过程的主要活动"><a href="#3-1-软件设计过程的主要活动" class="headerlink" title="3.1. 软件设计过程的主要活动"></a>3.1. 软件设计过程的主要活动</h2><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt8/14.png"></p>
+<ol>
+<li>分析设计出发点</li>
+<li>建立候选方案</li>
+<li>生成最终方案评价</li>
+<li>设计需求:对于设计我们要做的事情</li>
+</ol>
+<h2 id="3-2-设计的方法"><a href="#3-2-设计的方法" class="headerlink" title="3.2. 设计的方法"></a>3.2. 设计的方法</h2><ol>
+<li>软件设计的方法可以分为以下几种[SWEBOK 2004]:<ol>
+<li>结构化设计方法</li>
+<li>⾯向对象设计</li>
+<li>数据为中⼼设计:有一些项目是做数据仓库等的，数据爬取操作和读取。</li>
+<li>基于构件的设计:调用构件和库</li>
+<li>形式化方法设计</li>
+</ol>
+</li>
+</ol>
+<h3 id="3-2-1-结构化设计方法"><a href="#3-2-1-结构化设计方法" class="headerlink" title="3.2.1. 结构化设计方法"></a>3.2.1. 结构化设计方法</h3><ol>
+<li>是一个经典的软件设计方法，采取自下向上和逐步求精的思想，按照功能对系统进行分解</li>
+</ol>
+<h3 id="3-2-2-面向对象设计方法"><a href="#3-2-2-面向对象设计方法" class="headerlink" title="3.2.2. 面向对象设计方法"></a>3.2.2. 面向对象设计方法</h3><ol>
+<li>源自于数据抽象和职责驱动，利用封装、继承、多态等方法，提高软件的可扩展性和可复用性。</li>
+</ol>
+<h3 id="3-2-3-以数据为中心设计"><a href="#3-2-3-以数据为中心设计" class="headerlink" title="3.2.3. 以数据为中心设计"></a>3.2.3. 以数据为中心设计</h3><ol>
+<li>开始于系统操纵的数据结构而不是它所表现的功能。</li>
+</ol>
+<h3 id="3-2-4-基于构件的设计"><a href="#3-2-4-基于构件的设计" class="headerlink" title="3.2.4. 基于构件的设计"></a>3.2.4. 基于构件的设计</h3><ol>
+<li>重点在于构件的提供、开发和继承，以提高系统的可复用性。</li>
+</ol>
+<h3 id="3-2-5-形式化方法设计"><a href="#3-2-5-形式化方法设计" class="headerlink" title="3.2.5. 形式化方法设计"></a>3.2.5. 形式化方法设计</h3><ol>
+<li>通过数学方法来对复杂系统进行建模。</li>
+</ol>
+<h2 id="3-3-静态模型vs动态模型"><a href="#3-3-静态模型vs动态模型" class="headerlink" title="3.3. 静态模型vs动态模型"></a>3.3. 静态模型vs动态模型</h2><ol>
+<li>描述软件设计的模型,通常可以分为两类:</li>
+</ol>
+<h3 id="3-3-1-静态模型"><a href="#3-3-1-静态模型" class="headerlink" title="3.3.1. 静态模型"></a>3.3.1. 静态模型</h3><ol>
+<li>静态模型是通过<strong>快照</strong>的⽅式对<strong>系统中时间不变的属性</strong>进⾏描述。通常描述的是状态,⽽不是⾏为。</li>
+<li>⽐如:⼀个数字的列表是按⼤⼩排序好的。</li>
+</ol>
+<h3 id="3-3-2-动态模型。"><a href="#3-3-2-动态模型。" class="headerlink" title="3.3.2. 动态模型。"></a>3.3.2. 动态模型。</h3><ol>
+<li>动态模型通常描述的是<strong>系统行为和状态转移</strong>。</li>
+<li>⽐如:排序的过程中如何进⾏排序。</li>
+</ol>
+<h2 id="3-4-结构化设计模型和⾯向对象设计模型"><a href="#3-4-结构化设计模型和⾯向对象设计模型" class="headerlink" title="3.4. 结构化设计模型和⾯向对象设计模型"></a>3.4. 结构化设计模型和⾯向对象设计模型</h2><ol>
+<li>在结构化设计中<ol>
+<li>静态模型：实体关系图</li>
+<li>动态模型：数据流图和结构图(Structure Chart)  流程图</li>
+</ol>
+</li>
+<li>在面向对象设计中<ol>
+<li>静态模型：<strong>设计类图</strong>(不是概念类图)、对象图、构件图、部署图;</li>
+<li>动态模型：交互图(顺序图和通信图)、状态图、活动图等</li>
+</ol>
+</li>
+</ol>
+<h2 id="3-5-软件设计描述规范"><a href="#3-5-软件设计描述规范" class="headerlink" title="3.5. 软件设计描述规范"></a>3.5. 软件设计描述规范</h2><ol>
+<li>早在 1998 年,IEEE 组织就提出了 IEEE 1016-1998 号标准[IEEE1016-1998] 以规范软件设 计的⽂档化描述。</li>
+<li>在 2009 年 3 ⽉,IEEE-SA 标准委员会修订了 1016 号标准[IEEE1016-2009]。 IEEE 的标准并没有限定设计描述⽂档的具体结构,⽽是通过解释⼀ 系列概念说明了软件设计 描述⽂档应该遵循的思路和基本内容。</li>
+</ol>
+<h2 id="3-6-软件设计描述模型"><a href="#3-6-软件设计描述模型" class="headerlink" title="3.6. 软件设计描述模型"></a>3.6. 软件设计描述模型</h2><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt8/15.png"><br><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt8/16.png"><br><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt8/17.png"></p>
+<ol>
+<li>设计视图是应该包含设计图的</li>
+</ol>
+<h2 id="3-7-设计视角"><a href="#3-7-设计视角" class="headerlink" title="3.7. 设计视角"></a>3.7. 设计视角</h2><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt8/18.png"></p>
+<h2 id="3-8-利益相关者"><a href="#3-8-利益相关者" class="headerlink" title="3.8. 利益相关者"></a>3.8. 利益相关者</h2><ol>
+<li>设计视角必须符合在需求(Requiement)中利益相关者(Stakeholder)的设计关注点 (Design Concern)。</li>
+<li>设计对不同的利益相关者来讲,有着不同的意义[Pﬂeeger 2009]:<ol>
+<li><strong>顾客</strong>想要确认现有的软件设计⽅案能够保证其所期望的系统的<strong>功能和行为</strong>可以实现。 </li>
+<li><strong>架构师</strong>想要知道软件单元、计算平台和系统环境足够实现需求中要求的<strong>非功能性需求</strong>。 </li>
+<li><strong>设计人员</strong>想要了解系统的整体设计,以确保系统的每个<strong>设计决策和系统功能</strong>都能实现。 </li>
+<li><strong>开发人员</strong>想要知道所开发的单元的精确描述,以及与其它单元的关系。 </li>
+<li><strong>测试人员</strong>想要确认怎样测试设计的<strong>所有方案</strong>。 </li>
+<li><strong>维护人员</strong>系统想要在修复问题和添加新特性时,能够保持体系结构的完整性和设计的⼀致性。</li>
+</ol>
+</li>
+<li>因为每个利益相关者⽬的不⼀样,对设计就会产⽣不同的设计关注点。⽽我们的设计得全⾯考量各个利益相关者的设计关注点,给出相应的设计视角下的设计视图。</li>
+</ol>
+<h2 id="3-9-设计理由"><a href="#3-9-设计理由" class="headerlink" title="3.9. 设计理由"></a>3.9. 设计理由</h2><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt8/19.png"></p>
+<h1 id="4-设计描述文档模版"><a href="#4-设计描述文档模版" class="headerlink" title="4. 设计描述文档模版"></a>4. 设计描述文档模版</h1><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt8/20.png"></p>
+<h2 id="4-1-设计文档书写要点"><a href="#4-1-设计文档书写要点" class="headerlink" title="4.1. 设计文档书写要点"></a>4.1. 设计文档书写要点</h2><ol>
+<li>充分利⽤标准的⽂档模版,根据项⽬特点进⾏适当的<strong>裁剪</strong>。</li>
+<li>可以利⽤<strong>体系结构⻛格</strong>的图,让读者更容易把握⾼层抽象。 </li>
+<li>利⽤完整的接口规格说明定义<strong>模块与模块之间的交互</strong>。</li>
+<li>要从<strong>多视角</strong>出发,让读者感受⼀个⽴体的软件系统。</li>
+<li>在设计⽂档中应体现对于<strong>变更的灵活性</strong>。</li>
+</ol>
+
+        
+      </div>
+
+         
+    </div>
+    
+     
+  </div>
+  
+    
+<nav id="article-nav">
+  <a class="article-nav-btn left "
+    
+      href="/2022/06/17/SE-II%E7%AC%94%E8%AE%B0/07-%E9%9C%80%E6%B1%82%E6%96%87%E6%A1%A3%E5%8C%96%E4%B8%8E%E9%AA%8C%E8%AF%81/"
+      title="SE-II-ch07-需求文档化与验证"
+     >
+    <i class="fa-solid fa-angle-left"></i>
+    <p class="title-text">
+      
+        SE-II-ch07-需求文档化与验证
+        
+    </p>
+  </a>
+  <a class="article-nav-btn right "
+    
+      href="/2022/06/17/SE-II%E7%AC%94%E8%AE%B0/09-%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/"
+      title="SE-II-ch09-软件体系结构基础"
+     >
+
+    <p class="title-text">
+      
+        SE-II-ch09-软件体系结构基础
+        
+    </p>
+    <i class="fa-solid fa-angle-right"></i>
+  </a>
+</nav>
+
+
+  
+</article>
+
+
+  
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <div id="comment-card" class="comment-card">
+    <div class="main-title-bar">
+      <div class="main-title-dot"></div>
+      <div class="main-title">留言 </div>
+    </div>
+    <div id="vcomments"></div>
+  </div>
+  <script>
+      new Valine({"enable":true,"appId":null,"appKey":null,"placeholder":"Just go go","pageSize":20,"highlight":true,"serverURLs":null,"el":"#vcomments"});
+  </script>
+ 
+    </div>
+    <div id="footer-wrapper">
+      <footer id="footer">
+  
+  <div id="footer-info" class="inner">
+    
+      <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris"></a>
+    
+    &copy; 2023 Asimov<br>
+    Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & Theme <a target="_blank" rel="noopener" href="https://github.com/saicaca/hexo-theme-vivia">Vivia</a>
+  </div>
+</footer>
+
+    </div>
+    <div class="back-to-top-wrapper">
+    <button id="back-to-top-btn" class="back-to-top-btn hide" onclick="topFunction()">
+        <i class="fa-solid fa-angle-up"></i>
+    </button>
+</div>
+
+<script>
+    function topFunction() {
+        window.scroll({ top: 0, behavior: 'smooth' });
+    }
+    let btn = document.getElementById('back-to-top-btn');
+    function scrollFunction() {
+        if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+            btn.classList.remove('hide')
+        } else {
+            btn.classList.add('hide')
+        }
+    }
+    window.onscroll = function() {
+        scrollFunction();
+    }
+</script>
+
+  </div>
+  <script src="/js/light-dark-switch.js"></script>
+</body>
+</html>

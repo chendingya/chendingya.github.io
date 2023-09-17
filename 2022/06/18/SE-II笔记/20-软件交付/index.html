@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+
+
+<html theme="dark" showBanner="true" hasBanner="true" > 
+<link href="/fontawesome/css/fontawesome.css" rel="stylesheet">
+<link href="/fontawesome/css/brands.css" rel="stylesheet">
+<link href="/fontawesome/css/solid.css" rel="stylesheet">
+<script src="/js/color.global.min.js" ></script>
+<script src="/js/load-settings.js" ></script>
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+
+  
+  <title>SE-II-ch20-软件交付 | Asimov&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+  <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+
+  <meta name="description" content="20-软件交付   1. 什么是软件交付 2. 安装与部署 2.1. 安装 2.2. 创建安装包的步骤 2.2.1. 确定安装环境 2.2.2. 列举安装清单 2.2.3. 设计和建立安装包 2.2.4. 测试安装包   2.3. 部署 2.4. 部署的步骤 2.4.1. 确定部署环境 2.4.2. 确定部署任务 2.4.3. 完成部署准备 2.4.4. 执行部署任务     3. 培训与文档支持">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SE-II-ch20-软件交付">
+<meta property="og:url" content="https://chendingya.github.io/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/20-%E8%BD%AF%E4%BB%B6%E4%BA%A4%E4%BB%98/index.html">
+<meta property="og:site_name" content="Asimov&#39;s Blog">
+<meta property="og:description" content="20-软件交付   1. 什么是软件交付 2. 安装与部署 2.1. 安装 2.2. 创建安装包的步骤 2.2.1. 确定安装环境 2.2.2. 列举安装清单 2.2.3. 设计和建立安装包 2.2.4. 测试安装包   2.3. 部署 2.4. 部署的步骤 2.4.1. 确定部署环境 2.4.2. 确定部署任务 2.4.3. 完成部署准备 2.4.4. 执行部署任务     3. 培训与文档支持">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-06-18T08:02:34.000Z">
+<meta property="article:modified_time" content="2023-09-17T07:54:32.480Z">
+<meta property="article:author" content="Asimov">
+<meta property="article:tag" content="软件工程与计算II">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="Asimov's Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-192.png" sizes="192x192">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-192.png" sizes="192x192">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  
+  
+    
+<div id="banner" class="">
+  <img src="/pic/back.png" itemprop="image">
+  <div id="banner-dim"></div>
+</div>
+ 
+   
+  <div id="main-grid" class="shadow   ">
+    <div id="nav" class=""  >
+      <navbar id="navbar">
+  <nav id="title-nav">
+    <a href="/">
+      <div id="vivia-logo">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div>Asimov's Blog </div>
+    </a>
+  </nav>
+  <nav id="main-nav">
+    
+      <a class="main-nav-link" href="/">Home</a>
+    
+      <a class="main-nav-link" href="/archives">Archives</a>
+    
+      <a class="main-nav-link" href="/about">About</a>
+    
+  </nav>
+  <nav id="sub-nav">
+    <a id="theme-btn" class="nav-icon">
+      <span class="light-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M438.5-829.913v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-829.913Zm0 747.826v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-82.087ZM877.913-438.5h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537t29.476-12.174h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T877.913-438.5Zm-747.826 0h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T82.087-521.5h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T130.087-438.5Zm660.174-290.87-34.239 32q-12.913 12.674-29.565 12.174-16.653-.5-29.327-13.174-12.674-12.673-12.554-28.826.12-16.152 12.794-28.826l33-35q12.913-12.674 30.454-12.674t30.163 12.847q12.709 12.846 12.328 30.826-.38 17.98-13.054 30.653ZM262.63-203.978l-32 34q-12.913 12.674-30.454 12.674t-30.163-12.847q-12.709-12.846-12.328-30.826.38-17.98 13.054-30.653l33.239-31q12.913-12.674 29.565-12.174 16.653.5 29.327 13.174 12.674 12.673 12.554 28.826-.12 16.152-12.794 28.826Zm466.74 33.239-32-33.239q-12.674-12.913-12.174-29.565.5-16.653 13.174-29.327 12.673-12.674 28.826-13.054 16.152-.38 28.826 12.294l35 33q12.674 12.913 12.674 30.454t-12.847 30.163q-12.846 12.709-30.826 12.328-17.98-.38-30.653-13.054ZM203.978-697.37l-34-33q-12.674-12.913-13.174-29.945-.5-17.033 12.174-29.707t31.326-13.293q18.653-.62 31.326 13.054l32 34.239q11.674 12.913 11.174 29.565-.5 16.653-13.174 29.327-12.673 12.674-28.826 12.554-16.152-.12-28.826-12.794ZM480-240q-100 0-170-70t-70-170q0-100 70-170t170-70q100 0 170 70t70 170q0 100-70 170t-170 70Zm-.247-82q65.703 0 111.475-46.272Q637-414.544 637-480.247t-45.525-111.228Q545.95-637 480.247-637t-111.475 45.525Q323-545.95 323-480.247t45.525 111.975Q414.05-322 479.753-322ZM481-481Z"/></svg></span>
+      <span class="dark-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M480.239-116.413q-152.63 0-258.228-105.478Q116.413-327.37 116.413-480q0-130.935 77.739-227.435t206.304-125.043q43.022-9.631 63.87 10.869t3.478 62.805q-8.891 22.043-14.315 44.463-5.424 22.42-5.424 46.689 0 91.694 64.326 155.879 64.325 64.186 156.218 64.186 24.369 0 46.978-4.946 22.609-4.945 44.413-14.076 42.826-17.369 62.967 1.142 20.142 18.511 10.511 61.054Q807.174-280 712.63-198.206q-94.543 81.793-232.391 81.793Zm0-95q79.783 0 143.337-40.217 63.554-40.218 95.793-108.283-15.608 4.044-31.097 5.326-15.49 1.283-31.859.805-123.706-4.066-210.777-90.539-87.071-86.473-91.614-212.092-.24-16.369.923-31.978 1.164-15.609 5.446-30.978-67.826 32.478-108.282 96.152Q211.652-559.543 211.652-480q0 111.929 78.329 190.258 78.329 78.329 190.258 78.329ZM466.13-465.891Z"/></svg></span>
+    </a>
+    
+      <a id="nav-rss-link" class="nav-icon mobile-hide" href="/atom.xml" title="RSS 订阅">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-120q-25.846 0-44.23-18.384-18.384-18.385-18.384-44.23 0-25.846 18.384-44.23 18.384-18.385 44.23-18.385 25.846 0 44.23 18.385 18.384 18.384 18.384 44.23 0 25.845-18.384 44.23Q223.846-120 198-120Zm538.385 0q-18.846 0-32.923-13.769-14.076-13.769-15.922-33.23-8.692-100.616-51.077-188.654-42.385-88.039-109.885-155.539-67.5-67.501-155.539-109.885Q283-663.462 182.385-672.154q-19.461-1.846-33.23-16.23-13.769-14.385-13.769-33.846t14.076-32.922q14.077-13.461 32.923-12.23 120.076 8.692 226.038 58.768 105.961 50.077 185.73 129.846 79.769 79.769 129.846 185.731 50.077 105.961 58.769 226.038 1.231 18.846-12.538 32.922Q756.461-120 736.385-120Zm-252 0q-18.231 0-32.423-13.461t-18.653-33.538Q418.155-264.23 348.886-333.5q-69.27-69.27-166.501-84.423-20.077-4.462-33.538-18.961-13.461-14.5-13.461-33.346 0-19.076 13.884-33.23 13.884-14.153 33.115-10.922 136.769 15.384 234.384 112.999 97.615 97.615 112.999 234.384 3.231 19.23-10.538 33.115Q505.461-120 484.385-120Z"/></svg>
+      </a>
+    
+    <div id="nav-menu-btn" class="nav-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M177.37-252.282q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Zm0-186.218q-17.453 0-29.477-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T177.37-521.5h605.26q17.453 0 29.477 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T782.63-438.5H177.37Zm0-186.217q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Z"/></svg>
+    </div>
+  </nav>
+</navbar>
+<div id="nav-dropdown" class="hidden">
+  <div id="dropdown-link-list">
+    
+      <a class="nav-dropdown-link" href="/">Home</a>
+    
+      <a class="nav-dropdown-link" href="/archives">Archives</a>
+    
+      <a class="nav-dropdown-link" href="/about">About</a>
+    
+    
+      <a class="nav-dropdown-link" href="/atom.xml" title="RSS 订阅">RSS</a>
+     
+    </div>
+</div>
+<script>
+  let dropdownBtn = document.getElementById("nav-menu-btn");
+  let dropdownEle = document.getElementById("nav-dropdown");
+  dropdownBtn.onclick = function() {
+    dropdownEle.classList.toggle("hidden");
+  }
+</script>
+    </div>
+    <div id="sidebar-wrapper">
+      <sidebar id="sidebar">
+  
+    <div class="widget-wrap">
+  <div class="info-card">
+    <div class="avatar">
+      
+        <image src=/pic/avatar.png></image>
+      
+      <div class="img-dim"></div>
+    </div>
+    <div class="info">
+      <div class="username">Asimov </div>
+      <div class="dot"></div>
+      <div class="subtitle">Asimov's Blog </div>
+      <div class="link-list">
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://github.com/chendingya" title="GitHub"><i class="fa-brands fa-github"></i></a>
+         
+      </div>  
+    </div>
+  </div>
+</div>
+
+  
+  <div class="sticky">
+    
+      
+
+
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">分类</h3>
+      <div class="category-box">
+            <a class="category-link" href="/categories/hello-world/">
+                hello world
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/Hexo/">
+                Hexo
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
+                编译原理
+                <div class="category-count">13</div>
+            </a>
+        
+            <a class="category-link" href="/categories/tdesign/">
+                tdesign
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">
+                软件工程与计算II
+                <div class="category-count">30</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E9%A9%BE%E8%80%83/">
+                驾考
+                <div class="category-count">2</div>
+            </a>
+        </div>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">标签</h3>
+      <ul class="widget-tag-list" itemprop="keywords"><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/hello-world/" rel="tag">hello world</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/tdesign/" rel="tag">tdesign</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" rel="tag">编译原理</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/" rel="tag">软件工程与计算II</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E9%A9%BE%E8%80%83/" rel="tag">驾考</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">归档</h3>
+      
+      
+        <a class="archive-link" href="/archives/2023/09 ">
+          九月 2023 
+          <div class="archive-count">2 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/07 ">
+          七月 2023 
+          <div class="archive-count">2 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/04 ">
+          四月 2023 
+          <div class="archive-count">10 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/03 ">
+          三月 2023 
+          <div class="archive-count">3 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2022/10 ">
+          十月 2022 
+          <div class="archive-count">1 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2022/06 ">
+          六月 2022 
+          <div class="archive-count">30 </div>
+        </a>
+      
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">最新文章</h3>
+      <ul>
+        
+          <a class="recent-link" href="/2023/09/15/23-tdesign/Mock%E4%BD%BF%E7%94%A8/" title="微信小程序中Mock使用" >
+            <div class="recent-link-text">
+              微信小程序中Mock使用
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/09/12/%E9%A9%BE%E8%80%83/%E9%A9%BE%E8%80%83-%E7%A7%91%E7%9B%AE%E4%BA%8C/" title="驾考-科目二" >
+            <div class="recent-link-text">
+              驾考-科目二
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/07/18/blog/" title="blog" >
+            <div class="recent-link-text">
+              blog
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/07/17/%E9%A9%BE%E8%80%83/%E9%A9%BE%E8%80%83-%E7%A7%91%E7%9B%AE%E4%B8%80/" title="驾考-科目一" >
+            <div class="recent-link-text">
+              驾考-科目一
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/04/10/23-Compilers/ch18-codegen-riscv-RISC-V%20%E6%A6%82%E8%BF%B0/" title="ch18-codegen-riscv-RISC-V 概述" >
+            <div class="recent-link-text">
+              ch18-codegen-riscv-RISC-V 概述
+            </div>
+          </a>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+  </div>
+</sidebar>
+    </div>
+    <div id="content-body">
+       
+
+<article id="post-SE-II笔记/20-软件交付" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 class="p-name article-title" itemprop="headline name">
+        SE-II-ch20-软件交付
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2022-06-18T08:02:34.000Z" itemprop="datePublished">2022-06-18</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">软件工程与计算II</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            5.5k 词 
+          </div>
+        </div>
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/" rel="tag">软件工程与计算II</a></li></ul>
+
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <h2 id="20-软件交付"><a href="#20-软件交付" class="headerlink" title="20-软件交付"></a>20-软件交付</h2><!-- TOC -->
+
+<ul>
+<li><a href="#1-%E4%BB%80%E4%B9%88%E6%98%AF%E8%BD%AF%E4%BB%B6%E4%BA%A4%E4%BB%98">1. 什么是软件交付</a></li>
+<li><a href="#2-%E5%AE%89%E8%A3%85%E4%B8%8E%E9%83%A8%E7%BD%B2">2. 安装与部署</a><ul>
+<li><a href="#21-%E5%AE%89%E8%A3%85">2.1. 安装</a></li>
+<li><a href="#22-%E5%88%9B%E5%BB%BA%E5%AE%89%E8%A3%85%E5%8C%85%E7%9A%84%E6%AD%A5%E9%AA%A4">2.2. 创建安装包的步骤</a><ul>
+<li><a href="#221-%E7%A1%AE%E5%AE%9A%E5%AE%89%E8%A3%85%E7%8E%AF%E5%A2%83">2.2.1. 确定安装环境</a></li>
+<li><a href="#222-%E5%88%97%E4%B8%BE%E5%AE%89%E8%A3%85%E6%B8%85%E5%8D%95">2.2.2. 列举安装清单</a></li>
+<li><a href="#223-%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%BB%BA%E7%AB%8B%E5%AE%89%E8%A3%85%E5%8C%85">2.2.3. 设计和建立安装包</a></li>
+<li><a href="#224-%E6%B5%8B%E8%AF%95%E5%AE%89%E8%A3%85%E5%8C%85">2.2.4. 测试安装包</a></li>
+</ul>
+</li>
+<li><a href="#23-%E9%83%A8%E7%BD%B2">2.3. 部署</a></li>
+<li><a href="#24-%E9%83%A8%E7%BD%B2%E7%9A%84%E6%AD%A5%E9%AA%A4">2.4. 部署的步骤</a><ul>
+<li><a href="#241-%E7%A1%AE%E5%AE%9A%E9%83%A8%E7%BD%B2%E7%8E%AF%E5%A2%83">2.4.1. 确定部署环境</a></li>
+<li><a href="#242-%E7%A1%AE%E5%AE%9A%E9%83%A8%E7%BD%B2%E4%BB%BB%E5%8A%A1">2.4.2. 确定部署任务</a></li>
+<li><a href="#243-%E5%AE%8C%E6%88%90%E9%83%A8%E7%BD%B2%E5%87%86%E5%A4%87">2.4.3. 完成部署准备</a></li>
+<li><a href="#244-%E6%89%A7%E8%A1%8C%E9%83%A8%E7%BD%B2%E4%BB%BB%E5%8A%A1">2.4.4. 执行部署任务</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#3-%E5%9F%B9%E8%AE%AD%E4%B8%8E%E6%96%87%E6%A1%A3%E6%94%AF%E6%8C%81">3. 培训与文档支持</a><ul>
+<li><a href="#31-%E5%9F%B9%E8%AE%AD">3.1. 培训</a><ul>
+<li><a href="#311-%E5%9F%B9%E8%AE%AD%E7%9A%84%E6%B3%A8%E6%84%8F%E7%82%B9">3.1.1. 培训的注意点</a></li>
+</ul>
+</li>
+<li><a href="#32-%E6%96%87%E6%A1%A3%E6%94%AF%E6%8C%81">3.2. 文档支持</a><ul>
+<li><a href="#321-%E7%94%A8%E6%88%B7%E6%96%87%E6%A1%A3">3.2.1. 用户文档</a></li>
+<li><a href="#322-%E7%94%A8%E6%88%B7%E6%96%87%E6%A1%A3%E7%9A%84%E5%BD%A2%E5%BC%8F">3.2.2. 用户文档的形式</a></li>
+<li><a href="#323-%E7%94%A8%E6%88%B7%E6%96%87%E6%A1%A3%E7%9A%84%E5%86%85%E5%AE%B9%E7%BB%84%E7%BB%87">3.2.3. 用户文档的内容组织</a></li>
+<li><a href="#324-%E7%94%A8%E6%88%B7%E6%96%87%E6%A1%A3%E7%9A%84%E8%A6%81%E7%B4%A0">3.2.4. 用户文档的要素</a></li>
+<li><a href="#325-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86%E5%91%98%E6%96%87%E6%A1%A3">3.2.5. 系统管理员文档</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#4-%E9%A1%B9%E7%9B%AE%E8%AF%84%E4%BB%B7">4. 项目评价</a><ul>
+<li><a href="#41-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E8%BF%9B%E8%A1%8C%E9%A1%B9%E7%9B%AE%E8%AF%84%E4%BB%B7">4.1. 为什么要进行项目评价</a></li>
+<li><a href="#42-%E9%A1%B9%E7%9B%AE%E8%AF%84%E4%BB%B7%E7%9A%84%E5%86%85%E5%AE%B9">4.2. 项目评价的内容</a></li>
+<li><a href="#43-%E9%A1%B9%E7%9B%AE%E8%AF%84%E4%BB%B7%E6%96%B9%E6%B3%95">4.3. 项目评价方法</a><ul>
+<li><a href="#431-%E9%A1%B9%E7%9B%AE%E8%AF%84%E5%AE%A1">4.3.1. 项目评审</a></li>
+<li><a href="#432-%E6%9C%89%E5%85%B3%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%E7%9A%84%E9%97%AE%E9%A2%98">4.3.2. 有关项目管理的问题：</a></li>
+<li><a href="#433-%E6%9C%89%E5%85%B3%E4%BA%A7%E5%93%81%E7%9A%84%E9%97%AE%E9%A2%98">4.3.3. 有关产品的问题：</a></li>
+<li><a href="#434-%E6%9C%89%E5%85%B3%E5%9B%A2%E9%98%9F%E5%92%8C%E4%B8%AA%E4%BA%BA%E7%9A%84%E9%97%AE%E9%A2%98">4.3.4. 有关团队和个人的问题：</a></li>
+</ul>
+</li>
+<li><a href="#44-%E5%BA%A6%E9%87%8F%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90">4.4. 度量数据分析</a><ul>
+<li><a href="#441-%E4%BA%A7%E5%93%81%E4%BF%A1%E6%81%AF%E5%AE%9A%E9%87%8F%E7%9A%84%E5%BA%A6%E9%87%8F">4.4.1. 产品信息定量的度量</a></li>
+<li><a href="#442-%E5%AE%9A%E6%80%A7%E6%96%87%E4%BB%B6">4.4.2. 定性文件</a></li>
+</ul>
+</li>
+<li><a href="#45-%E8%AF%84%E4%BB%B7%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9">4.5. 评价的注意事项</a><ul>
+<li><a href="#451-%E9%A1%B9%E7%9B%AE%E7%9A%84%E8%AF%84%E4%BB%B7%E9%9C%80%E8%A6%81%E4%BB%94%E7%BB%86%E7%9A%84%E8%AE%A1%E5%88%92">4.5.1. 项目的评价需要仔细的计划</a></li>
+<li><a href="#452-%E8%AF%84%E4%BB%B7%E8%A6%81%E5%AE%A2%E8%A7%82">4.5.2. 评价要客观</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#5-%E6%80%BB%E7%BB%93">5. 总结</a></li>
+</ul>
+<!-- /TOC -->
+
+<h1 id="1-什么是软件交付"><a href="#1-什么是软件交付" class="headerlink" title="1. 什么是软件交付"></a>1. 什么是软件交付</h1><ol>
+<li>软件交付是软件项目的结束阶段，标志着软件开发任务的完成</li>
+<li><strong>软件交付是软件开发与软件维护两个既连续又不同的软件产品生存状态的分水岭。</strong></li>
+<li>只有做好软件交付工作，才是真正地完成整个项目。</li>
+</ol>
+<h1 id="2-安装与部署【两种软件交付方式】"><a href="#2-安装与部署【两种软件交付方式】" class="headerlink" title="2. 安装与部署【两种软件交付方式】"></a>2. 安装与部署【两种软件交付方式】</h1><ol>
+<li>需求阶段：考虑环境约束等</li>
+<li>体系结构设计阶段：进行产品部署的设计决策，包括网络拓扑、库文件、动态链接库、配置文件等<ol>
+<li>32位环境还是64位环境等问题</li>
+</ol>
+</li>
+<li>开发阶段：使用的支持软件也会影响到交付，可能要求客户安装特定支撑软件或者硬件</li>
+</ol>
+<h2 id="2-1-安装"><a href="#2-1-安装" class="headerlink" title="2.1. 安装"></a>2.1. 安装</h2><ol>
+<li>安装是软件交付的最常见形式，现在大多数产品都通过安装的形式交付，它要求开发团队创建一个安装包，用户可以通过的执行将软件产品部署到工作环境。</li>
+<li>安装包需要进行仔细的设计，并使用工具(例如Advanced Installer 、Setup Factory 等)帮助进行安装包的创建。一个好软件产品应该简单、健壮、可靠、完全。要创建很容易使用的安装包，让用户可以无需创建安装包的人员的帮助就能使用。</li>
+</ol>
+<h2 id="2-2-创建安装包的步骤"><a href="#2-2-创建安装包的步骤" class="headerlink" title="2.2. 创建安装包的步骤"></a>2.2. 创建安装包的步骤</h2><h3 id="2-2-1-确定安装环境"><a href="#2-2-1-确定安装环境" class="headerlink" title="2.2.1. 确定安装环境"></a>2.2.1. 确定安装环境</h3><ol>
+<li>确定安装包需要<strong>支持的操作系统</strong>，这既需要考虑当前用户的工作环境，又需要考虑产品未来的市场规划；</li>
+<li>确定软件产品的语言支撑环境，例如使用Java语言开发的软件产品就需要安装JDK；</li>
+<li>确定软件产品需要的软件支持，例如数据库系统、网络系统等；</li>
+<li>确定硬件等其他要求，例如有些软件产品可能会要求扫描仪、视频卡、通信设备等特殊硬件。</li>
+<li>例如，对超市销售系统MSCS，它的安装环境为：Window XP、 Window Vista、Window 7三种操作系统；Java运行环境JDK；数据库管理系统软件(如果使用了数据库的话)。</li>
+</ol>
+<h3 id="2-2-2-列举安装清单"><a href="#2-2-2-列举安装清单" class="headerlink" title="2.2.2. 列举安装清单"></a>2.2.2. 列举安装清单</h3><ol>
+<li>要根据软件产品的实现情况，结合所需的环境支撑，列举需要安装的文件、初始化数据、注册表等清单信息，要清楚<strong>标明它们在安装后将会出现的位置</strong>。</li>
+<li>在考虑安装位置时要遵守一致性，标记名称的使用要意义清楚，让用户能便利地找出相应文件。</li>
+<li>例如，对超市销售系统MSCS，它所有的可执行程序文件都是需要安装的文件，初始化数据有两处，一处是设置默认的管理员用户帐号，另一处是设置数据库管理系统连接数据。</li>
+</ol>
+<h3 id="2-2-3-设计和建立安装包"><a href="#2-2-3-设计和建立安装包" class="headerlink" title="2.2.3. 设计和建立安装包"></a>2.2.3. 设计和建立安装包</h3><ol>
+<li>要对安装包进行详细的设计，包括一个渐进的安装步骤，各步骤的人机交互方式等等。完成设计后就可以使用安装工具创建安装包。</li>
+<li>例如，超市销售系统MSCS安装包可以按照下列步骤建立:<ol>
+<li>检查操作系统环境</li>
+<li>检查JDK，如果没有合适的JDK，则提醒用户安装JDK</li>
+<li>检查数据库管理系统软件，如果合适的数据库管理系统软件，则提醒用户进行安装</li>
+<li>设置数据库管理系统连接参数</li>
+<li>连接数据库管理系统，创建MSCS的数据库</li>
+<li>拷贝文件</li>
+<li>设置初始化数据，包括数据库系统连接参数和MSCS的默认管理帐号</li>
+<li>安装成功。</li>
+</ol>
+</li>
+</ol>
+<h3 id="2-2-4-测试安装包"><a href="#2-2-4-测试安装包" class="headerlink" title="2.2.4. 测试安装包"></a>2.2.4. 测试安装包</h3><ol>
+<li>安装包需要在目标环境中进行安装测试，以发现可能的问题。</li>
+<li>需要注意的是：必须以用户的工作环境为<strong>目标环境</strong>进行测试，因为用户使用的机器环境与开发者的机器环境有很大的不同(包括程序环境、操作系统版本、支撑软件版本等等)，在开发者机器上可以正确执行的安装包未必能够在用户的机器上运行。</li>
+</ol>
+<h2 id="2-3-部署"><a href="#2-3-部署" class="headerlink" title="2.3. 部署"></a>2.3. 部署</h2><ol>
+<li><strong>在软件产品比较复杂时，仅仅通过一个安装包无法完成软件交付任务，这时可以使用另一种常见的软件交付方式——部署。</strong></li>
+<li>部署通常是由开发人员直接操纵软件产品的目标环境，使得软件产品能够在目标环境中正常运行。</li>
+<li>部署的过程中通常需要执行安装任务，但是还有很多比安装复杂得多的其他任务，例如：安装、设置或调整操作系统，尤其是权限管理参数；安装、设置和调整数据库系统，包括新建数据库和设置访问权限；安装和设置库文件、应用服务器等应用环境。</li>
+</ol>
+<h2 id="2-4-部署的步骤"><a href="#2-4-部署的步骤" class="headerlink" title="2.4. 部署的步骤"></a>2.4. 部署的步骤</h2><h3 id="2-4-1-确定部署环境"><a href="#2-4-1-确定部署环境" class="headerlink" title="2.4.1. 确定部署环境"></a>2.4.1. 确定部署环境</h3><ol>
+<li>和安装一样，软件部署要首先要需要确定部署的目标环境，当然它比安装要求的更高一些。它需要对目标环境进行调查分析，搞清楚部署前的环境细节，然后才能与软件产品需要的环境细节进行比较，才能明确需要执行的部署任务。</li>
+<li>具体来说，软件部署需要了解服务器与网络拓扑、安全控制与权限管理、软硬件系统的配置信息等。</li>
+</ol>
+<h3 id="2-4-2-确定部署任务"><a href="#2-4-2-确定部署任务" class="headerlink" title="2.4.2. 确定部署任务"></a>2.4.2. 确定部署任务</h3><ol>
+<li>将软件产品需要的目标环境与部署前的环境进行比较，分析二者之间的差距，并将其确立为部署的任务。</li>
+<li>确定任务之后，还需要以渐进的方式安排任务之间的执行次序。例如，先安装和配置操作系统，然后安装和配置相应的软硬件系统，最后完成软件产品的安装与配置，等等。</li>
+</ol>
+<h3 id="2-4-3-完成部署准备"><a href="#2-4-3-完成部署准备" class="headerlink" title="2.4.3. 完成部署准备"></a>2.4.3. 完成部署准备</h3><ol>
+<li>有些部署工作可以完全依靠现场执行，但多数的部署任务需要进行一定的事前准备，尤其是要综合考虑部署工作可能出现的各种情况，制定完备的应对方案。</li>
+</ol>
+<h3 id="2-4-4-执行部署任务"><a href="#2-4-4-执行部署任务" class="headerlink" title="2.4.4. 执行部署任务"></a>2.4.4. 执行部署任务</h3><ol>
+<li>按照准备的计划，执行相应的部署任务。</li>
+</ol>
+<h1 id="3-培训与文档支持"><a href="#3-培训与文档支持" class="headerlink" title="3. 培训与文档支持"></a>3. 培训与文档支持</h1><ol>
+<li>帮助用户<strong>理解</strong>产品，并使其能够<strong>轻松地使用</strong>产品</li>
+<li><strong>不能让用户学会使用软件产品，那么就不算是完成了软件交付任务</strong></li>
+<li>帮助用户学会使用软件产品的<strong>两个关键任务</strong>：<ol>
+<li><strong>培训</strong></li>
+<li><strong>文档支持</strong></li>
+</ol>
+</li>
+</ol>
+<h2 id="3-1-培训"><a href="#3-1-培训" class="headerlink" title="3.1. 培训"></a>3.1. 培训</h2><ol>
+<li>培训主要是教会用户使用软件产品的功能来完成其工作和任务。依据任务的不同，要为不同的用户进行不同类型的培训。</li>
+<li>例如，对超市销售系统MSCS<ol>
+<li>培训收银员使用系统进行销售和退货</li>
+<li>培训客户经理使用系统进行库存管理和会员管理</li>
+<li>培训总经理使用系统制定销售策略和进行库存分析</li>
+<li>培训系统管理员进行用户管理。</li>
+</ol>
+</li>
+</ol>
+<h3 id="3-1-1-培训的注意点"><a href="#3-1-1-培训的注意点" class="headerlink" title="3.1.1. 培训的注意点"></a>3.1.1. 培训的注意点</h3><ol>
+<li>尤其不能忽略的是对<strong>系统管理员</strong>进行培训。要培训系统管理员如何启动和运行新系统、如何配置系统、如何授权或拒绝对系统的访问、如何支持用户、如何处理异常等。</li>
+<li>在培训中，只介绍能够帮助用户完成主要工作和任务的功能，<strong>不要把培训当作软件产品所有功能的展示会</strong>。对于一些很少会被使用并且<strong>不太重要</strong>的功能，即使培训也会很快被用户忘记，可以让用户使用<strong>文档支持</strong>来学会使用。</li>
+<li>培训时，要关注用户的工作和任务，不必涉及系统的内部操作，不必知道系统的存储方式、访问方式和权限控制方式。</li>
+</ol>
+<h2 id="3-2-文档支持"><a href="#3-2-文档支持" class="headerlink" title="3.2. 文档支持"></a>3.2. 文档支持</h2><ol>
+<li>文档是软件交付的重要部分<ol>
+<li>培训时作为参考材料</li>
+<li>交付完成之后继续帮助用户使用系统</li>
+</ol>
+</li>
+<li>用户文档</li>
+<li>系统管理员文档</li>
+<li><strong>简单的系统只有用户文档，绝大多数系统都有用户文档和系统管理员文档</strong></li>
+</ol>
+<h3 id="3-2-1-用户文档"><a href="#3-2-1-用户文档" class="headerlink" title="3.2.1. 用户文档"></a>3.2.1. 用户文档</h3><ol>
+<li>用户文档是指为用户编写参考指南或者操作教程，常见的如用户使用手册、联机帮助文档等，统称为用户文档。</li>
+</ol>
+<h3 id="3-2-2-用户文档的形式"><a href="#3-2-2-用户文档的形式" class="headerlink" title="3.2.2. 用户文档的形式"></a>3.2.2. 用户文档的形式</h3><ol>
+<li>用户文档可以是纸质的，也可以是电子的，可以只有一份文档，也可以是由多份文档组成的集合，具体情况要视用户的特点而定。</li>
+<li>用户文档的写作要考虑用户群体的特点，<strong>最好是图文结合的方式</strong>，以方便普通用户的使用。用户文档写作应该使用逐层展开和系统化(例如层次编码、列表)的方式描述复杂内容。</li>
+</ol>
+<h3 id="3-2-3-用户文档的内容组织"><a href="#3-2-3-用户文档的内容组织" class="headerlink" title="3.2.3. 用户文档的内容组织"></a>3.2.3. 用户文档的内容组织</h3><ol>
+<li>文档内容的组织应当支持其使用模式，常见的是<strong>指导模式和参考模式</strong>两种。</li>
+<li>指导模式根据用户的任务组织程序规程，<strong>相关的软件任务组织在相同的章节或主题</strong>。<strong>指导模式要先描述简单的、共性的任务，然后再以其为基础组织更加复杂的任务描述。</strong></li>
+<li>参考模式按照方便随机访问独立信息单元的方式组织内容。例如，<strong>按字母顺序排列软件的命令或错误消息列表。</strong></li>
+<li>如果文档需要同时包含两种模式，就需要将其清楚地区分成不同的章节或主题，或者在同一个章节或主题内区分为不同的格式。</li>
+</ol>
+<h3 id="3-2-4-用户文档的要素"><a href="#3-2-4-用户文档的要素" class="headerlink" title="3.2.4. 用户文档的要素"></a>3.2.4. 用户文档的要素</h3><blockquote>
+<p>表格描述参见课本339页</p>
+</blockquote>
+<ol>
+<li>标识信息<ol>
+<li>包括文档标题、文档产生的版本和日期、相关的软件产品和版本</li>
+<li>标识信息应该放在包装袋或者封面，用户可以不用翻阅文档就能看到</li>
+</ol>
+</li>
+<li>引言<ol>
+<li>正文的第一部分，描述文档的预期读者、描述范围，以及对文档目的、功能和操作环境的概要描述</li>
+</ol>
+</li>
+<li>文档使用信息<ol>
+<li>文档使用信息描述了关于文档的使用信息，例如，解释各种图示的含义、介绍如何使用帮助等。</li>
+</ol>
+</li>
+<li>操作模式<ol>
+<li>操作模式是使用用户文档的模式，例如对操作流程的图示或者文字性描述，再例如解释操作的理论、原因、算法或者通用概念。</li>
+</ol>
+</li>
+<li>操作规程<ol>
+<li>指导模式文档应该包括很多软件功能都会涉及的常见活动规程：<ol>
+<li>需要由用户执行的软件安装与卸载</li>
+<li>图形用户界面特性的使用指导</li>
+<li>访问、登录或者关闭软件</li>
+<li>通过软件的导航，访问和退出相关功能</li>
+<li>数据操作(输入、保存、读取、打印、更新和删除)</li>
+<li>取消、中断和重启操作的方法</li>
+</ol>
+</li>
+<li><strong>对于完成用户任务的操作流程，指导模式文档应该从基本信息、指导步骤和结束信息三个方面来描述</strong></li>
+<li><strong>基本信息</strong>：<ol>
+<li>简要概述操作规程的目的，定义或解释必要的概念</li>
+<li>标明执行任务前需要完成的技术活动</li>
+<li>列举用户完成任务所需要的资源情况，例如数据、文档、密码等</li>
+</ol>
+</li>
+<li><strong>指导步骤</strong>：使用祈使语句描述用户行为，并指出预期的结果。指导步骤要说明：<ol>
+<li>用户输入数据的域值范围、最大长度和格式</li>
+<li>相应的错误消息和恢复办法</li>
+<li>其它可选的步骤和重复步骤</li>
+</ol>
+</li>
+<li><strong>结束信息</strong>：标明操作规程的最后步骤，让用户知道怎样判断整个操作规程的成功完成，告诉用户如何退出操作规程</li>
+</ol>
+</li>
+<li>软件命令信息<ol>
+<li>解释用户输入命令的格式和操作规程，包括必要参数、可选参数、缺省值等，要示例说明命令的使用，说明怎样判断命令是成功完成还是异常中止</li>
+</ol>
+</li>
+<li>错误信息与问题解决<ol>
+<li>文档要详细描述软件使用中的已知问题，让用户清楚如何自行解决问题或者怎样向技术支持人员报告准确的信息</li>
+</ol>
+</li>
+<li>导航特征<ol>
+<li>包括章节、主题、页码、链接、图标等</li>
+<li>提高导航特征和效率</li>
+</ol>
+</li>
+</ol>
+<h3 id="3-2-5-系统管理员文档"><a href="#3-2-5-系统管理员文档" class="headerlink" title="3.2.5. 系统管理员文档"></a>3.2.5. 系统管理员文档</h3><ol>
+<li>与用户文档注重系统使用细节不同，系统管理员文档<strong>更注重系统维护方面的内容</strong>，例如系统性能调整、访问权限控制、常见故障解决等等。因此，系统管理员文档需要详细介绍软硬件的配置方式、网络连接方式、安全验证与访问授权方法、备份与容灾方法、部件替换方法等等。</li>
+</ol>
+<h1 id="4-项目评价"><a href="#4-项目评价" class="headerlink" title="4. 项目评价"></a>4. 项目评价</h1><ol>
+<li>开发者自我反省</li>
+</ol>
+<h2 id="4-1-为什么要进行项目评价"><a href="#4-1-为什么要进行项目评价" class="headerlink" title="4.1. 为什么要进行项目评价"></a>4.1. 为什么要进行项目评价</h2><ol>
+<li>设置”项目”是要保证项目中的各种事件与活动能够依照计划顺利进行，项目评价就是检查其事件与活动的实际执行情况。在理论上，项目评价<strong>可以发生在项目进行的任何时机，尤其是到达各个里程碑之后</strong>。但<strong>最重要的项目评价是在项目结束时进行的项目评价</strong>，这也是本章节所要描的项目评价。</li>
+<li>虽然从单个项目看，项目已经结束，评价似乎用处不大。但是考虑到一个组织会有很多项目持续进行，那么<strong>评价一个已结束项目就可以”以史为鉴”，帮助更好地完成后续项目</strong>。而且因为项目已经完成，<strong>总结和评价就远比项目进行中更加准确</strong>。</li>
+<li>项目评价工作也需要仔细组织，不是简单的开个总结会完事，否则就无法获得比较深入的信息。</li>
+</ol>
+<h2 id="4-2-项目评价的内容"><a href="#4-2-项目评价的内容" class="headerlink" title="4.2. 项目评价的内容"></a>4.2. 项目评价的内容</h2><ol>
+<li>一个已结束的项目具有各种事件和活动的信息，通过组织对项目的不同方面内容进行评价，就可以获得各种不同方面的经验，就可以搞清楚出现了哪些问题、为什么会出现、怎样解决、有哪些偏差、最终结果与质量、以及(最重要的是)在下个项目中有哪些需要提高。</li>
+<li>常见的项目评价<strong>针对四个方面</strong>：<ol>
+<li><strong>项目管理</strong>：可以帮助建立对项目的更准确认知，例如常见的管理问题与偏差、时间与成本耗费分布等。</li>
+<li><strong>产品</strong>：可以帮助开发者建立对产品的更准确认知，提高产品的开发经验。</li>
+<li><strong>团队</strong>：可以帮助开发者更好地组织分工，也可以帮助团队建立更好的沟通与交流途径。</li>
+<li><strong>个人</strong>：可以帮助开发者更准确认知自己的生产力，学习常见问题及其处理方法，了解自己的长处和不足并持续提高。</li>
+</ol>
+</li>
+</ol>
+<h2 id="4-3-项目评价方法"><a href="#4-3-项目评价方法" class="headerlink" title="4.3. 项目评价方法"></a>4.3. 项目评价方法</h2><ol>
+<li>评审</li>
+<li>度量数据分析</li>
+</ol>
+<h3 id="4-3-1-项目评审"><a href="#4-3-1-项目评审" class="headerlink" title="4.3.1. 项目评审"></a>4.3.1. 项目评审</h3><ol>
+<li>项目评审通过评审重要项目制品的方法来评价项目，这些重要制品包括项目计划、管理文档、会议记录、历史数据等。</li>
+<li>成功的评审需要评审方法，而不是自由处理。检查列表是最为常用的评审方法。</li>
+<li>checkList如下</li>
+</ol>
+<h3 id="4-3-2-有关项目管理的问题："><a href="#4-3-2-有关项目管理的问题：" class="headerlink" title="4.3.2. 有关项目管理的问题："></a>4.3.2. 有关项目管理的问题：</h3><ol>
+<li>项目所使用的过程是什么？瀑布&#x2F;迭代开发</li>
+<li>实际的过程与原先确定的过程有什么不同？</li>
+<li>进度表是如何随着时间的变化而改变的？</li>
+<li>有多少个同步点和里程碑按时达到或错失？</li>
+<li>过程的哪些部分运行得好？</li>
+<li>过程的哪些部分本应该能运行得更好？</li>
+<li>工具支持这个过程吗？</li>
+<li>从整体上讲，这个过程运行得有效吗？</li>
+<li>在今后，尤其要对哪些方面进行改进？</li>
+<li>在每个阶段和每项任务上花费的时间是多少？</li>
+</ol>
+<h3 id="4-3-3-有关产品的问题："><a href="#4-3-3-有关产品的问题：" class="headerlink" title="4.3.3. 有关产品的问题："></a>4.3.3. 有关产品的问题：</h3><ol>
+<li>在项目的生命周期中，产品是如何变化的？</li>
+<li>有没有出现重要的产品返工的情况？如果有，是在什么时候？</li>
+<li>工具支持产品的制造、维护和测量吗？</li>
+<li>产品最后的规模有多大？产品的质量如何？</li>
+</ol>
+<h3 id="4-3-4-有关团队和个人的问题："><a href="#4-3-4-有关团队和个人的问题：" class="headerlink" title="4.3.4. 有关团队和个人的问题："></a>4.3.4. 有关团队和个人的问题：</h3><ol>
+<li>团队(个人)工作中哪些个风险发生了，其影响又是怎样的？</li>
+<li>在何时做出了哪项重要决定？</li>
+<li>所遇到的主要问题是什么？</li>
+<li>这个决定又是如何影响这个项目的？</li>
+<li>对这些问题的解决方法产生了什么样的效果？</li>
+<li>开发团队成员是如何看待自己的职责的？</li>
+</ol>
+<h2 id="4-4-度量数据分析"><a href="#4-4-度量数据分析" class="headerlink" title="4.4. 度量数据分析"></a>4.4. 度量数据分析</h2><ol>
+<li>度量数据可以提供丰富的信息，通过分析这些信息，开发团队可以获取正确和深入的结论。</li>
+<li>例如，通过分析项目活动的任务量，就可以了解每个人的生产力、项目的工作量分布、特殊任务的工作量耗费等。</li>
+</ol>
+<h3 id="4-4-1-产品信息定量的度量"><a href="#4-4-1-产品信息定量的度量" class="headerlink" title="4.4.1. 产品信息定量的度量"></a>4.4.1. 产品信息定量的度量</h3><ol>
+<li>一个项目常见的产品信息度量应该包括：<ol>
+<li>(随着时间而变化的)产品的增长情况和变化历史。</li>
+<li>产品在每个里程碑上的测量。</li>
+<li>产品复杂度和内容的测量。</li>
+<li>过程和工具对产品的影响。</li>
+</ol>
+</li>
+</ol>
+<h3 id="4-4-2-定性文件"><a href="#4-4-2-定性文件" class="headerlink" title="4.4.2. 定性文件"></a>4.4.2. 定性文件</h3><ol>
+<li>在进行度量数据分析时可能会遇到数据贫乏——这意味着没有足够的定量数据来支持项目评价，这时可以用问卷调查表和面谈来补充数据信息。也可以通过检查定性文件来建立数据信息，这些定性文件可能包括：<ol>
+<li>对团队会议和子团队会议所做的记录。</li>
+<li>项目电子邮件的存档(来获得问题确定和决策的日期)。</li>
+<li>任务列表、项目决策和行动条目中的信息。</li>
+</ol>
+</li>
+</ol>
+<h2 id="4-5-评价的注意事项"><a href="#4-5-评价的注意事项" class="headerlink" title="4.5. 评价的注意事项"></a>4.5. 评价的注意事项</h2><h3 id="4-5-1-项目的评价需要仔细的计划"><a href="#4-5-1-项目的评价需要仔细的计划" class="headerlink" title="4.5.1. 项目的评价需要仔细的计划"></a>4.5.1. 项目的评价需要仔细的计划</h3><ol>
+<li>作为项目管理活动的一部分，项目评价也需要进行计划，计划的内容包括：<ol>
+<li>执行项目评价的时间，要在项目结束后，并且不能时间太久导致项目活动细节遗忘</li>
+<li>确定项目评价的关键主题</li>
+<li>确定参与项目评价的人员</li>
+<li>确定需要收集的数据，并将数据收集任务分配给相关人员。</li>
+</ol>
+</li>
+</ol>
+<h3 id="4-5-2-评价要客观"><a href="#4-5-2-评价要客观" class="headerlink" title="4.5.2. 评价要客观"></a>4.5.2. 评价要客观</h3><ol>
+<li>对项目的评价要客观，要保持对项目和过程的关注，不要偏离目标指责和突出个人。如果不能做到客观，列举没有进行分析的测量数据或信息，而仅仅为了表明整个项目是一个巨大成功的话，那就无法得到有益的经验，就是浪费时间。评价不是向高级管理层夸夸其谈的文档，而是团队每个成员和组织通过一个又一个项目来不断获得提高的途径。</li>
+</ol>
+<h1 id="5-总结"><a href="#5-总结" class="headerlink" title="5. 总结"></a>5. 总结</h1><ol>
+<li>不要忽视软件交付阶段的任务<ol>
+<li>通过安装与部署将软件产品移交给用户</li>
+<li>通过培训与文档支持保障用户能够有效掌握和使用软件</li>
+</ol>
+</li>
+<li>一个项目的成功或失败都值得总结，<strong>以改进将来的项目</strong>，即要在项目结束后及时进行项目评价</li>
+</ol>
+
+        
+      </div>
+
+         
+    </div>
+    
+     
+  </div>
+  
+    
+<nav id="article-nav">
+  <a class="article-nav-btn left "
+    
+      href="/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/19-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/"
+      title="SE-II-ch19-软件测试"
+     >
+    <i class="fa-solid fa-angle-left"></i>
+    <p class="title-text">
+      
+        SE-II-ch19-软件测试
+        
+    </p>
+  </a>
+  <a class="article-nav-btn right "
+    
+      href="/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/22-%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B%E6%A8%A1%E5%9E%8B/"
+      title="SE-II-ch22-软件开发过程模型"
+     >
+
+    <p class="title-text">
+      
+        SE-II-ch22-软件开发过程模型
+        
+    </p>
+    <i class="fa-solid fa-angle-right"></i>
+  </a>
+</nav>
+
+
+  
+</article>
+
+
+  
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <div id="comment-card" class="comment-card">
+    <div class="main-title-bar">
+      <div class="main-title-dot"></div>
+      <div class="main-title">留言 </div>
+    </div>
+    <div id="vcomments"></div>
+  </div>
+  <script>
+      new Valine({"enable":true,"appId":null,"appKey":null,"placeholder":"Just go go","pageSize":20,"highlight":true,"serverURLs":null,"el":"#vcomments"});
+  </script>
+ 
+    </div>
+    <div id="footer-wrapper">
+      <footer id="footer">
+  
+  <div id="footer-info" class="inner">
+    
+      <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris"></a>
+    
+    &copy; 2023 Asimov<br>
+    Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & Theme <a target="_blank" rel="noopener" href="https://github.com/saicaca/hexo-theme-vivia">Vivia</a>
+  </div>
+</footer>
+
+    </div>
+    <div class="back-to-top-wrapper">
+    <button id="back-to-top-btn" class="back-to-top-btn hide" onclick="topFunction()">
+        <i class="fa-solid fa-angle-up"></i>
+    </button>
+</div>
+
+<script>
+    function topFunction() {
+        window.scroll({ top: 0, behavior: 'smooth' });
+    }
+    let btn = document.getElementById('back-to-top-btn');
+    function scrollFunction() {
+        if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+            btn.classList.remove('hide')
+        } else {
+            btn.classList.add('hide')
+        }
+    }
+    window.onscroll = function() {
+        scrollFunction();
+    }
+</script>
+
+  </div>
+  <script src="/js/light-dark-switch.js"></script>
+</body>
+</html>

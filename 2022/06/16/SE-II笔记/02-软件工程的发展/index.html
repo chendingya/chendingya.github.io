@@ -1,0 +1,1248 @@
+<!DOCTYPE html>
+
+
+<html theme="dark" showBanner="true" hasBanner="true" > 
+<link href="/fontawesome/css/fontawesome.css" rel="stylesheet">
+<link href="/fontawesome/css/brands.css" rel="stylesheet">
+<link href="/fontawesome/css/solid.css" rel="stylesheet">
+<script src="/js/color.global.min.js" ></script>
+<script src="/js/load-settings.js" ></script>
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+
+  
+  <title>SE-II-ch02-软件工程的发展 | Asimov&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+  <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+
+  <meta name="description" content="02-软件工程的发展   1. 软件工程的三个环境因素 1.1. 现实 1.2. 抽象软件 1.3. 虚拟机   2. 软件发展历程 3. Before 1950s 软件是硬件一部分 4. 年代:1950s 4.1. 软件工程和硬件工程是一样的 4.2. 发展过程 4.3. 机器为中心 4.4. 软件发展方法 4.5. 软件发展过程 4.6. 总结   5. 年代:1960s 5.1. 过程 5.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SE-II-ch02-软件工程的发展">
+<meta property="og:url" content="https://chendingya.github.io/2022/06/16/SE-II%E7%AC%94%E8%AE%B0/02-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E7%9A%84%E5%8F%91%E5%B1%95/index.html">
+<meta property="og:site_name" content="Asimov&#39;s Blog">
+<meta property="og:description" content="02-软件工程的发展   1. 软件工程的三个环境因素 1.1. 现实 1.2. 抽象软件 1.3. 虚拟机   2. 软件发展历程 3. Before 1950s 软件是硬件一部分 4. 年代:1950s 4.1. 软件工程和硬件工程是一样的 4.2. 发展过程 4.3. 机器为中心 4.4. 软件发展方法 4.5. 软件发展过程 4.6. 总结   5. 年代:1960s 5.1. 过程 5.">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt2/1.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt2/2.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt2/3.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt2/4.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt2/5.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt2/6.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt2/8.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt2/9.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt2/11.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt2/12.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt2/13.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt2/14.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt2/15.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt2/16.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt2/17.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt2/18.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt2/19.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt2/20.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt2/21.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt2/22.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt2/23.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt2/24.png">
+<meta property="article:published_time" content="2022-06-16T08:02:34.000Z">
+<meta property="article:modified_time" content="2023-09-17T07:45:05.126Z">
+<meta property="article:author" content="Asimov">
+<meta property="article:tag" content="软件工程与计算II">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt2/1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Asimov's Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-192.png" sizes="192x192">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-192.png" sizes="192x192">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  
+  
+    
+<div id="banner" class="">
+  <img src="/pic/back.png" itemprop="image">
+  <div id="banner-dim"></div>
+</div>
+ 
+   
+  <div id="main-grid" class="shadow   ">
+    <div id="nav" class=""  >
+      <navbar id="navbar">
+  <nav id="title-nav">
+    <a href="/">
+      <div id="vivia-logo">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div>Asimov's Blog </div>
+    </a>
+  </nav>
+  <nav id="main-nav">
+    
+      <a class="main-nav-link" href="/">Home</a>
+    
+      <a class="main-nav-link" href="/archives">Archives</a>
+    
+      <a class="main-nav-link" href="/about">About</a>
+    
+  </nav>
+  <nav id="sub-nav">
+    <a id="theme-btn" class="nav-icon">
+      <span class="light-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M438.5-829.913v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-829.913Zm0 747.826v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-82.087ZM877.913-438.5h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537t29.476-12.174h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T877.913-438.5Zm-747.826 0h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T82.087-521.5h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T130.087-438.5Zm660.174-290.87-34.239 32q-12.913 12.674-29.565 12.174-16.653-.5-29.327-13.174-12.674-12.673-12.554-28.826.12-16.152 12.794-28.826l33-35q12.913-12.674 30.454-12.674t30.163 12.847q12.709 12.846 12.328 30.826-.38 17.98-13.054 30.653ZM262.63-203.978l-32 34q-12.913 12.674-30.454 12.674t-30.163-12.847q-12.709-12.846-12.328-30.826.38-17.98 13.054-30.653l33.239-31q12.913-12.674 29.565-12.174 16.653.5 29.327 13.174 12.674 12.673 12.554 28.826-.12 16.152-12.794 28.826Zm466.74 33.239-32-33.239q-12.674-12.913-12.174-29.565.5-16.653 13.174-29.327 12.673-12.674 28.826-13.054 16.152-.38 28.826 12.294l35 33q12.674 12.913 12.674 30.454t-12.847 30.163q-12.846 12.709-30.826 12.328-17.98-.38-30.653-13.054ZM203.978-697.37l-34-33q-12.674-12.913-13.174-29.945-.5-17.033 12.174-29.707t31.326-13.293q18.653-.62 31.326 13.054l32 34.239q11.674 12.913 11.174 29.565-.5 16.653-13.174 29.327-12.673 12.674-28.826 12.554-16.152-.12-28.826-12.794ZM480-240q-100 0-170-70t-70-170q0-100 70-170t170-70q100 0 170 70t70 170q0 100-70 170t-170 70Zm-.247-82q65.703 0 111.475-46.272Q637-414.544 637-480.247t-45.525-111.228Q545.95-637 480.247-637t-111.475 45.525Q323-545.95 323-480.247t45.525 111.975Q414.05-322 479.753-322ZM481-481Z"/></svg></span>
+      <span class="dark-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M480.239-116.413q-152.63 0-258.228-105.478Q116.413-327.37 116.413-480q0-130.935 77.739-227.435t206.304-125.043q43.022-9.631 63.87 10.869t3.478 62.805q-8.891 22.043-14.315 44.463-5.424 22.42-5.424 46.689 0 91.694 64.326 155.879 64.325 64.186 156.218 64.186 24.369 0 46.978-4.946 22.609-4.945 44.413-14.076 42.826-17.369 62.967 1.142 20.142 18.511 10.511 61.054Q807.174-280 712.63-198.206q-94.543 81.793-232.391 81.793Zm0-95q79.783 0 143.337-40.217 63.554-40.218 95.793-108.283-15.608 4.044-31.097 5.326-15.49 1.283-31.859.805-123.706-4.066-210.777-90.539-87.071-86.473-91.614-212.092-.24-16.369.923-31.978 1.164-15.609 5.446-30.978-67.826 32.478-108.282 96.152Q211.652-559.543 211.652-480q0 111.929 78.329 190.258 78.329 78.329 190.258 78.329ZM466.13-465.891Z"/></svg></span>
+    </a>
+    
+      <a id="nav-rss-link" class="nav-icon mobile-hide" href="/atom.xml" title="RSS 订阅">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-120q-25.846 0-44.23-18.384-18.384-18.385-18.384-44.23 0-25.846 18.384-44.23 18.384-18.385 44.23-18.385 25.846 0 44.23 18.385 18.384 18.384 18.384 44.23 0 25.845-18.384 44.23Q223.846-120 198-120Zm538.385 0q-18.846 0-32.923-13.769-14.076-13.769-15.922-33.23-8.692-100.616-51.077-188.654-42.385-88.039-109.885-155.539-67.5-67.501-155.539-109.885Q283-663.462 182.385-672.154q-19.461-1.846-33.23-16.23-13.769-14.385-13.769-33.846t14.076-32.922q14.077-13.461 32.923-12.23 120.076 8.692 226.038 58.768 105.961 50.077 185.73 129.846 79.769 79.769 129.846 185.731 50.077 105.961 58.769 226.038 1.231 18.846-12.538 32.922Q756.461-120 736.385-120Zm-252 0q-18.231 0-32.423-13.461t-18.653-33.538Q418.155-264.23 348.886-333.5q-69.27-69.27-166.501-84.423-20.077-4.462-33.538-18.961-13.461-14.5-13.461-33.346 0-19.076 13.884-33.23 13.884-14.153 33.115-10.922 136.769 15.384 234.384 112.999 97.615 97.615 112.999 234.384 3.231 19.23-10.538 33.115Q505.461-120 484.385-120Z"/></svg>
+      </a>
+    
+    <div id="nav-menu-btn" class="nav-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M177.37-252.282q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Zm0-186.218q-17.453 0-29.477-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T177.37-521.5h605.26q17.453 0 29.477 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T782.63-438.5H177.37Zm0-186.217q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Z"/></svg>
+    </div>
+  </nav>
+</navbar>
+<div id="nav-dropdown" class="hidden">
+  <div id="dropdown-link-list">
+    
+      <a class="nav-dropdown-link" href="/">Home</a>
+    
+      <a class="nav-dropdown-link" href="/archives">Archives</a>
+    
+      <a class="nav-dropdown-link" href="/about">About</a>
+    
+    
+      <a class="nav-dropdown-link" href="/atom.xml" title="RSS 订阅">RSS</a>
+     
+    </div>
+</div>
+<script>
+  let dropdownBtn = document.getElementById("nav-menu-btn");
+  let dropdownEle = document.getElementById("nav-dropdown");
+  dropdownBtn.onclick = function() {
+    dropdownEle.classList.toggle("hidden");
+  }
+</script>
+    </div>
+    <div id="sidebar-wrapper">
+      <sidebar id="sidebar">
+  
+    <div class="widget-wrap">
+  <div class="info-card">
+    <div class="avatar">
+      
+        <image src=/pic/avatar.png></image>
+      
+      <div class="img-dim"></div>
+    </div>
+    <div class="info">
+      <div class="username">Asimov </div>
+      <div class="dot"></div>
+      <div class="subtitle">Asimov's Blog </div>
+      <div class="link-list">
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://github.com/chendingya" title="GitHub"><i class="fa-brands fa-github"></i></a>
+         
+      </div>  
+    </div>
+  </div>
+</div>
+
+  
+  <div class="sticky">
+    
+      
+
+
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">分类</h3>
+      <div class="category-box">
+            <a class="category-link" href="/categories/hello-world/">
+                hello world
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/Hexo/">
+                Hexo
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
+                编译原理
+                <div class="category-count">13</div>
+            </a>
+        
+            <a class="category-link" href="/categories/tdesign/">
+                tdesign
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">
+                软件工程与计算II
+                <div class="category-count">30</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E9%A9%BE%E8%80%83/">
+                驾考
+                <div class="category-count">2</div>
+            </a>
+        </div>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">标签</h3>
+      <ul class="widget-tag-list" itemprop="keywords"><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/hello-world/" rel="tag">hello world</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/tdesign/" rel="tag">tdesign</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" rel="tag">编译原理</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/" rel="tag">软件工程与计算II</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E9%A9%BE%E8%80%83/" rel="tag">驾考</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">归档</h3>
+      
+      
+        <a class="archive-link" href="/archives/2023/09 ">
+          九月 2023 
+          <div class="archive-count">2 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/07 ">
+          七月 2023 
+          <div class="archive-count">2 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/04 ">
+          四月 2023 
+          <div class="archive-count">10 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/03 ">
+          三月 2023 
+          <div class="archive-count">3 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2022/10 ">
+          十月 2022 
+          <div class="archive-count">1 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2022/06 ">
+          六月 2022 
+          <div class="archive-count">30 </div>
+        </a>
+      
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">最新文章</h3>
+      <ul>
+        
+          <a class="recent-link" href="/2023/09/15/23-tdesign/Mock%E4%BD%BF%E7%94%A8/" title="微信小程序中Mock使用" >
+            <div class="recent-link-text">
+              微信小程序中Mock使用
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/09/12/%E9%A9%BE%E8%80%83/%E9%A9%BE%E8%80%83-%E7%A7%91%E7%9B%AE%E4%BA%8C/" title="驾考-科目二" >
+            <div class="recent-link-text">
+              驾考-科目二
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/07/18/blog/" title="blog" >
+            <div class="recent-link-text">
+              blog
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/07/17/%E9%A9%BE%E8%80%83/%E9%A9%BE%E8%80%83-%E7%A7%91%E7%9B%AE%E4%B8%80/" title="驾考-科目一" >
+            <div class="recent-link-text">
+              驾考-科目一
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/04/10/23-Compilers/ch18-codegen-riscv-RISC-V%20%E6%A6%82%E8%BF%B0/" title="ch18-codegen-riscv-RISC-V 概述" >
+            <div class="recent-link-text">
+              ch18-codegen-riscv-RISC-V 概述
+            </div>
+          </a>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+  </div>
+</sidebar>
+    </div>
+    <div id="content-body">
+       
+
+<article id="post-SE-II笔记/02-软件工程的发展" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 class="p-name article-title" itemprop="headline name">
+        SE-II-ch02-软件工程的发展
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2022-06-16T08:02:34.000Z" itemprop="datePublished">2022-06-16</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">软件工程与计算II</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            7.2k 词 
+          </div>
+        </div>
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/" rel="tag">软件工程与计算II</a></li></ul>
+
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <h2 id="02-软件工程的发展"><a href="#02-软件工程的发展" class="headerlink" title="02-软件工程的发展"></a>02-软件工程的发展</h2><!-- TOC -->
+
+<ul>
+<li><a href="#1-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E7%9A%84%E4%B8%89%E4%B8%AA%E7%8E%AF%E5%A2%83%E5%9B%A0%E7%B4%A0">1. 软件工程的三个环境因素</a><ul>
+<li><a href="#11-%E7%8E%B0%E5%AE%9E">1.1. 现实</a></li>
+<li><a href="#12-%E6%8A%BD%E8%B1%A1%E8%BD%AF%E4%BB%B6">1.2. 抽象软件</a></li>
+<li><a href="#13-%E8%99%9A%E6%8B%9F%E6%9C%BA">1.3. 虚拟机</a></li>
+</ul>
+</li>
+<li><a href="#2-%E8%BD%AF%E4%BB%B6%E5%8F%91%E5%B1%95%E5%8E%86%E7%A8%8B">2. 软件发展历程</a></li>
+<li><a href="#3-before-1950s-%E8%BD%AF%E4%BB%B6%E6%98%AF%E7%A1%AC%E4%BB%B6%E4%B8%80%E9%83%A8%E5%88%86">3. Before 1950s 软件是硬件一部分</a></li>
+<li><a href="#4-%E5%B9%B4%E4%BB%A31950s">4. 年代:1950s</a><ul>
+<li><a href="#41-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%92%8C%E7%A1%AC%E4%BB%B6%E5%B7%A5%E7%A8%8B%E6%98%AF%E4%B8%80%E6%A0%B7%E7%9A%84">4.1. 软件工程和硬件工程是一样的</a></li>
+<li><a href="#42-%E5%8F%91%E5%B1%95%E8%BF%87%E7%A8%8B">4.2. 发展过程</a></li>
+<li><a href="#43-%E6%9C%BA%E5%99%A8%E4%B8%BA%E4%B8%AD%E5%BF%83">4.3. 机器为中心</a></li>
+<li><a href="#44-%E8%BD%AF%E4%BB%B6%E5%8F%91%E5%B1%95%E6%96%B9%E6%B3%95">4.4. 软件发展方法</a></li>
+<li><a href="#45-%E8%BD%AF%E4%BB%B6%E5%8F%91%E5%B1%95%E8%BF%87%E7%A8%8B">4.5. 软件发展过程</a></li>
+<li><a href="#46-%E6%80%BB%E7%BB%93">4.6. 总结</a></li>
+</ul>
+</li>
+<li><a href="#5-%E5%B9%B4%E4%BB%A31960s">5. 年代:1960s</a><ul>
+<li><a href="#51-%E8%BF%87%E7%A8%8B">5.1. 过程</a></li>
+<li><a href="#52-%E4%B8%A4%E4%B8%AA%E9%87%8D%E8%A6%81%E7%9A%84%E8%AF%89%E8%AE%BC%E6%A1%88">5.2. 两个重要的诉讼案</a></li>
+<li><a href="#53-%E5%BA%94%E7%94%A8%E4%B8%BA%E4%B8%AD%E5%BF%83">5.3. 应用为中心</a></li>
+<li><a href="#54-%E8%BD%AF%E4%BB%B6%E4%B8%8D%E6%98%AF%E7%A1%AC%E4%BB%B6">5.4. 软件不是硬件</a></li>
+<li><a href="#55-%E8%BD%AF%E4%BB%B6%E5%8D%B1%E6%9C%BA">5.5. 软件危机</a></li>
+<li><a href="#56-%E8%BD%AF%E4%BB%B6%E5%8F%91%E5%B1%95%E6%96%B9%E6%B3%95">5.6. 软件发展方法</a></li>
+<li><a href="#57-%E8%BD%AF%E4%BB%B6%E5%8F%91%E5%B1%95%E8%BF%87%E7%A8%8B">5.7. 软件发展过程</a></li>
+<li><a href="#58-%E9%97%AE%E9%A2%98">5.8. 问题</a></li>
+<li><a href="#59-%E6%80%BB%E7%BB%93">5.9. 总结</a></li>
+</ul>
+</li>
+<li><a href="#6-%E5%B9%B4%E4%BB%A31970s-%E7%BB%93%E6%9E%84%E5%8C%96%E6%96%B9%E6%B3%95%E7%80%91%E5%B8%83%E6%A8%A1%E5%9E%8B%E5%92%8C%E5%BD%A2%E5%BC%8F%E5%8C%96%E6%96%B9%E6%B3%95">6. 年代:1970s 结构化方法、瀑布模型和形式化方法</a><ul>
+<li><a href="#61-%E8%BF%87%E7%A8%8B">6.1. 过程</a></li>
+<li><a href="#62-%E8%BD%AF%E4%BB%B6%E5%8F%91%E5%B1%95%E6%96%B9%E6%B3%95">6.2. 软件发展方法</a></li>
+<li><a href="#63-%E7%BB%93%E6%9E%84%E5%8C%96%E6%96%B9%E6%B3%95">6.3. 结构化方法</a></li>
+<li><a href="#64-%E5%BD%A2%E5%BC%8F%E5%8C%96%E6%96%B9%E6%B3%95">6.4. 形式化方法</a></li>
+<li><a href="#65-%E5%BD%A2%E5%BC%8F%E5%8C%96%E6%96%B9%E6%B3%95%E7%9A%84%E9%97%AE%E9%A2%98">6.5. 形式化方法的问题</a></li>
+<li><a href="#66-%E8%BD%AF%E4%BB%B6%E5%8F%91%E5%B1%95%E8%BF%87%E7%A8%8B">6.6. 软件发展过程</a></li>
+<li><a href="#67-%E7%80%91%E5%B8%83%E6%A8%A1%E5%9E%8B%E7%9A%84%E9%97%AE%E9%A2%98">6.7. 瀑布模型的问题</a></li>
+<li><a href="#68-%E8%BD%AF%E4%BB%B6%E4%B8%8E%E7%A1%AC%E4%BB%B6%E6%88%90%E6%9C%AC%E4%BB%A3%E4%BB%B7%E5%8F%98%E6%8D%A2">6.8. 软件与硬件成本代价变换</a></li>
+<li><a href="#69-%E6%97%B6%E9%97%B4%E4%B8%8E%E4%BF%AE%E5%A4%8D%E4%BB%A3%E4%BB%B7%E7%9A%84%E9%97%AE%E9%A2%98">6.9. 时间与修复代价的问题</a></li>
+<li><a href="#610-%E9%87%8F%E5%8C%96%E6%96%B9%E6%B3%95">6.10. 量化方法</a></li>
+<li><a href="#611-%E6%80%BB%E7%BB%93">6.11. 总结</a></li>
+</ul>
+</li>
+<li><a href="#7-%E5%B9%B4%E4%BB%A31980s%E7%94%9F%E4%BA%A7%E5%8A%9B%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E9%87%8D%E7%94%A8%E8%BD%AF%E4%BB%B6%E8%BF%87%E7%A8%8B%E6%A8%A1%E5%9E%8B">7. 年代:1980s：生产力，面向对象，重用，软件过程模型</a><ul>
+<li><a href="#71-%E8%BF%87%E7%A8%8B">7.1. 过程</a></li>
+<li><a href="#72-%E5%BA%94%E7%94%A8">7.2. 应用</a></li>
+<li><a href="#73-%E8%BD%AF%E4%BB%B6%E5%8F%91%E5%B1%95%E6%96%B9%E6%B3%95">7.3. 软件发展方法</a><ul>
+<li><a href="#731-%E7%8E%B0%E4%BB%A3%E7%BB%93%E6%9E%84%E5%8C%96%E5%88%86%E6%9E%90%E5%92%8C%E8%AE%BE%E8%AE%A1">7.3.1. 现代结构化分析和设计</a></li>
+<li><a href="#732-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B">7.3.2. 面向对象编程</a></li>
+<li><a href="#733-%E7%BB%93%E6%9E%84%E5%8C%96%E7%BC%96%E7%A8%8B-%E5%92%8C-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B-%E5%AF%B9%E6%AF%94">7.3.3. 结构化编程 和 面向对象编程 对比</a></li>
+<li><a href="#734-%E9%87%8D%E7%94%A8%E5%92%8C%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1">7.3.4. 重用和面向对象</a></li>
+<li><a href="#735-%E8%BD%AF%E4%BB%B6%E9%87%8D%E7%94%A8">7.3.5. 软件重用</a></li>
+</ul>
+</li>
+<li><a href="#74-software-process-%E8%BD%AF%E4%BB%B6%E8%BF%87%E7%A8%8B">7.4. Software Process 软件过程</a></li>
+<li><a href="#75-%E6%B2%A1%E6%9C%89%E9%93%B6%E5%BC%B9">7.5. 没有银弹</a></li>
+<li><a href="#76-%E4%BA%BA">7.6. 人</a></li>
+<li><a href="#77-%E6%80%BB%E7%BB%93">7.7. 总结</a></li>
+</ul>
+</li>
+<li><a href="#8-%E5%B9%B4%E4%BB%A31990s%E5%B1%80%E5%9F%9F%E7%BD%91%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84rup%E8%BF%87%E7%A8%8B%E6%94%B9%E8%BF%9B">8. 年代:1990s：局域网，软件架构，RUP，过程改进</a><ul>
+<li><a href="#81-progress">8.1. Progress</a></li>
+<li><a href="#82-%E4%BC%81%E4%B8%9A%E4%B8%BA%E4%B8%AD%E5%BF%83">8.2. 企业为中心</a></li>
+<li><a href="#83-%E5%A4%A7%E8%A7%84%E6%A8%A1%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F">8.3. 大规模软件系统</a></li>
+<li><a href="#84-%E8%BD%AF%E4%BB%B6%E5%8F%91%E5%B1%95%E6%96%B9%E6%B3%95">8.4. 软件发展方法</a></li>
+<li><a href="#85-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E6%80%9D%E6%83%B3">8.5. 面向对象思想</a></li>
+<li><a href="#86-%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E6%9E%B6%E6%9E%84">8.6. 软件体系架构</a></li>
+<li><a href="#87-%E4%B8%A4%E7%A7%8D%E5%A4%8D%E7%94%A8%E7%9A%84%E6%A8%A1%E5%BC%8F">8.7. 两种复用的模式</a></li>
+<li><a href="#88-%E7%BD%91%E7%BB%9C%E5%BC%80%E5%8F%91%E5%8F%91%E5%B1%95%E6%96%B9%E6%B3%95">8.8. 网络开发发展方法</a></li>
+<li><a href="#89-software-process">8.9. Software process</a></li>
+<li><a href="#810-%E5%BC%80%E6%BA%90">8.10. 开源</a></li>
+<li><a href="#811-%E6%80%BB%E7%BB%93">8.11. 总结</a></li>
+</ul>
+</li>
+<li><a href="#9-%E5%B9%B4%E4%BB%A300s%E4%BA%92%E8%81%94%E7%BD%91%E6%95%8F%E6%8D%B7%E6%B7%B7%E5%90%88%E6%95%8F%E6%8D%B7%E5%92%8C%E8%AE%A1%E5%88%92%E9%A9%B1%E5%8A%A8">9. 年代:00s：互联网、敏捷、混合敏捷和计划驱动</a><ul>
+<li><a href="#91-%E8%BF%87%E7%A8%8B">9.1. 过程</a></li>
+<li><a href="#92-%E4%BB%A5%E7%94%A8%E6%88%B7%E4%B8%BA%E4%B8%AD%E5%BF%83%E7%9A%84%E5%BA%94%E7%94%A8">9.2. 以用户为中心的应用</a></li>
+<li><a href="#93-%E8%BD%AF%E4%BB%B6%E5%8F%91%E5%B1%95%E6%96%B9%E6%B3%95">9.3. 软件发展方法</a></li>
+<li><a href="#94-%E8%BD%AF%E4%BB%B6%E8%BF%87%E7%A8%8B">9.4. 软件过程</a></li>
+<li><a href="#95-se-%E4%BB%8E%E5%95%86%E4%B8%9A%E5%88%B0%E4%B8%AA%E4%BA%BA">9.5. SE: 从商业到个人</a></li>
+<li><a href="#96-%E6%80%BB%E7%BB%93">9.6. 总结</a></li>
+</ul>
+</li>
+<li><a href="#10-%E5%B9%B4%E4%BB%A32010s---big-data--ai">10. 年代:2010s - Big data &amp; AI</a><ul>
+<li><a href="#101-barry-bohems-view">10.1. Barry Bohem’s view</a></li>
+<li><a href="#102-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E6%9C%89%E5%8F%AF%E8%83%BD%E7%9A%84%E6%94%B9%E8%BF%9B">10.2. 软件工程有可能的改进</a></li>
+<li><a href="#103-%E6%9C%80%E8%BF%91%E7%9A%84%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E6%A6%82%E5%BF%B5">10.3. 最近的软件工程概念</a></li>
+<li><a href="#104-%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B">10.4. 开发过程</a></li>
+<li><a href="#105-%E6%9C%8D%E5%8A%A1%E7%BD%91%E6%A0%BC">10.5. 服务网格</a></li>
+<li><a href="#106-%E6%8C%81%E7%BB%AD%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B">10.6. 持续软件工程</a></li>
+<li><a href="#107-%E6%B7%B7%E6%B2%8C%E5%B7%A5%E7%A8%8B">10.7. 混沌工程</a></li>
+</ul>
+</li>
+<li><a href="#11-%E6%80%BB%E7%BB%93">11. 总结</a></li>
+<li><a href="#12-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E6%95%99%E8%82%B2%E7%9A%84%E6%9C%AA%E6%9D%A5%E6%8C%91%E6%88%98-2050%E5%B9%B4%E4%BB%A3%E7%9A%84%E5%AD%A6%E7%94%9F%E7%94%9F%E6%B6%AF">12. 软件工程教育的未来挑战-2050年代的学生生涯</a></li>
+<li><a href="#13-%E4%BB%8E1950s2000s%E4%B9%8B%E9%97%B4%E7%9A%84%E7%89%B9%E7%82%B9%E7%AE%80%E7%AD%94">13. 从1950s—2000s之间的特点(简答)</a></li>
+</ul>
+<!-- /TOC -->
+
+<h1 id="1-软件工程的三个环境因素"><a href="#1-软件工程的三个环境因素" class="headerlink" title="1. 软件工程的三个环境因素"></a>1. 软件工程的三个环境因素</h1><ol>
+<li>基础：抽象软件实体和虚拟计算机</li>
+<li>目标：现实的问题</li>
+<li>三个环境因素:<ol>
+<li>目标</li>
+<li>正确性基础</li>
+<li>实现基础</li>
+</ol>
+</li>
+</ol>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt2/1.png"></p>
+<h2 id="1-1-现实的问题"><a href="#1-1-现实的问题" class="headerlink" title="1.1. 现实的问题"></a>1.1. 现实的问题</h2><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt2/2.png"></p>
+<h2 id="1-2-抽象软件"><a href="#1-2-抽象软件" class="headerlink" title="1.2. 抽象软件"></a>1.2. 抽象软件</h2><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt2/3.png"></p>
+<h2 id="1-3-虚拟机"><a href="#1-3-虚拟机" class="headerlink" title="1.3. 虚拟机"></a>1.3. 虚拟机</h2><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt2/4.png"></p>
+<h1 id="2-软件发展历程"><a href="#2-软件发展历程" class="headerlink" title="2. 软件发展历程"></a>2. 软件发展历程</h1><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt2/5.png"></p>
+<h1 id="3-Before-1950s-软件是硬件一部分"><a href="#3-Before-1950s-软件是硬件一部分" class="headerlink" title="3. Before 1950s 软件是硬件一部分"></a>3. Before 1950s 软件是硬件一部分</h1><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt2/6.png"></p>
+<ol>
+<li>科学研究(主要是军事用途)</li>
+<li>计算理论(lambda演算和图灵机)</li>
+<li>冯诺依曼架构</li>
+<li><strong>软件是硬件的一部分</strong></li>
+</ol>
+<h1 id="4-年代-1950s"><a href="#4-年代-1950s" class="headerlink" title="4. 年代:1950s"></a>4. 年代:1950s</h1><h2 id="4-1-软件工程和硬件工程是一样的"><a href="#4-1-软件工程和硬件工程是一样的" class="headerlink" title="4.1. 软件工程和硬件工程是一样的"></a>4.1. 软件工程和硬件工程是一样的</h2><ol>
+<li>第一代编程语言:机器语言；第二代编程语言:汇编语言</li>
+<li>主框架研究和BIOS</li>
+<li>硬件主导的发展过程</li>
+</ol>
+<h2 id="4-2-发展过程"><a href="#4-2-发展过程" class="headerlink" title="4.2. 发展过程"></a>4.2. 发展过程</h2><ol>
+<li>虚拟计算机<ul>
+<li>第一台商用计算机(UNIVAC I)</li>
+<li>机器为中心</li>
+</ul>
+</li>
+<li>抽象软件实体<ul>
+<li>格雷斯·霍珀是哈佛Mark I计算机的第一批程序员之一，该领域的先驱，大约在1952年为计算机编程语言开发了第一个编译器。</li>
+<li>20世纪50年代早期计算机的程序员，特别是UNIVAC I和IBM 701，使用机器语言程序，即第一代语言(1GL)。1GL编程很快被类似的机器专用语言(2GL)所取代，这种语言被称为汇编语言或”汇编程序”。</li>
+</ul>
+</li>
+</ol>
+<h2 id="4-3-机器为中心"><a href="#4-3-机器为中心" class="headerlink" title="4.3. 机器为中心"></a>4.3. 机器为中心</h2><p>我⼯作的第⼀天(1950s)，我的主管向我展示了通用电⼒ERA1103计算机，这个家伙⾜⾜占满了⼀个⼤房间。他对我说：”听着，我们每⼩时要为这台计算机⽀出600美元，⽽每⼩时只需为你⽀出2美元，我想你知道该怎么做了” -Boehm 2006</p>
+<h2 id="4-4-软件发展方法"><a href="#4-4-软件发展方法" class="headerlink" title="4.4. 软件发展方法"></a>4.4. 软件发展方法</h2><p>在这⼀时期，⼈们的主要集中⼒放在硬件上，所以没有出现对软件开发专⻔⽅法与技术的需求，也就没有出现被普遍使用的软件开发⽅法与技术。</p>
+<h2 id="4-5-软件发展过程"><a href="#4-5-软件发展过程" class="headerlink" title="4.5. 软件发展过程"></a>4.5. 软件发展过程</h2><ol>
+<li>美国和加拿大防空半自动化地面环境</li>
+<li>1个MLOC防空系统，实时，365 * 24，用户密集型</li>
+<li>成功让很多难以预估的系统的发展</li>
+<li><strong>硬件主导的瀑布式过程</strong></li>
+</ol>
+<h2 id="4-6-总结"><a href="#4-6-总结" class="headerlink" title="4.6. 总结"></a>4.6. 总结</h2><ol>
+<li>科学计算</li>
+<li>机器为中心的科学主题</li>
+<li>第一代和第二代编程语言</li>
+<li>软件工程和硬件工程是相似的</li>
+<li>硬件主导的发展过程</li>
+<li>强调回溯和测试</li>
+<li>科学家和硬件工程师</li>
+</ol>
+<h1 id="5-年代-1960s"><a href="#5-年代-1960s" class="headerlink" title="5. 年代:1960s"></a>5. 年代:1960s</h1><h2 id="5-1-过程"><a href="#5-1-过程" class="headerlink" title="5.1. 过程"></a>5.1. 过程</h2><ol>
+<li>虚拟计算机<ul>
+<li>更好的基础设施：操作系统、编译器(函数式)、应用</li>
+<li>产品系列：OS-360, CAD&#x2F;CAM, math&#x2F;statistics libraries</li>
+<li>许多巨大的成功：Apollo, ESS, BofA check processing</li>
+<li>信用卡、ATM</li>
+</ul>
+</li>
+<li>抽象软件实体<ul>
+<li>在20世纪50年代后期，汇编语言程序设计发展到包括宏指令的使用，随后又发展了”第三代”程序设计语言(3GL)，如FORTRAN、LISP和COBOL。</li>
+<li>ASCII美国信息交换标准码</li>
+</ul>
+</li>
+</ol>
+<h2 id="5-2-两个重要的诉讼案"><a href="#5-2-两个重要的诉讼案" class="headerlink" title="5.2. 两个重要的诉讼案"></a>5.2. 两个重要的诉讼案</h2><ol>
+<li>通过⼀项诉讼案裁定ENIAC专利不再有效(1973裁决)<ul>
+<li>使得计算机体系结构从此进⼊公共领域</li>
+</ul>
+</li>
+<li>作为反垄断诉讼的结果，IBM同意分类定价软件<ul>
+<li>使得软件不再依附于计算机硬件，独⽴存在</li>
+</ul>
+</li>
+</ol>
+<h2 id="5-3-应用为中心"><a href="#5-3-应用为中心" class="headerlink" title="5.3. 应用为中心"></a>5.3. 应用为中心</h2><ol>
+<li>商业应用</li>
+<li>批处理过程</li>
+</ol>
+<h2 id="5-4-软件不是硬件"><a href="#5-4-软件不是硬件" class="headerlink" title="5.4. 软件不是硬件"></a>5.4. 软件不是硬件</h2><ol>
+<li>软件与现实世界关系更加密切，对需求的规格化更加困难：[Royce1970]提到”⽣产500万美元的硬件设备，30⻚的规格说明书就可以 为⽣产提供⾜够多的细节，⽣产500万美元的软件，1500⻚的规格说明书 才可以获取相当的控制。”</li>
+<li>软件⽐硬件容易修改的多，并且不需要昂贵的⽣产线复制产品：因为不需要昂贵的⽣产线，所以⼈⼒资源是软件开发的最⼤资源，⼈⼒成本是软件开发的主要成本，⼈的因素是软件开发中的最⼤因素。</li>
+<li>软件没有损耗：软件维护的主要⼯作是修改软件，主要成本是修改的⼈⼒成本。为了降低维护成本，要求开发者在开发时就要让软件产品设计的易于修改。</li>
+<li>软件不可见：很难辨别软件进度是否正常，需要开发者更多地使用模型⼿段以可视图形的⽅式反映软件⽣产，也需要开发者使用更深⼊的⼿段(例如度量)监控软件⽣产过程。</li>
+</ol>
+<h2 id="5-5-软件危机"><a href="#5-5-软件危机" class="headerlink" title="5.5. 软件危机"></a>5.5. 软件危机</h2><ol>
+<li>软件危机<ol>
+<li>对软件开发成本和进度的估计常常不准确。开发成本超出预算，实际进度⽐预定计划⼀再拖延的现象并不罕⻅。 </li>
+<li>用户对”已完成”系统不满意的现象经常发⽣。</li>
+<li>软件产品的质量不可靠。</li>
+<li>软件的可维护程度⾮常之低。</li>
+<li>软件通常没有适当的⽂档资料。</li>
+<li>软件的成本不断提高。</li>
+<li>软件开发⽣产率无法满足⼈们对软件的生产要求，软件开发⽣产率的提⾼落后于硬件的发展。</li>
+</ol>
+</li>
+<li>这⼀情况迫使NATO科学委员会在1968和1969年召开两届⾥程碑式的”软件⼯程”会议，很多业界领先的研究者和实践者参加了这两届会议。1968年的会议主要分析了软件⽣产中的问题，提出了”软件危机”的说法。1969年的会议着重讨论了”软件危机”的解决⽅法，指出了”软件⼯程”的⽅向[Peter1969]，用⼯程的⽅法⽣产软件。</li>
+</ol>
+<h2 id="5-6-软件发展方法"><a href="#5-6-软件发展方法" class="headerlink" title="5.6. 软件发展方法"></a>5.6. 软件发展方法</h2><ol>
+<li>因为缺乏正确科学知识的指导，也没有多少经验原则可以遵循，因此1960s的软件开发在总体上依靠程序员的个⼈能⼒，是”工艺式”的开发。</li>
+<li>到了1960s后期，因为认识到”工艺式”开发的问题，很多研究者开始从编程入手探索解决软件危机的办法，这些促成了1970s结构化编程⽅法的建⽴。</li>
+</ol>
+<h2 id="5-7-软件发展过程"><a href="#5-7-软件发展过程" class="headerlink" title="5.7. 软件发展过程"></a>5.7. 软件发展过程</h2><ol>
+<li>build and fix</li>
+<li>软件工艺</li>
+<li>个人英雄主义</li>
+</ol>
+<h2 id="5-8-问题"><a href="#5-8-问题" class="headerlink" title="5.8. 问题"></a>5.8. 问题</h2><ol>
+<li>意大利面条，易读性低</li>
+<li>很多的bug</li>
+<li>大项目往往计划和控制很脆弱</li>
+</ol>
+<h2 id="5-9-总结"><a href="#5-9-总结" class="headerlink" title="5.9. 总结"></a>5.9. 总结</h2><ol>
+<li>商业应用(批处理过程)</li>
+<li>应用为中心商业框架</li>
+<li>第三代编程语言</li>
+<li>软件不是硬件</li>
+<li>软件工艺的提出</li>
+<li>计算机科学系的出现</li>
+<li>软件危机的出现</li>
+<li>软件需求超过软件工程师的供应 </li>
+<li>图灵奖(1966)</li>
+</ol>
+<h1 id="6-年代-1970s-结构化方法、瀑布模型和形式化方法"><a href="#6-年代-1970s-结构化方法、瀑布模型和形式化方法" class="headerlink" title="6. 年代:1970s 结构化方法、瀑布模型和形式化方法"></a>6. 年代:1970s 结构化方法、瀑布模型和形式化方法</h1><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt2/8.png"></p>
+<ol>
+<li>软件产品</li>
+<li>商业微型计算机</li>
+<li>结构化编程语言</li>
+<li>结构化编程，瀑布模型和形式化方法</li>
+</ol>
+<h2 id="6-1-过程"><a href="#6-1-过程" class="headerlink" title="6.1. 过程"></a>6.1. 过程</h2><ol>
+<li>虚拟计算机<ul>
+<li>数据库管理系统</li>
+<li>编译器</li>
+<li>开发环境</li>
+<li>软盘，软盘驱动器</li>
+</ul>
+</li>
+<li>抽象软件实体<ul>
+<li>在1969到1973之间被作为一种系统编程语言发展，并且保持常用。</li>
+<li>Pascal(1970)，Smalltalk(1972)，Prolog，Scheme(1975)，SQL(1978)</li>
+<li>函数式、块结构、顺序、分支、循环</li>
+</ul>
+</li>
+</ol>
+<h2 id="6-2-软件发展方法"><a href="#6-2-软件发展方法" class="headerlink" title="6.2. 软件发展方法"></a>6.2. 软件发展方法</h2><ol>
+<li>结构化编程语言<ul>
+<li>函数</li>
+<li>顺序，分支，循环</li>
+</ul>
+</li>
+<li>自上而下，逐步求解</li>
+<li>分解思想分层思想</li>
+<li>图的思想</li>
+<li>模块化，数据隐藏</li>
+<li>抽象数据类型</li>
+<li>结构化方法</li>
+</ol>
+<h2 id="6-3-结构化方法"><a href="#6-3-结构化方法" class="headerlink" title="6.3. 结构化方法"></a>6.3. 结构化方法</h2><ol>
+<li>结构化编程(Bohm-Jacopini: GO TO 是不应该常有的)<ul>
+<li>形式化编程：Dijkstra, Hoare, Floyd</li>
+<li>正式自上而下的SP:Mills、Baker</li>
+</ul>
+</li>
+<li>通过以下来组织程序<ul>
+<li>函数：算法</li>
+<li>三种控制逻辑</li>
+<li>格式和格式检查</li>
+</ul>
+</li>
+<li>当编译器处理好函数时，有组织的程序：模块化方法</li>
+<li>模块化使这些事情变得重要<ul>
+<li>信息隐藏</li>
+<li>数据抽象</li>
+</ul>
+</li>
+<li>使用数据流图、实体关系图和结构图来进行结构化设计。</li>
+</ol>
+<h2 id="6-4-形式化方法（用严格数学证明程序的正确性）"><a href="#6-4-形式化方法（用严格数学证明程序的正确性）" class="headerlink" title="6.4. 形式化方法（用严格数学证明程序的正确性）"></a>6.4. 形式化方法（用严格数学证明程序的正确性）</h2><ol>
+<li>“形式方法”的分支，通过数学证明或通过”编程演算”的构造来关注程序的正确性</li>
+<li>在60年代的十年里，理论计算机科学作为一门被数学界和计算界都认可的学科，它可以指向应用和数学的优雅</li>
+<li>工作量大，一般是很重要的程序才使用形式化方法处理</li>
+</ol>
+<h2 id="6-5-形式化方法的问题"><a href="#6-5-形式化方法的问题" class="headerlink" title="6.5. 形式化方法的问题"></a>6.5. 形式化方法的问题</h2><ol>
+<li>对于小的重要的程序是成功的</li>
+<li>最大的验证项目约10 KSLOC</li>
+<li>证据表明存在缺陷，而不是缺失<ul>
+<li>规格有缺陷，证明有问题</li>
+</ul>
+</li>
+<li>程序员社区的可伸缩性<ul>
+<li>技术需要数学专业知识，500美元&#x2F;SLOC</li>
+<li>1975年调查中的平均程序员<ul>
+<li>两年大学，SW 经历</li>
+<li>熟悉两种语言和应用程序</li>
+<li>邋遢，呆板，凌驾于头脑中，管理不善</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="6-6-软件发展过程"><a href="#6-6-软件发展过程" class="headerlink" title="6.6. 软件发展过程"></a>6.6. 软件发展过程</h2><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt2/9.png"></p>
+<ol>
+<li>瀑布模型</li>
+<li>每个阶段做至少两次</li>
+</ol>
+<h2 id="6-7-瀑布模型的问题"><a href="#6-7-瀑布模型的问题" class="headerlink" title="6.7. 瀑布模型的问题"></a>6.7. 瀑布模型的问题</h2><ol>
+<li>对连续里程碑的过度字面解释<ul>
+<li>原型设计是在关键设计评审之前进行编码</li>
+<li>与用户密集型系统不匹配</li>
+</ul>
+</li>
+<li>难以审查和维护的重量级文档<ul>
+<li>7年项目，需求变化318%</li>
+<li>已通过但未验证的里程碑</li>
+</ul>
+</li>
+<li>与COTS、重用、遗留软件不匹配：自下而上与自上而下的流程</li>
+<li>可扩展性、周期时间和过时 <ul>
+<li>Months &#x3D; $5 * \sqrt[3]{KSLOC}$ for sequential development</li>
+<li>3000 KSLOC &#x3D;&gt; 5*14.4 &#x3D; 72 months : 4 computer generations</li>
+</ul>
+</li>
+</ol>
+<h2 id="6-8-软件与硬件成本代价变换"><a href="#6-8-软件与硬件成本代价变换" class="headerlink" title="6.8. 软件与硬件成本代价变换"></a>6.8. 软件与硬件成本代价变换</h2><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt2/11.png"></p>
+<h2 id="6-9-时间与修复代价的问题"><a href="#6-9-时间与修复代价的问题" class="headerlink" title="6.9. 时间与修复代价的问题"></a>6.9. 时间与修复代价的问题</h2><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt2/12.png"></p>
+<h2 id="6-10-量化方法"><a href="#6-10-量化方法" class="headerlink" title="6.10. 量化方法"></a>6.10. 量化方法</h2><ol>
+<li>软件生产效率数据：最好程序员可以是最差程序员的26倍</li>
+<li>按阶段和类型划分的软件缺陷</li>
+<li>复杂性度量</li>
+<li>软件质量</li>
+<li>成本和进度估算</li>
+</ol>
+<h2 id="6-11-总结"><a href="#6-11-总结" class="headerlink" title="6.11. 总结"></a>6.11. 总结</h2><ol>
+<li>软件产品</li>
+<li>商业微型计算机</li>
+<li>结构化编程语言</li>
+<li>结构化方法</li>
+<li>瀑布模型</li>
+<li>形式化模型</li>
+<li>量化方法</li>
+</ol>
+<h1 id="7-年代-1980s：生产力，面向对象，重用，软件过程模型"><a href="#7-年代-1980s：生产力，面向对象，重用，软件过程模型" class="headerlink" title="7. 年代:1980s：生产力，面向对象，重用，软件过程模型"></a>7. 年代:1980s：生产力，面向对象，重用，软件过程模型</h1><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt2/13.png"></p>
+<ol>
+<li>个人消费者市场的应用</li>
+<li>面向对象</li>
+<li>个人计算机 图形界面</li>
+</ol>
+<h2 id="7-1-过程"><a href="#7-1-过程" class="headerlink" title="7.1. 过程"></a>7.1. 过程</h2><ol>
+<li>虚拟计算机<ul>
+<li>个人计算机</li>
+<li>更好的编译器</li>
+<li>图形化界面编程环境</li>
+<li>存储器</li>
+</ul>
+</li>
+<li>抽象软件实体<ul>
+<li>图形界面</li>
+<li>面向对象编程语言</li>
+</ul>
+</li>
+</ol>
+<h2 id="7-2-应用"><a href="#7-2-应用" class="headerlink" title="7.2. 应用"></a>7.2. 应用</h2><ol>
+<li>成指数型增长<ul>
+<li>软件复杂度</li>
+<li>个人消费市场规模</li>
+</ul>
+</li>
+<li>全世界对生产力、竞争力的关注</li>
+<li>日本的例子：将部分其他产业的方法引入到软件行业，丰田</li>
+</ol>
+<h2 id="7-3-软件发展方法"><a href="#7-3-软件发展方法" class="headerlink" title="7.3. 软件发展方法"></a>7.3. 软件发展方法</h2><ol>
+<li>现代结构化分析和设计<ul>
+<li>更多的结构化方法</li>
+<li>分析和设计的同时思考</li>
+</ul>
+</li>
+<li>面向对象分析和设计</li>
+<li>软件重用</li>
+</ol>
+<h3 id="7-3-1-现代结构化分析和设计"><a href="#7-3-1-现代结构化分析和设计" class="headerlink" title="7.3.1. 现代结构化分析和设计"></a>7.3.1. 现代结构化分析和设计</h3><ol>
+<li>1970s中后期基于结构化编程建⽴了早期的结构化⽅法，包括结构化分析与结构化设计：更多地还在关注于软件程序的构建。</li>
+<li>到了1980s，⼈们逐步开始将结构化分析与设计的关注点转向问题解决和系统构建，产⽣了现代结构化⽅法<ul>
+<li>信息工程(Information Engineering)[Martin1981]、JSD(Jackson System Development)[Jackson1983]、SSADM(Structured systems analysis and design method )、SADT( Structure Analysis and Design Technique)[Marca1987]和现代结构化分析(Modern Structured Analysis)[Yourdon1989]。</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li>更注重系统构建⽽不是程序构建，所以更重视问题分析、需求规格和系统总体结构组织⽽不是让分析与设计结果符合结构化程序设计理论，更重视阶段递进的系统化开发过程，⽽不是⼀切围绕最后的编程进⾏。</li>
+</ul>
+<h3 id="7-3-2-面向对象编程"><a href="#7-3-2-面向对象编程" class="headerlink" title="7.3.2. 面向对象编程"></a>7.3.2. 面向对象编程</h3><ol>
+<li>最早的面向对象编程思想可追溯到1960s的Simular-67语⾔[Nygaard1978]：使用了类、对象、协作、继承、多态(子类型)等最基础的⾯向对象概念。</li>
+<li>1970s的Smalltalk[Kay1993]就是完全基于面向对象思想的程序设计语⾔：它强化了⼀切皆是对象和对象封装的思想，发展了继承和多态。</li>
+<li>到了1980s中后期，随着C++的出现和⼴泛应用，面向对象编程成为程序设计的主流。C++只是在C语⾔中加⼊面向对象的特征，并不是纯粹的⾯向对象语⾔。</li>
+<li>面向对象特性 <ul>
+<li>⾯向对象本身不像结构化⼀样有基于数学的程序设计理论的⽀撑</li>
+<li>[Booch1997]认为模块化、信息隐藏等设计思想和数据库模型的进步都是促使⾯向对象概念演进的重要因素。</li>
+<li>与结构化⽅法相⽐，⾯向对象⽅法中的结构和关系(类、对象、⽅法、继承)能够为领域应用提供更加自然的⽀持，使得软件的复用性和可修改性更加强⼤。</li>
+<li>可复用性满⾜了1980s追求⽣产⼒的要求，尤其是提⾼了GUI编程的⽣产⼒，这也是推动⾯向对象编程发展的重要动⼒[Graham2001]。</li>
+</ul>
+</li>
+</ol>
+<h3 id="7-3-3-结构化编程-和-面向对象编程-对比"><a href="#7-3-3-结构化编程-和-面向对象编程-对比" class="headerlink" title="7.3.3. 结构化编程 和 面向对象编程 对比"></a>7.3.3. 结构化编程 和 面向对象编程 对比</h3><ol>
+<li>结构化<ul>
+<li>学术化</li>
+<li>严谨，充足的数学⽀持</li>
+</ul>
+</li>
+<li>⾯向对象<ul>
+<li>商业化</li>
+<li>原则的必要性，流派的复杂化<ul>
+<li>相当数量的程序员使用⾯向对象的语⾔写着过程式的程序</li>
+<li>⾯向对象是个好东⻄，但是只有专家级程序员才能用好它</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>⼯业界与学术界的鸿沟</li>
+</ol>
+<h3 id="7-3-4-重用和面向对象"><a href="#7-3-4-重用和面向对象" class="headerlink" title="7.3.4. 重用和面向对象"></a>7.3.4. 重用和面向对象</h3><ol>
+<li>1950’s: Math routines, utilities</li>
+<li>1960’s: McIlroy component marketplace, Simula – 67</li>
+<li>1970’s: Abstract data types, Parnas program families</li>
+<li>1980’s: Smalltalk, Eiffel, C++, OO methods, reuse libraries</li>
+<li>1990’s: Domain engineering, product lines, UML, pub-sub architectures</li>
+<li>2000’s: Model driven development, service oriented architectures</li>
+</ol>
+<h3 id="7-3-5-软件重用"><a href="#7-3-5-软件重用" class="headerlink" title="7.3.5. 软件重用"></a>7.3.5. 软件重用</h3><ol>
+<li>面向对象</li>
+<li>第4代语言</li>
+<li>购买商用组件</li>
+<li>程序产⽣器(自动化编程)</li>
+</ol>
+<h2 id="7-4-Software-Process-软件过程"><a href="#7-4-Software-Process-软件过程" class="headerlink" title="7.4. Software Process 软件过程"></a>7.4. Software Process 软件过程</h2><ol>
+<li>过程模型<ul>
+<li>原型[Budde1984]</li>
+<li>渐进交付[Basili1975]</li>
+<li>演化式开发[Gilb1981]</li>
+<li>螺旋[Boehm1988]</li>
+</ul>
+</li>
+<li>过程评价:很重要<ul>
+<li>CMU SEI(卡内基梅隆大学软件研究所)建⽴了软件能⼒成熟度模型 <strong>SW-CMM</strong>[Humphrey1988]，它通过评价<strong>企业的开发过程管理来反映企业的生产能力</strong>。</li>
+<li>国际标准化机构也完成⼀个类似的软件过程评价标准ISO-9001。</li>
+</ul>
+</li>
+<li>使用⼯具支持过程<ul>
+<li>计算机辅助软件⼯程(CASE)</li>
+</ul>
+</li>
+</ol>
+<h2 id="7-5-没有银弹"><a href="#7-5-没有银弹" class="headerlink" title="7.5. 没有银弹"></a>7.5. 没有银弹</h2><ol>
+<li>Frederick P. Brooks经过分析后认为，<strong>软件开发的根本困难在于软件产品的内在特性</strong>，它们是⽆法回避的，也不是可以轻易解决的，没有技术能够起到银弹的作用 ——没有银弹。</li>
+<li>布鲁克斯提出了主要的挑战<ul>
+<li>很棒的设计者</li>
+<li>快速原型法</li>
+<li>快速迭代式开发</li>
+<li>在工作中避免重用</li>
+</ul>
+</li>
+</ol>
+<h2 id="7-6-人"><a href="#7-6-人" class="headerlink" title="7.6. 人"></a>7.6. 人</h2><ol>
+<li>最终要的因素<ul>
+<li>软件工程是依赖于人、为了人。</li>
+</ul>
+</li>
+<li>1970’s: 温伯格计算机编程心理学</li>
+<li>1980’s: 《人件》</li>
+<li>1990’s – 2000’s: 在敏捷和CMM文化中强调的重要性<ul>
+<li>流程和工具上的个人和交互</li>
+<li>人员CMM，个人软件过程，团队软件过程</li>
+</ul>
+</li>
+</ol>
+<h2 id="7-7-总结"><a href="#7-7-总结" class="headerlink" title="7.7. 总结"></a>7.7. 总结</h2><ol>
+<li>生产力</li>
+<li>个人消费</li>
+<li>个人计算机</li>
+<li>图像界面</li>
+<li>现代化结构化方法</li>
+<li>面向对象</li>
+<li>重用</li>
+<li>软件过程</li>
+<li>没有银弹</li>
+<li>人力成本</li>
+</ol>
+<h1 id="8-年代-1990s：局域网，软件架构，RUP，过程改进"><a href="#8-年代-1990s：局域网，软件架构，RUP，过程改进" class="headerlink" title="8. 年代:1990s：局域网，软件架构，RUP，过程改进"></a>8. 年代:1990s：局域网，软件架构，RUP，过程改进</h1><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt2/14.png"></p>
+<ol>
+<li>Web Application 网络应用</li>
+<li>Intranet 软局域网</li>
+<li>Software Architecture 软件框架</li>
+<li>RUP(Rational Unified Process)统一软件开发过程</li>
+</ol>
+<h2 id="8-1-Progress"><a href="#8-1-Progress" class="headerlink" title="8.1. Progress"></a>8.1. Progress</h2><ol>
+<li>虚拟计算机<ul>
+<li>局域网</li>
+<li>中间件</li>
+</ul>
+</li>
+<li>抽象软件实体<ul>
+<li>软件结构</li>
+<li>Java</li>
+<li>ISBSG国际软件基准组织</li>
+</ul>
+</li>
+</ol>
+<h2 id="8-2-企业为中心"><a href="#8-2-企业为中心" class="headerlink" title="8.2. 企业为中心"></a>8.2. 企业为中心</h2><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt2/15.png"></p>
+<ol>
+<li>整合以前建⽴的各个”应用孤岛”，实现对整个企业业务的全⾯整体化管理</li>
+<li>以局域⽹为基础的软件系统可以覆盖企业的所有重要部⻔、重要⼈员和重要⼯作，实现它们之间的有效协同，从根本上提⾼企业的业务能⼒，价值和复杂度上都⽐孤⽴应用有着质的提⾼。</li>
+</ol>
+<h2 id="8-3-大规模软件系统"><a href="#8-3-大规模软件系统" class="headerlink" title="8.3. 大规模软件系统"></a>8.3. 大规模软件系统</h2><ol>
+<li>复杂度：1990s的⼀个发展主题就是建⽴能够开发⼤规模软件系统的⽅法与技术。</li>
+<li>可修改性：1990s出现了对软件可变更性的持续追求，这种态势延续⾄今。</li>
+<li>开发周期：⼈们必须解决⼤规模软件系统开发周期过⻓的问题，并在1990s中后期提出了市场驱动开发(Market Driven Development)的⼝号</li>
+<li>用户价值：从1990s后期开始，⼈们认识到了用户价值的重要性，并持续探索⾄今，⼈机交互、涉众分析等很多新的⽅法与技术都是为了提⾼软件产品的用户价值⽽提出来的。</li>
+</ol>
+<h2 id="8-4-软件发展方法"><a href="#8-4-软件发展方法" class="headerlink" title="8.4. 软件发展方法"></a>8.4. 软件发展方法</h2><ol>
+<li>面向对象</li>
+<li>软件架构</li>
+<li>人机交互</li>
+<li>需求工程</li>
+<li>基于大规模软件开发方法重用</li>
+<li>网络应用开发方法</li>
+</ol>
+<h2 id="8-5-面向对象思想"><a href="#8-5-面向对象思想" class="headerlink" title="8.5. 面向对象思想"></a>8.5. 面向对象思想</h2><ol>
+<li>出现了OMT[Rumbaugh1991]、Booch⽅法[Booch1997]、<br>OOSE[Jacobson1992]、CRC卡[Beck1989,Wirfs-Brock1990]等⼀系列⾯向对象的分析与设计⽅法。</li>
+<li>⼀个统⼀的面向对象建模语⾔UML[UML]被建⽴和传播。<ul>
+<li>对于开发的系统绘制的UML 第四层</li>
+<li>UML的图例语法等 第三层</li>
+<li>描述UML的模型 第二层</li>
+<li>模型的模型 第一层</li>
+</ul>
+</li>
+<li>设计模式[Gamma1995]、⾯向对象设计原则[Martin2002]等有效的⾯向对象实践经验被⼴泛的传播和应用。</li>
+</ol>
+<h2 id="8-6-软件体系架构"><a href="#8-6-软件体系架构" class="headerlink" title="8.6. 软件体系架构"></a>8.6. 软件体系架构</h2><ol>
+<li>上世纪70年代开发复杂软件系统的初步尝试[Brooks1975]使得⼈们明确和发展了独立的软件设计体系，提出了模块化、信息隐藏等最为基础的设计思想。</li>
+<li>到了随后的80年代中期，这些思想逐⼀⾛向成熟，并且成功融⼊了软件开发过程。这时，⼀些新的探索就出现了，其中包括⾯向对象设计，也包括针对⼤规模软件系统设计的⼀些总结与思考</li>
+<li>于是，研究者们[Perry1992, Garlan1993]在1990s初期正式提出了”软件体系结构”这⼀主题，并结合上世纪90年代之后出现的软件系统规模⽇益扩⼤的趋势，在其后的⼗年中对其进⾏了深⼊的探索与研究。</li>
+<li>⼈们在体系结构的基本内涵、⻛格、描述、设计、评价等⽅⾯开展了卓有成效的⼯作，在2000s初建⽴了⼀个⽐较系统的软件体系结构⽅法体系[Kruchten2006, Shaw2006]。</li>
+</ol>
+<h2 id="8-7-两种复用的模式"><a href="#8-7-两种复用的模式" class="headerlink" title="8.7. 两种复用的模式"></a>8.7. 两种复用的模式</h2><ol>
+<li><strong>框架</strong>：是领域特定的复用技术。它的基本思想是根据应用领域的共性和差异性特点，建⽴一个灵活的体系结构，并实现其中⽐较固定的部分，留下变化的部分等待开发者补充。</li>
+<li><strong>构件</strong>：是在代码实现层次上进⾏复用的技术。它的基本思想是给所有的构件定义⼀个接⼝标准，就像机械工程定义螺丝和螺⺟的标准规格⼀样，这样就可以忽略每个构件内部的因素实现不同构件之间的通信和交互。COM和<strong>JavaBean</strong>就是1990s产⽣并流⾏起来的构件标准。</li>
+</ol>
+<h2 id="8-8-网络开发发展方法"><a href="#8-8-网络开发发展方法" class="headerlink" title="8.8. 网络开发发展方法"></a>8.8. 网络开发发展方法</h2><ol>
+<li>在1990s早期，⼈们主要使用HTML开发静态的Web站点。</li>
+<li>到了1990s中后期，ASP、JSP、PHP、JavaScript等动态Web开发技术开始流⾏。</li>
+<li>在1990s后期，⼈们建⽴了Web程序的数据描述标准XML。</li>
+</ol>
+<h2 id="8-9-Software-process"><a href="#8-9-Software-process" class="headerlink" title="8.9. Software process"></a>8.9. Software process</h2><ol>
+<li>过程模型 <ul>
+<li>RUP</li>
+<li>Agile</li>
+<li>产品线</li>
+</ul>
+</li>
+<li>过程改进：CMMI</li>
+<li>开源软件, 遗留软件，商用货架产品(COTS)</li>
+<li>反向工程</li>
+<li>风险驱动的并行工程：带锚点的双赢螺旋；合理的统一过程</li>
+<li>RUP:<ul>
+<li>颜色代表本阶段做的多少</li>
+<li>分为四个阶段</li>
+</ul>
+</li>
+</ol>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt2/16.png"></p>
+<h2 id="8-10-开源"><a href="#8-10-开源" class="headerlink" title="8.10. 开源"></a>8.10. 开源</h2><ol>
+<li>开源<ul>
+<li>来源于黑客文化<ul>
+<li>集体代码所有权</li>
+<li>免费的软件，数据，计算介质</li>
+</ul>
+</li>
+<li>免费软件</li>
+<li>Linux</li>
+<li>Raymond’s “The Cathedral and the Bazaar”</li>
+</ul>
+</li>
+<li>组件和COTS是它们的未来</li>
+</ol>
+<h2 id="8-11-总结"><a href="#8-11-总结" class="headerlink" title="8.11. 总结"></a>8.11. 总结</h2><ol>
+<li>企业为中心，避免信息孤岛</li>
+<li>大规模软件系统</li>
+<li>Web</li>
+<li>软件结构</li>
+<li>特定领域方法</li>
+<li>产品先重用</li>
+<li>并行驱动、风险驱动过程：RUP</li>
+<li>CMMI</li>
+</ol>
+<h1 id="9-年代-00s：互联网、敏捷、混合敏捷和计划驱动"><a href="#9-年代-00s：互联网、敏捷、混合敏捷和计划驱动" class="headerlink" title="9. 年代:00s：互联网、敏捷、混合敏捷和计划驱动"></a>9. 年代:00s：互联网、敏捷、混合敏捷和计划驱动</h1><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt2/17.png"></p>
+<ol>
+<li>Internet</li>
+<li>Agile 敏捷</li>
+</ol>
+<h2 id="9-1-过程"><a href="#9-1-过程" class="headerlink" title="9.1. 过程"></a>9.1. 过程</h2><ol>
+<li>虚拟计算机<ul>
+<li>互联网</li>
+<li>嵌入式设备</li>
+<li>.Net, J2EE, 网络设备</li>
+<li>Linux, WinCE, iOS, Android 移动设备</li>
+<li>团队协作开发环境</li>
+</ul>
+</li>
+<li>抽象软件实体<ul>
+<li>UML 2.0</li>
+<li>模型驱动的开发和面向服务的体系结构</li>
+<li>混合敏捷和计划驱动的产品和过程架构</li>
+<li>用快速、不可预知的变化封装零件</li>
+<li>按规范并行构建、V&amp;V、敏捷再选择</li>
+</ul>
+</li>
+</ol>
+<h2 id="9-2-以用户为中心的应用"><a href="#9-2-以用户为中心的应用" class="headerlink" title="9.2. 以用户为中心的应用"></a>9.2. 以用户为中心的应用</h2><ol>
+<li>网络应用</li>
+<li>大众消费者</li>
+<li>提高系统工程和软件工程的集成度：”软系统工程”的发展趋势</li>
+<li>越来越关注可用性和价值：使软件和硬件适合人们，而不是相反</li>
+<li>紧急需求与预定需求</li>
+</ol>
+<h2 id="9-3-软件发展方法"><a href="#9-3-软件发展方法" class="headerlink" title="9.3. 软件发展方法"></a>9.3. 软件发展方法</h2><ol>
+<li>延续1990s的技术进展<ul>
+<li>集成系统与软件工程</li>
+<li>混合敏捷、计划驱动方法</li>
+<li>面向服务的体系结构，模型驱动的开发</li>
+</ul>
+</li>
+<li>Web技术发展</li>
+<li>领域特定的软件工程方法<ul>
+<li>以⽹络为中⼼的系统；</li>
+<li>信息系统；</li>
+<li>⾦融和电⼦商务系统；</li>
+<li>⾼可信系统；</li>
+<li>嵌⼊式和实时系统；</li>
+<li>多媒体、游戏和娱乐系统；</li>
+<li>⼩型移动平台系统。</li>
+</ul>
+</li>
+</ol>
+<h2 id="9-4-软件过程"><a href="#9-4-软件过程" class="headerlink" title="9.4. 软件过程"></a>9.4. 软件过程</h2><ol>
+<li>敏捷</li>
+<li>平衡</li>
+</ol>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt2/18.png"></p>
+<ol>
+<li>上图中的部分度量<ol>
+<li>人员多少</li>
+<li>企业文化</li>
+<li>需求变更的情况</li>
+</ol>
+</li>
+<li>越偏向中心，越敏捷</li>
+</ol>
+<h2 id="9-5-SE-从商业到个人"><a href="#9-5-SE-从商业到个人" class="headerlink" title="9.5. SE: 从商业到个人"></a>9.5. SE: 从商业到个人</h2><ol>
+<li>知识体系</li>
+<li>认可大学教育</li>
+</ol>
+<h2 id="9-6-总结"><a href="#9-6-总结" class="headerlink" title="9.6. 总结"></a>9.6. 总结</h2><ol>
+<li>大规模网络应用</li>
+<li>大众消费应用</li>
+<li>领域特定软件工程</li>
+<li>敏捷</li>
+</ol>
+<h1 id="10-年代-2010s-Big-data-AI"><a href="#10-年代-2010s-Big-data-AI" class="headerlink" title="10. 年代:2010s - Big data &amp; AI"></a>10. 年代:2010s - Big data &amp; AI</h1><ol>
+<li>云:云已经开始落地，并且效果很好</li>
+<li>众包</li>
+<li>Facebook,twiter,wechat,tiktok</li>
+<li>Big data</li>
+<li>AI</li>
+<li>可穿戴式设备</li>
+</ol>
+<h2 id="10-1-Barry-Bohem’s-view"><a href="#10-1-Barry-Bohem’s-view" class="headerlink" title="10.1. Barry Bohem’s view"></a>10.1. Barry Bohem’s view</h2><ol>
+<li>八大惊喜潮流<ol>
+<li>增加SysE和SwE的集成</li>
+<li>用户&#x2F;价值焦点</li>
+<li>软件关键性和可靠性</li>
+<li>快速，持续变更</li>
+<li>分布，移动性，互操作性，全球化</li>
+<li>开源、重用、遗留集成</li>
+<li>计算量</li>
+</ol>
+</li>
+<li>两种发展趋势<ul>
+<li>原子软件</li>
+<li>生物和计算机结合</li>
+</ul>
+</li>
+</ol>
+<h2 id="10-2-软件工程有可能的改进"><a href="#10-2-软件工程有可能的改进" class="headerlink" title="10.2. 软件工程有可能的改进"></a>10.2. 软件工程有可能的改进</h2><ol>
+<li>软件⽣产⼒和质量度量不精确</li>
+<li>存储认证可重用组件需要成为主流</li>
+<li>质量控制不稳定</li>
+<li>变更控制也做的不好</li>
+<li>项⽬估算也有待提⾼</li>
+<li>软件安全⼀直在警戒⽔平以下</li>
+<li>软件⼯程需要发放执照和职业资格认证的真正职业</li>
+<li>⾮功能性需求的新型度量⽅法</li>
+<li>遗留软件的维护</li>
+</ol>
+<h2 id="10-3-最近的软件工程概念"><a href="#10-3-最近的软件工程概念" class="headerlink" title="10.3. 最近的软件工程概念"></a>10.3. 最近的软件工程概念</h2><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt2/19.png"></p>
+<ol>
+<li>开发运维一体化</li>
+<li>微服务</li>
+<li>CI&#x2F;CD:持续集成，持续交付</li>
+<li>容器开发</li>
+</ol>
+<h2 id="10-4-开发过程"><a href="#10-4-开发过程" class="headerlink" title="10.4. 开发过程"></a>10.4. 开发过程</h2><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt2/20.png"></p>
+<h2 id="10-5-服务网格"><a href="#10-5-服务网格" class="headerlink" title="10.5. 服务网格"></a>10.5. 服务网格</h2><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt2/21.png"></p>
+<ol>
+<li>一个结点，A服务和B服务，有控制面板控制所有的服务，将所有的服务集成起来，让开发人员更关注于绿色部分</li>
+<li>蓝色部分:sidecar(边车)，负责处理服务以外的建立的联系</li>
+</ol>
+<h2 id="10-6-持续软件工程"><a href="#10-6-持续软件工程" class="headerlink" title="10.6. 持续软件工程"></a>10.6. 持续软件工程</h2><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt2/22.png"></p>
+<ol>
+<li>将商业策略和开发运维结合</li>
+<li>中台设计:将业务和架构结合</li>
+</ol>
+<h2 id="10-7-混沌工程"><a href="#10-7-混沌工程" class="headerlink" title="10.7. 混沌工程"></a>10.7. 混沌工程</h2><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt2/23.png"></p>
+<ol>
+<li>比如在一个系统中出现问题(如何在双11之前确保双11不会出现问题)：如何保证在真实的需求下也是充足的。</li>
+<li>最小化爆炸半径:在生产环境中，随机在一些局部给系统一个爆炸，来确定具体的状况。</li>
+</ol>
+<h1 id="11-总结"><a href="#11-总结" class="headerlink" title="11. 总结"></a>11. 总结</h1><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt2/24.png"></p>
+<ol>
+<li>From the 1950’s<ul>
+<li><code>+</code> 不要忽略科学</li>
+<li><code>+</code> 三思而后行(避免过早的承诺)</li>
+<li><code>-</code> 避免不连续的顺序过程</li>
+</ul>
+</li>
+<li>From the 1960’s<ul>
+<li><code>+</code> 跳出框框思考</li>
+<li><code>+</code> 尊重软件的差异</li>
+<li><code>-</code> 避免牛仔编程</li>
+</ul>
+</li>
+<li>From the 1970’s<ul>
+<li><code>+</code> 更早处理错误</li>
+<li><code>+</code> 确定系统布标</li>
+<li><code>-</code> 避免自上而下的发展还原论</li>
+</ul>
+</li>
+<li>From the 1980’s<ul>
+<li><code>+</code> 提高生产力的途径有很多</li>
+<li><code>+</code> 对产品有益的东西对工艺有益</li>
+<li><code>-</code> 对银弹持怀疑态度</li>
+</ul>
+</li>
+<li>From the 1990’s<ul>
+<li><code>+</code> 时间就是金钱，对人很重要</li>
+<li><code>+</code> 对人来说软件要实用</li>
+<li><code>-</code> 快速，但是不要急躁</li>
+</ul>
+</li>
+<li>From the 2000’s<ul>
+<li><code>+</code> 如果变化很快，适应性胜过可重复性</li>
+<li><code>+</code> 考虑并满足所有利益相关者的价值主张</li>
+<li><code>-</code> 避免爱上你的口号(雅格尼)</li>
+</ul>
+</li>
+<li>For the 2010’s<ul>
+<li><code>+</code> 把手放在手边</li>
+<li><code>+</code> 有生存策略</li>
+<li><code>-</code> 要什么都相信<ul>
+<li><code>-</code> 不要完全相信互联网</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h1 id="12-软件工程教育的未来挑战-2050年代的学生生涯"><a href="#12-软件工程教育的未来挑战-2050年代的学生生涯" class="headerlink" title="12. 软件工程教育的未来挑战-2050年代的学生生涯"></a>12. 软件工程教育的未来挑战-2050年代的学生生涯</h1><ol>
+<li>不断更新课件</li>
+<li>预测未来趋势并为学生做好准备</li>
+<li>将永恒的原则与老化实践分离</li>
+<li>使小型学生项目与大型行业实践相关 </li>
+<li>参与研究；将结果纳入课程</li>
+<li>帮助学生学会学习</li>
+<li>为从业者提供终身学习</li>
+</ol>
+<h1 id="13-从1950s—2000s之间的特点-简答"><a href="#13-从1950s—2000s之间的特点-简答" class="headerlink" title="13. 从1950s—2000s之间的特点(简答)"></a>13. 从1950s—2000s之间的特点(简答)</h1><ol>
+<li>1950s：科学计算；以机器为中心进行编程；像生产硬件一样生产软件。</li>
+<li>1960s：业务应用(批量数据处理和事物计算)；软件不同于硬件；用软件工艺的方式生产软件。</li>
+<li>1970s：结构化方法；瀑布模型；强调规则和纪律。它们奠定了软件工程的基础，是后续年代软件工程发展的支撑。</li>
+<li>1980s：追求生产力最大化；现代结构化方法&#x2F;面向对象编程广泛应用；重视过程的作用。</li>
+<li>1990s：企业为中心的大规模软件系统开发；追求快速开发、可变更性和用户价值；web应用出现</li>
+<li>2000s：大规模web应用；大量面向大众的web产品；追求快速开发、可变更性、用户价值和创新。</li>
+</ol>
+
+        
+      </div>
+
+         
+    </div>
+    
+     
+  </div>
+  
+    
+<nav id="article-nav">
+  <a class="article-nav-btn left "
+    
+      href="/2022/06/16/SE-II%E7%AC%94%E8%AE%B0/01-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%9F%BA%E7%A1%80/"
+      title="SE-II-ch01-软件工程基础"
+     >
+    <i class="fa-solid fa-angle-left"></i>
+    <p class="title-text">
+      
+        SE-II-ch01-软件工程基础
+        
+    </p>
+  </a>
+  <a class="article-nav-btn right "
+    
+      href="/2022/06/16/SE-II%E7%AC%94%E8%AE%B0/03-%E5%AE%9E%E4%BE%8B%E9%A1%B9%E7%9B%AE%E6%8F%8F%E8%BF%B0/"
+      title="SE-II-ch03-实例项目描述"
+     >
+
+    <p class="title-text">
+      
+        SE-II-ch03-实例项目描述
+        
+    </p>
+    <i class="fa-solid fa-angle-right"></i>
+  </a>
+</nav>
+
+
+  
+</article>
+
+
+  
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <div id="comment-card" class="comment-card">
+    <div class="main-title-bar">
+      <div class="main-title-dot"></div>
+      <div class="main-title">留言 </div>
+    </div>
+    <div id="vcomments"></div>
+  </div>
+  <script>
+      new Valine({"enable":true,"appId":null,"appKey":null,"placeholder":"Just go go","pageSize":20,"highlight":true,"serverURLs":null,"el":"#vcomments"});
+  </script>
+ 
+    </div>
+    <div id="footer-wrapper">
+      <footer id="footer">
+  
+  <div id="footer-info" class="inner">
+    
+      <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris"></a>
+    
+    &copy; 2023 Asimov<br>
+    Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & Theme <a target="_blank" rel="noopener" href="https://github.com/saicaca/hexo-theme-vivia">Vivia</a>
+  </div>
+</footer>
+
+    </div>
+    <div class="back-to-top-wrapper">
+    <button id="back-to-top-btn" class="back-to-top-btn hide" onclick="topFunction()">
+        <i class="fa-solid fa-angle-up"></i>
+    </button>
+</div>
+
+<script>
+    function topFunction() {
+        window.scroll({ top: 0, behavior: 'smooth' });
+    }
+    let btn = document.getElementById('back-to-top-btn');
+    function scrollFunction() {
+        if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+            btn.classList.remove('hide')
+        } else {
+            btn.classList.add('hide')
+        }
+    }
+    window.onscroll = function() {
+        scrollFunction();
+    }
+</script>
+
+  </div>
+  <script src="/js/light-dark-switch.js"></script>
+</body>
+</html>

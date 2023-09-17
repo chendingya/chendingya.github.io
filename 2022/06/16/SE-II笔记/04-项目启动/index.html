@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+
+
+<html theme="dark" showBanner="true" hasBanner="true" > 
+<link href="/fontawesome/css/fontawesome.css" rel="stylesheet">
+<link href="/fontawesome/css/brands.css" rel="stylesheet">
+<link href="/fontawesome/css/solid.css" rel="stylesheet">
+<script src="/js/color.global.min.js" ></script>
+<script src="/js/load-settings.js" ></script>
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+
+  
+  <title>SE-II-ch04-项目启动 | Asimov&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+  <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+
+  <meta name="description" content="04-项目启动   1. 项目和项目管理 1.1. 项目   2. 团队组织与管理 2.1. 团队 2.2. 团队的特征 2.3. 团队结构 2.4. 团队建设(高凝聚力的团队被称为胶冻团队) 重要   3. 软件质量保障 3.1. 软件质量 3.2. 质量模型 3.3. 质量保障 3.4. 评审 3.4.1. 典型的评审过程   3.5. 质量度量 3.6. 质量保障有哪些措施(重要)   4.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SE-II-ch04-项目启动">
+<meta property="og:url" content="https://chendingya.github.io/2022/06/16/SE-II%E7%AC%94%E8%AE%B0/04-%E9%A1%B9%E7%9B%AE%E5%90%AF%E5%8A%A8/index.html">
+<meta property="og:site_name" content="Asimov&#39;s Blog">
+<meta property="og:description" content="04-项目启动   1. 项目和项目管理 1.1. 项目   2. 团队组织与管理 2.1. 团队 2.2. 团队的特征 2.3. 团队结构 2.4. 团队建设(高凝聚力的团队被称为胶冻团队) 重要   3. 软件质量保障 3.1. 软件质量 3.2. 质量模型 3.3. 质量保障 3.4. 评审 3.4.1. 典型的评审过程   3.5. 质量度量 3.6. 质量保障有哪些措施(重要)   4.">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt4/1.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt4/2.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt4/3.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt4/5.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt4/4.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt4/6.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt4/7.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt4/8.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt4/9.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt4/10.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt4/11.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt4/12.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt4/13.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt4/14.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt4/15.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt4/15.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt4/16.png">
+<meta property="article:published_time" content="2022-06-16T08:02:34.000Z">
+<meta property="article:modified_time" content="2023-09-17T07:45:46.441Z">
+<meta property="article:author" content="Asimov">
+<meta property="article:tag" content="软件工程与计算II">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt4/1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Asimov's Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-192.png" sizes="192x192">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-192.png" sizes="192x192">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  
+  
+    
+<div id="banner" class="">
+  <img src="/pic/back.png" itemprop="image">
+  <div id="banner-dim"></div>
+</div>
+ 
+   
+  <div id="main-grid" class="shadow   ">
+    <div id="nav" class=""  >
+      <navbar id="navbar">
+  <nav id="title-nav">
+    <a href="/">
+      <div id="vivia-logo">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div>Asimov's Blog </div>
+    </a>
+  </nav>
+  <nav id="main-nav">
+    
+      <a class="main-nav-link" href="/">Home</a>
+    
+      <a class="main-nav-link" href="/archives">Archives</a>
+    
+      <a class="main-nav-link" href="/about">About</a>
+    
+  </nav>
+  <nav id="sub-nav">
+    <a id="theme-btn" class="nav-icon">
+      <span class="light-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M438.5-829.913v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-829.913Zm0 747.826v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-82.087ZM877.913-438.5h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537t29.476-12.174h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T877.913-438.5Zm-747.826 0h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T82.087-521.5h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T130.087-438.5Zm660.174-290.87-34.239 32q-12.913 12.674-29.565 12.174-16.653-.5-29.327-13.174-12.674-12.673-12.554-28.826.12-16.152 12.794-28.826l33-35q12.913-12.674 30.454-12.674t30.163 12.847q12.709 12.846 12.328 30.826-.38 17.98-13.054 30.653ZM262.63-203.978l-32 34q-12.913 12.674-30.454 12.674t-30.163-12.847q-12.709-12.846-12.328-30.826.38-17.98 13.054-30.653l33.239-31q12.913-12.674 29.565-12.174 16.653.5 29.327 13.174 12.674 12.673 12.554 28.826-.12 16.152-12.794 28.826Zm466.74 33.239-32-33.239q-12.674-12.913-12.174-29.565.5-16.653 13.174-29.327 12.673-12.674 28.826-13.054 16.152-.38 28.826 12.294l35 33q12.674 12.913 12.674 30.454t-12.847 30.163q-12.846 12.709-30.826 12.328-17.98-.38-30.653-13.054ZM203.978-697.37l-34-33q-12.674-12.913-13.174-29.945-.5-17.033 12.174-29.707t31.326-13.293q18.653-.62 31.326 13.054l32 34.239q11.674 12.913 11.174 29.565-.5 16.653-13.174 29.327-12.673 12.674-28.826 12.554-16.152-.12-28.826-12.794ZM480-240q-100 0-170-70t-70-170q0-100 70-170t170-70q100 0 170 70t70 170q0 100-70 170t-170 70Zm-.247-82q65.703 0 111.475-46.272Q637-414.544 637-480.247t-45.525-111.228Q545.95-637 480.247-637t-111.475 45.525Q323-545.95 323-480.247t45.525 111.975Q414.05-322 479.753-322ZM481-481Z"/></svg></span>
+      <span class="dark-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M480.239-116.413q-152.63 0-258.228-105.478Q116.413-327.37 116.413-480q0-130.935 77.739-227.435t206.304-125.043q43.022-9.631 63.87 10.869t3.478 62.805q-8.891 22.043-14.315 44.463-5.424 22.42-5.424 46.689 0 91.694 64.326 155.879 64.325 64.186 156.218 64.186 24.369 0 46.978-4.946 22.609-4.945 44.413-14.076 42.826-17.369 62.967 1.142 20.142 18.511 10.511 61.054Q807.174-280 712.63-198.206q-94.543 81.793-232.391 81.793Zm0-95q79.783 0 143.337-40.217 63.554-40.218 95.793-108.283-15.608 4.044-31.097 5.326-15.49 1.283-31.859.805-123.706-4.066-210.777-90.539-87.071-86.473-91.614-212.092-.24-16.369.923-31.978 1.164-15.609 5.446-30.978-67.826 32.478-108.282 96.152Q211.652-559.543 211.652-480q0 111.929 78.329 190.258 78.329 78.329 190.258 78.329ZM466.13-465.891Z"/></svg></span>
+    </a>
+    
+      <a id="nav-rss-link" class="nav-icon mobile-hide" href="/atom.xml" title="RSS 订阅">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-120q-25.846 0-44.23-18.384-18.384-18.385-18.384-44.23 0-25.846 18.384-44.23 18.384-18.385 44.23-18.385 25.846 0 44.23 18.385 18.384 18.384 18.384 44.23 0 25.845-18.384 44.23Q223.846-120 198-120Zm538.385 0q-18.846 0-32.923-13.769-14.076-13.769-15.922-33.23-8.692-100.616-51.077-188.654-42.385-88.039-109.885-155.539-67.5-67.501-155.539-109.885Q283-663.462 182.385-672.154q-19.461-1.846-33.23-16.23-13.769-14.385-13.769-33.846t14.076-32.922q14.077-13.461 32.923-12.23 120.076 8.692 226.038 58.768 105.961 50.077 185.73 129.846 79.769 79.769 129.846 185.731 50.077 105.961 58.769 226.038 1.231 18.846-12.538 32.922Q756.461-120 736.385-120Zm-252 0q-18.231 0-32.423-13.461t-18.653-33.538Q418.155-264.23 348.886-333.5q-69.27-69.27-166.501-84.423-20.077-4.462-33.538-18.961-13.461-14.5-13.461-33.346 0-19.076 13.884-33.23 13.884-14.153 33.115-10.922 136.769 15.384 234.384 112.999 97.615 97.615 112.999 234.384 3.231 19.23-10.538 33.115Q505.461-120 484.385-120Z"/></svg>
+      </a>
+    
+    <div id="nav-menu-btn" class="nav-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M177.37-252.282q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Zm0-186.218q-17.453 0-29.477-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T177.37-521.5h605.26q17.453 0 29.477 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T782.63-438.5H177.37Zm0-186.217q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Z"/></svg>
+    </div>
+  </nav>
+</navbar>
+<div id="nav-dropdown" class="hidden">
+  <div id="dropdown-link-list">
+    
+      <a class="nav-dropdown-link" href="/">Home</a>
+    
+      <a class="nav-dropdown-link" href="/archives">Archives</a>
+    
+      <a class="nav-dropdown-link" href="/about">About</a>
+    
+    
+      <a class="nav-dropdown-link" href="/atom.xml" title="RSS 订阅">RSS</a>
+     
+    </div>
+</div>
+<script>
+  let dropdownBtn = document.getElementById("nav-menu-btn");
+  let dropdownEle = document.getElementById("nav-dropdown");
+  dropdownBtn.onclick = function() {
+    dropdownEle.classList.toggle("hidden");
+  }
+</script>
+    </div>
+    <div id="sidebar-wrapper">
+      <sidebar id="sidebar">
+  
+    <div class="widget-wrap">
+  <div class="info-card">
+    <div class="avatar">
+      
+        <image src=/pic/avatar.png></image>
+      
+      <div class="img-dim"></div>
+    </div>
+    <div class="info">
+      <div class="username">Asimov </div>
+      <div class="dot"></div>
+      <div class="subtitle">Asimov's Blog </div>
+      <div class="link-list">
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://github.com/chendingya" title="GitHub"><i class="fa-brands fa-github"></i></a>
+         
+      </div>  
+    </div>
+  </div>
+</div>
+
+  
+  <div class="sticky">
+    
+      
+
+
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">分类</h3>
+      <div class="category-box">
+            <a class="category-link" href="/categories/hello-world/">
+                hello world
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/Hexo/">
+                Hexo
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
+                编译原理
+                <div class="category-count">13</div>
+            </a>
+        
+            <a class="category-link" href="/categories/tdesign/">
+                tdesign
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">
+                软件工程与计算II
+                <div class="category-count">30</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E9%A9%BE%E8%80%83/">
+                驾考
+                <div class="category-count">2</div>
+            </a>
+        </div>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">标签</h3>
+      <ul class="widget-tag-list" itemprop="keywords"><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/hello-world/" rel="tag">hello world</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/tdesign/" rel="tag">tdesign</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" rel="tag">编译原理</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/" rel="tag">软件工程与计算II</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E9%A9%BE%E8%80%83/" rel="tag">驾考</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">归档</h3>
+      
+      
+        <a class="archive-link" href="/archives/2023/09 ">
+          九月 2023 
+          <div class="archive-count">2 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/07 ">
+          七月 2023 
+          <div class="archive-count">2 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/04 ">
+          四月 2023 
+          <div class="archive-count">10 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/03 ">
+          三月 2023 
+          <div class="archive-count">3 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2022/10 ">
+          十月 2022 
+          <div class="archive-count">1 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2022/06 ">
+          六月 2022 
+          <div class="archive-count">30 </div>
+        </a>
+      
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">最新文章</h3>
+      <ul>
+        
+          <a class="recent-link" href="/2023/09/15/23-tdesign/Mock%E4%BD%BF%E7%94%A8/" title="微信小程序中Mock使用" >
+            <div class="recent-link-text">
+              微信小程序中Mock使用
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/09/12/%E9%A9%BE%E8%80%83/%E9%A9%BE%E8%80%83-%E7%A7%91%E7%9B%AE%E4%BA%8C/" title="驾考-科目二" >
+            <div class="recent-link-text">
+              驾考-科目二
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/07/18/blog/" title="blog" >
+            <div class="recent-link-text">
+              blog
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/07/17/%E9%A9%BE%E8%80%83/%E9%A9%BE%E8%80%83-%E7%A7%91%E7%9B%AE%E4%B8%80/" title="驾考-科目一" >
+            <div class="recent-link-text">
+              驾考-科目一
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/04/10/23-Compilers/ch18-codegen-riscv-RISC-V%20%E6%A6%82%E8%BF%B0/" title="ch18-codegen-riscv-RISC-V 概述" >
+            <div class="recent-link-text">
+              ch18-codegen-riscv-RISC-V 概述
+            </div>
+          </a>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+  </div>
+</sidebar>
+    </div>
+    <div id="content-body">
+       
+
+<article id="post-SE-II笔记/04-项目启动" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 class="p-name article-title" itemprop="headline name">
+        SE-II-ch04-项目启动
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2022-06-16T08:02:34.000Z" itemprop="datePublished">2022-06-16</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">软件工程与计算II</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            3.9k 词 
+          </div>
+        </div>
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/" rel="tag">软件工程与计算II</a></li></ul>
+
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <h2 id="04-项目启动"><a href="#04-项目启动" class="headerlink" title="04-项目启动"></a>04-项目启动</h2><!-- TOC -->
+
+<ul>
+<li><a href="#1-%E9%A1%B9%E7%9B%AE%E5%92%8C%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86">1. 项目和项目管理</a><ul>
+<li><a href="#11-%E9%A1%B9%E7%9B%AE">1.1. 项目</a></li>
+</ul>
+</li>
+<li><a href="#2-%E5%9B%A2%E9%98%9F%E7%BB%84%E7%BB%87%E4%B8%8E%E7%AE%A1%E7%90%86">2. 团队组织与管理</a><ul>
+<li><a href="#21-%E5%9B%A2%E9%98%9F">2.1. 团队</a></li>
+<li><a href="#22-%E5%9B%A2%E9%98%9F%E7%9A%84%E7%89%B9%E5%BE%81">2.2. 团队的特征</a></li>
+<li><a href="#23-%E5%9B%A2%E9%98%9F%E7%BB%93%E6%9E%84">2.3. 团队结构</a></li>
+<li><a href="#24-%E5%9B%A2%E9%98%9F%E5%BB%BA%E8%AE%BE%E9%AB%98%E5%87%9D%E8%81%9A%E5%8A%9B%E7%9A%84%E5%9B%A2%E9%98%9F%E8%A2%AB%E7%A7%B0%E4%B8%BA%E8%83%B6%E5%86%BB%E5%9B%A2%E9%98%9F-%E9%87%8D%E8%A6%81">2.4. 团队建设(高凝聚力的团队被称为胶冻团队) 重要</a></li>
+</ul>
+</li>
+<li><a href="#3-%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C">3. 软件质量保障</a><ul>
+<li><a href="#31-%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F">3.1. 软件质量</a></li>
+<li><a href="#32-%E8%B4%A8%E9%87%8F%E6%A8%A1%E5%9E%8B">3.2. 质量模型</a></li>
+<li><a href="#33-%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C">3.3. 质量保障</a></li>
+<li><a href="#34-%E8%AF%84%E5%AE%A1">3.4. 评审</a><ul>
+<li><a href="#341-%E5%85%B8%E5%9E%8B%E7%9A%84%E8%AF%84%E5%AE%A1%E8%BF%87%E7%A8%8B">3.4.1. 典型的评审过程</a></li>
+</ul>
+</li>
+<li><a href="#35-%E8%B4%A8%E9%87%8F%E5%BA%A6%E9%87%8F">3.5. 质量度量</a></li>
+<li><a href="#36-%E8%B4%A8%E9%87%8F%E4%BF%9D%E9%9A%9C%E6%9C%89%E5%93%AA%E4%BA%9B%E6%8E%AA%E6%96%BD%E9%87%8D%E8%A6%81">3.6. 质量保障有哪些措施(重要)</a></li>
+</ul>
+</li>
+<li><a href="#4-%E8%BD%AF%E4%BB%B6%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86">4. 软件配置管理</a><ul>
+<li><a href="#41-%E8%BD%AF%E4%BB%B6%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86%E7%9A%84%E5%8A%A8%E6%9C%BA">4.1. 软件配置管理的动机</a></li>
+<li><a href="#42-%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86">4.2. 配置管理</a></li>
+<li><a href="#43-%E9%85%8D%E7%BD%AE%E9%A1%B9">4.3. 配置项</a></li>
+<li><a href="#44-%E5%9F%BA%E7%BA%BF">4.4. 基线</a></li>
+<li><a href="#45-%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86%E6%B4%BB%E5%8A%A8%E9%87%8D%E8%A6%81">4.5. 配置管理活动(重要)</a></li>
+<li><a href="#46-%E8%BE%85%E5%8A%A9%E7%AE%A1%E7%90%86%E5%B7%A5%E5%85%B7">4.6. 辅助管理工具</a></li>
+<li><a href="#47-%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86%E7%A4%BA%E6%84%8F%E5%9B%BE">4.7. 版本管理示意图</a><ul>
+<li><a href="#471-%E5%88%86%E6%94%AF%E7%AE%A1%E7%90%86%E5%B8%B8%E8%A7%81%E7%AD%96%E7%95%A5">4.7.1. 分支管理常见策略</a></li>
+<li><a href="#472-%E6%9F%A5%E7%9C%8B%E4%B8%8D%E5%90%8C">4.7.2. 查看不同</a></li>
+<li><a href="#473-%E4%B8%BA%E5%95%A5%E8%A6%81%E6%9A%82%E5%AD%98%E5%8C%BA">4.7.3. 为啥要暂存区</a></li>
+</ul>
+</li>
+<li><a href="#48-%E5%8F%98%E6%9B%B4%E8%A6%81%E6%B1%82%E8%A1%A8%E5%8D%95">4.8. 变更要求表单</a></li>
+</ul>
+</li>
+<li><a href="#5-%E7%AE%A1%E7%90%86%E5%AE%9E%E8%B7%B5">5. 管理实践</a><ul>
+<li><a href="#51-%E7%BB%8F%E6%B5%8E%E4%B8%BA%E6%9C%AC">5.1. 经济为本</a><ul>
+<li><a href="#511-%E6%80%BB%E7%BB%93">5.1.1. 总结</a></li>
+</ul>
+</li>
+<li><a href="#52-%E5%88%86%E5%B7%A5%E5%8D%8F%E4%BD%9C">5.2. 分工协作</a><ul>
+<li><a href="#521-%E5%BB%BA%E8%AE%AE%E7%9A%84%E5%9B%A2%E9%98%9F">5.2.1. 建议的团队</a></li>
+<li><a href="#522-%E4%B8%89%E6%9E%B6%E9%A9%AC%E8%BD%A6">5.2.2. 三架马车</a></li>
+<li><a href="#523-%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%E7%9A%84%E8%A7%92%E8%89%B2">5.2.3. 项目管理的角色</a></li>
+</ul>
+</li>
+<li><a href="#53-%E7%9B%AE%E6%A0%87%E9%A9%B1%E5%8A%A8">5.3. 目标驱动</a><ul>
+<li><a href="#531-%E7%9B%AE%E6%A0%87%E7%9A%84smart%E5%8E%9F%E5%88%99">5.3.1. 目标的SMART原则</a></li>
+</ul>
+</li>
+<li><a href="#54-%E5%B8%B8%E6%9D%A5%E5%B8%B8%E5%BE%80">5.4. 常来常往</a><ul>
+<li><a href="#541-%E8%A7%82%E5%BF%B5">5.4.1. 观念</a></li>
+</ul>
+</li>
+<li><a href="#55-%E6%9C%89%E5%BC%A0%E6%9C%89%E5%BC%9B">5.5. 有张有弛</a><ul>
+<li><a href="#551-%E6%96%B9%E6%B3%95">5.5.1. 方法</a></li>
+</ul>
+</li>
+<li><a href="#56-%E4%B8%8D%E6%96%AD%E6%80%BB%E7%BB%93">5.6. 不断总结</a><ul>
+<li><a href="#561-%E7%BB%99%E7%AE%A1%E7%90%86%E6%96%B0%E6%89%8B%E7%9A%84%E5%BB%BA%E8%AE%AE">5.6.1. 给管理新手的建议</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#6-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%B7%B5">6. 项目实践</a></li>
+</ul>
+<!-- /TOC -->
+
+<h1 id="1-项目和项目管理"><a href="#1-项目和项目管理" class="headerlink" title="1. 项目和项目管理"></a>1. 项目和项目管理</h1><ol>
+<li>项目的<strong>核心是计划</strong>：计划包括项目需要的资源、活动，以及在项目中需要产生的中间交付产品。</li>
+</ol>
+<h2 id="1-1-项目"><a href="#1-1-项目" class="headerlink" title="1.1. 项目"></a>1.1. 项目</h2><ol>
+<li>项⽬是具有下列特征的⼀系列活动和任务[Kerzner2009]<ul>
+<li>具有⼀个明确的目标；</li>
+<li>有限定的开始和结束日期；</li>
+<li>有成本限制；</li>
+<li>消耗人力和⾮人力资源；</li>
+<li>多工种合作。</li>
+</ul>
+</li>
+<li>项目管理的目标<ul>
+<li>在限定时间内；</li>
+<li>在⼀定的成本内；</li>
+<li>在要求的质量⽔平上；</li>
+<li>⾼效使⽤资源；</li>
+<li>获得客户认可。</li>
+</ul>
+</li>
+<li>项目管理活动：项目启动、项目计划、项目执⾏，项目跟踪与控制和项⽬收尾</li>
+<li>活动：计划制定、团队管理、成本控制、质量保障、度量、过程管理、进度跟踪 与控制、⻛险管理、配置管理</li>
+</ol>
+<h1 id="2-团队组织与管理"><a href="#2-团队组织与管理" class="headerlink" title="2. 团队组织与管理"></a>2. 团队组织与管理</h1><h2 id="2-1-团队"><a href="#2-1-团队" class="headerlink" title="2.1. 团队"></a>2.1. 团队</h2><ol>
+<li>⼀个协作良好的团队是任何项目成功的基础。</li>
+<li>软件项⽬尤其依赖于有效的团队组织和管理：软件开发是⼀个以⼈为主的活动，⼈⼒资源是软件项⽬最⼤的资产。</li>
+<li>有很多实践者认为⽐⽣产⾼质量产品更⼤的成功是<strong>在⽣产过程中建⽴⼀个凝聚的团队</strong></li>
+</ol>
+<h2 id="2-2-团队的特征"><a href="#2-2-团队的特征" class="headerlink" title="2.2. 团队的特征"></a>2.2. 团队的特征</h2><ol>
+<li>[Katzenbach1993]将团队定义为：为了⼀致的⽬的、绩效标准、⽅法⽽共担 责任并且技能互补的少数⼈。<ul>
+<li>团队成员要具备共同的目标。</li>
+<li>团队成员要共担责任。</li>
+<li>团队成员要技能互补。</li>
+<li>团队内部要有⼀个明确的结构。</li>
+</ul>
+</li>
+</ol>
+<h2 id="2-3-团队结构"><a href="#2-3-团队结构" class="headerlink" title="2.3. 团队结构"></a>2.3. 团队结构</h2><ol>
+<li><strong>主程序员团队</strong>:决策需要由主程序员进行制定<ul>
+<li>效率高，如果完成把握大，并且需要时间紧迫，可以优先考虑</li>
+<li>一个人的决断容易影响整个团队，如果项目复杂，主程序员会成为瓶颈。</li>
+<li>适用于把握性大，时间要求紧的情况</li>
+</ul>
+</li>
+<li><strong>民主团队</strong>:没有集中的瓶颈，成员发挥能动性，工作效率降低，冲突解决。敏捷+较有挑战性的项目</li>
+<li><strong>开放团队</strong>:<ul>
+<li>为了创新而存在的。黑箱管理，问题在于项目进展没有可视度。</li>
+<li>相对于前两个团队的需求明确，团队的需求并不明确</li>
+<li>管理者主要负责清除出现的障碍。</li>
+<li>开放团队是为了创新而存在</li>
+</ul>
+</li>
+</ol>
+<h2 id="2-4-团队建设-高凝聚力的团队被称为胶冻团队-重要"><a href="#2-4-团队建设-高凝聚力的团队被称为胶冻团队-重要" class="headerlink" title="2.4. 团队建设(高凝聚力的团队被称为胶冻团队) 重要"></a>2.4. 团队建设(高凝聚力的团队被称为胶冻团队) 重要</h2><ol>
+<li><strong>建立团队章程</strong>：建立明确的团队章程，统一团队成员的目标，对团队成员进行一定的约束。经验：有必要指定一定的章程，约束团队成员之间的行为，比如开会请假必须得到其他三人的同意，又如一旦某项决策做出，不同意者不能再后续阶段违反等。</li>
+</ol>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt4/1.png"></p>
+<ol start="2">
+<li><strong>持续成功</strong>：设置小里程碑，每隔一段时间让团队体验成功。每次作业的检查结果一定程度上肯定了每个小阶段的工作。</li>
+<li><strong>和谐沟通</strong>：和谐沟通：建立持续有效的沟通机制，相互尊重，管道畅通，开放透明，坦诚真实。开会频率保持在每周一次左右为宜，在工作量大的时候，需要集体工作，当面沟通，另外吵架可以，但是需要达成一致。</li>
+<li><strong>不断总结</strong>：不断总结上一阶段的工作成果，运用项目评审等手段，进行反思回顾，指导后续阶段的开发。每个阶段都会有启动会议对上个阶段进行回顾，评审会议对此阶段进行评审。</li>
+<li><strong>避免团队杀手</strong>:需要对别人的工作全心全意的信任，尽管评审是必要的。产品质量的降低会使得凝聚力下降。<ul>
+<li>防范式管理。</li>
+<li>官僚主义。</li>
+<li>地理分散:异地办公</li>
+<li>时间分割:可以保证全天候有人在</li>
+<li>产品质量的降低。</li>
+<li>虚假的最后期限。</li>
+<li>⼩圈子管理</li>
+</ul>
+</li>
+<li>没有人能够成为多个胶冻团队的成员。</li>
+</ol>
+<h1 id="3-软件质量保障"><a href="#3-软件质量保障" class="headerlink" title="3. 软件质量保障"></a>3. 软件质量保障</h1><h2 id="3-1-软件质量"><a href="#3-1-软件质量" class="headerlink" title="3.1. 软件质量"></a>3.1. 软件质量</h2><ol>
+<li>软件工程师也要对软件产品的质量负责。</li>
+<li>对软件质量的要求可能是显式的，也可能是隐式的。</li>
+<li>⼈们通常会选⽤系统的某些质量要素进⾏量化处理，建⽴质量特征，这些特征被称为质量属性(Quality Attribute)。</li>
+<li>为了根据质量属性描述和评价系统的整体质量，⼈们从很多质量属性的定义当中选择了⼀些能够相互配合、相互联系的特征集，它们被称为质量模型。</li>
+<li>详见书上的IEEE的标准 P54页</li>
+</ol>
+<h2 id="3-2-质量模型"><a href="#3-2-质量模型" class="headerlink" title="3.2. 质量模型"></a>3.2. 质量模型</h2><ol>
+<li>因素</li>
+<li>功能性</li>
+<li>可靠性</li>
+<li>易用性:人机交互</li>
+<li>效率</li>
+<li>可维护性</li>
+<li>可移植性</li>
+</ol>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt4/2.png"></p>
+<h2 id="3-3-质量保障"><a href="#3-3-质量保障" class="headerlink" title="3.3. 质量保障"></a>3.3. 质量保障</h2><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt4/3.png"></p>
+<h2 id="3-4-评审"><a href="#3-4-评审" class="headerlink" title="3.4. 评审"></a>3.4. 评审</h2><h3 id="3-4-1-典型的评审过程"><a href="#3-4-1-典型的评审过程" class="headerlink" title="3.4.1. 典型的评审过程"></a>3.4.1. 典型的评审过程</h3><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt4/5.png"></p>
+<ol>
+<li>在规划阶段(Planning)，制定审查计划，决定审查会议的次数，安排每次审查会议的时间、地点、参与⼈员、审查内容等等。</li>
+<li>在总体部署阶段(Overview)，向所有参与审查会议的⼈员描述待审查材料的内容、审查的⽬标以及⼀些假设，并分发⽂档。</li>
+<li>在准备阶段(Preparation)，审查⼈员各⾃独⽴执⾏检查任务。在检查的过程当中，他们可能会被要求使⽤检查清单、场景等检查⽅法。检查中发现的问题会被记录下来，以准备开会讨论或者提交给收集 ⼈员。</li>
+<li>在审查会议阶段(Inspection Meeting)，通过会议讨论，识别、确认、分类发现的错误。(200L&#x2F;h)</li>
+<li>在返⼯阶段(Rework)，修改发现的缺陷。</li>
+<li>在跟踪阶段(Follow-up)，要确认所有发现的问题都得到了解决，所有的错误都得到了修正。</li>
+</ol>
+<h2 id="3-5-质量度量"><a href="#3-5-质量度量" class="headerlink" title="3.5. 质量度量"></a>3.5. 质量度量</h2><ol>
+<li>度量产⽣⾃统计控制(Statistical Control)思想。”你不能控制⾃⼰⽆法度量的东⻄”[DeMarco1998]。</li>
+<li>测度(Measure)就是为了描述软件产品⽽提供的定量指标：代码⾏数</li>
+<li>进行测度的活动被称为测量(Measurement)。</li>
+<li>度量(Metric)是软件产品在特定属性上的量化测度程度。</li>
+<li>例如基于所有对象的代码⾏数测度可以建⽴平均代码⾏数、最⼤代码⾏数、最⼩代码⾏数</li>
+</ol>
+<h2 id="3-6-质量保障有哪些措施-重要"><a href="#3-6-质量保障有哪些措施-重要" class="headerlink" title="3.6. 质量保障有哪些措施(重要)"></a>3.6. 质量保障有哪些措施(重要)</h2><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt4/4.png"></p>
+<ol>
+<li>需求开发——需求评审和需求度量；</li>
+<li>体系结构——体系结构评审和集成测试(持续集成)；</li>
+<li>详细设计——详细设计评审、设计度量和集成测试(持续集成)；</li>
+<li>构造阶段——代码评审、代码度量、测试(测试驱动和持续集成)；</li>
+<li>测试阶段——测试、测试度量。</li>
+<li>要及时的根据保障计划进行质量验证，<strong>质量验证的方法主要有评审、测试和质量度量</strong>三种。</li>
+</ol>
+<h1 id="4-软件配置管理"><a href="#4-软件配置管理" class="headerlink" title="4. 软件配置管理"></a>4. 软件配置管理</h1><h2 id="4-1-软件配置管理的动机"><a href="#4-1-软件配置管理的动机" class="headerlink" title="4.1. 软件配置管理的动机"></a>4.1. 软件配置管理的动机</h2><ol>
+<li>在软件开发活动中，除了最终产品之外，还会产⽣很多<strong>中间制品</strong>，例如<code>需求规格说明、需求分析模型、软件体系结构设计模型、详细设计模型</code>等。这些制品是不同阶段、不同⻆⾊、不同软件开发活动进⾏协同的基础。</li>
+<li>在复杂软件系统开发中，产⽣的制品数量众多，以⾄于开发者需要维护⼀个清单才能清楚项⽬所处的状态，理解已经完成的⼯作和将要进⾏的⼯作。</li>
+<li>某个制品发⽣变化带来的最⼤挑战是如何确保其使⽤者能够得到最新的制品，避免开发协同出现问题。</li>
+</ol>
+<h2 id="4-2-配置管理"><a href="#4-2-配置管理" class="headerlink" title="4.2. 配置管理"></a>4.2. 配置管理</h2><ol>
+<li>IEEE将配置管理定义为[IEEE610.12-1990]：”⽤技术的和管理的指导和监督⽅法，来<strong>标识和说明配置项</strong>的功能和物理特征，<strong>控制对这些特征的变更</strong>，<strong>记录和报告</strong>变更处理及其实现状态，并<strong>验证</strong>与规格需求的⼀致性”。</li>
+</ol>
+<h2 id="4-3-配置项"><a href="#4-3-配置项" class="headerlink" title="4.3. 配置项"></a>4.3. 配置项</h2><ol>
+<li>IEEE将配置项定义为[IEEE610.12-1990]：”置于软件配置管理之下的软件配置的各种有关项⽬，包括各类管理⽂档、评审记录与⽂档、软件文档、源码及其可执⾏码、运⾏所需的系统软件和⽀持软件以及有关数据等”。</li>
+</ol>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt4/6.png"></p>
+<ol start="2">
+<li>一旦需求发生变更，则需要从评审开始重新操作</li>
+</ol>
+<h2 id="4-4-基线（重要）"><a href="#4-4-基线（重要）" class="headerlink" title="4.4. 基线（重要）"></a>4.4. 基线（重要）</h2><ol>
+<li>基线是指通过了评审和验证，可以作为后续开发工作基础而进入协同工作过程，需要纳入配置管理和执行变更控制的制品称为该配置项的<strong>基线</strong>。</li>
+</ol>
+<h2 id="4-5-配置管理活动-重要"><a href="#4-5-配置管理活动-重要" class="headerlink" title="4.5. 配置管理活动(重要)"></a>4.5. 配置管理活动(重要)</h2><ol>
+<li>标识配置项版本管理:确定应该被保留的部分，并且给予他们确定标识，包含配置项的特征，包括生产者、基线建立时间、使用者等。</li>
+<li>版本管理：极其重要</li>
+<li>变更控制：变更请求表单，教材61页</li>
+<li>配置审计:验证配置项的完整性、正确性、一致性和可追踪性。</li>
+<li>状态报告:反映当前的配置状态。</li>
+<li>软件发布管理:将配置项发布到开发活动之外，例如发布给客户。</li>
+</ol>
+<h2 id="4-6-辅助管理工具"><a href="#4-6-辅助管理工具" class="headerlink" title="4.6. 辅助管理工具"></a>4.6. 辅助管理工具</h2><p>在项目实践中，使用配置管理工具对项目进行配置管理，如SVN。 </p>
+<h2 id="4-7-版本管理示意图"><a href="#4-7-版本管理示意图" class="headerlink" title="4.7. 版本管理示意图"></a>4.7. 版本管理示意图</h2><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt4/7.png"><br><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt4/8.png"><br><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt4/9.png"><br><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt4/10.png"><br><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt4/11.png"></p>
+<h3 id="4-7-1-分支管理常见策略"><a href="#4-7-1-分支管理常见策略" class="headerlink" title="4.7.1. 分支管理常见策略"></a>4.7.1. 分支管理常见策略</h3><ol>
+<li>主分支(Master)</li>
+<li>开发分支(Develop)</li>
+<li>临时性分支<ul>
+<li>功能(Feature)</li>
+<li>预发布(Release)</li>
+<li>修补bug(Fixbug)</li>
+</ul>
+</li>
+</ol>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt4/12.png"></p>
+<h3 id="4-7-2-查看不同"><a href="#4-7-2-查看不同" class="headerlink" title="4.7.2. 查看不同"></a>4.7.2. 查看不同</h3><ol>
+<li>git diff<ul>
+<li>⼯作区 vs 暂存区</li>
+</ul>
+</li>
+<li>git diff head<ul>
+<li>⼯作区 vs 版本库</li>
+</ul>
+</li>
+<li>git diff –cached<ul>
+<li>暂存区 vs 版本库</li>
+</ul>
+</li>
+</ol>
+<h3 id="4-7-3-为啥要暂存区"><a href="#4-7-3-为啥要暂存区" class="headerlink" title="4.7.3. 为啥要暂存区"></a>4.7.3. 为啥要暂存区</h3><ol>
+<li>增加灵活性<ul>
+<li>修改了4个⽂件，在不放弃任何修改的情况下，其中⼀个⽂件不想提交，如何操作？(没add : git add 已经add: git reset –soft )</li>
+<li>修改到⼀半的⽂件，突然间不需要或者放弃修改了，怎么恢复未修改前⽂件？ (git checkout)</li>
+<li>代码写⼀半，被打断去做其他功能开发，未完成代码保存？(git stash)</li>
+<li>代码写⼀半，发现忘记切换分支了？(git stash &amp; git checkout)</li>
+<li>代码需要回滚了？(git reset)</li>
+</ul>
+</li>
+</ol>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt4/13.png"><br><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt4/14.png"></p>
+<h2 id="4-8-变更要求表单"><a href="#4-8-变更要求表单" class="headerlink" title="4.8. 变更要求表单"></a>4.8. 变更要求表单</h2><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt4/15.png"></p>
+<h1 id="5-管理实践"><a href="#5-管理实践" class="headerlink" title="5. 管理实践"></a>5. 管理实践</h1><h2 id="5-1-经济为本"><a href="#5-1-经济为本" class="headerlink" title="5.1. 经济为本"></a>5.1. 经济为本</h2><ol>
+<li>⼈员的成本：这是最重要的一部分投⼊。现在的软件从业⼈员的⼯资不断上涨，⼯资占整个软件成本的⽐例更是呈上升趋势。 除了开发⼈员外，还要计算项⽬管理⼈员和其他相应⽀持⼈员的费⽤(不是全职的，按时间乘⽐例计算)。</li>
+<li>工具的购买：包括计算机及其周围配套设备等硬件，也包括开发⼯具、办公套件等软件。</li>
+<li>培训的费⽤：开发⼈员接受培训，获得开发项⽬所需技能的费⽤。</li>
+<li>差旅费：拜访客户，参加会议等的费⽤。</li>
+<li>维护的费⽤：定时的数据备份、系统监控、系统维修和升级等引起的费⽤。</li>
+<li>生产停顿的损失：因为项⽬调试引起正常⼯作业务停顿的损失。</li>
+<li>市场和服务的费⽤：推⼴软件产品所要的⼴告费⽤、参加展览会的费⽤等。</li>
+<li>机会成本：因为投资该项⽬，⽽不能投资别的项⽬或者放银⾏收取利息的机会成本。</li>
+<li>节约商业活动成本：只要是和⽆新软件系统时候⽐较，将节省的时间和原材料折算成量化的数字。例如，开发了新的库存管理系统后，加快了流通并减少了库存浪费。</li>
+<li>创新商机增加销售：指由于使⽤新软件带来的盈利，可能是软件产品本身的销售，也可能是软件项⽬带来的营业成⻓。</li>
+<li>提⾼品牌含⾦量： 提⾼质量和客户满意度，可以带来品牌含⾦量的提⾼。这⽐较虚⼀点，但也可以像企业的⽆形资产⼀样估算。</li>
+</ol>
+<h3 id="5-1-1-总结"><a href="#5-1-1-总结" class="headerlink" title="5.1.1. 总结"></a>5.1.1. 总结</h3><ol>
+<li>为技术⽽技术是条死胡同</li>
+<li>以<strong>经济原则指导</strong>软件项⽬的决策过程</li>
+<li>按照产品规律来营销软件产品</li>
+<li>以<strong>收益为依据</strong>规划设计产品</li>
+</ol>
+<h2 id="5-2-分工协作"><a href="#5-2-分工协作" class="headerlink" title="5.2. 分工协作"></a>5.2. 分工协作</h2><h3 id="5-2-1-建议的团队"><a href="#5-2-1-建议的团队" class="headerlink" title="5.2.1. 建议的团队"></a>5.2.1. 建议的团队</h3><ol>
+<li>⾸席程序员</li>
+<li>副⼿</li>
+<li>⾏政助理</li>
+<li>编辑</li>
+<li>秘书两名</li>
+<li>程序管理员</li>
+<li>⼯具专家</li>
+<li>测试员</li>
+<li>语⾔专家</li>
+</ol>
+<h3 id="5-2-2-三架马车"><a href="#5-2-2-三架马车" class="headerlink" title="5.2.2. 三架马车"></a>5.2.2. 三架马车</h3><ol>
+<li>产品经理:关于产品需求</li>
+<li>项目经理:实施过程中的管理<ul>
+<li>配置管理、合理、管理、控制</li>
+</ul>
+</li>
+<li>技术经理:保证可以克服技术难题</li>
+</ol>
+<h3 id="5-2-3-项目管理的角色"><a href="#5-2-3-项目管理的角色" class="headerlink" title="5.2.3. 项目管理的角色"></a>5.2.3. 项目管理的角色</h3><ol>
+<li>非正式的角色</li>
+<li>明确定义的角色(PM)<ul>
+<li>领导整个团队以了解项⽬⼯作(计划，进度安排以及收集需求)</li>
+<li>带领项⽬进⾏设计和开发⼯作(沟通、决策以及中期策略)</li>
+<li>以及驱动完成整个项⽬(领导⼒、⻛险管理以及终局策略)</li>
+</ul>
+</li>
+</ol>
+<h2 id="5-3-目标驱动"><a href="#5-3-目标驱动" class="headerlink" title="5.3. 目标驱动"></a>5.3. 目标驱动</h2><ol>
+<li>确保原因的合理性</li>
+</ol>
+<h3 id="5-3-1-目标的SMART原则"><a href="#5-3-1-目标的SMART原则" class="headerlink" title="5.3.1. 目标的SMART原则"></a>5.3.1. 目标的SMART原则</h3><ol>
+<li>speciﬁc 明确的</li>
+<li>measurable 可度量的</li>
+<li>achievable 可实现的</li>
+<li>reasonable 有理由的</li>
+<li>time 时间</li>
+</ol>
+<h2 id="5-4-常来常往"><a href="#5-4-常来常往" class="headerlink" title="5.4. 常来常往"></a>5.4. 常来常往</h2><h3 id="5-4-1-观念"><a href="#5-4-1-观念" class="headerlink" title="5.4.1. 观念"></a>5.4.1. 观念</h3><ol>
+<li>相互尊重</li>
+<li>管道流畅</li>
+<li>开放透明</li>
+<li>坦诚真实</li>
+</ol>
+<h2 id="5-5-有张有弛"><a href="#5-5-有张有弛" class="headerlink" title="5.5. 有张有弛"></a>5.5. 有张有弛</h2><h3 id="5-5-1-方法"><a href="#5-5-1-方法" class="headerlink" title="5.5.1. 方法"></a>5.5.1. 方法</h3><ol>
+<li>启动大会</li>
+<li>发布聚会</li>
+<li>休假</li>
+<li>技术培训</li>
+<li>⼈员培训和被培训</li>
+<li>换个项⽬</li>
+</ol>
+<h2 id="5-6-不断总结"><a href="#5-6-不断总结" class="headerlink" title="5.6. 不断总结"></a>5.6. 不断总结</h2><ol>
+<li>关键是”不断”</li>
+</ol>
+<h3 id="5-6-1-给管理新手的建议"><a href="#5-6-1-给管理新手的建议" class="headerlink" title="5.6.1. 给管理新手的建议"></a>5.6.1. 给管理新手的建议</h3><ol>
+<li>压⼒和分⼼</li>
+<li>不要将流程与⽬标相混淆</li>
+<li>适度参与</li>
+<li>利⽤好⾃⼰的观点</li>
+<li>创造独特的价值</li>
+<li>你所知道的⽐你想象的要多。</li>
+<li>让⼈喜欢是好事，但不⽤刻意讨好。</li>
+<li>⼈们并不介意⾃⼰被管理。</li>
+<li>如果你想唤起别⼈对某件事的热情，⾃⼰先表现出热情。</li>
+<li>需要坦⽩的时候就直⾔不讳。</li>
+<li>你需要不停地进步。</li>
+</ol>
+<h1 id="6-项目实践"><a href="#6-项目实践" class="headerlink" title="6. 项目实践"></a>6. 项目实践</h1><ol>
+<li>为实践项⽬组建你的团队：<ul>
+<li>选择技能互补的成员组成团队，明确分⼯；</li>
+<li>根据成员特点，选择团队结构；(建议使⽤⺠主团队)</li>
+<li>建⽴团队章程；</li>
+<li>明确团队的交流沟通⼿段。</li>
+<li>需要保留开发过程，用来确保可查</li>
+</ul>
+</li>
+<li>配置管理<ul>
+<li>所有产物都通过Gitlab来管理</li>
+<li>建⽴Group</li>
+<li>⽂档采⽤MD⽂件</li>
+</ul>
+</li>
+<li>项目结构:</li>
+</ol>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt4/15.png"><br><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt4/16.png"></p>
+
+        
+      </div>
+
+         
+    </div>
+    
+     
+  </div>
+  
+    
+<nav id="article-nav">
+  <a class="article-nav-btn left "
+    
+      href="/2022/06/16/SE-II%E7%AC%94%E8%AE%B0/03-%E5%AE%9E%E4%BE%8B%E9%A1%B9%E7%9B%AE%E6%8F%8F%E8%BF%B0/"
+      title="SE-II-ch03-实例项目描述"
+     >
+    <i class="fa-solid fa-angle-left"></i>
+    <p class="title-text">
+      
+        SE-II-ch03-实例项目描述
+        
+    </p>
+  </a>
+  <a class="article-nav-btn right "
+    
+      href="/2022/06/16/SE-II%E7%AC%94%E8%AE%B0/05-%E9%9C%80%E6%B1%82%E5%9F%BA%E7%A1%80/"
+      title="SE-II-ch05-需求基础"
+     >
+
+    <p class="title-text">
+      
+        SE-II-ch05-需求基础
+        
+    </p>
+    <i class="fa-solid fa-angle-right"></i>
+  </a>
+</nav>
+
+
+  
+</article>
+
+
+  
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <div id="comment-card" class="comment-card">
+    <div class="main-title-bar">
+      <div class="main-title-dot"></div>
+      <div class="main-title">留言 </div>
+    </div>
+    <div id="vcomments"></div>
+  </div>
+  <script>
+      new Valine({"enable":true,"appId":null,"appKey":null,"placeholder":"Just go go","pageSize":20,"highlight":true,"serverURLs":null,"el":"#vcomments"});
+  </script>
+ 
+    </div>
+    <div id="footer-wrapper">
+      <footer id="footer">
+  
+  <div id="footer-info" class="inner">
+    
+      <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris"></a>
+    
+    &copy; 2023 Asimov<br>
+    Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & Theme <a target="_blank" rel="noopener" href="https://github.com/saicaca/hexo-theme-vivia">Vivia</a>
+  </div>
+</footer>
+
+    </div>
+    <div class="back-to-top-wrapper">
+    <button id="back-to-top-btn" class="back-to-top-btn hide" onclick="topFunction()">
+        <i class="fa-solid fa-angle-up"></i>
+    </button>
+</div>
+
+<script>
+    function topFunction() {
+        window.scroll({ top: 0, behavior: 'smooth' });
+    }
+    let btn = document.getElementById('back-to-top-btn');
+    function scrollFunction() {
+        if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+            btn.classList.remove('hide')
+        } else {
+            btn.classList.add('hide')
+        }
+    }
+    window.onscroll = function() {
+        scrollFunction();
+    }
+</script>
+
+  </div>
+  <script src="/js/light-dark-switch.js"></script>
+</body>
+</html>

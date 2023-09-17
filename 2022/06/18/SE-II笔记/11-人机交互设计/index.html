@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+
+
+<html theme="dark" showBanner="true" hasBanner="true" > 
+<link href="/fontawesome/css/fontawesome.css" rel="stylesheet">
+<link href="/fontawesome/css/brands.css" rel="stylesheet">
+<link href="/fontawesome/css/solid.css" rel="stylesheet">
+<script src="/js/color.global.min.js" ></script>
+<script src="/js/load-settings.js" ></script>
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+
+  
+  <title>SE-II-ch11-人机交互设计 | Asimov&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+  <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+
+  <meta name="description" content="11-人机交互设计 不良的界面会导致用户感到不适     1. 用户和不好的设计 2. 什么是人机交互设计(HCI) 2.1. 什么是好的人机交互 2.2. HCI的重要组成：可用性 重要 2.2.1. 不同的用户的学习曲线 2.2.2. 记忆     3. 人机交互的三个因素 3.1. 人 3.1.1. 人的特性 3.1.2. 你看到了什么 3.1.3. 精神模型 重要 3.1.4. 发现精神模">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SE-II-ch11-人机交互设计">
+<meta property="og:url" content="https://chendingya.github.io/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/11-%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1/index.html">
+<meta property="og:site_name" content="Asimov&#39;s Blog">
+<meta property="og:description" content="11-人机交互设计 不良的界面会导致用户感到不适     1. 用户和不好的设计 2. 什么是人机交互设计(HCI) 2.1. 什么是好的人机交互 2.2. HCI的重要组成：可用性 重要 2.2.1. 不同的用户的学习曲线 2.2.2. 记忆     3. 人机交互的三个因素 3.1. 人 3.1.1. 人的特性 3.1.2. 你看到了什么 3.1.3. 精神模型 重要 3.1.4. 发现精神模">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt11/1.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt11/2.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt11/3.png">
+<meta property="og:image" content="https://chendingya.github.io/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/11-%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1/Users/wbl/AppData/Roaming/Typora/typora-user-images/image-20220618195851113.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt11/4.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt11/5.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt11/6.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt11/7.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt11/8.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt11/9.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt11/10.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt11/11.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt11/12.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt11/13.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt11/14.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt11/15.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt11/16.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt11/17.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt11/18.png">
+<meta property="article:published_time" content="2022-06-18T08:02:34.000Z">
+<meta property="article:modified_time" content="2023-09-17T07:48:15.985Z">
+<meta property="article:author" content="Asimov">
+<meta property="article:tag" content="软件工程与计算II">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt11/1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Asimov's Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-192.png" sizes="192x192">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-192.png" sizes="192x192">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  
+  
+    
+<div id="banner" class="">
+  <img src="/pic/back.png" itemprop="image">
+  <div id="banner-dim"></div>
+</div>
+ 
+   
+  <div id="main-grid" class="shadow   ">
+    <div id="nav" class=""  >
+      <navbar id="navbar">
+  <nav id="title-nav">
+    <a href="/">
+      <div id="vivia-logo">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div>Asimov's Blog </div>
+    </a>
+  </nav>
+  <nav id="main-nav">
+    
+      <a class="main-nav-link" href="/">Home</a>
+    
+      <a class="main-nav-link" href="/archives">Archives</a>
+    
+      <a class="main-nav-link" href="/about">About</a>
+    
+  </nav>
+  <nav id="sub-nav">
+    <a id="theme-btn" class="nav-icon">
+      <span class="light-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M438.5-829.913v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-829.913Zm0 747.826v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-82.087ZM877.913-438.5h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537t29.476-12.174h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T877.913-438.5Zm-747.826 0h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T82.087-521.5h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T130.087-438.5Zm660.174-290.87-34.239 32q-12.913 12.674-29.565 12.174-16.653-.5-29.327-13.174-12.674-12.673-12.554-28.826.12-16.152 12.794-28.826l33-35q12.913-12.674 30.454-12.674t30.163 12.847q12.709 12.846 12.328 30.826-.38 17.98-13.054 30.653ZM262.63-203.978l-32 34q-12.913 12.674-30.454 12.674t-30.163-12.847q-12.709-12.846-12.328-30.826.38-17.98 13.054-30.653l33.239-31q12.913-12.674 29.565-12.174 16.653.5 29.327 13.174 12.674 12.673 12.554 28.826-.12 16.152-12.794 28.826Zm466.74 33.239-32-33.239q-12.674-12.913-12.174-29.565.5-16.653 13.174-29.327 12.673-12.674 28.826-13.054 16.152-.38 28.826 12.294l35 33q12.674 12.913 12.674 30.454t-12.847 30.163q-12.846 12.709-30.826 12.328-17.98-.38-30.653-13.054ZM203.978-697.37l-34-33q-12.674-12.913-13.174-29.945-.5-17.033 12.174-29.707t31.326-13.293q18.653-.62 31.326 13.054l32 34.239q11.674 12.913 11.174 29.565-.5 16.653-13.174 29.327-12.673 12.674-28.826 12.554-16.152-.12-28.826-12.794ZM480-240q-100 0-170-70t-70-170q0-100 70-170t170-70q100 0 170 70t70 170q0 100-70 170t-170 70Zm-.247-82q65.703 0 111.475-46.272Q637-414.544 637-480.247t-45.525-111.228Q545.95-637 480.247-637t-111.475 45.525Q323-545.95 323-480.247t45.525 111.975Q414.05-322 479.753-322ZM481-481Z"/></svg></span>
+      <span class="dark-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M480.239-116.413q-152.63 0-258.228-105.478Q116.413-327.37 116.413-480q0-130.935 77.739-227.435t206.304-125.043q43.022-9.631 63.87 10.869t3.478 62.805q-8.891 22.043-14.315 44.463-5.424 22.42-5.424 46.689 0 91.694 64.326 155.879 64.325 64.186 156.218 64.186 24.369 0 46.978-4.946 22.609-4.945 44.413-14.076 42.826-17.369 62.967 1.142 20.142 18.511 10.511 61.054Q807.174-280 712.63-198.206q-94.543 81.793-232.391 81.793Zm0-95q79.783 0 143.337-40.217 63.554-40.218 95.793-108.283-15.608 4.044-31.097 5.326-15.49 1.283-31.859.805-123.706-4.066-210.777-90.539-87.071-86.473-91.614-212.092-.24-16.369.923-31.978 1.164-15.609 5.446-30.978-67.826 32.478-108.282 96.152Q211.652-559.543 211.652-480q0 111.929 78.329 190.258 78.329 78.329 190.258 78.329ZM466.13-465.891Z"/></svg></span>
+    </a>
+    
+      <a id="nav-rss-link" class="nav-icon mobile-hide" href="/atom.xml" title="RSS 订阅">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-120q-25.846 0-44.23-18.384-18.384-18.385-18.384-44.23 0-25.846 18.384-44.23 18.384-18.385 44.23-18.385 25.846 0 44.23 18.385 18.384 18.384 18.384 44.23 0 25.845-18.384 44.23Q223.846-120 198-120Zm538.385 0q-18.846 0-32.923-13.769-14.076-13.769-15.922-33.23-8.692-100.616-51.077-188.654-42.385-88.039-109.885-155.539-67.5-67.501-155.539-109.885Q283-663.462 182.385-672.154q-19.461-1.846-33.23-16.23-13.769-14.385-13.769-33.846t14.076-32.922q14.077-13.461 32.923-12.23 120.076 8.692 226.038 58.768 105.961 50.077 185.73 129.846 79.769 79.769 129.846 185.731 50.077 105.961 58.769 226.038 1.231 18.846-12.538 32.922Q756.461-120 736.385-120Zm-252 0q-18.231 0-32.423-13.461t-18.653-33.538Q418.155-264.23 348.886-333.5q-69.27-69.27-166.501-84.423-20.077-4.462-33.538-18.961-13.461-14.5-13.461-33.346 0-19.076 13.884-33.23 13.884-14.153 33.115-10.922 136.769 15.384 234.384 112.999 97.615 97.615 112.999 234.384 3.231 19.23-10.538 33.115Q505.461-120 484.385-120Z"/></svg>
+      </a>
+    
+    <div id="nav-menu-btn" class="nav-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M177.37-252.282q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Zm0-186.218q-17.453 0-29.477-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T177.37-521.5h605.26q17.453 0 29.477 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T782.63-438.5H177.37Zm0-186.217q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Z"/></svg>
+    </div>
+  </nav>
+</navbar>
+<div id="nav-dropdown" class="hidden">
+  <div id="dropdown-link-list">
+    
+      <a class="nav-dropdown-link" href="/">Home</a>
+    
+      <a class="nav-dropdown-link" href="/archives">Archives</a>
+    
+      <a class="nav-dropdown-link" href="/about">About</a>
+    
+    
+      <a class="nav-dropdown-link" href="/atom.xml" title="RSS 订阅">RSS</a>
+     
+    </div>
+</div>
+<script>
+  let dropdownBtn = document.getElementById("nav-menu-btn");
+  let dropdownEle = document.getElementById("nav-dropdown");
+  dropdownBtn.onclick = function() {
+    dropdownEle.classList.toggle("hidden");
+  }
+</script>
+    </div>
+    <div id="sidebar-wrapper">
+      <sidebar id="sidebar">
+  
+    <div class="widget-wrap">
+  <div class="info-card">
+    <div class="avatar">
+      
+        <image src=/pic/avatar.png></image>
+      
+      <div class="img-dim"></div>
+    </div>
+    <div class="info">
+      <div class="username">Asimov </div>
+      <div class="dot"></div>
+      <div class="subtitle">Asimov's Blog </div>
+      <div class="link-list">
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://github.com/chendingya" title="GitHub"><i class="fa-brands fa-github"></i></a>
+         
+      </div>  
+    </div>
+  </div>
+</div>
+
+  
+  <div class="sticky">
+    
+      
+
+
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">分类</h3>
+      <div class="category-box">
+            <a class="category-link" href="/categories/hello-world/">
+                hello world
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/Hexo/">
+                Hexo
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
+                编译原理
+                <div class="category-count">13</div>
+            </a>
+        
+            <a class="category-link" href="/categories/tdesign/">
+                tdesign
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">
+                软件工程与计算II
+                <div class="category-count">30</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E9%A9%BE%E8%80%83/">
+                驾考
+                <div class="category-count">2</div>
+            </a>
+        </div>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">标签</h3>
+      <ul class="widget-tag-list" itemprop="keywords"><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/hello-world/" rel="tag">hello world</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/tdesign/" rel="tag">tdesign</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" rel="tag">编译原理</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/" rel="tag">软件工程与计算II</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E9%A9%BE%E8%80%83/" rel="tag">驾考</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">归档</h3>
+      
+      
+        <a class="archive-link" href="/archives/2023/09 ">
+          九月 2023 
+          <div class="archive-count">2 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/07 ">
+          七月 2023 
+          <div class="archive-count">2 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/04 ">
+          四月 2023 
+          <div class="archive-count">10 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/03 ">
+          三月 2023 
+          <div class="archive-count">3 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2022/10 ">
+          十月 2022 
+          <div class="archive-count">1 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2022/06 ">
+          六月 2022 
+          <div class="archive-count">30 </div>
+        </a>
+      
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">最新文章</h3>
+      <ul>
+        
+          <a class="recent-link" href="/2023/09/15/23-tdesign/Mock%E4%BD%BF%E7%94%A8/" title="微信小程序中Mock使用" >
+            <div class="recent-link-text">
+              微信小程序中Mock使用
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/09/12/%E9%A9%BE%E8%80%83/%E9%A9%BE%E8%80%83-%E7%A7%91%E7%9B%AE%E4%BA%8C/" title="驾考-科目二" >
+            <div class="recent-link-text">
+              驾考-科目二
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/07/18/blog/" title="blog" >
+            <div class="recent-link-text">
+              blog
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/07/17/%E9%A9%BE%E8%80%83/%E9%A9%BE%E8%80%83-%E7%A7%91%E7%9B%AE%E4%B8%80/" title="驾考-科目一" >
+            <div class="recent-link-text">
+              驾考-科目一
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/04/10/23-Compilers/ch18-codegen-riscv-RISC-V%20%E6%A6%82%E8%BF%B0/" title="ch18-codegen-riscv-RISC-V 概述" >
+            <div class="recent-link-text">
+              ch18-codegen-riscv-RISC-V 概述
+            </div>
+          </a>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+  </div>
+</sidebar>
+    </div>
+    <div id="content-body">
+       
+
+<article id="post-SE-II笔记/11-人机交互设计" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 class="p-name article-title" itemprop="headline name">
+        SE-II-ch11-人机交互设计
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2022-06-18T08:02:34.000Z" itemprop="datePublished">2022-06-18</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">软件工程与计算II</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            7.4k 词 
+          </div>
+        </div>
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/" rel="tag">软件工程与计算II</a></li></ul>
+
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <h2 id="11-人机交互设计"><a href="#11-人机交互设计" class="headerlink" title="11-人机交互设计"></a>11-人机交互设计</h2><ol>
+<li>不良的界面会导致用户感到不适</li>
+</ol>
+<!-- TOC -->
+
+<ul>
+<li><a href="#1-%E7%94%A8%E6%88%B7%E5%92%8C%E4%B8%8D%E5%A5%BD%E7%9A%84%E8%AE%BE%E8%AE%A1">1. 用户和不好的设计</a></li>
+<li><a href="#2-%E4%BB%80%E4%B9%88%E6%98%AF%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1hci">2. 什么是人机交互设计(HCI)</a><ul>
+<li><a href="#21-%E4%BB%80%E4%B9%88%E6%98%AF%E5%A5%BD%E7%9A%84%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92">2.1. 什么是好的人机交互</a></li>
+<li><a href="#22-hci%E7%9A%84%E9%87%8D%E8%A6%81%E7%BB%84%E6%88%90%E5%8F%AF%E7%94%A8%E6%80%A7-%E9%87%8D%E8%A6%81">2.2. HCI的重要组成：可用性 重要</a><ul>
+<li><a href="#221-%E4%B8%8D%E5%90%8C%E7%9A%84%E7%94%A8%E6%88%B7%E7%9A%84%E5%AD%A6%E4%B9%A0%E6%9B%B2%E7%BA%BF">2.2.1. 不同的用户的学习曲线</a></li>
+<li><a href="#222-%E8%AE%B0%E5%BF%86">2.2.2. 记忆</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#3-%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92%E7%9A%84%E4%B8%89%E4%B8%AA%E5%9B%A0%E7%B4%A0">3. 人机交互的三个因素</a><ul>
+<li><a href="#31-%E4%BA%BA">3.1. 人</a><ul>
+<li><a href="#311-%E4%BA%BA%E7%9A%84%E7%89%B9%E6%80%A7">3.1.1. 人的特性</a></li>
+<li><a href="#312-%E4%BD%A0%E7%9C%8B%E5%88%B0%E4%BA%86%E4%BB%80%E4%B9%88">3.1.2. 你看到了什么</a></li>
+<li><a href="#313-%E7%B2%BE%E7%A5%9E%E6%A8%A1%E5%9E%8B-%E9%87%8D%E8%A6%81">3.1.3. 精神模型 重要</a></li>
+<li><a href="#314-%E5%8F%91%E7%8E%B0%E7%B2%BE%E7%A5%9E%E6%A8%A1%E5%9E%8B">3.1.4. 发现精神模型</a></li>
+<li><a href="#315-%E5%B7%AE%E5%BC%82%E6%80%A7">3.1.5. 差异性</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#4-%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1%E4%B8%AD%E7%9A%84%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%9A%84%E5%9B%A0%E7%B4%A0">4. 人机交互设计中的计算机的因素</a><ul>
+<li><a href="#41-%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%AE%BE%E5%A4%87">4.1. 计算机设备</a></li>
+<li><a href="#42-%E5%8F%AF%E8%A7%86%E5%8C%96%E8%AE%BE%E8%AE%A1">4.2. 可视化设计</a></li>
+<li><a href="#43-%E4%B8%8D%E8%A6%81%E6%9A%B4%E9%9C%B2%E5%86%85%E9%83%A8%E7%BB%93%E6%9E%84">4.3. 不要暴露内部结构</a></li>
+<li><a href="#44-%E5%B1%95%E7%A4%BA%E7%BB%86%E8%8A%82">4.4. 展示细节</a></li>
+<li><a href="#45-%E5%B8%B8%E8%A7%81%E7%95%8C%E9%9D%A2%E7%B1%BB%E5%9E%8B">4.5. 常见界面类型</a></li>
+<li><a href="#46-%E4%BA%A4%E4%BA%92">4.6. 交互</a><ul>
+<li><a href="#461-%E4%BA%A4%E4%BA%92%E6%96%B9%E5%BC%8F">4.6.1. 交互方式</a></li>
+<li><a href="#462-%E7%9B%B4%E6%8E%A5%E6%93%8D%E4%BD%9C">4.6.2. 直接操作</a></li>
+<li><a href="#463-%E8%8F%9C%E5%8D%95%E7%B3%BB%E7%BB%9F">4.6.3. 菜单系统</a></li>
+<li><a href="#464-%E8%A1%A8%E5%8D%95%E6%8E%A5%E5%8F%A3">4.6.4. 表单接口</a></li>
+<li><a href="#465-%E5%91%BD%E4%BB%A4%E8%A1%8C%E6%A8%A1%E5%BC%8F">4.6.5. 命令行模式</a></li>
+<li><a href="#466-%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E6%A8%A1%E5%BC%8F">4.6.6. 自然语言模式</a></li>
+</ul>
+</li>
+<li><a href="#47-%E6%80%BB%E7%BB%93">4.7. 总结</a></li>
+</ul>
+</li>
+<li><a href="#5-%E4%BA%BA%E6%9C%BA%E8%AE%BE%E8%AE%A1%E7%9A%84%E4%BA%A4%E4%BA%92%E6%80%A7">5. 人机设计的交互性</a><ul>
+<li><a href="#51-%E5%AF%BC%E8%88%AA-%E9%87%8D%E8%A6%81">5.1. 导航 重要</a></li>
+<li><a href="#52-%E5%8F%8D%E9%A6%88-%E9%87%8D%E8%A6%81">5.2. 反馈 重要</a></li>
+<li><a href="#53-%E5%8D%8F%E4%BD%9C%E5%BC%8F%E8%AE%BE%E8%AE%A1-%E9%87%8D%E8%A6%81">5.3. 协作式设计 重要</a></li>
+</ul>
+</li>
+<li><a href="#6-%E4%B8%80%E4%BA%9B%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99-%E9%87%8D%E8%A6%81%E8%87%B3%E5%B0%91%E8%AE%B0%E4%BD%8F5%E6%9D%A1%E4%BB%A5%E4%B8%8A">6. 一些人机交互设计原则 重要(至少记住5条以上)</a><ul>
+<li><a href="#61-%E7%AE%80%E6%B4%81%E8%AE%BE%E8%AE%A172%E5%8E%9F%E5%88%99">6.1. 简洁设计(7±2原则)</a></li>
+<li><a href="#62-%E4%B8%80%E8%87%B4%E6%80%A7%E8%AE%BE%E8%AE%A1">6.2. 一致性设计</a></li>
+<li><a href="#63-%E4%BD%8E%E5%87%BA%E9%94%99%E7%8E%87%E8%AE%BE%E8%AE%A1">6.3. 低出错率设计</a></li>
+<li><a href="#64-%E6%98%93%E8%AE%B0%E6%80%A7%E8%AE%BE%E8%AE%A1">6.4. 易记性设计</a></li>
+<li><a href="#65-%E5%8F%AF%E8%A7%86%E5%8C%96%E8%AE%BE%E8%AE%A1%E8%A6%81%E7%82%B9">6.5. 可视化设计要点</a></li>
+</ul>
+</li>
+<li><a href="#7-%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1%E8%BF%87%E7%A8%8B">7. 人机交互设计过程</a><ul>
+<li><a href="#71-%E6%9C%BA%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1%E8%BF%87%E7%A8%8B">7.1. ⼈机交互设计过程</a></li>
+<li><a href="#72-%E5%AF%B9%E8%AF%9D%E7%BB%93%E6%9E%84%E5%9B%BE">7.2. 对话结构图</a></li>
+<li><a href="#73-%E9%A1%B5%E9%9D%A2%E8%AE%BE%E8%AE%A1">7.3. 页面设计</a></li>
+<li><a href="#74-%E5%8E%9F%E5%9E%8B%E5%8C%96%E7%95%8C%E9%9D%A2">7.4. 原型化界面</a></li>
+</ul>
+</li>
+<li><a href="#8-gui%E8%AE%BE%E8%AE%A1">8. GUI设计</a><ul>
+<li><a href="#81-%E5%9C%A8%E5%BB%BA%E7%AB%8B%E6%9C%89%E6%95%88%E7%9A%84gui%E6%96%B9%E9%9D%A2%E7%9A%84%E5%85%B3%E9%94%AE%E7%82%B9">8.1. 在建立有效的GUI方面的关键点</a></li>
+<li><a href="#82-%E5%B8%B8%E8%A7%81%E7%9A%84gui%E5%85%83%E7%B4%A0">8.2. 常见的GUI元素</a><ul>
+<li><a href="#821-%E6%AC%A2%E8%BF%8E%E5%92%8C%E6%94%AF%E6%8C%81%E4%BF%A1%E6%81%AF">8.2.1. 欢迎和支持信息</a></li>
+</ul>
+</li>
+<li><a href="#83-%E6%9F%A5%E6%89%BE%E5%86%85%E5%AE%B9%E7%9A%84%E8%AE%BE%E6%96%BD">8.3. 查找内容的设施</a></li>
+<li><a href="#84-%E4%B8%BB%E8%A6%81%E6%94%B6%E8%97%8F%E5%86%85%E5%AE%B9">8.4. 主要收藏内容</a></li>
+<li><a href="#85-%E6%89%A9%E5%B1%95%E5%8A%9F%E8%83%BD">8.5. 扩展功能</a></li>
+<li><a href="#86-%E8%A7%84%E5%88%92%E6%82%A8%E7%9A%84gui">8.6. 规划您的GUI</a></li>
+<li><a href="#87-%E5%BB%BA%E7%AB%8B%E6%82%A8%E7%9A%84gui">8.7. 建立您的GUI</a></li>
+<li><a href="#88-%E6%A3%80%E6%9F%A5%E5%88%97%E8%A1%A8">8.8. 检查列表</a><ul>
+<li><a href="#881-%E6%95%B0%E6%8D%AE%E8%BE%93%E5%85%A5%E7%95%8C%E9%9D%A2">8.8.1. 数据输入界面</a></li>
+<li><a href="#882-%E5%8F%AF%E5%AE%9A%E5%88%B6%E7%9A%84%E8%A7%86%E8%A7%89%E8%AE%BE%E8%AE%A1">8.8.2. 可定制的视觉设计</a></li>
+<li><a href="#883-%E6%90%9C%E7%B4%A2%E5%92%8C%E6%A3%80%E7%B4%A2%E7%95%8C%E9%9D%A2">8.8.3. 搜索和检索界面</a></li>
+<li><a href="#884-%E9%99%84%E5%8A%A0%E7%9A%84%E7%94%A8%E6%88%B7%E5%8A%9F%E8%83%BD">8.8.4. 附加的用户功能</a></li>
+<li><a href="#885-%E6%8E%A7%E5%88%B6%E7%94%A8%E6%88%B7%E8%AE%BF%E9%97%AE">8.8.5. 控制用户访问</a></li>
+<li><a href="#886-%E4%B8%8E%E5%85%B6%E4%BB%96%E9%9B%86%E5%90%88%E7%9A%84%E4%BA%92%E6%93%8D%E4%BD%9C%E6%80%A7">8.8.6. 与其他集合的互操作性</a></li>
+</ul>
+</li>
+<li><a href="#89-%E7%A1%AE%E4%BF%9D%E5%8F%AF%E7%94%A8%E6%80%A7">8.9. 确保可用性</a></li>
+<li><a href="#810-%E8%AF%84%E4%BC%B0%E6%82%A8%E7%9A%84gui">8.10. 评估您的GUI</a></li>
+<li><a href="#811-%E4%B8%BA%E5%8F%AF%E7%94%A8%E6%80%A7%E8%80%8C%E8%AE%BE%E8%AE%A1">8.11. 为可用性而设计</a></li>
+<li><a href="#812-%E5%BC%80%E5%8F%91%E9%AB%98%E8%B4%A8%E9%87%8F%E5%92%8C%E5%8F%AF%E7%94%A8%E6%8E%A5%E5%8F%A3%E7%9A%84%E8%BF%87%E7%A8%8Biso-13407">8.12. 开发高质量和可用接口的过程(ISO 13407)</a></li>
+<li><a href="#813-%E7%A1%AE%E4%BF%9D%E5%8F%AF%E8%AE%BF%E9%97%AE%E6%80%A7">8.13. 确保可访问性</a></li>
+<li><a href="#814-%E5%BC%80%E5%8F%91%E5%9C%A8%E7%BA%BF%E6%94%B6%E8%97%8F%E5%A4%B9%E6%97%B6%E8%A6%81%E8%80%83%E8%99%91%E7%9A%84%E4%B8%80%E4%BA%9B%E4%BA%8B%E6%83%85">8.14. 开发在线收藏夹时要考虑的一些事情</a><ul>
+<li><a href="#8141-%E6%8E%A5%E5%8F%A3">8.14.1. 接口</a></li>
+<li><a href="#8142-%E5%AF%BC%E8%88%AA">8.14.2. 导航</a></li>
+<li><a href="#8143-%E6%90%9C%E7%B4%A2%E5%92%8C%E6%A3%80%E7%B4%A2">8.14.3. 搜索和检索。</a></li>
+<li><a href="#8144-%E6%96%87%E4%BB%B6%E7%9A%84%E5%B0%BA%E5%AF%B8%E5%92%8C%E5%A4%A7%E5%B0%8F">8.14.4. 文件的尺寸和大小</a></li>
+<li><a href="#8145-%E6%96%87%E4%BB%B6%E8%AF%B4%E6%98%8E">8.14.5. 文件说明</a></li>
+</ul>
+</li>
+<li><a href="#815-%E9%BB%84%E9%87%91%E6%B3%95%E5%88%99">8.15. 黄金法则</a></li>
+<li><a href="#816-%E5%8D%81%E6%9D%A1%E5%8E%9F%E5%88%99">8.16. 十条原则</a></li>
+</ul>
+</li>
+</ul>
+<!-- /TOC -->
+
+<h1 id="1-用户和不好的设计"><a href="#1-用户和不好的设计" class="headerlink" title="1. 用户和不好的设计"></a>1. 用户和不好的设计</h1><ol>
+<li>系统用户通常通过系统界面而非功能来判断系统：用户界面的设计应与预期用户的技能，经验和期望相匹配。</li>
+<li>界面设计不当会导致用户发生灾难性错误：不好的UI的设计往往是很多软件系统不被使用的原因。</li>
+<li>IPAD的良好的体验感和可操作性，而早期的Andriod操作系统则主要是从工程师角度出发的操作系统。</li>
+<li>比如医院书写病历:老医生打字困难，所以我们我们应该针对性的进行设计。</li>
+</ol>
+<h1 id="2-什么是人机交互设计-HCI"><a href="#2-什么是人机交互设计-HCI" class="headerlink" title="2. 什么是人机交互设计(HCI)"></a>2. 什么是人机交互设计(HCI)</h1><p>人机交互设计旨在发现<strong>最有效</strong>的方法来设计人机界面之间的<strong>可用和高效</strong>的体验</p>
+<p>Human-Computer Interaction Design seeks to discover the most <strong>efficient</strong> way to design <strong>usable</strong> and <strong>effective</strong> experiences between the human and the computer interface</p>
+<h2 id="2-1-什么是好的人机交互"><a href="#2-1-什么是好的人机交互" class="headerlink" title="2.1. 什么是好的人机交互"></a>2.1. 什么是好的人机交互</h2><ol>
+<li>良好的HCI界面设计可鼓励用户与系统之间<strong>轻松，自然且引人入胜</strong>[<em>easy natural engaging</em>]的交互。</li>
+<li>“当程序的行为完全符合用户的想法时，用户界面就会经过精心设计。”<ol>
+<li>它允许用户执行我们所需的任务。</li>
+<li>一个好的界面应该是<strong>透明</strong>的。有了一个好的用户界面，用户会<strong>忘记自己正在使用计算机</strong>。</li>
+</ol>
+</li>
+<li>如何判断好坏？ 唯一标准:<strong>可用性</strong> <em>usability</em></li>
+</ol>
+<h2 id="2-2-HCI的重要组成：易用性-重要"><a href="#2-2-HCI的重要组成：易用性-重要" class="headerlink" title="2.2. HCI的重要组成：易用性 重要"></a>2.2. HCI的重要组成：易用性 重要</h2><p><strong>易⽤性</strong>不仅关注⼈使⽤系统的过程，同时还关注系统对使⽤它 的⼈所产⽣的作⽤，因为⽐较复杂，所以易⽤性不是⼀个单⼀的质量维度</p>
+<ol>
+<li>可用性不是用户界面的单一一维属性，它包含以下维度。<ol>
+<li>易学性：新手用户容易学习，能够很快使用系统。</li>
+<li>效率：熟练的用户可以高效使用它</li>
+<li>易记性：使用过软件系统的用户，能够有效记忆或快速重新学会使用该系统。(超市可以缓存之前的信息)</li>
+<li>出错率：几乎没有错误，可以从错误中快速恢复</li>
+<li>主观满意度：让用户有良好的体验。</li>
+</ol>
+</li>
+</ol>
+<h3 id="2-2-1-不同的用户的学习曲线"><a href="#2-2-1-不同的用户的学习曲线" class="headerlink" title="2.2.1. 不同的用户的学习曲线"></a>2.2.1. 不同的用户的学习曲线</h3><ol>
+<li>易学性和效率是存在冲突的</li>
+</ol>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt11/1.png"></p>
+<ol start="2">
+<li>大多数的GUI界面都是友好新手的，而命令界面是友好专家用户的。</li>
+</ol>
+<h3 id="2-2-2-记忆"><a href="#2-2-2-记忆" class="headerlink" title="2.2.2. 记忆"></a>2.2.2. 记忆</h3><ol>
+<li>涉及编码和回忆知识并采取适当行动</li>
+<li>我们不记得所有的事情:涉及过滤和处理</li>
+<li>上下文对于影响我们的记忆很重要</li>
+<li>我们认识事物比回忆事物好得多</li>
+<li>GUI在基于命令的界面上的兴起</li>
+<li>相比文字，人们更加容易记住图片</li>
+<li><strong>使用图标而不是名称</strong></li>
+</ol>
+<h1 id="3-人机交互的三个因素：人、机、交互"><a href="#3-人机交互的三个因素：人、机、交互" class="headerlink" title="3. 人机交互的三个因素：人、机、交互"></a>3. 人机交互的三个因素：人、机、交互</h1><h2 id="3-1-人"><a href="#3-1-人" class="headerlink" title="3.1. 人"></a>3.1. 人</h2><ol>
+<li>什么是人机交互中的人？<ol>
+<li>用户 - 拥有一台笔记本电脑的人，一群一起或远程工作的人，一系列按顺序工作的人…</li>
+<li>一个或多个试图使用计算技术完成工作的人</li>
+<li><strong>用户只想看到它想要看到的</strong></li>
+</ol>
+</li>
+</ol>
+<h3 id="3-1-1-人的特性"><a href="#3-1-1-人的特性" class="headerlink" title="3.1.1. 人的特性"></a>3.1.1. 人的特性</h3><ol>
+<li>短期记忆有限<ol>
+<li><strong>7±2原则</strong>[人只能记住5-9个数字，多了就容易忘记，类似的应用在web导航栏，小程序的下面的bar等]</li>
+<li>电脑可以存储知识</li>
+</ol>
+</li>
+<li>人会犯错：避免，恢复，帮助</li>
+<li>人是不同的：新手用户，知识渊博的间歇用户，专家频繁用户</li>
+<li>人们有不同的互动偏好：有一些人喜欢照片，有一些人喜欢文本</li>
+</ol>
+<h3 id="3-1-2-你看到了什么"><a href="#3-1-2-你看到了什么" class="headerlink" title="3.1.2. 你看到了什么"></a>3.1.2. 你看到了什么</h3><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt11/2.png"></p>
+<ol>
+<li>用户答案<ol>
+<li>成绩</li>
+<li>统计</li>
+</ol>
+</li>
+<li>技术答案<ol>
+<li>2维画面</li>
+<li>可控的组件<ol>
+<li>文本和图片</li>
+<li>图标和工具栏</li>
+<li>可扩展栏和菜单栏</li>
+<li>任务栏和状态信息</li>
+<li>控制器和指针</li>
+<li>颜色集合</li>
+</ol>
+</li>
+<li>文档的代表</li>
+<li>软件功能的代表</li>
+</ol>
+</li>
+<li>进行人机交互设计师，一定要谨记<strong>从用户的角度</strong>来进行学习和分析</li>
+</ol>
+<h3 id="3-1-3-精神模型（重要）"><a href="#3-1-3-精神模型（重要）" class="headerlink" title="3.1.3. 精神模型（重要）"></a>3.1.3. 精神模型（重要）</h3><ol>
+<li><p>尝试发现用户对程序帮助他们执行任务的心理模型</p>
+</li>
+<li><p>如何？请注意模型的固有隐喻，它们代表任务的概念性组成部分</p>
+</li>
+<li><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt11/3.png"></p>
+<p><strong>隐喻:左上角的开关就应该是控制左上角的灯</strong></p>
+<p>再如红绿灯会使用箭头表示方向，而不是使用文字左右，这也是一种隐喻</p>
+</li>
+<li><p><strong>精神模型</strong>就是用户进行人机交互时头脑中的任务模型。依据精神模型可以进行<strong>隐喻</strong>(Metaphor)设计：</p>
+<ol>
+<li>隐喻又被称为视觉隐喻，是视觉上的图像，但会被用户映射为业务事物。用户在识别图像时，<strong>会依据隐喻将控件功能与已知的熟悉事物联系起来，形成任务模型；</strong></li>
+<li>隐喻本质上是在用户已有知识的基础上建立一组新的知识，实现界面视觉提示和系统功能之间的知觉联系。</li>
+</ol>
+</li>
+<li><p>进行人机交互设计时，要调查用户的目标和任务，分析用户的任务模型，并且据此<strong>设计界面隐喻</strong>。</p>
+</li>
+</ol>
+<h3 id="3-1-4-发现精神模型"><a href="#3-1-4-发现精神模型" class="headerlink" title="3.1.4. 发现精神模型"></a>3.1.4. 发现精神模型</h3><p>发现用户的精神模型</p>
+<ol>
+<li>找到用户在尝试去做什么！目标！</li>
+<li>用户，目标，结果任务的需求</li>
+<li><strong>仅在确定有助于解决任务的功能时才应添加功能</strong>:诱惑：如果添加附加功能很便宜，那么通常要这样做-这会严重损害用户界面的概念！</li>
+<li>与用户个人资料相关的任务的频率</li>
+</ol>
+<h3 id="3-1-5-差异性"><a href="#3-1-5-差异性" class="headerlink" title="3.1.5. 差异性"></a>3.1.5. 差异性</h3><ol>
+<li>新手用户<ol>
+<li>是对业务不熟悉的⼈</li>
+<li>例如新员工或者新接触系统的⼈。为新手用户设计系统时要关注易学性，进⾏业务导航，尽量避免出错。如果⼀个系统的⼤多数⽤户都是新手用户，整个系统的⼈机交互设计都要侧重<strong>易学性</strong>。</li>
+</ol>
+</li>
+<li>专家用户<ol>
+<li>是能够熟练操作计算机完成业务任务的⼈，⼀般都是⻓时间使⽤软件系统并且计算机操作技能熟练的人。</li>
+<li>为专家用户设计系统时，要关注效率。如果⼀个系统的大多数用户都是专家⽤户，整个系统的⼈机交互设计都要侧重<strong>效率</strong>。</li>
+</ol>
+</li>
+<li>熟练用户：是介于新手用户和专家用户之间的⼈。为熟练用户设计⼈机交互系统要在<strong>易学性和效率之间进行折中</strong>。</li>
+<li>好的人机交互应该<strong>为不同的用户群体提供差异化的交互机制</strong>。<ol>
+<li>既为新手用户提供易学性高的⼈机交互机制(图形界面)</li>
+<li>⼜为专家用户提供效率高的⼈机交互机制(命令行、快捷方式、热键)</li>
+</ol>
+</li>
+</ol>
+<h1 id="4-人机交互设计中的计算机的因素"><a href="#4-人机交互设计中的计算机的因素" class="headerlink" title="4. 人机交互设计中的计算机的因素"></a>4. 人机交互设计中的计算机的因素</h1><h2 id="4-1-计算机设备"><a href="#4-1-计算机设备" class="headerlink" title="4.1. 计算机设备"></a>4.1. 计算机设备</h2><ol>
+<li>⼈机交互设备<ol>
+<li>输入设备<ol>
+<li>键盘</li>
+<li>鼠标</li>
+<li>⼿写板</li>
+</ol>
+</li>
+<li>输出设备<ol>
+<li>显示屏</li>
+<li>喇叭</li>
+<li>打印机</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h2 id="4-2-可视化设计"><a href="#4-2-可视化设计" class="headerlink" title="4.2. 可视化设计"></a>4.2. 可视化设计</h2><ol>
+<li>从可视化设计语言Visual Basic开始，对可视化构件的布局就成为可视化设计的主要⼯作。</li>
+<li>常⻅的可视化构件包括：窗⼝、菜单、标签(Tab)、表单、按钮、列表、树形控件、组合框、输⼊框等等，[Cooper2007]对此有详细的描述。</li>
+<li>要点:<ol>
+<li>按照任务模型设计界⾯隐喻，同时不要把软件系统的<strong>内部构造机制</strong>暴露给⽤户</li>
+<li>可视化设计还应该基于界面隐喻，尽可能地把功能和任务细节表现出来</li>
+</ol>
+</li>
+</ol>
+<h2 id="4-3-不要暴露内部结构"><a href="#4-3-不要暴露内部结构" class="headerlink" title="4.3. 不要暴露内部结构"></a>4.3. 不要暴露内部结构</h2><p><img src="/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/11-%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1/Users\wbl\AppData\Roaming\Typora\typora-user-images\image-20220618195851113.png" alt="image-20220618195851113"></p>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt11/4.png"></p>
+<ol>
+<li>最初的压缩软件:只有这3个功能，很明白地全部显示了出来</li>
+<li>现在的压缩软件:停到特定的文件的时候给出拉出菜单</li>
+<li>功能和场景结合起来，而不是完全要全新选择，<strong>避免将全部功能展示给用户，而是根据场景如特定的文件提高特定的功能，避免用户做出不当的行为</strong></li>
+</ol>
+<h2 id="4-4-展示细节"><a href="#4-4-展示细节" class="headerlink" title="4.4. 展示细节"></a>4.4. 展示细节</h2><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt11/5.png"></p>
+<ol>
+<li>左侧选择字体没有更加细节的展示，而右侧则展示了其中的细节问题</li>
+</ol>
+<h2 id="4-5-常见界面类型"><a href="#4-5-常见界面类型" class="headerlink" title="4.5. 常见界面类型"></a>4.5. 常见界面类型</h2><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt11/6.png"></p>
+<h2 id="4-6-交互"><a href="#4-6-交互" class="headerlink" title="4.6. 交互"></a>4.6. 交互</h2><ol>
+<li>“交互”是<strong>双向</strong>的：<ol>
+<li>⼀⽅⾯⽤户主动向软件系统提出请求(输⼊信息)，软件系统给予⽤户响应(输出信息)；</li>
+<li>另⼀⽅⾯，软件系统也应该主动告知⽤户相应的信息，并等待⽤户的响应。</li>
+</ol>
+</li>
+</ol>
+<h3 id="4-6-1-交互方式"><a href="#4-6-1-交互方式" class="headerlink" title="4.6.1. 交互方式"></a>4.6.1. 交互方式</h3><ol>
+<li>直接操作(图形)：视窗图标</li>
+<li>菜单选择</li>
+<li>表单输入</li>
+<li>命令语言</li>
+<li>自然语言</li>
+</ol>
+<h3 id="4-6-2-直接操作"><a href="#4-6-2-直接操作" class="headerlink" title="4.6.2. 直接操作"></a>4.6.2. 直接操作</h3><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt11/7.png"></p>
+<ol>
+<li>优点<ol>
+<li>用户感到可以控制计算机，而不会被计算机吓倒。</li>
+<li>用户学习时间相对较短。</li>
+<li>用户会立即收到有关其操作的反馈。错误经常可以被发现并迅速纠正。</li>
+</ol>
+</li>
+<li>问题<ol>
+<li>如何得出适当的信息模型和隐喻？</li>
+<li>鉴于用户拥有很大的信息空间，他们如何在该空间中导航并始终了解其当前位置</li>
+<li>接口通常很复杂。</li>
+</ol>
+</li>
+</ol>
+<h3 id="4-6-3-菜单系统"><a href="#4-6-3-菜单系统" class="headerlink" title="4.6.3. 菜单系统"></a>4.6.3. 菜单系统</h3><ol>
+<li>下拉式菜单<ol>
+<li>可预测的，但需要更多的屏幕空间</li>
+<li>显示菜单标题。</li>
+<li>用户可以通过此菜单选择命令。</li>
+</ol>
+</li>
+<li>弹出式菜单<ol>
+<li>灵活，量身定制，可能会引起用户惊讶</li>
+<li>它们与实体(例如字段)相关联。</li>
+</ol>
+</li>
+<li>优点<ol>
+<li>用户不需要知道命令名称。</li>
+<li>打字非常少。</li>
+<li>可以避免一些用户错误。</li>
+<li>可以提供上下文相关的帮助。</li>
+</ol>
+</li>
+<li>缺点<ol>
+<li>涉及逻辑结合(和)的动作：或析取(或)难以代表</li>
+<li>注意大型菜单的结构。以下是解决方案<ol>
+<li>滚动菜单</li>
+<li>层级菜单</li>
+<li>步行菜单</li>
+<li>相关的控制面板</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="4-6-4-表单接口"><a href="#4-6-4-表单接口" class="headerlink" title="4.6.4. 表单接口"></a>4.6.4. 表单接口</h3><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt11/8.png"></p>
+<ol>
+<li>优点：用于结构化数据表示和填充</li>
+<li>缺点：仅仅是用于结构化数据表示和填充</li>
+</ol>
+<h3 id="4-6-5-命令行模式"><a href="#4-6-5-命令行模式" class="headerlink" title="4.6.5. 命令行模式"></a>4.6.5. 命令行模式</h3><ol>
+<li>优点<ol>
+<li>由于语言处理，实现起来很简单。</li>
+<li>它可以通过许多命令支持非常复杂的系统。</li>
+<li>用户界面需要一些技巧。</li>
+<li>打字非常少。</li>
+<li>可以避免一些用户错误。</li>
+<li>可以提供上下文相关的帮助。</li>
+</ol>
+</li>
+<li>缺点：<ol>
+<li>用户必须学习并记住所有命令。</li>
+<li>难以学习的系统，操作起来不容易。</li>
+<li>用户不可避免地会犯错误</li>
+</ol>
+</li>
+</ol>
+<h3 id="4-6-6-自然语言模式"><a href="#4-6-6-自然语言模式" class="headerlink" title="4.6.6. 自然语言模式"></a>4.6.6. 自然语言模式</h3><ol>
+<li>用户以自然语言键入命令。通常，词汇量是有限的，并且这些系统仅限于特定的应用领域(例如，时间表查询)</li>
+<li>NLP 处理技术现在已经足够好，可以使这些接口对休闲用户有效，但是有经验的用户发现他们需要太多的输入</li>
+<li>往往结合机器学习中的 NLP 技术</li>
+</ol>
+<h2 id="4-7-总结"><a href="#4-7-总结" class="headerlink" title="4.7. 总结"></a>4.7. 总结</h2><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt11/9.png"></p>
+<h1 id="5-人机设计的交互性"><a href="#5-人机设计的交互性" class="headerlink" title="5. 人机设计的交互性"></a>5. 人机设计的交互性</h1><h2 id="5-1-导航（重要）"><a href="#5-1-导航（重要）" class="headerlink" title="5.1. 导航（重要）"></a>5.1. 导航（重要）</h2><ol>
+<li>好的人机交互设计就像⼀个服务周到的推销员，能够主动将自己的产品和服务简明扼要地告诉⽤户，这个就是导航。</li>
+<li>好的导航就像⼀个好的餐厅菜单，餐厅菜单能够帮助顾客快速地找到喜欢的⻝物，软件系统导航也要能帮助⽤户找到任务的⼊⼝。</li>
+<li>导航的⽬的就是为⽤户提供⼀个很好的完成任务的⼊⼝，好的导航会让这个⼊⼝⾮常符合⼈的精神模型。</li>
+<li>软件系统的导航有两种方式：<ol>
+<li><p>全局结构按照任务模型将软件产品的功能组织起来，并区分不同的重要性和主题提供给不同的⽤户。</p>
+<ul>
+<li>全局结构常⽤的导航控件包括<strong>窗口、菜单、列表、快捷方法、热键</strong>等等。</li>
+<li>全局结构的设计主要以<strong>功能分层</strong>和任务交互过程为主要依据。</li>
+</ul>
+</li>
+<li><p>局部结构通过安排界面布局细节，制造<strong>视觉上的线索</strong>来给⽤户提供导航。</p>
+<ul>
+<li>局部结构常用的导航控件包括<strong>可视化控件布局与组合、按钮设置、文本颜色或字体大小</strong>等等。</li>
+<li>局部结构的设计主要<strong>以用户关注的任务细节</strong>为主要依据。</li>
+</ul>
+</li>
+</ol>
+</li>
+</ol>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt11/10.png"></p>
+<blockquote>
+<p>标注部分详见课本189页</p>
+</blockquote>
+<h2 id="5-2-反馈（重要）"><a href="#5-2-反馈（重要）" class="headerlink" title="5.2. 反馈（重要）"></a>5.2. 反馈（重要）</h2><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt11/11.png"></p>
+<ol>
+<li><strong>一定要有反馈</strong>，避免进行错误的操作【<em>但不能打断用户工作的意识流，比如完成一项任务时，可以通过①状态栏给出反馈②对话框提示，显然后者需要用户点击关闭，因此是不必要的</em>】</li>
+<li>⽤户喜欢<strong>较短的响应时间</strong>；</li>
+<li>较⻓的响应时间(&gt;15秒)具有破坏性；【15s-3min需要提供动画减少用户等待感，超过3min需要进度条让用户觉得系统在工作】</li>
+<li>⽤户会根据响应时间的变化调整⾃⼰的⼯作⽅式；</li>
+<li>较短的响应时间导致了较短的⽤户思考时间；</li>
+<li>较快的节奏可能会提⾼效率，但也会增加出错率；</li>
+<li>根据任务选择适当的响应时间：<ol>
+<li>打字、光标移动、⿏标定位：50～150毫秒</li>
+<li>简单频繁的任务：1秒</li>
+<li>普通的任务：2～4秒</li>
+<li>复杂的任务：8～12秒</li>
+</ol>
+</li>
+<li>响应时间适度的变化是可接受的；</li>
+<li>意外延迟可能具有破坏性；</li>
+<li><strong>经验测试</strong>有助于设置适当的响应时间。</li>
+</ol>
+<h2 id="5-3-协作式设计（重要）"><a href="#5-3-协作式设计（重要）" class="headerlink" title="5.3. 协作式设计（重要）"></a>5.3. 协作式设计（重要）</h2><ol>
+<li>⼈和计算机是⼈机交互的方法，其中<strong>⼈的因素是⽐较固定的</strong>，一定时期内不会发⽣⼤的变化，所以要让二者交互顺畅，就需要让计算机更多地适应⼈的因素，这也是⼈机交互设计<strong>以用户为中心</strong>的根本原因。</li>
+<li><strong>这种调整计算机因素以更好地适应并帮助用户的设计方式被称为协作式设计</strong></li>
+</ol>
+<h1 id="6-一些人机交互设计原则-重要-至少记住5条以上"><a href="#6-一些人机交互设计原则-重要-至少记住5条以上" class="headerlink" title="6. 一些人机交互设计原则(重要)(至少记住5条以上)"></a>6. 一些人机交互设计原则(重要)(至少记住5条以上)</h1><h2 id="6-1-简洁设计-7±2原则"><a href="#6-1-简洁设计-7±2原则" class="headerlink" title="6.1. 简洁设计(7±2原则)"></a>6.1. 简洁设计(7±2原则)</h2><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt11/12.png"></p>
+<ol>
+<li>人类的信息处理能力是受限的，一般满足7±2原则</li>
+<li>如上，摘要和图片比文字更加简洁清晰</li>
+</ol>
+<h2 id="6-2-一致性设计"><a href="#6-2-一致性设计" class="headerlink" title="6.2. 一致性设计"></a>6.2. 一致性设计</h2><ol>
+<li>用户在使用软件系统时，会为软件系统建立精神模型。</li>
+<li>在用户以及建立了成熟的精神模型时，新系统的人机交互设计需要<strong>遵循用户已有的精神模型</strong></li>
+<li>以下是一个不一致性设计的例子。【按钮的位置不一致，会与用户精神模型不一致，精神模型会默认OK在右边】</li>
+</ol>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt11/13.png"></p>
+<h2 id="6-3-低出错率设计"><a href="#6-3-低出错率设计" class="headerlink" title="6.3. 低出错率设计"></a>6.3. 低出错率设计</h2><ol>
+<li>人<strong>机交互设计首先要帮助人们避免犯错，尽可能设计不让⽤户犯严重错误的系统</strong><ol>
+<li>具体措施包括将不适当的菜单选项功能以灰色显示屏蔽</li>
+<li>禁⽌在数值输入域中出现字母字符</li>
+</ol>
+</li>
+<li>当错误出现时，系统还要在⼈机交互中提供<strong>简洁、有建设性、具体</strong>的<strong>指导来帮助⽤户消除错误</strong>：填写表单时如果使用输⼊了无效的编码，那么系统应该引导他们对此进行修改，⽽不是要求⽤户重新填写整个表单。</li>
+<li>出错信息应当遵循以下四个简单原则[Shneiderman1982]：<ol>
+<li>应当使用<strong>清晰的语言来表达</strong>，而不要使用难懂的代码；</li>
+<li>使⽤的语言应当精炼准确，而不是空泛、模糊的；</li>
+<li>应当对用户解决问题提供<strong>建设性的帮助</strong>；</li>
+<li>出错信息应当友好，不要<strong>威胁或责备</strong>使用。</li>
+</ol>
+</li>
+<li><strong>系统还应该提供错误恢复和故障解决帮助⼿册。</strong></li>
+<li>应当尽快的进行校验(检查用户名重复)</li>
+</ol>
+<h2 id="6-4-易记性设计"><a href="#6-4-易记性设计" class="headerlink" title="6.4. 易记性设计"></a>6.4. 易记性设计</h2><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt11/14.png"></p>
+<p>使用下列方法，可以<strong>提高系统的易记性</strong></p>
+<ol>
+<li><strong>减少短期记忆的负担</strong>【如上面的Excel提示用户已经输入过的Male】</li>
+<li><strong>使用逐层递进的方式展示信息</strong>【缩略图，用户选择具体图片后再展现完整图片】</li>
+<li><strong>使用直观的快捷方式</strong>【直观的图像设计】</li>
+<li><strong>设置有意义的默认值</strong>【如图中，系统自动提高日期默认值，减少用户记忆负担，如idea的psvm也是】</li>
+</ol>
+<h2 id="6-5-可视化设计-所见即所得"><a href="#6-5-可视化设计-所见即所得" class="headerlink" title="6.5. 可视化设计&#x2F;所见即所得"></a>6.5. 可视化设计&#x2F;所见即所得</h2><ol>
+<li>按照任务模型设计界面隐喻，同时<strong>不要把软件系统的内部构造机制</strong>暴露给用户，<strong>避免将全部功能展示给用户</strong>，而是根据场景如特定的文件提高特定的功能，避免用户做出不当的行为</li>
+<li>可视化设计还应该基于界面隐喻，<strong>尽可能地把功能和任务细节表现出来</strong>。【<em>如主题和字体，通过可视化展示细节</em>】</li>
+</ol>
+<h2 id="6-6-差异性交互"><a href="#6-6-差异性交互" class="headerlink" title="6.6 差异性交互"></a>6.6 差异性交互</h2><p>好的人机交互应该为不同的用户群体提供差异化的交互机制：给新手用户提供易学的图形界面，给专家用户提供效率高的命令行、热键等。【<em>如相机的专业模式等</em>】</p>
+<h2 id="6-7-较短的反馈"><a href="#6-7-较短的反馈" class="headerlink" title="6.7 较短的反馈"></a>6.7 较短的反馈</h2><p>见上面的反馈</p>
+<h1 id="7-人机交互设计过程"><a href="#7-人机交互设计过程" class="headerlink" title="7. 人机交互设计过程"></a>7. 人机交互设计过程</h1><h2 id="7-1-人机交互设计过程"><a href="#7-1-人机交互设计过程" class="headerlink" title="7.1. 人机交互设计过程"></a>7.1. 人机交互设计过程</h2><p><strong>基于需求开发阶段产生的人机交互需求，可以在软件设计阶段进行人机交互设计：</strong></p>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt11/15.png"></p>
+<ol>
+<li>导航设计:建立多次交互之间的逻辑衔接结构</li>
+<li>页面设计:设计交互中的具体界面的细节</li>
+<li>页面原型化:使用界面原型工具</li>
+<li>页面的评估与修改:用户进行评估</li>
+</ol>
+<h2 id="7-2-对话结构图"><a href="#7-2-对话结构图" class="headerlink" title="7.2. 对话结构图"></a>7.2. 对话结构图</h2><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt11/16.png"></p>
+<h2 id="7-3-页面设计"><a href="#7-3-页面设计" class="headerlink" title="7.3. 页面设计"></a>7.3. 页面设计</h2><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt11/17.png"></p>
+<h2 id="7-4-原型化界面"><a href="#7-4-原型化界面" class="headerlink" title="7.4. 原型化界面"></a>7.4. 原型化界面</h2><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt11/18.png"></p>
+<h1 id="8-GUI设计"><a href="#8-GUI设计" class="headerlink" title="8. GUI设计"></a>8. GUI设计</h1><ol>
+<li>关键点</li>
+<li>常见的GUI元素</li>
+<li>设计你的GUI</li>
+<li>创建你的GUI</li>
+<li>保证实用性</li>
+<li>保证可行性</li>
+</ol>
+<h2 id="8-1-在建立有效的GUI方面的关键点"><a href="#8-1-在建立有效的GUI方面的关键点" class="headerlink" title="8.1. 在建立有效的GUI方面的关键点"></a>8.1. 在建立有效的GUI方面的关键点</h2><ol>
+<li>在所有阶段吸引用户</li>
+<li>去看看别人怎么做的</li>
+<li>知道并且在你知道的限制内工作完成</li>
+<li>保证你的GUI是可以使用的并且可行的</li>
+</ol>
+<h2 id="8-2-常见的GUI元素"><a href="#8-2-常见的GUI元素" class="headerlink" title="8.2. 常见的GUI元素"></a>8.2. 常见的GUI元素</h2><ol>
+<li>介绍和支持信息</li>
+<li>获取内容的设施</li>
+<li>主要内容</li>
+<li>扩展特点</li>
+</ol>
+<h3 id="8-2-1-介绍和支持信息"><a href="#8-2-1-介绍和支持信息" class="headerlink" title="8.2.1. 介绍和支持信息"></a>8.2.1. 介绍和支持信息</h3><ol>
+<li>欢迎：通常情况下，彩色的”初始”页面反映了某些内容</li>
+<li>相关信息：谁生产的，它的范围，有时是它的制造方式</li>
+<li>帮助信息：如何使用资源</li>
+<li>联系信息：如何与负责资源的人取得联系</li>
+<li>权利信息或使用条款：有关所有权，版权和用户义务的信息</li>
+</ol>
+<h2 id="8-3-查找内容的设施"><a href="#8-3-查找内容的设施" class="headerlink" title="8.3. 查找内容的设施"></a>8.3. 查找内容的设施</h2><ol>
+<li>浏览信息的方式：用户可以通过单击超链接在集合中导航</li>
+<li>查找信息的方式：用户可以在其中输入搜索查询并查看结果</li>
+</ol>
+<h2 id="8-4-主要内容"><a href="#8-4-主要内容" class="headerlink" title="8.4. 主要内容"></a>8.4. 主要内容</h2><ol>
+<li>总结页：提供浏览或搜索结果的概述，通常带有缩略图</li>
+<li>细节页：具有屏幕大小的图像，视频或音频播放器以及完整的元数据</li>
+</ol>
+<h2 id="8-5-扩展功能"><a href="#8-5-扩展功能" class="headerlink" title="8.5. 扩展功能"></a>8.5. 扩展功能</h2><ol>
+<li>能够查看更大尺寸的数字图像：通常通过缩放</li>
+<li>可以观看不同尺寸的视频流：取决于网络带宽</li>
+<li>选择下载文件：到本地硬盘以供以后使用</li>
+<li>嵌入文件的选项：用户将数字视频剪辑嵌入到另一个在线环境中</li>
+<li>能够”标记”文件以供以后参考：通常称为”相册”或”收藏夹”</li>
+<li>能够对图像，视频或音频文件进行注释或评论：供个人使用或公开展示的标签</li>
+</ol>
+<h2 id="8-6-规划您的GUI"><a href="#8-6-规划您的GUI" class="headerlink" title="8.6. 规划您的GUI"></a>8.6. 规划您的GUI</h2><ol>
+<li>您的用户GUI是首先要考虑的事情之一-不是最后一件！</li>
+<li>让您的用户参与其GUI的设计</li>
+<li>找出别人做了什么或正在做什么</li>
+</ol>
+<h2 id="8-7-建立您的GUI"><a href="#8-7-建立您的GUI" class="headerlink" title="8.7. 建立您的GUI"></a>8.7. 建立您的GUI</h2><ol>
+<li>使用”现成的”解决方案</li>
+<li>自己动手GUI</li>
+<li>组合解决方案</li>
+</ol>
+<h2 id="8-8-检查列表"><a href="#8-8-检查列表" class="headerlink" title="8.8. 检查列表"></a>8.8. 检查列表</h2><h3 id="8-8-1-数据输入界面"><a href="#8-8-1-数据输入界面" class="headerlink" title="8.8.1. 数据输入界面"></a>8.8.1. 数据输入界面</h3><ol>
+<li>您是否可以自定义数据输入界面以改善您的编目工作流(例如，重命名或重新排序字段，设置模板或下拉列表，从不使用的字段中删除)？</li>
+<li>还有其他功能可以提高生产力或准确性吗(例如键盘快捷键，制表键，自动单词补全，拼写检查，数据验证)？</li>
+<li>可以放大字体或更改颜色组合吗？</li>
+</ol>
+<h3 id="8-8-2-可定制的视觉设计"><a href="#8-8-2-可定制的视觉设计" class="headerlink" title="8.8.2. 可定制的视觉设计"></a>8.8.2. 可定制的视觉设计</h3><ol>
+<li>您可以添加自己的图形和文本以使其外观和感觉与网站的其余部分一样吗？</li>
+<li>它在不同的Web浏览器和操作系统上是否都能正常工作并且看起来不错？</li>
+</ol>
+<h3 id="8-8-3-搜索和检索界面"><a href="#8-8-3-搜索和检索界面" class="headerlink" title="8.8.3. 搜索和检索界面"></a>8.8.3. 搜索和检索界面</h3><ol>
+<li>您可以自定义搜索或浏览界面以更好地适合您的用户和收藏吗？</li>
+<li>有高级搜索选项吗？</li>
+<li>搜索结果显示良好吗？</li>
+</ol>
+<h3 id="8-8-4-附加的用户功能"><a href="#8-8-4-附加的用户功能" class="headerlink" title="8.8.4. 附加的用户功能"></a>8.8.4. 附加的用户功能</h3><ol>
+<li>一些系统具有额外的功能，例如使用户能够收集和注释自己的选择，对项目进行分组的能力等。</li>
+</ol>
+<h3 id="8-8-5-控制用户访问"><a href="#8-8-5-控制用户访问" class="headerlink" title="8.8.5. 控制用户访问"></a>8.8.5. 控制用户访问</h3><ol>
+<li>您可以将内容的一部分限制为特定用户或用户组吗？</li>
+<li>您能否根据用户提供不同的功能或功能级别或详细信息？</li>
+<li>是否有数字版权管理(DRM)功能，例如自动水印？</li>
+</ol>
+<h3 id="8-8-6-与其他集合的互操作性"><a href="#8-8-6-与其他集合的互操作性" class="headerlink" title="8.8.6. 与其他集合的互操作性"></a>8.8.6. 与其他集合的互操作性</h3><ol>
+<li>是否支持链接内容和元数据？</li>
+<li>用户可以搜索集合吗？</li>
+</ol>
+<h2 id="8-9-确保可用性"><a href="#8-9-确保可用性" class="headerlink" title="8.9. 确保可用性"></a>8.9. 确保可用性</h2><ol>
+<li>ISO 9241：视觉显示终端(VDT)的人机工程学要求，特别是第11部分：可用性指南(1998)</li>
+<li>ISO 13407：以人为本的交互式系统设计过程(1999年)</li>
+</ol>
+<h2 id="8-10-评估您的GUI"><a href="#8-10-评估您的GUI" class="headerlink" title="8.10. 评估您的GUI"></a>8.10. 评估您的GUI</h2><ol>
+<li><strong>实际用户的可用性测试</strong>。 向典型用户提供一些任务以执行并记录他们的工作以及对资源的看法。 这可能涉及观察用户的行为并记下他们的导航方式。</li>
+<li>您或者专家的可用性评估。 他们可能会使用正式的准则，清单或问题(例如”可用性检查”或”启发式评估”)，也可能会涉及扮演特定用户类型的角色(“认知演练”)。</li>
+<li>收集用户反馈。这些方法涉及在用户使用资源后寻求用户的反馈。常见且简便的方法是<strong>调查用户</strong>，但<strong>访谈和焦点</strong>小组可能会提供更丰富的信息。</li>
+<li>使用日志。许多有用的信息由用于传递资源的服务器或软件自动记录。通过分析用户访问了哪些页面以及他们的搜索成功程度，可以构建资源可用性的图景。</li>
+</ol>
+<h2 id="8-11-为可用性而设计"><a href="#8-11-为可用性而设计" class="headerlink" title="8.11. 为可用性而设计"></a>8.11. 为可用性而设计</h2><ol>
+<li>看竞争对手的设计。让一些典型的最终用户评估与您正在开发的资源相似的资源；并告诉您他们对他们的喜好。</li>
+<li>卡分类和标签。要求用户以最有意义的方式组织和标记您的内容和界面。不同的用户会提出不同的解决方案，但是这种方法可能会提供一些有用且令人惊讶的想法。</li>
+<li>原型。要求用户评估资源的模型和模型。 这些可以在纸上或屏幕上创建，并且可以包括真实内容或虚拟内容。</li>
+</ol>
+<h2 id="8-12-开发高质量和可用接口的过程-ISO-13407"><a href="#8-12-开发高质量和可用接口的过程-ISO-13407" class="headerlink" title="8.12. 开发高质量和可用接口的过程(ISO 13407)"></a>8.12. 开发高质量和可用接口的过程(ISO 13407)</h2><ol>
+<li>指定使用环境。了解谁将使用资源以及他们将如何使用它(例如，他们将使用哪个浏览器访问资源？)。</li>
+<li>指定用户和组织要求。列出必须支持的任务(例如，搜索视频)以及一些可衡量的目标，以了解如何有效，有效和令人满意地执行这些任务(例如，”在70％的搜索中找到视频，两次单击即可获得90％的满意度 “)。</li>
+<li>产生设计解决方案。设计资源以满足第2步中确定的要求。</li>
+<li>根据用户要求评估设计。检查开发是否确实符合您在先前步骤中确定的要求和目标。</li>
+</ol>
+<h2 id="8-13-确保可访问性"><a href="#8-13-确保可访问性" class="headerlink" title="8.13. 确保可访问性"></a>8.13. 确保可访问性</h2><ol>
+<li>考虑无障碍性的法律义务</li>
+<li>无障碍不仅是残疾人的问题</li>
+<li>努力做到灵活</li>
+<li>开发在线网站时要考虑的一些事情</li>
+</ol>
+<h2 id="8-14-开发在线时要考虑的一些事情"><a href="#8-14-开发在线时要考虑的一些事情" class="headerlink" title="8.14. 开发在线时要考虑的一些事情"></a>8.14. 开发在线时要考虑的一些事情</h2><h3 id="8-14-1-接口"><a href="#8-14-1-接口" class="headerlink" title="8.14.1. 接口"></a>8.14.1. 接口</h3><ol>
+<li>可以通过各种设备和浏览器访问该界面吗？</li>
+<li>用户是否可以更改颜色和字体大小？</li>
+<li>是否使用样式表来格式化资源(而不是框架，表格或图形)？所有说明都写清楚吗？</li>
+<li>文字信息是否以文字形式显示(而不只是文字图片)？</li>
+</ol>
+<h3 id="8-14-2-导航"><a href="#8-14-2-导航" class="headerlink" title="8.14.2. 导航"></a>8.14.2. 导航</h3><ol>
+<li>是否总是清楚您在哪里以及可以去哪里？</li>
+<li>是否清楚地标识了超链接并以文本形式(而不是仅图形形式)提供超链接？</li>
+<li>用户能否完全控制其导航和资源使用(例如，暂停任何视频或声音元素)？</li>
+</ol>
+<h3 id="8-14-3-搜索和检索。"><a href="#8-14-3-搜索和检索。" class="headerlink" title="8.14.3. 搜索和检索。"></a>8.14.3. 搜索和检索。</h3><ol>
+<li>用户可以通过键盘访问搜索表单(还是取决于鼠标)？</li>
+<li>搜索和结果是否以HTML或XML(或嵌入到其他应用程序，如Flash或Java)中显示？</li>
+</ol>
+<h3 id="8-14-4-文件的尺寸和大小"><a href="#8-14-4-文件的尺寸和大小" class="headerlink" title="8.14.4. 文件的尺寸和大小"></a>8.14.4. 文件的尺寸和大小</h3><ol>
+<li>是否有满足不同需求的图像&#x2F;视频尺寸范围(尺寸和文件尺寸)？</li>
+<li>当用户将要访问很大的文件时，用户是否知道？ </li>
+<li>是否可以详细查看图像(大图像，图像的放大部分或缩放功能)？</li>
+</ol>
+<h3 id="8-14-5-文件说明"><a href="#8-14-5-文件说明" class="headerlink" title="8.14.5. 文件说明"></a>8.14.5. 文件说明</h3><ol>
+<li>是否有所有视觉资源的文字说明？</li>
+<li>是否有音频和视频文件的抄录？</li>
+<li>在书写页面已被数字化的情况下，是否存在可搜索的等效文本？</li>
+</ol>
+<h2 id="8-15-黄金法则（重要）"><a href="#8-15-黄金法则（重要）" class="headerlink" title="8.15. 黄金法则（重要）"></a>8.15. 黄金法则（重要）</h2><ol>
+<li>让用户掌控一切</li>
+<li>减少用户的记忆负载</li>
+<li>一致性</li>
+</ol>
+<h2 id="8-16-十条原则"><a href="#8-16-十条原则" class="headerlink" title="8.16. 十条原则"></a>8.16. 十条原则</h2><ol>
+<li>紧凑而自然的对话</li>
+<li>设计图和颜色</li>
+<li>简约就足够了</li>
+<li>使用用户语言</li>
+<li>用户所需的最小记忆</li>
+<li>一致的</li>
+<li>反馈</li>
+<li>识别退出清除</li>
+<li>捷径</li>
+<li>良好的错误讯息</li>
+<li>避免错误</li>
+<li>帮助和文件</li>
+</ol>
+
+        
+      </div>
+
+         
+    </div>
+    
+     
+  </div>
+  
+    
+<nav id="article-nav">
+  <a class="article-nav-btn left "
+    
+      href="/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC8-11%E7%AB%A0)/"
+      title="SE-II-软件工程与计算II重点整理(第8-11章)"
+     >
+    <i class="fa-solid fa-angle-left"></i>
+    <p class="title-text">
+      
+        SE-II-软件工程与计算II重点整理(第8-11章)
+        
+    </p>
+  </a>
+  <a class="article-nav-btn right "
+    
+      href="/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/12-%E8%AF%A6%E7%BB%86%E8%AE%BE%E8%AE%A1/"
+      title="SE-II-ch12-详细设计"
+     >
+
+    <p class="title-text">
+      
+        SE-II-ch12-详细设计
+        
+    </p>
+    <i class="fa-solid fa-angle-right"></i>
+  </a>
+</nav>
+
+
+  
+</article>
+
+
+  
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <div id="comment-card" class="comment-card">
+    <div class="main-title-bar">
+      <div class="main-title-dot"></div>
+      <div class="main-title">留言 </div>
+    </div>
+    <div id="vcomments"></div>
+  </div>
+  <script>
+      new Valine({"enable":true,"appId":null,"appKey":null,"placeholder":"Just go go","pageSize":20,"highlight":true,"serverURLs":null,"el":"#vcomments"});
+  </script>
+ 
+    </div>
+    <div id="footer-wrapper">
+      <footer id="footer">
+  
+  <div id="footer-info" class="inner">
+    
+      <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris"></a>
+    
+    &copy; 2023 Asimov<br>
+    Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & Theme <a target="_blank" rel="noopener" href="https://github.com/saicaca/hexo-theme-vivia">Vivia</a>
+  </div>
+</footer>
+
+    </div>
+    <div class="back-to-top-wrapper">
+    <button id="back-to-top-btn" class="back-to-top-btn hide" onclick="topFunction()">
+        <i class="fa-solid fa-angle-up"></i>
+    </button>
+</div>
+
+<script>
+    function topFunction() {
+        window.scroll({ top: 0, behavior: 'smooth' });
+    }
+    let btn = document.getElementById('back-to-top-btn');
+    function scrollFunction() {
+        if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+            btn.classList.remove('hide')
+        } else {
+            btn.classList.add('hide')
+        }
+    }
+    window.onscroll = function() {
+        scrollFunction();
+    }
+</script>
+
+  </div>
+  <script src="/js/light-dark-switch.js"></script>
+</body>
+</html>

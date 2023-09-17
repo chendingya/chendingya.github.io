@@ -1,0 +1,565 @@
+<!DOCTYPE html>
+
+
+<html theme="dark" showBanner="true" hasBanner="true" > 
+<link href="/fontawesome/css/fontawesome.css" rel="stylesheet">
+<link href="/fontawesome/css/brands.css" rel="stylesheet">
+<link href="/fontawesome/css/solid.css" rel="stylesheet">
+<script src="/js/color.global.min.js" ></script>
+<script src="/js/load-settings.js" ></script>
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+
+  
+  <title>SE-II-软件工程与计算II重点整理(第8-11章) | Asimov&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+  <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+
+  <meta name="description" content="软件工程与计算II重点整理(第8-11章)第八章 软件设计1.软件设计的定义a)为使一软件系统满足规定的需求而定义系统或部件的体系结构、部件、接口和其他特征的过程； b)设计过程的结果。 2.软件设计的核心思想复杂度控制 分解、抽象、层次性 3.软件工程设计有哪三个层次？各层的主要思想是什么？低层设计、中层设计、高层设计。 低层：将基本的语言单位组织起来，建立高质量的数据结构+算法 中层：模块划分">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SE-II-软件工程与计算II重点整理(第8-11章)">
+<meta property="og:url" content="https://chendingya.github.io/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC8-11%E7%AB%A0)/index.html">
+<meta property="og:site_name" content="Asimov&#39;s Blog">
+<meta property="og:description" content="软件工程与计算II重点整理(第8-11章)第八章 软件设计1.软件设计的定义a)为使一软件系统满足规定的需求而定义系统或部件的体系结构、部件、接口和其他特征的过程； b)设计过程的结果。 2.软件设计的核心思想复杂度控制 分解、抽象、层次性 3.软件工程设计有哪三个层次？各层的主要思想是什么？低层设计、中层设计、高层设计。 低层：将基本的语言单位组织起来，建立高质量的数据结构+算法 中层：模块划分">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://chendingya.github.io/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC8-11%E7%AB%A0)/image-20230616204231528.png">
+<meta property="og:image" content="https://chendingya.github.io/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC8-11%E7%AB%A0)/image-20230616204242803.png">
+<meta property="article:published_time" content="2022-06-20T08:02:34.000Z">
+<meta property="article:modified_time" content="2023-09-17T08:07:09.856Z">
+<meta property="article:author" content="Asimov">
+<meta property="article:tag" content="软件工程与计算II">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://chendingya.github.io/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC8-11%E7%AB%A0)/image-20230616204231528.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Asimov's Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-192.png" sizes="192x192">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-192.png" sizes="192x192">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  
+  
+    
+<div id="banner" class="">
+  <img src="/pic/back.png" itemprop="image">
+  <div id="banner-dim"></div>
+</div>
+ 
+   
+  <div id="main-grid" class="shadow   ">
+    <div id="nav" class=""  >
+      <navbar id="navbar">
+  <nav id="title-nav">
+    <a href="/">
+      <div id="vivia-logo">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div>Asimov's Blog </div>
+    </a>
+  </nav>
+  <nav id="main-nav">
+    
+      <a class="main-nav-link" href="/">Home</a>
+    
+      <a class="main-nav-link" href="/archives">Archives</a>
+    
+      <a class="main-nav-link" href="/about">About</a>
+    
+  </nav>
+  <nav id="sub-nav">
+    <a id="theme-btn" class="nav-icon">
+      <span class="light-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M438.5-829.913v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-829.913Zm0 747.826v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-82.087ZM877.913-438.5h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537t29.476-12.174h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T877.913-438.5Zm-747.826 0h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T82.087-521.5h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T130.087-438.5Zm660.174-290.87-34.239 32q-12.913 12.674-29.565 12.174-16.653-.5-29.327-13.174-12.674-12.673-12.554-28.826.12-16.152 12.794-28.826l33-35q12.913-12.674 30.454-12.674t30.163 12.847q12.709 12.846 12.328 30.826-.38 17.98-13.054 30.653ZM262.63-203.978l-32 34q-12.913 12.674-30.454 12.674t-30.163-12.847q-12.709-12.846-12.328-30.826.38-17.98 13.054-30.653l33.239-31q12.913-12.674 29.565-12.174 16.653.5 29.327 13.174 12.674 12.673 12.554 28.826-.12 16.152-12.794 28.826Zm466.74 33.239-32-33.239q-12.674-12.913-12.174-29.565.5-16.653 13.174-29.327 12.673-12.674 28.826-13.054 16.152-.38 28.826 12.294l35 33q12.674 12.913 12.674 30.454t-12.847 30.163q-12.846 12.709-30.826 12.328-17.98-.38-30.653-13.054ZM203.978-697.37l-34-33q-12.674-12.913-13.174-29.945-.5-17.033 12.174-29.707t31.326-13.293q18.653-.62 31.326 13.054l32 34.239q11.674 12.913 11.174 29.565-.5 16.653-13.174 29.327-12.673 12.674-28.826 12.554-16.152-.12-28.826-12.794ZM480-240q-100 0-170-70t-70-170q0-100 70-170t170-70q100 0 170 70t70 170q0 100-70 170t-170 70Zm-.247-82q65.703 0 111.475-46.272Q637-414.544 637-480.247t-45.525-111.228Q545.95-637 480.247-637t-111.475 45.525Q323-545.95 323-480.247t45.525 111.975Q414.05-322 479.753-322ZM481-481Z"/></svg></span>
+      <span class="dark-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M480.239-116.413q-152.63 0-258.228-105.478Q116.413-327.37 116.413-480q0-130.935 77.739-227.435t206.304-125.043q43.022-9.631 63.87 10.869t3.478 62.805q-8.891 22.043-14.315 44.463-5.424 22.42-5.424 46.689 0 91.694 64.326 155.879 64.325 64.186 156.218 64.186 24.369 0 46.978-4.946 22.609-4.945 44.413-14.076 42.826-17.369 62.967 1.142 20.142 18.511 10.511 61.054Q807.174-280 712.63-198.206q-94.543 81.793-232.391 81.793Zm0-95q79.783 0 143.337-40.217 63.554-40.218 95.793-108.283-15.608 4.044-31.097 5.326-15.49 1.283-31.859.805-123.706-4.066-210.777-90.539-87.071-86.473-91.614-212.092-.24-16.369.923-31.978 1.164-15.609 5.446-30.978-67.826 32.478-108.282 96.152Q211.652-559.543 211.652-480q0 111.929 78.329 190.258 78.329 78.329 190.258 78.329ZM466.13-465.891Z"/></svg></span>
+    </a>
+    
+      <a id="nav-rss-link" class="nav-icon mobile-hide" href="/atom.xml" title="RSS 订阅">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-120q-25.846 0-44.23-18.384-18.384-18.385-18.384-44.23 0-25.846 18.384-44.23 18.384-18.385 44.23-18.385 25.846 0 44.23 18.385 18.384 18.384 18.384 44.23 0 25.845-18.384 44.23Q223.846-120 198-120Zm538.385 0q-18.846 0-32.923-13.769-14.076-13.769-15.922-33.23-8.692-100.616-51.077-188.654-42.385-88.039-109.885-155.539-67.5-67.501-155.539-109.885Q283-663.462 182.385-672.154q-19.461-1.846-33.23-16.23-13.769-14.385-13.769-33.846t14.076-32.922q14.077-13.461 32.923-12.23 120.076 8.692 226.038 58.768 105.961 50.077 185.73 129.846 79.769 79.769 129.846 185.731 50.077 105.961 58.769 226.038 1.231 18.846-12.538 32.922Q756.461-120 736.385-120Zm-252 0q-18.231 0-32.423-13.461t-18.653-33.538Q418.155-264.23 348.886-333.5q-69.27-69.27-166.501-84.423-20.077-4.462-33.538-18.961-13.461-14.5-13.461-33.346 0-19.076 13.884-33.23 13.884-14.153 33.115-10.922 136.769 15.384 234.384 112.999 97.615 97.615 112.999 234.384 3.231 19.23-10.538 33.115Q505.461-120 484.385-120Z"/></svg>
+      </a>
+    
+    <div id="nav-menu-btn" class="nav-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M177.37-252.282q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Zm0-186.218q-17.453 0-29.477-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T177.37-521.5h605.26q17.453 0 29.477 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T782.63-438.5H177.37Zm0-186.217q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Z"/></svg>
+    </div>
+  </nav>
+</navbar>
+<div id="nav-dropdown" class="hidden">
+  <div id="dropdown-link-list">
+    
+      <a class="nav-dropdown-link" href="/">Home</a>
+    
+      <a class="nav-dropdown-link" href="/archives">Archives</a>
+    
+      <a class="nav-dropdown-link" href="/about">About</a>
+    
+    
+      <a class="nav-dropdown-link" href="/atom.xml" title="RSS 订阅">RSS</a>
+     
+    </div>
+</div>
+<script>
+  let dropdownBtn = document.getElementById("nav-menu-btn");
+  let dropdownEle = document.getElementById("nav-dropdown");
+  dropdownBtn.onclick = function() {
+    dropdownEle.classList.toggle("hidden");
+  }
+</script>
+    </div>
+    <div id="sidebar-wrapper">
+      <sidebar id="sidebar">
+  
+    <div class="widget-wrap">
+  <div class="info-card">
+    <div class="avatar">
+      
+        <image src=/pic/avatar.png></image>
+      
+      <div class="img-dim"></div>
+    </div>
+    <div class="info">
+      <div class="username">Asimov </div>
+      <div class="dot"></div>
+      <div class="subtitle">Asimov's Blog </div>
+      <div class="link-list">
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://github.com/chendingya" title="GitHub"><i class="fa-brands fa-github"></i></a>
+         
+      </div>  
+    </div>
+  </div>
+</div>
+
+  
+  <div class="sticky">
+    
+      
+
+
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">分类</h3>
+      <div class="category-box">
+            <a class="category-link" href="/categories/hello-world/">
+                hello world
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/Hexo/">
+                Hexo
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
+                编译原理
+                <div class="category-count">13</div>
+            </a>
+        
+            <a class="category-link" href="/categories/tdesign/">
+                tdesign
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">
+                软件工程与计算II
+                <div class="category-count">30</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E9%A9%BE%E8%80%83/">
+                驾考
+                <div class="category-count">2</div>
+            </a>
+        </div>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">标签</h3>
+      <ul class="widget-tag-list" itemprop="keywords"><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/hello-world/" rel="tag">hello world</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/tdesign/" rel="tag">tdesign</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" rel="tag">编译原理</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/" rel="tag">软件工程与计算II</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E9%A9%BE%E8%80%83/" rel="tag">驾考</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">归档</h3>
+      
+      
+        <a class="archive-link" href="/archives/2023/09 ">
+          九月 2023 
+          <div class="archive-count">2 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/07 ">
+          七月 2023 
+          <div class="archive-count">2 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/04 ">
+          四月 2023 
+          <div class="archive-count">10 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/03 ">
+          三月 2023 
+          <div class="archive-count">3 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2022/10 ">
+          十月 2022 
+          <div class="archive-count">1 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2022/06 ">
+          六月 2022 
+          <div class="archive-count">30 </div>
+        </a>
+      
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">最新文章</h3>
+      <ul>
+        
+          <a class="recent-link" href="/2023/09/15/23-tdesign/Mock%E4%BD%BF%E7%94%A8/" title="微信小程序中Mock使用" >
+            <div class="recent-link-text">
+              微信小程序中Mock使用
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/09/12/%E9%A9%BE%E8%80%83/%E9%A9%BE%E8%80%83-%E7%A7%91%E7%9B%AE%E4%BA%8C/" title="驾考-科目二" >
+            <div class="recent-link-text">
+              驾考-科目二
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/07/18/blog/" title="blog" >
+            <div class="recent-link-text">
+              blog
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/07/17/%E9%A9%BE%E8%80%83/%E9%A9%BE%E8%80%83-%E7%A7%91%E7%9B%AE%E4%B8%80/" title="驾考-科目一" >
+            <div class="recent-link-text">
+              驾考-科目一
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/04/10/23-Compilers/ch18-codegen-riscv-RISC-V%20%E6%A6%82%E8%BF%B0/" title="ch18-codegen-riscv-RISC-V 概述" >
+            <div class="recent-link-text">
+              ch18-codegen-riscv-RISC-V 概述
+            </div>
+          </a>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+  </div>
+</sidebar>
+    </div>
+    <div id="content-body">
+       
+
+<article id="post-SE-II复习资料/软件工程与计算II重点整理(第8-11章)" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 class="p-name article-title" itemprop="headline name">
+        SE-II-软件工程与计算II重点整理(第8-11章)
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2022-06-20T08:02:34.000Z" itemprop="datePublished">2022-06-20</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">软件工程与计算II</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            4.3k 词 
+          </div>
+        </div>
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/" rel="tag">软件工程与计算II</a></li></ul>
+
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <h1 id="软件工程与计算II重点整理-第8-11章"><a href="#软件工程与计算II重点整理-第8-11章" class="headerlink" title="软件工程与计算II重点整理(第8-11章)"></a>软件工程与计算II重点整理(第8-11章)</h1><h2 id="第八章-软件设计"><a href="#第八章-软件设计" class="headerlink" title="第八章 软件设计"></a>第八章 软件设计</h2><h2 id="1-软件设计的定义"><a href="#1-软件设计的定义" class="headerlink" title="1.软件设计的定义"></a>1.软件设计的定义</h2><p>a)为使一软件系统满足规定的需求而定义系统或部件的体系结构、部件、接口和其他特征的过程；</p>
+<p>b)设计过程的结果。</p>
+<h2 id="2-软件设计的核心思想"><a href="#2-软件设计的核心思想" class="headerlink" title="2.软件设计的核心思想"></a>2.软件设计的核心思想</h2><p><strong>复杂度控制</strong></p>
+<p><strong>分解、抽象、层次性</strong></p>
+<h2 id="3-软件工程设计有哪三个层次？各层的主要思想是什么？"><a href="#3-软件工程设计有哪三个层次？各层的主要思想是什么？" class="headerlink" title="3.软件工程设计有哪三个层次？各层的主要思想是什么？"></a>3.软件工程设计有哪三个层次？各层的主要思想是什么？</h2><p>低层设计、中层设计、高层设计。</p>
+<p>低层：将<strong>基本的语言单位组织</strong>起来，建立高质量的数据结构+算法</p>
+<p>中层：<strong>模块划分隐藏一些程序片段的细节，暴露接口于外界</strong></p>
+<p>高层：体系结构，部件承载计算和状态，连接件承载交互，同样重要</p>
+<h2 id="第九、十章-软件体系结构设计与构建"><a href="#第九、十章-软件体系结构设计与构建" class="headerlink" title="第九、十章 软件体系结构设计与构建"></a>第九、十章 软件体系结构设计与构建</h2><h2 id="1-体系结构的概念"><a href="#1-体系结构的概念" class="headerlink" title="1.体系结构的概念"></a>1.体系结构的概念</h2><p><strong>部件+连接件+配置部件：</strong></p>
+<p>部件：承载系统主要功能，包括处理与数据</p>
+<p>连接件：定义部件间的交互，是连接的抽象表示</p>
+<p>配置：定义了部件和连接件之间的关联方式，将它们组织成系统的总体结构</p>
+<h2 id="2-体系结构的风格的优缺点"><a href="#2-体系结构的风格的优缺点" class="headerlink" title="2.体系结构的风格的优缺点"></a>2.体系结构的风格的优缺点</h2><p>常见风格模式：</p>
+<h3 id="1）主程序-子程序风格"><a href="#1）主程序-子程序风格" class="headerlink" title="(1）主程序&#x2F;子程序风格"></a>(1）主程序&#x2F;子程序风格</h3><p><strong>部件：程序、函数、模块</strong></p>
+<p><strong>连接件：它们之间的调用控制</strong></p>
+<p>从子程序层次结构顶部开始且向下移动层次化分解：基于定义使用关系单线程控制</p>
+<p>隐含子系统结构：子程序通常合并成模块</p>
+<p>层次化推理：子程序的正确性依赖于它调用的子程序的正确性</p>
+<p><strong>优点：流程清晰，易于理解；强控制性。</strong></p>
+<p><strong>缺点：</strong></p>
+<p>a.程序调用是一种强耦合的连接方式，非常依赖交互方的接口规格，使得系统难以修改和复用；</p>
+<p> b.基于程序调用（声明－使用）关系的连接方式限制了各部件之间的数据交互，可能会使得不同部件使用隐含的共享数据交流，产生不必要的公共耦合，进而破坏它的“正确性”控制能力。</p>
+<p>实现：功能分解、集中控制，每个构件一个模块实现，主要是单向依赖。使用utility或tools等基础模块</p>
+<h3 id="2）面向对象式风格"><a href="#2）面向对象式风格" class="headerlink" title="(2）面向对象式风格"></a>(2）面向对象式风格</h3><p><strong>部件: 对象或模块</strong></p>
+<p><strong>连接件: 功能或调用（方法）</strong></p>
+<p>数据表示对于其他对象是<strong>隐藏的对象负责保持数据表示的完整性</strong>（例如一些不变量）每个对象都是自主代理</p>
+<p><strong>优点：内部实现的可修改性；易开发、易理解、易复用的结构组织。</strong></p>
+<p><strong>缺点：接口的耦合性；标识的耦合性；副作用（Ex：A和B都修改C）。</strong></p>
+<p>适用于核心问题是识别和保护相关机构信息（数据）的应用数据表示和相关操作封装在抽象数据类型，</p>
+<p>例: 抽象数据类型实现：任务分解，（委托式）分散式控制，每个构件一个模块实现，使用接口将双向依赖转换为单向依赖</p>
+<p>将每个构件分割为多个模块，以保证单向依赖，使用utility或tools等基础模块</p>
+<h3 id="3）分层风格"><a href="#3）分层风格" class="headerlink" title="(3）分层风格"></a>(3）分层风格</h3><p><strong>上层调用下层，禁止逆向调用，跨层调用</strong></p>
+<p><strong>部件: 通常是程序或对象的集合</strong></p>
+<p><strong>连接件: 通常是有限可见度下的程序调用或方法调用</strong></p>
+<p>优点：设计机制清晰，易于理解；<strong>支持并行开发；更好的可复用性与内部可修改性。</strong></p>
+<p>缺点：<strong>交互协议难以修改</strong>；性能损失；难以确定层次数量和粒度。</p>
+<p>应用：适用于包含不同类服务的应用，而且这些服务能够分层组织尤其当应用可能在某些层改变，例如交互，通信，硬件，平台等</p>
+<p>例子:<strong>分层通信协议</strong>，每一层在某种程度的抽象上提供了通信的基底，低层定义了低层次的交互最底层是硬件连接（物理层）</p>
+<p>实现：关注点分离（每层逐次抽象），层间接口使用固定协议（固定控制），每层一或多个模块实现，单向依赖，层间数据传递建立专门模块，使用utility或tools等基础模块</p>
+<h3 id="4）MVC风格"><a href="#4）MVC风格" class="headerlink" title="(4）MVC风格"></a>(4）MVC风格</h3><p><strong>模型——视图——控制器</strong></p>
+<p>Model子系统被设计成不依赖任何View或Controller子系统</p>
+<p>它们状态的改变会传播到View子系统部件：</p>
+<p><strong>Model部件负责维护领域知识和通知视图变化；</strong></p>
+<p><strong>View部件负责给用户显示信息和将用户手势发送给控制器；</strong></p>
+<p><strong>Controller改变模型的状态、将用户操作映射到模型更新、选择视图进行响应</strong></p>
+<p><strong>连接件: 程序调用，消息，事件</strong></p>
+<p>优点：<strong>易开发性</strong>；视图和控制的可修改性；适宜于网络系统开发的特征。</p>
+<p>缺点：<strong>复杂性；模型修改困难。</strong></p>
+<p>适用于以下应用:在运行时，用户界面的改变很容易且是可能的用户界面的调整或移植不会影响该应用功能部分的设计和编码 例:Web 应用实现：特定技术，通常专用于WEB：Model与Controller单向，Controller与View双向，Model与View双向</p>
+<p>典型实现：View：JSP，HTML；Controller：Servlet；Model：JavaBean</p>
+<h2 id="3-体系结构设计的过程"><a href="#3-体系结构设计的过程" class="headerlink" title="3.体系结构设计的过程"></a>3.体系结构设计的过程</h2><p>1.分析<strong>关键需求和项目约束</strong>；</p>
+<p>2.通过<strong>选择体系结构风格</strong>，确定顶层架构；</p>
+<p>3.进行软件<strong>体系结构逻辑设计</strong>；</p>
+<p>4.依赖逻辑设计进行<strong>软件体系结构设计</strong>；</p>
+<p>5.完善体系结构设计；</p>
+<p>6.添加<strong>构建接口</strong></p>
+<p>7.迭代3-7</p>
+<blockquote>
+<p>安全与网络分布：方案比较</p>
+<p>方案一：哪个接口更多、更复杂？ 将RMI置于更少、更简单的层间接口</p>
+<p>方案二：哪两层之间更内聚？将RMI置于更不内聚的层间接口</p>
+<p>方案后果：更简洁、更易于修改</p>
+<p>方案一：Mainui只包含登录</p>
+<p>方案二：Mainui包含登录和主界面  </p>
+</blockquote>
+<blockquote>
+<p>关键区分：是否需要共同的主界面、界面一样  </p>
+</blockquote>
+<h2 id="4-包的原则"><a href="#4-包的原则" class="headerlink" title="4.包的原则"></a>4.包的原则</h2><p><strong>最高原则：包与包之间不能有重复和冗余、复用发布等价原则、共同封闭原则、共同复用原则、无环依赖原则、稳定依赖原则、稳定抽象原则</strong></p>
+<h3 id="（1）复用发布等价原则REP"><a href="#（1）复用发布等价原则REP" class="headerlink" title="（1）复用发布等价原则REP"></a>（1）复用发布等价原则REP</h3><p>（不要把很多用例放在一个包）为复用者聚合构件（类），单一的类通常不可复用，几个协作类组成一个包</p>
+<p>一个包中的类应该形成一个<strong>可复用和可发布</strong>的模块，模块提供一致的功能，减少复用者的工作</p>
+<h3 id="（2）共同封闭原则CCP"><a href="#（2）共同封闭原则CCP" class="headerlink" title="（2）共同封闭原则CCP"></a>（2）共同封闭原则CCP</h3><p>最小化变化给程序员造成的影响（不要把一个用例拆成多个包）<strong>当一个变化是必要的，如果该变化影响尽可能少的包，则对程序员是有利的</strong>，因为需要时间编译和链接以及重新生效把具有相似闭包的类聚合在一起，包闭合了预期的变化</p>
+<p>限制对一些包的修改，减少包的发布频率，减少程序员的工作</p>
+<h3 id="（3）共同复用原则CRP"><a href="#（3）共同复用原则CRP" class="headerlink" title="（3）共同复用原则CRP"></a>（3）共同复用原则CRP</h3><p><strong>根据公共复用给类分组，避免给用户带来不必要的依赖常常导致细分包</strong>，获得<strong>更多更小更集中</strong>的包，减少复用者的工作</p>
+<p><strong>CCP和CRP原则相互排斥</strong>，例如它们不能同时被满足：CRP使得复用者的工作更简单，而CCP使维护者的生活更简单；CCP努力让包尽可能大，而CRP设法让包很小。项目的早期，架构师可能以CCP为主导来辅助开发和维护。架构稳定后，架构师可能重构包结构，为了外部复用者而最大化CRP。</p>
+<h3 id="（4）无环依赖原则ADP"><a href="#（4）无环依赖原则ADP" class="headerlink" title="（4）无环依赖原则ADP"></a>（4）无环依赖原则ADP</h3><p>包的依赖结构应是一个有向无环图一块块地稳固和发布项目，以自上而下的层次结构组织包依赖</p>
+<p>解决：分解包／抽象依赖</p>
+<h3 id="（5）稳定依赖原则SDP"><a href="#（5）稳定依赖原则SDP" class="headerlink" title="（5）稳定依赖原则SDP"></a>（5）稳定依赖原则SDP</h3><p>例如：向下接口的依赖是不稳定依赖</p>
+<p>一个包影响三个包，这不稳定。</p>
+<p>三个包影响一个包，稳定。</p>
+<h3 id="（6）稳定抽象原则SAP"><a href="#（6）稳定抽象原则SAP" class="headerlink" title="（6）稳定抽象原则SAP"></a>（6）稳定抽象原则SAP</h3><p><strong>稳定包应是抽象包，不稳定包应是具体包</strong></p>
+<p><strong>稳定包包含高层设计</strong>，抽象它们使得对扩展开发对修改关闭（OCP）。一些灵活性留在稳定的难以改变的包中。</p>
+<p>对象创建：</p>
+<blockquote>
+<p>方案一: Spring方案,需要事先明确依赖关系在程序启动时,第三方(初始化程序)一次性创建完成对象实例并set给上一层Service：View——Logic；DAO: Logic——Data</p>
+<p>方案二: 也适用于非层间的包依赖解除构造一个第三方(Factory)负责创建具体对象实例</p>
+<p>上层和下层都依赖于第三方，但第三方可以视作例外（即不影响层间独立关系）</p>
+</blockquote>
+<h2 id="5-体系结构构件之间接口的定义（必考）"><a href="#5-体系结构构件之间接口的定义（必考）" class="headerlink" title="5.体系结构构件之间接口的定义（必考）"></a>5.体系结构构件之间接口的定义（必考）</h2><p>根据分配的需求确定模块对外接口，如逻辑层接口根据界面的需求得到，数据层接口根据逻辑层调用得到</p>
+<p>根据<strong>刺激与响应</strong>确定接口，<strong>依据详细规格明确接口内容（数据、返回值）</strong></p>
+<p>（1）通常情况下，VIEW的required接口可以直接作为相应Logic的Provided</p>
+<p>（2）通常情况下，LOGIC的required接口需要分解为同层模块和不同Data的Provided</p>
+<p>（3）Data一般没有层间依赖，接口通常来自于上一层的相应模块</p>
+<blockquote>
+<p>【示例】saleLogic的其他接口来源 :</p>
+<p>（1）其他被归类为saleLogic模块承担的需求，如退货用例</p>
+<p>（2）同层模块间的依赖解除双向依赖：需要被抽象为一个独立接口和独立包，saleLogic再导入上面的包独立接口和独立包也属于saleLogic模块最终承担的Provide接口，也需要转化为对Data的Required接口在分析其他模块时逐步完善，例如进行礼品赠送时查看特定客户的销售记录、库存分析时查看一定时间段内的销售记录或特定商品的销售记录  </p>
+</blockquote>
+<blockquote>
+<p>在独立接口和独立包中定义有限制的领域类供外界使用，例如对象限制为查询接口，限制数据种类等等  </p>
+</blockquote>
+<h2 id="6-体系结构开发集成测试用例：Stub和Driver"><a href="#6-体系结构开发集成测试用例：Stub和Driver" class="headerlink" title="6.体系结构开发集成测试用例：Stub和Driver"></a>6.体系结构开发集成测试用例：Stub和Driver</h2><p>（1）依据模块接口建立桩程序Stub——<strong>为了完成程序的编译和连接而使用的暂时代码，对外模拟和代替承担模块接口的关键类，比真实程序简单的多，使用最为简单的逻辑</strong></p>
+<blockquote>
+<p>【示例】P177 SalesBLService_Stub  </p>
+</blockquote>
+<p><img src="/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC8-11%E7%AB%A0)/image-20230616204231528.png"></p>
+<p><img src="/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC8-11%E7%AB%A0)/image-20230616204242803.png"></p>
+<p>（2）编写驱动程序，在桩程序帮助下进行集成测试View的测试比较特殊，其他层都需要增加Driver进行测试可以基于Junit编写Driver；基于接口规格设计测试用例开发View层时：需要logic的stub开发logic层时：需要模仿view的driver，需要data的stub，需要模拟同层调用的driver和stub</p>
+<p>开发data层时：需要模拟logic的driver</p>
+<p>（3）持续集成：逐步编写各个模块内部程序，替换相应的桩程序<br>真实程序不仅实现业务逻辑，而且会使用其他模块的接口程序（真实程序或者桩程序）<br>开始：客户端: view driver, logic stub, data stub；服务器端: logic driver, data stub进展：客户端: (逐步替换)driver,逐步替换logic stub, data stub；服务器端: logic driver, 逐步替换 data stub</p>
+<p>最后联调：使用真实的客户端和服务器</p>
+<h2 id="第11章-人机交互设计"><a href="#第11章-人机交互设计" class="headerlink" title="第11章 人机交互设计"></a>第11章 人机交互设计</h2><h2 id="1-可用性"><a href="#1-可用性" class="headerlink" title="1.可用性"></a>1.可用性</h2><p>易用性是人机交互中一个既重要又复杂的概念。它不仅关注人使用系统的过程，同时还关注系统对使用它的人所产生的作用，因为比较复杂，所以易用性不是一个单一的质量维度，而是多维度的质量属性。从易于度量的角度讲，<strong>易用性的常用维度包括：易学性、易记性、有效率、低出错率和主观满意度。</strong></p>
+<h2 id="2-界面设计的注意事项及解释（至少5个）"><a href="#2-界面设计的注意事项及解释（至少5个）" class="headerlink" title="2.界面设计的注意事项及解释（至少5个）"></a>2.界面设计的注意事项及解释（至少5个）</h2><p>【题型】例子违反了哪条界面设计原则</p>
+<p>（1）不要暴露内部结构例子：该设计明显暴露了软件结构，三个独立软件过程：创建、更新、解除</p>
+<p>（2）展示细节——所见即所得</p>
+<p>（3）常见界面类型：软件系统通常同时使用多种界面类型，以适应差异性的用户和任务。</p>
+<h2 id="3-精神模型，差异性"><a href="#3-精神模型，差异性" class="headerlink" title="3.精神模型，差异性"></a>3.精神模型，差异性</h2><p>（1）精神模型就是用户进行人机交互时头脑中的任务模型依据精神模型可以进行<strong>隐喻（Metaphor）设计</strong>：隐喻又被称为视觉隐喻，是视觉上的图像，但会被用户映射为业务事物。用户在识别图像时，会依据隐喻将控件功能与已知的熟悉事物联系起来，形成任务模型；隐喻本质上是在用户已有知识的基础上建立一组新的知识，实现界面视觉提示和系统功能之间的知觉联系。</p>
+<p>（2）用户希望看到的+希望用户看到的：识别并添加哪些能够帮助用户完成任务的功能，任务的频率也要纳入考虑常见错误：加入一些容易加入（例如正好是一个独立的软件过程）的功能，这会扰乱用户的精神模型，影响使用过程的顺利性</p>
+<p>（3）新手用户：关注易学性，进行业务导航，尽量避免出错专家用户：关注效率熟练用户：在易学性和效率之间进行折中好的人机交互应该为不同的用户群体提供差异化的交互机制。</p>
+<p>既为新手用户提供易学性高的人机交互机制（图形界面）</p>
+<p>又为专家用户提供效率高的人机交互机制（命令行、快捷方式、热键）</p>
+<h2 id="4-导航、反馈、协作式设计"><a href="#4-导航、反馈、协作式设计" class="headerlink" title="4.导航、反馈、协作式设计"></a>4.导航、反馈、协作式设计</h2><p>（1）导航主动将自己的产品和服务简明扼要地告诉用户，目的是为用户提供一个很好的完成任务的入口，<strong>好的导航会让这个入口非常符合人的精神模型</strong>。全局结构按照任务模型将软件产品的功能组织起来，并区分不同的重要性和主题提供给不同的用户。<strong>全局结构常用的导航控件包括窗口、菜单、列表、快捷方式、热键等等</strong>。全局结构的设计主要以功能分层和任务交互过程为主要依据。</p>
+<p>局部结构通过安排界面布局细节，制造视觉上的线索来给用户提供导航。<strong>局部结构常用的导航控件包括可视化控件布局与组合、按钮设置、文本颜色或字体大小等等。</strong>局部结构的设计主要以用户关注的任务细节为主要依据。</p>
+<p>（2）反馈让用户能够意识到行为的结果，但不能打断用户工作时的意识流用户喜欢较短的响应时间；</p>
+<p>较长的响应时间（&gt;15秒）具有破坏性；用户会根据响应时间的变化调整自己的工作方式；</p>
+<p>较短的响应时间导致了较短的用户思考时间；</p>
+<p>较快的节奏可能会提高效率，但也会增加出错率；</p>
+<p>根据任务选择适当的响应时间：打字、光标移动、鼠标定位：50～150毫秒；简单频繁的任务：1秒；普通的任务：2～4秒；复杂的任务：8～12秒</p>
+<p>响应时间适度的变化是可接受的；意外延迟可能具有破坏性；经验测试有助于设置适当的响应时间。</p>
+<p>（3）协作式设计</p>
+<p>A.<strong>简洁设计</strong>（摘要图片优于文字描述）列举、隐藏、赋予（标签、图标等线索暗示）</p>
+<p>B.<strong>一致性设计</strong>（确认与删除键相对位置不一致）</p>
+<p>C.<strong>低出错率设计</strong>（用具体的指导来提示用户出错）限制输入：列表、可选框等选择性组件代替输入框；按钮代替命令行；限定输入：类型，范围，格式…限制范围：简单化单步操作辅助：事前提示；事后检查；随时可以撤销</p>
+<p>D.<strong>易记性设计</strong>：减少短期记忆负担；使用逐层递进的方式展示信息；使用直观的快捷方式。重新认知比记忆更容易；设置有意义的缺省值，可以帮助用户减少记忆负担。</p>
+
+        
+      </div>
+
+         
+    </div>
+    
+     
+  </div>
+  
+    
+<nav id="article-nav">
+  <a class="article-nav-btn left "
+    
+      href="/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/"
+      title="SE-II-软件工程与计算II重点整理(第6-7章)"
+     >
+    <i class="fa-solid fa-angle-left"></i>
+    <p class="title-text">
+      
+        SE-II-软件工程与计算II重点整理(第6-7章)
+        
+    </p>
+  </a>
+  <a class="article-nav-btn right "
+    
+      href="/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/11-%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1/"
+      title="SE-II-ch11-人机交互设计"
+     >
+
+    <p class="title-text">
+      
+        SE-II-ch11-人机交互设计
+        
+    </p>
+    <i class="fa-solid fa-angle-right"></i>
+  </a>
+</nav>
+
+
+  
+</article>
+
+
+  
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <div id="comment-card" class="comment-card">
+    <div class="main-title-bar">
+      <div class="main-title-dot"></div>
+      <div class="main-title">留言 </div>
+    </div>
+    <div id="vcomments"></div>
+  </div>
+  <script>
+      new Valine({"enable":true,"appId":null,"appKey":null,"placeholder":"Just go go","pageSize":20,"highlight":true,"serverURLs":null,"el":"#vcomments"});
+  </script>
+ 
+    </div>
+    <div id="footer-wrapper">
+      <footer id="footer">
+  
+  <div id="footer-info" class="inner">
+    
+      <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris"></a>
+    
+    &copy; 2023 Asimov<br>
+    Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & Theme <a target="_blank" rel="noopener" href="https://github.com/saicaca/hexo-theme-vivia">Vivia</a>
+  </div>
+</footer>
+
+    </div>
+    <div class="back-to-top-wrapper">
+    <button id="back-to-top-btn" class="back-to-top-btn hide" onclick="topFunction()">
+        <i class="fa-solid fa-angle-up"></i>
+    </button>
+</div>
+
+<script>
+    function topFunction() {
+        window.scroll({ top: 0, behavior: 'smooth' });
+    }
+    let btn = document.getElementById('back-to-top-btn');
+    function scrollFunction() {
+        if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+            btn.classList.remove('hide')
+        } else {
+            btn.classList.add('hide')
+        }
+    }
+    window.onscroll = function() {
+        scrollFunction();
+    }
+</script>
+
+  </div>
+  <script src="/js/light-dark-switch.js"></script>
+</body>
+</html>

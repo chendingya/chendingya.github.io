@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+
+
+<html theme="dark" showBanner="true" hasBanner="true" > 
+<link href="/fontawesome/css/fontawesome.css" rel="stylesheet">
+<link href="/fontawesome/css/brands.css" rel="stylesheet">
+<link href="/fontawesome/css/solid.css" rel="stylesheet">
+<script src="/js/color.global.min.js" ></script>
+<script src="/js/load-settings.js" ></script>
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+
+  
+  <title>SE-II-ch01-软件工程基础 | Asimov&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+  <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+
+  <meta name="description" content="01-软件工程基础    1. Software 软件 1.1. 数字计算历史 1.1.1. Foundation of Digital Computing - 30s 1.1.2. Digital Computers - 40s 1.1.3. Software is one part of Hardware -50s 1.1.4. Software is not Hardware - 60s 1">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SE-II-ch01-软件工程基础">
+<meta property="og:url" content="https://chendingya.github.io/2022/06/16/SE-II%E7%AC%94%E8%AE%B0/01-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%9F%BA%E7%A1%80/index.html">
+<meta property="og:site_name" content="Asimov&#39;s Blog">
+<meta property="og:description" content="01-软件工程基础    1. Software 软件 1.1. 数字计算历史 1.1.1. Foundation of Digital Computing - 30s 1.1.2. Digital Computers - 40s 1.1.3. Software is one part of Hardware -50s 1.1.4. Software is not Hardware - 60s 1">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt1/01.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt1/1.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt1/2.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt1/3.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt1/4.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt1/5.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt1/6.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt1/7.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt1/8.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt1/9.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt1/10.png">
+<meta property="article:published_time" content="2022-06-16T08:02:34.000Z">
+<meta property="article:modified_time" content="2023-09-17T07:44:36.908Z">
+<meta property="article:author" content="Asimov">
+<meta property="article:tag" content="软件工程与计算II">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt1/01.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Asimov's Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-192.png" sizes="192x192">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-192.png" sizes="192x192">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  
+  
+    
+<div id="banner" class="">
+  <img src="/pic/back.png" itemprop="image">
+  <div id="banner-dim"></div>
+</div>
+ 
+   
+  <div id="main-grid" class="shadow   ">
+    <div id="nav" class=""  >
+      <navbar id="navbar">
+  <nav id="title-nav">
+    <a href="/">
+      <div id="vivia-logo">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div>Asimov's Blog </div>
+    </a>
+  </nav>
+  <nav id="main-nav">
+    
+      <a class="main-nav-link" href="/">Home</a>
+    
+      <a class="main-nav-link" href="/archives">Archives</a>
+    
+      <a class="main-nav-link" href="/about">About</a>
+    
+  </nav>
+  <nav id="sub-nav">
+    <a id="theme-btn" class="nav-icon">
+      <span class="light-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M438.5-829.913v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-829.913Zm0 747.826v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-82.087ZM877.913-438.5h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537t29.476-12.174h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T877.913-438.5Zm-747.826 0h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T82.087-521.5h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T130.087-438.5Zm660.174-290.87-34.239 32q-12.913 12.674-29.565 12.174-16.653-.5-29.327-13.174-12.674-12.673-12.554-28.826.12-16.152 12.794-28.826l33-35q12.913-12.674 30.454-12.674t30.163 12.847q12.709 12.846 12.328 30.826-.38 17.98-13.054 30.653ZM262.63-203.978l-32 34q-12.913 12.674-30.454 12.674t-30.163-12.847q-12.709-12.846-12.328-30.826.38-17.98 13.054-30.653l33.239-31q12.913-12.674 29.565-12.174 16.653.5 29.327 13.174 12.674 12.673 12.554 28.826-.12 16.152-12.794 28.826Zm466.74 33.239-32-33.239q-12.674-12.913-12.174-29.565.5-16.653 13.174-29.327 12.673-12.674 28.826-13.054 16.152-.38 28.826 12.294l35 33q12.674 12.913 12.674 30.454t-12.847 30.163q-12.846 12.709-30.826 12.328-17.98-.38-30.653-13.054ZM203.978-697.37l-34-33q-12.674-12.913-13.174-29.945-.5-17.033 12.174-29.707t31.326-13.293q18.653-.62 31.326 13.054l32 34.239q11.674 12.913 11.174 29.565-.5 16.653-13.174 29.327-12.673 12.674-28.826 12.554-16.152-.12-28.826-12.794ZM480-240q-100 0-170-70t-70-170q0-100 70-170t170-70q100 0 170 70t70 170q0 100-70 170t-170 70Zm-.247-82q65.703 0 111.475-46.272Q637-414.544 637-480.247t-45.525-111.228Q545.95-637 480.247-637t-111.475 45.525Q323-545.95 323-480.247t45.525 111.975Q414.05-322 479.753-322ZM481-481Z"/></svg></span>
+      <span class="dark-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M480.239-116.413q-152.63 0-258.228-105.478Q116.413-327.37 116.413-480q0-130.935 77.739-227.435t206.304-125.043q43.022-9.631 63.87 10.869t3.478 62.805q-8.891 22.043-14.315 44.463-5.424 22.42-5.424 46.689 0 91.694 64.326 155.879 64.325 64.186 156.218 64.186 24.369 0 46.978-4.946 22.609-4.945 44.413-14.076 42.826-17.369 62.967 1.142 20.142 18.511 10.511 61.054Q807.174-280 712.63-198.206q-94.543 81.793-232.391 81.793Zm0-95q79.783 0 143.337-40.217 63.554-40.218 95.793-108.283-15.608 4.044-31.097 5.326-15.49 1.283-31.859.805-123.706-4.066-210.777-90.539-87.071-86.473-91.614-212.092-.24-16.369.923-31.978 1.164-15.609 5.446-30.978-67.826 32.478-108.282 96.152Q211.652-559.543 211.652-480q0 111.929 78.329 190.258 78.329 78.329 190.258 78.329ZM466.13-465.891Z"/></svg></span>
+    </a>
+    
+      <a id="nav-rss-link" class="nav-icon mobile-hide" href="/atom.xml" title="RSS 订阅">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-120q-25.846 0-44.23-18.384-18.384-18.385-18.384-44.23 0-25.846 18.384-44.23 18.384-18.385 44.23-18.385 25.846 0 44.23 18.385 18.384 18.384 18.384 44.23 0 25.845-18.384 44.23Q223.846-120 198-120Zm538.385 0q-18.846 0-32.923-13.769-14.076-13.769-15.922-33.23-8.692-100.616-51.077-188.654-42.385-88.039-109.885-155.539-67.5-67.501-155.539-109.885Q283-663.462 182.385-672.154q-19.461-1.846-33.23-16.23-13.769-14.385-13.769-33.846t14.076-32.922q14.077-13.461 32.923-12.23 120.076 8.692 226.038 58.768 105.961 50.077 185.73 129.846 79.769 79.769 129.846 185.731 50.077 105.961 58.769 226.038 1.231 18.846-12.538 32.922Q756.461-120 736.385-120Zm-252 0q-18.231 0-32.423-13.461t-18.653-33.538Q418.155-264.23 348.886-333.5q-69.27-69.27-166.501-84.423-20.077-4.462-33.538-18.961-13.461-14.5-13.461-33.346 0-19.076 13.884-33.23 13.884-14.153 33.115-10.922 136.769 15.384 234.384 112.999 97.615 97.615 112.999 234.384 3.231 19.23-10.538 33.115Q505.461-120 484.385-120Z"/></svg>
+      </a>
+    
+    <div id="nav-menu-btn" class="nav-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M177.37-252.282q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Zm0-186.218q-17.453 0-29.477-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T177.37-521.5h605.26q17.453 0 29.477 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T782.63-438.5H177.37Zm0-186.217q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Z"/></svg>
+    </div>
+  </nav>
+</navbar>
+<div id="nav-dropdown" class="hidden">
+  <div id="dropdown-link-list">
+    
+      <a class="nav-dropdown-link" href="/">Home</a>
+    
+      <a class="nav-dropdown-link" href="/archives">Archives</a>
+    
+      <a class="nav-dropdown-link" href="/about">About</a>
+    
+    
+      <a class="nav-dropdown-link" href="/atom.xml" title="RSS 订阅">RSS</a>
+     
+    </div>
+</div>
+<script>
+  let dropdownBtn = document.getElementById("nav-menu-btn");
+  let dropdownEle = document.getElementById("nav-dropdown");
+  dropdownBtn.onclick = function() {
+    dropdownEle.classList.toggle("hidden");
+  }
+</script>
+    </div>
+    <div id="sidebar-wrapper">
+      <sidebar id="sidebar">
+  
+    <div class="widget-wrap">
+  <div class="info-card">
+    <div class="avatar">
+      
+        <image src=/pic/avatar.png></image>
+      
+      <div class="img-dim"></div>
+    </div>
+    <div class="info">
+      <div class="username">Asimov </div>
+      <div class="dot"></div>
+      <div class="subtitle">Asimov's Blog </div>
+      <div class="link-list">
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://github.com/chendingya" title="GitHub"><i class="fa-brands fa-github"></i></a>
+         
+      </div>  
+    </div>
+  </div>
+</div>
+
+  
+  <div class="sticky">
+    
+      
+
+
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">分类</h3>
+      <div class="category-box">
+            <a class="category-link" href="/categories/hello-world/">
+                hello world
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/Hexo/">
+                Hexo
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
+                编译原理
+                <div class="category-count">13</div>
+            </a>
+        
+            <a class="category-link" href="/categories/tdesign/">
+                tdesign
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">
+                软件工程与计算II
+                <div class="category-count">30</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E9%A9%BE%E8%80%83/">
+                驾考
+                <div class="category-count">2</div>
+            </a>
+        </div>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">标签</h3>
+      <ul class="widget-tag-list" itemprop="keywords"><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/hello-world/" rel="tag">hello world</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/tdesign/" rel="tag">tdesign</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" rel="tag">编译原理</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/" rel="tag">软件工程与计算II</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E9%A9%BE%E8%80%83/" rel="tag">驾考</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">归档</h3>
+      
+      
+        <a class="archive-link" href="/archives/2023/09 ">
+          九月 2023 
+          <div class="archive-count">2 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/07 ">
+          七月 2023 
+          <div class="archive-count">2 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/04 ">
+          四月 2023 
+          <div class="archive-count">10 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/03 ">
+          三月 2023 
+          <div class="archive-count">3 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2022/10 ">
+          十月 2022 
+          <div class="archive-count">1 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2022/06 ">
+          六月 2022 
+          <div class="archive-count">30 </div>
+        </a>
+      
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">最新文章</h3>
+      <ul>
+        
+          <a class="recent-link" href="/2023/09/15/23-tdesign/Mock%E4%BD%BF%E7%94%A8/" title="微信小程序中Mock使用" >
+            <div class="recent-link-text">
+              微信小程序中Mock使用
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/09/12/%E9%A9%BE%E8%80%83/%E9%A9%BE%E8%80%83-%E7%A7%91%E7%9B%AE%E4%BA%8C/" title="驾考-科目二" >
+            <div class="recent-link-text">
+              驾考-科目二
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/07/18/blog/" title="blog" >
+            <div class="recent-link-text">
+              blog
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/07/17/%E9%A9%BE%E8%80%83/%E9%A9%BE%E8%80%83-%E7%A7%91%E7%9B%AE%E4%B8%80/" title="驾考-科目一" >
+            <div class="recent-link-text">
+              驾考-科目一
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/04/10/23-Compilers/ch18-codegen-riscv-RISC-V%20%E6%A6%82%E8%BF%B0/" title="ch18-codegen-riscv-RISC-V 概述" >
+            <div class="recent-link-text">
+              ch18-codegen-riscv-RISC-V 概述
+            </div>
+          </a>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+  </div>
+</sidebar>
+    </div>
+    <div id="content-body">
+       
+
+<article id="post-SE-II笔记/01-软件工程基础" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 class="p-name article-title" itemprop="headline name">
+        SE-II-ch01-软件工程基础
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2022-06-16T08:02:34.000Z" itemprop="datePublished">2022-06-16</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">软件工程与计算II</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            3.4k 词 
+          </div>
+        </div>
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/" rel="tag">软件工程与计算II</a></li></ul>
+
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <h2 id="01-软件工程基础"><a href="#01-软件工程基础" class="headerlink" title="01-软件工程基础"></a>01-软件工程基础</h2><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt1/01.png"></p>
+<!-- TOC -->
+
+<ul>
+<li><a href="#1-software-%E8%BD%AF%E4%BB%B6">1. Software 软件</a><ul>
+<li><a href="#11-%E6%95%B0%E5%AD%97%E8%AE%A1%E7%AE%97%E5%8E%86%E5%8F%B2">1.1. 数字计算历史</a><ul>
+<li><a href="#111-foundation-of-digital-computing---30s">1.1.1. Foundation of Digital Computing - 30s</a></li>
+<li><a href="#112-digital-computers---40s">1.1.2. Digital Computers - 40s</a></li>
+<li><a href="#113-software-is-one-part-of-hardware--50s">1.1.3. Software is one part of Hardware -50s</a></li>
+<li><a href="#114-software-is-not-hardware---60s">1.1.4. Software is not Hardware - 60s</a></li>
+<li><a href="#115-program--algorithm--data-structure---70s--80s">1.1.5. Program &#x3D; Algorithm + Data Structure - 70s ~ 80s</a></li>
+<li><a href="#116-software-development-is-much-more-complicated-than-programming---90s--now">1.1.6. Software Development is much more complicated than Programming  - 90s ~ now</a></li>
+</ul>
+</li>
+<li><a href="#12-%E4%BB%80%E4%B9%88%E6%98%AF%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E6%80%BB%E7%BB%93">1.2. 什么是软件工程总结</a></li>
+</ul>
+</li>
+<li><a href="#2-%E5%B7%A5%E7%A8%8B">2. 工程</a><ul>
+<li><a href="#21-%E5%B7%A5%E7%A8%8B%E5%AD%A6%E7%A7%91%E7%9A%84%E5%8F%91%E5%B1%95">2.1. 工程学科的发展</a></li>
+<li><a href="#22-%E5%B7%A5%E7%A8%8B%E8%A6%81%E7%B4%A0">2.2. 工程要素</a></li>
+</ul>
+</li>
+<li><a href="#3-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B">3. 软件工程</a><ul>
+<li><a href="#31-%E4%BB%80%E4%B9%88%E6%98%AF%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E9%87%8D%E8%A6%81">3.1. 什么是软件工程？(重要)</a></li>
+<li><a href="#32-%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%B7%A5%E7%A8%8B%E7%9A%84%E7%89%B9%E7%82%B9">3.2. 软件的工程的特点</a><ul>
+<li><a href="#321-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%B8%88%E9%9D%A2%E4%B8%B4%E7%9A%84%E9%97%AE%E9%A2%98">3.2.1. 软件工程师面临的问题</a></li>
+<li><a href="#322-%E7%A7%91%E5%AD%A6%E7%9F%A5%E8%AF%86">3.2.2. 科学知识</a></li>
+<li><a href="#323-%E5%B7%A5%E7%A8%8B--%E7%A7%91%E5%AD%A6--%E5%8E%9F%E5%88%99--%E8%89%BA%E6%9C%AF">3.2.3. 工程 &#x3D; 科学 + 原则 + 艺术</a></li>
+<li><a href="#324-%E9%97%AE%E9%A2%98%E6%9C%BA%E5%99%A8%E5%92%8C%E4%BA%A7%E5%93%81">3.2.4. 问题&#x2F;机器和产品</a></li>
+<li><a href="#325-%E6%88%90%E6%9C%AC%E6%95%88%E7%9B%8A">3.2.5. 成本效益</a></li>
+<li><a href="#326-understanding-of-software-engineering-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E7%9A%84%E7%90%86%E8%A7%A3">3.2.6. Understanding of Software Engineering 软件工程的理解</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#4-%E7%9F%A5%E8%AF%86%E5%9F%9F">4. 知识域</a><ul>
+<li><a href="#41-swebok">4.1. SWEBOK</a></li>
+<li><a href="#42-%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E6%B4%BB%E5%8A%A8">4.2. 软件开发活动</a></li>
+<li><a href="#43-%E8%BD%AF%E4%BB%B6%E5%8F%91%E5%B1%95%E6%B4%BB%E5%8A%A8">4.3. 软件发展活动</a></li>
+<li><a href="#44-%E8%A7%92%E8%89%B2%E5%88%86%E5%B7%A5">4.4. 角色分工</a></li>
+</ul>
+</li>
+</ul>
+<!-- /TOC -->
+
+<h1 id="1-Software-软件"><a href="#1-Software-软件" class="headerlink" title="1. Software 软件"></a>1. Software 软件</h1><ol>
+<li>信息可以记录、交流和存储</li>
+<li>信息 -&gt; 计算 -&gt; 数字计算机 -&gt; 软件</li>
+</ol>
+<h2 id="1-1-数字计算历史"><a href="#1-1-数字计算历史" class="headerlink" title="1.1. 数字计算历史"></a>1.1. 数字计算历史</h2><h3 id="1-1-1-Foundation-of-Digital-Computing-30s"><a href="#1-1-1-Foundation-of-Digital-Computing-30s" class="headerlink" title="1.1.1. Foundation of Digital Computing - 30s"></a>1.1.1. Foundation of Digital Computing - 30s</h3><ol>
+<li>硬件:微分计算器、继电器式计算机、ABC原型计算、Harvard Mark 1 IBM实验室</li>
+<li>Theory 理论<ol>
+<li>《论可计算数及其在判定问题上的应⽤》-Alan Turing</li>
+<li>电⼦继电器可以实现布尔符号逻辑  Claude Elwood Shannon</li>
+</ol>
+</li>
+</ol>
+<h3 id="1-1-2-Digital-Computers-40s"><a href="#1-1-2-Digital-Computers-40s" class="headerlink" title="1.1.2. Digital Computers - 40s"></a>1.1.2. Digital Computers - 40s</h3><ol>
+<li>ENIAC:第一台计算机</li>
+<li>Programming the ENIAC</li>
+<li>Programming chart</li>
+<li>编程的步骤<ol>
+<li>将问题映射到机器上的任务很复杂，通常需要几个星期。</li>
+<li>程序在纸上完成后，通过操纵开关和电缆将程序”导入”ENIAC的过程需要额外的几天时间。</li>
+<li>随后是一段时间的验证和调试，借助于机器的”单步”能力。</li>
+</ol>
+</li>
+<li>EDVAC：(了解)<ol>
+<li>EDVAC(Electronic Discrete Variable Automatic Computer)是最早的电子计算机之一。与它的前身ENIAC不同，ENIAC是二进制的，而不是十进制的，它是一台存储程序计算机。</li>
+<li>埃克特、莫奇利和其他ENIAC设计师与约翰·冯·诺依曼一起担任顾问职务；冯·诺依曼在1945年EDVAC报告初稿中总结和讨论了逻辑设计发展。埃克特、莫奇利和其他ENIAC设计师与约翰·冯·诺依曼一起担任顾问职务；冯·诺依曼在1945年EDVAC报告初稿中总结和讨论了逻辑设计发展。</li>
+</ol>
+</li>
+</ol>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt1/1.png"></p>
+<h3 id="1-1-3-Software-is-one-part-of-Hardware-50s"><a href="#1-1-3-Software-is-one-part-of-Hardware-50s" class="headerlink" title="1.1.3. Software is one part of Hardware -50s"></a>1.1.3. Software is one part of Hardware -50s</h3><ol>
+<li>商业大型机：Ferranti Mark I、UNIVAC I、LEO I、IBM 701、IBM 650</li>
+<li>编程语言，1955 FORTRAN，1958 LISP，1959 COBAL</li>
+<li>命名：John W. Tukey在1958年发表在《美国数学月刊》上的一篇文章中，成为第一个定义运行电子计算器的程序的人。</li>
+</ol>
+<h3 id="1-1-4-Software-is-not-Hardware-60s"><a href="#1-1-4-Software-is-not-Hardware-60s" class="headerlink" title="1.1.4. Software is not Hardware - 60s"></a>1.1.4. Software is not Hardware - 60s</h3><ol>
+<li>变革、ASCII美国信息交换标准码出现、ATM、IBM信息管理系统IMS应⽤于阿波罗航天器、软件咨询业务、IBM S&#x2F;360、信⽤卡、DEC PDP-1⼩型机</li>
+<li>软件的特性<ol>
+<li>软件与现实世界关系更加密切，对需求的规格化更加困难</li>
+<li>软件⽐硬件容易修改的多，并且不需要昂贵的⽣产线复制产品</li>
+<li>软件没有损耗</li>
+<li>软件不可见</li>
+</ol>
+</li>
+</ol>
+<h3 id="1-1-5-Program-Algorithm-Data-Structure-70s-80s"><a href="#1-1-5-Program-Algorithm-Data-Structure-70s-80s" class="headerlink" title="1.1.5. Program &#x3D; Algorithm + Data Structure - 70s ~ 80s"></a>1.1.5. Program &#x3D; Algorithm + Data Structure - 70s ~ 80s</h3><ol>
+<li>Algorithms + Data Structures &#x3D; Programs是Niklaus Wirth在1976年写的一本书，涵盖了计算机编程的一些基本主题，特别是算法和数据结构之间的内在联系。</li>
+<li>For example, if one has a sorted list one will use a search algorithm optimal for sorted lists. 例如，如果一个人有一个已排序的列表，他将使用一个对已排序列表最合适的搜索算法。</li>
+</ol>
+<h3 id="1-1-6-Software-Development-is-much-more-complicated-than-Programming-90s-2010s"><a href="#1-1-6-Software-Development-is-much-more-complicated-than-Programming-90s-2010s" class="headerlink" title="1.1.6. Software Development is much more complicated than Programming  - 90s ~ 2010s"></a>1.1.6. Software Development is much more complicated than Programming  - 90s ~ 2010s</h3><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt1/2.png"><br><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt1/3.png"></p>
+<h3 id="1-1-7-Cloud-Native云原生-2010s-now"><a href="#1-1-7-Cloud-Native云原生-2010s-now" class="headerlink" title="1.1.7. Cloud Native云原生  - 2010s ~ now"></a>1.1.7. Cloud Native云原生  - 2010s ~ now</h3><ol>
+<li><p>软件类别</p>
+<ul>
+<li>系统软件:操作系统、数据库、数据仓库、嵌⼊式设备、安全</li>
+<li>编程软件IDE、测试、持续集成、建模、度量</li>
+<li>应用软件:商业、政府、休闲、医疗、教育、国防、 个⼈、专业、科学</li>
+</ul>
+</li>
+<li><p>应用软件基于现实又高于现实</p>
+<ul>
+<li>应用软件被开发的目的和意图来源于现实世界的问题。</li>
+<li>应用软件必须基于现实才能解决问题。</li>
+<li>软件最终要被用于现实并改进现实。</li>
+</ul>
+<p> <img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt1/4.png"></p>
+</li>
+<li><p>如上图，所以我们可以形成进一步的迭代。</p>
+</li>
+</ol>
+<h2 id="1-2-什么是软件工程总结"><a href="#1-2-什么是软件工程总结" class="headerlink" title="1.2. 什么是软件工程总结"></a>1.2. 什么是软件工程总结</h2><ol>
+<li>软件独立于硬件</li>
+<li>软件是工具</li>
+<li>软件 &#x3D; 程序 + 文档 + 数据 + 知识</li>
+<li>软件的发展比编码更加复杂</li>
+<li>应用软件源于现实，但是高于现实(课本P4)</li>
+</ol>
+<h1 id="2-工程"><a href="#2-工程" class="headerlink" title="2. 工程"></a>2. 工程</h1><ol>
+<li>美国工程师专业发展委员会(ECPD，ABET的前身)将”工程”定义为：创造性地应用科学原理，设计或开发结构、机器、仪器或制造工艺，或单独或组合使用它们的工程；或在充分了解它们的设计的情况下建造或操作它们；或在特定操作条件下预测它们的行为；就预期功能、运行的经济性或生命财产安全而言</li>
+<li><strong>CCSE - About Engineer 关于工程师的介绍</strong><ol>
+<li>工程师通过⼀系列的<strong>讨论决策</strong>，仔细评估项⽬的可选活动，并在每个决策点选择⼀种在当前环境中适合工当前任务的⽅法进⾏工作。可以通过对成本和收益进⾏折衷分析调整相应策略。</li>
+<li>工程师需要对某些对象进⾏度量，有时需要定量的工作；他们要校准和确认度量⽅法，并根据经验和实验数据进⾏估算。</li>
+<li>软件工程师强调<strong>项目设计过程的纪律性</strong>，这是团队⾼效工作的条件。</li>
+<li>工程师可胜任研究、开发、设计、⽣产、测试、构造、操作、管理，以及销售、咨询和培训等<strong>多种角色</strong>。</li>
+<li>工程师们需要在某些过程中使⽤工具，选择和使用合适的工具是工程的关键要素。</li>
+<li>工程师们通过专业协会发展和确认原理、标准和最佳实践⽅法，并提⾼个⼈能⼒。</li>
+<li>工程师们能够重用设计和设计制品。</li>
+</ol>
+</li>
+<li>工程师的决策往往进行<strong>折中</strong>，选择最优解。</li>
+</ol>
+<h2 id="2-1-工程学科的发展"><a href="#2-1-工程学科的发展" class="headerlink" title="2.1. 工程学科的发展"></a>2.1. 工程学科的发展</h2><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt1/5.png"></p>
+<h2 id="2-2-工程要素"><a href="#2-2-工程要素" class="headerlink" title="2.2. 工程要素"></a>2.2. 工程要素</h2><ol>
+<li>问题:动力</li>
+<li>科学知识:工具</li>
+<li>解决方法&#x2F;机器:物体</li>
+<li>成本效益&#x2F;条件</li>
+</ol>
+<h1 id="3-软件工程"><a href="#3-软件工程" class="headerlink" title="3. 软件工程"></a>3. 软件工程</h1><h2 id="3-1-什么是软件工程？-重要"><a href="#3-1-什么是软件工程？-重要" class="headerlink" title="3.1. 什么是软件工程？(重要)"></a>3.1. 什么是软件工程？(重要)</h2><ol>
+<li>应用系统的、规范的、可量化的方法来开发、运行和维护软件，即将工程应用到软件。</li>
+<li>对1)中各种方法的研究。</li>
+</ol>
+<h2 id="3-2-软件的工程的特点"><a href="#3-2-软件的工程的特点" class="headerlink" title="3.2. 软件的工程的特点"></a>3.2. 软件的工程的特点</h2><ol>
+<li><p>具有解决实际问题的动机：</p>
+<p>工程学解决实际问题，⽽这些问题来源于工程领域之外的⼈：消费者。</p>
+</li>
+<li><p>应⽤科学知识指导工程活动：</p>
+<p>工程学不依赖于个⼈的技能，⽽是强调以科学知识为指导，按照特定⽅法与技术，进⾏规律性的设计、分析等活动，实现工程活动的可学习性和可重复性。</p>
+</li>
+<li><p>以成本效益⽐有效为基本条件：</p>
+<p>工程学不单单只是解决问题，它要有效利⽤所有资源，⾄少成本要低于效益，即成本效益⽐有效。</p>
+</li>
+<li><p>构建机器或事物：</p>
+<p>工程学强调构建实物⼯具，例如机器、事物等，并利⽤实物⼯具来解决问题。</p>
+</li>
+<li><p><strong>以服务人类为最终目的</strong>：</p>
+<p>工程学考虑的<strong>不是单个客户的需要</strong>，⽽是要运⽤技术和经验实现全社会的进步。</p>
+<p><em>（如外挂软件并不是以服务人类为最终目的的）</em></p>
+</li>
+</ol>
+<h3 id="3-2-1-软件工程师面临的问题"><a href="#3-2-1-软件工程师面临的问题" class="headerlink" title="3.2.1. 软件工程师面临的问题"></a>3.2.1. 软件工程师面临的问题</h3><ol>
+<li><p>现实世界是复杂的：</p>
+<p>如果现实世界的状况与我们的期望不符，这就产生了问题。</p>
+</li>
+<li><p>很广阔的范围：</p>
+<p>所有人类所涉及的领域。而在其他工程领域，问题是有限的</p>
+</li>
+<li><p>大多数是不明确的，需要我们去发现：</p>
+<p>在其他工程领域，问题是确定和明确的</p>
+</li>
+<li><p>工程思维：</p>
+<p>客观的，知道你想要什么</p>
+</li>
+</ol>
+<h3 id="3-2-2-科学知识"><a href="#3-2-2-科学知识" class="headerlink" title="3.2.2. 科学知识"></a>3.2.2. 科学知识</h3><ol>
+<li>以计算科学为科学基础，基于科学和逻辑作为标准工具</li>
+<li>很多领域都是被对称的创造出来的，依据方法&#x2F;方法论&#x2F;技术，使用语言、工具，进行研究</li>
+</ol>
+<h3 id="3-2-3-Engineering-Science-Principle-Art-工程-科学-原则-艺术"><a href="#3-2-3-Engineering-Science-Principle-Art-工程-科学-原则-艺术" class="headerlink" title="3.2.3. Engineering &#x3D; Science + Principle + Art 工程 &#x3D; 科学 + 原则 + 艺术"></a>3.2.3. Engineering &#x3D; Science + Principle + Art 工程 &#x3D; 科学 + 原则 + 艺术</h3><ol>
+<li>科学:计算科学知识是软件工程的基础</li>
+<li>原则:实践知识也应该被广泛的分享</li>
+<li>艺术：创造力:分析，设计</li>
+</ol>
+<h3 id="3-2-4-问题-机器和产品"><a href="#3-2-4-问题-机器和产品" class="headerlink" title="3.2.4. 问题&#x2F;机器和产品"></a>3.2.4. 问题&#x2F;机器和产品</h3><ol>
+<li>虚拟机 &#x3D; 通用机 + <strong>特定的解决方案</strong>（并不是指计算机上的虚拟机软件，这里是概念）</li>
+<li>解决方案可以在编程语言的帮助下映射到通用计算机上</li>
+<li>并不像其他工程一样，不同问题有不同机器</li>
+<li><strong>解决方案的发展是软件工程首要的任务</strong></li>
+<li>将解决方案映射到通用机上是软件工程的次要任务</li>
+</ol>
+<h3 id="3-2-5-Cost-Benefit-Effective-成本效益"><a href="#3-2-5-Cost-Benefit-Effective-成本效益" class="headerlink" title="3.2.5. Cost-Benefit Effective 成本效益"></a>3.2.5. Cost-Benefit Effective 成本效益</h3><ol>
+<li>可行性研究<ul>
+<li>利益取决于用户</li>
+<li>成本取决于软件工程师</li>
+</ul>
+</li>
+<li>到达目的地的方法总是很多的，软件工程师应该选择<strong>最具成本效益的方法(而不是最先进的方法)</strong></li>
+<li>当成本和效益的关系不再重要的时候，软件工程师将会消失<ul>
+<li>成本低：小规模编程</li>
+<li>收益不明确：勘探研究</li>
+<li>不计成本：计算科学研究</li>
+<li>工程思想：成本和收益相平衡</li>
+<li>控制和管理</li>
+</ul>
+</li>
+</ol>
+<h3 id="3-2-6-Understanding-of-Software-Engineering-软件工程的理解"><a href="#3-2-6-Understanding-of-Software-Engineering-软件工程的理解" class="headerlink" title="3.2.6. Understanding of Software Engineering 软件工程的理解"></a>3.2.6. Understanding of Software Engineering 软件工程的理解</h3><ol>
+<li>软件工程是⼀种工程活动</li>
+<li>软件工程的动机是解决实际问题</li>
+<li>软件工程是科学性、实践性和⼯艺性并重的</li>
+<li>&#x3D;&#x3D;软件工程追求<strong>足够好，不是最好</strong>&#x3D;&#x3D;（在科学研究中才追求最好，事实上在软件工程中只要不太坏就好了，即权收益和成本）</li>
+<li>软件工程真正的产品是基于虚拟计算机的软件⽅案</li>
+<li>软件工程的最终⽬的是要<strong>促进整个社会的进步</strong></li>
+</ol>
+<h1 id="4-知识域"><a href="#4-知识域" class="headerlink" title="4. 知识域"></a>4. 知识域</h1><h2 id="4-1-SWEBOK"><a href="#4-1-SWEBOK" class="headerlink" title="4.1. SWEBOK"></a>4.1. SWEBOK</h2><ol>
+<li>软件工程知识体系(SWEBOK)是由IEEE计算机协会赞助的软件工程协调委员会的产品</li>
+</ol>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt1/6.png"><br><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt1/7.png"><br><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt1/8.png"></p>
+<h2 id="4-2-软件开发活动"><a href="#4-2-软件开发活动" class="headerlink" title="4.2. 软件开发活动"></a>4.2. 软件开发活动</h2><p>很多的问题可以采用非软件解决方案，并非任何问题都是采用软件解决方案的</p>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt1/9.png"></p>
+<h2 id="4-3-软件发展活动"><a href="#4-3-软件发展活动" class="headerlink" title="4.3. 软件发展活动"></a>4.3. 软件发展活动</h2><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt1/10.png"></p>
+<h2 id="4-4-角色分工"><a href="#4-4-角色分工" class="headerlink" title="4.4. 角色分工"></a>4.4. 角色分工</h2><ol>
+<li>需求工程师，⼜被称为需求分析师：承担需求开发任务。软件产品的需求开发⼯作通常由多个需求工程师来完成，他们共同组成⼀个需求工程师⼩组，在⾸席需求工程师的领导下开展⼯作。通常⼀个团队只有⼀个需求工程师⼩组。</li>
+<li>软件体系结构师：承担软件体系结构设计任务。通常也是由多⼈组成⼀个小组，并在首席软件体系结构师的领导下开展⼯作。通常⼀个团队只有⼀个软件体系结构师小组。</li>
+<li>软件设计师：承担详细设计任务。在软件体系结构设计完成之后，可以将其部件分配给不同的开发小组。开发小组中负责所分配部件详细设计工作的⼈员就是软件设计师。⼀个团队可能有⼀个或多个开发⼩组。 ⼀个小组可能有⼀个或多个软件设计师。</li>
+<li>程序员：承担软件构造任务。程序员与软件设计师通常是同⼀批⼈，也是根据其所分配到的任务开展⼯作。</li>
+<li>⼈机交互设计师：承担⼈机交互设计任务。⼈机交互设计师与软件设计师可以是同⼀批⼈，也可以是不同⼈员。在有多个小组的软件工程团队中，可以有⼀个单独的人机交互设计师小组，也可以将⼈机交互设计师分配到各个小组。</li>
+<li>软件测试⼈员：承担软件测试任务。软件测试⼈员通常需要独⽴于其他的开发⼈员⻆⾊。⼀个团队可能有⼀个或多个测试⼩组。⼀个⼩组可能有⼀个或多个软件测试⼈员。</li>
+<li>项⽬管理⼈员：负责计划、组织、领导、协调和控制软件开发的各项⼯作。相⽐于传统意义上的管理者，他们不完全是监控者和控制者，更多得是协调者。通常⼀个团队只有⼀个项⽬管理⼈员。</li>
+<li>软件配置管理⼈员：管理软件开发中产⽣的各种制品，具体⼯作是对重要制品进⾏标识、变更控制、状态报告等。通常⼀个团队只有⼀个软件配置管理⼈员。</li>
+<li>质量保障⼈员：在⽣产过程中监督和控制软件产品质量的⼈员。通常⼀个团队有⼀个质量保障⼩组，由⼀个或多个⼈员组成。</li>
+<li>培训和⽀持⼈员：负责软件移交与维护任务。他们可以是其他开发⼈员的⼀部分，也可以是独立的⼈员。</li>
+<li>⽂档编写⼈员：专⻔负责写作软件开发各种⽂档的⼈员。他们的存在是为了充分利⽤部分宝贵的⼈⼒资源(例如需求工程师和软件体系结构师)，让这些⼈⼒资源从繁杂的⽂档化⼯作中解放出来。</li>
+</ol>
+
+        
+      </div>
+
+         
+    </div>
+    
+     
+  </div>
+  
+    
+<nav id="article-nav">
+  <a class="article-nav-btn left "
+    
+      href="/2022/06/16/SE-II%E7%AC%94%E8%AE%B0/00-%E9%A2%98%E7%9B%AE/"
+      title="SE-II-ch00-题目"
+     >
+    <i class="fa-solid fa-angle-left"></i>
+    <p class="title-text">
+      
+        SE-II-ch00-题目
+        
+    </p>
+  </a>
+  <a class="article-nav-btn right "
+    
+      href="/2022/06/16/SE-II%E7%AC%94%E8%AE%B0/02-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E7%9A%84%E5%8F%91%E5%B1%95/"
+      title="SE-II-ch02-软件工程的发展"
+     >
+
+    <p class="title-text">
+      
+        SE-II-ch02-软件工程的发展
+        
+    </p>
+    <i class="fa-solid fa-angle-right"></i>
+  </a>
+</nav>
+
+
+  
+</article>
+
+
+  
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <div id="comment-card" class="comment-card">
+    <div class="main-title-bar">
+      <div class="main-title-dot"></div>
+      <div class="main-title">留言 </div>
+    </div>
+    <div id="vcomments"></div>
+  </div>
+  <script>
+      new Valine({"enable":true,"appId":null,"appKey":null,"placeholder":"Just go go","pageSize":20,"highlight":true,"serverURLs":null,"el":"#vcomments"});
+  </script>
+ 
+    </div>
+    <div id="footer-wrapper">
+      <footer id="footer">
+  
+  <div id="footer-info" class="inner">
+    
+      <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris"></a>
+    
+    &copy; 2023 Asimov<br>
+    Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & Theme <a target="_blank" rel="noopener" href="https://github.com/saicaca/hexo-theme-vivia">Vivia</a>
+  </div>
+</footer>
+
+    </div>
+    <div class="back-to-top-wrapper">
+    <button id="back-to-top-btn" class="back-to-top-btn hide" onclick="topFunction()">
+        <i class="fa-solid fa-angle-up"></i>
+    </button>
+</div>
+
+<script>
+    function topFunction() {
+        window.scroll({ top: 0, behavior: 'smooth' });
+    }
+    let btn = document.getElementById('back-to-top-btn');
+    function scrollFunction() {
+        if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+            btn.classList.remove('hide')
+        } else {
+            btn.classList.add('hide')
+        }
+    }
+    window.onscroll = function() {
+        scrollFunction();
+    }
+</script>
+
+  </div>
+  <script src="/js/light-dark-switch.js"></script>
+</body>
+</html>

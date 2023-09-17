@@ -1,0 +1,831 @@
+<!DOCTYPE html>
+
+
+<html theme="dark" showBanner="true" hasBanner="true" > 
+<link href="/fontawesome/css/fontawesome.css" rel="stylesheet">
+<link href="/fontawesome/css/brands.css" rel="stylesheet">
+<link href="/fontawesome/css/solid.css" rel="stylesheet">
+<script src="/js/color.global.min.js" ></script>
+<script src="/js/load-settings.js" ></script>
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+
+  
+  <title>SE-II-ch22-软件开发过程模型 | Asimov&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+  <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+
+  <meta name="description" content="22-软件开发过程模型 各类别模型很重要     1. 软件开发各典型阶段 1.1. 第4-21章开发活动总结   2. 软件生命周期模型 3. 软件过程模型 重要 3.1. 构建-修复模型 3.1.1. 缺点 3.1.2. 适用范围   3.2. 瀑布模型 3.2.1. 优点 3.2.2. 缺点 3.2.3. 适用范围   3.3. 增量迭代模型 3.3.1. 优点 3.3.2. 缺点 3.3.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SE-II-ch22-软件开发过程模型">
+<meta property="og:url" content="https://chendingya.github.io/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/22-%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B%E6%A8%A1%E5%9E%8B/index.html">
+<meta property="og:site_name" content="Asimov&#39;s Blog">
+<meta property="og:description" content="22-软件开发过程模型 各类别模型很重要     1. 软件开发各典型阶段 1.1. 第4-21章开发活动总结   2. 软件生命周期模型 3. 软件过程模型 重要 3.1. 构建-修复模型 3.1.1. 缺点 3.1.2. 适用范围   3.2. 瀑布模型 3.2.1. 优点 3.2.2. 缺点 3.2.3. 适用范围   3.3. 增量迭代模型 3.3.1. 优点 3.3.2. 缺点 3.3.">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt22/1.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt22/2.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt22/3.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt22/4.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt22/5.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt22/6.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt22/7.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt22/8.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt22/9.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt22/10.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt22/11.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt22/12.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt22/13.png">
+<meta property="article:published_time" content="2022-06-18T08:02:34.000Z">
+<meta property="article:modified_time" content="2023-09-17T07:56:55.524Z">
+<meta property="article:author" content="Asimov">
+<meta property="article:tag" content="软件工程与计算II">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt22/1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Asimov's Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-192.png" sizes="192x192">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-192.png" sizes="192x192">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  
+  
+    
+<div id="banner" class="">
+  <img src="/pic/back.png" itemprop="image">
+  <div id="banner-dim"></div>
+</div>
+ 
+   
+  <div id="main-grid" class="shadow   ">
+    <div id="nav" class=""  >
+      <navbar id="navbar">
+  <nav id="title-nav">
+    <a href="/">
+      <div id="vivia-logo">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div>Asimov's Blog </div>
+    </a>
+  </nav>
+  <nav id="main-nav">
+    
+      <a class="main-nav-link" href="/">Home</a>
+    
+      <a class="main-nav-link" href="/archives">Archives</a>
+    
+      <a class="main-nav-link" href="/about">About</a>
+    
+  </nav>
+  <nav id="sub-nav">
+    <a id="theme-btn" class="nav-icon">
+      <span class="light-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M438.5-829.913v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-829.913Zm0 747.826v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-82.087ZM877.913-438.5h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537t29.476-12.174h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T877.913-438.5Zm-747.826 0h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T82.087-521.5h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T130.087-438.5Zm660.174-290.87-34.239 32q-12.913 12.674-29.565 12.174-16.653-.5-29.327-13.174-12.674-12.673-12.554-28.826.12-16.152 12.794-28.826l33-35q12.913-12.674 30.454-12.674t30.163 12.847q12.709 12.846 12.328 30.826-.38 17.98-13.054 30.653ZM262.63-203.978l-32 34q-12.913 12.674-30.454 12.674t-30.163-12.847q-12.709-12.846-12.328-30.826.38-17.98 13.054-30.653l33.239-31q12.913-12.674 29.565-12.174 16.653.5 29.327 13.174 12.674 12.673 12.554 28.826-.12 16.152-12.794 28.826Zm466.74 33.239-32-33.239q-12.674-12.913-12.174-29.565.5-16.653 13.174-29.327 12.673-12.674 28.826-13.054 16.152-.38 28.826 12.294l35 33q12.674 12.913 12.674 30.454t-12.847 30.163q-12.846 12.709-30.826 12.328-17.98-.38-30.653-13.054ZM203.978-697.37l-34-33q-12.674-12.913-13.174-29.945-.5-17.033 12.174-29.707t31.326-13.293q18.653-.62 31.326 13.054l32 34.239q11.674 12.913 11.174 29.565-.5 16.653-13.174 29.327-12.673 12.674-28.826 12.554-16.152-.12-28.826-12.794ZM480-240q-100 0-170-70t-70-170q0-100 70-170t170-70q100 0 170 70t70 170q0 100-70 170t-170 70Zm-.247-82q65.703 0 111.475-46.272Q637-414.544 637-480.247t-45.525-111.228Q545.95-637 480.247-637t-111.475 45.525Q323-545.95 323-480.247t45.525 111.975Q414.05-322 479.753-322ZM481-481Z"/></svg></span>
+      <span class="dark-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M480.239-116.413q-152.63 0-258.228-105.478Q116.413-327.37 116.413-480q0-130.935 77.739-227.435t206.304-125.043q43.022-9.631 63.87 10.869t3.478 62.805q-8.891 22.043-14.315 44.463-5.424 22.42-5.424 46.689 0 91.694 64.326 155.879 64.325 64.186 156.218 64.186 24.369 0 46.978-4.946 22.609-4.945 44.413-14.076 42.826-17.369 62.967 1.142 20.142 18.511 10.511 61.054Q807.174-280 712.63-198.206q-94.543 81.793-232.391 81.793Zm0-95q79.783 0 143.337-40.217 63.554-40.218 95.793-108.283-15.608 4.044-31.097 5.326-15.49 1.283-31.859.805-123.706-4.066-210.777-90.539-87.071-86.473-91.614-212.092-.24-16.369.923-31.978 1.164-15.609 5.446-30.978-67.826 32.478-108.282 96.152Q211.652-559.543 211.652-480q0 111.929 78.329 190.258 78.329 78.329 190.258 78.329ZM466.13-465.891Z"/></svg></span>
+    </a>
+    
+      <a id="nav-rss-link" class="nav-icon mobile-hide" href="/atom.xml" title="RSS 订阅">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-120q-25.846 0-44.23-18.384-18.384-18.385-18.384-44.23 0-25.846 18.384-44.23 18.384-18.385 44.23-18.385 25.846 0 44.23 18.385 18.384 18.384 18.384 44.23 0 25.845-18.384 44.23Q223.846-120 198-120Zm538.385 0q-18.846 0-32.923-13.769-14.076-13.769-15.922-33.23-8.692-100.616-51.077-188.654-42.385-88.039-109.885-155.539-67.5-67.501-155.539-109.885Q283-663.462 182.385-672.154q-19.461-1.846-33.23-16.23-13.769-14.385-13.769-33.846t14.076-32.922q14.077-13.461 32.923-12.23 120.076 8.692 226.038 58.768 105.961 50.077 185.73 129.846 79.769 79.769 129.846 185.731 50.077 105.961 58.769 226.038 1.231 18.846-12.538 32.922Q756.461-120 736.385-120Zm-252 0q-18.231 0-32.423-13.461t-18.653-33.538Q418.155-264.23 348.886-333.5q-69.27-69.27-166.501-84.423-20.077-4.462-33.538-18.961-13.461-14.5-13.461-33.346 0-19.076 13.884-33.23 13.884-14.153 33.115-10.922 136.769 15.384 234.384 112.999 97.615 97.615 112.999 234.384 3.231 19.23-10.538 33.115Q505.461-120 484.385-120Z"/></svg>
+      </a>
+    
+    <div id="nav-menu-btn" class="nav-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M177.37-252.282q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Zm0-186.218q-17.453 0-29.477-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T177.37-521.5h605.26q17.453 0 29.477 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T782.63-438.5H177.37Zm0-186.217q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Z"/></svg>
+    </div>
+  </nav>
+</navbar>
+<div id="nav-dropdown" class="hidden">
+  <div id="dropdown-link-list">
+    
+      <a class="nav-dropdown-link" href="/">Home</a>
+    
+      <a class="nav-dropdown-link" href="/archives">Archives</a>
+    
+      <a class="nav-dropdown-link" href="/about">About</a>
+    
+    
+      <a class="nav-dropdown-link" href="/atom.xml" title="RSS 订阅">RSS</a>
+     
+    </div>
+</div>
+<script>
+  let dropdownBtn = document.getElementById("nav-menu-btn");
+  let dropdownEle = document.getElementById("nav-dropdown");
+  dropdownBtn.onclick = function() {
+    dropdownEle.classList.toggle("hidden");
+  }
+</script>
+    </div>
+    <div id="sidebar-wrapper">
+      <sidebar id="sidebar">
+  
+    <div class="widget-wrap">
+  <div class="info-card">
+    <div class="avatar">
+      
+        <image src=/pic/avatar.png></image>
+      
+      <div class="img-dim"></div>
+    </div>
+    <div class="info">
+      <div class="username">Asimov </div>
+      <div class="dot"></div>
+      <div class="subtitle">Asimov's Blog </div>
+      <div class="link-list">
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://github.com/chendingya" title="GitHub"><i class="fa-brands fa-github"></i></a>
+         
+      </div>  
+    </div>
+  </div>
+</div>
+
+  
+  <div class="sticky">
+    
+      
+
+
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">分类</h3>
+      <div class="category-box">
+            <a class="category-link" href="/categories/hello-world/">
+                hello world
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/Hexo/">
+                Hexo
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
+                编译原理
+                <div class="category-count">13</div>
+            </a>
+        
+            <a class="category-link" href="/categories/tdesign/">
+                tdesign
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">
+                软件工程与计算II
+                <div class="category-count">30</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E9%A9%BE%E8%80%83/">
+                驾考
+                <div class="category-count">2</div>
+            </a>
+        </div>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">标签</h3>
+      <ul class="widget-tag-list" itemprop="keywords"><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/hello-world/" rel="tag">hello world</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/tdesign/" rel="tag">tdesign</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" rel="tag">编译原理</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/" rel="tag">软件工程与计算II</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E9%A9%BE%E8%80%83/" rel="tag">驾考</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">归档</h3>
+      
+      
+        <a class="archive-link" href="/archives/2023/09 ">
+          九月 2023 
+          <div class="archive-count">2 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/07 ">
+          七月 2023 
+          <div class="archive-count">2 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/04 ">
+          四月 2023 
+          <div class="archive-count">10 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/03 ">
+          三月 2023 
+          <div class="archive-count">3 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2022/10 ">
+          十月 2022 
+          <div class="archive-count">1 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2022/06 ">
+          六月 2022 
+          <div class="archive-count">30 </div>
+        </a>
+      
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">最新文章</h3>
+      <ul>
+        
+          <a class="recent-link" href="/2023/09/15/23-tdesign/Mock%E4%BD%BF%E7%94%A8/" title="微信小程序中Mock使用" >
+            <div class="recent-link-text">
+              微信小程序中Mock使用
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/09/12/%E9%A9%BE%E8%80%83/%E9%A9%BE%E8%80%83-%E7%A7%91%E7%9B%AE%E4%BA%8C/" title="驾考-科目二" >
+            <div class="recent-link-text">
+              驾考-科目二
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/07/18/blog/" title="blog" >
+            <div class="recent-link-text">
+              blog
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/07/17/%E9%A9%BE%E8%80%83/%E9%A9%BE%E8%80%83-%E7%A7%91%E7%9B%AE%E4%B8%80/" title="驾考-科目一" >
+            <div class="recent-link-text">
+              驾考-科目一
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/04/10/23-Compilers/ch18-codegen-riscv-RISC-V%20%E6%A6%82%E8%BF%B0/" title="ch18-codegen-riscv-RISC-V 概述" >
+            <div class="recent-link-text">
+              ch18-codegen-riscv-RISC-V 概述
+            </div>
+          </a>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+  </div>
+</sidebar>
+    </div>
+    <div id="content-body">
+       
+
+<article id="post-SE-II笔记/22-软件开发过程模型" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 class="p-name article-title" itemprop="headline name">
+        SE-II-ch22-软件开发过程模型
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2022-06-18T08:02:34.000Z" itemprop="datePublished">2022-06-18</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">软件工程与计算II</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            5.7k 词 
+          </div>
+        </div>
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/" rel="tag">软件工程与计算II</a></li></ul>
+
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <h2 id="22-软件开发过程模型"><a href="#22-软件开发过程模型" class="headerlink" title="22-软件开发过程模型"></a>22-软件开发过程模型</h2><ul>
+<li>各类别模型很重要</li>
+</ul>
+<!-- TOC -->
+
+<ul>
+<li><a href="#1-%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E5%90%84%E5%85%B8%E5%9E%8B%E9%98%B6%E6%AE%B5">1. 软件开发各典型阶段</a><ul>
+<li><a href="#11-%E7%AC%AC4-21%E7%AB%A0%E5%BC%80%E5%8F%91%E6%B4%BB%E5%8A%A8%E6%80%BB%E7%BB%93">1.1. 第4-21章开发活动总结</a></li>
+</ul>
+</li>
+<li><a href="#2-%E8%BD%AF%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%A8%A1%E5%9E%8B">2. 软件生命周期模型</a></li>
+<li><a href="#3-%E8%BD%AF%E4%BB%B6%E8%BF%87%E7%A8%8B%E6%A8%A1%E5%9E%8B-%E9%87%8D%E8%A6%81">3. 软件过程模型 重要</a><ul>
+<li><a href="#31-%E6%9E%84%E5%BB%BA-%E4%BF%AE%E5%A4%8D%E6%A8%A1%E5%9E%8B">3.1. 构建-修复模型</a><ul>
+<li><a href="#311-%E7%BC%BA%E7%82%B9">3.1.1. 缺点</a></li>
+<li><a href="#312-%E9%80%82%E7%94%A8%E8%8C%83%E5%9B%B4">3.1.2. 适用范围</a></li>
+</ul>
+</li>
+<li><a href="#32-%E7%80%91%E5%B8%83%E6%A8%A1%E5%9E%8B">3.2. 瀑布模型</a><ul>
+<li><a href="#321-%E4%BC%98%E7%82%B9">3.2.1. 优点</a></li>
+<li><a href="#322-%E7%BC%BA%E7%82%B9">3.2.2. 缺点</a></li>
+<li><a href="#323-%E9%80%82%E7%94%A8%E8%8C%83%E5%9B%B4">3.2.3. 适用范围</a></li>
+</ul>
+</li>
+<li><a href="#33-%E5%A2%9E%E9%87%8F%E8%BF%AD%E4%BB%A3%E6%A8%A1%E5%9E%8B">3.3. 增量迭代模型</a><ul>
+<li><a href="#331-%E4%BC%98%E7%82%B9">3.3.1. 优点</a></li>
+<li><a href="#332-%E7%BC%BA%E7%82%B9">3.3.2. 缺点</a></li>
+<li><a href="#333-%E9%80%82%E7%94%A8%E6%80%A7">3.3.3. 适用性</a></li>
+</ul>
+</li>
+<li><a href="#34-%E6%BC%94%E5%8C%96%E6%A8%A1%E5%9E%8B">3.4. 演化模型</a><ul>
+<li><a href="#341-%E4%BC%98%E7%82%B9">3.4.1. 优点</a></li>
+<li><a href="#342-%E7%BC%BA%E7%82%B9">3.4.2. 缺点</a></li>
+<li><a href="#343-%E9%80%82%E7%94%A8%E6%80%A7">3.4.3. 适用性</a></li>
+</ul>
+</li>
+<li><a href="#35-%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%9E%8B">3.5. 原型模型</a><ul>
+<li><a href="#351-%E4%BC%98%E7%82%B9">3.5.1. 优点</a></li>
+<li><a href="#352-%E7%BC%BA%E7%82%B9">3.5.2. 缺点</a></li>
+<li><a href="#353-%E9%80%82%E7%94%A8%E6%80%A7">3.5.3. 适用性</a></li>
+</ul>
+</li>
+<li><a href="#36-%E8%9E%BA%E6%97%8B%E6%A8%A1%E5%9E%8B">3.6. 螺旋模型</a><ul>
+<li><a href="#361-%E8%BF%87%E7%A8%8B%E6%8F%8F%E8%BF%B0">3.6.1. 过程描述</a></li>
+<li><a href="#362-%E4%BC%98%E7%82%B9">3.6.2. 优点</a></li>
+<li><a href="#363-%E7%BC%BA%E7%82%B9">3.6.3. 缺点</a></li>
+<li><a href="#364-%E9%80%82%E7%94%A8%E6%80%A7">3.6.4. 适用性</a></li>
+</ul>
+</li>
+<li><a href="#37-rational-%E7%BB%9F%E4%B8%80%E8%BF%87%E7%A8%8B">3.7. Rational 统一过程</a><ul>
+<li><a href="#371-rup%E6%A0%B8%E5%BF%83%E6%80%9D%E6%83%B3">3.7.1. RUP核心思想</a></li>
+<li><a href="#372-rup%E8%A3%81%E5%89%AA">3.7.2. RUP裁剪</a></li>
+<li><a href="#373-%E4%BC%98%E7%82%B9">3.7.3. 优点</a></li>
+<li><a href="#374-%E7%BC%BA%E7%82%B9">3.7.4. 缺点</a></li>
+<li><a href="#375-%E9%80%82%E7%94%A8%E6%80%A7">3.7.5. 适用性</a></li>
+</ul>
+</li>
+<li><a href="#38-%E6%95%8F%E6%8D%B7%E8%BF%87%E7%A8%8B">3.8. 敏捷过程</a><ul>
+<li><a href="#381-%E6%95%8F%E6%8D%B7%E6%80%9D%E6%83%B3">3.8.1. 敏捷思想</a></li>
+<li><a href="#382-%E6%95%8F%E6%8D%B7%E5%8E%9F%E5%88%99">3.8.2. 敏捷原则</a></li>
+<li><a href="#383-%E8%B7%B5%E8%A1%8C%E6%95%8F%E6%8D%B7%E6%80%9D%E6%83%B3%E4%B8%8E%E5%8E%9F%E5%88%99%E7%9A%84%E8%BF%87%E7%A8%8B%E6%96%B9%E6%B3%95">3.8.3. 践行敏捷思想与原则的过程方法</a></li>
+<li><a href="#384-%E6%9E%81%E9%99%90%E7%BC%96%E7%A8%8B">3.8.4. 极限编程</a></li>
+<li><a href="#385-%E7%89%B9%E7%82%B9">3.8.5. 特点</a></li>
+<li><a href="#386-%E9%80%82%E7%94%A8%E6%80%A7">3.8.6. 适用性</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#4-%E6%80%BB%E7%BB%93">4. 总结</a></li>
+</ul>
+<!-- /TOC -->
+
+<h1 id="1-软件开发各典型阶段"><a href="#1-软件开发各典型阶段" class="headerlink" title="1. 软件开发各典型阶段"></a>1. 软件开发各典型阶段</h1><ol>
+<li>具体详见课本360-362页</li>
+</ol>
+<h2 id="1-1-第4-21章开发活动总结"><a href="#1-1-第4-21章开发活动总结" class="headerlink" title="1.1. 第4-21章开发活动总结"></a>1.1. 第4-21章开发活动总结</h2><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt22/1.png"></p>
+<ul>
+<li>系统需求的开发和软件需求的开发</li>
+<li>分析系统的相应约束</li>
+<li>软件设计:<ul>
+<li>软件结构设计</li>
+<li>软件细节设计</li>
+<li>人机交互设计:包含美工</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt22/2.png"></p>
+<ul>
+<li>软件构造:<ul>
+<li>构造软件就是进行编码</li>
+</ul>
+</li>
+<li>软件测试进行单元测试，集成测试、系统测试等等<ul>
+<li>软件测试的覆盖情况</li>
+<li>各种测试的概念(重要)</li>
+</ul>
+</li>
+<li>软件交付:<ul>
+<li>安装与部署</li>
+<li>用户培训</li>
+<li>文档支持</li>
+</ul>
+</li>
+<li>更精细的表格参考课本362页</li>
+</ul>
+<h1 id="2-软件生命周期模型"><a href="#2-软件生命周期模型" class="headerlink" title="2. 软件生命周期模型"></a>2. 软件生命周期模型</h1><ol>
+<li>人们将软件从<strong>生产到报废</strong>的生命周期分割为不同阶段，每段阶段有明确的典型输入&#x2F;输出、主要活动和执行人，各个阶段形成明确、连续的顺次过程，这些阶段划分就被称为<strong>软件生命周期模型</strong>。</li>
+<li>典型的软件生命周期【如下图，还有其他的软件生命周期模型如RUP】</li>
+<li>可以有不同的生命周期划分方式<ol>
+<li>例如第21章的软件演化生命周期模型</li>
+</ol>
+</li>
+<li>软件维护的结束就是软件报废。</li>
+</ol>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt22/3.png"></p>
+<h1 id="3-软件过程模型-重要"><a href="#3-软件过程模型-重要" class="headerlink" title="3. 软件过程模型 重要"></a>3. 软件过程模型 重要</h1><ol>
+<li>软件过程模型在生命周期模型的基础则进一步详细说明各个阶段的任务、活动、对象及其组织、控制过程。</li>
+<li>与简略的软件生命周期模型不同，软件过程模型可以被看作是网络化的活动组织</li>
+<li>不同的生命周期模型有不同的软件过程模型<ol>
+<li>阶段划分不一样</li>
+</ol>
+</li>
+<li><strong>同一个生命周期模型也会有多个不同的软件过程模型</strong><ol>
+<li>虽然阶段划分一样，但是各个阶段的时间安排、先后衔接等执行过程不一样</li>
+</ol>
+</li>
+</ol>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt22/4.png"></p>
+<h2 id="3-1-构建-修复模型"><a href="#3-1-构建-修复模型" class="headerlink" title="3.1. 构建-修复模型"></a>3.1. 构建-修复模型</h2><ol>
+<li>最早也是最自然产生的软件开发模型，<strong>对软件开发活动没有任何规划和组织</strong>，是完全依靠开发人员个人能力进行软件开发的方式。</li>
+</ol>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt22/5.png"></p>
+<h3 id="3-1-1-缺点"><a href="#3-1-1-缺点" class="headerlink" title="3.1.1. 缺点"></a>3.1.1. 缺点</h3><ol>
+<li>在这种模型中，没有对开发工作进行规范和组织，所以随着软件系统的<strong>复杂度提升</strong>，开发活动<strong>会超出个人的直接控制能力</strong>，构建-修复模型就会导致开发活动无法有效进行而失败；</li>
+<li>没有分析<strong>需求的真实性</strong>，给软件开发带来很大的风险；</li>
+<li>没有考虑<strong>软件结构的质量</strong>，使得软件结构在不断的修改中变得质量越来越糟，直至无法修改；</li>
+<li>没有考虑<strong>测试和程序的可维护性，也没有任何文档</strong>，软件的维护十分困难。</li>
+</ol>
+<h3 id="3-1-2-适用范围"><a href="#3-1-2-适用范围" class="headerlink" title="3.1.2. 适用范围"></a>3.1.2. 适用范围</h3><ol>
+<li>软件规模很小，只需要几百行程序，其开发复杂度是个人能力能够胜任的；</li>
+<li>软件对质量的要求不高，即使出错也无所谓；</li>
+<li>只关注开发活动，对后期维护的要求不高，甚至不需要进行维护。</li>
+</ol>
+<h2 id="3-2-瀑布模型"><a href="#3-2-瀑布模型" class="headerlink" title="3.2. 瀑布模型"></a>3.2. 瀑布模型</h2><ol>
+<li>瀑布模型是<strong>按照软件生命周期模型</strong>将软件开发活动组织为需求开发、软件设计、软件实现、软件测试、软件交付和软件维护等活动，并且规定了它们自上而下、相互邻接的次序。</li>
+<li>允许活动出现反复和迭代，<strong>重点在于要求每个活动的结果必须要进行验证</strong></li>
+<li><strong>文档驱动</strong>：按照文档的划分、产生和验证来规划、组织和控制开发活动</li>
+</ol>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt22/6.png"></p>
+<h3 id="3-2-1-优点"><a href="#3-2-1-优点" class="headerlink" title="3.2.1. 优点"></a>3.2.1. 优点</h3><ol>
+<li>为软件开发活动定义了清晰的阶段划分(包括输入&#x2F;输出、主要工作及其关注点)，这让开发者能够以关注点分离的方式更好地进行那些复杂度超越个人能力的软件项目的开发活动。</li>
+</ol>
+<h3 id="3-2-2-缺点"><a href="#3-2-2-缺点" class="headerlink" title="3.2.2. 缺点"></a>3.2.2. 缺点</h3><ol>
+<li>对文档的过高期望具有局限性。</li>
+<li>一方面会耗费很大的工作量和成本</li>
+<li>另一方面<strong>很难为经常变化的需求建立完备可靠的文档</strong>。</li>
+<li>对开发活动的<strong>线性顺序假设具有局限性</strong>。<ol>
+<li>要求一个阶段的工作经过验证后才能进入后续阶段是不切实际的。在实际开发中，常常需要进行一定的后续工作才能验证当前的工作是否正确、可靠。</li>
+</ol>
+</li>
+<li>客户、用户参与具有局限性。<ol>
+<li>成功的项目开发需要客户、用户从始至终的参与，而不仅仅是一个阶段，在瀑布模型中客户和用户仅仅在一个阶段参与了。</li>
+</ol>
+</li>
+<li>里程碑粒度具有局限性：<strong>里程碑粒度过粗</strong>，基本丧失了”早发现缺陷早修复”这一思想，如需求分析中可以进行更小粒度的划分</li>
+</ol>
+<h3 id="3-2-3-适用范围"><a href="#3-2-3-适用范围" class="headerlink" title="3.2.3. 适用范围"></a>3.2.3. 适用范围</h3><ol>
+<li><strong>需求非常成熟、稳定</strong>，没有不确定的内容，也不会发生变化；</li>
+<li><strong>所需的技术成熟、可靠</strong>，没有不确定的技术难点，也没有开发人员不熟悉的技术问题；</li>
+<li><strong>要求复杂度适中</strong>，不至于产生太大的文档负担和过粗的里程碑。</li>
+</ol>
+<h2 id="3-3-增量迭代模型"><a href="#3-3-增量迭代模型" class="headerlink" title="3.3. 增量迭代模型"></a>3.3. 增量迭代模型</h2><ol>
+<li>增量迭代模型是在项目开始时，通过系统需求开发和核心体系结构设计活动完成项目对前景和范围的界定，然后再将后续开发活动组织为<strong>多个迭代、并行的瀑布式开发模型。需求驱动</strong>。</li>
+<li>软件规模日益增长带来了挑战及其对策<ol>
+<li>周期过长-渐进交付</li>
+<li>时间压力-并行开发</li>
+</ol>
+</li>
+<li>迭代式、渐进交付和并行开发共同促使了增量迭代模型的产生和普及。</li>
+</ol>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt22/7.png"></p>
+<ol>
+<li><strong>增量迭代模型需要在项目早期就确定项目的目标和范围，项目需求要比较成熟和稳定【确定所有的需求数量】</strong></li>
+<li>少量的不确定性和影响不大的需求变更通过迭代的方式加以解决 </li>
+<li>每个迭代的增量需求相对独立，被开发为产品的独立部分交付给用户</li>
+<li><strong>第一个迭代完成的往往是产品的核心部门，满足基本的需求</strong></li>
+<li><strong>需求驱动</strong>：增量需求是增量迭代模型进行迭代规划、开发活动组织和控制的主要依据</li>
+</ol>
+<h3 id="3-3-1-优点"><a href="#3-3-1-优点" class="headerlink" title="3.3.1. 优点"></a>3.3.1. 优点</h3><ol>
+<li>迭代式开发更加符合软件开发的实践情况，具有更好的适用性；</li>
+<li>并行开发可以帮助缩短软件产品的开发时间；</li>
+<li>渐进交付可以加强用户反馈，降低开发风险。</li>
+</ol>
+<h3 id="3-3-2-缺点"><a href="#3-3-2-缺点" class="headerlink" title="3.3.2. 缺点"></a>3.3.2. 缺点</h3><ol>
+<li>由于各个构件是逐渐并入已有的软件体系结构中的，所以加入构件必须不破坏已构造好的系统部分，这需要软件具备开放式的体系结构。</li>
+<li>增量交付模型需要一个完备、清晰的项目前景和范围以进行并发开发规划，但是在一些不稳定的领域，不确定性太多或者需求变化非常频繁，很难在项目开始就确定前景和范围。</li>
+</ol>
+<h3 id="3-3-3-适用性"><a href="#3-3-3-适用性" class="headerlink" title="3.3.3. 适用性"></a>3.3.3. 适用性</h3><ol>
+<li>因为能够很好地适用于<strong>大规模软件系统开发</strong>，所以增量迭代模型在实践中有着广泛的应用，尤其是比较成熟和稳定的领域。</li>
+</ol>
+<h2 id="3-4-演化模型"><a href="#3-4-演化模型" class="headerlink" title="3.4. 演化模型"></a>3.4. 演化模型</h2><ol>
+<li>演化模型将软件开发活动组织为多个迭代、并行的瀑布式开发活动。</li>
+<li>演化模型与增量迭代模型相比<ol>
+<li>都是迭代、并行开发和渐进交付，都适合大规模软件开发</li>
+</ol>
+</li>
+<li><strong>演化模型能够更好地应对需求变更，更适用于需求变更比较频繁或不确定性较多的领域。</strong><ol>
+<li>Ch21：演化模糊了维护与新开发的界限</li>
+<li><strong>区别：</strong>在增量迭代模型中，需求的数目是确定的，只是拆分成多个来开发；而在演化模型中，<strong>多了反馈机制</strong>，因此上一个演化可以对下一个演化提供反馈【根据用户的反馈修改需求】，动态调整需求的数目，所以演化模型中的需求数目是动态变化的</li>
+</ol>
+</li>
+</ol>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt22/8.png"></p>
+<h3 id="3-4-1-优点"><a href="#3-4-1-优点" class="headerlink" title="3.4.1. 优点"></a>3.4.1. 优点</h3><ol>
+<li><strong>使用了迭代式开发，具有更好的适用性</strong>，尤其是其演化式迭代安排能够适用于那些需求变更比较频繁或不确定性较多的软件系统的开发；</li>
+<li>并行开发可以帮助<strong>缩短</strong>软件产品的开发时间；</li>
+<li>渐进交付可以<strong>加强用户反馈</strong>，降低开发风险。</li>
+</ol>
+<h3 id="3-4-2-缺点"><a href="#3-4-2-缺点" class="headerlink" title="3.4.2. 缺点"></a>3.4.2. 缺点</h3><ol>
+<li><strong>无法在项目早期阶段建立项目范围【需求数量是不确定的，需求是模糊的，要根据用户反馈进一步演化】</strong>，所以项目的整体计划、进度调度、尤其是商务协商事宜无法准确把握；</li>
+<li>后续迭代的开发活动是在前导迭代基础上进行修改和扩展的，<strong>这容易让后续迭代忽略设分析与设计工作</strong>，蜕变为构建-修复方式。</li>
+<li><strong>容易退化为构建修复方式</strong></li>
+</ol>
+<h3 id="3-4-3-适用性"><a href="#3-4-3-适用性" class="headerlink" title="3.4.3. 适用性"></a>3.4.3. 适用性</h3><ol>
+<li>在实践中，<strong>不稳定领域的大规模软件系统</strong>开发适合使用<strong>演化模型</strong>进行组织。</li>
+</ol>
+<h2 id="3-5-原型模型"><a href="#3-5-原型模型" class="headerlink" title="3.5. 原型模型"></a>3.5. 原型模型</h2><ol>
+<li>原型模型将需求开发活动展开为<strong>抛弃式原型开发活动和演化式原型开发活动</strong></li>
+<li>原型模型在整体安排迭代的情况下，强调”抛弃式原型”的演化模型。抛弃式原型解决对未来知识的局限性产生的<strong>不确定性</strong>，将未来置于现在进行推敲。</li>
+<li>抛弃式原型<ol>
+<li><strong>它通过模拟”未来”的产品【如桩和驱动就是类似的原理，只是模拟，用来解决不确定性，比如用户是否会喜欢等，在未来真正的产品开发出来后被抛弃。比如用户想要一个word，但不知道是是什么样的，先开发一个简单的txt文本编辑器原型，看看用户反馈，他们想要怎么样的，再进一步开发，同时这个txt文本编辑器就会被抛弃】</strong>，将”未来”的知识置于”现在” 进行推敲，解决不确定性。</li>
+<li>存在的原因是”不确定的”，这一类原型在后续的开发过程中会被抛弃</li>
+</ol>
+</li>
+<li>演化式原型<ol>
+<li>在迭代中构建，是系统的核心，并不断扩充，<strong>最终成为真正的软件产品。</strong></li>
+<li>它将作为真正产品的一部分，所以必须有很好的质量。在迭代式开发中，通常会在第一个迭代中构建一个核心的体系结构演化式原型，并且在后续迭代中不断扩充，成为真正的软件产品。</li>
+</ol>
+</li>
+</ol>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt22/9.png"></p>
+<ol>
+<li>原型模型的<strong>基本特征是注重使用抛弃式原型</strong>，适用于不确定性较多的软件开发。</li>
+</ol>
+<h3 id="3-5-1-优点"><a href="#3-5-1-优点" class="headerlink" title="3.5.1. 优点"></a>3.5.1. 优点</h3><ol>
+<li>对原型方法的使用<strong>加强了与客户、用户的交流</strong>，可以让最终产品取得更好的满意度；</li>
+<li>适用于非常新颖的领域，这些领域因为新颖所以有着大量的不确定性。</li>
+</ol>
+<h3 id="3-5-2-缺点"><a href="#3-5-2-缺点" class="headerlink" title="3.5.2. 缺点"></a>3.5.2. 缺点</h3><ol>
+<li><strong>原型方法能够解决风险</strong>，但是自身也能带来新的风险，例如<strong>原型开发的成本较高</strong>，可能会耗尽项目的费用和时间；</li>
+<li>实践中，很多项目负责人不舍得抛弃”抛弃式原型”，使得质量较差的代码进入了最终产品，导致了最终产品的低质量。</li>
+</ol>
+<h3 id="3-5-3-适用性"><a href="#3-5-3-适用性" class="headerlink" title="3.5.3. 适用性"></a>3.5.3. 适用性</h3><ol>
+<li>实践中，原型模型主要用于在有着大量不确定性的新颖领域进行开发活动组织。</li>
+</ol>
+<h2 id="3-6-螺旋模型"><a href="#3-6-螺旋模型" class="headerlink" title="3.6. 螺旋模型"></a>3.6. 螺旋模型</h2><ol>
+<li>螺旋模型是风险驱动的，完全按照风险解决的方式组织软件开发活动。<ol>
+<li>确定目标、解决方案和约束</li>
+<li>评估方案，发现风险</li>
+<li>寻找风险解决方法</li>
+<li>落实风险解决方案</li>
+<li>计划下一个迭代</li>
+</ol>
+</li>
+<li>风险是指因为不确定性(对未来知识了解有限)而可能给项目带来损失的情况</li>
+<li>螺旋模型的基本思想是尽早解决比较高的风险，如果有些问题实在无法解决，那么早发现比目结束时再发现要好，至少损失要小得多。</li>
+<li>原型能够澄清不确定性，所以原型能够解决风险，螺旋模型是充分利用原型方法来解决风险的。</li>
+<li>原型模型 vs 螺旋模型<ol>
+<li>原型模型：使用原型解决需求的不确定性</li>
+<li>螺旋模型：实用原型解决项目开发中常见的各种类型的技术风险，包括系统需求开发、软件需求开发、软件体系结构设计、详细设计等各个阶段</li>
+</ol>
+</li>
+<li>自内向外，螺旋模型有4次风险解决迭代，分别解决了几个高风险的阶段的问题<ol>
+<li>解决系统需求开发中的风险，尤其是产品概念设计风险，得到一个确定的产品前景和范围。</li>
+<li>解决软件需求开发中的风险，得到清晰的软件需求</li>
+<li>解决软件体系结构设计中的技术风险，构建高质量的核心体系结构原型。</li>
+<li>解决详细设计和实现中的关键技术风险，建立一个可实现的高质量软件结构。</li>
+</ol>
+</li>
+</ol>
+<h3 id="3-6-1-过程描述"><a href="#3-6-1-过程描述" class="headerlink" title="3.6.1. 过程描述"></a>3.6.1. 过程描述</h3><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt22/10.png"></p>
+<h3 id="3-6-2-优点"><a href="#3-6-2-优点" class="headerlink" title="3.6.2. 优点"></a>3.6.2. 优点</h3><ol>
+<li>可以降低风险，减少项目因风险造成的损失。</li>
+</ol>
+<h3 id="3-6-3-缺点"><a href="#3-6-3-缺点" class="headerlink" title="3.6.3. 缺点"></a>3.6.3. 缺点</h3><ol>
+<li>风险解决需要使用原型手段，也就会存在原型自身带来的风险，这一点与原型模型相同；</li>
+<li>模型过于复杂，不利于管理者依据其组织软件开发活动；</li>
+</ol>
+<h3 id="3-6-4-适用性"><a href="#3-6-4-适用性" class="headerlink" title="3.6.4. 适用性"></a>3.6.4. 适用性</h3><ol>
+<li>在实践中，螺旋模型在高风险的大规模软件系统开发中有着较多的应用。</li>
+</ol>
+<h2 id="3-7-Rational-统一过程"><a href="#3-7-Rational-统一过程" class="headerlink" title="3.7. Rational 统一过程"></a>3.7. Rational 统一过程</h2><ol>
+<li>统一过程(Rational Unified Process，RUP)总结和借鉴传统上的各种有效经验，建立最佳实践方法的集合，并提供有效的过程定制手段，允许开发者根据特定的需要定制一个有效的过程模型。</li>
+</ol>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt22/11.png"></p>
+<h3 id="3-7-1-RUP核心思想"><a href="#3-7-1-RUP核心思想" class="headerlink" title="3.7.1. RUP核心思想"></a>3.7.1. RUP核心思想</h3><ol>
+<li>迭代式开发，这是过去被反复证明的最佳实践方法；</li>
+<li>管理需求，重视需求工程中除了需求开发之外的需求管理活动；</li>
+<li>使用基于组件的体系结构，它帮助建立一个可维护、易开发、易复用的软件体系结构；</li>
+<li>可视化建模，利用UML进行建模；</li>
+<li>验证软件质量，尽早和持续地开展验证，以尽早发现缺陷，降低风险和成本；</li>
+<li>控制软件变更，适应1990s以后需求变更越来越重要的事实。</li>
+<li>注:<ol>
+<li>每一个迭代中都可能有很多个不同阶段在同时运行</li>
+</ol>
+</li>
+</ol>
+<h3 id="3-7-2-RUP裁剪"><a href="#3-7-2-RUP裁剪" class="headerlink" title="3.7.2. RUP裁剪"></a>3.7.2. RUP裁剪</h3><ol>
+<li>RUP是一个通用的过程模板，在一个项目使用RUP指导开发活动组织时，需要对RUP进行裁剪和配置。</li>
+<li>确定本项目需要哪些工作流。RUP的9个核心工作流并不总是需要的，可以取舍。</li>
+<li>确定每个工作流需要哪些制品。</li>
+<li>确定4个阶段之间如何演进，决定每个阶段要哪些工作流，每个工作流执行到什么程度，制品有哪些。</li>
+<li>确定每个阶段内的迭代计划。</li>
+<li>规划工作流的组织，这涉及人员、任务及制品，通常用活动图的形式给出。</li>
+</ol>
+<h3 id="3-7-3-优点"><a href="#3-7-3-优点" class="headerlink" title="3.7.3. 优点"></a>3.7.3. 优点</h3><ol>
+<li>吸收和借鉴了传统上的最佳实践方法，尤其是其核心的6个实践方法，能够保证软件开发过程的组织是基本有效和合理的。</li>
+<li>RUP依据其定制机制的不同，可以适用于小型项目，也可以适用于大型项目的开发，适用面广泛。</li>
+<li>RUP有一套软件工程工具的支持，这可以帮助RUP的有效实施。</li>
+</ol>
+<h3 id="3-7-4-缺点"><a href="#3-7-4-缺点" class="headerlink" title="3.7.4. 缺点"></a>3.7.4. 缺点</h3><ol>
+<li>没有考虑交付之后的软件维护问题</li>
+<li>裁剪和配置工作不是一个简单的任务，无法保证每个项目都能定制一个有效的RUP过程。</li>
+</ol>
+<h3 id="3-7-5-适用性"><a href="#3-7-5-适用性" class="headerlink" title="3.7.5. 适用性"></a>3.7.5. 适用性</h3><ol>
+<li>RUP是重量级过程，能够胜任大型软件团队开发大型项目时的活动组织。但RUP经过裁剪和定制，也可以变为轻量级过程，也能够胜任小团队的开发活动组织。</li>
+</ol>
+<h2 id="3-8-敏捷过程"><a href="#3-8-敏捷过程" class="headerlink" title="3.8. 敏捷过程"></a>3.8. 敏捷过程</h2><ol>
+<li>传统的过程模型在应对需求变更和重视用户价值等发展时遇到了极大的挑战。<ol>
+<li>传统的软件过程模型过度强调了”纪律”，忽视了个人的能力，尤其是过度强调了计划、文档和工具，导致项目开发失去了灵活性，不能快速地应对需求变更和用户反馈。</li>
+</ol>
+</li>
+<li>针对传统过程模型的缺陷和新的形势，人们总结实践中的经验和最佳实践方法，尝试建立轻量级过程方法。</li>
+<li>2001年，企业界一些对轻量级过程方法有着共同思想的人士召开了一次会议，会议上宣布成立敏捷联盟，敏捷过程方法正式诞生。</li>
+</ol>
+<h3 id="3-8-1-敏捷思想"><a href="#3-8-1-敏捷思想" class="headerlink" title="3.8.1. 敏捷思想"></a>3.8.1. 敏捷思想</h3><ol>
+<li>敏捷过程并不是要为软件开发活动组织提供一种特定的过程模型，而是倡导一些指导性的思想和原则</li>
+<li>最为重要的敏捷思想是敏捷联盟宣言所声明的价值观：<ol>
+<li>个体和互动 高于 流程和工具</li>
+<li>工作的软件 高于 详尽的文档</li>
+<li>客户合作 高于 合同谈判</li>
+<li>响应变化 高于 遵循计划</li>
+</ol>
+</li>
+<li>也就是说，尽管右项有其价值，敏捷方法更重视左项的价值。</li>
+</ol>
+<h3 id="3-8-2-敏捷原则"><a href="#3-8-2-敏捷原则" class="headerlink" title="3.8.2. 敏捷原则"></a>3.8.2. 敏捷原则</h3><ol>
+<li>我们最重要的目标，是通过<strong>持续不断地及早交付有价值的软件</strong>使客户满意。</li>
+<li>欣然面对需求变化，即使在开发后期也一样。为了客户的竞争优势，敏捷过程掌控变化。</li>
+<li>经常地交付可工作的软件，相隔几星期或一两个月，倾向于采取较短的周期。</li>
+<li>业务人员和开发人员必须相互合作，项目中的每一天都例外。</li>
+<li>激发个体的斗志，以他们为核心搭建项目。提供所需的环境和支援，辅以信任，从而达成目标。</li>
+<li>不论团队内外，传递信息效果最好效率也最高的方式是面对面的交谈。</li>
+<li>可工作的软件是进度的首要度量标准。</li>
+<li>敏捷过程倡导可持续开发。责任人、开发人员和用户要能够共同维持其步调稳定延续。</li>
+<li>坚持不懈地追求技术卓越和良好设计，敏捷能力由此增强。</li>
+<li>以简洁为本，它是极力减少不必要工作量的艺术。</li>
+<li>最好的架构、需求和设计出自自组织团队。</li>
+<li>团队定期地反思如何能提高成效，并依此调整自身的举止表现。</li>
+</ol>
+<h3 id="3-8-3-践行敏捷思想与原则的过程方法"><a href="#3-8-3-践行敏捷思想与原则的过程方法" class="headerlink" title="3.8.3. 践行敏捷思想与原则的过程方法"></a>3.8.3. 践行敏捷思想与原则的过程方法</h3><ol>
+<li>极限编程XP(eXtreme Programming)</li>
+<li>Scrum</li>
+<li>特性驱动开发(FDD&#x2F;Feature Driven Development)</li>
+<li>自适应软件开发(ASD&#x2F;Adaptive Software Development)</li>
+<li>动态系统开发方法(DSDM&#x2F;Dynamic Systems Development Method)</li>
+</ol>
+<h3 id="3-8-4-极限编程"><a href="#3-8-4-极限编程" class="headerlink" title="3.8.4. 极限编程"></a>3.8.4. 极限编程</h3><ol>
+<li>极限编程XP的一个重要思想是极限利用简单、有效的方法解决问题(这也是它被称为极限编程的原因)，例如：<ol>
+<li>如果单元测试好用，那么就让所有人一直做单元测试(测试驱动)；</li>
+<li>如果集成测试好用，那么就一直做集成测试(持续集成)；</li>
+<li>如果代码评审好用，那么就一直做评审(结对编程)；</li>
+<li>如果简洁性好用，那么就只做最简洁的事情(简单设计)；</li>
+<li>如果设计好用，那么就一直设计(重构)；</li>
+<li>如果短迭代好用，那么就把迭代做的足够小(小版本发布)；</li>
+<li>如果用户参与好用，那么就让用户始终参与(现场客户)。</li>
+</ol>
+</li>
+</ol>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt22/12.png"><br><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt22/13.png"></p>
+<h3 id="3-8-5-特点"><a href="#3-8-5-特点" class="headerlink" title="3.8.5. 特点"></a>3.8.5. 特点</h3><ol>
+<li>敏捷过程包含的方法众多，各有特点，除了共 同的思想和原则之外，很难准确描述它们的共 同点，所以也无法确切界定它们的优缺点。</li>
+</ol>
+<h3 id="3-8-6-适用性"><a href="#3-8-6-适用性" class="headerlink" title="3.8.6. 适用性"></a>3.8.6. 适用性</h3><ol>
+<li>从敏捷联盟声明的思想和原则来看，它们反映了1990s之后软件工程的发展趋势，所以得到了广泛的应用，尤其是能够适应于快速变化或者时间压力较大的项目。</li>
+</ol>
+<h1 id="4-总结"><a href="#4-总结" class="headerlink" title="4. 总结"></a>4. 总结</h1><ol>
+<li>软件生命周期模型和过程模型都是人们关于如何组织软件开发活动的有效经验总结</li>
+<li>不同的过程模型适用于不同情况软件项目的开发活动组织</li>
+</ol>
+
+        
+      </div>
+
+         
+    </div>
+    
+     
+  </div>
+  
+    
+<nav id="article-nav">
+  <a class="article-nav-btn left "
+    
+      href="/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/20-%E8%BD%AF%E4%BB%B6%E4%BA%A4%E4%BB%98/"
+      title="SE-II-ch20-软件交付"
+     >
+    <i class="fa-solid fa-angle-left"></i>
+    <p class="title-text">
+      
+        SE-II-ch20-软件交付
+        
+    </p>
+  </a>
+  <a class="article-nav-btn right "
+    
+      href="/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/21-%E8%BD%AF%E4%BB%B6%E7%9A%84%E7%BB%B4%E6%8A%A4%E4%B8%8E%E6%BC%94%E5%8C%96/"
+      title="SE-II-ch21-软件的维护与演化"
+     >
+
+    <p class="title-text">
+      
+        SE-II-ch21-软件的维护与演化
+        
+    </p>
+    <i class="fa-solid fa-angle-right"></i>
+  </a>
+</nav>
+
+
+  
+</article>
+
+
+  
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <div id="comment-card" class="comment-card">
+    <div class="main-title-bar">
+      <div class="main-title-dot"></div>
+      <div class="main-title">留言 </div>
+    </div>
+    <div id="vcomments"></div>
+  </div>
+  <script>
+      new Valine({"enable":true,"appId":null,"appKey":null,"placeholder":"Just go go","pageSize":20,"highlight":true,"serverURLs":null,"el":"#vcomments"});
+  </script>
+ 
+    </div>
+    <div id="footer-wrapper">
+      <footer id="footer">
+  
+  <div id="footer-info" class="inner">
+    
+      <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris"></a>
+    
+    &copy; 2023 Asimov<br>
+    Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & Theme <a target="_blank" rel="noopener" href="https://github.com/saicaca/hexo-theme-vivia">Vivia</a>
+  </div>
+</footer>
+
+    </div>
+    <div class="back-to-top-wrapper">
+    <button id="back-to-top-btn" class="back-to-top-btn hide" onclick="topFunction()">
+        <i class="fa-solid fa-angle-up"></i>
+    </button>
+</div>
+
+<script>
+    function topFunction() {
+        window.scroll({ top: 0, behavior: 'smooth' });
+    }
+    let btn = document.getElementById('back-to-top-btn');
+    function scrollFunction() {
+        if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+            btn.classList.remove('hide')
+        } else {
+            btn.classList.add('hide')
+        }
+    }
+    window.onscroll = function() {
+        scrollFunction();
+    }
+</script>
+
+  </div>
+  <script src="/js/light-dark-switch.js"></script>
+</body>
+</html>
