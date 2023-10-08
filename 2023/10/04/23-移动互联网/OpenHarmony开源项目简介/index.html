@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+
+
+<html theme="dark" showBanner="true" hasBanner="true" > 
+<link href="/fontawesome/css/fontawesome.css" rel="stylesheet">
+<link href="/fontawesome/css/brands.css" rel="stylesheet">
+<link href="/fontawesome/css/solid.css" rel="stylesheet">
+<script src="/js/color.global.min.js" ></script>
+<script src="/js/load-settings.js" ></script>
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+
+  
+  <title>OpenHarmony开源项目简介 | Asimov&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+  <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+
+  <meta name="description" content="OpenHarmony开源项目简介技术架构OpenHarmony整体遵从分层设计，从下向上依次为：内核层、系统服务层、框架层和应用层。系统功能按照“系统 &gt; 子系统 &gt; 组件”逐级展开，在多设备部署场景下，支持根据实际需求裁剪某些非必要的组件。OpenHarmony技术架构如下所示：  内核层  内核子系统：采用多内核（Linux内核或者LiteOS）设计，支持针对不同资源受限设备选用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OpenHarmony开源项目简介">
+<meta property="og:url" content="https://chendingya.github.io/2023/10/04/23-%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91/OpenHarmony%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E7%AE%80%E4%BB%8B/index.html">
+<meta property="og:site_name" content="Asimov&#39;s Blog">
+<meta property="og:description" content="OpenHarmony开源项目简介技术架构OpenHarmony整体遵从分层设计，从下向上依次为：内核层、系统服务层、框架层和应用层。系统功能按照“系统 &gt; 子系统 &gt; 组件”逐级展开，在多设备部署场景下，支持根据实际需求裁剪某些非必要的组件。OpenHarmony技术架构如下所示：  内核层  内核子系统：采用多内核（Linux内核或者LiteOS）设计，支持针对不同资源受限设备选用">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/openharmony/docs/raw/master/zh-cn/figures/1.png">
+<meta property="article:published_time" content="2023-10-04T03:40:36.000Z">
+<meta property="article:modified_time" content="2023-10-08T23:16:20.140Z">
+<meta property="article:author" content="Asimov">
+<meta property="article:tag" content="openharmony">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/openharmony/docs/raw/master/zh-cn/figures/1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Asimov's Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-192.png" sizes="192x192">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-192.png" sizes="192x192">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  
+  
+    
+<div id="banner" class="">
+  <img src="/pic/back.png" itemprop="image">
+  <div id="banner-dim"></div>
+</div>
+ 
+   
+  <div id="main-grid" class="shadow   ">
+    <div id="nav" class=""  >
+      <navbar id="navbar">
+  <nav id="title-nav">
+    <a href="/">
+      <div id="vivia-logo">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div>Asimov's Blog </div>
+    </a>
+  </nav>
+  <nav id="main-nav">
+    
+      <a class="main-nav-link" href="/">Home</a>
+    
+      <a class="main-nav-link" href="/archives">Archives</a>
+    
+      <a class="main-nav-link" href="/about">About</a>
+    
+  </nav>
+  <nav id="sub-nav">
+    <a id="theme-btn" class="nav-icon">
+      <span class="light-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M438.5-829.913v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-829.913Zm0 747.826v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-82.087ZM877.913-438.5h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537t29.476-12.174h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T877.913-438.5Zm-747.826 0h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T82.087-521.5h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T130.087-438.5Zm660.174-290.87-34.239 32q-12.913 12.674-29.565 12.174-16.653-.5-29.327-13.174-12.674-12.673-12.554-28.826.12-16.152 12.794-28.826l33-35q12.913-12.674 30.454-12.674t30.163 12.847q12.709 12.846 12.328 30.826-.38 17.98-13.054 30.653ZM262.63-203.978l-32 34q-12.913 12.674-30.454 12.674t-30.163-12.847q-12.709-12.846-12.328-30.826.38-17.98 13.054-30.653l33.239-31q12.913-12.674 29.565-12.174 16.653.5 29.327 13.174 12.674 12.673 12.554 28.826-.12 16.152-12.794 28.826Zm466.74 33.239-32-33.239q-12.674-12.913-12.174-29.565.5-16.653 13.174-29.327 12.673-12.674 28.826-13.054 16.152-.38 28.826 12.294l35 33q12.674 12.913 12.674 30.454t-12.847 30.163q-12.846 12.709-30.826 12.328-17.98-.38-30.653-13.054ZM203.978-697.37l-34-33q-12.674-12.913-13.174-29.945-.5-17.033 12.174-29.707t31.326-13.293q18.653-.62 31.326 13.054l32 34.239q11.674 12.913 11.174 29.565-.5 16.653-13.174 29.327-12.673 12.674-28.826 12.554-16.152-.12-28.826-12.794ZM480-240q-100 0-170-70t-70-170q0-100 70-170t170-70q100 0 170 70t70 170q0 100-70 170t-170 70Zm-.247-82q65.703 0 111.475-46.272Q637-414.544 637-480.247t-45.525-111.228Q545.95-637 480.247-637t-111.475 45.525Q323-545.95 323-480.247t45.525 111.975Q414.05-322 479.753-322ZM481-481Z"/></svg></span>
+      <span class="dark-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M480.239-116.413q-152.63 0-258.228-105.478Q116.413-327.37 116.413-480q0-130.935 77.739-227.435t206.304-125.043q43.022-9.631 63.87 10.869t3.478 62.805q-8.891 22.043-14.315 44.463-5.424 22.42-5.424 46.689 0 91.694 64.326 155.879 64.325 64.186 156.218 64.186 24.369 0 46.978-4.946 22.609-4.945 44.413-14.076 42.826-17.369 62.967 1.142 20.142 18.511 10.511 61.054Q807.174-280 712.63-198.206q-94.543 81.793-232.391 81.793Zm0-95q79.783 0 143.337-40.217 63.554-40.218 95.793-108.283-15.608 4.044-31.097 5.326-15.49 1.283-31.859.805-123.706-4.066-210.777-90.539-87.071-86.473-91.614-212.092-.24-16.369.923-31.978 1.164-15.609 5.446-30.978-67.826 32.478-108.282 96.152Q211.652-559.543 211.652-480q0 111.929 78.329 190.258 78.329 78.329 190.258 78.329ZM466.13-465.891Z"/></svg></span>
+    </a>
+    
+      <a id="nav-rss-link" class="nav-icon mobile-hide" href="/atom.xml" title="RSS 订阅">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-120q-25.846 0-44.23-18.384-18.384-18.385-18.384-44.23 0-25.846 18.384-44.23 18.384-18.385 44.23-18.385 25.846 0 44.23 18.385 18.384 18.384 18.384 44.23 0 25.845-18.384 44.23Q223.846-120 198-120Zm538.385 0q-18.846 0-32.923-13.769-14.076-13.769-15.922-33.23-8.692-100.616-51.077-188.654-42.385-88.039-109.885-155.539-67.5-67.501-155.539-109.885Q283-663.462 182.385-672.154q-19.461-1.846-33.23-16.23-13.769-14.385-13.769-33.846t14.076-32.922q14.077-13.461 32.923-12.23 120.076 8.692 226.038 58.768 105.961 50.077 185.73 129.846 79.769 79.769 129.846 185.731 50.077 105.961 58.769 226.038 1.231 18.846-12.538 32.922Q756.461-120 736.385-120Zm-252 0q-18.231 0-32.423-13.461t-18.653-33.538Q418.155-264.23 348.886-333.5q-69.27-69.27-166.501-84.423-20.077-4.462-33.538-18.961-13.461-14.5-13.461-33.346 0-19.076 13.884-33.23 13.884-14.153 33.115-10.922 136.769 15.384 234.384 112.999 97.615 97.615 112.999 234.384 3.231 19.23-10.538 33.115Q505.461-120 484.385-120Z"/></svg>
+      </a>
+    
+    <div id="nav-menu-btn" class="nav-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M177.37-252.282q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Zm0-186.218q-17.453 0-29.477-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T177.37-521.5h605.26q17.453 0 29.477 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T782.63-438.5H177.37Zm0-186.217q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Z"/></svg>
+    </div>
+  </nav>
+</navbar>
+<div id="nav-dropdown" class="hidden">
+  <div id="dropdown-link-list">
+    
+      <a class="nav-dropdown-link" href="/">Home</a>
+    
+      <a class="nav-dropdown-link" href="/archives">Archives</a>
+    
+      <a class="nav-dropdown-link" href="/about">About</a>
+    
+    
+      <a class="nav-dropdown-link" href="/atom.xml" title="RSS 订阅">RSS</a>
+     
+    </div>
+</div>
+<script>
+  let dropdownBtn = document.getElementById("nav-menu-btn");
+  let dropdownEle = document.getElementById("nav-dropdown");
+  dropdownBtn.onclick = function() {
+    dropdownEle.classList.toggle("hidden");
+  }
+</script>
+    </div>
+    <div id="sidebar-wrapper">
+      <sidebar id="sidebar">
+  
+    <div class="widget-wrap">
+  <div class="info-card">
+    <div class="avatar">
+      
+        <image src=/pic/avatar.png></image>
+      
+      <div class="img-dim"></div>
+    </div>
+    <div class="info">
+      <div class="username">Asimov </div>
+      <div class="dot"></div>
+      <div class="subtitle">Asimov's Blog </div>
+      <div class="link-list">
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://github.com/chendingya" title="GitHub"><i class="fa-brands fa-github"></i></a>
+         
+      </div>  
+    </div>
+  </div>
+</div>
+
+  
+  <div class="sticky">
+    
+      
+
+
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">分类</h3>
+      <div class="category-box">
+            <a class="category-link" href="/categories/hello-world/">
+                hello world
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/Hexo/">
+                Hexo
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
+                编译原理
+                <div class="category-count">13</div>
+            </a>
+        
+            <a class="category-link" href="/categories/tdesign/">
+                tdesign
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91/">
+                服务端开发
+                <div class="category-count">3</div>
+            </a>
+        
+            <a class="category-link" href="/categories/openharmony/">
+                openharmony
+                <div class="category-count">12</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">
+                软件工程与计算II
+                <div class="category-count">30</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E9%A9%BE%E8%80%83/">
+                驾考
+                <div class="category-count">2</div>
+            </a>
+        </div>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">标签</h3>
+      <ul class="widget-tag-list" itemprop="keywords"><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/hello-world/" rel="tag">hello world</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/openharmony/" rel="tag">openharmony</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/tdesign/" rel="tag">tdesign</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91/" rel="tag">服务端开发</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" rel="tag">编译原理</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/" rel="tag">软件工程与计算II</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E9%A9%BE%E8%80%83/" rel="tag">驾考</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">归档</h3>
+      
+      
+        <a class="archive-link" href="/archives/2023/10 ">
+          十月 2023 
+          <div class="archive-count">13 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/09 ">
+          九月 2023 
+          <div class="archive-count">4 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/07 ">
+          七月 2023 
+          <div class="archive-count">2 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/04 ">
+          四月 2023 
+          <div class="archive-count">10 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/03 ">
+          三月 2023 
+          <div class="archive-count">3 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2022/10 ">
+          十月 2022 
+          <div class="archive-count">1 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2022/06 ">
+          六月 2022 
+          <div class="archive-count">30 </div>
+        </a>
+      
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">最新文章</h3>
+      <ul>
+        
+          <a class="recent-link" href="/2023/10/04/23-%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91/%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%85%A5%E5%8F%A3%E2%80%94UIAbility%E7%9A%84%E4%BD%BF%E7%94%A8/" title="应用程序入口—UIAbility的使用" >
+            <div class="recent-link-text">
+              应用程序入口—UIAbility的使用
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/10/04/23-%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91/Column&Row%E7%BB%84%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/" title="Column&Row组件的使用" >
+            <div class="recent-link-text">
+              Column&amp;Row组件的使用
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/10/04/23-%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91/List%E7%BB%84%E4%BB%B6%E5%92%8CGrid%E7%BB%84%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/" title="List组件和Grid组件的使用" >
+            <div class="recent-link-text">
+              List组件和Grid组件的使用
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/10/04/23-%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91/OpenHarmony%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E7%AE%80%E4%BB%8B/" title="OpenHarmony开源项目简介" >
+            <div class="recent-link-text">
+              OpenHarmony开源项目简介
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/10/04/23-%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91/OpenHarmony%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E6%A6%82%E8%BF%B0/" title="OpenHarmony快速入门概述" >
+            <div class="recent-link-text">
+              OpenHarmony快速入门概述
+            </div>
+          </a>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+  </div>
+</sidebar>
+    </div>
+    <div id="content-body">
+       
+
+<article id="post-23-移动互联网/OpenHarmony开源项目简介" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 class="p-name article-title" itemprop="headline name">
+        OpenHarmony开源项目简介
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2023-10-04T03:40:36.000Z" itemprop="datePublished">2023-10-04</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/openharmony/">openharmony</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            3.4k 词 
+          </div>
+        </div>
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openharmony/" rel="tag">openharmony</a></li></ul>
+
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <h1 id="OpenHarmony开源项目简介"><a href="#OpenHarmony开源项目简介" class="headerlink" title="OpenHarmony开源项目简介"></a>OpenHarmony开源项目简介</h1><h2 id="技术架构"><a href="#技术架构" class="headerlink" title="技术架构"></a>技术架构</h2><p>OpenHarmony整体遵从分层设计，从下向上依次为：内核层、系统服务层、框架层和应用层。系统功能按照“系统 &gt; 子系统 &gt; 组件”逐级展开，在多设备部署场景下，支持根据实际需求裁剪某些非必要的组件。OpenHarmony技术架构如下所示：</p>
+<p><img src="https://gitee.com/openharmony/docs/raw/master/zh-cn/figures/1.png" alt="img"></p>
+<p><strong>内核层</strong></p>
+<ul>
+<li>内核子系统：采用多内核（Linux内核或者LiteOS）设计，支持针对不同资源受限设备选用适合的OS内核。内核抽象层（KAL，Kernel Abstract Layer）通过屏蔽多内核差异，对上层提供基础的内核能力，包括进程&#x2F;线程管理、内存管理、文件系统、网络管理和外设管理等。</li>
+<li>驱动子系统：驱动框架（HDF）是系统硬件生态开放的基础，提供统一外设访问能力和驱动开发、管理框架。</li>
+</ul>
+<p><strong>系统服务层</strong></p>
+<p>系统服务层是OpenHarmony的核心能力集合，通过框架层对应用程序提供服务。该层包含以下几个部分：</p>
+<ul>
+<li>系统基本能力子系统集：为分布式应用在多设备上的运行、调度、迁移等操作提供了基础能力，由分布式软总线、分布式数据管理、分布式任务调度、公共基础库、多模输入、图形、安全、AI等子系统组成。</li>
+<li>基础软件服务子系统集：提供公共的、通用的软件服务，由事件通知、电话、多媒体、DFX（Design For X） 等子系统组成。</li>
+<li>增强软件服务子系统集：提供针对不同设备的、差异化的能力增强型软件服务，由智慧屏专有业务、穿戴专有业务、IoT专有业务等子系统组成。</li>
+<li>硬件服务子系统集：提供硬件服务，由位置服务、用户IAM、穿戴专有硬件服务、IoT专有硬件服务等子系统组成。</li>
+</ul>
+<p>根据不同设备形态的部署环境，基础软件服务子系统集、增强软件服务子系统集、硬件服务子系统集内部可以按子系统粒度裁剪，每个子系统内部又可以按功能粒度裁剪。</p>
+<p><strong>框架层</strong></p>
+<p>框架层为应用开发<strong>提供了C&#x2F;C++&#x2F;JS等多语言的用户程序框架和Ability框架，适用于JS语言的ArkUI框架，以及各种软硬件服务对外开放的多语言框架API</strong>。根据系统的组件化裁剪程度，设备支持的API也会有所不同。</p>
+<p><strong>应用层</strong></p>
+<p>应用层包括系统应用和第三方非系统应用。应用<strong>由一个或多个FA（Feature Ability）或PA（Particle Ability）组成</strong>。其中，<strong>FA有UI界面，提供与用户交互的能力；而PA无UI界面，提供后台运行任务的能力以及统一的数据访问抽象</strong>。基于FA&#x2F;PA开发的应用，能够实现特定的业务功能，支持跨设备调度与分发，为用户提供一致、高效的应用体验。</p>
+<h2 id="技术特性"><a href="#技术特性" class="headerlink" title="技术特性"></a>技术特性</h2><p><strong>硬件互助，资源共享</strong></p>
+<p>主要通过下列模块达成</p>
+<ul>
+<li><p><strong>分布式软总线</strong></p>
+<p>分布式软总线是多设备终端的<strong>统一基座</strong>，为设备间的无缝互联提供了统一的<strong>分布式通信能力</strong>，能够快速发现并连接设备，高效地传输任务和数据。</p>
+</li>
+<li><p>分布式数据管理</p>
+<p>分布式数据管理基于分布式软总线，<strong>实现了应用程序数据和用户数据的分布式管理</strong>。用户数据不再与单一物理设备绑定，业务逻辑与数据存储分离，应用跨设备运行时数据无缝衔接，为打造一致、流畅的用户体验创造了基础条件</p>
+</li>
+<li><p>分布式任务调度</p>
+<p>分布式任务调度基于分布式软总线、分布式数据管理、分布式Profile等技术特性<strong>，构建统一的分布式服务管理（发现、同步、注册、调用）机制</strong>，支持<strong>对跨设备的应用进行远程启动、远程调用、绑定&#x2F;解绑、以及迁移等操作</strong>，能够根据不同设备的能力、位置、业务运行状态、资源使用情况并结合用户的习惯和意图，选择最合适的设备运行分布式任务</p>
+</li>
+<li><p>设备虚拟化</p>
+<p>分布式设备虚拟化平台可以<strong>实现不同设备的资源融合、设备管理、数据处理，将周边设备作为手机能力的延伸，共同形成一个超级虚拟终端</strong>。</p>
+</li>
+</ul>
+<p><strong>一次开发，多端部署</strong></p>
+<p>OpenHarmony提供用户程序框架、Ability框架以及UI框架，能够保证开发的应用在多终端运行时保证一致性。一次开发、多端部署。</p>
+<p>多终端软件平台API具备一致性，确保用户程序的运行兼容性。</p>
+<ul>
+<li>支持在开发过程中预览终端的能力适配情况（CPU&#x2F;内存&#x2F;外设&#x2F;软件资源等）。</li>
+<li>支持根据用户程序与软件平台的兼容性来调度用户呈现。</li>
+</ul>
+<p><strong>统一OS，弹性部署</strong></p>
+<p>OpenHarmony通过<strong>组件化</strong>和<strong>组件弹性化</strong>等设计方法，做到硬件资源的可大可小，在多种终端设备间，按需弹性部署，全面覆盖了ARM、RISC-V、x86等各种CPU，从百KiB到GiB级别的RAM。</p>
+<p>以下为OpenHarmony中相关的子系统简介，详细介绍见子系统Readme文档，入口：<a target="_blank" rel="noopener" href="https://gitee.com/openharmony/docs/tree/master/zh-cn/readme%E3%80%82">https://gitee.com/openharmony/docs/tree/master/zh-cn/readme。</a></p>
+<table>
+<thead>
+<tr>
+<th>子系统</th>
+<th>简 介</th>
+<th>适用范围</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>内核</td>
+<td>支持适用于嵌入式设备及资源受限设备，具有小体积、高性能、低功耗等特征的LiteOS内核；支持基于linux kernel演进的适用于标准系统的linux内核。</td>
+<td>小型系统 标准系统</td>
+</tr>
+<tr>
+<td>分布式文件</td>
+<td>提供本地同步JS文件接口。</td>
+<td>标准系统</td>
+</tr>
+<tr>
+<td>图形</td>
+<td>主要包括UI组件、布局、动画、字体、输入事件、窗口管理、渲染绘制等模块，构建基于轻量OS应用框架满足硬件资源较小的物联网设备或者构建基于标准OS的应用框架满足富设备（如平板和轻智能机等）的OpenHarmony系统应用开发。</td>
+<td>所有系统</td>
+</tr>
+<tr>
+<td>驱动</td>
+<td>OpenHarmony驱动子系统采用C面向对象编程模型构建，通过平台解耦、内核解耦，兼容不同内核，提供了归一化的驱动平台底座，旨在为开发者提供更精准、更高效的开发环境，力求做到一次开发，多系统部署。</td>
+<td>所有系统</td>
+</tr>
+<tr>
+<td>电源管理服务</td>
+<td>电源管理服务子系统提供如下功能：重启系统；管理休眠运行锁；系统电源状态管理和查询；充电和电池状态查询和上报；显示亮灭屏状态管理，包括显示亮度调节。</td>
+<td>标准系统</td>
+</tr>
+<tr>
+<td>泛Sensor服务</td>
+<td>泛Sensor中包含传感器和小器件，传感器用于侦测环境中所发生事件或变化，并将此消息发送至其他电子设备，小器件用于向外传递信号的设备，包括马达和LED灯，对开发者提供控制马达振动和LED灯开关的能力。</td>
+<td>小型系统</td>
+</tr>
+<tr>
+<td>多模输入</td>
+<td>OpenHarmony旨在为开发者提供NUI（Natural User Interface）的交互方式，有别于传统操作系统的输入，在OpenHarmony上，我们将多种维度的输入整合在一起，开发者可以借助应用程序框架、系统自带的UI组件或API接口轻松地实现具有多维、自然交互特点的应用程序。具体来说，多模输入子系统目前支持传统的输入交互方式，例如按键和触控。</td>
+<td>标准系统</td>
+</tr>
+<tr>
+<td>启动恢复</td>
+<td>启动恢复负责在内核启动之后，应用启动之前的操作系统中间层的启动。并提供系统属性查询、修改及设备恢复出厂设置的功能。</td>
+<td>所有系统</td>
+</tr>
+<tr>
+<td>升级服务</td>
+<td>可支持OpenHarmony设备的OTA（Over The Air）升级。</td>
+<td>标准系统</td>
+</tr>
+<tr>
+<td>帐号</td>
+<td>支持在端侧对接厂商云帐号应用，提供分布式帐号登录状态查询和更新的管理能力。</td>
+<td>标准系统</td>
+</tr>
+<tr>
+<td>编译构建</td>
+<td>编译构建子系统提供了一个基于Gn和ninja的编译构建框架。</td>
+<td>所有系统</td>
+</tr>
+<tr>
+<td>测试</td>
+<td>开发过程采用测试驱动开发模式，开发者基于系统新增特性可以通过开发者自己开发用例保证，对于系统已有特性的修改，也可通过修改项目中原有的测试用例保证，开发者测试旨在帮助开发者在开发阶段就能开发出高质量代码。</td>
+<td>所有系统</td>
+</tr>
+<tr>
+<td>数据管理</td>
+<td>数据管理支持应用本地数据管理和分布式数据管理： - 支持应用本地数据管理，包括轻量级偏好数据库，关系型数据库。 - 支持分布式数据服务，为应用程序提供不同设备间数据库数据分布式的能力。</td>
+<td>标准系统</td>
+</tr>
+<tr>
+<td>语言编译运行时</td>
+<td>语言运行时提供了JS、C&#x2F;C++语言程序的编译、执行环境，提供支撑运行时的基础库，以及关联的API接口、编译器和配套工具。</td>
+<td>所有系统</td>
+</tr>
+<tr>
+<td>分布式任务调度</td>
+<td>提供系统服务的启动、注册、查询及管理能力。</td>
+<td>所有系统</td>
+</tr>
+<tr>
+<td>JS UI框架</td>
+<td>JS UI框架是OpenHarmony UI开发框架，支持类Web范式编程。</td>
+<td>所有系统</td>
+</tr>
+<tr>
+<td>媒体</td>
+<td>提供音频、视频、相机等简单有效的媒体组件开发接口，使得应用开发者轻松使用系统的多媒体资源。</td>
+<td>所有系统</td>
+</tr>
+<tr>
+<td>事件通知</td>
+<td>公共事件管理实现了订阅、退订、发布、接收公共事件（例如亮灭屏事件、USB插拔事件）的能力。</td>
+<td>标准系统</td>
+</tr>
+<tr>
+<td>杂散软件服务</td>
+<td>提供设置时间的能力。</td>
+<td>标准系统</td>
+</tr>
+<tr>
+<td>包管理子系统</td>
+<td>提供包安装、卸载、更新、查询等能力。</td>
+<td>所有系统</td>
+</tr>
+<tr>
+<td>电话服务</td>
+<td>提供SIM卡、搜网、蜂窝数据、蜂窝通话、短彩信等蜂窝移动网络基础通信能力，可管理多类型通话和数据网络连接，为应用开发者提供便捷一致的通信API。</td>
+<td>标准系统</td>
+</tr>
+<tr>
+<td>公共基础类库</td>
+<td>公共基础库存放OpenHarmony通用的基础组件。这些基础组件可被OpenHarmony各业务子系统及上层应用所使用。</td>
+<td>所有系统</td>
+</tr>
+<tr>
+<td>研发工具链</td>
+<td>提供设备连接调试器hdc；提供了性能跟踪能力和接口；提供了性能调优框架，旨在为开发者提供一套性能调优平台，可以用来分析内存、性能等问题。</td>
+<td>标准系统</td>
+</tr>
+<tr>
+<td>分布式软总线</td>
+<td>分布式软总线旨在为OpenHarmony系统提供跨进程或跨设备的通信能力，主要包含软总线和进程间通信两部分。其中，软总线为应用和系统提供近场设备间分布式通信的能力，提供不区分通信方式的设备发现，连接，组网和传输功能；而进程间通信则提供了对设备内或设备间无差别的进程间通信能力。</td>
+<td>所有系统</td>
+</tr>
+<tr>
+<td>XTS</td>
+<td>XTS是OpenHarmony兼容性测试套件的集合，当前包括acts（application compatibility test suite）应用兼容性测试套，后续会拓展dcts（device compatibility test suite）设备兼容性测试套等。</td>
+<td>所有系统</td>
+</tr>
+<tr>
+<td>系统应用</td>
+<td>系统应用提供了OpenHarmony标准版上的部分系统应用，如桌面、SystemUI、设置等应用，为开发者提供了构建标准版应用的具体实例，这些应用支持在所有标准版系统的设备上使用。</td>
+<td>标准系统</td>
+</tr>
+<tr>
+<td>DFX</td>
+<td>DFX是OpenHarmony非功能属性能力，包含日志系统、应用和系统事件日志接口、事件日志订阅服务、故障信息生成采集等功能。</td>
+<td>所有系统</td>
+</tr>
+<tr>
+<td>全球化</td>
+<td>当OpenHarmony设备或应用在全球不同区域使用时，系统和应用需要满足不同市场用户关于语言、文化习俗的需求。全球化子系统提供支持多语言、多文化的能力，包括资源管理能力和国际化能力。</td>
+<td>所有系统</td>
+</tr>
+<tr>
+<td>安全</td>
+<td>安全子系统包括系统安全、数据安全、应用安全等模块，为OpenHarmony提供了保护系统和和用户数据的能力。安全子系统当前开源的功能，包括应用完整性保护、应用权限管理、设备认证、密钥管理服务。</td>
+<td>所有系统</td>
+</tr>
+</tbody></table>
+<h2 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://gitee.com/openharmony/docs/blob/master/zh-cn/device-dev/quick-start/quickstart-overview.md">设备开发快速入门</a></li>
+<li><a target="_blank" rel="noopener" href="https://gitee.com/openharmony/docs/blob/master/zh-cn/application-dev/quick-start/start-overview.md">应用开发快速入门</a></li>
+</ul>
+<h2 id="代码仓地址"><a href="#代码仓地址" class="headerlink" title="代码仓地址"></a>代码仓地址</h2><p>OpenHarmony主库组织地址：<a target="_blank" rel="noopener" href="https://gitee.com/openharmony">https://gitee.com/openharmony</a></p>
+<p>OpenHarmonySIG组织地址：<a target="_blank" rel="noopener" href="https://gitee.com/openharmony-sig">https://gitee.com/openharmony-sig</a></p>
+<p>OpenHarmony三方库组织地址：<a target="_blank" rel="noopener" href="https://gitee.com/openharmony-tpc">https://gitee.com/openharmony-tpc</a></p>
+<p>OpenHarmony归档组织地址：<a target="_blank" rel="noopener" href="https://gitee.com/openharmony-retired">https://gitee.com/openharmony-retired</a></p>
+<h2 id="开发者文档"><a href="#开发者文档" class="headerlink" title="开发者文档"></a>开发者文档</h2><p><a href="https://gitee.com/link?target=https://www.openharmony.cn/">访问官网</a></p>
+<p>简体中文：<a target="_blank" rel="noopener" href="https://gitee.com/openharmony/docs/tree/master/zh-cn">OpenHarmony开发者文档</a></p>
+<p><a target="_blank" rel="noopener" href="https://gitee.com/openharmony/docs/tree/master/en">English Version</a></p>
+<h2 id="源码下载"><a href="#源码下载" class="headerlink" title="源码下载"></a>源码下载</h2><p>获取OpenHarmony源码：<a target="_blank" rel="noopener" href="https://gitee.com/openharmony/docs/blob/master/zh-cn/device-dev/get-code/sourcecode-acquire.md">下载说明</a></p>
+<h2 id="示例教程"><a href="#示例教程" class="headerlink" title="示例教程"></a>示例教程</h2><p>Samples：<a target="_blank" rel="noopener" href="https://gitee.com/openharmony/applications_app_samples">示例代码</a></p>
+<p>Codelabs：<a target="_blank" rel="noopener" href="https://gitee.com/openharmony/codelabs">教程指导</a></p>
+<h2 id="如何参与"><a href="#如何参与" class="headerlink" title="如何参与"></a>如何参与</h2><p>参与社区：<a target="_blank" rel="noopener" href="https://gitee.com/openharmony/community/blob/master/README.md">社区介绍</a></p>
+<p>参与贡献：<a target="_blank" rel="noopener" href="https://gitee.com/openharmony/docs/blob/master/zh-cn/contribute/%E5%8F%82%E4%B8%8E%E8%B4%A1%E7%8C%AE.md">如何贡献</a></p>
+<h2 id="许可协议"><a href="#许可协议" class="headerlink" title="许可协议"></a>许可协议</h2><p>OpenHarmony主要遵循Apache License V2.0协议，详情请参考各代码仓LICENSE声明。</p>
+<p>OpenHarmony引用三方开源软件及许可证说明，参考<a target="_blank" rel="noopener" href="https://gitee.com/openharmony/docs/blob/master/zh-cn/contribute/%E7%AC%AC%E4%B8%89%E6%96%B9%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6%E5%8F%8A%E8%AE%B8%E5%8F%AF%E8%AF%81%E8%AF%B4%E6%98%8E.md">第三方开源软件说明</a>。</p>
+<h2 id="联系方式"><a href="#联系方式" class="headerlink" title="联系方式"></a>联系方式</h2><p>网站：</p>
+<p><a target="_blank" rel="noopener" href="https://openharmony.gitee.com/">https://openharmony.gitee.com</a></p>
+<p>邮箱:</p>
+<p><a href="mailto:contact@openharmony.io">contact@openharmony.io</a></p>
+
+        
+      </div>
+
+         
+    </div>
+    
+     
+  </div>
+  
+    
+<nav id="article-nav">
+  <a class="article-nav-btn left "
+    
+      href="/2023/10/04/23-%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91/List%E7%BB%84%E4%BB%B6%E5%92%8CGrid%E7%BB%84%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/"
+      title="List组件和Grid组件的使用"
+     >
+    <i class="fa-solid fa-angle-left"></i>
+    <p class="title-text">
+      
+        List组件和Grid组件的使用
+        
+    </p>
+  </a>
+  <a class="article-nav-btn right "
+    
+      href="/2023/10/04/23-%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91/OpenHarmony%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E6%A6%82%E8%BF%B0/"
+      title="OpenHarmony快速入门概述"
+     >
+
+    <p class="title-text">
+      
+        OpenHarmony快速入门概述
+        
+    </p>
+    <i class="fa-solid fa-angle-right"></i>
+  </a>
+</nav>
+
+
+  
+</article>
+
+
+  
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <div id="comment-card" class="comment-card">
+    <div class="main-title-bar">
+      <div class="main-title-dot"></div>
+      <div class="main-title">留言 </div>
+    </div>
+    <div id="vcomments"></div>
+  </div>
+  <script>
+      new Valine({"enable":true,"appId":null,"appKey":null,"placeholder":"Just go go","pageSize":20,"highlight":true,"serverURLs":null,"el":"#vcomments"});
+  </script>
+ 
+    </div>
+    <div id="footer-wrapper">
+      <footer id="footer">
+  
+  <div id="footer-info" class="inner">
+    
+      <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris"></a>
+    
+    &copy; 2023 Asimov<br>
+    Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & Theme <a target="_blank" rel="noopener" href="https://github.com/saicaca/hexo-theme-vivia">Vivia</a>
+  </div>
+</footer>
+
+    </div>
+    <div class="back-to-top-wrapper">
+    <button id="back-to-top-btn" class="back-to-top-btn hide" onclick="topFunction()">
+        <i class="fa-solid fa-angle-up"></i>
+    </button>
+</div>
+
+<script>
+    function topFunction() {
+        window.scroll({ top: 0, behavior: 'smooth' });
+    }
+    let btn = document.getElementById('back-to-top-btn');
+    function scrollFunction() {
+        if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+            btn.classList.remove('hide')
+        } else {
+            btn.classList.add('hide')
+        }
+    }
+    window.onscroll = function() {
+        scrollFunction();
+    }
+</script>
+
+  </div>
+  <script src="/js/light-dark-switch.js"></script>
+</body>
+</html>

@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+
+
+<html theme="dark" showBanner="true" hasBanner="true" > 
+<link href="/fontawesome/css/fontawesome.css" rel="stylesheet">
+<link href="/fontawesome/css/brands.css" rel="stylesheet">
+<link href="/fontawesome/css/solid.css" rel="stylesheet">
+<script src="/js/color.global.min.js" ></script>
+<script src="/js/load-settings.js" ></script>
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+
+  
+  <title>List组件和Grid组件的使用 | Asimov&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+  <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+
+  <meta name="description" content="List组件和Grid组件的使用简介在我们常用的手机应用中，经常会见到一些数据列表，如设置页面、通讯录、商品列表等。下图中两个页面都包含列表，“首页”页面中包含两个网格布局，“商城”页面中包含一个商品列表。  上图中的列表中都包含一系列相同宽度的列表项，连续、多行呈现同类数据，例如图片和文本。常见的列表有线性列表（List列表）和网格布局（Grid列表）：  为了帮助开发者构建包含列表的应用，Ar">
+<meta property="og:type" content="article">
+<meta property="og:title" content="List组件和Grid组件的使用">
+<meta property="og:url" content="https://chendingya.github.io/2023/10/04/23-%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91/List%E7%BB%84%E4%BB%B6%E5%92%8CGrid%E7%BB%84%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/index.html">
+<meta property="og:site_name" content="Asimov&#39;s Blog">
+<meta property="og:description" content="List组件和Grid组件的使用简介在我们常用的手机应用中，经常会见到一些数据列表，如设置页面、通讯录、商品列表等。下图中两个页面都包含列表，“首页”页面中包含两个网格布局，“商城”页面中包含一个商品列表。  上图中的列表中都包含一系列相同宽度的列表项，连续、多行呈现同类数据，例如图片和文本。常见的列表有线性列表（List列表）和网格布局（Grid列表）：  为了帮助开发者构建包含列表的应用，Ar">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230825095822.24077778724327014108147812126536:50001231000000:2800:62F1699773267B30AC87345AB062C4DC00D54879ACB475D64CA68A2F61C00D6C.png?needInitFileName=true?needInitFileName=true">
+<meta property="og:image" content="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230825095822.37477565095245015492124558376450:50001231000000:2800:631039542AF3449BBF9B20E61F619B6F5C4B30AEE101CA9F9A4DBDB2A199B74D.png?needInitFileName=true?needInitFileName=true">
+<meta property="og:image" content="https://chendingya.github.io/2023/10/04/23-%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91/List%E7%BB%84%E4%BB%B6%E5%92%8CGrid%E7%BB%84%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/image-20231004190216428.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/10/04/23-%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91/List%E7%BB%84%E4%BB%B6%E5%92%8CGrid%E7%BB%84%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/image-20231004190205499.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/10/04/23-%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91/List%E7%BB%84%E4%BB%B6%E5%92%8CGrid%E7%BB%84%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/image-20231004190152803.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/10/04/23-%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91/List%E7%BB%84%E4%BB%B6%E5%92%8CGrid%E7%BB%84%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/image-20231004190128437.png">
+<meta property="og:image" content="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230825095822.87385221822490631824670098711536:50001231000000:2800:6C4FEA38667A880B275DC66D78FD0A287C928C83B4EBCB01BA83BBEA8900DF7D.png?needInitFileName=true?needInitFileName=true">
+<meta property="og:image" content="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230825095822.46207106859819979473871877825480:50001231000000:2800:4AEB572F64E4ED040224DB51A011FE6828CFA4E2F071BA8B4AE3F62183E147A8.png?needInitFileName=true?needInitFileName=true">
+<meta property="og:image" content="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230825095822.13891928276254988507260489161550:50001231000000:2800:4C1C3A3431AA88552A77D95D5F270ED723C32FB1365CDC69AA56A6A87F183EF3.png?needInitFileName=true?needInitFileName=true">
+<meta property="og:image" content="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230825095822.97693891504872342245205636279312:50001231000000:2800:79686A4337732C9121B7744285DD3B1CEDC602A5FFDBCFCEA8388E1E44A7A968.png?needInitFileName=true?needInitFileName=true">
+<meta property="og:image" content="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230825095823.60205428349154619863633529080584:50001231000000:2800:F1E28052524CF7E19731CFC170A23930F92A17B63CC95BF509E93932B686F6AA.png?needInitFileName=true?needInitFileName=true">
+<meta property="og:image" content="https://chendingya.github.io/2023/10/04/23-%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91/List%E7%BB%84%E4%BB%B6%E5%92%8CGrid%E7%BB%84%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/image-20231004190717360.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/10/04/23-%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91/List%E7%BB%84%E4%BB%B6%E5%92%8CGrid%E7%BB%84%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/image-20231004190746464.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/10/04/23-%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91/List%E7%BB%84%E4%BB%B6%E5%92%8CGrid%E7%BB%84%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/image-20231004190835377.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/10/04/23-%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91/List%E7%BB%84%E4%BB%B6%E5%92%8CGrid%E7%BB%84%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/image-20231004190925849.png">
+<meta property="og:image" content="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230825095823.48103037179957224444938096399589:50001231000000:2800:B0173696ED04B8275D6BADE504017C5455B8D7BED9FCA22B9857CF461DB63F0C.png?needInitFileName=true?needInitFileName=true">
+<meta property="og:image" content="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230825095823.80835072962157800911828459289578:50001231000000:2800:7E06C5BAFF9D0A29BBE3AC4876996563BD976C8C4D220CB56233D4B61B3D4931.png?needInitFileName=true?needInitFileName=true">
+<meta property="article:published_time" content="2023-10-04T03:40:36.000Z">
+<meta property="article:modified_time" content="2023-10-08T23:16:44.925Z">
+<meta property="article:author" content="Asimov">
+<meta property="article:tag" content="openharmony">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230825095822.24077778724327014108147812126536:50001231000000:2800:62F1699773267B30AC87345AB062C4DC00D54879ACB475D64CA68A2F61C00D6C.png?needInitFileName=true?needInitFileName=true">
+  
+    <link rel="alternate" href="/atom.xml" title="Asimov's Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-192.png" sizes="192x192">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-192.png" sizes="192x192">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  
+  
+    
+<div id="banner" class="">
+  <img src="/pic/back.png" itemprop="image">
+  <div id="banner-dim"></div>
+</div>
+ 
+   
+  <div id="main-grid" class="shadow   ">
+    <div id="nav" class=""  >
+      <navbar id="navbar">
+  <nav id="title-nav">
+    <a href="/">
+      <div id="vivia-logo">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div>Asimov's Blog </div>
+    </a>
+  </nav>
+  <nav id="main-nav">
+    
+      <a class="main-nav-link" href="/">Home</a>
+    
+      <a class="main-nav-link" href="/archives">Archives</a>
+    
+      <a class="main-nav-link" href="/about">About</a>
+    
+  </nav>
+  <nav id="sub-nav">
+    <a id="theme-btn" class="nav-icon">
+      <span class="light-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M438.5-829.913v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-829.913Zm0 747.826v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-82.087ZM877.913-438.5h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537t29.476-12.174h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T877.913-438.5Zm-747.826 0h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T82.087-521.5h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T130.087-438.5Zm660.174-290.87-34.239 32q-12.913 12.674-29.565 12.174-16.653-.5-29.327-13.174-12.674-12.673-12.554-28.826.12-16.152 12.794-28.826l33-35q12.913-12.674 30.454-12.674t30.163 12.847q12.709 12.846 12.328 30.826-.38 17.98-13.054 30.653ZM262.63-203.978l-32 34q-12.913 12.674-30.454 12.674t-30.163-12.847q-12.709-12.846-12.328-30.826.38-17.98 13.054-30.653l33.239-31q12.913-12.674 29.565-12.174 16.653.5 29.327 13.174 12.674 12.673 12.554 28.826-.12 16.152-12.794 28.826Zm466.74 33.239-32-33.239q-12.674-12.913-12.174-29.565.5-16.653 13.174-29.327 12.673-12.674 28.826-13.054 16.152-.38 28.826 12.294l35 33q12.674 12.913 12.674 30.454t-12.847 30.163q-12.846 12.709-30.826 12.328-17.98-.38-30.653-13.054ZM203.978-697.37l-34-33q-12.674-12.913-13.174-29.945-.5-17.033 12.174-29.707t31.326-13.293q18.653-.62 31.326 13.054l32 34.239q11.674 12.913 11.174 29.565-.5 16.653-13.174 29.327-12.673 12.674-28.826 12.554-16.152-.12-28.826-12.794ZM480-240q-100 0-170-70t-70-170q0-100 70-170t170-70q100 0 170 70t70 170q0 100-70 170t-170 70Zm-.247-82q65.703 0 111.475-46.272Q637-414.544 637-480.247t-45.525-111.228Q545.95-637 480.247-637t-111.475 45.525Q323-545.95 323-480.247t45.525 111.975Q414.05-322 479.753-322ZM481-481Z"/></svg></span>
+      <span class="dark-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M480.239-116.413q-152.63 0-258.228-105.478Q116.413-327.37 116.413-480q0-130.935 77.739-227.435t206.304-125.043q43.022-9.631 63.87 10.869t3.478 62.805q-8.891 22.043-14.315 44.463-5.424 22.42-5.424 46.689 0 91.694 64.326 155.879 64.325 64.186 156.218 64.186 24.369 0 46.978-4.946 22.609-4.945 44.413-14.076 42.826-17.369 62.967 1.142 20.142 18.511 10.511 61.054Q807.174-280 712.63-198.206q-94.543 81.793-232.391 81.793Zm0-95q79.783 0 143.337-40.217 63.554-40.218 95.793-108.283-15.608 4.044-31.097 5.326-15.49 1.283-31.859.805-123.706-4.066-210.777-90.539-87.071-86.473-91.614-212.092-.24-16.369.923-31.978 1.164-15.609 5.446-30.978-67.826 32.478-108.282 96.152Q211.652-559.543 211.652-480q0 111.929 78.329 190.258 78.329 78.329 190.258 78.329ZM466.13-465.891Z"/></svg></span>
+    </a>
+    
+      <a id="nav-rss-link" class="nav-icon mobile-hide" href="/atom.xml" title="RSS 订阅">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-120q-25.846 0-44.23-18.384-18.384-18.385-18.384-44.23 0-25.846 18.384-44.23 18.384-18.385 44.23-18.385 25.846 0 44.23 18.385 18.384 18.384 18.384 44.23 0 25.845-18.384 44.23Q223.846-120 198-120Zm538.385 0q-18.846 0-32.923-13.769-14.076-13.769-15.922-33.23-8.692-100.616-51.077-188.654-42.385-88.039-109.885-155.539-67.5-67.501-155.539-109.885Q283-663.462 182.385-672.154q-19.461-1.846-33.23-16.23-13.769-14.385-13.769-33.846t14.076-32.922q14.077-13.461 32.923-12.23 120.076 8.692 226.038 58.768 105.961 50.077 185.73 129.846 79.769 79.769 129.846 185.731 50.077 105.961 58.769 226.038 1.231 18.846-12.538 32.922Q756.461-120 736.385-120Zm-252 0q-18.231 0-32.423-13.461t-18.653-33.538Q418.155-264.23 348.886-333.5q-69.27-69.27-166.501-84.423-20.077-4.462-33.538-18.961-13.461-14.5-13.461-33.346 0-19.076 13.884-33.23 13.884-14.153 33.115-10.922 136.769 15.384 234.384 112.999 97.615 97.615 112.999 234.384 3.231 19.23-10.538 33.115Q505.461-120 484.385-120Z"/></svg>
+      </a>
+    
+    <div id="nav-menu-btn" class="nav-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M177.37-252.282q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Zm0-186.218q-17.453 0-29.477-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T177.37-521.5h605.26q17.453 0 29.477 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T782.63-438.5H177.37Zm0-186.217q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Z"/></svg>
+    </div>
+  </nav>
+</navbar>
+<div id="nav-dropdown" class="hidden">
+  <div id="dropdown-link-list">
+    
+      <a class="nav-dropdown-link" href="/">Home</a>
+    
+      <a class="nav-dropdown-link" href="/archives">Archives</a>
+    
+      <a class="nav-dropdown-link" href="/about">About</a>
+    
+    
+      <a class="nav-dropdown-link" href="/atom.xml" title="RSS 订阅">RSS</a>
+     
+    </div>
+</div>
+<script>
+  let dropdownBtn = document.getElementById("nav-menu-btn");
+  let dropdownEle = document.getElementById("nav-dropdown");
+  dropdownBtn.onclick = function() {
+    dropdownEle.classList.toggle("hidden");
+  }
+</script>
+    </div>
+    <div id="sidebar-wrapper">
+      <sidebar id="sidebar">
+  
+    <div class="widget-wrap">
+  <div class="info-card">
+    <div class="avatar">
+      
+        <image src=/pic/avatar.png></image>
+      
+      <div class="img-dim"></div>
+    </div>
+    <div class="info">
+      <div class="username">Asimov </div>
+      <div class="dot"></div>
+      <div class="subtitle">Asimov's Blog </div>
+      <div class="link-list">
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://github.com/chendingya" title="GitHub"><i class="fa-brands fa-github"></i></a>
+         
+      </div>  
+    </div>
+  </div>
+</div>
+
+  
+  <div class="sticky">
+    
+      
+
+
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">分类</h3>
+      <div class="category-box">
+            <a class="category-link" href="/categories/hello-world/">
+                hello world
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/Hexo/">
+                Hexo
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
+                编译原理
+                <div class="category-count">13</div>
+            </a>
+        
+            <a class="category-link" href="/categories/tdesign/">
+                tdesign
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91/">
+                服务端开发
+                <div class="category-count">3</div>
+            </a>
+        
+            <a class="category-link" href="/categories/openharmony/">
+                openharmony
+                <div class="category-count">12</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">
+                软件工程与计算II
+                <div class="category-count">30</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E9%A9%BE%E8%80%83/">
+                驾考
+                <div class="category-count">2</div>
+            </a>
+        </div>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">标签</h3>
+      <ul class="widget-tag-list" itemprop="keywords"><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/hello-world/" rel="tag">hello world</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/openharmony/" rel="tag">openharmony</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/tdesign/" rel="tag">tdesign</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91/" rel="tag">服务端开发</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" rel="tag">编译原理</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/" rel="tag">软件工程与计算II</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E9%A9%BE%E8%80%83/" rel="tag">驾考</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">归档</h3>
+      
+      
+        <a class="archive-link" href="/archives/2023/10 ">
+          十月 2023 
+          <div class="archive-count">13 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/09 ">
+          九月 2023 
+          <div class="archive-count">4 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/07 ">
+          七月 2023 
+          <div class="archive-count">2 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/04 ">
+          四月 2023 
+          <div class="archive-count">10 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/03 ">
+          三月 2023 
+          <div class="archive-count">3 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2022/10 ">
+          十月 2022 
+          <div class="archive-count">1 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2022/06 ">
+          六月 2022 
+          <div class="archive-count">30 </div>
+        </a>
+      
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">最新文章</h3>
+      <ul>
+        
+          <a class="recent-link" href="/2023/10/04/23-%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91/%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%85%A5%E5%8F%A3%E2%80%94UIAbility%E7%9A%84%E4%BD%BF%E7%94%A8/" title="应用程序入口—UIAbility的使用" >
+            <div class="recent-link-text">
+              应用程序入口—UIAbility的使用
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/10/04/23-%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91/Column&Row%E7%BB%84%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/" title="Column&Row组件的使用" >
+            <div class="recent-link-text">
+              Column&amp;Row组件的使用
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/10/04/23-%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91/List%E7%BB%84%E4%BB%B6%E5%92%8CGrid%E7%BB%84%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/" title="List组件和Grid组件的使用" >
+            <div class="recent-link-text">
+              List组件和Grid组件的使用
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/10/04/23-%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91/OpenHarmony%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E7%AE%80%E4%BB%8B/" title="OpenHarmony开源项目简介" >
+            <div class="recent-link-text">
+              OpenHarmony开源项目简介
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/10/04/23-%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91/OpenHarmony%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E6%A6%82%E8%BF%B0/" title="OpenHarmony快速入门概述" >
+            <div class="recent-link-text">
+              OpenHarmony快速入门概述
+            </div>
+          </a>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+  </div>
+</sidebar>
+    </div>
+    <div id="content-body">
+       
+
+<article id="post-23-移动互联网/List组件和Grid组件的使用" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 class="p-name article-title" itemprop="headline name">
+        List组件和Grid组件的使用
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2023-10-04T03:40:36.000Z" itemprop="datePublished">2023-10-04</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/openharmony/">openharmony</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            1.5k 词 
+          </div>
+        </div>
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openharmony/" rel="tag">openharmony</a></li></ul>
+
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <h1 id="List组件和Grid组件的使用"><a href="#List组件和Grid组件的使用" class="headerlink" title="List组件和Grid组件的使用"></a>List组件和Grid组件的使用</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>在我们常用的手机应用中，经常会见到一些数据列表，如设置页面、通讯录、商品列表等。下图中两个页面都包含列表，“首页”页面中包含两个网格布局，“商城”页面中包含一个商品列表。</p>
+<p><img src="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230825095822.24077778724327014108147812126536:50001231000000:2800:62F1699773267B30AC87345AB062C4DC00D54879ACB475D64CA68A2F61C00D6C.png?needInitFileName=true?needInitFileName=true" alt="点击放大"></p>
+<p>上图中的列表中都包含一系列相同宽度的列表项，连续、多行呈现同类数据，例如图片和文本。常见的列表有线性列表（List列表）和网格布局（Grid列表）：</p>
+<p><img src="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230825095822.37477565095245015492124558376450:50001231000000:2800:631039542AF3449BBF9B20E61F619B6F5C4B30AEE101CA9F9A4DBDB2A199B74D.png?needInitFileName=true?needInitFileName=true" alt="点击放大"></p>
+<p>为了帮助开发者构建包含列表的应用，ArkUI提供了List组件和Grid组件，开发者使用List和Grid组件能够很轻松的完成一些列表页面。</p>
+<h2 id="List组件的使用"><a href="#List组件的使用" class="headerlink" title="List组件的使用"></a>List组件的使用</h2><p><img src="/2023/10/04/23-%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91/List%E7%BB%84%E4%BB%B6%E5%92%8CGrid%E7%BB%84%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/image-20231004190216428.png" alt="image-20231004190216428"></p>
+<p><img src="/2023/10/04/23-%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91/List%E7%BB%84%E4%BB%B6%E5%92%8CGrid%E7%BB%84%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/image-20231004190205499.png" alt="image-20231004190205499"></p>
+<p><img src="/2023/10/04/23-%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91/List%E7%BB%84%E4%BB%B6%E5%92%8CGrid%E7%BB%84%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/image-20231004190152803.png" alt="image-20231004190152803"></p>
+<p><img src="/2023/10/04/23-%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91/List%E7%BB%84%E4%BB%B6%E5%92%8CGrid%E7%BB%84%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/image-20231004190128437.png" alt="image-20231004190128437"></p>
+<h3 id="List组件简介"><a href="#List组件简介" class="headerlink" title="List组件简介"></a>List组件简介</h3><p>List是很常用的滚动类容器组件，一般和子组件ListItem一起使用，List列表中的每一个列表项对应一个ListItem组件。</p>
+<p><img src="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230825095822.87385221822490631824670098711536:50001231000000:2800:6C4FEA38667A880B275DC66D78FD0A287C928C83B4EBCB01BA83BBEA8900DF7D.png?needInitFileName=true?needInitFileName=true" alt="点击放大"></p>
+<h3 id="使用ForEeach渲染列表"><a href="#使用ForEeach渲染列表" class="headerlink" title="使用ForEeach渲染列表"></a>使用ForEeach渲染列表</h3><p>列表往往由多个列表项组成，所以我们需要在List组件中使用多个ListItem组件来构建列表，这就会导致代码的冗余。使用循环渲染（ForEach）遍历数组的方式构建列表，可以减少重复代码，示例代码如下：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Entry</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line">struct <span class="title class_">ListDemo</span> &#123;</span><br><span class="line">  <span class="keyword">private</span> <span class="attr">arr</span>: <span class="built_in">number</span>[] = [<span class="number">0</span>, <span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>, <span class="number">5</span>, <span class="number">6</span>, <span class="number">7</span>, <span class="number">8</span>, <span class="number">9</span>]</span><br><span class="line"></span><br><span class="line">  <span class="title function_">build</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="title class_">Column</span>() &#123;</span><br><span class="line">      <span class="title class_">List</span>(&#123; <span class="attr">space</span>: <span class="number">10</span> &#125;) &#123;</span><br><span class="line">        <span class="title class_">ForEach</span>(<span class="variable language_">this</span>.<span class="property">arr</span>, <span class="function">(<span class="params">item: <span class="built_in">number</span></span>) =&gt;</span> &#123;</span><br><span class="line">          <span class="title class_">ListItem</span>() &#123;</span><br><span class="line">            <span class="title class_">Text</span>(<span class="string">`<span class="subst">$&#123;item&#125;</span>`</span>)</span><br><span class="line">              .<span class="title function_">width</span>(<span class="string">&#x27;100%&#x27;</span>)</span><br><span class="line">              .<span class="title function_">height</span>(<span class="number">100</span>)</span><br><span class="line">              .<span class="title function_">fontSize</span>(<span class="number">20</span>)</span><br><span class="line">              .<span class="title function_">fontColor</span>(<span class="title class_">Color</span>.<span class="property">White</span>)</span><br><span class="line">              .<span class="title function_">textAlign</span>(<span class="title class_">TextAlign</span>.<span class="property">Center</span>)</span><br><span class="line">              .<span class="title function_">borderRadius</span>(<span class="number">10</span>)</span><br><span class="line">              .<span class="title function_">backgroundColor</span>(<span class="number">0x007DFF</span>)</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;, <span class="function"><span class="params">item</span> =&gt;</span> item)</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    .<span class="title function_">padding</span>(<span class="number">12</span>)</span><br><span class="line">    .<span class="title function_">height</span>(<span class="string">&#x27;100%&#x27;</span>)</span><br><span class="line">    .<span class="title function_">backgroundColor</span>(<span class="number">0xF1F3F5</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>效果图如下：</p>
+<p><img src="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230825095822.46207106859819979473871877825480:50001231000000:2800:4AEB572F64E4ED040224DB51A011FE6828CFA4E2F071BA8B4AE3F62183E147A8.png?needInitFileName=true?needInitFileName=true" alt="点击放大"></p>
+<h3 id="设置列表分割线"><a href="#设置列表分割线" class="headerlink" title="设置列表分割线"></a>设置列表分割线</h3><p>List组件子组件ListItem之间默认是没有分割线的，部分场景子组件ListItem间需要设置分割线，这时候您可以使用List组件的divider属性。divider属性包含四个参数：</p>
+<ul>
+<li><p>strokeWidth: 分割线的线宽。</p>
+</li>
+<li><p>color: 分割线的颜色。</p>
+</li>
+<li><p>startMargin：分割线距离列表侧边起始端的距离。</p>
+</li>
+<li><p>endMargin: 分割线距离列表侧边结束端的距离。</p>
+<p><img src="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230825095822.13891928276254988507260489161550:50001231000000:2800:4C1C3A3431AA88552A77D95D5F270ED723C32FB1365CDC69AA56A6A87F183EF3.png?needInitFileName=true?needInitFileName=true" alt="点击放大"></p>
+</li>
+</ul>
+<h3 id="List列表滚动事件监听"><a href="#List列表滚动事件监听" class="headerlink" title="List列表滚动事件监听"></a>List列表滚动事件监听</h3><p>List组件提供了一系列事件方法用来监听列表的滚动，您可以根据需要，监听这些事件来做一些操作：</p>
+<ul>
+<li>onScroll：列表滑动时触发，返回值scrollOffset为滑动偏移量，scrollState为当前滑动状态。</li>
+<li>onScrollIndex：列表滑动时触发，返回值分别为滑动起始位置索引值与滑动结束位置索引值。</li>
+<li>onReachStart：列表到达起始位置时触发。</li>
+<li>onReachEnd：列表到底末尾位置时触发。</li>
+<li>onScrollStop：列表滑动停止时触发。</li>
+</ul>
+<p>使用示例代码如下：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">List</span>(&#123; <span class="attr">space</span>: <span class="number">10</span> &#125;) &#123;</span><br><span class="line">  <span class="title class_">ForEach</span>(<span class="variable language_">this</span>.<span class="property">arr</span>, <span class="function">(<span class="params">item</span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="title class_">ListItem</span>() &#123;</span><br><span class="line">      <span class="title class_">Text</span>(<span class="string">`<span class="subst">$&#123;item&#125;</span>`</span>)</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;, <span class="function"><span class="params">item</span> =&gt;</span> item)</span><br><span class="line">&#125;</span><br><span class="line">.<span class="title function_">onScrollIndex</span>(<span class="function">(<span class="params">firstIndex: <span class="built_in">number</span>, lastIndex: <span class="built_in">number</span></span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">info</span>(<span class="string">&#x27;first&#x27;</span> + firstIndex)</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">info</span>(<span class="string">&#x27;last&#x27;</span> + lastIndex)</span><br><span class="line">&#125;)</span><br><span class="line">.<span class="title function_">onScroll</span>(<span class="function">(<span class="params">scrollOffset: <span class="built_in">number</span>, scrollState: ScrollState</span>) =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">info</span>(<span class="string">&#x27;scrollOffset&#x27;</span> + scrollOffset)</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">info</span>(<span class="string">&#x27;scrollState&#x27;</span> + scrollState)</span><br><span class="line">&#125;)</span><br><span class="line">.<span class="title function_">onReachStart</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">info</span>(<span class="string">&#x27;onReachStart&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line">.<span class="title function_">onReachEnd</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">info</span>(<span class="string">&#x27;onReachEnd&#x27;</span>)</span><br><span class="line">&#125;)</span><br><span class="line">.<span class="title function_">onScrollStop</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="variable language_">console</span>.<span class="title function_">info</span>(<span class="string">&#x27;onScrollStop&#x27;</span>)</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
+
+<h3 id="设置List排列方向"><a href="#设置List排列方向" class="headerlink" title="设置List排列方向"></a>设置List排列方向</h3><p>List组件里面的列表项默认是按垂直方向排列的，如果您想让列表沿水平方向排列，您可以将List组件的listDirection属性设置为Axis.Horizontal。</p>
+<p>listDirection参数类型是<a target="_blank" rel="noopener" href="https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/ts-appendix-enums-0000001478061741-V3?catalogVersion=V3#ZH-CN_TOPIC_0000001478061741__axis">Axis</a>，定义了以下两种类型：</p>
+<ul>
+<li><p>Vertical（默认值）：子组件ListItem在List容器组件中呈纵向排列。</p>
+<p><img src="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230825095822.97693891504872342245205636279312:50001231000000:2800:79686A4337732C9121B7744285DD3B1CEDC602A5FFDBCFCEA8388E1E44A7A968.png?needInitFileName=true?needInitFileName=true" alt="点击放大"></p>
+</li>
+<li><p>Horizontal：子组件ListItem在List容器组件中呈横向排列。</p>
+<p><img src="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230825095823.60205428349154619863633529080584:50001231000000:2800:F1E28052524CF7E19731CFC170A23930F92A17B63CC95BF509E93932B686F6AA.png?needInitFileName=true?needInitFileName=true" alt="点击放大"></p>
+</li>
+</ul>
+<h2 id="Grid组件的使用"><a href="#Grid组件的使用" class="headerlink" title="Grid组件的使用"></a>Grid组件的使用</h2><p><img src="/2023/10/04/23-%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91/List%E7%BB%84%E4%BB%B6%E5%92%8CGrid%E7%BB%84%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/image-20231004190717360.png" alt="image-20231004190717360"></p>
+<p><img src="/2023/10/04/23-%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91/List%E7%BB%84%E4%BB%B6%E5%92%8CGrid%E7%BB%84%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/image-20231004190746464.png" alt="image-20231004190746464"></p>
+<p><img src="/2023/10/04/23-%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91/List%E7%BB%84%E4%BB%B6%E5%92%8CGrid%E7%BB%84%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/image-20231004190835377.png" alt="image-20231004190835377"></p>
+<p><img src="/2023/10/04/23-%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91/List%E7%BB%84%E4%BB%B6%E5%92%8CGrid%E7%BB%84%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/image-20231004190925849.png" alt="image-20231004190925849"></p>
+<h3 id="Grid组件简介"><a href="#Grid组件简介" class="headerlink" title="Grid组件简介"></a>Grid组件简介</h3><p>Grid组件为网格容器，是一种网格列表，由“行”和“列”分割的单元格所组成，通过指定“项目”所在的单元格做出各种各样的布局。Grid组件一般和子组件GridItem一起使用，Grid列表中的每一个条目对应一个GridItem组件。</p>
+<p><img src="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230825095823.48103037179957224444938096399589:50001231000000:2800:B0173696ED04B8275D6BADE504017C5455B8D7BED9FCA22B9857CF461DB63F0C.png?needInitFileName=true?needInitFileName=true" alt="点击放大"></p>
+<h3 id="使用ForEach渲染网格布局"><a href="#使用ForEach渲染网格布局" class="headerlink" title="使用ForEach渲染网格布局"></a>使用ForEach渲染网格布局</h3><p>和List组件一样，Grid组件也可以使用ForEach来渲染多个列表项GridItem，我们通过下面的这段示例代码来介绍Grid组件的使用。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Entry</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line">struct <span class="title class_">GridExample</span> &#123;</span><br><span class="line">  <span class="comment">// 定义一个长度为16的数组</span></span><br><span class="line">  <span class="keyword">private</span> <span class="attr">arr</span>: <span class="built_in">string</span>[] = <span class="keyword">new</span> <span class="title class_">Array</span>(<span class="number">16</span>).<span class="title function_">fill</span>(<span class="string">&#x27;&#x27;</span>).<span class="title function_">map</span>(<span class="function">(<span class="params">_, index</span>) =&gt;</span> <span class="string">`item <span class="subst">$&#123;index&#125;</span>`</span>);</span><br><span class="line"></span><br><span class="line">  <span class="title function_">build</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="title class_">Column</span>() &#123;</span><br><span class="line">      <span class="title class_">Grid</span>() &#123;</span><br><span class="line">        <span class="title class_">ForEach</span>(<span class="variable language_">this</span>.<span class="property">arr</span>, <span class="function">(<span class="params">item: <span class="built_in">string</span></span>) =&gt;</span> &#123;</span><br><span class="line">          <span class="title class_">GridItem</span>() &#123;</span><br><span class="line">            <span class="title class_">Text</span>(item)</span><br><span class="line">              .<span class="title function_">fontSize</span>(<span class="number">16</span>)</span><br><span class="line">              .<span class="title function_">fontColor</span>(<span class="title class_">Color</span>.<span class="property">White</span>)</span><br><span class="line">              .<span class="title function_">backgroundColor</span>(<span class="number">0x007DFF</span>)</span><br><span class="line">              .<span class="title function_">width</span>(<span class="string">&#x27;100%&#x27;</span>)</span><br><span class="line">              .<span class="title function_">height</span>(<span class="string">&#x27;100%&#x27;</span>)</span><br><span class="line">              .<span class="title function_">textAlign</span>(<span class="title class_">TextAlign</span>.<span class="property">Center</span>)</span><br><span class="line">          &#125;</span><br><span class="line">        &#125;, <span class="function"><span class="params">item</span> =&gt;</span> item)</span><br><span class="line">      &#125;</span><br><span class="line">      .<span class="title function_">columnsTemplate</span>(<span class="string">&#x27;1fr 1fr 1fr 1fr&#x27;</span>)</span><br><span class="line">      .<span class="title function_">rowsTemplate</span>(<span class="string">&#x27;1fr 1fr 1fr 1fr&#x27;</span>)</span><br><span class="line">      .<span class="title function_">columnsGap</span>(<span class="number">10</span>)</span><br><span class="line">      .<span class="title function_">rowsGap</span>(<span class="number">10</span>)</span><br><span class="line">      .<span class="title function_">height</span>(<span class="number">300</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    .<span class="title function_">width</span>(<span class="string">&#x27;100%&#x27;</span>)</span><br><span class="line">    .<span class="title function_">padding</span>(<span class="number">12</span>)</span><br><span class="line">    .<span class="title function_">backgroundColor</span>(<span class="number">0xF1F3F5</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>示例代码中创建了16个GridItem列表项。同时设置columnsTemplate的值为’1fr 1fr 1fr 1fr’，表示这个网格为4列，将Grid允许的宽分为4等分，每列占1份；rowsTemplate的值为’1fr 1fr 1fr 1fr’，表示这个网格为4行，将Grid允许的高分为4等分，每行占1份。这样就构成了一个4行4列的网格列表，然后使用columnsGap设置列间距为10vp，使用rowsTemplate设置行间距也为10vp。示例代码效果图如下：</p>
+<p><img src="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230825095823.80835072962157800911828459289578:50001231000000:2800:7E06C5BAFF9D0A29BBE3AC4876996563BD976C8C4D220CB56233D4B61B3D4931.png?needInitFileName=true?needInitFileName=true" alt="点击放大"></p>
+<p>上面构建的网格布局使用了固定的行数和列数，所以构建出的网格是不可滚动的。然而有时候因为内容较多，我们通过滚动的方式来显示更多的内容，就需要一个可以滚动的网格布局。我们只需要设置rowsTemplate和columnsTemplate中的一个即可。</p>
+<p>将示例代码中GridItem的高度设置为固定值，例如100；仅设置columnsTemplate属性，不设置rowsTemplate属性，就可以实现Grid列表的滚动：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Grid</span>() &#123;</span><br><span class="line">  <span class="title class_">ForEach</span>(<span class="variable language_">this</span>.<span class="property">arr</span>, <span class="function">(<span class="params">item: <span class="built_in">string</span></span>) =&gt;</span> &#123;</span><br><span class="line">    <span class="title class_">GridItem</span>() &#123;</span><br><span class="line">      <span class="title class_">Text</span>(item)</span><br><span class="line">        .<span class="title function_">height</span>(<span class="number">100</span>)</span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;, <span class="function"><span class="params">item</span> =&gt;</span> item)</span><br><span class="line">&#125;</span><br><span class="line">.<span class="title function_">columnsTemplate</span>(<span class="string">&#x27;1fr 1fr 1fr 1fr&#x27;</span>)</span><br><span class="line">.<span class="title function_">columnsGap</span>(<span class="number">10</span>)</span><br><span class="line">.<span class="title function_">rowsGap</span>(<span class="number">10</span>)</span><br><span class="line">.<span class="title function_">height</span>(<span class="number">300</span>)</span><br></pre></td></tr></table></figure>
+
+<p>此外，Grid像List一样也可以使用onScrollIndex来监听列表的滚动。</p>
+<h2 id="列表性能优化"><a href="#列表性能优化" class="headerlink" title="列表性能优化"></a>列表性能优化</h2><p>开发者在使用长列表时，如果直接采用循环渲染方式，会一次性加载所有的列表元素，从而导致页面启动时间过长，影响用户体验，推荐通过以下方式来进行列表性能优化：</p>
+<p><a target="_blank" rel="noopener" href="https://developer.harmonyos.com/cn/docs/documentation/doc-guides-V3/ui-ts-performance-improvement-recommendation-0000001477981001-V3#ZH-CN_TOPIC_0000001477981001__%E6%8E%A8%E8%8D%90%E4%BD%BF%E7%94%A8%E6%95%B0%E6%8D%AE%E6%87%92%E5%8A%A0%E8%BD%BD">使用数据懒加载</a></p>
+<p><a target="_blank" rel="noopener" href="https://developer.harmonyos.com/cn/docs/documentation/doc-guides-V3/ui-ts-performance-improvement-recommendation-0000001477981001-V3#ZH-CN_TOPIC_0000001477981001__%E8%AE%BE%E7%BD%AElist%E7%BB%84%E4%BB%B6%E7%9A%84%E5%AE%BD%E9%AB%98">设置list组件的宽高</a></p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ol>
+<li>List组件的相关API参考：<a target="_blank" rel="noopener" href="https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/ts-container-list-0000001477981213-V3?catalogVersion=V3">List组件</a>。</li>
+<li>Grid组件的相关API参考：<a target="_blank" rel="noopener" href="https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/ts-container-grid-0000001478341161-V3?catalogVersion=V3">Grid组件</a>。</li>
+<li>循环渲染（ForEach）：<a target="_blank" rel="noopener" href="https://developer.harmonyos.com/cn/docs/documentation/doc-guides-V3/arkts-rendering-control-0000001427744548-V3?catalogVersion=V3#ZH-CN_TOPIC_0000001427744548__%E5%BE%AA%E7%8E%AF%E6%B8%B2%E6%9F%93">循环渲染</a>。</li>
+</ol>
+
+        
+      </div>
+
+         
+    </div>
+    
+     
+  </div>
+  
+    
+<nav id="article-nav">
+  <a class="article-nav-btn left "
+    
+      href="/2023/10/04/23-%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91/Column&Row%E7%BB%84%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/"
+      title="Column&Row组件的使用"
+     >
+    <i class="fa-solid fa-angle-left"></i>
+    <p class="title-text">
+      
+        Column&amp;Row组件的使用
+        
+    </p>
+  </a>
+  <a class="article-nav-btn right "
+    
+      href="/2023/10/04/23-%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91/OpenHarmony%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E7%AE%80%E4%BB%8B/"
+      title="OpenHarmony开源项目简介"
+     >
+
+    <p class="title-text">
+      
+        OpenHarmony开源项目简介
+        
+    </p>
+    <i class="fa-solid fa-angle-right"></i>
+  </a>
+</nav>
+
+
+  
+</article>
+
+
+  
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <div id="comment-card" class="comment-card">
+    <div class="main-title-bar">
+      <div class="main-title-dot"></div>
+      <div class="main-title">留言 </div>
+    </div>
+    <div id="vcomments"></div>
+  </div>
+  <script>
+      new Valine({"enable":true,"appId":null,"appKey":null,"placeholder":"Just go go","pageSize":20,"highlight":true,"serverURLs":null,"el":"#vcomments"});
+  </script>
+ 
+    </div>
+    <div id="footer-wrapper">
+      <footer id="footer">
+  
+  <div id="footer-info" class="inner">
+    
+      <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris"></a>
+    
+    &copy; 2023 Asimov<br>
+    Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & Theme <a target="_blank" rel="noopener" href="https://github.com/saicaca/hexo-theme-vivia">Vivia</a>
+  </div>
+</footer>
+
+    </div>
+    <div class="back-to-top-wrapper">
+    <button id="back-to-top-btn" class="back-to-top-btn hide" onclick="topFunction()">
+        <i class="fa-solid fa-angle-up"></i>
+    </button>
+</div>
+
+<script>
+    function topFunction() {
+        window.scroll({ top: 0, behavior: 'smooth' });
+    }
+    let btn = document.getElementById('back-to-top-btn');
+    function scrollFunction() {
+        if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+            btn.classList.remove('hide')
+        } else {
+            btn.classList.add('hide')
+        }
+    }
+    window.onscroll = function() {
+        scrollFunction();
+    }
+</script>
+
+  </div>
+  <script src="/js/light-dark-switch.js"></script>
+</body>
+</html>

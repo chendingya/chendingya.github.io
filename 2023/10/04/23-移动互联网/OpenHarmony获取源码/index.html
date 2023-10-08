@@ -1,0 +1,770 @@
+<!DOCTYPE html>
+
+
+<html theme="dark" showBanner="true" hasBanner="true" > 
+<link href="/fontawesome/css/fontawesome.css" rel="stylesheet">
+<link href="/fontawesome/css/brands.css" rel="stylesheet">
+<link href="/fontawesome/css/solid.css" rel="stylesheet">
+<script src="/js/color.global.min.js" ></script>
+<script src="/js/load-settings.js" ></script>
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+
+  
+  <title>OpenHarmony获取源码 | Asimov&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+  <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+
+  <meta name="description" content="OpenHarmony获取源码OpenHarmony介绍OpenHarmony是由开放原子开源基金会（OpenAtom Foundation）孵化及运营的开源项目，目标是面向全场景、全连接、全智能时代，搭建一个智能终端设备操作系统的框架和平台，促进万物互联产业的繁荣发展。 开源代码仓库地址：https:&#x2F;&#x2F;openharmony.gitee.com。 获取源码概述本文档将介绍如何获取OpenHar">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OpenHarmony获取源码">
+<meta property="og:url" content="https://chendingya.github.io/2023/10/04/23-%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91/OpenHarmony%E8%8E%B7%E5%8F%96%E6%BA%90%E7%A0%81/index.html">
+<meta property="og:site_name" content="Asimov&#39;s Blog">
+<meta property="og:description" content="OpenHarmony获取源码OpenHarmony介绍OpenHarmony是由开放原子开源基金会（OpenAtom Foundation）孵化及运营的开源项目，目标是面向全场景、全连接、全智能时代，搭建一个智能终端设备操作系统的框架和平台，促进万物互联产业的繁荣发展。 开源代码仓库地址：https:&#x2F;&#x2F;openharmony.gitee.com。 获取源码概述本文档将介绍如何获取OpenHar">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/openharmony/docs/raw/master/zh-cn/device-dev/get-code/public_sys-resources/icon-note.gif">
+<meta property="og:image" content="https://gitee.com/openharmony/docs/raw/master/zh-cn/device-dev/get-code/figures/zh-cn_image_0000001168212170.png">
+<meta property="og:image" content="https://gitee.com/openharmony/docs/raw/master/zh-cn/device-dev/get-code/figures/zh-cn_image_0000001167734854.png">
+<meta property="og:image" content="https://gitee.com/openharmony/docs/raw/master/zh-cn/device-dev/get-code/figures/zh-cn_image_0000001167743458.png">
+<meta property="og:image" content="https://gitee.com/openharmony/docs/raw/master/zh-cn/device-dev/get-code/public_sys-resources/icon-note.gif">
+<meta property="article:published_time" content="2023-10-04T03:40:36.000Z">
+<meta property="article:modified_time" content="2023-10-08T23:16:29.762Z">
+<meta property="article:author" content="Asimov">
+<meta property="article:tag" content="openharmony">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/openharmony/docs/raw/master/zh-cn/device-dev/get-code/public_sys-resources/icon-note.gif">
+  
+    <link rel="alternate" href="/atom.xml" title="Asimov's Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-192.png" sizes="192x192">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-192.png" sizes="192x192">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  
+  
+    
+<div id="banner" class="">
+  <img src="/pic/back.png" itemprop="image">
+  <div id="banner-dim"></div>
+</div>
+ 
+   
+  <div id="main-grid" class="shadow   ">
+    <div id="nav" class=""  >
+      <navbar id="navbar">
+  <nav id="title-nav">
+    <a href="/">
+      <div id="vivia-logo">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div>Asimov's Blog </div>
+    </a>
+  </nav>
+  <nav id="main-nav">
+    
+      <a class="main-nav-link" href="/">Home</a>
+    
+      <a class="main-nav-link" href="/archives">Archives</a>
+    
+      <a class="main-nav-link" href="/about">About</a>
+    
+  </nav>
+  <nav id="sub-nav">
+    <a id="theme-btn" class="nav-icon">
+      <span class="light-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M438.5-829.913v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-829.913Zm0 747.826v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-82.087ZM877.913-438.5h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537t29.476-12.174h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T877.913-438.5Zm-747.826 0h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T82.087-521.5h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T130.087-438.5Zm660.174-290.87-34.239 32q-12.913 12.674-29.565 12.174-16.653-.5-29.327-13.174-12.674-12.673-12.554-28.826.12-16.152 12.794-28.826l33-35q12.913-12.674 30.454-12.674t30.163 12.847q12.709 12.846 12.328 30.826-.38 17.98-13.054 30.653ZM262.63-203.978l-32 34q-12.913 12.674-30.454 12.674t-30.163-12.847q-12.709-12.846-12.328-30.826.38-17.98 13.054-30.653l33.239-31q12.913-12.674 29.565-12.174 16.653.5 29.327 13.174 12.674 12.673 12.554 28.826-.12 16.152-12.794 28.826Zm466.74 33.239-32-33.239q-12.674-12.913-12.174-29.565.5-16.653 13.174-29.327 12.673-12.674 28.826-13.054 16.152-.38 28.826 12.294l35 33q12.674 12.913 12.674 30.454t-12.847 30.163q-12.846 12.709-30.826 12.328-17.98-.38-30.653-13.054ZM203.978-697.37l-34-33q-12.674-12.913-13.174-29.945-.5-17.033 12.174-29.707t31.326-13.293q18.653-.62 31.326 13.054l32 34.239q11.674 12.913 11.174 29.565-.5 16.653-13.174 29.327-12.673 12.674-28.826 12.554-16.152-.12-28.826-12.794ZM480-240q-100 0-170-70t-70-170q0-100 70-170t170-70q100 0 170 70t70 170q0 100-70 170t-170 70Zm-.247-82q65.703 0 111.475-46.272Q637-414.544 637-480.247t-45.525-111.228Q545.95-637 480.247-637t-111.475 45.525Q323-545.95 323-480.247t45.525 111.975Q414.05-322 479.753-322ZM481-481Z"/></svg></span>
+      <span class="dark-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M480.239-116.413q-152.63 0-258.228-105.478Q116.413-327.37 116.413-480q0-130.935 77.739-227.435t206.304-125.043q43.022-9.631 63.87 10.869t3.478 62.805q-8.891 22.043-14.315 44.463-5.424 22.42-5.424 46.689 0 91.694 64.326 155.879 64.325 64.186 156.218 64.186 24.369 0 46.978-4.946 22.609-4.945 44.413-14.076 42.826-17.369 62.967 1.142 20.142 18.511 10.511 61.054Q807.174-280 712.63-198.206q-94.543 81.793-232.391 81.793Zm0-95q79.783 0 143.337-40.217 63.554-40.218 95.793-108.283-15.608 4.044-31.097 5.326-15.49 1.283-31.859.805-123.706-4.066-210.777-90.539-87.071-86.473-91.614-212.092-.24-16.369.923-31.978 1.164-15.609 5.446-30.978-67.826 32.478-108.282 96.152Q211.652-559.543 211.652-480q0 111.929 78.329 190.258 78.329 78.329 190.258 78.329ZM466.13-465.891Z"/></svg></span>
+    </a>
+    
+      <a id="nav-rss-link" class="nav-icon mobile-hide" href="/atom.xml" title="RSS 订阅">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-120q-25.846 0-44.23-18.384-18.384-18.385-18.384-44.23 0-25.846 18.384-44.23 18.384-18.385 44.23-18.385 25.846 0 44.23 18.385 18.384 18.384 18.384 44.23 0 25.845-18.384 44.23Q223.846-120 198-120Zm538.385 0q-18.846 0-32.923-13.769-14.076-13.769-15.922-33.23-8.692-100.616-51.077-188.654-42.385-88.039-109.885-155.539-67.5-67.501-155.539-109.885Q283-663.462 182.385-672.154q-19.461-1.846-33.23-16.23-13.769-14.385-13.769-33.846t14.076-32.922q14.077-13.461 32.923-12.23 120.076 8.692 226.038 58.768 105.961 50.077 185.73 129.846 79.769 79.769 129.846 185.731 50.077 105.961 58.769 226.038 1.231 18.846-12.538 32.922Q756.461-120 736.385-120Zm-252 0q-18.231 0-32.423-13.461t-18.653-33.538Q418.155-264.23 348.886-333.5q-69.27-69.27-166.501-84.423-20.077-4.462-33.538-18.961-13.461-14.5-13.461-33.346 0-19.076 13.884-33.23 13.884-14.153 33.115-10.922 136.769 15.384 234.384 112.999 97.615 97.615 112.999 234.384 3.231 19.23-10.538 33.115Q505.461-120 484.385-120Z"/></svg>
+      </a>
+    
+    <div id="nav-menu-btn" class="nav-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M177.37-252.282q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Zm0-186.218q-17.453 0-29.477-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T177.37-521.5h605.26q17.453 0 29.477 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T782.63-438.5H177.37Zm0-186.217q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Z"/></svg>
+    </div>
+  </nav>
+</navbar>
+<div id="nav-dropdown" class="hidden">
+  <div id="dropdown-link-list">
+    
+      <a class="nav-dropdown-link" href="/">Home</a>
+    
+      <a class="nav-dropdown-link" href="/archives">Archives</a>
+    
+      <a class="nav-dropdown-link" href="/about">About</a>
+    
+    
+      <a class="nav-dropdown-link" href="/atom.xml" title="RSS 订阅">RSS</a>
+     
+    </div>
+</div>
+<script>
+  let dropdownBtn = document.getElementById("nav-menu-btn");
+  let dropdownEle = document.getElementById("nav-dropdown");
+  dropdownBtn.onclick = function() {
+    dropdownEle.classList.toggle("hidden");
+  }
+</script>
+    </div>
+    <div id="sidebar-wrapper">
+      <sidebar id="sidebar">
+  
+    <div class="widget-wrap">
+  <div class="info-card">
+    <div class="avatar">
+      
+        <image src=/pic/avatar.png></image>
+      
+      <div class="img-dim"></div>
+    </div>
+    <div class="info">
+      <div class="username">Asimov </div>
+      <div class="dot"></div>
+      <div class="subtitle">Asimov's Blog </div>
+      <div class="link-list">
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://github.com/chendingya" title="GitHub"><i class="fa-brands fa-github"></i></a>
+         
+      </div>  
+    </div>
+  </div>
+</div>
+
+  
+  <div class="sticky">
+    
+      
+
+
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">分类</h3>
+      <div class="category-box">
+            <a class="category-link" href="/categories/hello-world/">
+                hello world
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/Hexo/">
+                Hexo
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
+                编译原理
+                <div class="category-count">13</div>
+            </a>
+        
+            <a class="category-link" href="/categories/tdesign/">
+                tdesign
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91/">
+                服务端开发
+                <div class="category-count">3</div>
+            </a>
+        
+            <a class="category-link" href="/categories/openharmony/">
+                openharmony
+                <div class="category-count">12</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">
+                软件工程与计算II
+                <div class="category-count">30</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E9%A9%BE%E8%80%83/">
+                驾考
+                <div class="category-count">2</div>
+            </a>
+        </div>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">标签</h3>
+      <ul class="widget-tag-list" itemprop="keywords"><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/hello-world/" rel="tag">hello world</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/openharmony/" rel="tag">openharmony</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/tdesign/" rel="tag">tdesign</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91/" rel="tag">服务端开发</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" rel="tag">编译原理</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/" rel="tag">软件工程与计算II</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E9%A9%BE%E8%80%83/" rel="tag">驾考</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">归档</h3>
+      
+      
+        <a class="archive-link" href="/archives/2023/10 ">
+          十月 2023 
+          <div class="archive-count">13 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/09 ">
+          九月 2023 
+          <div class="archive-count">4 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/07 ">
+          七月 2023 
+          <div class="archive-count">2 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/04 ">
+          四月 2023 
+          <div class="archive-count">10 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/03 ">
+          三月 2023 
+          <div class="archive-count">3 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2022/10 ">
+          十月 2022 
+          <div class="archive-count">1 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2022/06 ">
+          六月 2022 
+          <div class="archive-count">30 </div>
+        </a>
+      
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">最新文章</h3>
+      <ul>
+        
+          <a class="recent-link" href="/2023/10/04/23-%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91/%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%85%A5%E5%8F%A3%E2%80%94UIAbility%E7%9A%84%E4%BD%BF%E7%94%A8/" title="应用程序入口—UIAbility的使用" >
+            <div class="recent-link-text">
+              应用程序入口—UIAbility的使用
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/10/04/23-%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91/Column&Row%E7%BB%84%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/" title="Column&Row组件的使用" >
+            <div class="recent-link-text">
+              Column&amp;Row组件的使用
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/10/04/23-%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91/List%E7%BB%84%E4%BB%B6%E5%92%8CGrid%E7%BB%84%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/" title="List组件和Grid组件的使用" >
+            <div class="recent-link-text">
+              List组件和Grid组件的使用
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/10/04/23-%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91/OpenHarmony%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E7%AE%80%E4%BB%8B/" title="OpenHarmony开源项目简介" >
+            <div class="recent-link-text">
+              OpenHarmony开源项目简介
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/10/04/23-%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91/OpenHarmony%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E6%A6%82%E8%BF%B0/" title="OpenHarmony快速入门概述" >
+            <div class="recent-link-text">
+              OpenHarmony快速入门概述
+            </div>
+          </a>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+  </div>
+</sidebar>
+    </div>
+    <div id="content-body">
+       
+
+<article id="post-23-移动互联网/OpenHarmony获取源码" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 class="p-name article-title" itemprop="headline name">
+        OpenHarmony获取源码
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2023-10-04T03:40:36.000Z" itemprop="datePublished">2023-10-04</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/openharmony/">openharmony</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            2.3k 词 
+          </div>
+        </div>
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openharmony/" rel="tag">openharmony</a></li></ul>
+
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <h1 id="OpenHarmony获取源码"><a href="#OpenHarmony获取源码" class="headerlink" title="OpenHarmony获取源码"></a>OpenHarmony获取源码</h1><h2 id="OpenHarmony介绍"><a href="#OpenHarmony介绍" class="headerlink" title="OpenHarmony介绍"></a>OpenHarmony介绍</h2><p>OpenHarmony是由开放原子开源基金会（OpenAtom Foundation）孵化及运营的开源项目，目标是面向全场景、全连接、全智能时代，搭建一个智能终端设备操作系统的框架和平台，促进万物互联产业的繁荣发展。</p>
+<p>开源代码仓库地址：<a target="_blank" rel="noopener" href="https://openharmony.gitee.com/">https://openharmony.gitee.com</a>。</p>
+<h2 id="获取源码概述"><a href="#获取源码概述" class="headerlink" title="获取源码概述"></a>获取源码概述</h2><p>本文档将介绍如何获取OpenHarmony源码并说明OpenHarmony的源码目录结构。OpenHarmony的代码以<a target="_blank" rel="noopener" href="https://gitee.com/openharmony/docs/blob/master/zh-cn/device-dev/hpm-part/hpm-part-about.md">组件</a>的形式开放，开发者可以通过如下其中一种方式获取：</p>
+<ul>
+<li><strong>获取方式1</strong>：从码云代码仓库获取。通过repo或git工具从代码仓库中下载，此方式可获取最新代码。</li>
+<li><strong>获取方式2</strong>：通过<a href="https://gitee.com/link?target=https://repo.harmonyos.com/%23/cn/home">DevEco Marketplace</a>网站获取。访问<a href="https://gitee.com/link?target=https://repo.harmonyos.com/%23/cn/home">DevEco Marketplace</a>网站，查找满足需求的开源发行版，直接下载（或者定制后下载），再通过hpm-cli命令工具将所需的组件及工具链下载、安装到本地。</li>
+<li><strong>获取方式3</strong>：从镜像站点下载归档后的发行版压缩文件。如果要获取旧版本的源码，也可通过此方式获取，此方式下载速度较快。</li>
+<li><strong>获取方式4</strong>：从github代码仓库获取。通过repo或git工具从代码仓库中下载，此方式可获取最新代码。</li>
+</ul>
+<h2 id="获取方式1：从码云仓库获取"><a href="#获取方式1：从码云仓库获取" class="headerlink" title="获取方式1：从码云仓库获取"></a>获取方式1：从码云仓库获取</h2><h3 id="适用场景"><a href="#适用场景" class="headerlink" title="适用场景"></a>适用场景</h3><ul>
+<li>基于OpenHarmony的稳定分支建立自己的基线，分发下游客户。</li>
+<li>已经完成自身软件与OpenHarmony的对接，需要进行OpenHarmony官方认证。</li>
+<li>芯片&#x2F;模组&#x2F;app通过OpenHarmony官方认证后，贡献代码到OpenHarmony社区。</li>
+<li>修复OpenHarmony的问题。</li>
+<li>学习OpenHarmony的源码。</li>
+</ul>
+<h3 id="前提条件"><a href="#前提条件" class="headerlink" title="前提条件"></a>前提条件</h3><ol>
+<li><p>注册码云gitee帐号。</p>
+</li>
+<li><p>注册码云SSH公钥，请参考<a target="_blank" rel="noopener" href="https://gitee.com/help/articles/4191">码云帮助中心</a>。</p>
+</li>
+<li><p>安装<a href="https://gitee.com/link?target=https://git-scm.com/book/zh/v2/%E8%B5%B7%E6%AD%A5-%E5%AE%89%E8%A3%85-Git">git客户端</a>和<a target="_blank" rel="noopener" href="https://gitee.com/vcs-all-in-one/git-lfs?_from=gitee_search#downloading">git-lfs</a>并配置用户信息。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;yourname&quot;</span><br><span class="line">git config --global user.email &quot;your-email-address&quot;</span><br><span class="line">git config --global credential.helper store</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>执行如下命令安装码云repo工具。</p>
+<p>下述命令中的安装路径以”~&#x2F;bin”为例，请用户自行创建所需目录。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">mkdir ~/bin</span><br><span class="line">curl https://gitee.com/oschina/repo/raw/fork_flow/repo-py3 -o ~/bin/repo </span><br><span class="line">chmod a+x ~/bin/repo</span><br><span class="line">pip3 install -i https://repo.huaweicloud.com/repository/pypi/simple requests</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>将repo添加到环境变量。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">vim ~/.bashrc               # 编辑环境变量</span><br><span class="line">export PATH=~/bin:$PATH     # 在环境变量的最后添加一行repo路径信息</span><br><span class="line">source ~/.bashrc            # 应用环境变量</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h3><blockquote>
+<p><img src="https://gitee.com/openharmony/docs/raw/master/zh-cn/device-dev/get-code/public_sys-resources/icon-note.gif" alt="icon-note.gif"> <strong>说明：</strong></p>
+<p>发布版本代码相对比较稳定，开发者可基于发布版本代码进行商用功能开发。Master主干为开发分支，开发者可通过Master主干获取最新特性。</p>
+</blockquote>
+<ul>
+<li><p><strong>OpenHarmony发布版本代码获取</strong></p>
+<p>OpenHarmony发布版本获取源码方式请参考<a target="_blank" rel="noopener" href="https://gitee.com/openharmony/docs/blob/master/zh-cn/release-notes/Readme.md">Release Notes</a>。</p>
+</li>
+<li><p><strong>OpenHarmony主干代码获取</strong></p>
+<p>方式一（推荐）：通过repo + ssh下载（需注册公钥，请参考<a target="_blank" rel="noopener" href="https://gitee.com/help/articles/4191">码云帮助中心</a>）。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">repo init -u git@gitee.com:openharmony/manifest.git -b master --no-repo-verify</span><br><span class="line">repo sync -c</span><br><span class="line">repo forall -c &#x27;git lfs pull&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>方式二：通过repo + https下载。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">repo init -u https://gitee.com/openharmony/manifest.git -b master --no-repo-verify</span><br><span class="line">repo sync -c</span><br><span class="line">repo forall -c &#x27;git lfs pull&#x27;</span><br></pre></td></tr></table></figure></li>
+</ul>
+<h2 id="获取方式2：从DevEco-Marketplace获取"><a href="#获取方式2：从DevEco-Marketplace获取" class="headerlink" title="获取方式2：从DevEco Marketplace获取"></a>获取方式2：从DevEco Marketplace获取</h2><h3 id="适用场景-1"><a href="#适用场景-1" class="headerlink" title="适用场景"></a>适用场景</h3><p>对于刚接触OpenHarmony的新用户，希望能够参考一些示例解决方案从而进行快速开发。可以在<a href="https://gitee.com/link?target=https://repo.harmonyos.com/%23/cn/home">DevEco Marketplace</a>网站获取下载开源发行版，也可以在开源发行版的基础上定制（添加或删除组件）。然后通过包管理器命令行工具（hpm-cli）将需要的组件及相关的编译工具链全部下载、安装到本地。</p>
+<h3 id="前提条件-1"><a href="#前提条件-1" class="headerlink" title="前提条件"></a>前提条件</h3><p>先要在本地安装Node.js和hpm命令行工具，安装步骤如下：</p>
+<ol>
+<li><p>安装Node.js。</p>
+<p>官网下载并在本地安装Node.js。</p>
+<p><a href="https://gitee.com/link?target=https://nodejs.org/">Node.js</a>版本需不低于12.x (包含npm 6.14.4)，推荐安装LTS版本。</p>
+</li>
+<li><p>通过Node.js自带的npm安装hpm命令行工具。</p>
+<p>打开CMD，执行以下命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm install -g @ohos/hpm-cli</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>安装完成后执行如下命令，显示hpm版本，即安装成功。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hpm -V 或 hpm --version</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>如果升级hpm的版本，请执行如下命令：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">npm update -g @ohos/hpm-cli</span><br></pre></td></tr></table></figure></li>
+</ol>
+<h3 id="操作步骤-1"><a href="#操作步骤-1" class="headerlink" title="操作步骤"></a>操作步骤</h3><ol>
+<li><p>查找发行版。</p>
+<ol>
+<li><p>访问<a href="https://gitee.com/link?target=https://repo.harmonyos.com/%23/cn/home">DevEco Marketplace</a>，设定搜索的对象为设备组件，并在左侧边栏选择开源发行版，如下图所示。</p>
+</li>
+<li><p>在搜索框输入关键字搜索，如“摄像头”。</p>
+</li>
+<li><p>结果中显示与关键字匹配的发行版，可以进一步根据组件类别等过滤条件（如：OS版本，适配的开发板，内核）精确筛选。</p>
+</li>
+<li><p>查找合适的发行版，点击查看发行版的详情介绍。</p>
+<p><strong>图1</strong> 包管理</p>
+<p><img src="https://gitee.com/openharmony/docs/raw/master/zh-cn/device-dev/get-code/figures/zh-cn_image_0000001168212170.png" alt="zh-cn_image_0000001168212170"></p>
+</li>
+</ol>
+</li>
+<li><p>了解发行版详情。</p>
+<ol>
+<li><p>仔细阅读发行版的说明信息，以了解使用场景、特性、组件构成、使用方法以及如何进行定制化，如下图所示。</p>
+</li>
+<li><p>当前支持两种下载方式：</p>
+<ul>
+<li><p>点击「直接下载」，将发行版下载到本地。</p>
+</li>
+<li><p>点击「设备组件裁剪」，将对发行版包含的组件进行定制（添加&#x2F;删除）。</p>
+<p><strong>图2</strong> 发行版示例</p>
+<p><img src="https://gitee.com/openharmony/docs/raw/master/zh-cn/device-dev/get-code/figures/zh-cn_image_0000001167734854.png" alt="zh-cn_image_0000001167734854"></p>
+</li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p>定制组件。</p>
+<ol>
+<li><p>进入发行版的定制页面，如下图所示。</p>
+</li>
+<li><p>添加和删除组件。</p>
+<ul>
+<li>点击“可定制组件”后的添加按钮，在弹出的“添加组件”窗口中进行所需组件的添加。</li>
+<li>在“可定制组件”下拉列表中，点击待删除组件后方的删除按钮，将该组件删除。</li>
+</ul>
+</li>
+<li><p>在右边填写您的项目基本信息，包括名称、版本、描述等信息。</p>
+</li>
+<li><p>点击页面右下角的「下载」，系统会根据您的选择，生成相应的OpenHarmony代码结构文件（如my_cust_dist.zip），保存至本地文件。</p>
+<p><strong>图3</strong> 组件定制</p>
+<p><img src="https://gitee.com/openharmony/docs/raw/master/zh-cn/device-dev/get-code/figures/zh-cn_image_0000001167743458.png" alt="zh-cn_image_0000001167743458"></p>
+</li>
+</ol>
+</li>
+<li><p>安装组件。</p>
+<ol>
+<li>解压下载的压缩文件，用命令行工具CMD（Linux下的Shell终端）。</li>
+<li>在解压后的文件目录下执行hpm install指令，系统会自动下载并安装组件。安装窗口显示“Install successful”表示组件下载及安装成功。</li>
+<li>下载的组件将保存在工程目录下的ohos_bundles文件夹中（部分组件安装后会将源码复制到指定目录下）。</li>
+</ol>
+</li>
+</ol>
+<h2 id="获取方式3：从镜像站点获取"><a href="#获取方式3：从镜像站点获取" class="headerlink" title="获取方式3：从镜像站点获取"></a>获取方式3：从镜像站点获取</h2><p>为了获得更好的下载性能，您可以选择从以下站点的镜像库获取源码或者对应的解决方案。</p>
+<p>本部分只提供OpenHarmony LTS最新版本和最新发布版本的源码获取方式， 其他版本获取源码方式以及具体版本信息请参考<a target="_blank" rel="noopener" href="https://gitee.com/openharmony/docs/blob/master/zh-cn/release-notes/Readme.md">Release Notes</a>。</p>
+<p><strong>表1</strong> 获取源码路径</p>
+<table>
+<thead>
+<tr>
+<th><strong>LTS版本源码</strong></th>
+<th><strong>版本信息</strong></th>
+<th><strong>下载站点</strong></th>
+<th><strong>SHA256校验码</strong></th>
+<th><strong>软件包容量</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>全量代码（标准、轻量和小型系统）</td>
+<td>3.0</td>
+<td><a href="https://gitee.com/link?target=https://repo.huaweicloud.com/openharmony/os/3.0/code-v3.0-LTS.tar.gz">站点</a></td>
+<td><a href="https://gitee.com/link?target=https://repo.huaweicloud.com/openharmony/os/3.0/code-v3.0-LTS.tar.gz.sha256">SHA256校验码</a></td>
+<td>7.0 GB</td>
+</tr>
+<tr>
+<td>标准系统解决方案（二进制）</td>
+<td>3.0</td>
+<td><a href="https://gitee.com/link?target=https://repo.huaweicloud.com/openharmony/os/3.0/standard.tar.gz">站点</a></td>
+<td><a href="https://gitee.com/link?target=https://repo.huaweicloud.com/openharmony/os/3.0/standard.tar.gz.sha256">SHA256校验码</a></td>
+<td>973.7 MB</td>
+</tr>
+<tr>
+<td>Hi3861解决方案（二进制）</td>
+<td>3.0</td>
+<td><a href="https://gitee.com/link?target=https://repo.huaweicloud.com/openharmony/os/3.0/hispark_pegasus.tar.gz">站点</a></td>
+<td><a href="https://gitee.com/link?target=https://repo.huaweicloud.com/openharmony/os/3.0/hispark_pegasus.tar.gz.sha256">SHA256校验码</a></td>
+<td>16.5 MB</td>
+</tr>
+<tr>
+<td>Hi3518解决方案（二进制）</td>
+<td>3.0</td>
+<td><a href="https://gitee.com/link?target=https://repo.huaweicloud.com/openharmony/os/3.0/hispark_aries.tar.gz">站点</a></td>
+<td><a href="https://gitee.com/link?target=https://repo.huaweicloud.com/openharmony/os/3.0/hispark_aries.tar.gz.sha256">SHA256校验码</a></td>
+<td>158.1 MB</td>
+</tr>
+<tr>
+<td>Hi3516解决方案-LiteOS（二进制）</td>
+<td>3.0</td>
+<td><a href="https://gitee.com/link?target=https://repo.huaweicloud.com/openharmony/os/3.0/hispark_taurus.tar.gz">站点</a></td>
+<td><a href="https://gitee.com/link?target=https://repo.huaweicloud.com/openharmony/os/3.0/hispark_taurus.tar.gz.sha256">SHA256校验码</a></td>
+<td>248.9 MB</td>
+</tr>
+<tr>
+<td>Hi3516解决方案-Linux（二进制）</td>
+<td>3.0</td>
+<td><a href="https://gitee.com/link?target=https://repo.huaweicloud.com/openharmony/os/3.0/hispark_taurus_linux.tar.gz">站点</a></td>
+<td><a href="https://gitee.com/link?target=https://repo.huaweicloud.com/openharmony/os/3.0/hispark_taurus_linux.tar.gz.sha256">SHA256校验码</a></td>
+<td>418.1 MB</td>
+</tr>
+<tr>
+<td>RELEASE-NOTES</td>
+<td>3.0</td>
+<td><a target="_blank" rel="noopener" href="https://gitee.com/openharmony/docs/blob/OpenHarmony-3.0-LTS/zh-cn/release-notes/OpenHarmony-v3.0-LTS.md">站点</a></td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>最新发布版本源码</strong></td>
+<td><strong>版本信息</strong></td>
+<td><strong>下载站点</strong></td>
+<td><strong>SHA256校验码</strong></td>
+<td><strong>软件包容量</strong></td>
+</tr>
+<tr>
+<td>全量代码（标准、轻量和小型系统）</td>
+<td>4.0 Beta2</td>
+<td><a href="https://gitee.com/link?target=https://repo.huaweicloud.com/openharmony/os/4.0-Beta2/code-v4.0-Beta2.tar.gz">站点</a></td>
+<td><a href="https://gitee.com/link?target=https://repo.huaweicloud.com/openharmony/os/4.0-Beta2/code-v4.0-Beta2.tar.gz.sha256">SHA256校验码</a></td>
+<td>27.7 GB</td>
+</tr>
+<tr>
+<td>Hi3861解决方案（二进制）</td>
+<td>4.0 Beta2</td>
+<td><a href="https://gitee.com/link?target=https://repo.huaweicloud.com/openharmony/os/4.0-Beta2/hispark_pegasus.tar.gz">站点</a></td>
+<td><a href="https://gitee.com/link?target=https://repo.huaweicloud.com/openharmony/os/4.0-Beta2/hispark_pegasus.tar.gz.sha256">SHA256校验码</a></td>
+<td>27.5 MB</td>
+</tr>
+<tr>
+<td>Hi3516解决方案-LiteOS（二进制）</td>
+<td>4.0 Beta2</td>
+<td><a href="https://gitee.com/link?target=https://repo.huaweicloud.com/openharmony/os/4.0-Beta2/hispark_taurus_LiteOS.tar.gz">站点</a></td>
+<td><a href="https://gitee.com/link?target=https://repo.huaweicloud.com/openharmony/os/4.0-Beta2/hispark_taurus_LiteOS.tar.gz.sha256">SHA256校验码</a></td>
+<td>300.9 MB</td>
+</tr>
+<tr>
+<td>Hi3516解决方案-Linux（二进制）</td>
+<td>4.0 Beta2</td>
+<td><a href="https://gitee.com/link?target=https://repo.huaweicloud.com/openharmony/os/4.0-Beta2/hispark_taurus_Linux.tar.gz">站点</a></td>
+<td><a href="https://gitee.com/link?target=https://repo.huaweicloud.com/openharmony/os/4.0-Beta2/hispark_taurus_Linux.tar.gz.sha256">SHA256校验码</a></td>
+<td>192.4 MB</td>
+</tr>
+<tr>
+<td>RK3568标准系统解决方案（二进制）</td>
+<td>4.0 Beta2</td>
+<td><a href="https://gitee.com/link?target=https://repo.huaweicloud.com/openharmony/os/4.0-Beta2/dayu200_standard_arm32.tar.gz">站点</a></td>
+<td><a href="https://gitee.com/link?target=https://repo.huaweicloud.com/openharmony/os/4.0-Beta2/dayu200_standard_arm32.tar.gz.sha256">SHA256校验码</a></td>
+<td>5.2 GB</td>
+</tr>
+<tr>
+<td>RELEASE-NOTES</td>
+<td>4.0 Beta1</td>
+<td><a target="_blank" rel="noopener" href="https://gitee.com/openharmony/docs/blob/master/zh-cn/release-notes/OpenHarmony-v4.0-beta2.md">站点</a></td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td><strong>编译工具链</strong></td>
+<td><strong>版本信息</strong></td>
+<td><strong>下载站点</strong></td>
+<td><strong>SHA256校验码</strong></td>
+<td><strong>软件包容量</strong></td>
+</tr>
+<tr>
+<td>编译工具链获取清单</td>
+<td>-</td>
+<td><a href="https://gitee.com/link?target=https://repo.huaweicloud.com/openharmony/os/2.0/tool_chain/">站点</a></td>
+<td>-</td>
+<td>-</td>
+</tr>
+</tbody></table>
+<h2 id="获取方式4：从github镜像仓库获取"><a href="#获取方式4：从github镜像仓库获取" class="headerlink" title="获取方式4：从github镜像仓库获取"></a>获取方式4：从github镜像仓库获取</h2><blockquote>
+<p><img src="https://gitee.com/openharmony/docs/raw/master/zh-cn/device-dev/get-code/public_sys-resources/icon-note.gif" alt="icon-note.gif"> <strong>说明：</strong><br>镜像仓库每日23:00（UTC +8:00）同步。</p>
+</blockquote>
+<p>方式一（推荐）：通过repo + ssh下载（需注册公钥，请参考<a href="https://gitee.com/link?target=https://docs.github.com/en/authentication/connecting-to-github-with-ssh/adding-a-new-ssh-key-to-your-github-account">GitHub帮助中心</a>）。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">repo init -u git@github.com:openharmony/manifest.git -b master --no-repo-verify</span><br><span class="line">repo sync -c</span><br><span class="line">repo forall -c &#x27;git lfs pull&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>方式二：通过repo + https下载。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">repo init -u https://github.com/openharmony/manifest.git -b master --no-repo-verify</span><br><span class="line">repo sync -c</span><br><span class="line">repo forall -c &#x27;git lfs pull&#x27;</span><br></pre></td></tr></table></figure>
+
+<h2 id="源码目录简介"><a href="#源码目录简介" class="headerlink" title="源码目录简介"></a>源码目录简介</h2><p>下表是OpenHarmony源码目录：</p>
+<p><strong>表2</strong> 源码目录</p>
+<table>
+<thead>
+<tr>
+<th>目录名</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>applications</td>
+<td>应用程序样例，包括camera等</td>
+</tr>
+<tr>
+<td>base</td>
+<td>基础软件服务子系统集&amp;硬件服务子系统集</td>
+</tr>
+<tr>
+<td>build</td>
+<td>组件化编译、构建和配置脚本</td>
+</tr>
+<tr>
+<td>docs</td>
+<td>说明文档</td>
+</tr>
+<tr>
+<td>domains</td>
+<td>增强软件服务子系统集</td>
+</tr>
+<tr>
+<td>drivers</td>
+<td>驱动子系统</td>
+</tr>
+<tr>
+<td>foundation</td>
+<td>系统基础能力子系统集</td>
+</tr>
+<tr>
+<td>kernel</td>
+<td>内核子系统</td>
+</tr>
+<tr>
+<td>prebuilts</td>
+<td>编译器及工具链子系统</td>
+</tr>
+<tr>
+<td>test</td>
+<td>测试子系统</td>
+</tr>
+<tr>
+<td>third_party</td>
+<td>开源第三方组件</td>
+</tr>
+<tr>
+<td>utils</td>
+<td>常用的工具集</td>
+</tr>
+<tr>
+<td>vendor</td>
+<td>厂商提供的软件</td>
+</tr>
+<tr>
+<td>build.py</td>
+<td>编译脚本文件</td>
+</tr>
+</tbody></table>
+
+        
+      </div>
+
+         
+    </div>
+    
+     
+  </div>
+  
+    
+<nav id="article-nav">
+  <a class="article-nav-btn left "
+    
+      href="/2023/10/04/23-%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91/OpenHarmony%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E6%A6%82%E8%BF%B0/"
+      title="OpenHarmony快速入门概述"
+     >
+    <i class="fa-solid fa-angle-left"></i>
+    <p class="title-text">
+      
+        OpenHarmony快速入门概述
+        
+    </p>
+  </a>
+  <a class="article-nav-btn right "
+    
+      href="/2023/10/04/23-%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91/Tabs%E7%BB%84%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/"
+      title="Tabs组件的使用"
+     >
+
+    <p class="title-text">
+      
+        Tabs组件的使用
+        
+    </p>
+    <i class="fa-solid fa-angle-right"></i>
+  </a>
+</nav>
+
+
+  
+</article>
+
+
+  
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <div id="comment-card" class="comment-card">
+    <div class="main-title-bar">
+      <div class="main-title-dot"></div>
+      <div class="main-title">留言 </div>
+    </div>
+    <div id="vcomments"></div>
+  </div>
+  <script>
+      new Valine({"enable":true,"appId":null,"appKey":null,"placeholder":"Just go go","pageSize":20,"highlight":true,"serverURLs":null,"el":"#vcomments"});
+  </script>
+ 
+    </div>
+    <div id="footer-wrapper">
+      <footer id="footer">
+  
+  <div id="footer-info" class="inner">
+    
+      <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris"></a>
+    
+    &copy; 2023 Asimov<br>
+    Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & Theme <a target="_blank" rel="noopener" href="https://github.com/saicaca/hexo-theme-vivia">Vivia</a>
+  </div>
+</footer>
+
+    </div>
+    <div class="back-to-top-wrapper">
+    <button id="back-to-top-btn" class="back-to-top-btn hide" onclick="topFunction()">
+        <i class="fa-solid fa-angle-up"></i>
+    </button>
+</div>
+
+<script>
+    function topFunction() {
+        window.scroll({ top: 0, behavior: 'smooth' });
+    }
+    let btn = document.getElementById('back-to-top-btn');
+    function scrollFunction() {
+        if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+            btn.classList.remove('hide')
+        } else {
+            btn.classList.add('hide')
+        }
+    }
+    window.onscroll = function() {
+        scrollFunction();
+    }
+</script>
+
+  </div>
+  <script src="/js/light-dark-switch.js"></script>
+</body>
+</html>
