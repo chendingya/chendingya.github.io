@@ -171,6 +171,11 @@
                 <div class="category-count">13</div>
             </a>
         
+            <a class="category-link" href="/categories/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91/">
+                服务端开发
+                <div class="category-count">3</div>
+            </a>
+        
             <a class="category-link" href="/categories/tdesign/">
                 tdesign
                 <div class="category-count">1</div>
@@ -179,11 +184,6 @@
             <a class="category-link" href="/categories/openharmony/">
                 openharmony
                 <div class="category-count">12</div>
-            </a>
-        
-            <a class="category-link" href="/categories/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91/">
-                服务端开发
-                <div class="category-count">3</div>
             </a>
         
             <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">
@@ -3638,113 +3638,6 @@ and ...
 
    
 
-<article id="post-22-数据库/SQL-多表查询" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2023/03/18/22-%E6%95%B0%E6%8D%AE%E5%BA%93/SQL-%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/">SQL-多表查询</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2023-03-18T08:02:34.000Z" itemprop="datePublished">2023-03-18</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            1.2k 词 
-          </div>
-        </div>
-        
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li></ul>
-
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <div class="truncate-text">
-            SQL-多表查询多表关系
-一对多
-部门和员工的关系
-实现：在多的一方建立外键，指向一方的主键
-
-
-多对多
-学生和课程的关系
-实现：建立第三张中间表，中间表至少包含两个外键，分别关联两方主键
-
-
-一对一
-用户和用户详情的关系
-在任意一方加入外键，关联另外一方的主键，并设置外键为唯一的UNIQUE
-
-
-
-笛卡尔积m * n
-
-多表查询时需要消除无效的笛卡尔积
-消除方法为：观察多表之间字段的联系，选择相同或有关联的字段，用where条件where a &#x3D; b
-
-多表查询的分类连接查询
-内连接：相当于查询A、B交集
-
-显式内连接
-
-select 字段列表 from 表1 [inner] join 表2 on 连接条件...;
-12345* 隐式内连接：* ```mysql  select 字段列表 from 表1 [别名], 表2 [别名] where 条件...;
-
-
-
-
-外连接：
-
-表1或者表2中含有另一表暂时空缺为null的字段，如果想要查询该字段，需要选择合适的外连接
-
-左外和右外可以通过更改表的顺序相互转变
-
-左外连接：查询左表（表1）所有数据，以及两张表交集数据
-
-...  
-          </div>
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2023/03/18/22-%E6%95%B0%E6%8D%AE%E5%BA%93/SQL-%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
- 
-
-   
-
 <article id="post-22-数据库/SQL-约束" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
    
   <div class="article-inner">
@@ -3860,6 +3753,113 @@ NO ACTION...
     <a class="right-panel  non-pic  "
       
       href="/2023/03/18/22-%E6%95%B0%E6%8D%AE%E5%BA%93/SQL-%E7%BA%A6%E6%9D%9F/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+ 
+
+   
+
+<article id="post-22-数据库/SQL-多表查询" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2023/03/18/22-%E6%95%B0%E6%8D%AE%E5%BA%93/SQL-%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/">SQL-多表查询</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2023-03-18T08:02:34.000Z" itemprop="datePublished">2023-03-18</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            1.2k 词 
+          </div>
+        </div>
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li></ul>
+
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            SQL-多表查询多表关系
+一对多
+部门和员工的关系
+实现：在多的一方建立外键，指向一方的主键
+
+
+多对多
+学生和课程的关系
+实现：建立第三张中间表，中间表至少包含两个外键，分别关联两方主键
+
+
+一对一
+用户和用户详情的关系
+在任意一方加入外键，关联另外一方的主键，并设置外键为唯一的UNIQUE
+
+
+
+笛卡尔积m * n
+
+多表查询时需要消除无效的笛卡尔积
+消除方法为：观察多表之间字段的联系，选择相同或有关联的字段，用where条件where a &#x3D; b
+
+多表查询的分类连接查询
+内连接：相当于查询A、B交集
+
+显式内连接
+
+select 字段列表 from 表1 [inner] join 表2 on 连接条件...;
+12345* 隐式内连接：* ```mysql  select 字段列表 from 表1 [别名], 表2 [别名] where 条件...;
+
+
+
+
+外连接：
+
+表1或者表2中含有另一表暂时空缺为null的字段，如果想要查询该字段，需要选择合适的外连接
+
+左外和右外可以通过更改表的顺序相互转变
+
+左外连接：查询左表（表1）所有数据，以及两张表交集数据
+
+...  
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2023/03/18/22-%E6%95%B0%E6%8D%AE%E5%BA%93/SQL-%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/" 
     >
        
       <i class="fa-solid fa-angle-right non-pic"></i>
@@ -4108,83 +4108,6 @@ B直接使用A；B拥...
 
    
 
-<article id="post-SE-II复习资料/软件工程与计算II重点整理(第20-23章) " class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC20-23%E7%AB%A0)%20/">SE-II-软件工程与计算II重点整理(第20-23章)</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2022-06-20T08:02:34.000Z" itemprop="datePublished">2022-06-20</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">软件工程与计算II</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            3.1k 词 
-          </div>
-        </div>
-        
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/" rel="tag">软件工程与计算II</a></li></ul>
-
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <div class="truncate-text">
-            软件工程与计算II重点整理(第20-23章)1.如何理解软件维护的重要性？（1）由于会出现新的需求，如不维护软件将减小甚至失去服务用户的作用。
-（2）随着软件产品的生命周期越来越长，在软件生存期内外界环境发生变化的可能性越来越大，因此，软件经常需要修改以适应外界环境的改变
-（3）软件产品或多或少的会有缺陷，当缺陷暴露出来时，必须予以及时的解决
-2.开发可维护软件的方法（1）考虑软件的可变性：分析需求易变性、为变更进行设计
-（2）为降低维护困难而开发：
-编写详细的技术文档并保持及时更新、保证代码可读性、维护需求跟踪链、维护回归测试基线
-3.演化式生命周期模型初步开发—演化—服务—逐步淘汰—停止【重要】
-（1）初步开发初始开发阶段按照传统的软件开发方式完成第一个版本的软件产品开发。
-第一版的软件产品可以实现全部需求，也可以（通常是）只包含部分需求
-——对用户来说非常重要和紧急的最高优先级需求。
-（2）演化可能会有预先安排的需求增量，也可能完全是对变更请求的处理，它们的共同点都是保持软件产品的持续增值，让软件产品能够满足用户越来越多的需要，实现更大的业务价值。
-总的来说，该阶段可能的演...  
-          </div>
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC20-23%E7%AB%A0)%20/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
- 
-
-   
-
 <article id="post-SE-II复习资料/软件工程与计算II重点整理(第16-19章)" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
    
   <div class="article-inner">
@@ -4248,6 +4171,83 @@ B直接使用A；B拥...
     <a class="right-panel  non-pic  "
       
       href="/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC16-19%E7%AB%A0)/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+ 
+
+   
+
+<article id="post-SE-II复习资料/软件工程与计算II重点整理(第20-23章) " class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC20-23%E7%AB%A0)%20/">SE-II-软件工程与计算II重点整理(第20-23章)</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2022-06-20T08:02:34.000Z" itemprop="datePublished">2022-06-20</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">软件工程与计算II</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            3.1k 词 
+          </div>
+        </div>
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/" rel="tag">软件工程与计算II</a></li></ul>
+
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            软件工程与计算II重点整理(第20-23章)1.如何理解软件维护的重要性？（1）由于会出现新的需求，如不维护软件将减小甚至失去服务用户的作用。
+（2）随着软件产品的生命周期越来越长，在软件生存期内外界环境发生变化的可能性越来越大，因此，软件经常需要修改以适应外界环境的改变
+（3）软件产品或多或少的会有缺陷，当缺陷暴露出来时，必须予以及时的解决
+2.开发可维护软件的方法（1）考虑软件的可变性：分析需求易变性、为变更进行设计
+（2）为降低维护困难而开发：
+编写详细的技术文档并保持及时更新、保证代码可读性、维护需求跟踪链、维护回归测试基线
+3.演化式生命周期模型初步开发—演化—服务—逐步淘汰—停止【重要】
+（1）初步开发初始开发阶段按照传统的软件开发方式完成第一个版本的软件产品开发。
+第一版的软件产品可以实现全部需求，也可以（通常是）只包含部分需求
+——对用户来说非常重要和紧急的最高优先级需求。
+（2）演化可能会有预先安排的需求增量，也可能完全是对变更请求的处理，它们的共同点都是保持软件产品的持续增值，让软件产品能够满足用户越来越多的需要，实现更大的业务价值。
+总的来说，该阶段可能的演...  
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC20-23%E7%AB%A0)%20/" 
     >
        
       <i class="fa-solid fa-angle-right non-pic"></i>
