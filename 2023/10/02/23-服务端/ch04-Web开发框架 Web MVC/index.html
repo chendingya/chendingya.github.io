@@ -20,20 +20,23 @@
   <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
   <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
-  <meta name="description" content="ch04-Web开发框架 Web MVCSpring MVC model-view-controller  模型（model）：存储内容，指数据、领域类 视图（view）：显示内容 控制器（controller）：处理用户输入   领域类 实例TacoOrder.java 123456789101112131415161718192021222324252627282930313233343536">
+  <meta name="description" content="ch04-Web开发框架 Web MVCSpring MVC👍 model-view-controller  模型（model）：存储内容，指数据、领域类 视图（view）：显示内容 控制器（controller）：处理用户输入   领域类 ModelAttribute @ModelAttribute(name &#x3D; &lt;key&gt;) 1234567  - 注解返回值为&#96;value&#96;- 方">
 <meta property="og:type" content="article">
 <meta property="og:title" content="服务端-ch04-Web开发框架 Web MVC">
 <meta property="og:url" content="https://chendingya.github.io/2023/10/02/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch04-Web%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6%20Web%20MVC/index.html">
 <meta property="og:site_name" content="Asimov&#39;s Blog">
-<meta property="og:description" content="ch04-Web开发框架 Web MVCSpring MVC model-view-controller  模型（model）：存储内容，指数据、领域类 视图（view）：显示内容 控制器（controller）：处理用户输入   领域类 实例TacoOrder.java 123456789101112131415161718192021222324252627282930313233343536">
+<meta property="og:description" content="ch04-Web开发框架 Web MVCSpring MVC👍 model-view-controller  模型（model）：存储内容，指数据、领域类 视图（view）：显示内容 控制器（controller）：处理用户输入   领域类 ModelAttribute @ModelAttribute(name &#x3D; &lt;key&gt;) 1234567  - 注解返回值为&#96;value&#96;- 方">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://chendingya.github.io/2023/10/02/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch04-Web%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6%20Web%20MVC/image-20231001183842428.png">
 <meta property="og:image" content="https://chendingya.github.io/2023/10/02/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch04-Web%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6%20Web%20MVC/image-20231002102832477.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/10/02/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch04-Web%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6%20Web%20MVC/image-20231009131543484.png">
 <meta property="og:image" content="https://chendingya.github.io/2023/10/02/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch04-Web%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6%20Web%20MVC/image-20231002144903310.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/10/02/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch04-Web%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6%20Web%20MVC/image-20231009142037835.png">
 <meta property="og:image" content="https://chendingya.github.io/2023/10/02/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch04-Web%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6%20Web%20MVC/image-20231002163242385.png">
 <meta property="og:image" content="https://chendingya.github.io/2023/10/02/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch04-Web%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6%20Web%20MVC/image-20231002163429476.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/10/02/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch04-Web%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6%20Web%20MVC/image-20231009131203096.png">
 <meta property="article:published_time" content="2023-10-02T02:02:34.000Z">
-<meta property="article:modified_time" content="2023-10-08T23:13:32.366Z">
+<meta property="article:modified_time" content="2024-01-03T07:36:05.302Z">
 <meta property="article:author" content="Asimov">
 <meta property="article:tag" content="服务端开发">
 <meta name="twitter:card" content="summary">
@@ -144,6 +147,8 @@
       <div class="link-list">
         
           <a class="link-btn" target="_blank" rel="noopener" href="https://github.com/chendingya" title="GitHub"><i class="fa-brands fa-github"></i></a>
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://chillcharlie357.github.io/" title="Charlie's Blog"><i class="fa-solid fa-graduation-cap"></i></a>
          
       </div>  
     </div>
@@ -160,13 +165,13 @@
     <div class="widget">
       <h3 class="widget-title">分类</h3>
       <div class="category-box">
-            <a class="category-link" href="/categories/Hexo/">
-                Hexo
+            <a class="category-link" href="/categories/hello-world/">
+                hello world
                 <div class="category-count">1</div>
             </a>
         
-            <a class="category-link" href="/categories/hello-world/">
-                hello world
+            <a class="category-link" href="/categories/Hexo/">
+                Hexo
                 <div class="category-count">1</div>
             </a>
         
@@ -175,19 +180,14 @@
                 <div class="category-count">6</div>
             </a>
         
-            <a class="category-link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
-                编译原理
-                <div class="category-count">13</div>
+            <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">
+                软件工程与计算II
+                <div class="category-count">28</div>
             </a>
         
             <a class="category-link" href="/categories/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91/">
                 服务端开发
-                <div class="category-count">3</div>
-            </a>
-        
-            <a class="category-link" href="/categories/tdesign/">
-                tdesign
-                <div class="category-count">1</div>
+                <div class="category-count">7</div>
             </a>
         
             <a class="category-link" href="/categories/openharmony/">
@@ -195,19 +195,24 @@
                 <div class="category-count">12</div>
             </a>
         
-            <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">
-                软件工程与计算II
-                <div class="category-count">30</div>
+            <a class="category-link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
+                编译原理
+                <div class="category-count">13</div>
             </a>
         
-            <a class="category-link" href="/categories/leetcode/">
-                leetcode
-                <div class="category-count">4</div>
+            <a class="category-link" href="/categories/tdesign/">
+                tdesign
+                <div class="category-count">1</div>
             </a>
         
             <a class="category-link" href="/categories/%E9%A9%BE%E8%80%83/">
                 驾考
                 <div class="category-count">2</div>
+            </a>
+        
+            <a class="category-link" href="/categories/leetcode/">
+                leetcode
+                <div class="category-count">4</div>
             </a>
         </div>
     </div>
@@ -219,7 +224,7 @@
   <div class="widget-wrap">
     <div class="widget">
       <h3 class="widget-title">标签</h3>
-      <ul class="widget-tag-list" itemprop="keywords"><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/hello-world/" rel="tag">hello world</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/openharmony/" rel="tag">openharmony</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/tdesign/" rel="tag">tdesign</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/" rel="tag">位运算</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" rel="tag">动态规划</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8/" rel="tag">双向链表</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/" rel="tag">双指针</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/" rel="tag">哈希表</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%8E%92%E5%BA%8F/" rel="tag">排序</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91/" rel="tag">服务端开发</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" rel="tag">编译原理</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/" rel="tag">软件工程与计算II</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E9%A9%BE%E8%80%83/" rel="tag">驾考</a></li></ul>
+      <ul class="widget-tag-list" itemprop="keywords"><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/hello-world/" rel="tag">hello world</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/openharmony/" rel="tag">openharmony</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/springboot/" rel="tag">springboot</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/tdesign/" rel="tag">tdesign</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/" rel="tag">位运算</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" rel="tag">动态规划</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8/" rel="tag">双向链表</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/" rel="tag">双指针</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/" rel="tag">哈希表</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%8E%92%E5%BA%8F/" rel="tag">排序</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91/" rel="tag">服务端开发</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" rel="tag">编译原理</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/" rel="tag">软件工程与计算II</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E9%A9%BE%E8%80%83/" rel="tag">驾考</a></li></ul>
     </div>
   </div>
 
@@ -231,6 +236,11 @@
       <h3 class="widget-title">归档</h3>
       
       
+        <a class="archive-link" href="/archives/2024/01 ">
+          一月 2024 
+          <div class="archive-count">8 </div>
+        </a>
+      
         <a class="archive-link" href="/archives/2023/11 ">
           十一月 2023 
           <div class="archive-count">1 </div>
@@ -238,7 +248,7 @@
       
         <a class="archive-link" href="/archives/2023/10 ">
           十月 2023 
-          <div class="archive-count">16 </div>
+          <div class="archive-count">20 </div>
         </a>
       
         <a class="archive-link" href="/archives/2023/09 ">
@@ -268,7 +278,7 @@
       
         <a class="archive-link" href="/archives/2022/06 ">
           六月 2022 
-          <div class="archive-count">30 </div>
+          <div class="archive-count">28 </div>
         </a>
       
     </div>
@@ -282,33 +292,33 @@
       <h3 class="widget-title">最新文章</h3>
       <ul>
         
-          <a class="recent-link" href="/2023/11/16/leetcode/leetcode%E5%88%B7%E9%A2%98-19.%E5%9B%9B%E6%95%B0%E4%B9%8B%E5%92%8C/" title="leetcode刷题-19.四数之和" >
+          <a class="recent-link" href="/2024/01/03/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch16-%E5%AE%B9%E5%99%A8%E9%95%9C%E5%83%8F%E6%9E%84%E5%BB%BA%E4%B8%8E%E7%BC%96%E6%8E%92/" title="" >
             <div class="recent-link-text">
-              leetcode刷题-19.四数之和
+              (no title)
             </div>
           </a>
         
-          <a class="recent-link" href="/2023/10/15/leetcode/leetcode%E5%88%B7%E9%A2%98-136%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E6%95%B0%E5%AD%97/" title="leetcode刷题-136、137只出现一次的数字" >
+          <a class="recent-link" href="/2024/01/03/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/" title="" >
             <div class="recent-link-text">
-              leetcode刷题-136、137只出现一次的数字
+              (no title)
             </div>
           </a>
         
-          <a class="recent-link" href="/2023/10/15/leetcode/leetcode%E5%88%B7%E9%A2%98-146.LRU%20%E7%BC%93%E5%AD%98/" title="leetcode刷题-146.LRU 缓存" >
+          <a class="recent-link" href="/2024/01/03/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/" title="" >
             <div class="recent-link-text">
-              leetcode刷题-146.LRU 缓存
+              (no title)
             </div>
           </a>
         
-          <a class="recent-link" href="/2023/10/15/leetcode/leetcode%E5%88%B7%E9%A2%98-198.%E6%89%93%E5%AE%B6%E5%8A%AB%E8%88%8D/" title="leetcode刷题-198.打家劫舍" >
+          <a class="recent-link" href="/2024/01/03/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch13-%E5%8F%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/" title="" >
             <div class="recent-link-text">
-              leetcode刷题-198.打家劫舍
+              (no title)
             </div>
           </a>
         
-          <a class="recent-link" href="/2023/10/04/23-%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91/%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%85%A5%E5%8F%A3%E2%80%94UIAbility%E7%9A%84%E4%BD%BF%E7%94%A8/" title="应用程序入口—UIAbility的使用" >
+          <a class="recent-link" href="/2024/01/03/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch12-Spring%20Integration/" title="" >
             <div class="recent-link-text">
-              应用程序入口—UIAbility的使用
+              (no title)
             </div>
           </a>
         
@@ -355,7 +365,7 @@
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            1.6k 词 
+            2.2k 词 
           </div>
         </div>
         
@@ -364,7 +374,7 @@
       </header>
       <div class="e-content article-entry" itemprop="articleBody">
         
-          <h1 id="ch04-Web开发框架-Web-MVC"><a href="#ch04-Web开发框架-Web-MVC" class="headerlink" title="ch04-Web开发框架 Web MVC"></a>ch04-Web开发框架 Web MVC</h1><h2 id="Spring-MVC"><a href="#Spring-MVC" class="headerlink" title="Spring MVC"></a>Spring MVC</h2><ul>
+          <h1 id="ch04-Web开发框架-Web-MVC"><a href="#ch04-Web开发框架-Web-MVC" class="headerlink" title="ch04-Web开发框架 Web MVC"></a>ch04-Web开发框架 Web MVC</h1><h2 id="Spring-MVC👍"><a href="#Spring-MVC👍" class="headerlink" title="Spring MVC👍"></a>Spring MVC👍</h2><ul>
 <li>model-view-controller </li>
 <li>模型（model）：存储内容，指数据、领域类</li>
 <li>视图（view）：显示内容</li>
@@ -372,9 +382,27 @@
 </ul>
 <p><img src="/2023/10/02/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch04-Web%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6%20Web%20MVC/image-20231001183842428.png" alt="image-20231001183842428"></p>
 <h3 id="领域类"><a href="#领域类" class="headerlink" title="领域类"></a>领域类</h3><p><img src="/2023/10/02/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch04-Web%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6%20Web%20MVC/image-20231002102832477.png" alt="image-20231002102832477"></p>
-<h2 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h2><p>TacoOrder.java</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> tacos;</span><br><span class="line"><span class="keyword">import</span> javax.validation.constraints.Digits;</span><br><span class="line"><span class="keyword">import</span> javax.validation.constraints.NotBlank;</span><br><span class="line"><span class="keyword">import</span> javax.validation.constraints.Pattern;</span><br><span class="line"><span class="keyword">import</span> org.hibernate.validator.constraints.CreditCardNumber;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> lombok.Data;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">TacoOrder</span> &#123;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@NotBlank(message=&quot;Delivery name is required&quot;)</span></span><br><span class="line">  <span class="keyword">private</span> String deliveryName;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@NotBlank(message=&quot;Street is required&quot;)</span></span><br><span class="line">  <span class="keyword">private</span> String deliveryStreet;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@NotBlank(message=&quot;City is required&quot;)</span></span><br><span class="line">  <span class="keyword">private</span> String deliveryCity;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@NotBlank(message=&quot;State is required&quot;)</span></span><br><span class="line">  <span class="keyword">private</span> String deliveryState;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@NotBlank(message=&quot;Zip code is required&quot;)</span></span><br><span class="line">  <span class="keyword">private</span> String deliveryZip;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@CreditCardNumber(message=&quot;Not a valid credit card number&quot;)</span></span><br><span class="line">  <span class="keyword">private</span> String ccNumber;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Pattern(regexp=&quot;^(0[1-9]|1[0-2])([\\/])([2-9][0-9])$&quot;,</span></span><br><span class="line"><span class="meta">           message=&quot;Must be formatted MM/YY&quot;)</span></span><br><span class="line">  <span class="keyword">private</span> String ccExpiration;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Digits(integer=3, fraction=0, message=&quot;Invalid CVV&quot;)</span></span><br><span class="line">  <span class="keyword">private</span> String ccCVV;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> List&lt;Taco&gt; tacos = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">addTaco</span><span class="params">(Taco taco)</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>.tacos.add(taco);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
+<h2 id="ModelAttribute"><a href="#ModelAttribute" class="headerlink" title="ModelAttribute"></a>ModelAttribute</h2><ul>
+<li><pre><code>@ModelAttribute(name = &lt;key&gt;)
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  - 注解返回值为`value`</span><br><span class="line"></span><br><span class="line">- 方法被Spring自动调用</span><br><span class="line"></span><br><span class="line">### 方法级别</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+@ModelAttribute(&quot;attributeName&quot;)
+public SomeObject methodName() &#123;
+  // 创建并返回 SomeObject 对象
+&#125;
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">方法的返回值将被添加到模型中，并使用指定的属性名作为key。在控制器处理请求之前，该方法会先被调用。</span><br><span class="line"></span><br><span class="line">### 参数级别</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+@GetMapping(&quot;/path&quot;)
+public String methodName(@ModelAttribute(&quot;attributeName&quot;) SomeObject object) &#123;
+  // 处理请求
+&#125;
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">在这种写法中，`@ModelAttribute`注解标记在方法的参数上，指定了要从模型中获取的属性的名称。参数将被自动绑定到模型中的相应属性，以便在方法内部使用。</span><br><span class="line"></span><br><span class="line">### 默认命名规则</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+@GetMapping(&quot;/path&quot;)
+public String methodName(@ModelAttribute SomeObject object) &#123;
+  // 处理请求
+&#125;
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">如果没有指定`@ModelAttribute`注解的属性名称，Spring MVC会根据参数类型自动推断属性名称，并将其添加到模型中。</span><br><span class="line">在上面的示例中，`SomeObject`类型的参数将使用类名的首字母小写作为属性名称。</span><br><span class="line"></span><br><span class="line">## 实例</span><br><span class="line"></span><br><span class="line">TacoOrder.java</span><br><span class="line"></span><br><span class="line">```java</span><br><span class="line">package tacos;</span><br><span class="line">import javax.validation.constraints.Digits;</span><br><span class="line">import javax.validation.constraints.NotBlank;</span><br><span class="line">import javax.validation.constraints.Pattern;</span><br><span class="line">import org.hibernate.validator.constraints.CreditCardNumber;</span><br><span class="line">import java.util.List;</span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import lombok.Data;</span><br><span class="line"></span><br><span class="line">@Data</span><br><span class="line">public class TacoOrder &#123;</span><br><span class="line"></span><br><span class="line">  @NotBlank(message=&quot;Delivery name is required&quot;)</span><br><span class="line">  private String deliveryName;</span><br><span class="line"></span><br><span class="line">  @NotBlank(message=&quot;Street is required&quot;)</span><br><span class="line">  private String deliveryStreet;</span><br><span class="line"></span><br><span class="line">  @NotBlank(message=&quot;City is required&quot;)</span><br><span class="line">  private String deliveryCity;</span><br><span class="line"></span><br><span class="line">  @NotBlank(message=&quot;State is required&quot;)</span><br><span class="line">  private String deliveryState;</span><br><span class="line"></span><br><span class="line">  @NotBlank(message=&quot;Zip code is required&quot;)</span><br><span class="line">  private String deliveryZip;</span><br><span class="line"></span><br><span class="line">  @CreditCardNumber(message=&quot;Not a valid credit card number&quot;)</span><br><span class="line">  private String ccNumber;</span><br><span class="line"></span><br><span class="line">  @Pattern(regexp=&quot;^(0[1-9]|1[0-2])([\\/])([2-9][0-9])$&quot;,</span><br><span class="line">           message=&quot;Must be formatted MM/YY&quot;)</span><br><span class="line">  private String ccExpiration;</span><br><span class="line"></span><br><span class="line">  @Digits(integer=3, fraction=0, message=&quot;Invalid CVV&quot;)</span><br><span class="line">  private String ccCVV;</span><br><span class="line"></span><br><span class="line">  private List&lt;Taco&gt; tacos = new ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">  public void addTaco(Taco taco) &#123;</span><br><span class="line">    this.tacos.add(taco);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ul>
 <p>Taco.java</p>
 <ul>
 <li>@NotNull<br>@Size(min&#x3D;5, message&#x3D;”Name must be at least 5 characters long”)：表单规范not null</li>
@@ -389,9 +417,17 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> tacos;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> lombok.Data;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Ingredient</span> &#123;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">final</span> String id;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">final</span> String name;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">final</span> Type type;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">enum</span> <span class="title class_">Type</span> &#123;</span><br><span class="line">    WRAP, PROTEIN, VEGGIES, CHEESE, SAUCE</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="控制器的实现DesignTacoController"><a href="#控制器的实现DesignTacoController" class="headerlink" title="控制器的实现DesignTacoController"></a>控制器的实现DesignTacoController</h2><ul>
-<li>@RequestMapping(“&#x2F;design”) “ ：请求的映射，控制器可以处理以design为前缀的url，如design&#x2F;a</li>
-<li>@Controller：@Component类似，请求spring实例化该类</li>
-<li>@GetMapping：处理浏览器发出的get请求<ul>
+<li><p>@Slf4j：<strong>lombok的注解</strong>，log对象创建的简化</p>
+<ul>
+<li><img src="/2023/10/02/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch04-Web%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6%20Web%20MVC/image-20231009131543484.png" alt="image-20231009131543484"></li>
+</ul>
+</li>
+<li><p>@RequestMapping(“&#x2F;design”) “ ：请求的映射，控制器可以处理以design为前缀的url，如design&#x2F;a</p>
+</li>
+<li><p>@Controller：@Component类似，请求spring实例化该类</p>
+</li>
+<li><p>@GetMapping：处理浏览器发出的get请求</p>
+<ul>
 <li>return design：逻辑视图名，自动匹配真正的视图名，在resource下templates找一个叫design.html的视图，然后渲染视图，<strong>需要添加依赖</strong></li>
 </ul>
 </li>
@@ -427,7 +463,10 @@
 <h2 id="处理表单提交"><a href="#处理表单提交" class="headerlink" title="处理表单提交"></a>处理表单提交</h2><ul>
 <li>Converter </li>
 <li>✓ 将String转换成Ingredient</li>
-<li>redirect重定向</li>
+<li>redirect重定向<ul>
+<li><img src="/2023/10/02/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch04-Web%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6%20Web%20MVC/image-20231009142037835.png" alt="image-20231009142037835"></li>
+</ul>
+</li>
 </ul>
 <h3 id="toco的转化器converter"><a href="#toco的转化器converter" class="headerlink" title="toco的转化器converter"></a>toco的转化器converter</h3><ul>
 <li>key为id，value为ingredient</li>
@@ -439,17 +478,52 @@
 <h3 id="路径参数-PathVariable"><a href="#路径参数-PathVariable" class="headerlink" title="路径参数@PathVariable"></a>路径参数@PathVariable</h3><p><img src="/2023/10/02/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch04-Web%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6%20Web%20MVC/image-20231002163242385.png" alt="image-20231002163242385"></p>
 <h3 id="请求参数-查询参数-RequestParam"><a href="#请求参数-查询参数-RequestParam" class="headerlink" title="请求参数(查询参数)@RequestParam"></a>请求参数(查询参数)@RequestParam</h3><p><img src="/2023/10/02/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch04-Web%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6%20Web%20MVC/image-20231002163429476.png" alt="image-20231002163429476"></p>
 <p>表单参数，默认，对应model，可以使用@Valid校验<br>json请求体，@RequestBody</p>
-<h2 id="Spring-MVC的请求映射注解"><a href="#Spring-MVC的请求映射注解" class="headerlink" title="Spring MVC的请求映射注解"></a>Spring MVC的请求映射注解</h2><p>@RequestMapping </p>
+<h2 id="Spring-MVC获取参数的几种方式👍"><a href="#Spring-MVC获取参数的几种方式👍" class="headerlink" title="Spring MVC获取参数的几种方式👍"></a>Spring MVC获取参数的几种方式👍</h2><ul>
+<li>表单 (form)参数，转成model (成员类型可能会用到Converter进行类型转换)，可以使用@Valid校验</li>
+<li>路径参数，@PathVariable，例子:&#x2F;book&#x2F;{id}</li>
+<li>请求参数(查询参数)，@RequestParam，例子: &#x2F;challenge?mode&#x3D;2&amp;id&#x3D;13412431234</li>
+<li>json请求体，@RequestBody，会用到HttpMessageConverter消息转换器，Rest API<ul>
+<li>HttpMessageConverter：json与java对象互转</li>
+</ul>
+</li>
+</ul>
+<h2 id="Spring-MVC的请求处理过程👍"><a href="#Spring-MVC的请求处理过程👍" class="headerlink" title="Spring MVC的请求处理过程👍"></a>Spring MVC的请求处理过程👍</h2><p><img src="/2023/10/02/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch04-Web%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6%20Web%20MVC/image-20231009131203096.png" alt="image-20231009131203096"></p>
+<ul>
+<li>Web容器开发的基本单元是Servlet，请求先到servlet。</li>
+<li>mapping根据url把请求转到controller，其中spring框架会做参数解析。</li>
+<li>controller接受请求，数据解析，拿到数据后转到业务层</li>
+<li>业务层：处理，数据持久化，访问数据库层</li>
+<li>数据库层：数据库访问层Dao，分关系型数据库和非关系型数据库，返回控制器层</li>
+<li>控制器层返回数据到DispatcherServlt，DispatcherServlt拿到数据和逻辑视图名</li>
+<li>逻辑视图名与特定的页面渲染的第三方库，渲染视图，返回浏览器端</li>
+<li>DispatcherServlt：spring自己实现的，用途就是截获request</li>
+</ul>
+<h2 id="Spring-MVC的请求映射注解👍"><a href="#Spring-MVC的请求映射注解👍" class="headerlink" title="Spring MVC的请求映射注解👍"></a>Spring MVC的请求映射注解👍</h2><p>@RequestMapping </p>
 <p>@GetMapping ：获取</p>
 <p>@PostMapping ：提交数据、创建新资源</p>
 <p>@PutMapping ：更新资源</p>
 <p>@DeleteMapping ：删除资源 	</p>
 <p>@PatchMapping</p>
-<h2 id="Servlet规范"><a href="#Servlet规范" class="headerlink" title="Servlet规范"></a>Servlet规范</h2><p>tomcat</p>
-<p>jetty</p>
-<p>叫做web容器&#x2F;web服务器</p>
-<p>放servlet对象（java类，处理请求的最小单位）</p>
-<p>Request（可以带很多property属性，key-value数据结构）</p>
+<h2 id="重定向👍"><a href="#重定向👍" class="headerlink" title="重定向👍"></a>重定向👍</h2><p>控制器处理完成后可以返回逻辑视图名，也可以重定向到其他url</p>
+<ul>
+<li>http状态码：302</li>
+<li>控制器<code>return redirect:</code></li>
+</ul>
+<h2 id="Servlet规范"><a href="#Servlet规范" class="headerlink" title="Servlet规范"></a>Servlet规范</h2><ul>
+<li>实现<ul>
+<li>tomcat</li>
+<li>jetty</li>
+</ul>
+</li>
+<li>最小开发单元</li>
+</ul>
+<ul>
+<li>Web容器的实现规范，与Spring无关<ul>
+<li>Web容器&#x2F;服务器，里面放Servlet对象</li>
+</ul>
+</li>
+</ul>
+<h3 id="Servlet对象"><a href="#Servlet对象" class="headerlink" title="Servlet对象"></a>Servlet对象</h3><p>Request（可以带很多property属性，key-value数据结构）</p>
 <p>Response</p>
 <h2 id="校验表单输入"><a href="#校验表单输入" class="headerlink" title="校验表单输入"></a>校验表单输入</h2><ul>
 <li>JavaBean Validation API</li>
@@ -464,6 +538,13 @@
 
 
 
+<h2 id="更多视图模板库"><a href="#更多视图模板库" class="headerlink" title="更多视图模板库"></a>更多视图模板库</h2><p>Thymeleaf<br>FreeMarker<br>Groovy Templates<br>JSP<br>Mustache</p>
+<h2 id="使用视图控制器（View-Controller）"><a href="#使用视图控制器（View-Controller）" class="headerlink" title="使用视图控制器（View Controller）"></a>使用视图控制器（View Controller）</h2><ul>
+<li>如果一个控制器非常简单，不需要填充模型或处理输入</li>
+<li>接口WebMvcConfigurer，用于配置</li>
+<li>简单的从请求URL到视图 ✓ registry.addViewController(“&#x2F;“).setViewName(“home”); &#x2F;&#x2F;GET请求 </li>
+<li>接口WebMvcConfigurer也可实现到启动类中</li>
+</ul>
 
         
       </div>
@@ -529,7 +610,7 @@
     
       <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris"></a>
     
-    &copy; 2023 Asimov<br>
+    &copy; 2024 Asimov<br>
     Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & Theme <a target="_blank" rel="noopener" href="https://github.com/saicaca/hexo-theme-vivia">Vivia</a>
   </div>
 </footer>

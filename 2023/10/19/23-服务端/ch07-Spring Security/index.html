@@ -1,0 +1,824 @@
+<!DOCTYPE html>
+
+
+<html theme="dark" showBanner="true" hasBanner="true" > 
+<link href="/fontawesome/css/fontawesome.css" rel="stylesheet">
+<link href="/fontawesome/css/brands.css" rel="stylesheet">
+<link href="/fontawesome/css/solid.css" rel="stylesheet">
+<script src="/js/color.global.min.js" ></script>
+<script src="/js/load-settings.js" ></script>
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+
+  
+  <title>服务端-ch07-Spring Security | Asimov&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+  <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+
+  <meta name="description" content="本文部分内容参考6-Spring Security - Charlie’s Blog (chillcharlie357.github.io)  划分为两类： 针对客户web请求权限控制 针对方法级的权限控制 针对业务层代码 调用前控制，调用后控制 例：对数据库delete操作做权限控制     在spring中使用：添加依赖spring-boot-starter-security后会自动加载安全相">
+<meta property="og:type" content="article">
+<meta property="og:title" content="服务端-ch07-Spring Security">
+<meta property="og:url" content="https://chendingya.github.io/2023/10/19/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch07-Spring%20Security/index.html">
+<meta property="og:site_name" content="Asimov&#39;s Blog">
+<meta property="og:description" content="本文部分内容参考6-Spring Security - Charlie’s Blog (chillcharlie357.github.io)  划分为两类： 针对客户web请求权限控制 针对方法级的权限控制 针对业务层代码 调用前控制，调用后控制 例：对数据库delete操作做权限控制     在spring中使用：添加依赖spring-boot-starter-security后会自动加载安全相">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://chendingya.github.io/2023/10/19/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch07-Spring%20Security/image-20231021101814154.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/10/19/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch07-Spring%20Security/image-20231021102857267.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/10/19/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch07-Spring%20Security/image-20231020204541469.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/10/19/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch07-Spring%20Security/image-20231029113830536.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/10/19/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch07-Spring%20Security/image-20231021155148002.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/10/19/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch07-Spring%20Security/image-20231021190633439.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/10/19/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch07-Spring%20Security/image-20231021190543766.png">
+<meta property="article:published_time" content="2023-10-19T10:32:34.000Z">
+<meta property="article:modified_time" content="2024-01-03T08:39:15.597Z">
+<meta property="article:author" content="Asimov">
+<meta property="article:tag" content="服务端开发">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://chendingya.github.io/2023/10/19/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch07-Spring%20Security/image-20231021101814154.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Asimov's Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-192.png" sizes="192x192">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-192.png" sizes="192x192">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  
+  
+    
+<div id="banner" class="">
+  <img src="/pic/back.png" itemprop="image">
+  <div id="banner-dim"></div>
+</div>
+ 
+   
+  <div id="main-grid" class="shadow   ">
+    <div id="nav" class=""  >
+      <navbar id="navbar">
+  <nav id="title-nav">
+    <a href="/">
+      <div id="vivia-logo">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div>Asimov's Blog </div>
+    </a>
+  </nav>
+  <nav id="main-nav">
+    
+      <a class="main-nav-link" href="/">Home</a>
+    
+      <a class="main-nav-link" href="/archives">Archives</a>
+    
+      <a class="main-nav-link" href="/about">About</a>
+    
+  </nav>
+  <nav id="sub-nav">
+    <a id="theme-btn" class="nav-icon">
+      <span class="light-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M438.5-829.913v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-829.913Zm0 747.826v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-82.087ZM877.913-438.5h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537t29.476-12.174h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T877.913-438.5Zm-747.826 0h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T82.087-521.5h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T130.087-438.5Zm660.174-290.87-34.239 32q-12.913 12.674-29.565 12.174-16.653-.5-29.327-13.174-12.674-12.673-12.554-28.826.12-16.152 12.794-28.826l33-35q12.913-12.674 30.454-12.674t30.163 12.847q12.709 12.846 12.328 30.826-.38 17.98-13.054 30.653ZM262.63-203.978l-32 34q-12.913 12.674-30.454 12.674t-30.163-12.847q-12.709-12.846-12.328-30.826.38-17.98 13.054-30.653l33.239-31q12.913-12.674 29.565-12.174 16.653.5 29.327 13.174 12.674 12.673 12.554 28.826-.12 16.152-12.794 28.826Zm466.74 33.239-32-33.239q-12.674-12.913-12.174-29.565.5-16.653 13.174-29.327 12.673-12.674 28.826-13.054 16.152-.38 28.826 12.294l35 33q12.674 12.913 12.674 30.454t-12.847 30.163q-12.846 12.709-30.826 12.328-17.98-.38-30.653-13.054ZM203.978-697.37l-34-33q-12.674-12.913-13.174-29.945-.5-17.033 12.174-29.707t31.326-13.293q18.653-.62 31.326 13.054l32 34.239q11.674 12.913 11.174 29.565-.5 16.653-13.174 29.327-12.673 12.674-28.826 12.554-16.152-.12-28.826-12.794ZM480-240q-100 0-170-70t-70-170q0-100 70-170t170-70q100 0 170 70t70 170q0 100-70 170t-170 70Zm-.247-82q65.703 0 111.475-46.272Q637-414.544 637-480.247t-45.525-111.228Q545.95-637 480.247-637t-111.475 45.525Q323-545.95 323-480.247t45.525 111.975Q414.05-322 479.753-322ZM481-481Z"/></svg></span>
+      <span class="dark-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M480.239-116.413q-152.63 0-258.228-105.478Q116.413-327.37 116.413-480q0-130.935 77.739-227.435t206.304-125.043q43.022-9.631 63.87 10.869t3.478 62.805q-8.891 22.043-14.315 44.463-5.424 22.42-5.424 46.689 0 91.694 64.326 155.879 64.325 64.186 156.218 64.186 24.369 0 46.978-4.946 22.609-4.945 44.413-14.076 42.826-17.369 62.967 1.142 20.142 18.511 10.511 61.054Q807.174-280 712.63-198.206q-94.543 81.793-232.391 81.793Zm0-95q79.783 0 143.337-40.217 63.554-40.218 95.793-108.283-15.608 4.044-31.097 5.326-15.49 1.283-31.859.805-123.706-4.066-210.777-90.539-87.071-86.473-91.614-212.092-.24-16.369.923-31.978 1.164-15.609 5.446-30.978-67.826 32.478-108.282 96.152Q211.652-559.543 211.652-480q0 111.929 78.329 190.258 78.329 78.329 190.258 78.329ZM466.13-465.891Z"/></svg></span>
+    </a>
+    
+      <a id="nav-rss-link" class="nav-icon mobile-hide" href="/atom.xml" title="RSS 订阅">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-120q-25.846 0-44.23-18.384-18.384-18.385-18.384-44.23 0-25.846 18.384-44.23 18.384-18.385 44.23-18.385 25.846 0 44.23 18.385 18.384 18.384 18.384 44.23 0 25.845-18.384 44.23Q223.846-120 198-120Zm538.385 0q-18.846 0-32.923-13.769-14.076-13.769-15.922-33.23-8.692-100.616-51.077-188.654-42.385-88.039-109.885-155.539-67.5-67.501-155.539-109.885Q283-663.462 182.385-672.154q-19.461-1.846-33.23-16.23-13.769-14.385-13.769-33.846t14.076-32.922q14.077-13.461 32.923-12.23 120.076 8.692 226.038 58.768 105.961 50.077 185.73 129.846 79.769 79.769 129.846 185.731 50.077 105.961 58.769 226.038 1.231 18.846-12.538 32.922Q756.461-120 736.385-120Zm-252 0q-18.231 0-32.423-13.461t-18.653-33.538Q418.155-264.23 348.886-333.5q-69.27-69.27-166.501-84.423-20.077-4.462-33.538-18.961-13.461-14.5-13.461-33.346 0-19.076 13.884-33.23 13.884-14.153 33.115-10.922 136.769 15.384 234.384 112.999 97.615 97.615 112.999 234.384 3.231 19.23-10.538 33.115Q505.461-120 484.385-120Z"/></svg>
+      </a>
+    
+    <div id="nav-menu-btn" class="nav-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M177.37-252.282q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Zm0-186.218q-17.453 0-29.477-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T177.37-521.5h605.26q17.453 0 29.477 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T782.63-438.5H177.37Zm0-186.217q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Z"/></svg>
+    </div>
+  </nav>
+</navbar>
+<div id="nav-dropdown" class="hidden">
+  <div id="dropdown-link-list">
+    
+      <a class="nav-dropdown-link" href="/">Home</a>
+    
+      <a class="nav-dropdown-link" href="/archives">Archives</a>
+    
+      <a class="nav-dropdown-link" href="/about">About</a>
+    
+    
+      <a class="nav-dropdown-link" href="/atom.xml" title="RSS 订阅">RSS</a>
+     
+    </div>
+</div>
+<script>
+  let dropdownBtn = document.getElementById("nav-menu-btn");
+  let dropdownEle = document.getElementById("nav-dropdown");
+  dropdownBtn.onclick = function() {
+    dropdownEle.classList.toggle("hidden");
+  }
+</script>
+    </div>
+    <div id="sidebar-wrapper">
+      <sidebar id="sidebar">
+  
+    <div class="widget-wrap">
+  <div class="info-card">
+    <div class="avatar">
+      
+        <image src=/pic/avatar.png></image>
+      
+      <div class="img-dim"></div>
+    </div>
+    <div class="info">
+      <div class="username">Asimov </div>
+      <div class="dot"></div>
+      <div class="subtitle">Asimov's Blog </div>
+      <div class="link-list">
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://github.com/chendingya" title="GitHub"><i class="fa-brands fa-github"></i></a>
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://chillcharlie357.github.io/" title="Charlie's Blog"><i class="fa-solid fa-graduation-cap"></i></a>
+         
+      </div>  
+    </div>
+  </div>
+</div>
+
+  
+  <div class="sticky">
+    
+      
+
+
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">分类</h3>
+      <div class="category-box">
+            <a class="category-link" href="/categories/hello-world/">
+                hello world
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/Hexo/">
+                Hexo
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                数据库
+                <div class="category-count">6</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">
+                软件工程与计算II
+                <div class="category-count">28</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91/">
+                服务端开发
+                <div class="category-count">7</div>
+            </a>
+        
+            <a class="category-link" href="/categories/openharmony/">
+                openharmony
+                <div class="category-count">12</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
+                编译原理
+                <div class="category-count">13</div>
+            </a>
+        
+            <a class="category-link" href="/categories/tdesign/">
+                tdesign
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E9%A9%BE%E8%80%83/">
+                驾考
+                <div class="category-count">2</div>
+            </a>
+        
+            <a class="category-link" href="/categories/leetcode/">
+                leetcode
+                <div class="category-count">4</div>
+            </a>
+        </div>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">标签</h3>
+      <ul class="widget-tag-list" itemprop="keywords"><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/hello-world/" rel="tag">hello world</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/openharmony/" rel="tag">openharmony</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/springboot/" rel="tag">springboot</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/tdesign/" rel="tag">tdesign</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/" rel="tag">位运算</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" rel="tag">动态规划</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8/" rel="tag">双向链表</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/" rel="tag">双指针</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/" rel="tag">哈希表</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%8E%92%E5%BA%8F/" rel="tag">排序</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91/" rel="tag">服务端开发</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" rel="tag">编译原理</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/" rel="tag">软件工程与计算II</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E9%A9%BE%E8%80%83/" rel="tag">驾考</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">归档</h3>
+      
+      
+        <a class="archive-link" href="/archives/2024/01 ">
+          一月 2024 
+          <div class="archive-count">8 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/11 ">
+          十一月 2023 
+          <div class="archive-count">1 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/10 ">
+          十月 2023 
+          <div class="archive-count">20 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/09 ">
+          九月 2023 
+          <div class="archive-count">4 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/07 ">
+          七月 2023 
+          <div class="archive-count">2 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/04 ">
+          四月 2023 
+          <div class="archive-count">10 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/03 ">
+          三月 2023 
+          <div class="archive-count">9 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2022/10 ">
+          十月 2022 
+          <div class="archive-count">1 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2022/06 ">
+          六月 2022 
+          <div class="archive-count">28 </div>
+        </a>
+      
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">最新文章</h3>
+      <ul>
+        
+          <a class="recent-link" href="/2024/01/03/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch16-%E5%AE%B9%E5%99%A8%E9%95%9C%E5%83%8F%E6%9E%84%E5%BB%BA%E4%B8%8E%E7%BC%96%E6%8E%92/" title="" >
+            <div class="recent-link-text">
+              (no title)
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2024/01/03/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/" title="" >
+            <div class="recent-link-text">
+              (no title)
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2024/01/03/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/" title="" >
+            <div class="recent-link-text">
+              (no title)
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2024/01/03/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch13-%E5%8F%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/" title="" >
+            <div class="recent-link-text">
+              (no title)
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2024/01/03/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch12-Spring%20Integration/" title="" >
+            <div class="recent-link-text">
+              (no title)
+            </div>
+          </a>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+  </div>
+</sidebar>
+    </div>
+    <div id="content-body">
+       
+
+<article id="post-23-服务端/ch07-Spring Security" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 class="p-name article-title" itemprop="headline name">
+        服务端-ch07-Spring Security
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2023-10-19T10:32:34.000Z" itemprop="datePublished">2023-10-19</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91/">服务端开发</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            2.5k 词 
+          </div>
+        </div>
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91/" rel="tag">服务端开发</a></li></ul>
+
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <p>本文部分内容参考<a target="_blank" rel="noopener" href="https://chillcharlie357.github.io/posts/b9233e24/">6-Spring Security - Charlie’s Blog (chillcharlie357.github.io)</a></p>
+<ul>
+<li>划分为两类：<ol>
+<li>针对客户web请求权限控制</li>
+<li>针对方法级的权限控制<ul>
+<li>针对业务层代码</li>
+<li>调用前控制，调用后控制</li>
+<li>例：对数据库delete操作做权限控制</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>在spring中使用：添加依赖<code>spring-boot-starter-security</code>后会自动加载安全相关的bean</li>
+</ul>
+<h1 id="添加依赖"><a href="#添加依赖" class="headerlink" title="添加依赖"></a>添加依赖</h1><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-security<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h1 id="加了security-starter后自动获得登录界面"><a href="#加了security-starter后自动获得登录界面" class="headerlink" title="加了security starter后自动获得登录界面"></a>加了security starter后自动获得登录界面</h1><ul>
+<li>用户名：user </li>
+<li>密码查看日志：Using generated security  password: cb81f1d1-c11e-4b0a-b728- 92d591ffa9c5</li>
+</ul>
+<h1 id="Cookie访问会话的维持"><a href="#Cookie访问会话的维持" class="headerlink" title="Cookie访问会话的维持"></a>Cookie访问会话的维持</h1><p>访问一开始的design页面会获得一个http状态码302，重定向到login页面</p>
+<p>登录完成以后，服务端返回一个set cookie的属性，里面有JSESSIONID，以后的每次请求都会带上这个id，作为请求头发送到服务端，服务端就知道每次的请求来自哪个</p>
+<p><img src="/2023/10/19/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch07-Spring%20Security/image-20231021101814154.png" alt="image-20231021101814154"></p>
+<p><img src="/2023/10/19/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch07-Spring%20Security/image-20231021102857267.png" alt="image-20231021102857267"></p>
+<h1 id="开发要做什么"><a href="#开发要做什么" class="headerlink" title="开发要做什么"></a>开发要做什么</h1><blockquote>
+<p>除了框架提供的，开发人员还需要做什么，很重要</p>
+</blockquote>
+<ol>
+<li>实现接口<ul>
+<li><code>UserDetailsService</code>接口：给Spring框架提供用户详细信息。用户信息注册存储，需要用到用户信息的时候从数据访问层获取<ul>
+<li>这里用到之前讲到数据访问层实现技术。</li>
+<li>和spring security解耦，只需要提供用户信息但不关心怎么实现。</li>
+</ul>
+</li>
+<li>被Spring Security调用</li>
+</ul>
+</li>
+<li>实现密码加密&#x2F;解密对象<ul>
+<li>PasswordEncoder</li>
+<li>Bean对象</li>
+</ul>
+</li>
+<li>(optional)实现登录页面<ul>
+<li>有默认页面</li>
+<li><code>/login</code>, Spring已经自动实现了对应的<code>Controller</code></li>
+</ul>
+</li>
+<li>权限设定<ol>
+<li><code>SecurityFilterChain</code>，基于注入的<code>httpSecurity</code>对象</li>
+<li>继承父类<code>WebSecurityConfigurerAdapter</code>，实现<code>configure</code>方法</li>
+</ol>
+</li>
+</ol>
+<p><img src="/2023/10/19/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch07-Spring%20Security/image-20231020204541469.png" alt="image-20231020204541469"></p>
+<p><img src="/2023/10/19/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch07-Spring%20Security/image-20231029113830536.png" alt="image-20231029113830536"></p>
+<h1 id="框架实现了什么"><a href="#框架实现了什么" class="headerlink" title="框架实现了什么"></a>框架实现了什么</h1><ol>
+<li>实现用户登录控制器get post</li>
+<li>请求重定向到用户登录页面<ul>
+<li>eg.用户未登录时，访问URL，服务端重定向到登录页面</li>
+</ul>
+</li>
+<li>通过Filter对用户设定的权限进行权限控制</li>
+</ol>
+<h1 id="两种配置"><a href="#两种配置" class="headerlink" title="两种配置"></a>两种配置</h1><ul>
+<li><p>纯Java配置类 </p>
+<p>@Configuration public class SecurityConfig { }</p>
+<p><strong>SecurityFilterChain ：直接从上下文注入，然后不用实现，可以在里面对web请求做权限控制authorizeRequests&#x2F;替换login页面</strong></p>
+</li>
+<li><p>继承自WebSecurityConfigurerAdapter</p>
+</li>
+</ul>
+<p>  @Configuration public class SecurityConfig extends WebSecurityConfigurerAdapter {</p>
+<h2 id="第一种"><a href="#第一种" class="headerlink" title="第一种"></a>第一种</h2><p>security config</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> tacos.security;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Bean;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"><span class="keyword">import</span> org.springframework.security.config.annotation.web.builders.HttpSecurity;</span><br><span class="line"><span class="keyword">import</span> org.springframework.security.core.authority.SimpleGrantedAuthority;</span><br><span class="line"><span class="keyword">import</span> org.springframework.security.core.userdetails.UserDetails;</span><br><span class="line"><span class="keyword">import</span> org.springframework.security.core.userdetails.UserDetailsService;</span><br><span class="line"><span class="keyword">import</span> org.springframework.security.core.userdetails.UsernameNotFoundException;</span><br><span class="line"><span class="keyword">import</span> org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;</span><br><span class="line"><span class="keyword">import</span> org.springframework.security.crypto.password.PasswordEncoder;</span><br><span class="line"><span class="keyword">import</span> org.springframework.security.provisioning.InMemoryUserDetailsManager;</span><br><span class="line"><span class="keyword">import</span> org.springframework.security.web.SecurityFilterChain;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> tacos.User;</span><br><span class="line"><span class="keyword">import</span> tacos.data.UserRepository;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SecurityConfig</span> &#123;</span><br><span class="line">  </span><br><span class="line">  <span class="meta">@Bean</span></span><br><span class="line">  <span class="keyword">public</span> PasswordEncoder <span class="title function_">passwordEncoder</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">BCryptPasswordEncoder</span>();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//  @Bean</span></span><br><span class="line"><span class="comment">//  public UserDetailsService userDetailsService(PasswordEncoder encoder) &#123;</span></span><br><span class="line"><span class="comment">//    List&lt;UserDetails&gt; usersList = new ArrayList&lt;&gt;();</span></span><br><span class="line"><span class="comment">//    usersList.add(new User(&quot;buzz&quot;,encoder.encode(&quot;infinity&quot;),Arrays.asList(new SimpleGrantedAuthority(&quot;ROLE_USER&quot;))));</span></span><br><span class="line"><span class="comment">//    usersList.add(new User(&quot;woody&quot;,encoder.encode(&quot;bullseye&quot;),Arrays.asList(new SimpleGrantedAuthority(&quot;ROLE_USER&quot;))));</span></span><br><span class="line"><span class="comment">//    return new InMemoryUserDetailsManager(usersList);</span></span><br><span class="line"><span class="comment">//  &#125;</span></span><br><span class="line"></span><br><span class="line">  <span class="meta">@Bean</span></span><br><span class="line">  <span class="keyword">public</span> UserDetailsService <span class="title function_">userDetailsService</span><span class="params">(UserRepository userRepo)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> username -&gt; &#123;</span><br><span class="line">      <span class="type">User</span> <span class="variable">user</span> <span class="operator">=</span> userRepo.findByUsername(username);</span><br><span class="line">      <span class="keyword">if</span> (user != <span class="literal">null</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> user;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">UsernameNotFoundException</span>(</span><br><span class="line">                      <span class="string">&quot;User &#x27;&quot;</span> + username + <span class="string">&quot;&#x27; not found&quot;</span>);</span><br><span class="line">    &#125;;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="meta">@Bean</span></span><br><span class="line">  <span class="keyword">public</span> SecurityFilterChain <span class="title function_">filterChain</span><span class="params">(HttpSecurity http)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">      <span class="comment">//对design和orders为前缀的做一个权限控制：只有经过认证的用户才能访问该前缀，而且用户属于user角色（参见user.java），如果符合，所有权限都放行</span></span><br><span class="line">    <span class="keyword">return</span> http</span><br><span class="line">      .authorizeRequests()</span><br><span class="line">        .mvcMatchers(<span class="string">&quot;/design&quot;</span>, <span class="string">&quot;/orders&quot;</span>).hasRole(<span class="string">&quot;USER&quot;</span>)</span><br><span class="line">        .anyRequest().permitAll()</span><br><span class="line"></span><br><span class="line">        <span class="comment">//自己提供一个login页面</span></span><br><span class="line">        <span class="comment">//可以在此指定username和password的参数</span></span><br><span class="line">        <span class="comment">//.usernameParameter(&quot;user&quot;)</span></span><br><span class="line">        <span class="comment">//.passwordParameter(&quot;password22&quot;)</span></span><br><span class="line">      .and()</span><br><span class="line">        .formLogin()</span><br><span class="line">          .loginPage(<span class="string">&quot;/login&quot;</span>)</span><br><span class="line">          </span><br><span class="line">      .and()</span><br><span class="line">        .logout()</span><br><span class="line">          .logoutSuccessUrl(<span class="string">&quot;/&quot;</span>)</span><br><span class="line">          </span><br><span class="line">      <span class="comment">// Make H2-Console non-secured; for debug purposes</span></span><br><span class="line">      .and()</span><br><span class="line">        .csrf()</span><br><span class="line">          .ignoringAntMatchers(<span class="string">&quot;/h2-console/**&quot;</span>)</span><br><span class="line">  </span><br><span class="line">      <span class="comment">// Allow pages to be loaded in frames from the same origin; needed for H2-Console</span></span><br><span class="line">      .and()  </span><br><span class="line">        .headers()</span><br><span class="line">          .frameOptions()</span><br><span class="line">            .sameOrigin()</span><br><span class="line">            </span><br><span class="line">       .and()</span><br><span class="line">       .build();</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h2 id="第二种"><a href="#第二种" class="headerlink" title="第二种"></a>第二种</h2><p>security config</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> tacos.security;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Bean;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"><span class="keyword">import</span> org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;</span><br><span class="line"><span class="keyword">import</span> org.springframework.security.config.annotation.web.builders.HttpSecurity;</span><br><span class="line"><span class="keyword">import</span> org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;</span><br><span class="line"><span class="keyword">import</span> org.springframework.security.core.userdetails.UserDetailsService;</span><br><span class="line"><span class="keyword">import</span> org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;</span><br><span class="line"><span class="keyword">import</span> org.springframework.security.crypto.password.PasswordEncoder;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="meta">@EnableGlobalMethodSecurity(prePostEnabled = true)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">SecurityConfig</span> <span class="keyword">extends</span> <span class="title class_">WebSecurityConfigurerAdapter</span> &#123;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Autowired</span></span><br><span class="line">  <span class="keyword">private</span> UserDetailsService userDetailsService;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">protected</span> <span class="keyword">void</span> <span class="title function_">configure</span><span class="params">(HttpSecurity http)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">    http</span><br><span class="line">      .authorizeRequests()</span><br><span class="line">        .antMatchers(<span class="string">&quot;/design&quot;</span>, <span class="string">&quot;/orders&quot;</span>).access(<span class="string">&quot;hasRole(&#x27;USER&#x27;)&quot;</span>)</span><br><span class="line">        .antMatchers(<span class="string">&quot;/&quot;</span>, <span class="string">&quot;/**&quot;</span>).access(<span class="string">&quot;permitAll&quot;</span>)</span><br><span class="line"></span><br><span class="line">      .and()</span><br><span class="line">        .formLogin()</span><br><span class="line">          .loginPage(<span class="string">&quot;/login&quot;</span>)</span><br><span class="line"></span><br><span class="line">      .and()</span><br><span class="line">        .logout()</span><br><span class="line">          .logoutSuccessUrl(<span class="string">&quot;/&quot;</span>)</span><br><span class="line"></span><br><span class="line">      .and()</span><br><span class="line">      .httpBasic()</span><br><span class="line">      .realmName(<span class="string">&quot;tacos&quot;</span>)</span><br><span class="line"></span><br><span class="line">      <span class="comment">// Make H2-Console non-secured; for debug purposes</span></span><br><span class="line">      .and()</span><br><span class="line">        .csrf()</span><br><span class="line">          .ignoringAntMatchers(<span class="string">&quot;/h2-console/**&quot;</span>)</span><br><span class="line"><span class="comment">//            .ignoringAntMatchers(&quot;/admin/**&quot;)</span></span><br><span class="line"></span><br><span class="line">      <span class="comment">// Allow pages to be loaded in frames from the same origin; needed for H2-Console</span></span><br><span class="line">      .and()</span><br><span class="line">        .headers()</span><br><span class="line">          .frameOptions()</span><br><span class="line">            .sameOrigin()</span><br><span class="line">      ;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/*</span></span><br><span class="line"><span class="comment">  @Override</span></span><br><span class="line"><span class="comment">  protected void configure(AuthenticationManagerBuilder auth)</span></span><br><span class="line"><span class="comment">      throws Exception &#123;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    auth</span></span><br><span class="line"><span class="comment">      .userDetailsService(userDetailsService);</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">  &#125;</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line"></span><br><span class="line">  <span class="meta">@Bean</span></span><br><span class="line">  <span class="keyword">public</span> PasswordEncoder <span class="title function_">encoder</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">BCryptPasswordEncoder</span>();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//  @Override</span></span><br><span class="line"><span class="comment">//  protected void configure(AuthenticationManagerBuilder auth)</span></span><br><span class="line"><span class="comment">//      throws Exception &#123;</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//    auth</span></span><br><span class="line"><span class="comment">//      .userDetailsService(userDetailsService)</span></span><br><span class="line"><span class="comment">//      .passwordEncoder(encoder());</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">//  &#125;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// IN MEMORY AUTHENTICATION EXAMPLE</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  @Override</span></span><br><span class="line"><span class="comment">  protected void configure(AuthenticationManagerBuilder auth)</span></span><br><span class="line"><span class="comment">      throws Exception &#123;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    auth</span></span><br><span class="line"><span class="comment">      .inMemoryAuthentication()</span></span><br><span class="line"><span class="comment">        .withUser(&quot;buzz&quot;)</span></span><br><span class="line"><span class="comment">          .password(&quot;infinity&quot;)</span></span><br><span class="line"><span class="comment">          .authorities(&quot;ROLE_USER&quot;)</span></span><br><span class="line"><span class="comment">        .and()</span></span><br><span class="line"><span class="comment">        .withUser(&quot;woody&quot;)</span></span><br><span class="line"><span class="comment">          .password(&quot;bullseye&quot;)</span></span><br><span class="line"><span class="comment">          .authorities(&quot;ROLE_USER&quot;);</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">  &#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// JDBC Authentication example</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  @Autowired</span></span><br><span class="line"><span class="comment">  DataSource dataSource;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">  @Override</span></span><br><span class="line"><span class="comment">  protected void configure(AuthenticationManagerBuilder auth)</span></span><br><span class="line"><span class="comment">      throws Exception &#123;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    auth</span></span><br><span class="line"><span class="comment">      .jdbcAuthentication()</span></span><br><span class="line"><span class="comment">        .dataSource(dataSource);</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">  &#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  @Override</span></span><br><span class="line"><span class="comment">  protected void configure(AuthenticationManagerBuilder auth)</span></span><br><span class="line"><span class="comment">      throws Exception &#123;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    auth</span></span><br><span class="line"><span class="comment">      .jdbcAuthentication()</span></span><br><span class="line"><span class="comment">        .dataSource(dataSource)</span></span><br><span class="line"><span class="comment">        .usersByUsernameQuery(</span></span><br><span class="line"><span class="comment">            &quot;select username, password, enabled from Users &quot; +</span></span><br><span class="line"><span class="comment">            &quot;where username=?&quot;)</span></span><br><span class="line"><span class="comment">        .authoritiesByUsernameQuery(</span></span><br><span class="line"><span class="comment">            &quot;select username, authority from UserAuthorities &quot; +</span></span><br><span class="line"><span class="comment">            &quot;where username=?&quot;);</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">  &#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  @Override</span></span><br><span class="line"><span class="comment">  protected void configure(AuthenticationManagerBuilder auth)</span></span><br><span class="line"><span class="comment">      throws Exception &#123;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    auth</span></span><br><span class="line"><span class="comment">      .jdbcAuthentication()</span></span><br><span class="line"><span class="comment">        .dataSource(dataSource)</span></span><br><span class="line"><span class="comment">        .usersByUsernameQuery(</span></span><br><span class="line"><span class="comment">            &quot;select username, password, enabled from Users &quot; +</span></span><br><span class="line"><span class="comment">            &quot;where username=?&quot;)</span></span><br><span class="line"><span class="comment">        .authoritiesByUsernameQuery(</span></span><br><span class="line"><span class="comment">            &quot;select username, authority from UserAuthorities &quot; +</span></span><br><span class="line"><span class="comment">            &quot;where username=?&quot;)</span></span><br><span class="line"><span class="comment">        .passwordEncoder(new BCryptPasswordEncoder());</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">  &#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">// LDAP Authentication example</span></span><br><span class="line"><span class="comment">//</span></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  @Override</span></span><br><span class="line"><span class="comment">  protected void configure(AuthenticationManagerBuilder auth)</span></span><br><span class="line"><span class="comment">      throws Exception &#123;</span></span><br><span class="line"><span class="comment">    auth</span></span><br><span class="line"><span class="comment">      .ldapAuthentication()</span></span><br><span class="line"><span class="comment">        .userSearchFilter(&quot;(uid=&#123;0&#125;)&quot;)</span></span><br><span class="line"><span class="comment">        .groupSearchFilter(&quot;member=&#123;0&#125;&quot;);</span></span><br><span class="line"><span class="comment">  &#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  @Override</span></span><br><span class="line"><span class="comment">  protected void configure(AuthenticationManagerBuilder auth)</span></span><br><span class="line"><span class="comment">      throws Exception &#123;</span></span><br><span class="line"><span class="comment">    auth</span></span><br><span class="line"><span class="comment">      .ldapAuthentication()</span></span><br><span class="line"><span class="comment">        .userSearchBase(&quot;ou=people&quot;)</span></span><br><span class="line"><span class="comment">        .userSearchFilter(&quot;(uid=&#123;0&#125;)&quot;)</span></span><br><span class="line"><span class="comment">        .groupSearchBase(&quot;ou=groups&quot;)</span></span><br><span class="line"><span class="comment">        .groupSearchFilter(&quot;member=&#123;0&#125;&quot;);</span></span><br><span class="line"><span class="comment">  &#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  @Override</span></span><br><span class="line"><span class="comment">  protected void configure(AuthenticationManagerBuilder auth)</span></span><br><span class="line"><span class="comment">      throws Exception &#123;</span></span><br><span class="line"><span class="comment">    auth</span></span><br><span class="line"><span class="comment">      .ldapAuthentication()</span></span><br><span class="line"><span class="comment">        .userSearchBase(&quot;ou=people&quot;)</span></span><br><span class="line"><span class="comment">        .userSearchFilter(&quot;(uid=&#123;0&#125;)&quot;)</span></span><br><span class="line"><span class="comment">        .groupSearchBase(&quot;ou=groups&quot;)</span></span><br><span class="line"><span class="comment">        .groupSearchFilter(&quot;member=&#123;0&#125;&quot;)</span></span><br><span class="line"><span class="comment">        .passwordCompare();</span></span><br><span class="line"><span class="comment">  &#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  @Override</span></span><br><span class="line"><span class="comment">  protected void configure(AuthenticationManagerBuilder auth)</span></span><br><span class="line"><span class="comment">      throws Exception &#123;</span></span><br><span class="line"><span class="comment">    auth</span></span><br><span class="line"><span class="comment">      .ldapAuthentication()</span></span><br><span class="line"><span class="comment">        .userSearchBase(&quot;ou=people&quot;)</span></span><br><span class="line"><span class="comment">        .userSearchFilter(&quot;(uid=&#123;0&#125;)&quot;)</span></span><br><span class="line"><span class="comment">        .groupSearchBase(&quot;ou=groups&quot;)</span></span><br><span class="line"><span class="comment">        .groupSearchFilter(&quot;member=&#123;0&#125;&quot;)</span></span><br><span class="line"><span class="comment">        .passwordCompare()</span></span><br><span class="line"><span class="comment">        .passwordEncoder(new BCryptPasswordEncoder())</span></span><br><span class="line"><span class="comment">        .passwordAttribute(&quot;passcode&quot;);</span></span><br><span class="line"><span class="comment">  &#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">@Override</span></span><br><span class="line"><span class="comment">protected void configure(AuthenticationManagerBuilder auth)</span></span><br><span class="line"><span class="comment">    throws Exception &#123;</span></span><br><span class="line"><span class="comment">  auth</span></span><br><span class="line"><span class="comment">    .ldapAuthentication()</span></span><br><span class="line"><span class="comment">      .userSearchBase(&quot;ou=people&quot;)</span></span><br><span class="line"><span class="comment">      .userSearchFilter(&quot;(uid=&#123;0&#125;)&quot;)</span></span><br><span class="line"><span class="comment">      .groupSearchBase(&quot;ou=groups&quot;)</span></span><br><span class="line"><span class="comment">      .groupSearchFilter(&quot;member=&#123;0&#125;&quot;)</span></span><br><span class="line"><span class="comment">      .passwordCompare()</span></span><br><span class="line"><span class="comment">      .passwordEncoder(new BCryptPasswordEncoder())</span></span><br><span class="line"><span class="comment">      .passwordAttribute(&quot;passcode&quot;)</span></span><br><span class="line"><span class="comment">      .and()</span></span><br><span class="line"><span class="comment">      .contextSource()</span></span><br><span class="line"><span class="comment">        .url(&quot;ldap://tacocloud.com:389/dc=tacocloud,dc=com&quot;);</span></span><br><span class="line"><span class="comment">&#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  @Override</span></span><br><span class="line"><span class="comment">  protected void configure(AuthenticationManagerBuilder auth)</span></span><br><span class="line"><span class="comment">      throws Exception &#123;</span></span><br><span class="line"><span class="comment">    auth</span></span><br><span class="line"><span class="comment">      .ldapAuthentication()</span></span><br><span class="line"><span class="comment">        .userSearchBase(&quot;ou=people&quot;)</span></span><br><span class="line"><span class="comment">        .userSearchFilter(&quot;(uid=&#123;0&#125;)&quot;)</span></span><br><span class="line"><span class="comment">        .groupSearchBase(&quot;ou=groups&quot;)</span></span><br><span class="line"><span class="comment">        .groupSearchFilter(&quot;member=&#123;0&#125;&quot;)</span></span><br><span class="line"><span class="comment">        .passwordCompare()</span></span><br><span class="line"><span class="comment">        .passwordEncoder(new BCryptPasswordEncoder())</span></span><br><span class="line"><span class="comment">        .passwordAttribute(&quot;passcode&quot;)</span></span><br><span class="line"><span class="comment">        .and()</span></span><br><span class="line"><span class="comment">        .contextSource()</span></span><br><span class="line"><span class="comment">          .root(&quot;dc=tacocloud,dc=com&quot;);</span></span><br><span class="line"><span class="comment">  &#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  @Override</span></span><br><span class="line"><span class="comment">  protected void configure(AuthenticationManagerBuilder auth)</span></span><br><span class="line"><span class="comment">      throws Exception &#123;</span></span><br><span class="line"><span class="comment">    auth</span></span><br><span class="line"><span class="comment">      .ldapAuthentication()</span></span><br><span class="line"><span class="comment">        .userSearchBase(&quot;ou=people&quot;)</span></span><br><span class="line"><span class="comment">        .userSearchFilter(&quot;(uid=&#123;0&#125;)&quot;)</span></span><br><span class="line"><span class="comment">        .groupSearchBase(&quot;ou=groups&quot;)</span></span><br><span class="line"><span class="comment">        .groupSearchFilter(&quot;member=&#123;0&#125;&quot;)</span></span><br><span class="line"><span class="comment">        .passwordCompare()</span></span><br><span class="line"><span class="comment">        .passwordEncoder(new BCryptPasswordEncoder())</span></span><br><span class="line"><span class="comment">        .passwordAttribute(&quot;passcode&quot;)</span></span><br><span class="line"><span class="comment">        .and()</span></span><br><span class="line"><span class="comment">        .contextSource()</span></span><br><span class="line"><span class="comment">          .root(&quot;dc=tacocloud,dc=com&quot;)</span></span><br><span class="line"><span class="comment">          .ldif(&quot;classpath:users.ldif&quot;);</span></span><br><span class="line"><span class="comment">  &#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="纯Java配置类"><a href="#纯Java配置类" class="headerlink" title="纯Java配置类"></a>纯Java配置类</h1><ul>
+<li>提供密码转换器：PasswordEncoder </li>
+<li>提供接口实现：UserDetailsService，用于从用户名获取用户信息</li>
+</ul>
+<h1 id="密码转码器"><a href="#密码转码器" class="headerlink" title="密码转码器"></a>密码转码器</h1><ul>
+<li>NoOpPasswordEncoder：不编码密码，而保持明文，因为它不会对密码进行哈希化，所以永远不要在真实场 景中使用它 </li>
+<li>StandardPasswordEncoder：使用SHA-256对密码进行哈希化。这个实现现在已经不推荐了，不应该在新的 实现中使用它</li>
+<li>Pbkdf2PasswordEncoder：使用基于密码的密钥派生函数2（PBKDF2)</li>
+<li>BCryptPasswordEncoder：使用bcrypt强哈希函数对密码进行编码 </li>
+<li>SCryptPasswordEncoder：使用scrypt强哈希函数对密码进行编码</li>
+</ul>
+<h1 id="用户信息存储"><a href="#用户信息存储" class="headerlink" title="用户信息存储"></a>用户信息存储</h1><p>来自多个渠道，spring security不关心。 </p>
+<ul>
+<li><p>内存用户存储 ： <strong>security config中的configure</strong></p>
+<ul>
+<li><pre><code class="java">// IN MEMORY AUTHENTICATION EXAMPLE
+//
+
+  @Override
+  protected void configure(AuthenticationManagerBuilder auth)
+      throws Exception &#123;
+
+    auth
+      .inMemoryAuthentication()
+        .withUser(&quot;buzz&quot;)
+          .password(&quot;infinity&quot;)
+          .authorities(&quot;ROLE_USER&quot;)
+        .and()
+        .withUser(&quot;woody&quot;)
+          .password(&quot;bullseye&quot;)
+          .authorities(&quot;ROLE_USER&quot;);
+  &#125;
+
+
+//
+// JDBC Authentication example
+//
+/*
+  @Autowired
+  DataSource dataSource;
+
+  @Override
+  protected void configure(AuthenticationManagerBuilder auth)
+      throws Exception &#123;
+
+    auth
+      .jdbcAuthentication()
+        .dataSource(dataSource);
+
+  &#125;
+*/
+
+/*
+  @Override
+  protected void configure(AuthenticationManagerBuilder auth)
+      throws Exception &#123;
+
+    auth
+      .jdbcAuthentication()
+        .dataSource(dataSource)
+        .usersByUsernameQuery(
+            &quot;select username, password, enabled from Users &quot; +
+            &quot;where username=?&quot;)
+        .authoritiesByUsernameQuery(
+            &quot;select username, authority from UserAuthorities &quot; +
+            &quot;where username=?&quot;);
+
+  &#125;
+*/
+
+/*
+  @Override
+  protected void configure(AuthenticationManagerBuilder auth)
+      throws Exception &#123;
+
+    auth
+      .jdbcAuthentication()
+        .dataSource(dataSource)
+        .usersByUsernameQuery(
+            &quot;select username, password, enabled from Users &quot; +
+            &quot;where username=?&quot;)
+        .authoritiesByUsernameQuery(
+            &quot;select username, authority from UserAuthorities &quot; +
+            &quot;where username=?&quot;)
+        .passwordEncoder(new BCryptPasswordEncoder());
+
+  &#125;
+*/
+
+
+//
+// LDAP Authentication example
+//
+/*
+  @Override
+  protected void configure(AuthenticationManagerBuilder auth)
+      throws Exception &#123;
+    auth
+      .ldapAuthentication()
+        .userSearchFilter(&quot;(uid=&#123;0&#125;)&quot;)
+        .groupSearchFilter(&quot;member=&#123;0&#125;&quot;);
+  &#125;
+*/
+
+/*
+  @Override
+  protected void configure(AuthenticationManagerBuilder auth)
+      throws Exception &#123;
+    auth
+      .ldapAuthentication()
+        .userSearchBase(&quot;ou=people&quot;)
+        .userSearchFilter(&quot;(uid=&#123;0&#125;)&quot;)
+        .groupSearchBase(&quot;ou=groups&quot;)
+        .groupSearchFilter(&quot;member=&#123;0&#125;&quot;);
+  &#125;
+*/
+
+/*
+  @Override
+  protected void configure(AuthenticationManagerBuilder auth)
+      throws Exception &#123;
+    auth
+      .ldapAuthentication()
+        .userSearchBase(&quot;ou=people&quot;)
+        .userSearchFilter(&quot;(uid=&#123;0&#125;)&quot;)
+        .groupSearchBase(&quot;ou=groups&quot;)
+        .groupSearchFilter(&quot;member=&#123;0&#125;&quot;)
+        .passwordCompare();
+  &#125;
+*/
+
+/*
+  @Override
+  protected void configure(AuthenticationManagerBuilder auth)
+      throws Exception &#123;
+    auth
+      .ldapAuthentication()
+        .userSearchBase(&quot;ou=people&quot;)
+        .userSearchFilter(&quot;(uid=&#123;0&#125;)&quot;)
+        .groupSearchBase(&quot;ou=groups&quot;)
+        .groupSearchFilter(&quot;member=&#123;0&#125;&quot;)
+        .passwordCompare()
+        .passwordEncoder(new BCryptPasswordEncoder())
+        .passwordAttribute(&quot;passcode&quot;);
+  &#125;
+*/
+
+/*
+@Override
+protected void configure(AuthenticationManagerBuilder auth)
+    throws Exception &#123;
+  auth
+    .ldapAuthentication()
+      .userSearchBase(&quot;ou=people&quot;)
+      .userSearchFilter(&quot;(uid=&#123;0&#125;)&quot;)
+      .groupSearchBase(&quot;ou=groups&quot;)
+      .groupSearchFilter(&quot;member=&#123;0&#125;&quot;)
+      .passwordCompare()
+      .passwordEncoder(new BCryptPasswordEncoder())
+      .passwordAttribute(&quot;passcode&quot;)
+      .and()
+      .contextSource()
+        .url(&quot;ldap://tacocloud.com:389/dc=tacocloud,dc=com&quot;);
+&#125;
+*/
+
+/*
+  @Override
+  protected void configure(AuthenticationManagerBuilder auth)
+      throws Exception &#123;
+    auth
+      .ldapAuthentication()
+        .userSearchBase(&quot;ou=people&quot;)
+        .userSearchFilter(&quot;(uid=&#123;0&#125;)&quot;)
+        .groupSearchBase(&quot;ou=groups&quot;)
+        .groupSearchFilter(&quot;member=&#123;0&#125;&quot;)
+        .passwordCompare()
+        .passwordEncoder(new BCryptPasswordEncoder())
+        .passwordAttribute(&quot;passcode&quot;)
+        .and()
+        .contextSource()
+          .root(&quot;dc=tacocloud,dc=com&quot;);
+  &#125;
+*/
+
+/*
+  @Override
+  protected void configure(AuthenticationManagerBuilder auth)
+      throws Exception &#123;
+    auth
+      .ldapAuthentication()
+        .userSearchBase(&quot;ou=people&quot;)
+        .userSearchFilter(&quot;(uid=&#123;0&#125;)&quot;)
+        .groupSearchBase(&quot;ou=groups&quot;)
+        .groupSearchFilter(&quot;member=&#123;0&#125;&quot;)
+        .passwordCompare()
+        .passwordEncoder(new BCryptPasswordEncoder())
+        .passwordAttribute(&quot;passcode&quot;)
+        .and()
+        .contextSource()
+          .root(&quot;dc=tacocloud,dc=com&quot;)
+          .ldif(&quot;classpath:users.ldif&quot;);
+  &#125;
+*/
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* JDBC用户存储</span><br><span class="line"></span><br><span class="line">* LDAP用户存储</span><br><span class="line"></span><br><span class="line">使用Spring Data存储库来保存用户 </span><br><span class="line"></span><br><span class="line">* 定义领域对象：User，实现了UserDetails接口</span><br><span class="line">  * UserDetailsService接口方法：UserDetails </span><br><span class="line">  * -loadUserByUsername(String username) </span><br><span class="line">* 定义持久化接口：UserRepository，增加自定义方法：findByUsername</span><br><span class="line"></span><br><span class="line">user</span><br><span class="line"></span><br><span class="line">```java</span><br><span class="line">package tacos;</span><br><span class="line">import java.util.Arrays;</span><br><span class="line">import java.util.Collection;</span><br><span class="line">import javax.persistence.Entity;</span><br><span class="line">import javax.persistence.GeneratedValue;</span><br><span class="line">import javax.persistence.GenerationType;</span><br><span class="line">import javax.persistence.Id;</span><br><span class="line">import org.springframework.security.core.GrantedAuthority;</span><br><span class="line">import org.springframework.security.core.authority.</span><br><span class="line">                                          SimpleGrantedAuthority;</span><br><span class="line">import org.springframework.security.core.userdetails.UserDetails;</span><br><span class="line">import lombok.AccessLevel;</span><br><span class="line">import lombok.Data;</span><br><span class="line">import lombok.NoArgsConstructor;</span><br><span class="line">import lombok.RequiredArgsConstructor;</span><br><span class="line"></span><br><span class="line">@Entity</span><br><span class="line">@Data</span><br><span class="line">@NoArgsConstructor(access=AccessLevel.PRIVATE, force=true)</span><br><span class="line">@RequiredArgsConstructor</span><br><span class="line">public class User implements UserDetails &#123;</span><br><span class="line"></span><br><span class="line">  private static final long serialVersionUID = 1L;</span><br><span class="line"></span><br><span class="line">  @Id</span><br><span class="line">  @GeneratedValue(strategy=GenerationType.AUTO)</span><br><span class="line">  private Long id;</span><br><span class="line">  </span><br><span class="line">  private final String username;</span><br><span class="line">  private final String password;</span><br><span class="line">  private final String fullname;</span><br><span class="line">  private final String street;</span><br><span class="line">  private final String city;</span><br><span class="line">  private final String state;</span><br><span class="line">  private final String zip;</span><br><span class="line">  private final String phoneNumber;</span><br><span class="line">  </span><br><span class="line">    //获取权限集合，自定了一个user的role：用户的角色叫user，是user角色的用户拥有ROLE_USER权限</span><br><span class="line">  @Override</span><br><span class="line">  public Collection&lt;? extends GrantedAuthority&gt; getAuthorities() &#123;</span><br><span class="line">    return Arrays.asList(new SimpleGrantedAuthority(&quot;ROLE_USER&quot;));</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  @Override</span><br><span class="line">  public boolean isAccountNonExpired() &#123;</span><br><span class="line">    return true;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  @Override</span><br><span class="line">  public boolean isAccountNonLocked() &#123;</span><br><span class="line">    return true;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  @Override</span><br><span class="line">  public boolean isCredentialsNonExpired() &#123;</span><br><span class="line">    return true;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  @Override</span><br><span class="line">  public boolean isEnabled() &#123;</span><br><span class="line">    return true;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ul>
+</li>
+</ul>
+<p>login.xml</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- tag::all[] --&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.w3.org/1999/xhtml&quot;</span></span></span><br><span class="line"><span class="tag">      <span class="attr">xmlns:th</span>=<span class="string">&quot;http://www.thymeleaf.org&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Taco Cloud<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Login<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">th:src</span>=<span class="string">&quot;@&#123;/images/TacoCloud.png&#125;&quot;</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">th:if</span>=<span class="string">&quot;$&#123;error&#125;&quot;</span>&gt;</span></span><br><span class="line">      Unable to login. Check your username and password.</span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">p</span>&gt;</span>New here? Click</span><br><span class="line">       <span class="tag">&lt;<span class="name">a</span> <span class="attr">th:href</span>=<span class="string">&quot;@&#123;/register&#125;&quot;</span>&gt;</span>here<span class="tag">&lt;/<span class="name">a</span>&gt;</span> to register.<span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- tag::thAction[] --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">&quot;POST&quot;</span> <span class="attr">th:action</span>=<span class="string">&quot;@&#123;/login&#125;&quot;</span> <span class="attr">id</span>=<span class="string">&quot;loginForm&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- end::thAction[] --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;username&quot;</span>&gt;</span>Username: <span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">name</span>=<span class="string">&quot;username&quot;</span> <span class="attr">id</span>=<span class="string">&quot;username&quot;</span> /&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">      <span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">&quot;password&quot;</span>&gt;</span>Password: <span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;password&quot;</span> <span class="attr">name</span>=<span class="string">&quot;password&quot;</span> <span class="attr">id</span>=<span class="string">&quot;password&quot;</span> /&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;submit&quot;</span> <span class="attr">value</span>=<span class="string">&quot;Login&quot;</span>/&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- end::all[] --&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>web config</p>
+<ul>
+<li>ViewController：视图控制器：<ul>
+<li>addViewController(“&#x2F;“).setViewName(“home”)：请求是&#x2F;，转向home页面</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> tacos.web;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.servlet.config.annotation.ViewControllerRegistry;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.servlet.config.annotation.WebMvcConfigurer;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">WebConfig</span> <span class="keyword">implements</span> <span class="title class_">WebMvcConfigurer</span> &#123;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">addViewControllers</span><span class="params">(ViewControllerRegistry registry)</span> &#123;</span><br><span class="line">    registry.addViewController(<span class="string">&quot;/&quot;</span>).setViewName(<span class="string">&quot;home&quot;</span>);</span><br><span class="line">    registry.addViewController(<span class="string">&quot;/login&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="使用Spring-Data存储库来保存用户"><a href="#使用Spring-Data存储库来保存用户" class="headerlink" title="使用Spring Data存储库来保存用户"></a>使用Spring Data存储库来保存用户</h2><ul>
+<li>定义领域对象：User，实现了UserDetails接口<ul>
+<li>UserDetailsService接口方法：</li>
+<li>UserDetails loadUserByUsername(String username)</li>
+</ul>
+</li>
+<li>定义持久化接口：UserRepository，增加自定义方法：findByUsername</li>
+</ul>
+<h2 id="注册用户"><a href="#注册用户" class="headerlink" title="注册用户"></a>注册用户</h2><ul>
+<li>RegistrationController</li>
+</ul>
+<h1 id="保护Web请求"><a href="#保护Web请求" class="headerlink" title="保护Web请求"></a>保护Web请求</h1><p>@Bean </p>
+<p>public SecurityFilterChain filterChain(HttpSecurity http) </p>
+<h1 id="权限分类"><a href="#权限分类" class="headerlink" title="权限分类"></a>权限分类</h1><ul>
+<li>Authority，权限 </li>
+<li>Role，角色，&#x3D;&#x3D;&#x3D;&gt;&gt;&gt;权限，加前缀：ROLE_</li>
+</ul>
+<p>创建自定义登录页 </p>
+<ul>
+<li>当需要认证时转向的登录页：.loginPage(“&#x2F;login”) </li>
+<li>视图控制器，定义login请求对应的视图：registry.addViewController(“&#x2F;login”); </li>
+<li>登录的post请求由Spring Security自动处理，名称默认：username、password，可配置</li>
+</ul>
+<h2 id="实现方法级别的安全"><a href="#实现方法级别的安全" class="headerlink" title="实现方法级别的安全"></a>实现方法级别的安全</h2><p>@Configuration </p>
+<p>@EnableGlobalMethodSecurity </p>
+<p>public class SecurityConfig extends WebSecurityConfigurerAdapter { @PreAuthorize(“hasRole(‘ADMIN’)”)</p>
+<h2 id="获取当前登录的用户"><a href="#获取当前登录的用户" class="headerlink" title="获取当前登录的用户"></a>获取当前登录的用户</h2><ol>
+<li><p>DesignTacoController 参数：</p>
+<p>Principal principal String username &#x3D; principal.getName(); </p>
+</li>
+<li><p>OrderController </p>
+<p>@AuthenticationPrincipal User user </p>
+</li>
+<li><p>安全上下文获取 </p>
+<p>Authentication authentication &#x3D; SecurityContextHolder.getContext().getAuthentication(); User user &#x3D; (User) authentication.getPrincipal();</p>
+</li>
+</ol>
+<p>第二种方式的代码：OrderController</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> tacos.web;</span><br><span class="line"><span class="keyword">import</span> javax.validation.Valid;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.data.domain.PageRequest;</span><br><span class="line"><span class="keyword">import</span> org.springframework.data.domain.Pageable;</span><br><span class="line"><span class="keyword">import</span> org.springframework.security.core.annotation.AuthenticationPrincipal;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Controller;</span><br><span class="line"><span class="keyword">import</span> org.springframework.ui.Model;</span><br><span class="line"><span class="keyword">import</span> org.springframework.validation.Errors;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.GetMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.ModelAttribute;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.PostMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.SessionAttributes;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.support.SessionStatus;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> tacos.TacoOrder;</span><br><span class="line"><span class="keyword">import</span> tacos.User;</span><br><span class="line"><span class="keyword">import</span> tacos.data.OrderRepository;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/orders&quot;)</span></span><br><span class="line"><span class="meta">@SessionAttributes(&quot;order&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">OrderController</span> &#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> OrderRepository orderRepo;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> OrderProps props;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="title function_">OrderController</span><span class="params">(OrderRepository orderRepo,</span></span><br><span class="line"><span class="params">          OrderProps props)</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>.orderRepo = orderRepo;</span><br><span class="line">    <span class="built_in">this</span>.props = props;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@GetMapping(&quot;/current&quot;)</span></span><br><span class="line">  <span class="keyword">public</span> String <span class="title function_">orderForm</span><span class="params">(<span class="meta">@AuthenticationPrincipal</span> User user,</span></span><br><span class="line"><span class="params">      <span class="meta">@ModelAttribute</span> TacoOrder order)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (order.getDeliveryName() == <span class="literal">null</span>) &#123;</span><br><span class="line">      order.setDeliveryName(user.getFullname());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (order.getDeliveryStreet() == <span class="literal">null</span>) &#123;</span><br><span class="line">      order.setDeliveryStreet(user.getStreet());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (order.getDeliveryCity() == <span class="literal">null</span>) &#123;</span><br><span class="line">      order.setDeliveryCity(user.getCity());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (order.getDeliveryState() == <span class="literal">null</span>) &#123;</span><br><span class="line">      order.setDeliveryState(user.getState());</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">if</span> (order.getDeliveryZip() == <span class="literal">null</span>) &#123;</span><br><span class="line">      order.setDeliveryZip(user.getZip());</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;orderForm&quot;</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@PostMapping</span></span><br><span class="line">  <span class="keyword">public</span> String <span class="title function_">processOrder</span><span class="params">(<span class="meta">@Valid</span> TacoOrder order, Errors errors,</span></span><br><span class="line"><span class="params">      SessionStatus sessionStatus,</span></span><br><span class="line"><span class="params">      <span class="meta">@AuthenticationPrincipal</span> User user)</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (errors.hasErrors()) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="string">&quot;orderForm&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    order.setUser(user);</span><br><span class="line"></span><br><span class="line">    orderRepo.save(order);</span><br><span class="line">    sessionStatus.setComplete();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;redirect:/&quot;</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@GetMapping</span></span><br><span class="line">  <span class="keyword">public</span> String <span class="title function_">ordersForUser</span><span class="params">(</span></span><br><span class="line"><span class="params">      <span class="meta">@AuthenticationPrincipal</span> User user, Model model)</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="type">Pageable</span> <span class="variable">pageable</span> <span class="operator">=</span> PageRequest.of(<span class="number">0</span>, props.getPageSize());</span><br><span class="line">    model.addAttribute(<span class="string">&quot;orders&quot;</span>,</span><br><span class="line">        orderRepo.findByUserOrderByPlacedAtDesc(user, pageable));</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;orderList&quot;</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">/*</span></span><br><span class="line"><span class="comment">  @GetMapping</span></span><br><span class="line"><span class="comment">  public String ordersForUser(</span></span><br><span class="line"><span class="comment">      @AuthenticationPrincipal User user, Model model) &#123;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    Pageable pageable = PageRequest.of(0, 20);</span></span><br><span class="line"><span class="comment">    model.addAttribute(&quot;orders&quot;,</span></span><br><span class="line"><span class="comment">        orderRepo.findByUserOrderByPlacedAtDesc(user, pageable));</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    return &quot;orderList&quot;;</span></span><br><span class="line"><span class="comment">  &#125;</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line"></span><br><span class="line">  <span class="comment">/*</span></span><br><span class="line"><span class="comment">  @GetMapping</span></span><br><span class="line"><span class="comment">  public String ordersForUser(</span></span><br><span class="line"><span class="comment">      @AuthenticationPrincipal User user, Model model) &#123;</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    model.addAttribute(&quot;orders&quot;,</span></span><br><span class="line"><span class="comment">        orderRepo.findByUserOrderByPlacedAtDesc(user));</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    return &quot;orderList&quot;;</span></span><br><span class="line"><span class="comment">  &#125;</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<h1 id="CSRF攻击"><a href="#CSRF攻击" class="headerlink" title="CSRF攻击"></a>CSRF攻击</h1><p><img src="/2023/10/19/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch07-Spring%20Security/image-20231021155148002.png" alt="image-20231021155148002"></p>
+<p>出现报错 403 + forbidden的原因：缺少_csrf</p>
+<p><img src="/2023/10/19/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch07-Spring%20Security/image-20231021190633439.png" alt="image-20231021190633439"></p>
+<p><img src="/2023/10/19/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch07-Spring%20Security/image-20231021190543766.png" alt="image-20231021190543766"></p>
+<h1 id="更改日志的等级"><a href="#更改日志的等级" class="headerlink" title="更改日志的等级"></a>更改日志的等级</h1><p>application.properties</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">logging.level.root=debug</span><br></pre></td></tr></table></figure>
+
+
+        
+      </div>
+
+         
+    </div>
+    
+     
+  </div>
+  
+    
+<nav id="article-nav">
+  <a class="article-nav-btn left "
+    
+      href="/2023/10/26/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch08-%E9%85%8D%E7%BD%AE%E5%B1%9E%E6%80%A7/"
+      title="服务端-ch08-配置属性"
+     >
+    <i class="fa-solid fa-angle-left"></i>
+    <p class="title-text">
+      
+        服务端-ch08-配置属性
+        
+    </p>
+  </a>
+  <a class="article-nav-btn right "
+    
+      href="/2023/10/15/leetcode/leetcode%E5%88%B7%E9%A2%98-136%E5%8F%AA%E5%87%BA%E7%8E%B0%E4%B8%80%E6%AC%A1%E7%9A%84%E6%95%B0%E5%AD%97/"
+      title="leetcode刷题-136、137只出现一次的数字"
+     >
+
+    <p class="title-text">
+      
+        leetcode刷题-136、137只出现一次的数字
+        
+    </p>
+    <i class="fa-solid fa-angle-right"></i>
+  </a>
+</nav>
+
+
+  
+</article>
+
+
+  
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <div id="comment-card" class="comment-card">
+    <div class="main-title-bar">
+      <div class="main-title-dot"></div>
+      <div class="main-title">留言 </div>
+    </div>
+    <div id="vcomments"></div>
+  </div>
+  <script>
+      new Valine({"enable":true,"appId":null,"appKey":null,"placeholder":"Just go go","pageSize":20,"highlight":true,"serverURLs":null,"el":"#vcomments"});
+  </script>
+ 
+    </div>
+    <div id="footer-wrapper">
+      <footer id="footer">
+  
+  <div id="footer-info" class="inner">
+    
+      <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris"></a>
+    
+    &copy; 2024 Asimov<br>
+    Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & Theme <a target="_blank" rel="noopener" href="https://github.com/saicaca/hexo-theme-vivia">Vivia</a>
+  </div>
+</footer>
+
+    </div>
+    <div class="back-to-top-wrapper">
+    <button id="back-to-top-btn" class="back-to-top-btn hide" onclick="topFunction()">
+        <i class="fa-solid fa-angle-up"></i>
+    </button>
+</div>
+
+<script>
+    function topFunction() {
+        window.scroll({ top: 0, behavior: 'smooth' });
+    }
+    let btn = document.getElementById('back-to-top-btn');
+    function scrollFunction() {
+        if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+            btn.classList.remove('hide')
+        } else {
+            btn.classList.add('hide')
+        }
+    }
+    window.onscroll = function() {
+        scrollFunction();
+    }
+</script>
+
+  </div>
+  <script src="/js/light-dark-switch.js"></script>
+</body>
+</html>
