@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+
+
+<html theme="dark" showBanner="true" hasBanner="true" > 
+<link href="/fontawesome/css/fontawesome.css" rel="stylesheet">
+<link href="/fontawesome/css/brands.css" rel="stylesheet">
+<link href="/fontawesome/css/solid.css" rel="stylesheet">
+<script src="/js/color.global.min.js" ></script>
+<script src="/js/load-settings.js" ></script>
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+
+  
+  <title>服务端-ch15-Docker | Asimov&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+  <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+
+  <meta name="description" content="ch15-Docker本篇大量参考 14-docker - Charlie’s Blog (chillcharlie357.github.io) 容器与虚机 什么是容器?容器是另外一种轻量级的虚拟化，容器是共用主 机内核，利用内核的虚拟化技术隔离出一个独立 的运行环境，拥有独立的一个文件系统，网络空间，进程空间视图等  Docker 的 3部分 Docker daemon就是Docker Engi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="服务端-ch15-Docker">
+<meta property="og:url" content="https://chendingya.github.io/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/index.html">
+<meta property="og:site_name" content="Asimov&#39;s Blog">
+<meta property="og:description" content="ch15-Docker本篇大量参考 14-docker - Charlie’s Blog (chillcharlie357.github.io) 容器与虚机 什么是容器?容器是另外一种轻量级的虚拟化，容器是共用主 机内核，利用内核的虚拟化技术隔离出一个独立 的运行环境，拥有独立的一个文件系统，网络空间，进程空间视图等  Docker 的 3部分 Docker daemon就是Docker Engi">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://chendingya.github.io/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/image-20231217121508258.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/image-20231217121634801.png">
+<meta property="og:image" content="https://chillcharlie-img.oss-cn-hangzhou.aliyuncs.com/image%2F2023%2F12%2F14%2F18-48-51-551a7d3c33dd450f7f8dc60d1a6ae29c-20231214184848-94a261.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/image-20231217121540353.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/image-20231217121610883.png">
+<meta property="og:image" content="https://chillcharlie-img.oss-cn-hangzhou.aliyuncs.com/image%2F2023%2F12%2F14%2F20-16-50-cef8d6cc91e64be46d5afa44e9e97583-20231214201648-b1c6b2.png">
+<meta property="og:image" content="https://chillcharlie-img.oss-cn-hangzhou.aliyuncs.com/image%2F2023%2F12%2F14%2F20-49-16-0157f9b342cd970ea85a05734fc2b95d-20231214204914-b94d29.png">
+<meta property="og:image" content="https://chillcharlie-img.oss-cn-hangzhou.aliyuncs.com/image%2F2023%2F12%2F14%2F20-47-39-95ea83a90dd44b9bcaeacda307e0cb5c-20231214204737-dcac1b.png">
+<meta property="og:image" content="https://chillcharlie-img.oss-cn-hangzhou.aliyuncs.com/image%2F2023%2F12%2F14%2F19-50-53-30b0928d69d9e80c0c19e469f102cdb6-20231214195051-9c2274.png">
+<meta property="article:published_time" content="2023-12-17T10:32:34.000Z">
+<meta property="article:modified_time" content="2024-01-04T11:25:23.257Z">
+<meta property="article:author" content="Asimov">
+<meta property="article:tag" content="springboot">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://chendingya.github.io/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/image-20231217121508258.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Asimov's Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-192.png" sizes="192x192">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-192.png" sizes="192x192">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  
+  
+    
+<div id="banner" class="">
+  <img src="/pic/back.png" itemprop="image">
+  <div id="banner-dim"></div>
+</div>
+ 
+   
+  <div id="main-grid" class="shadow   ">
+    <div id="nav" class=""  >
+      <navbar id="navbar">
+  <nav id="title-nav">
+    <a href="/">
+      <div id="vivia-logo">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div>Asimov's Blog </div>
+    </a>
+  </nav>
+  <nav id="main-nav">
+    
+      <a class="main-nav-link" href="/">Home</a>
+    
+      <a class="main-nav-link" href="/archives">Archives</a>
+    
+      <a class="main-nav-link" href="/about">About</a>
+    
+  </nav>
+  <nav id="sub-nav">
+    <a id="theme-btn" class="nav-icon">
+      <span class="light-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M438.5-829.913v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-829.913Zm0 747.826v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-82.087ZM877.913-438.5h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537t29.476-12.174h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T877.913-438.5Zm-747.826 0h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T82.087-521.5h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T130.087-438.5Zm660.174-290.87-34.239 32q-12.913 12.674-29.565 12.174-16.653-.5-29.327-13.174-12.674-12.673-12.554-28.826.12-16.152 12.794-28.826l33-35q12.913-12.674 30.454-12.674t30.163 12.847q12.709 12.846 12.328 30.826-.38 17.98-13.054 30.653ZM262.63-203.978l-32 34q-12.913 12.674-30.454 12.674t-30.163-12.847q-12.709-12.846-12.328-30.826.38-17.98 13.054-30.653l33.239-31q12.913-12.674 29.565-12.174 16.653.5 29.327 13.174 12.674 12.673 12.554 28.826-.12 16.152-12.794 28.826Zm466.74 33.239-32-33.239q-12.674-12.913-12.174-29.565.5-16.653 13.174-29.327 12.673-12.674 28.826-13.054 16.152-.38 28.826 12.294l35 33q12.674 12.913 12.674 30.454t-12.847 30.163q-12.846 12.709-30.826 12.328-17.98-.38-30.653-13.054ZM203.978-697.37l-34-33q-12.674-12.913-13.174-29.945-.5-17.033 12.174-29.707t31.326-13.293q18.653-.62 31.326 13.054l32 34.239q11.674 12.913 11.174 29.565-.5 16.653-13.174 29.327-12.673 12.674-28.826 12.554-16.152-.12-28.826-12.794ZM480-240q-100 0-170-70t-70-170q0-100 70-170t170-70q100 0 170 70t70 170q0 100-70 170t-170 70Zm-.247-82q65.703 0 111.475-46.272Q637-414.544 637-480.247t-45.525-111.228Q545.95-637 480.247-637t-111.475 45.525Q323-545.95 323-480.247t45.525 111.975Q414.05-322 479.753-322ZM481-481Z"/></svg></span>
+      <span class="dark-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M480.239-116.413q-152.63 0-258.228-105.478Q116.413-327.37 116.413-480q0-130.935 77.739-227.435t206.304-125.043q43.022-9.631 63.87 10.869t3.478 62.805q-8.891 22.043-14.315 44.463-5.424 22.42-5.424 46.689 0 91.694 64.326 155.879 64.325 64.186 156.218 64.186 24.369 0 46.978-4.946 22.609-4.945 44.413-14.076 42.826-17.369 62.967 1.142 20.142 18.511 10.511 61.054Q807.174-280 712.63-198.206q-94.543 81.793-232.391 81.793Zm0-95q79.783 0 143.337-40.217 63.554-40.218 95.793-108.283-15.608 4.044-31.097 5.326-15.49 1.283-31.859.805-123.706-4.066-210.777-90.539-87.071-86.473-91.614-212.092-.24-16.369.923-31.978 1.164-15.609 5.446-30.978-67.826 32.478-108.282 96.152Q211.652-559.543 211.652-480q0 111.929 78.329 190.258 78.329 78.329 190.258 78.329ZM466.13-465.891Z"/></svg></span>
+    </a>
+    
+      <a id="nav-rss-link" class="nav-icon mobile-hide" href="/atom.xml" title="RSS 订阅">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-120q-25.846 0-44.23-18.384-18.384-18.385-18.384-44.23 0-25.846 18.384-44.23 18.384-18.385 44.23-18.385 25.846 0 44.23 18.385 18.384 18.384 18.384 44.23 0 25.845-18.384 44.23Q223.846-120 198-120Zm538.385 0q-18.846 0-32.923-13.769-14.076-13.769-15.922-33.23-8.692-100.616-51.077-188.654-42.385-88.039-109.885-155.539-67.5-67.501-155.539-109.885Q283-663.462 182.385-672.154q-19.461-1.846-33.23-16.23-13.769-14.385-13.769-33.846t14.076-32.922q14.077-13.461 32.923-12.23 120.076 8.692 226.038 58.768 105.961 50.077 185.73 129.846 79.769 79.769 129.846 185.731 50.077 105.961 58.769 226.038 1.231 18.846-12.538 32.922Q756.461-120 736.385-120Zm-252 0q-18.231 0-32.423-13.461t-18.653-33.538Q418.155-264.23 348.886-333.5q-69.27-69.27-166.501-84.423-20.077-4.462-33.538-18.961-13.461-14.5-13.461-33.346 0-19.076 13.884-33.23 13.884-14.153 33.115-10.922 136.769 15.384 234.384 112.999 97.615 97.615 112.999 234.384 3.231 19.23-10.538 33.115Q505.461-120 484.385-120Z"/></svg>
+      </a>
+    
+    <div id="nav-menu-btn" class="nav-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M177.37-252.282q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Zm0-186.218q-17.453 0-29.477-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T177.37-521.5h605.26q17.453 0 29.477 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T782.63-438.5H177.37Zm0-186.217q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Z"/></svg>
+    </div>
+  </nav>
+</navbar>
+<div id="nav-dropdown" class="hidden">
+  <div id="dropdown-link-list">
+    
+      <a class="nav-dropdown-link" href="/">Home</a>
+    
+      <a class="nav-dropdown-link" href="/archives">Archives</a>
+    
+      <a class="nav-dropdown-link" href="/about">About</a>
+    
+    
+      <a class="nav-dropdown-link" href="/atom.xml" title="RSS 订阅">RSS</a>
+     
+    </div>
+</div>
+<script>
+  let dropdownBtn = document.getElementById("nav-menu-btn");
+  let dropdownEle = document.getElementById("nav-dropdown");
+  dropdownBtn.onclick = function() {
+    dropdownEle.classList.toggle("hidden");
+  }
+</script>
+    </div>
+    <div id="sidebar-wrapper">
+      <sidebar id="sidebar">
+  
+    <div class="widget-wrap">
+  <div class="info-card">
+    <div class="avatar">
+      
+        <image src=/pic/avatar.png></image>
+      
+      <div class="img-dim"></div>
+    </div>
+    <div class="info">
+      <div class="username">Asimov </div>
+      <div class="dot"></div>
+      <div class="subtitle">为美好的明天线上祝福！ </div>
+      <div class="link-list">
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://github.com/chendingya" title="GitHub"><i class="fa-brands fa-github"></i></a>
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://chillcharlie357.github.io/" title="Charlie's Blog"><i class="fa-solid fa-graduation-cap"></i></a>
+         
+      </div>  
+    </div>
+  </div>
+</div>
+
+  
+  <div class="sticky">
+    
+      
+
+
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">分类</h3>
+      <div class="category-box">
+            <a class="category-link" href="/categories/hello-world/">
+                hello world
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/Hexo/">
+                Hexo
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                数据库
+                <div class="category-count">6</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">
+                软件工程与计算II
+                <div class="category-count">28</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91/">
+                服务端开发
+                <div class="category-count">16</div>
+            </a>
+        
+            <a class="category-link" href="/categories/openharmony/">
+                openharmony
+                <div class="category-count">12</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
+                编译原理
+                <div class="category-count">13</div>
+            </a>
+        
+            <a class="category-link" href="/categories/tdesign/">
+                tdesign
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E9%A9%BE%E8%80%83/">
+                驾考
+                <div class="category-count">2</div>
+            </a>
+        
+            <a class="category-link" href="/categories/leetcode/">
+                leetcode
+                <div class="category-count">4</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                机器学习
+                <div class="category-count">1</div>
+            </a>
+        </div>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">标签</h3>
+      <ul class="widget-tag-list" itemprop="keywords"><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/hello-world/" rel="tag">hello world</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/openharmony/" rel="tag">openharmony</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/springboot/" rel="tag">springboot</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/tdesign/" rel="tag">tdesign</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/" rel="tag">位运算</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" rel="tag">动态规划</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8/" rel="tag">双向链表</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/" rel="tag">双指针</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/" rel="tag">哈希表</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%8E%92%E5%BA%8F/" rel="tag">排序</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91/" rel="tag">服务端开发</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/" rel="tag">期末复习</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" rel="tag">编译原理</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/" rel="tag">软件工程与计算II</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E9%A9%BE%E8%80%83/" rel="tag">驾考</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">归档</h3>
+      
+      
+        <a class="archive-link" href="/archives/2024/01 ">
+          一月 2024 
+          <div class="archive-count">2 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/12 ">
+          十二月 2023 
+          <div class="archive-count">3 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/11 ">
+          十一月 2023 
+          <div class="archive-count">5 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/10 ">
+          十月 2023 
+          <div class="archive-count">20 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/09 ">
+          九月 2023 
+          <div class="archive-count">4 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/07 ">
+          七月 2023 
+          <div class="archive-count">2 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/04 ">
+          四月 2023 
+          <div class="archive-count">10 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/03 ">
+          三月 2023 
+          <div class="archive-count">9 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/01 ">
+          一月 2023 
+          <div class="archive-count">1 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2022/10 ">
+          十月 2022 
+          <div class="archive-count">1 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2022/06 ">
+          六月 2022 
+          <div class="archive-count">28 </div>
+        </a>
+      
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">最新文章</h3>
+      <ul>
+        
+          <a class="recent-link" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/" title="服务端-ch17-k8s使用" >
+            <div class="recent-link-text">
+              服务端-ch17-k8s使用
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/" title="机器学习-期末复习" >
+            <div class="recent-link-text">
+              机器学习-期末复习
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/12/30/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch16-%E5%AE%B9%E5%99%A8%E9%95%9C%E5%83%8F%E6%9E%84%E5%BB%BA%E4%B8%8E%E7%BC%96%E6%8E%92/" title="服务端-ch16-容器镜像构建与编排" >
+            <div class="recent-link-text">
+              服务端-ch16-容器镜像构建与编排
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/" title="服务端-ch15-Docker" >
+            <div class="recent-link-text">
+              服务端-ch15-Docker
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/" title="服务端-ch14-Spring WebFlux" >
+            <div class="recent-link-text">
+              服务端-ch14-Spring WebFlux
+            </div>
+          </a>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+  </div>
+</sidebar>
+    </div>
+    <div id="content-body">
+       
+
+<article id="post-23-服务端/ch15-docker" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 class="p-name article-title" itemprop="headline name">
+        服务端-ch15-Docker
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2023-12-17T10:32:34.000Z" itemprop="datePublished">2023-12-17</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91/">服务端开发</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            1.2k 词 
+          </div>
+        </div>
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springboot/" rel="tag">springboot</a></li></ul>
+
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <h1 id="ch15-Docker"><a href="#ch15-Docker" class="headerlink" title="ch15-Docker"></a>ch15-Docker</h1><p>本篇大量参考</p>
+<p><a target="_blank" rel="noopener" href="https://chillcharlie357.github.io/posts/33399bea/">14-docker - Charlie’s Blog (chillcharlie357.github.io)</a></p>
+<h2 id="容器与虚机"><a href="#容器与虚机" class="headerlink" title="容器与虚机"></a>容器与虚机</h2><p><img src="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/image-20231217121508258.png" alt="image-20231217121508258"></p>
+<h3 id="什么是容器"><a href="#什么是容器" class="headerlink" title="什么是容器?"></a>什么是容器?</h3><p>容器是另外一种轻量级的虚拟化，容器是共用主 机内核，利用内核的虚拟化技术隔离出一个独立 的运行环境，拥有独立的一个文件系统，网络空间，进程空间视图等</p>
+<p><img src="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/image-20231217121634801.png" alt="image-20231217121634801"></p>
+<h2 id="Docker-的-3部分"><a href="#Docker-的-3部分" class="headerlink" title="Docker 的 3部分"></a>Docker 的 3部分</h2><ul>
+<li>Docker daemon就是<strong>Docker Engine</strong> ， 一般在宿主主机后台运行 </li>
+<li>用户使用<strong>client</strong>通过pipe 、unix socket 或tcp直接跟daemon交互 </li>
+<li>Docker index指向Docker <strong>registries</strong> ， 也叫docker仓库，可以用来让你上传和 下载images 。Hub.docker.com 为 docker官方仓库</li>
+<li>每一部分有哪些部分构成？</li>
+</ul>
+<p><img src="https://chillcharlie-img.oss-cn-hangzhou.aliyuncs.com/image%2F2023%2F12%2F14%2F18-48-51-551a7d3c33dd450f7f8dc60d1a6ae29c-20231214184848-94a261.png" alt="image.png"></p>
+<p><img src="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/image-20231217121540353.png" alt="image-20231217121540353"></p>
+<h2 id="Docker可运行在以下操作系统"><a href="#Docker可运行在以下操作系统" class="headerlink" title="Docker可运行在以下操作系统"></a>Docker可运行在以下操作系统</h2><ul>
+<li>Windows </li>
+<li>OS X </li>
+<li>Linux</li>
+</ul>
+<h3 id="Windows下的两类容器"><a href="#Windows下的两类容器" class="headerlink" title="Windows下的两类容器"></a>Windows下的两类容器</h3><ul>
+<li>Windows Container </li>
+<li>linux container</li>
+</ul>
+<p><img src="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/image-20231217121610883.png" alt="image-20231217121610883"></p>
+<h1 id="docker子命令"><a href="#docker子命令" class="headerlink" title="docker子命令"></a>docker子命令</h1><h2 id="run👍"><a href="#run👍" class="headerlink" title="run👍"></a>run👍</h2><p>文件：写时复制，不修改就用底层linux的文件，修改复制一份就放到上一层</p>
+<ul>
+<li><p><strong><code>--rm</code>: 退出时删除容器</strong></p>
+</li>
+<li><p><strong><code>--it</code>: 进入命令行终端</strong></p>
+</li>
+<li><p><strong><code>-d</code>: 后台运行容器，并返回容器 ID</strong></p>
+</li>
+<li><p><code>-i</code>: 交互模式运行容器，通常与 -t 同时使用</p>
+</li>
+<li><p><code>-t</code>: 为容器重新分配一个伪输入终端，通常与 -i 同时使用</p>
+</li>
+<li><p><strong><code>-p</code>: 指定（发布）端口映射</strong></p>
+<ul>
+<li><strong>格式为：主机（宿主）端口：容器端口</strong></li>
+</ul>
+</li>
+<li><p><code>-P</code>: 随机端口映射，容器内部端口随机映射到主机的高端口</p>
+</li>
+<li><p><strong><code>--name=&quot;nginx-lb&quot;</code>: 为容器指定一个名称</strong></p>
+</li>
+<li><p><strong><code>-e username=&quot;ritchie&quot;</code>:设置环境变量</strong></p>
+<ul>
+<li>可以用环境变量给容器初始化&#x2F;传入特定参数，在微服务中很常用</li>
+<li>例：给mysql容器传<code>MYSQL_ROOT_PASSWORD</code></li>
+</ul>
+</li>
+<li><p><code>--env-file=c:/templ /tl .txt</code>: 从指定文件读入环境变量</p>
+</li>
+<li><p><strong>–expose &#x3D; 2000-2002: 开放（暴露）一个端口或一组端口，用于指出容器内可能对外暴露的端(不一定映射)</strong></p>
+<ul>
+<li>如果加上-P则会建立外部端口映射</li>
+</ul>
+</li>
+<li><p><strong><code>--link &lt;name or id&gt;:alias</code>：链接两个容器，使得他们可以相互通信</strong></p>
+<ul>
+<li>右边可以写在本地属性文件，可以在不修改命令的情况下把远程容器映射到本地容器</li>
+</ul>
+</li>
+<li><p><strong><code>-v c:/templ :/data</code>: 绑定一个卷</strong></p>
+<ul>
+<li>左边时本机路径，右边是容器路径</li>
+</ul>
+</li>
+<li><p><code>--rm</code>: 退出时自动删除容器</p>
+</li>
+</ul>
+<p>如何在镜像中查看网卡信息和ip地址？</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker run --rm -it busybox</span><br><span class="line">cat /etc/hosts</span><br><span class="line">ip a</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><code>--link</code>的例子：<code>docker run -d --name node --link selenium_hub:hub selenium/node-chrome-debug</code>。创建并启动名为node的容器，并把该容器和名为selenium_hub的容器链接起来。hub是该容器在link下的别名（alias），通俗易懂的讲，站在node容器的角度，selenium_hub和hub都是1cbbf6f07804容器的名字，并且作为容器的hostname，node用这2个名字中的哪一个都可以访问到1cbbf6f07804容器并与之通信（docker通过DNS自动解析）。</li>
+</ul>
+<h2 id="2-2-inspect"><a href="#2-2-inspect" class="headerlink" title="2.2. inspect"></a>2.2. inspect</h2><p>查看详细信息</p>
+<p><code>docker image</code>和<code>docker container</code>都有<code>inspect</code>子命令</p>
+<h1 id="镜像分层👍"><a href="#镜像分层👍" class="headerlink" title="镜像分层👍"></a>镜像分层👍</h1><ul>
+<li><p>写时复制 COW (Copy-On-Write)</p>
+<ul>
+<li>需要修改底层文件时才会复制一份到上层，然后进行修改</li>
+</ul>
+</li>
+<li><p>否则一直共享底层文件</p>
+</li>
+<li><p>docker history &lt;image name&gt; 查看镜像的层</p>
+</li>
+</ul>
+<p><img src="https://chillcharlie-img.oss-cn-hangzhou.aliyuncs.com/image%2F2023%2F12%2F14%2F20-16-50-cef8d6cc91e64be46d5afa44e9e97583-20231214201648-b1c6b2.png" alt="image.png"></p>
+<h1 id="数据的存储方式"><a href="#数据的存储方式" class="headerlink" title="数据的存储方式"></a>数据的存储方式</h1><ol>
+<li>数据卷 Volume：docker自管理</li>
+<li>bind mounts：存储在宿主机的任意位置</li>
+<li>临时文件系统 tmpfs(temporary file system)：存储在宿主机内存中</li>
+</ol>
+<p>docker volume子命令可以管理数据卷</p>
+<p><img src="https://chillcharlie-img.oss-cn-hangzhou.aliyuncs.com/image%2F2023%2F12%2F14%2F20-49-16-0157f9b342cd970ea85a05734fc2b95d-20231214204914-b94d29.png" alt="image.png"></p>
+<h1 id="导入导出镜像"><a href="#导入导出镜像" class="headerlink" title="导入导出镜像"></a>导入导出镜像</h1><ul>
+<li>备份镜像<ul>
+<li>保存：<strong>docker save -o 文件名.tar 镜像</strong></li>
+<li>导入</li>
+</ul>
+</li>
+</ul>
+<h1 id="dangling镜像"><a href="#dangling镜像" class="headerlink" title="dangling镜像"></a>dangling镜像</h1><p>dangling镜像：没有tag的镜像<br><strong>查看：<code>docker image ls -f dangling=true</code></strong><br><strong>删除dangling镜像：<code>docker image prune -f</code></strong></p>
+<h1 id="Docker-System"><a href="#Docker-System" class="headerlink" title="Docker System"></a>Docker System</h1><ul>
+<li><strong>docker system df</strong> 命令，类似于 Linux上的 df 命令，用于查看 Docker 的磁盘使用情况</li>
+<li>RECLAIMABLE 指可回收的，对 image, 指的是没有被容器使用的镜像</li>
+<li>查看系统日志：<strong>docker system events</strong></li>
+</ul>
+<h1 id="容器网络👍"><a href="#容器网络👍" class="headerlink" title="容器网络👍"></a>容器网络👍</h1><p>不同Network Driver的区别：<a target="_blank" rel="noopener" href="https://docs.docker.com/network/drivers/">Network drivers overview | Docker Docs </a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/212772001">Docker 网络模式详解及容器间网络通信 - 知乎 </a></p>
+<ul>
+<li><p>none网络， <code>--net=none</code></p>
+</li>
+<li><p>host网络，<code>--net=host</code></p>
+<ul>
+<li>共享宿主机的网络</li>
+</ul>
+</li>
+<li><p>bridge网络,<code>--net=bridge</code></p>
+<ul>
+<li>例：docker0的linux bridge</li>
+</ul>
+</li>
+<li><p>container网络,<code>--net=container:NAME_or_ID</code></p>
+<ul>
+<li>新创建的容器共享其他容器的网络</li>
+</ul>
+</li>
+<li><p>共享相同的ip地址和端口号，类似k8s的pod</p>
+</li>
+<li><p><code>docker run --network=my-net</code>：在同一个network里的多个容器可以相互通信<br><code>docker network connect </code></p>
+</li>
+</ul>
+<p><img src="https://chillcharlie-img.oss-cn-hangzhou.aliyuncs.com/image%2F2023%2F12%2F14%2F20-47-39-95ea83a90dd44b9bcaeacda307e0cb5c-20231214204737-dcac1b.png" alt="image.png"></p>
+<p>上图中host为宿主机，docker0为网关，docker1和docker2为容器<br>host eth0：宿主机网卡</p>
+<h1 id="Vscode中基于docker容器开发"><a href="#Vscode中基于docker容器开发" class="headerlink" title="Vscode中基于docker容器开发"></a>Vscode中基于docker容器开发</h1><p>C&#x2F;C++：底层开发，嵌入式，性能要求高</p>
+<p>Java：</p>
+<p>Python</p>
+<p>JS：前端开发，服务端，基于JS的测试工具</p>
+<p><img src="https://chillcharlie-img.oss-cn-hangzhou.aliyuncs.com/image%2F2023%2F12%2F14%2F19-50-53-30b0928d69d9e80c0c19e469f102cdb6-20231214195051-9c2274.png" alt="image.png"></p>
+<p>Gadle：并发构建，性能优于maven</p>
+
+        
+      </div>
+
+         
+    </div>
+    
+     
+  </div>
+  
+    
+<nav id="article-nav">
+  <a class="article-nav-btn left "
+    
+      href="/2023/12/30/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch16-%E5%AE%B9%E5%99%A8%E9%95%9C%E5%83%8F%E6%9E%84%E5%BB%BA%E4%B8%8E%E7%BC%96%E6%8E%92/"
+      title="服务端-ch16-容器镜像构建与编排"
+     >
+    <i class="fa-solid fa-angle-left"></i>
+    <p class="title-text">
+      
+        服务端-ch16-容器镜像构建与编排
+        
+    </p>
+  </a>
+  <a class="article-nav-btn right "
+    
+      href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/"
+      title="服务端-ch14-Spring WebFlux"
+     >
+
+    <p class="title-text">
+      
+        服务端-ch14-Spring WebFlux
+        
+    </p>
+    <i class="fa-solid fa-angle-right"></i>
+  </a>
+</nav>
+
+
+  
+</article>
+
+
+  
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <div id="comment-card" class="comment-card">
+    <div class="main-title-bar">
+      <div class="main-title-dot"></div>
+      <div class="main-title">留言 </div>
+    </div>
+    <div id="vcomments"></div>
+  </div>
+  <script>
+      new Valine({"enable":true,"appId":null,"appKey":null,"placeholder":"Just go go","pageSize":20,"highlight":true,"serverURLs":null,"el":"#vcomments"});
+  </script>
+ 
+    </div>
+    <div id="footer-wrapper">
+      <footer id="footer">
+  
+  <div id="footer-info" class="inner">
+    
+      <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris"></a>
+    
+    &copy; 2024 Asimov<br>
+    Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & Theme <a target="_blank" rel="noopener" href="https://github.com/saicaca/hexo-theme-vivia">Vivia</a>
+  </div>
+</footer>
+
+    </div>
+    <div class="back-to-top-wrapper">
+    <button id="back-to-top-btn" class="back-to-top-btn hide" onclick="topFunction()">
+        <i class="fa-solid fa-angle-up"></i>
+    </button>
+</div>
+
+<script>
+    function topFunction() {
+        window.scroll({ top: 0, behavior: 'smooth' });
+    }
+    let btn = document.getElementById('back-to-top-btn');
+    function scrollFunction() {
+        if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+            btn.classList.remove('hide')
+        } else {
+            btn.classList.add('hide')
+        }
+    }
+    window.onscroll = function() {
+        scrollFunction();
+    }
+</script>
+
+  </div>
+  <script src="/js/light-dark-switch.js"></script>
+</body>
+</html>

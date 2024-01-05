@@ -1,0 +1,636 @@
+<!DOCTYPE html>
+
+
+<html theme="dark" showBanner="true" hasBanner="true" > 
+<link href="/fontawesome/css/fontawesome.css" rel="stylesheet">
+<link href="/fontawesome/css/brands.css" rel="stylesheet">
+<link href="/fontawesome/css/solid.css" rel="stylesheet">
+<script src="/js/color.global.min.js" ></script>
+<script src="/js/load-settings.js" ></script>
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+
+  
+  <title>服务端-ch16-容器镜像构建与编排 | Asimov&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+  <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+
+  <meta name="description" content="由Dockerfile构建镜像过程Image：静态的压缩包Container：运行的容器，轻量级的虚拟机  文件指令👍 FROM：指定基础镜像，必须为第一个命令 RUN：构建镜像时执行的命令 ADD：将本地文件添加到容器中，tar类型文件会自动解压 COPY：功能类似ADD，但是不会自动解压文件 CMD：构建容器后调用，也就是在容器启动时才进行调用 可以被docker run参数覆盖   ENT">
+<meta property="og:type" content="article">
+<meta property="og:title" content="服务端-ch16-容器镜像构建与编排">
+<meta property="og:url" content="https://chendingya.github.io/2023/12/30/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch16-%E5%AE%B9%E5%99%A8%E9%95%9C%E5%83%8F%E6%9E%84%E5%BB%BA%E4%B8%8E%E7%BC%96%E6%8E%92/index.html">
+<meta property="og:site_name" content="Asimov&#39;s Blog">
+<meta property="og:description" content="由Dockerfile构建镜像过程Image：静态的压缩包Container：运行的容器，轻量级的虚拟机  文件指令👍 FROM：指定基础镜像，必须为第一个命令 RUN：构建镜像时执行的命令 ADD：将本地文件添加到容器中，tar类型文件会自动解压 COPY：功能类似ADD，但是不会自动解压文件 CMD：构建容器后调用，也就是在容器启动时才进行调用 可以被docker run参数覆盖   ENT">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://chillcharlie-img.oss-cn-hangzhou.aliyuncs.com/image%2F2023%2F12%2F21%2F18-48-00-e370271f15d63a6c253c9948ac97824b-20231221184759-c0bcd1.png">
+<meta property="article:published_time" content="2023-12-30T10:32:34.000Z">
+<meta property="article:modified_time" content="2024-01-04T11:55:54.809Z">
+<meta property="article:author" content="Asimov">
+<meta property="article:tag" content="springboot">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://chillcharlie-img.oss-cn-hangzhou.aliyuncs.com/image%2F2023%2F12%2F21%2F18-48-00-e370271f15d63a6c253c9948ac97824b-20231221184759-c0bcd1.png">
+  
+    <link rel="alternate" href="/atom.xml" title="Asimov's Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-192.png" sizes="192x192">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-192.png" sizes="192x192">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  
+  
+    
+<div id="banner" class="">
+  <img src="/pic/back.png" itemprop="image">
+  <div id="banner-dim"></div>
+</div>
+ 
+   
+  <div id="main-grid" class="shadow   ">
+    <div id="nav" class=""  >
+      <navbar id="navbar">
+  <nav id="title-nav">
+    <a href="/">
+      <div id="vivia-logo">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div>Asimov's Blog </div>
+    </a>
+  </nav>
+  <nav id="main-nav">
+    
+      <a class="main-nav-link" href="/">Home</a>
+    
+      <a class="main-nav-link" href="/archives">Archives</a>
+    
+      <a class="main-nav-link" href="/about">About</a>
+    
+  </nav>
+  <nav id="sub-nav">
+    <a id="theme-btn" class="nav-icon">
+      <span class="light-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M438.5-829.913v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-829.913Zm0 747.826v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-82.087ZM877.913-438.5h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537t29.476-12.174h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T877.913-438.5Zm-747.826 0h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T82.087-521.5h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T130.087-438.5Zm660.174-290.87-34.239 32q-12.913 12.674-29.565 12.174-16.653-.5-29.327-13.174-12.674-12.673-12.554-28.826.12-16.152 12.794-28.826l33-35q12.913-12.674 30.454-12.674t30.163 12.847q12.709 12.846 12.328 30.826-.38 17.98-13.054 30.653ZM262.63-203.978l-32 34q-12.913 12.674-30.454 12.674t-30.163-12.847q-12.709-12.846-12.328-30.826.38-17.98 13.054-30.653l33.239-31q12.913-12.674 29.565-12.174 16.653.5 29.327 13.174 12.674 12.673 12.554 28.826-.12 16.152-12.794 28.826Zm466.74 33.239-32-33.239q-12.674-12.913-12.174-29.565.5-16.653 13.174-29.327 12.673-12.674 28.826-13.054 16.152-.38 28.826 12.294l35 33q12.674 12.913 12.674 30.454t-12.847 30.163q-12.846 12.709-30.826 12.328-17.98-.38-30.653-13.054ZM203.978-697.37l-34-33q-12.674-12.913-13.174-29.945-.5-17.033 12.174-29.707t31.326-13.293q18.653-.62 31.326 13.054l32 34.239q11.674 12.913 11.174 29.565-.5 16.653-13.174 29.327-12.673 12.674-28.826 12.554-16.152-.12-28.826-12.794ZM480-240q-100 0-170-70t-70-170q0-100 70-170t170-70q100 0 170 70t70 170q0 100-70 170t-170 70Zm-.247-82q65.703 0 111.475-46.272Q637-414.544 637-480.247t-45.525-111.228Q545.95-637 480.247-637t-111.475 45.525Q323-545.95 323-480.247t45.525 111.975Q414.05-322 479.753-322ZM481-481Z"/></svg></span>
+      <span class="dark-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M480.239-116.413q-152.63 0-258.228-105.478Q116.413-327.37 116.413-480q0-130.935 77.739-227.435t206.304-125.043q43.022-9.631 63.87 10.869t3.478 62.805q-8.891 22.043-14.315 44.463-5.424 22.42-5.424 46.689 0 91.694 64.326 155.879 64.325 64.186 156.218 64.186 24.369 0 46.978-4.946 22.609-4.945 44.413-14.076 42.826-17.369 62.967 1.142 20.142 18.511 10.511 61.054Q807.174-280 712.63-198.206q-94.543 81.793-232.391 81.793Zm0-95q79.783 0 143.337-40.217 63.554-40.218 95.793-108.283-15.608 4.044-31.097 5.326-15.49 1.283-31.859.805-123.706-4.066-210.777-90.539-87.071-86.473-91.614-212.092-.24-16.369.923-31.978 1.164-15.609 5.446-30.978-67.826 32.478-108.282 96.152Q211.652-559.543 211.652-480q0 111.929 78.329 190.258 78.329 78.329 190.258 78.329ZM466.13-465.891Z"/></svg></span>
+    </a>
+    
+      <a id="nav-rss-link" class="nav-icon mobile-hide" href="/atom.xml" title="RSS 订阅">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-120q-25.846 0-44.23-18.384-18.384-18.385-18.384-44.23 0-25.846 18.384-44.23 18.384-18.385 44.23-18.385 25.846 0 44.23 18.385 18.384 18.384 18.384 44.23 0 25.845-18.384 44.23Q223.846-120 198-120Zm538.385 0q-18.846 0-32.923-13.769-14.076-13.769-15.922-33.23-8.692-100.616-51.077-188.654-42.385-88.039-109.885-155.539-67.5-67.501-155.539-109.885Q283-663.462 182.385-672.154q-19.461-1.846-33.23-16.23-13.769-14.385-13.769-33.846t14.076-32.922q14.077-13.461 32.923-12.23 120.076 8.692 226.038 58.768 105.961 50.077 185.73 129.846 79.769 79.769 129.846 185.731 50.077 105.961 58.769 226.038 1.231 18.846-12.538 32.922Q756.461-120 736.385-120Zm-252 0q-18.231 0-32.423-13.461t-18.653-33.538Q418.155-264.23 348.886-333.5q-69.27-69.27-166.501-84.423-20.077-4.462-33.538-18.961-13.461-14.5-13.461-33.346 0-19.076 13.884-33.23 13.884-14.153 33.115-10.922 136.769 15.384 234.384 112.999 97.615 97.615 112.999 234.384 3.231 19.23-10.538 33.115Q505.461-120 484.385-120Z"/></svg>
+      </a>
+    
+    <div id="nav-menu-btn" class="nav-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M177.37-252.282q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Zm0-186.218q-17.453 0-29.477-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T177.37-521.5h605.26q17.453 0 29.477 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T782.63-438.5H177.37Zm0-186.217q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Z"/></svg>
+    </div>
+  </nav>
+</navbar>
+<div id="nav-dropdown" class="hidden">
+  <div id="dropdown-link-list">
+    
+      <a class="nav-dropdown-link" href="/">Home</a>
+    
+      <a class="nav-dropdown-link" href="/archives">Archives</a>
+    
+      <a class="nav-dropdown-link" href="/about">About</a>
+    
+    
+      <a class="nav-dropdown-link" href="/atom.xml" title="RSS 订阅">RSS</a>
+     
+    </div>
+</div>
+<script>
+  let dropdownBtn = document.getElementById("nav-menu-btn");
+  let dropdownEle = document.getElementById("nav-dropdown");
+  dropdownBtn.onclick = function() {
+    dropdownEle.classList.toggle("hidden");
+  }
+</script>
+    </div>
+    <div id="sidebar-wrapper">
+      <sidebar id="sidebar">
+  
+    <div class="widget-wrap">
+  <div class="info-card">
+    <div class="avatar">
+      
+        <image src=/pic/avatar.png></image>
+      
+      <div class="img-dim"></div>
+    </div>
+    <div class="info">
+      <div class="username">Asimov </div>
+      <div class="dot"></div>
+      <div class="subtitle">为美好的明天线上祝福！ </div>
+      <div class="link-list">
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://github.com/chendingya" title="GitHub"><i class="fa-brands fa-github"></i></a>
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://chillcharlie357.github.io/" title="Charlie's Blog"><i class="fa-solid fa-graduation-cap"></i></a>
+         
+      </div>  
+    </div>
+  </div>
+</div>
+
+  
+  <div class="sticky">
+    
+      
+
+
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">分类</h3>
+      <div class="category-box">
+            <a class="category-link" href="/categories/hello-world/">
+                hello world
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/Hexo/">
+                Hexo
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                数据库
+                <div class="category-count">6</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">
+                软件工程与计算II
+                <div class="category-count">28</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91/">
+                服务端开发
+                <div class="category-count">16</div>
+            </a>
+        
+            <a class="category-link" href="/categories/openharmony/">
+                openharmony
+                <div class="category-count">12</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
+                编译原理
+                <div class="category-count">13</div>
+            </a>
+        
+            <a class="category-link" href="/categories/tdesign/">
+                tdesign
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E9%A9%BE%E8%80%83/">
+                驾考
+                <div class="category-count">2</div>
+            </a>
+        
+            <a class="category-link" href="/categories/leetcode/">
+                leetcode
+                <div class="category-count">4</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                机器学习
+                <div class="category-count">1</div>
+            </a>
+        </div>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">标签</h3>
+      <ul class="widget-tag-list" itemprop="keywords"><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/hello-world/" rel="tag">hello world</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/openharmony/" rel="tag">openharmony</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/springboot/" rel="tag">springboot</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/tdesign/" rel="tag">tdesign</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/" rel="tag">位运算</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" rel="tag">动态规划</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8/" rel="tag">双向链表</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/" rel="tag">双指针</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/" rel="tag">哈希表</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%8E%92%E5%BA%8F/" rel="tag">排序</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91/" rel="tag">服务端开发</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/" rel="tag">期末复习</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" rel="tag">编译原理</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/" rel="tag">软件工程与计算II</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E9%A9%BE%E8%80%83/" rel="tag">驾考</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">归档</h3>
+      
+      
+        <a class="archive-link" href="/archives/2024/01 ">
+          一月 2024 
+          <div class="archive-count">2 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/12 ">
+          十二月 2023 
+          <div class="archive-count">3 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/11 ">
+          十一月 2023 
+          <div class="archive-count">5 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/10 ">
+          十月 2023 
+          <div class="archive-count">20 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/09 ">
+          九月 2023 
+          <div class="archive-count">4 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/07 ">
+          七月 2023 
+          <div class="archive-count">2 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/04 ">
+          四月 2023 
+          <div class="archive-count">10 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/03 ">
+          三月 2023 
+          <div class="archive-count">9 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/01 ">
+          一月 2023 
+          <div class="archive-count">1 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2022/10 ">
+          十月 2022 
+          <div class="archive-count">1 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2022/06 ">
+          六月 2022 
+          <div class="archive-count">28 </div>
+        </a>
+      
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">最新文章</h3>
+      <ul>
+        
+          <a class="recent-link" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/" title="服务端-ch17-k8s使用" >
+            <div class="recent-link-text">
+              服务端-ch17-k8s使用
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/" title="机器学习-期末复习" >
+            <div class="recent-link-text">
+              机器学习-期末复习
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/12/30/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch16-%E5%AE%B9%E5%99%A8%E9%95%9C%E5%83%8F%E6%9E%84%E5%BB%BA%E4%B8%8E%E7%BC%96%E6%8E%92/" title="服务端-ch16-容器镜像构建与编排" >
+            <div class="recent-link-text">
+              服务端-ch16-容器镜像构建与编排
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/" title="服务端-ch15-Docker" >
+            <div class="recent-link-text">
+              服务端-ch15-Docker
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/" title="服务端-ch14-Spring WebFlux" >
+            <div class="recent-link-text">
+              服务端-ch14-Spring WebFlux
+            </div>
+          </a>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+  </div>
+</sidebar>
+    </div>
+    <div id="content-body">
+       
+
+<article id="post-23-服务端/ch16-容器镜像构建与编排" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 class="p-name article-title" itemprop="headline name">
+        服务端-ch16-容器镜像构建与编排
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2023-12-30T10:32:34.000Z" itemprop="datePublished">2023-12-30</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91/">服务端开发</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            1.5k 词 
+          </div>
+        </div>
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springboot/" rel="tag">springboot</a></li></ul>
+
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <h1 id="由Dockerfile构建镜像"><a href="#由Dockerfile构建镜像" class="headerlink" title="由Dockerfile构建镜像"></a>由Dockerfile构建镜像</h1><h2 id="过程"><a href="#过程" class="headerlink" title="过程"></a>过程</h2><p>Image：静态的压缩包<br>Container：运行的容器，轻量级的虚拟机</p>
+<p><img src="https://chillcharlie-img.oss-cn-hangzhou.aliyuncs.com/image%2F2023%2F12%2F21%2F18-48-00-e370271f15d63a6c253c9948ac97824b-20231221184759-c0bcd1.png" alt="image.png"></p>
+<h2 id="文件指令👍"><a href="#文件指令👍" class="headerlink" title="文件指令👍"></a>文件指令👍</h2><ul>
+<li>FROM：<strong>指定基础镜像，必须为第一个命令</strong></li>
+<li>RUN：构建镜像时执行的命令</li>
+<li>ADD：将本地文件添加到容器中，<strong>tar类型文件会自动解压</strong></li>
+<li>COPY：功能类似ADD，但是<strong>不会自动解压文件</strong></li>
+<li>CMD：构建容器后调用，也就是在容器启动时才进行调用<ul>
+<li>可以被docker run参数覆盖</li>
+</ul>
+</li>
+<li>ENTRYPOINT：配置容器，使其可执行化<ul>
+<li>配合CMD可省去“application”，只使用参数，用于docker run时根据不同参数执行不同功能</li>
+<li>很可能是shell脚本</li>
+</ul>
+</li>
+<li>LABEL：用于为镜像添加元数据<ul>
+<li>key-value</li>
+</ul>
+</li>
+<li>ENV：设置环境变量</li>
+<li>EXPOSE：指定与外界交互的端口，容器内的端口号，docker run时加-P则会映射一个随机号（宿主机）</li>
+<li>VOLUME：用于指定持久化目录，docker run时如果没有指定挂载目录，会创建一个volume</li>
+<li>WORKDIR：工作目录，类似于cd命令</li>
+<li>USER：指定运行容器时的用户名或 UID<ul>
+<li>默认root</li>
+</ul>
+</li>
+<li>ARG：用于指定传递给构建运行时的变量</li>
+<li>ONBUILD：用于设置镜像触发器<ul>
+<li>可以被其他人进一步构建，会触发一些行为</li>
+</ul>
+</li>
+</ul>
+<h1 id="2-Docker-build"><a href="#2-Docker-build" class="headerlink" title="2. Docker build"></a>2. Docker build</h1><h2 id="构建命令"><a href="#构建命令" class="headerlink" title="构建命令"></a>构建命令</h2><ul>
+<li>docker build [OPTIONS] PATH | URL | -</li>
+<li>生成镜像：<code>docker build -t &lt;image&gt;:&lt;tag&gt; .</code><ul>
+<li>最后一个参数context: .</li>
+</ul>
+</li>
+</ul>
+<h2 id="最佳实践👍"><a href="#最佳实践👍" class="headerlink" title="最佳实践👍"></a>最佳实践👍</h2><ul>
+<li>如何编写dockerfile: <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/26904830">如何编写最佳的Dockerfile - 知乎 </a><ol>
+<li><code>.dockerignore</code>文件</li>
+<li>容器只运行单个应用<ul>
+<li>解耦，未来可以单独对一个应用进行升级&#x2F;重启&#x2F;…</li>
+</ul>
+</li>
+<li>将多个RUN指令合并为一个<ul>
+<li>原因：减少镜像分层</li>
+</ul>
+</li>
+<li>基础镜像的标签不要用latest<ul>
+<li>建议使用固定的版本，使得镜像可预知</li>
+</ul>
+</li>
+<li>每个RUN指令的最后删除多余文件<ul>
+<li>原因：否则，虽然在下一个RUN删掉，上一层的文件还在（写时复制，上一层不可修改）</li>
+</ul>
+</li>
+<li>选择合适的基础镜像(alpine版本最好)<ul>
+<li>轻量级</li>
+</ul>
+</li>
+<li>设置WORKDIR和 CMD</li>
+<li>合理安排COPY和RUN的顺序<ul>
+<li>把不容易改变的放在前面，充分利用缓存</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>Docker健康检查HEALTHCHECK的使用方法：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/386986915">Docker健康检查HEALTHCHECK的使用方法 - 知乎 </a></li>
+</ul>
+<h2 id="镜像分层"><a href="#镜像分层" class="headerlink" title="镜像分层"></a>镜像分层</h2><p>Dockerfile里每一条命令都会生成一个新的层，重复构建时有cache, 只从修改的层开始重新构建.</p>
+<ul>
+<li>写时复制 COW</li>
+<li>docker history 查看镜像的层</li>
+<li>将所有的RUN指令合并为一个<ul>
+<li>Dockerfile中的每个指令都会创建一个新的镜像层</li>
+<li>镜像层将被缓存和复用</li>
+<li>当Dockerfile的指令修改了，复制的文件变化了，或者构建镜像时指定的变量不同了，对应的镜像层缓存就会失效</li>
+<li>某一层的镜像缓存失效之后，它之后的镜像层缓存都会失效</li>
+<li>镜像层是不可变的，如果我们在某一层中添加一个文件，然后在下一层中删除它，则镜像中依然会包含该文件(只是这个文件在Docker容器中不可见了)</li>
+</ul>
+</li>
+</ul>
+<h2 id="YAML文件语法"><a href="#YAML文件语法" class="headerlink" title="YAML文件语法"></a>YAML文件语法</h2><h1 id="Docker-compose"><a href="#Docker-compose" class="headerlink" title="Docker compose"></a>Docker compose</h1><p>服务编排工具</p>
+<ul>
+<li>Compose 项目是 Docker 官方的开源项目，负责实现对 Docker 容器集群的快速编排<br>一个单独的 docker-compose.yml模板文件（YAML 格式）来定义一组相关联的应用容器为一个项目（project）</li>
+<li>Compose 的默认管理对象是项目，通过子命令对项目中的一组容器进行便捷地生命周期管理</li>
+<li>Compose 中有两个重要的概念<ul>
+<li>服务 (service)：一个应用的容器（可能会有多个容器），实际上可以包括若干运行相同镜像的容器实例</li>
+<li>项目 (project)：由一组关联的应用容器组成的一个完整业务单元，在 docker-compose.yml文件中定义</li>
+</ul>
+</li>
+<li>使用微服务架构的系统一般包含若干个微服务，每个微服务一般部署多个实例。如果每个服务都要手动启停，那么效率低，维护量大</li>
+</ul>
+<h2 id="docker-compose-yml格式"><a href="#docker-compose-yml格式" class="headerlink" title="docker-compose.yml格式"></a>docker-compose.yml格式</h2><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_46545831/article/details/112995427">Docker-compose指令详解_docker-compose指定container名字-CSDN博客 </a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/93459395">Docker三剑客之docker-compose - 知乎 </a></p>
+<h2 id="YAML文件"><a href="#YAML文件" class="headerlink" title="YAML文件"></a>YAML文件</h2><p>指定容器名之后只能部署一个，默认情况下为服务名+编号</p>
+<h2 id="docker-compose常用命令👍"><a href="#docker-compose常用命令👍" class="headerlink" title="docker-compose常用命令👍"></a>docker-compose常用命令👍</h2><ul>
+<li>docker-compose –help</li>
+<li>docker-compose up -d <ul>
+<li># 该命令十分强大，它将尝试自动完成包括构建镜像，（重新）创建服务，启动服务，并关联服务相关容器的一系列操作</li>
+</ul>
+</li>
+<li>docker-compose ps、docker-compose ps –services </li>
+<li>docker-compose images </li>
+<li>docker-compose stop <ul>
+<li># 终止整个服务集合</li>
+</ul>
+</li>
+<li>docker-compose stop nginx </li>
+<li># 终止指定的服务 （这有个点就是启动的时候会先启动 depond_on 中的容器，关闭的时候不会影响到 depond_on 中的）</li>
+<li>docker-compose logs -f [services…] </li>
+<li># 查看容器的输出日志 </li>
+<li>docker-compose build [SERVICE…]</li>
+<li>docker-compose rm nginx # 移除指定的容器</li>
+<li>docker-compose up -d –scale flask&#x3D;3 organizationservice&#x3D;2 </li>
+<li>设置指定服务运行的容器个数</li>
+<li>scale：横向伸缩</li>
+</ul>
+<h2 id="ports、expose、links、depends-on"><a href="#ports、expose、links、depends-on" class="headerlink" title="ports、expose、links、depends_on"></a>ports、expose、links、depends_on</h2><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/382779508">docker-compose的ports、expose、links、depends_on的使用技巧 - 知乎 </a></p>
+<ul>
+<li>ports<ul>
+<li><strong>用来把服务端口映射给宿主机</strong></li>
+</ul>
+</li>
+<li>expose<ul>
+<li><strong>用来把服务端口开放给其他服</strong>务，客户端服务可以通过links功能访问服务端服务的端口</li>
+</ul>
+</li>
+<li>links<ul>
+<li>links的目的是<strong>把一个服务的名称在当前服务里面创建一个别名</strong></li>
+</ul>
+</li>
+<li>depends_on<ul>
+<li><strong>当前服务启动之前先要把depends_on指定的服务启动起来才行</strong></li>
+</ul>
+</li>
+</ul>
+<h2 id="为什么要docker-compose"><a href="#为什么要docker-compose" class="headerlink" title="为什么要docker-compose"></a>为什么要docker-compose</h2><p>可以方便地在本地调试微服务</p>
+<h2 id="如何配置日志驱动Docker-Logging"><a href="#如何配置日志驱动Docker-Logging" class="headerlink" title="如何配置日志驱动Docker Logging"></a>如何配置日志驱动Docker Logging</h2><ul>
+<li>Logging 驱动是可以插拔的框架</li>
+<li>Logging 驱动是 Container 用来使用服务来访问 log data 的工具</li>
+<li>Docker 支持很多种类的 Logging Driver</li>
+<li>默认驱动（log-driver）: “json-file”，存放到主机目录：&#x2F;var&#x2F;lib&#x2F;docker&#x2F;containers&#x2F;[容器ID]-json.log</li>
+<li>单个容器的日志配置<ul>
+<li>docker run –log-driver syslog nginx</li>
+<li>docker run –log-driver json-file –log-opt max-size&#x3D;50m nginx</li>
+</ul>
+</li>
+<li>更多驱动：fluentd、splunk、awslogs</li>
+</ul>
+
+        
+      </div>
+
+         
+    </div>
+    
+     
+  </div>
+  
+    
+<nav id="article-nav">
+  <a class="article-nav-btn left "
+    
+      href="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/"
+      title="机器学习-期末复习"
+     >
+    <i class="fa-solid fa-angle-left"></i>
+    <p class="title-text">
+      
+        机器学习-期末复习
+        
+    </p>
+  </a>
+  <a class="article-nav-btn right "
+    
+      href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/"
+      title="服务端-ch15-Docker"
+     >
+
+    <p class="title-text">
+      
+        服务端-ch15-Docker
+        
+    </p>
+    <i class="fa-solid fa-angle-right"></i>
+  </a>
+</nav>
+
+
+  
+</article>
+
+
+  
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <div id="comment-card" class="comment-card">
+    <div class="main-title-bar">
+      <div class="main-title-dot"></div>
+      <div class="main-title">留言 </div>
+    </div>
+    <div id="vcomments"></div>
+  </div>
+  <script>
+      new Valine({"enable":true,"appId":null,"appKey":null,"placeholder":"Just go go","pageSize":20,"highlight":true,"serverURLs":null,"el":"#vcomments"});
+  </script>
+ 
+    </div>
+    <div id="footer-wrapper">
+      <footer id="footer">
+  
+  <div id="footer-info" class="inner">
+    
+      <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris"></a>
+    
+    &copy; 2024 Asimov<br>
+    Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & Theme <a target="_blank" rel="noopener" href="https://github.com/saicaca/hexo-theme-vivia">Vivia</a>
+  </div>
+</footer>
+
+    </div>
+    <div class="back-to-top-wrapper">
+    <button id="back-to-top-btn" class="back-to-top-btn hide" onclick="topFunction()">
+        <i class="fa-solid fa-angle-up"></i>
+    </button>
+</div>
+
+<script>
+    function topFunction() {
+        window.scroll({ top: 0, behavior: 'smooth' });
+    }
+    let btn = document.getElementById('back-to-top-btn');
+    function scrollFunction() {
+        if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+            btn.classList.remove('hide')
+        } else {
+            btn.classList.add('hide')
+        }
+    }
+    window.onscroll = function() {
+        scrollFunction();
+    }
+</script>
+
+  </div>
+  <script src="/js/light-dark-switch.js"></script>
+</body>
+</html>
