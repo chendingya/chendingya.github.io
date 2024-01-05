@@ -45,7 +45,119 @@
   
 <link rel="stylesheet" href="/css/style.css">
 
-<meta name="generator" content="Hexo 6.3.0"></head>
+<meta name="generator" content="Hexo 6.3.0"><style>mjx-container[jax="SVG"] {
+  direction: ltr;
+}
+
+mjx-container[jax="SVG"] > svg {
+  overflow: visible;
+}
+
+mjx-container[jax="SVG"][display="true"] {
+  display: block;
+  text-align: center;
+  margin: 1em 0;
+}
+
+mjx-container[jax="SVG"][justify="left"] {
+  text-align: left;
+}
+
+mjx-container[jax="SVG"][justify="right"] {
+  text-align: right;
+}
+
+g[data-mml-node="merror"] > g {
+  fill: red;
+  stroke: red;
+}
+
+g[data-mml-node="merror"] > rect[data-background] {
+  fill: yellow;
+  stroke: none;
+}
+
+g[data-mml-node="mtable"] > line[data-line] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > rect[data-frame] {
+  stroke-width: 70px;
+  fill: none;
+}
+
+g[data-mml-node="mtable"] > .mjx-dashed {
+  stroke-dasharray: 140;
+}
+
+g[data-mml-node="mtable"] > .mjx-dotted {
+  stroke-linecap: round;
+  stroke-dasharray: 0,140;
+}
+
+g[data-mml-node="mtable"] > svg {
+  overflow: visible;
+}
+
+[jax="SVG"] mjx-tool {
+  display: inline-block;
+  position: relative;
+  width: 0;
+  height: 0;
+}
+
+[jax="SVG"] mjx-tool > mjx-tip {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+mjx-tool > mjx-tip {
+  display: inline-block;
+  padding: .2em;
+  border: 1px solid #888;
+  font-size: 70%;
+  background-color: #F8F8F8;
+  color: black;
+  box-shadow: 2px 2px 5px #AAAAAA;
+}
+
+g[data-mml-node="maction"][data-toggle] {
+  cursor: pointer;
+}
+
+mjx-status {
+  display: block;
+  position: fixed;
+  left: 1em;
+  bottom: 1em;
+  min-width: 25%;
+  padding: .2em .4em;
+  border: 1px solid #888;
+  font-size: 90%;
+  background-color: #F8F8F8;
+  color: black;
+}
+
+foreignObject[data-mjx-xml] {
+  font-family: initial;
+  line-height: normal;
+  overflow: visible;
+}
+
+.MathJax path {
+  stroke-width: 3;
+}
+
+mjx-container[display="true"] {
+  overflow: auto hidden;
+}
+
+mjx-container[display="true"] + br {
+  display: none;
+}
+</style></head>
 
 <body>
   
@@ -168,9 +280,14 @@
                 <div class="category-count">6</div>
             </a>
         
-            <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">
-                软件工程与计算II
-                <div class="category-count">28</div>
+            <a class="category-link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
+                编译原理
+                <div class="category-count">13</div>
+            </a>
+        
+            <a class="category-link" href="/categories/tdesign/">
+                tdesign
+                <div class="category-count">1</div>
             </a>
         
             <a class="category-link" href="/categories/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91/">
@@ -183,19 +300,14 @@
                 <div class="category-count">12</div>
             </a>
         
-            <a class="category-link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
-                编译原理
-                <div class="category-count">13</div>
+            <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">
+                软件工程与计算II
+                <div class="category-count">28</div>
             </a>
         
-            <a class="category-link" href="/categories/tdesign/">
-                tdesign
+            <a class="category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                机器学习
                 <div class="category-count">1</div>
-            </a>
-        
-            <a class="category-link" href="/categories/%E9%A9%BE%E8%80%83/">
-                驾考
-                <div class="category-count">2</div>
             </a>
         
             <a class="category-link" href="/categories/leetcode/">
@@ -203,9 +315,9 @@
                 <div class="category-count">4</div>
             </a>
         
-            <a class="category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                机器学习
-                <div class="category-count">1</div>
+            <a class="category-link" href="/categories/%E9%A9%BE%E8%80%83/">
+                驾考
+                <div class="category-count">2</div>
             </a>
         </div>
     </div>
@@ -231,7 +343,7 @@
       
         <a class="archive-link" href="/archives/2024/01 ">
           一月 2024 
-          <div class="archive-count">2 </div>
+          <div class="archive-count">3 </div>
         </a>
       
         <a class="archive-link" href="/archives/2023/12 ">
@@ -295,6 +407,12 @@
       <h3 class="widget-title">最新文章</h3>
       <ul>
         
+          <a class="recent-link" href="/2024/01/05/23-%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92/%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/" title="" >
+            <div class="recent-link-text">
+              (no title)
+            </div>
+          </a>
+        
           <a class="recent-link" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/" title="服务端-ch17-k8s使用" >
             <div class="recent-link-text">
               服务端-ch17-k8s使用
@@ -319,12 +437,6 @@
             </div>
           </a>
         
-          <a class="recent-link" href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/" title="服务端-ch14-Spring WebFlux" >
-            <div class="recent-link-text">
-              服务端-ch14-Spring WebFlux
-            </div>
-          </a>
-        
       </ul>
     </div>
   </div>
@@ -335,6 +447,108 @@
     </div>
     <div id="content-body">
       
+   
+
+<article id="post-23-人机交互/人机交互期末复习" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2024/01/05/23-%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92/%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/">无标题</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2024-01-05T07:54:05.973Z" itemprop="datePublished">2024-01-05</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+    未分类 
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            8.8k 词 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            还没有把图片下载下来这里只整理知识点，适合考前两小时快速过一遍。
+Part 1 基础概述
+HCI/CHI：Human-Computer Interaction/Computer-Human Interaction
+MMI/HMI：Man-Machine Interaction/Human-Machine Interaction
+UCD：User-Centered Design
+HF：Human Factors
+什么是人机交互
+抓住三方面答：人、计算机和他们之间互相联系的方式（交互），交互是重点。
+ACM定义：有关交互式计算机系统的设计、评估、实现以及与之相关现象的学科
+人机交互的研究内容
+U：使用计算机的上下文
+H：人的特性
+C：计算机系统和用户接口架构
+D：开发过程
+
+
+重要性
+企业角度
+市场角度
+个人角度
+人性因素角度
+
+
+发展历史
+批处理阶段
+联机终端阶段（命令行）
+GUI阶段（现在）
+多媒体界面（未来）
+
+
+
+基础知识
+交互框架 
+执行评估
+执行隔阂 用户为达目标而制定的动作与系统允许的动作之间的差别  
+评估隔阂 系统状态的实际表现与用户预期之间的差别
+
+
+活动周期EE...  
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2024/01/05/23-%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92/%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+ 
+
    
 
 <article id="post-23-服务端/ch17-k8s使用" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
@@ -377,19 +591,17 @@
       <div class="e-content article-entry" itemprop="articleBody">
         
           <div class="truncate-text">
-            k8s环境安装GitHub - AliyunContainerService&#x2F;k8s-for-docker-desktop: 为Docker Desktop for Mac&#x2F;Windows开启Kubernetes和Istio。 
+            k8s环境安装GitHub - AliyunContainerService/k8s-for-docker-desktop: 为Docker Desktop for Mac/Windows开启Kubernetes和Istio。 
 根据说明安装
 部署dashboard1kubectl apply -f kubernetes-dashboard.yaml
-
 kubectl： 客户端程序与远程k8s server交互kubectl proxy： 把远程k8s server端口代理到本地端口
 部署ingress controller1kubectl apply -f ingress-nginx-controller.yaml
-
 1.4. 验证 Kubernetes 集群状态
 kubectl cluster-info
 kubectl get nodes
 kubectl get nodes –show-labels
-给节点打标签：kubectl label node docker-desktop disktype&#x3D;ssd
-查询满足标签的节点：kubectl ge...  
+给节点打标签：kubectl label node docker-desktop disktype=ssd
+查询满足标签的节点：kubectl get nodes -l diskty...  
           </div>
         
       </div>
@@ -463,9 +675,9 @@ kubectl get nodes –show-labels
 过拟合
 …
 
-评价指标距离度量函数计算度量生成式&#x2F;判别式模型svm 逻辑回归 决策树就是判别式模型 不关心具体的样本的特点，而只在意差别
+评价指标距离度量函数计算度量生成式/判别式模型svm 逻辑回归 决策树就是判别式模型 不关心具体的样本的特点，而只在意差别
 贝叶斯 隐马尔科夫就是生成式模型，先学习特点，再进行比较
-
+.png)
 
 KNN👍无监督学习
 KNN思想计算所有训练样本和测试样本的距离，降序排列，选择k个相近的，如果是分类问题就投票最多，如果是回归问题就算平均
@@ -474,13 +686,14 @@ KNN思想计算所有训练样本和测试样本的距离，降序排列，选�
 
 计算测试样本x和Dtrain中所有训练样本xi之间的距离d(,xi)
 对所有距离值 (相似度值) 进行进行升序(降序) 排列
-选择K个最近(距离最小&#x2F;相似度最大) 的训练样本
+选择K个最近(距离最小/相似度最大) 的训练样本
 将距离值的倒数作为权重，然后将K个近邻的标签值加权平均作为x的预测值
 
 降低计算复杂度，大概看一下优点在于对异常值不敏感，精度高，没有数据输入假定 
 缺点在于时间复杂度高，空间复杂度高
 
-聚类👍无监...  
+聚类👍无监督学习
+聚...  
           </div>
         
       </div>
@@ -734,7 +947,6 @@ docker子命令run👍文件：写时复制，不修改就用底层linu...
 Spring MVC与Spring WebFlux的共性与不同
 Reactive Microservices With Spring Boot
 依赖1234&lt;dependency&gt;    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;    &lt;artifactId&gt;spring-boot-starter-webflux&lt;/artifactId&gt;&lt;/dependency&gt;
-
 编写反应式控制器Ingredient：Get、Post
 端到端反应式栈
 R2DBC
@@ -743,9 +955,7 @@ R2DBC
 是JDBC的替代方案，实现非阻塞的持久化操作 
 
 依赖
-
-
-  12345&lt;dependency&gt;    &lt;groupId&gt;org.s...  
+12345&lt;dependency&gt;    &lt;groupId&gt;org.spring...  
           </div>
         
       </div>
@@ -907,17 +1117,15 @@ nums[a] + nums[b] + nums[c] + nums[d] == target
 你可以按 任意顺序 返回答案 。
 示例 1：
 12输入：nums = [1,0,-1,0,-2,2], target = 0输出：[[-2,-1,1,2],[-2,0,0,2],[-1,0,0,1]]
-
 示例 2：
 12输入：nums = [2,2,2,2,2], target = 8输出：[[2,2,2,2]]
-
 提示：
 
 1 &lt;= nums.length &lt;= 200
 -109 &lt;= nums[i] &lt;= 109
 -109 &lt;= target &lt;= 109
 
-题解方法一：排序...  
+题解方法一：排序 +...  
           </div>
         
       </div>
@@ -929,6 +1137,94 @@ nums[a] + nums[b] + nums[c] + nums[d] == target
     <a class="right-panel  non-pic  "
       
       href="/2023/11/16/leetcode/leetcode%E5%88%B7%E9%A2%98-19.%E5%9B%9B%E6%95%B0%E4%B9%8B%E5%92%8C/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+ 
+
+   
+
+<article id="post-23-服务端/ch11-消息中间件(ActiveMQ、RabbitMQ)" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2023/11/09/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch11-%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6(ActiveMQ%E3%80%81RabbitMQ)/">服务端-ch11-消息中间件(ActiveMQ、RabbitMQ)</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2023-11-09T10:32:34.000Z" itemprop="datePublished">2023-11-09</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91/">服务端开发</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            1.3k 词 
+          </div>
+        </div>
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springboot/" rel="tag">springboot</a></li></ul>
+
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            ch11-消息中间件(ActiveMQ、RabbitMQ)ActiveMQ同步与异步/image-20231119172721004.png)
+broker/image-20231119172732660.png)
+
+好处：A与B解耦，broker是消息代理
+
+消息中间件
+消息中间件主要用于组件之间的解耦，消息的发送者无需知道消息使用者的存在，反之亦然 
+常用的消息中间件有：ActiveMQ、RabbitMQ、kafka
+大的系统中有很多子系统，子系统之间的解耦，使用消息中间件
+
+本节课例子/image-20231119172822031.png)
+
+postman触发api调用，生成订单
+
+/image-20231122150446072.png)
+JMS
+Java 消息服务（Java Message Servcie）
+JMS是一个Java标准，定义了使用消息代理（message broker）的通用API 
+Spring通过基于模板的抽象为JMS功能提供了支持，这个模板就是JmsTemplate
+
+消息代理（broker）
+Apache ActiveMQ 
+Apache Ac...  
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2023/11/09/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch11-%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6(ActiveMQ%E3%80%81RabbitMQ)/" 
     >
        
       <i class="fa-solid fa-angle-right non-pic"></i>
@@ -988,10 +1284,12 @@ nums[a] + nums[b] + nums[c] + nums[d] == target
 
 增加权限控制
 POST：http://tacocloud:8080/api/ingredients 
-DELETE ：http://tacocloud:8080 &#x2F;api&#x2F;ingredients&#x2F;* 
+DELETE ：http://tacocloud:8080 /api/ingredients/* 
 两种方式 
-.antMatchers(HttpMethod.POST, “&#x2F;api&#x2F;ingredients”).hasAuthority(“ROLE_USER”)
+.antMatchers(HttpMethod.POST, “/api/ingredients”).hasAuthority(“ROLE_USER”)
 @PreAuthorize(“hasAuthority(‘ROLE_USER’)”)
+
+
 
 
 OAuth 2是一个安全规范（很重要，问答题）👍
@@ -1002,7 +1300,7 @@ OAuth 2是一个安全规范（很重要，问答题）👍
 AS：授权服务器，授权认证在这
 RS：资源服务器，需要保护API
 客户app：客户端，需要用户从授权服务器授权
-先有code再有token ：客户端程序其实并不知道用户id对应的密码，客户端后端一直维护密码，在向授权服务器换取...  
+先有code再有token ：客户端程序其实并不知道用户id对应的密码，客户端后端一直维护密码，在向授权服务器换取token时才会使用密码，密码不会在浏览器中传...  
           </div>
         
       </div>
@@ -1014,99 +1312,6 @@ RS：资源服务器，需要保护API
     <a class="right-panel  non-pic  "
       
       href="/2023/11/09/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch10-OAuth2/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
- 
-
-   
-
-<article id="post-23-服务端/ch11-消息中间件(ActiveMQ、RabbitMQ)" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2023/11/09/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch11-%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6(ActiveMQ%E3%80%81RabbitMQ)/">服务端-ch11-消息中间件(ActiveMQ、RabbitMQ)</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2023-11-09T10:32:34.000Z" itemprop="datePublished">2023-11-09</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91/">服务端开发</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            1.3k 词 
-          </div>
-        </div>
-        
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/springboot/" rel="tag">springboot</a></li></ul>
-
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <div class="truncate-text">
-            ch11-消息中间件(ActiveMQ、RabbitMQ)ActiveMQ同步与异步
-broker
-
-好处：A与B解耦，broker是消息代理
-
-消息中间件
-消息中间件主要用于组件之间的解耦，消息的发送者无需知道消息使用者的存在，反之亦然 
-常用的消息中间件有：ActiveMQ、RabbitMQ、kafka
-大的系统中有很多子系统，子系统之间的解耦，使用消息中间件
-
-本节课例子
-
-postman触发api调用，生成订单
-
-
-JMS
-Java 消息服务（Java Message Servcie）
-JMS是一个Java标准，定义了使用消息代理（message broker）的通用API 
-Spring通过基于模板的抽象为JMS功能提供了支持，这个模板就是JmsTemplate
-
-消息代理（broker）
-Apache ActiveMQ 
-Apache ActiveMQ Artemis，重新实现的下一代ActiveMQ
-
-IntelliJ IDEA不能下载源代码的问题
-mvn dependency:sources 
-翻译插件：Translation 
-文档：https://yiigux...  
-          </div>
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2023/11/09/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch11-%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6(ActiveMQ%E3%80%81RabbitMQ)/" 
     >
        
       <i class="fa-solid fa-angle-right non-pic"></i>
@@ -1251,23 +1456,26 @@ cur...
         
           <div class="truncate-text">
             ch08-配置属性属性来源（ property source）
-application.properties、application.yml：server.port &#x3D; 8090 
+application.properties、application.yml：server.port = 8090 
 两个文件可以混用
 
 
-命令行参数（ commandLineArgs ）：java -jar taco-cloud-sd-jdbc-0.0.3-SNAPSHOT.jar – server.port&#x3D;8081
+命令行参数（ commandLineArgs ）：java -jar taco-cloud-sd-jdbc-0.0.3-SNAPSHOT.jar — server.port=8081
 在程序中直接获取
 
 
-JVM系统属性：java -Dserver.port&#x3D;8091 -jar taco-cloud-sd-jdbc-0.0.3-SNAPSHOT.jar
-操作系统环境变量：set SERVER_PORT&#x3D;8082、java -jar taco-cloud-sd-jdbc-0.0.3-SNAPSHOT.jar
+JVM系统属性：java -Dserver.port=8091 -jar taco-cloud-sd-jdbc-0.0.3-SNAPSHOT.jar
+操作系统环境变量：set SERVER_PORT=8082、java -jar taco-cloud-sd-jdbc-0.0.3-SNAPSHOT.jar
 
 YAML文件
 使用缩进表示层级关系，不允许使用Tab键，只允许使用空格
 # 表示注释，从这个字符一直到行尾，都会被解析器忽略。 
 对象，键值对，使用冒号结构表示 
 animal: pets 
-hash: { name: Steve, f...  
+hash: { name: Steve, foo: bar } 
+
+
+数组,一组连词...  
           </div>
         
       </div>
@@ -1348,10 +1556,9 @@ hash: { name: Steve, f...
 在spring中使用：添加依赖spring-boot-starter-security后会自动加载安全相关的bean
 
 添加依赖1234&lt;dependency&gt;    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;    &lt;artifactId&gt;spring-boot-starter-security&lt;/artifactId&gt;&lt;/dependency&gt;
-
 加了security starter后自动获得登录界面
 用户名：user 
-密码查看日志：Using generated security  password: cb81f1d1-c11e-4b0a-b728- 92d591ff...  
+密码查看日志：Using generated security  password: cb81f1d1-c11e-4b0a-b728- 92d591ffa...  
           </div>
         
       </div>
@@ -1421,13 +1628,10 @@ hash: { name: Steve, f...
 你必须设计并实现线性时间复杂度的算法来解决此问题，且该算法只使用常量额外空间。
 示例 1 ：
 12输入：nums = [2,2,1]输出：1
-
 示例 2 ：
 12输入：nums = [4,1,2,1,2]输出：4
-
 示例 3 ：
 12输入：nums = [1]输出：1
-
 提示：
 
 1 &lt;= nums.length &lt;= 3 * 104
@@ -1436,7 +1640,8 @@ hash: { name: Steve, f...
 
 题解如何才能做到线性时间复杂度和常数空间复杂度呢？
 答案是使用位运算。对于这道题，可使用异或运算 ⊕。异或运算有以下三个性质。
-任何数和 000 做异或运算，结果仍然是原来的数，即 a⊕0&#x3D;a任何数和其自身做异或运算，结果是 000，即 a⊕a&#x3D;0异或运算满足交换律和结合律，即 a⊕b⊕a&#x3D;b⊕a⊕a&#x3D;b⊕(a⊕a)&#x3D...  
+任何数和 000 做异或运算，结果仍然是原来的数，即 a⊕0=a任何数和其自身做异或运算，结果是 000，即 a⊕a=0异或运算满足交换律和结合律，即 a⊕b⊕a=b⊕a⊕a=b⊕(a⊕a)=b⊕0=b
+123456789class Soluti...  
           </div>
         
       </div>
@@ -1584,10 +1789,8 @@ void put(int key, int value) 如果关键字 key 已经存在，则变更其数�
 给定一个代表每个房屋存放金额的非负整数数组，计算你不触动警报装置的情况下，一夜之内能够偷窃到的最高金额。
 示例 1：
 1234输入：[1,2,3,1]输出：4解释：偷窃 1 号房屋 (金额 = 1) ，然后偷窃 3 号房屋 (金额 = 3)。     偷窃到的最高金额 = 1 + 3 = 4 。
-
 示例 2：
 1234输入：[2,7,9,3,1]输出：12解释：偷窃 1 号房屋 (金额 = 2), 偷窃 3 号房屋 (金额 = 9)，接着偷窃 5 号房屋 (金额 = 1)。     偷窃到的最高金额 = 2 + 9 + 1 = 12 。
-
 提示：
 
 1 &lt;= nums.length &lt;= 100
@@ -1596,7 +1799,7 @@ void put(int key, int value) 如果关键字 key 已经存在，则变更其数�
 题解首先考虑最简单的情况。
 
 如果只有一间房屋，则偷窃该房屋，可以偷窃到最高总金额。
-如果只有...  
+如果只有两间...  
           </div>
         
       </div>
@@ -1680,9 +1883,11 @@ MongoDB Shell是MongoDB自带的交互式Javascript shell,用来对MongoDB进行
 MongoDB 概念
 
 
-SQL术语&#x2F;概念
-MongoDB术语&#x2F;概念
-解释&#x2F;说明
+
+SQL术语/概念
+MongoDB术语/概念
+解释/说明
+
 
 
 
@@ -1693,21 +1898,26 @@ database
 
 table
 collection
-数据库表&#x2F;集合
+数据库表/集合
 
 
 row
 document
-数据记录行&#x2F;文档
+数据记录行/文档
 
 
 column
 field
-数据字段&#x2F;域
+数据字段/域
 
 
 
-Spring d...  
+
+
+Spring data mongodb
+添加依赖
+
+123456&l...  
           </div>
         
       </div>
@@ -1782,7 +1992,7 @@ SQLException，checked异常
 异常体系
 SQLException 
 发生异常时很难恢复
-难确定异常类型
+难确定异常类型 
 
 
 Hibernate异常 
@@ -1798,7 +2008,7 @@ DataAccessException
 
 
 使用JdbcTemplate添加依赖
-123456789&lt;dependency&gt;    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;    &lt;art...  
+123456789&lt;dependency&gt;    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;    &lt;ar...  
           </div>
         
       </div>
@@ -2053,82 +2263,6 @@ List组件简介List是很常用的滚动类容器组件，一般和子组件Lis
 
    
 
-<article id="post-23-移动互联网/OpenHarmony开源项目简介" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2023/10/04/23-%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91/OpenHarmony%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E7%AE%80%E4%BB%8B/">OpenHarmony开源项目简介</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2023-10-04T03:40:36.000Z" itemprop="datePublished">2023-10-04</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/openharmony/">openharmony</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            3.4k 词 
-          </div>
-        </div>
-        
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openharmony/" rel="tag">openharmony</a></li></ul>
-
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <div class="truncate-text">
-            OpenHarmony开源项目简介技术架构OpenHarmony整体遵从分层设计，从下向上依次为：内核层、系统服务层、框架层和应用层。系统功能按照“系统 &gt; 子系统 &gt; 组件”逐级展开，在多设备部署场景下，支持根据实际需求裁剪某些非必要的组件。OpenHarmony技术架构如下所示：
-
-内核层
-
-内核子系统：采用多内核（Linux内核或者LiteOS）设计，支持针对不同资源受限设备选用适合的OS内核。内核抽象层（KAL，Kernel Abstract Layer）通过屏蔽多内核差异，对上层提供基础的内核能力，包括进程&#x2F;线程管理、内存管理、文件系统、网络管理和外设管理等。
-驱动子系统：驱动框架（HDF）是系统硬件生态开放的基础，提供统一外设访问能力和驱动开发、管理框架。
-
-系统服务层
-系统服务层是OpenHarmony的核心能力集合，通过框架层对应用程序提供服务。该层包含以下几个部分：
-
-系统基本能力子系统集：为分布式应用在多设备上的运行、调度、迁移等操作提供了基础能力，由分布式软总线、分布式数据管理、分布式任务调度、公共基础库、多模输入、图形、安全、AI等子...  
-          </div>
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2023/10/04/23-%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91/OpenHarmony%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E7%AE%80%E4%BB%8B/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
- 
-
-   
-
 <article id="post-23-移动互联网/OpenHarmony快速入门概述" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
    
   <div class="article-inner">
@@ -2175,10 +2309,12 @@ OpenHarmony当前定义了三种基础系统类型，设备开发者通过选择
 
 
 
+
 类型
 处理器
 最小内存
 能力
+
 
 
 
@@ -2194,7 +2330,7 @@ MCU类处理器（例如Arm Cortex-M、RISC-V 32位的设备）
 提供更高的安全能力、标准的图形框架、视频编解码的多媒体能力。可支撑的产品如智能家居领域的IP Camera、电子猫眼、路由器以及智慧出行域的行车记录仪等。
 
 
-标准系...  
+标...  
           </div>
         
       </div>
@@ -2220,7 +2356,7 @@ MCU类处理器（例如Arm Cortex-M、RISC-V 32位的设备）
 
    
 
-<article id="post-23-移动互联网/ch01" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+<article id="post-23-移动互联网/OpenHarmony开源项目简介" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
    
   <div class="article-inner">
     <div class="article-main">
@@ -2231,7 +2367,7 @@ MCU类处理器（例如Arm Cortex-M、RISC-V 32位的设备）
   
     
       <h1 itemprop="name">
-        <a class="p-name article-title" href="/2023/10/04/23-%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91/ch01/">移动互联网-ch01-HarmonyOS开发简介</a>
+        <a class="p-name article-title" href="/2023/10/04/23-%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91/OpenHarmony%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E7%AE%80%E4%BB%8B/">OpenHarmony开源项目简介</a>
       </h1>
     
   
@@ -2250,7 +2386,7 @@ MCU类处理器（例如Arm Cortex-M、RISC-V 32位的设备）
   
           </div>
           <div class="wordcount need-seperator meta-info">
-            2.4k 词 
+            3.4k 词 
           </div>
         </div>
         
@@ -2260,34 +2396,17 @@ MCU类处理器（例如Arm Cortex-M、RISC-V 32位的设备）
       <div class="e-content article-entry" itemprop="articleBody">
         
           <div class="truncate-text">
-            ch01HarmonyOS开发系统架构 – 整体架构内核层、系统服务层、框架层和应用层
+            OpenHarmony开源项目简介技术架构OpenHarmony整体遵从分层设计，从下向上依次为：内核层、系统服务层、框架层和应用层。系统功能按照“系统 &gt; 子系统 &gt; 组件”逐级展开，在多设备部署场景下，支持根据实际需求裁剪某些非必要的组件。OpenHarmony技术架构如下所示：
 
-内核层内核层是整个操作系统的核心，提供操作系统最基础的服务，主要分为内核子系 统和驱动子系统 
-特别是适合物联⽹设备的LiteOS，能够为HarmonyOS的“同⼀套系统能⼒，适配多种终端形态” 的分布式理念提供坚实的基础 。
+内核层
+
+内核子系统：采用多内核（Linux内核或者LiteOS）设计，支持针对不同资源受限设备选用适合的OS内核。内核抽象层（KAL，Kernel Abstract Layer）通过屏蔽多内核差异，对上层提供基础的内核能力，包括进程/线程管理、内存管理、文件系统、网络管理和外设管理等。
+驱动子系统：驱动框架（HDF）是系统硬件生态开放的基础，提供统一外设访问能力和驱动开发、管理框架。
+
 系统服务层
-系统服务层是HarmonyOS的核⼼能⼒集合，通过框架层对应⽤程序提供服务，包括：
-系统基础能⼒⼦系统 
-为分布式应⽤在HarmonyOS多设备上的运⾏、调度、迁移等操作提供了基础能⼒
+系统服务层是OpenHarmony的核心能力集合，通过框架层对应用程序提供服务。该层包含以下几个部分：
 
-
-基础软件服务⼦系统
-主要是⼀些设备之间公共的、通⽤的软件服务。
-
-
-增强软件服务⼦系统
-提供针对不同设备的、差异化的能⼒增强型软件服务
-
-
-硬件服务⼦系统 
-提供硬件服务，由位置服务、⽣物特征识别、穿戴专有硬件服务、IoT专有硬件服务等⼦系统组成
-
-
-
-框架层框架层提供了⽤户语⾔框架、Ability框架和UI框架
-
-⽤户语⾔框架⽀持了Java&#x2F;C&#x2F;C++&#x2F;JS等多种编程语⾔ 。
-Ability框架则是对系统服务能⼒的⼀种抽象的框架 。
-Ha...  
+系统基本能力子系统集：为分布式应用在多设备上的运行、调度、迁移等操作提供了基础能力，由分布式软总线、分布式数据管理、分布式任务调度、公共基础库、多模输入、图形、安全、AI等子系统组成。...  
           </div>
         
       </div>
@@ -2298,7 +2417,7 @@ Ha...
      
     <a class="right-panel  non-pic  "
       
-      href="/2023/10/04/23-%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91/ch01/" 
+      href="/2023/10/04/23-%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91/OpenHarmony%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E7%AE%80%E4%BB%8B/" 
     >
        
       <i class="fa-solid fa-angle-right non-pic"></i>
@@ -2536,6 +2655,99 @@ ArkTS兼容TypeScript语言，拓展了声明式UI、状态管理、并发任务
 
    
 
+<article id="post-23-移动互联网/ch01" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 itemprop="name">
+        <a class="p-name article-title" href="/2023/10/04/23-%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91/ch01/">移动互联网-ch01-HarmonyOS开发简介</a>
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2023-10-04T03:40:36.000Z" itemprop="datePublished">2023-10-04</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+  <a class="meta-cate-link" href="/categories/openharmony/">openharmony</a>
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            2.4k 词 
+          </div>
+        </div>
+        
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/openharmony/" rel="tag">openharmony</a></li></ul>
+
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <div class="truncate-text">
+            ch01HarmonyOS开发系统架构 – 整体架构内核层、系统服务层、框架层和应用层
+
+内核层内核层是整个操作系统的核心，提供操作系统最基础的服务，主要分为内核子系 统和驱动子系统 
+特别是适合物联⽹设备的LiteOS，能够为HarmonyOS的“同⼀套系统能⼒，适配多种终端形态” 的分布式理念提供坚实的基础 。
+系统服务层
+系统服务层是HarmonyOS的核⼼能⼒集合，通过框架层对应⽤程序提供服务，包括：
+系统基础能⼒⼦系统 
+为分布式应⽤在HarmonyOS多设备上的运⾏、调度、迁移等操作提供了基础能⼒
+
+
+基础软件服务⼦系统
+主要是⼀些设备之间公共的、通⽤的软件服务。
+
+
+增强软件服务⼦系统
+提供针对不同设备的、差异化的能⼒增强型软件服务
+
+
+硬件服务⼦系统 
+提供硬件服务，由位置服务、⽣物特征识别、穿戴专有硬件服务、IoT专有硬件服务等⼦系统组成
+
+
+
+框架层框架层提供了⽤户语⾔框架、Ability框架和UI框架
+
+⽤户语⾔框架⽀持了Java/C/C++/JS等多种编程语⾔ 。
+Ability框架则是对系统服务能⼒的⼀种抽象的框架 。
+Harmony的UI框架提供了适⽤...  
+          </div>
+        
+      </div>
+
+         
+    </div>
+    
+     
+    <a class="right-panel  non-pic  "
+      
+      href="/2023/10/04/23-%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91/ch01/" 
+    >
+       
+      <i class="fa-solid fa-angle-right non-pic"></i>
+       
+    </a>
+     
+  </div>
+  
+</article>
+
+ 
+
+   
+
 <article id="post-23-移动互联网/九联Unionpi-Tiger开发套件" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
    
   <div class="article-inner">
@@ -2576,7 +2788,7 @@ ArkTS兼容TypeScript语言，拓展了声明式UI、状态管理、并发任务
       <div class="e-content article-entry" itemprop="articleBody">
         
           <div class="truncate-text">
-            九联Unionpi-Tiger开发套件介绍九联科技Unionpi Tiger是一款应用于图像处理，音视频处理和深度学习等场景的智能硬件，其主芯片采用Amlogic A311D芯片方案。 A311D支持GPU和神经网络加速子系统，支持4K视频编解码器引擎和一流的HDR图像处理，并集成了所有标准音频&#x2F;视频输入&#x2F;输出接口。主系统的CPU采用大小核设计，主频高达2.2GHz，集成了四个Cortex-A73核心和两Cortex-A53核心 ，集成独立的5.0T NPU处理器。
+            九联Unionpi-Tiger开发套件介绍九联科技Unionpi Tiger是一款应用于图像处理，音视频处理和深度学习等场景的智能硬件，其主芯片采用Amlogic A311D芯片方案。 A311D支持GPU和神经网络加速子系统，支持4K视频编解码器引擎和一流的HDR图像处理，并集成了所有标准音频/视频输入/输出接口。主系统的CPU采用大小核设计，主频高达2.2GHz，集成了四个Cortex-A73核心和两Cortex-A53核心 ，集成独立的5.0T NPU处理器。
 图1 九联Unionpi-Tiger开发板外观图
 
 开发板详情A311D采用四个Cortex-A73，主频最高为2.2GHz的大核和两个Cortex-A53，主频最高为1.8GHz的小核组成；采用22nm先进工艺，具有低功耗高性能的特点，可广泛应用于嵌入式人工智能领域。
@@ -2584,8 +2796,10 @@ ArkTS兼容TypeScript语言，拓展了声明式UI、状态管理、并发任务
 
 
 
+
 规格类型
 具体参数
+
 
 
 
@@ -2602,7 +2816,7 @@ ARM Mali-G52 4核GPU
 
 
 NPU
-内置神经网...  
+内置神经网处理器 NPU，...  
           </div>
         
       </div>
@@ -2677,9 +2891,11 @@ NPU
 
 
 
+
 名称
 参数类型
 描述
+
 
 
 
@@ -2687,8 +2903,7 @@ fontColor
 ResourceColor
 设置文本颜色。
 
-
-f...  
+...  
           </div>
         
       </div>
@@ -2757,7 +2972,7 @@ f...
             浅析ArkTS的起源和演进1 引言Mozilla创造了JS，Microsoft创建了TS，Huawei进一步推出了ArkTS。
 从最初的基础的逻辑交互能力，到具备类型系统的高效工程开发能力，再到融合声明式UI、多维状态管理等丰富的应用开发能力，共同组成了相关的演进脉络。
 ArkTS是HarmonyOS优选的主力应用开发语言。它在TypeScript（简称TS）的基础上，扩展了声明式UI、状态管理等相应的能力，让开发者可以以更简洁、更自然的方式开发高性能应用。TS是JavaScript（简称JS）的超集，ArkTS则是TS的超集。ArkTS会结合应用开发和运行的需求持续演进，包括但不限于引入分布式开发范式、并行和并发能力增强、类型系统增强等方面的语言特性。本期我们结合JS和TS以及相关的开发框架的发展，为大家介绍ArkTS的起源和演进思路。
-2 JSJS语言由Mozilla创造，最初主要是为了解决页面中的逻辑交互问题，它和HTML（负责页面内容）、CSS（负责页面布局和样式）共同组成了Web页面&#x2F;应用开发的基础。随着Web和浏览器的普及，以及Node.js进一步将JS扩展...  
+2 JSJS语言由Mozilla创造，最初主要是为了解决页面中的逻辑交互问题，它和HTML（负责页面内容）、CSS（负责页面布局和样式）共同组成了Web页面/应用开发的基础。随着Web和浏览器的普及，以及Node.js进一步将JS扩展到了浏览器...  
           </div>
         
       </div>
@@ -2832,15 +3047,9 @@ model-view-controller
 
 领域类
 ModelAttribute
-@ModelAttribute(name = &lt;key&gt;)
-1234567  - 注解返回值为`value`- 方法被Spring自动调用### 方法级别
-@ModelAttribute(&quot;attributeName&quot;)
-public SomeObject methodName() &#123;
-  // 创建并返回 SomeObject 对象
-&#125;
-12345方法的返回值将被添加到模型中，并使用指定的属性名作为key。在控制器处理请求之前，该方法会先被调用。### 参数级别
-@GetMapping(&quot;/path&quot;)
-public String methodName(@ModelAttribute(&quot;attributeName&quot;) ...  
+```@ModelAttribute(name = )1234567  - 注解返回值为`value`- 方法被Spring自动调用### 方法级别
+@ModelAttribute(“attributeName”)public SomeObject methodName() {  // 创建并返回 SomeObject 对象}12345方法的返回值将被添加到模型中，并使用指定的属性名作为key。在控制器处理请求之前，该方法会先被调用。### 参数级别
+@GetMapping(“/path”)public String methodName(@ModelAttribute(“attributeName”) SomeObject object) {  // 处理请求}12345在这种写法中，`@ModelAttri...  
           </div>
         
       </div>
@@ -3431,9 +3640,11 @@ RISC-V所有运算都在寄存器中
 
 li t0, 20 #li: load immediate
 li t1,22
-add t2, t0, t1 #t2 &#x3D; t0 + t1
+add t2, t0, t1 #t2 = t0 + t1
 li是伪指令，语法糖
-addi x5, x0, 20是基本指...  
+addi x5, x0, 20是基本指令
+
+ad...  
           </div>
         
       </div>
@@ -3499,51 +3710,19 @@ addi x5, x0, 20是基本指...
       <div class="e-content article-entry" itemprop="articleBody">
         
           <div class="truncate-text">
-            ch17-LR(1)-LR(1) 语法分析器SLR(1)文法FOLLOW(E)
+            ch17-LR(1)-LR(1) 语法分析器SLR(1)文法FOLLOW(E)-LR(1)%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623144436433.png)
 SLR(1) 分析表
-
+-LR(1)%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623144505895.png)
 
 算一下FOLLOW(A)后面能跟哪些终结符，这些终结符所对应的单元格才填规约，其他的都不规约
 
-分析表和两种冲突
+分析表和两种冲突-LR(1)%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623162238320.png)
 非 SLR(1) 文法举例指针文法
+-LR(1)%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623162311620.png)
 
+看到=，先移入，=也属于follow(R)，所以也要规约，所以冲突
 
-看到&#x3D;，先移入，&#x3D;也属于follow(R)，所以也要规约，所以冲突
-
-即使考虑了&#x3D; ∈ Follow(R), 对该文法来说仍然不够 
-
-因为, 这仅仅说明 &#x3D; 可能跟在 R 后面, 是一种 “粗糙” 的估计
-
-
-
-实际上, 该文法没有以 R &#x3D; · · · 开头的最右句型
-
-
-FIRST(γ)肯定包含在FOLLOW(A)中，所以缩小了范围
-
-
-
-规约的时候的依据
-是怎么来的，follow(A)
-来的时候谁跟在后面，first(γ)
-
-LR(1)
-核心是看a怎么计算
-每一个项，都要计算 , 后面的部分
-
-求闭包closure
-从一个状态goto到另一个状态
-
-
-
-β有可能是空，所以FIRST(βa) !&#x3D; FIRST(a)
-这是唯一区别
-
-
-
-
-增广的文法，期望输入以...  
+...  
           </div>
         
       </div>
@@ -3622,7 +3801,6 @@ LR(k) 的优点: 看到与正在考虑的这个产生式的整个右部对应的
 
 句柄的识别是靠自动机
 
-
 自底向上构建语法分析树：从词法单元流不断规约
 
 根节点是文法的起始符号 S 
@@ -3633,8 +3811,8 @@ LR(k) 的优点: 看到与正在考虑的这个产生式的整个右部对应的
 自顶向下的 “推导” 与 自底向上的 “归约”
 
 一般默认第一条展开式的左部就是起始符号
-最右推导rm：当有多个终结符可选，选右边的：T * F -&gt; T * id
-先把id规约为F，再把F规...  
+最右推导rm：当有多个终结符可选，选右边的：T  F -&gt; T  id
+先把id规约为F，再把F规约为T...  
           </div>
         
       </div>
@@ -3801,14 +3979,14 @@ nextinstr自动加一
             ch14-ir-control-比较复杂的控制流翻译如何生成更短、更高效的代码?
 
 
-t3 &#x3D; true的赋值不是必须的：我只要知道根据bool表达式跳转到哪即可
+t3 = true的赋值不是必须的：我只要知道根据bool表达式跳转到哪即可
 
 直接用布尔表达式改变控制流br
 使用控制流跳转间接表明布尔表达式的值
 实现思路：分工 合作
 父节点为子节点准备跳转指令的目标标签 
 子节点通过继承属性确定跳转目标 
-P → S 	S → if (B) S1
+P → S     S → if (B) S1
 
 S知道B.true和B.false这两个继承属性
 
@@ -3827,7 +4005,7 @@ P.code是综合属性，即S.code
 没有S和B，不需要准备继承属性
 if语句的翻译
 
-label加在B.code和S1.code之间：作用：当我翻译B的时候，里面可能会有goto语句，如果B为true，就...  
+label加在B.code和S~1~.code之间：作用：当我翻译B的时候，里面可能会有goto语句，如果B为true，就...  
           </div>
         
       </div>
@@ -3989,11 +4167,8 @@ S最终拿到的中间代码是由B和S1合作分工，在退出S的时候生成
 
 
 假设S1的开头为B.true的标签
-
 B中需要有goto跳转，但是B自己本身是不知道这些L1, L2 标签在哪
-
 但是S知道，所以B goto的时候应该跳过S1，到S1后：
-
 当B为true，S会通过继承属性B.true告诉B应该跳转到S1的位置
 同样，B.false会告诉B应该跳转到B.false：但是B.false在哪S也不知道，P知道
 
@@ -4003,7 +4178,7 @@ S知道B.true在哪
 
 需要父节点通过继承属性将一些子节点需要知道的信息传递下去
 
-准备：S初始化的时候，B.true和B.false都需要确定下来，然后作为参数传给B；s1.next也需要提前准备好，传...  
+准备：S初始化的时候，B.true和B.false都需要确定下来，然后作为参数传给B；s1.next也需要提前准备好，传给S1...  
           </div>
         
       </div>
@@ -4166,7 +4341,7 @@ Context-Free Grammar (语法分析)：正则表达式不够用，上下文无关
 
 属性文法 (Attribute Grammar)KNUTH发明
 ANTLR4权威指南 第十章：属性和动作
-目标：**(交互式)** 迷你计算器 Expr.g4
+目标：(交互式) 迷你计算器 Expr.g4
 
 把表达式的结果保存到变量中，然后使用
 交互式：Warfram Mathematica 13.0
@@ -4174,7 +4349,7 @@ Offline 方式计算属性值: 已有语法分析树 (calc)之前的写法
 先构建语法分析树，不进行属性求值，通过深度优先遍历再遍历一遍
 按照从左到右的深度优先顺序遍历语法分析树 
 
-关键: 在合适的时机执行合适的动作，计算相应的属性值：overrr...  
+关键: 在合适的时机执行合适的动作，计算相应的属性值：overrride ...  
           </div>
         
       </div>
@@ -4446,16 +4621,16 @@ LL(1): 从左向右读入词法单元
 为了实现额外的任务，可以加参数和返回值
 实现过程
 先选择一个A的产生式，1-k
-for循环处理每个X1 ~ X k
+for循环处理每个X~1~ ~ X ~k~
 X为非终结符，调用X对应的递归函数
 X为终结符
-Xi&#x3D;a 匹配上当前的词法单元
-Xi！&#x3D;a 出现错误
+X~i~=a 匹配上当前的词法单元
+X~i~！=a 出现错误
 
 
 
 优缺点优点算法简单
-缺点...  
+缺点能处...  
           </div>
         
       </div>
@@ -4523,10 +4698,9 @@ Xi！&#x3D;a 出现错误
           <div class="truncate-text">
             ch062023.3.29
 
-
 监听器模式时机问题：监听enter还是exit
 CallGraphListener.java
-1234567891011121314151617181920public class CallGraphListener extends CymbolBaseListener &#123;  private Graph graph = new Graph();  String currentFunctionName = null;  @Override  public void enterFunctionDecl(CymbolParser.FunctionDeclContext ctx) &#123;    currentFunctionName = ctx.ID().getText();    graph.addNode(currentFunctionName);  &#125;  @Override  public void enterCall(CymbolParser.CallContext ctx) &#123;    String callee...  
+1234567891011121314151617181920public class CallGraphListener extends CymbolBaseListener &#123;  private Graph graph = new Graph();  String currentFunctionName = null;  @Override  public void enterFunctionDecl(CymbolParser.FunctionDeclContext ctx) &#123;    currentFunctionName = ctx.ID().getText();    graph.addNode(currentFunctionName);  &#125;  @Override  public void enterCall(CymbolParser.CallContext ctx) &#123;    String callee ...  
           </div>
         
       </div>
@@ -4538,95 +4712,6 @@ CallGraphListener.java
     <a class="right-panel  non-pic  "
       
       href="/2023/03/29/23-Compilers/ch06/" 
-    >
-       
-      <i class="fa-solid fa-angle-right non-pic"></i>
-       
-    </a>
-     
-  </div>
-  
-</article>
-
- 
-
-   
-
-<article id="post-22-数据库/SQL-DCL操作" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-   
-  <div class="article-inner">
-    <div class="article-main">
-      <header class="article-header">
-        
-<div class="main-title-bar">
-  <div class="main-title-dot"></div>
-  
-    
-      <h1 itemprop="name">
-        <a class="p-name article-title" href="/2023/03/18/22-%E6%95%B0%E6%8D%AE%E5%BA%93/SQL-DCL%E6%93%8D%E4%BD%9C/">SQL-DCL操作</a>
-      </h1>
-    
-  
-</div>
-
-        <div class='meta-info-bar'>
-          <div class="meta-info">
-  <time class="dt-published" datetime="2023-03-18T08:02:34.000Z" itemprop="datePublished">2023-03-18</time>
-</div>
-          <div class="need-seperator meta-info">
-            <div class="meta-cate-flex">
-  
-  <a class="meta-cate-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">数据库</a>
-   
-</div>
-  
-          </div>
-          <div class="wordcount need-seperator meta-info">
-            240 词 
-          </div>
-        </div>
-        
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li></ul>
-
-      </header>
-      <div class="e-content article-entry" itemprop="articleBody">
-        
-          <div class="truncate-text">
-            SQL-DCL操作data control language
-开发人员操作较少，主要是DBA（Database Administrator 数据库管理员）使用
-DCL-管理用户查询用户12use mysql;select * from user;
-
-创建用户1create user &#x27;用户名&#x27;@&#x27;主机名&#x27; identified by &#x27;密码&#x27;;
-
-
-主机名如果是localhost就只能在本地主机登录
-如果是%通配符就能在任意主机登录
-
-修改用户密码1alter user &#x27;用户名&#x27;@&#x27;主机名&#x27; identified with mysql_native_password by &#x27;新密码&#x27;;
-
-删除用户1drop user &#x27;用户名&#x27;@&#x27;主机名&#x27;;
-
-
-
-DCL-权限控制
-all 所有权限
-select 查询数据
-insert 插入数据
-update 修改数据
-delete 删除数据
-alter 修改表
-drop 删除数据库&...  
-          </div>
-        
-      </div>
-
-         
-    </div>
-    
-     
-    <a class="right-panel  non-pic  "
-      
-      href="/2023/03/18/22-%E6%95%B0%E6%8D%AE%E5%BA%93/SQL-DCL%E6%93%8D%E4%BD%9C/" 
     >
        
       <i class="fa-solid fa-angle-right non-pic"></i>

@@ -182,9 +182,14 @@
                 <div class="category-count">6</div>
             </a>
         
-            <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">
-                软件工程与计算II
-                <div class="category-count">28</div>
+            <a class="category-link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
+                编译原理
+                <div class="category-count">13</div>
+            </a>
+        
+            <a class="category-link" href="/categories/tdesign/">
+                tdesign
+                <div class="category-count">1</div>
             </a>
         
             <a class="category-link" href="/categories/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91/">
@@ -197,19 +202,14 @@
                 <div class="category-count">12</div>
             </a>
         
-            <a class="category-link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
-                编译原理
-                <div class="category-count">13</div>
+            <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">
+                软件工程与计算II
+                <div class="category-count">28</div>
             </a>
         
-            <a class="category-link" href="/categories/tdesign/">
-                tdesign
+            <a class="category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                机器学习
                 <div class="category-count">1</div>
-            </a>
-        
-            <a class="category-link" href="/categories/%E9%A9%BE%E8%80%83/">
-                驾考
-                <div class="category-count">2</div>
             </a>
         
             <a class="category-link" href="/categories/leetcode/">
@@ -217,9 +217,9 @@
                 <div class="category-count">4</div>
             </a>
         
-            <a class="category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                机器学习
-                <div class="category-count">1</div>
+            <a class="category-link" href="/categories/%E9%A9%BE%E8%80%83/">
+                驾考
+                <div class="category-count">2</div>
             </a>
         </div>
     </div>
@@ -245,7 +245,7 @@
       
         <a class="archive-link" href="/archives/2024/01 ">
           一月 2024 
-          <div class="archive-count">2 </div>
+          <div class="archive-count">3 </div>
         </a>
       
         <a class="archive-link" href="/archives/2023/12 ">
@@ -309,6 +309,12 @@
       <h3 class="widget-title">最新文章</h3>
       <ul>
         
+          <a class="recent-link" href="/2024/01/05/23-%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92/%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/" title="" >
+            <div class="recent-link-text">
+              (no title)
+            </div>
+          </a>
+        
           <a class="recent-link" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/" title="服务端-ch17-k8s使用" >
             <div class="recent-link-text">
               服务端-ch17-k8s使用
@@ -330,12 +336,6 @@
           <a class="recent-link" href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/" title="服务端-ch15-Docker" >
             <div class="recent-link-text">
               服务端-ch15-Docker
-            </div>
-          </a>
-        
-          <a class="recent-link" href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/" title="服务端-ch14-Spring WebFlux" >
-            <div class="recent-link-text">
-              服务端-ch14-Spring WebFlux
             </div>
           </a>
         
@@ -394,6 +394,7 @@
           <h1 id="OpenHarmony快速入门概述"><a href="#OpenHarmony快速入门概述" class="headerlink" title="OpenHarmony快速入门概述"></a>OpenHarmony快速入门概述</h1><p>OpenHarmony是一款面向全场景的开源分布式操作系统，采用组件化设计，支持在128KiB到xGiB RAM资源的设备上运行系统组件，设备开发者可基于目标硬件能力自由选择系统组件进行集成。</p>
 <p>OpenHarmony当前定义了三种基础系统类型，设备开发者通过选择基础系统类型完成必选组件集配置后，便可实现其最小系统的开发。这三种基础系统类型的参考定义如下：</p>
 <p><strong>表1</strong> 基础类型系统简介</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -403,7 +404,8 @@
 <th>能力</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>轻量系统（mini system）</td>
 <td>MCU类处理器（例如Arm Cortex-M、RISC-V 32位的设备）</td>
 <td>128KiB</td>
@@ -421,10 +423,13 @@
 <td>128MiB</td>
 <td>提供增强的交互能力、3D GPU以及硬件合成能力、更多控件以及动效更丰富的图形能力、完整的应用框架。可支撑的产品如高端的冰箱显示屏。</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>本文通过介绍OpenHarmony系统的开发环境搭建、编译、烧录、调测以及运行“Hello World”等，引导开发者快速熟悉OpenHarmony设备开发的基本流程和方法。</p>
 <h2 id="操作方式"><a href="#操作方式" class="headerlink" title="操作方式"></a>操作方式</h2><p>考虑到开发者的开发习惯，OpenHarmony为开发者提供了以下两种入门指导：</p>
 <p><strong>表2</strong> 入门方式</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -434,7 +439,8 @@
 <th>适用人群</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td><a target="_blank" rel="noopener" href="https://gitee.com/openharmony/docs/blob/master/zh-cn/device-dev/quick-start/quickstart-ide-env-win.md">基于IDE入门</a></td>
 <td>IDE（DevEco Device Tool）</td>
 <td>完全采用IDE进行一站式开发，编译依赖工具的安装及编译、烧录、运行都通过IDE进行操作。 DevEco Device Tool采用Windows+Ubuntu混合开发环境： - 在Windows上主要进行代码开发、代码调试、烧录等操作。 - 在Ubuntu环境实现源码编译。 DevEco Device Tool提供界面化的操作接口，可以为您提供更快捷的开发体验。</td>
@@ -446,7 +452,9 @@
 <td>通过命令行方式下载安装编译依赖工具，在Linux系统中进行编译时，相关操作通过命令实现；在Windows系统中使用开发板厂商提供的工具进行代码烧录。 命令行方式提供了简便统一的工具链安装方式。</td>
 <td>习惯使用命令行操作的开发者</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h1 id="基于IDE"><a href="#基于IDE" class="headerlink" title="基于IDE"></a>基于IDE</h1><h2 id="搭建Windows环境"><a href="#搭建Windows环境" class="headerlink" title="搭建Windows环境"></a>搭建Windows环境</h2><p>在嵌入式开发中，很多开发者习惯于使用Windows进行代码的编辑，比如使用Windows的Visual Studio Code进行OpenHarmony代码的开发。但当前阶段，大部分的开发板源码还不支持在Windows环境下进行编译，如Hi3861、Hi3516系列开发板。因此，建议使用Ubuntu的编译环境对源码进行编译。</p>
 <p>在以上的设备开发场景中，可以搭建一套Windows+Ubuntu混合开发的环境，其中使用Windows平台的DevEco Device Tool可视化界面进行相关操作，通过远程连接的方式对接Ubuntu下的DevEco Device Tool（可以不安装Visual Studio Code），然后对Ubuntu下的源码进行开发、编译、烧录等操作。</p>
 <p>本章节介绍开发所需Windows环境的搭建方法。</p>
@@ -455,12 +463,12 @@
 </li>
 <li><p>建议Windows和Ubuntu系统上安装的DevEco Device Tool为最新版本，且版本号需相同。</p>
 <blockquote>
-<p><img src="https://gitee.com/openharmony/docs/raw/master/zh-cn/device-dev/quick-start/public_sys-resources/icon-note.gif" alt="icon-note.gif"> <strong>说明：</strong> 下面以3.1 Release版本的IDE进行说明，不同版本的IDE在支持的特性和操作上略有差别，具体情况可参考<a href="https://gitee.com/link?target=https://device.harmonyos.com/cn/docs/documentation/guide/service_introduction-0000001050166905">该工具的使用指南</a>。</p>
+<p><img src="https://gitee.com/openharmony/docs/raw/master/zh-cn/device-dev/quick-start/public_sys-resources/icon-note.gif" alt="icon-note.gif"> <strong>说明：</strong> 下面以3.1 Release版本的IDE进行说明，不同版本的IDE在支持的特性和操作上略有差别，具体情况可参考<a href="https://gitee.com/link?target=https%3A%2F%2Fdevice.harmonyos.com%2Fcn%2Fdocs%2Fdocumentation%2Fguide%2Fservice_introduction-0000001050166905">该工具的使用指南</a>。</p>
 </blockquote>
 </li>
 </ul>
 <h2 id="操作步骤"><a href="#操作步骤" class="headerlink" title="操作步骤"></a>操作步骤</h2><ol>
-<li><p>下载<a href="https://gitee.com/link?target=https://device.harmonyos.com/cn/ide%23download">DevEco Device Tool</a>最新Windows版本软件包。</p>
+<li><p>下载<a href="https://gitee.com/link?target=https%3A%2F%2Fdevice.harmonyos.com%2Fcn%2Fide%23download">DevEco Device Tool</a>最新Windows版本软件包。</p>
 </li>
 <li><p>解压DevEco Device Tool压缩包，双击安装包程序，单击<strong>下一步</strong>进行安装。</p>
 </li>
@@ -489,7 +497,7 @@
 </li>
 </ol>
 <h1 id="基于命令行"><a href="#基于命令行" class="headerlink" title="基于命令行"></a>基于命令行</h1><h2 id="准备开发环境"><a href="#准备开发环境" class="headerlink" title="准备开发环境"></a>准备开发环境</h2><p>在嵌入式开发中，很多开发者习惯于使用Windows进行代码的编辑，比如使用Windows的Visual Studio Code进行OpenHarmony代码的开发。但当前阶段，大部分的开发板源码还不支持在Windows环境下进行编译，如Hi3861、Hi3516系列开发板。因此，建议使用Ubuntu的编译环境对源码进行编译。同时，开发板的烧录需要在Windows环境中进行。</p>
-<p>在基于命令行方式开发的过程中，除下述<a target="_blank" rel="noopener" href="https://gitee.com/openharmony/docs/blob/master/zh-cn/device-dev/quick-start/quickstart-pkg-prepare.md#windows%E7%8E%AF%E5%A2%83%E8%A6%81%E6%B1%82">Windows环境要求</a>、<a target="_blank" rel="noopener" href="https://gitee.com/openharmony/docs/blob/master/zh-cn/device-dev/quick-start/quickstart-pkg-prepare.md#ubuntu%E7%8E%AF%E5%A2%83%E8%A6%81%E6%B1%82">Ubuntu环境要求</a>外，不对开发设备做另外的要求，请用户自行准备Windows环境、Ubuntu环境。本章节主要介绍通过Samba服务器实现Windows环境远程连接Ubuntu环境的方法。</p>
+<p>在基于命令行方式开发的过程中，除下述<a target="_blank" rel="noopener" href="https://gitee.com/openharmony/docs/blob/master/zh-cn/device-dev/quick-start/quickstart-pkg-prepare.md#windows环境要求">Windows环境要求</a>、<a target="_blank" rel="noopener" href="https://gitee.com/openharmony/docs/blob/master/zh-cn/device-dev/quick-start/quickstart-pkg-prepare.md#ubuntu环境要求">Ubuntu环境要求</a>外，不对开发设备做另外的要求，请用户自行准备Windows环境、Ubuntu环境。本章节主要介绍通过Samba服务器实现Windows环境远程连接Ubuntu环境的方法。</p>
 <blockquote>
 <p><img src="https://gitee.com/openharmony/docs/raw/master/zh-cn/device-dev/quick-start/public_sys-resources/icon-note.gif" alt="icon-note.gif"> <strong>说明：</strong> OpenHarmony还为开发者提供了<a target="_blank" rel="noopener" href="https://gitee.com/openharmony/docs/blob/master/zh-cn/device-dev/get-code/gettools-acquire.md">Docker环境</a>，整合的docker包在很大程度上简化了编译前的环境配置，习惯使用命令行的开发者也可以选择Docker环境进行编译 。</p>
 </blockquote>
@@ -508,7 +516,6 @@
 </li>
 <li><p>修改Samba配置文件，配置共享信息。 打开配置文件：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo gedit /etc/samba/smb.conf   </span><br></pre></td></tr></table></figure>
-
 <p>在配置文件末尾添加以下配置信息（根据实际需要配置相关内容）：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">[Share]                    #在Windows中映射的根文件夹名称（此处以“Share”为例）</span><br><span class="line">comment = Shared Folder    #共享信息说明</span><br><span class="line">path = /home/share         #共享目录</span><br><span class="line">valid users = username     #可以访问该共享目录的用户（Ubuntu的用户名）</span><br><span class="line">directory mask = 0775      #默认创建的目录权限</span><br><span class="line">create mask = 0775         #默认创建的文件权限</span><br><span class="line">public = yes               #是否公开</span><br><span class="line">writable = yes             #是否可写</span><br><span class="line">available = yes            #是否可获取</span><br><span class="line">browseable = yes           #是否可浏览</span><br></pre></td></tr></table></figure>
 </li>
@@ -516,14 +523,15 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo smbpasswd -a username   #用户名为Ubuntu用户名。输入命令后，根据提示设置密码。</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>重启Samba服务。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service smbd restart</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo service smbd restart</span><br></pre></td></tr></table></figure>
+</li>
 </ol>
 <h3 id="设置Windows映射"><a href="#设置Windows映射" class="headerlink" title="设置Windows映射"></a>设置Windows映射</h3><p>在Windows环境下进行以下操作：</p>
 <ol>
 <li><p>右键计算机选择映射网络驱动器，输入共享文件夹信息。在文件夹输入框填入Ubuntu设备的IP地址和Ubuntu共享文件夹的路径。</p>
 <p><img src="https://gitee.com/openharmony/docs/raw/master/zh-cn/device-dev/quick-start/figures/quickstart-pkg-prepare-networkdriver.png" alt="quickstart-pkg-prepare-networkdriver"></p>
 </li>
-<li><p>输入Samba服务器的访问用户名和密码（<a target="_blank" rel="noopener" href="https://gitee.com/openharmony/docs/blob/master/zh-cn/device-dev/quick-start/quickstart-pkg-prepare.md#%E9%85%8D%E7%BD%AEsamba%E6%9C%8D%E5%8A%A1%E5%99%A8">在配置Samba服务器时已完成配置</a>）。</p>
+<li><p>输入Samba服务器的访问用户名和密码（<a target="_blank" rel="noopener" href="https://gitee.com/openharmony/docs/blob/master/zh-cn/device-dev/quick-start/quickstart-pkg-prepare.md#配置samba服务器">在配置Samba服务器时已完成配置</a>）。</p>
 <p><img src="https://gitee.com/openharmony/docs/raw/master/zh-cn/device-dev/quick-start/figures/quickstart-pkg-prepare-setsamba.png" alt="quickstart-pkg-prepare-setsamba"></p>
 </li>
 <li><p>用户名和密码输入完成后即可在Windows下看到Linux的共享目录，并可对其进行访问。</p>
@@ -531,6 +539,7 @@
 </ol>
 <h1 id="开发板"><a href="#开发板" class="headerlink" title="开发板"></a>开发板</h1><p>本文选取了如下三款典型开发板，用于介绍不同系统的开发过程，开发者可根据需要自行购买开发板。</p>
 <p><strong>表3</strong> 开发板-系统对应关系</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -539,7 +548,8 @@
 <th>简介</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>Hi3861 WLAN模组</td>
 <td>轻量</td>
 <td><a target="_blank" rel="noopener" href="https://gitee.com/openharmony/docs/blob/master/zh-cn/device-dev/quick-start/quickstart-appendix-hi3861.md">Hi3861开发板介绍</a></td>
@@ -554,7 +564,9 @@
 <td>标准</td>
 <td><a target="_blank" rel="noopener" href="https://gitee.com/openharmony/docs/blob/master/zh-cn/device-dev/quick-start/quickstart-appendix-rk3568.md">RK3568开发板介绍</a></td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <h1 id="开发流程"><a href="#开发流程" class="headerlink" title="开发流程"></a>开发流程</h1><p>设备开发快速入门流程如下图所示。</p>
 <p><strong>图1</strong> 快速入门开发流程</p>
 <p><img src="https://gitee.com/openharmony/docs/raw/master/zh-cn/device-dev/quick-start/figures/quickstart-overview-process.png" alt="quickstart-overview-process"></p>
@@ -572,25 +584,25 @@
 <nav id="article-nav">
   <a class="article-nav-btn left "
     
-      href="/2023/10/04/23-%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91/OpenHarmony%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E7%AE%80%E4%BB%8B/"
-      title="OpenHarmony开源项目简介"
+      href="/2023/10/04/23-%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91/List%E7%BB%84%E4%BB%B6%E5%92%8CGrid%E7%BB%84%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8/"
+      title="List组件和Grid组件的使用"
      >
     <i class="fa-solid fa-angle-left"></i>
     <p class="title-text">
       
-        OpenHarmony开源项目简介
+        List组件和Grid组件的使用
         
     </p>
   </a>
   <a class="article-nav-btn right "
     
-      href="/2023/10/04/23-%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91/ch01/"
-      title="移动互联网-ch01-HarmonyOS开发简介"
+      href="/2023/10/04/23-%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91/OpenHarmony%E5%BC%80%E6%BA%90%E9%A1%B9%E7%9B%AE%E7%AE%80%E4%BB%8B/"
+      title="OpenHarmony开源项目简介"
      >
 
     <p class="title-text">
       
-        移动互联网-ch01-HarmonyOS开发简介
+        OpenHarmony开源项目简介
         
     </p>
     <i class="fa-solid fa-angle-right"></i>

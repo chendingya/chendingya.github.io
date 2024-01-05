@@ -20,12 +20,12 @@
   <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
   <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
-  <meta name="description" content="ch10-OAuth2创建授权服务器主Taco Cloud增加REST API 控制器实现：IngredientController  增加权限控制 POST：http:&#x2F;&#x2F;tacocloud:8080&#x2F;api&#x2F;ingredients  DELETE ：http:&#x2F;&#x2F;tacocloud:8080 &#x2F;api&#x2F;ingredients&#x2F;*  两种方式  .antMatche">
+  <meta name="description" content="ch10-OAuth2创建授权服务器主Taco Cloud增加REST API 控制器实现：IngredientController  增加权限控制 POST：http:&#x2F;&#x2F;tacocloud:8080&#x2F;api&#x2F;ingredients  DELETE ：http:&#x2F;&#x2F;tacocloud:8080 &#x2F;api&#x2F;ingredients&#x2F;*  两种方式  .antMatchers(HttpMethod.P">
 <meta property="og:type" content="article">
 <meta property="og:title" content="服务端-ch10-OAuth2">
 <meta property="og:url" content="https://chendingya.github.io/2023/11/09/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch10-OAuth2/index.html">
 <meta property="og:site_name" content="Asimov&#39;s Blog">
-<meta property="og:description" content="ch10-OAuth2创建授权服务器主Taco Cloud增加REST API 控制器实现：IngredientController  增加权限控制 POST：http:&#x2F;&#x2F;tacocloud:8080&#x2F;api&#x2F;ingredients  DELETE ：http:&#x2F;&#x2F;tacocloud:8080 &#x2F;api&#x2F;ingredients&#x2F;*  两种方式  .antMatche">
+<meta property="og:description" content="ch10-OAuth2创建授权服务器主Taco Cloud增加REST API 控制器实现：IngredientController  增加权限控制 POST：http:&#x2F;&#x2F;tacocloud:8080&#x2F;api&#x2F;ingredients  DELETE ：http:&#x2F;&#x2F;tacocloud:8080 &#x2F;api&#x2F;ingredients&#x2F;*  两种方式  .antMatchers(HttpMethod.P">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://chendingya.github.io/2023/11/09/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch10-OAuth2/image-20231113210405704.png">
 <meta property="og:image" content="https://chendingya.github.io/2023/11/09/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch10-OAuth2/image-20231113210432408.png">
@@ -180,9 +180,14 @@
                 <div class="category-count">6</div>
             </a>
         
-            <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">
-                软件工程与计算II
-                <div class="category-count">28</div>
+            <a class="category-link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
+                编译原理
+                <div class="category-count">13</div>
+            </a>
+        
+            <a class="category-link" href="/categories/tdesign/">
+                tdesign
+                <div class="category-count">1</div>
             </a>
         
             <a class="category-link" href="/categories/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91/">
@@ -195,19 +200,14 @@
                 <div class="category-count">12</div>
             </a>
         
-            <a class="category-link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
-                编译原理
-                <div class="category-count">13</div>
+            <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">
+                软件工程与计算II
+                <div class="category-count">28</div>
             </a>
         
-            <a class="category-link" href="/categories/tdesign/">
-                tdesign
+            <a class="category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                机器学习
                 <div class="category-count">1</div>
-            </a>
-        
-            <a class="category-link" href="/categories/%E9%A9%BE%E8%80%83/">
-                驾考
-                <div class="category-count">2</div>
             </a>
         
             <a class="category-link" href="/categories/leetcode/">
@@ -215,9 +215,9 @@
                 <div class="category-count">4</div>
             </a>
         
-            <a class="category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                机器学习
-                <div class="category-count">1</div>
+            <a class="category-link" href="/categories/%E9%A9%BE%E8%80%83/">
+                驾考
+                <div class="category-count">2</div>
             </a>
         </div>
     </div>
@@ -243,7 +243,7 @@
       
         <a class="archive-link" href="/archives/2024/01 ">
           一月 2024 
-          <div class="archive-count">2 </div>
+          <div class="archive-count">3 </div>
         </a>
       
         <a class="archive-link" href="/archives/2023/12 ">
@@ -307,6 +307,12 @@
       <h3 class="widget-title">最新文章</h3>
       <ul>
         
+          <a class="recent-link" href="/2024/01/05/23-%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92/%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/" title="" >
+            <div class="recent-link-text">
+              (no title)
+            </div>
+          </a>
+        
           <a class="recent-link" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/" title="服务端-ch17-k8s使用" >
             <div class="recent-link-text">
               服务端-ch17-k8s使用
@@ -328,12 +334,6 @@
           <a class="recent-link" href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/" title="服务端-ch15-Docker" >
             <div class="recent-link-text">
               服务端-ch15-Docker
-            </div>
-          </a>
-        
-          <a class="recent-link" href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/" title="服务端-ch14-Spring WebFlux" >
-            <div class="recent-link-text">
-              服务端-ch14-Spring WebFlux
             </div>
           </a>
         
@@ -394,10 +394,12 @@
 </ul>
 <h2 id="增加权限控制"><a href="#增加权限控制" class="headerlink" title="增加权限控制"></a>增加权限控制</h2><ul>
 <li>POST：<a target="_blank" rel="noopener" href="http://tacocloud:8080/api/ingredients">http://tacocloud:8080/api/ingredients</a> </li>
-<li>DELETE ：<a target="_blank" rel="noopener" href="http://tacocloud:8080/">http://tacocloud:8080</a> &#x2F;api&#x2F;ingredients&#x2F;* </li>
-<li>两种方式 </li>
-<li>.antMatchers(HttpMethod.POST, “&#x2F;api&#x2F;ingredients”).hasAuthority(“ROLE_USER”)</li>
+<li>DELETE ：<a target="_blank" rel="noopener" href="http://tacocloud:8080">http://tacocloud:8080</a> /api/ingredients/* </li>
+<li>两种方式 <ul>
+<li>.antMatchers(HttpMethod.POST, “/api/ingredients”).hasAuthority(“ROLE_USER”)</li>
 <li>@PreAuthorize(“hasAuthority(‘ROLE_USER’)”)</li>
+</ul>
+</li>
 </ul>
 <p><img src="/2023/11/09/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch10-OAuth2/image-20231113210405704.png" alt="image-20231113210405704"></p>
 <h2 id="OAuth-2是一个安全规范（很重要，问答题）👍"><a href="#OAuth-2是一个安全规范（很重要，问答题）👍" class="headerlink" title="OAuth 2是一个安全规范（很重要，问答题）👍"></a>OAuth 2是一个安全规范（很重要，问答题）👍</h2><ul>
@@ -464,10 +466,12 @@
 </ol>
 <h2 id="配置本地域名"><a href="#配置本地域名" class="headerlink" title="配置本地域名"></a>配置本地域名</h2><ul>
 <li>Windows：C:\Windows\System32\drivers\etc\hosts </li>
-<li>Linux：&#x2F;etc&#x2F;hosts </li>
+<li>Linux：/etc/hosts <ul>
 <li>127.0.0.1 tacocloud </li>
 <li>127.0.0.1 authserver </li>
 <li>127.0.0.1 clientadmin</li>
+</ul>
+</li>
 </ul>
 <h2 id="创建授权服务器-1"><a href="#创建授权服务器-1" class="headerlink" title="创建授权服务器"></a>创建授权服务器</h2><ul>
 <li>Spring Authorization Server </li>
@@ -485,7 +489,7 @@
 <li>interface JwtDecoder</li>
 </ul>
 <h2 id="运行授权服务器"><a href="#运行授权服务器" class="headerlink" title="运行授权服务器"></a>运行授权服务器</h2><ul>
-<li>获得授权码（浏览器访问）： <a target="_blank" rel="noopener" href="http://authserver:9000/oauth2/authorize?response_type=code&client_id=taco-admin-client&scope=writeIngredients+deleteIngredients&redirect_uri=http://clientadmin:9090/login/oauth2/code/taco-admin-client">http://authserver:9000/oauth2/authorize?response_type=code&amp;client_id=taco-admin-client&amp;scope=writeIngredients+deleteIngredients&amp;redirect_uri=http://clientadmin:9090/login/oauth2/code/taco-admin-client</a> </li>
+<li>获得授权码（浏览器访问）： <a target="_blank" rel="noopener" href="http://authserver:9000/oauth2/authorize?response_type=code&amp;client_id=taco-admin-client&amp;scope=writeIngredients+deleteIngredients&amp;redirect_uri=http://clientadmin:9090/login/oauth2/code/taco-admin-client">http://authserver:9000/oauth2/authorize?response_type=code&amp;client_id=taco-admin-client&amp;scope=writeIngredients+deleteIngredients&amp;redirect_uri=http://clientadmin:9090/login/oauth2/code/taco-admin-client</a> </li>
 <li>获得token（postman访问） POST ： <a target="_blank" rel="noopener" href="http://authserver:9000/oauth2/token">http://authserver:9000/oauth2/token</a></li>
 <li>刷新token（postman访问）： <a target="_blank" rel="noopener" href="http://authserver:9000/oauth2/token">http://authserver:9000/oauth2/token</a></li>
 </ul>
@@ -498,8 +502,7 @@
 <li>添加依赖</li>
 </ol>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-oauth2-resource-server<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<ol start="2">
+<ol>
 <li>在过滤器中针对被保护的API添加权限控制</li>
 </ol>
 <ul>
@@ -507,25 +510,19 @@
 <li>开启API调用前的过滤器</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.antMatchers(HttpMethod.POST, <span class="string">&quot;/api/ingredients&quot;</span>).hasAuthority(<span class="string">&quot;SCOPE_writeIngredients&quot;</span>)</span><br><span class="line">.antMatchers(HttpMethod.DELETE, <span class="string">&quot;/api/ingredients/*&quot;</span>).hasAuthority(<span class="string">&quot;SCOPE_deleteIngredients&quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
 <h2 id="开启调用API前的过滤器："><a href="#开启调用API前的过滤器：" class="headerlink" title="开启调用API前的过滤器："></a>开启调用API前的过滤器：</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.and() .oauth2ResourceServer(oauth2 -&gt; oauth2.jwt())</span><br></pre></td></tr></table></figure>
-
 <h2 id="配置资源服务器从何处获取公钥"><a href="#配置资源服务器从何处获取公钥" class="headerlink" title="配置资源服务器从何处获取公钥"></a>配置资源服务器从何处获取公钥</h2><figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">	<span class="attr">security:</span></span><br><span class="line">		<span class="attr">oauth2:</span></span><br><span class="line">			<span class="attr">resourceserver:</span></span><br><span class="line">				<span class="attr">jwt:</span></span><br><span class="line">					<span class="attr">jwk-set-uri:</span> <span class="string">http://tacocloud:9000/oauth2/jwks</span></span><br></pre></td></tr></table></figure>
-
 <p><img src="/2023/11/09/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch10-OAuth2/image-20231114223132080.png" alt="image-20231114223132080"></p>
 <h2 id="从POSTMAN访问被保护资源"><a href="#从POSTMAN访问被保护资源" class="headerlink" title="从POSTMAN访问被保护资源"></a>从POSTMAN访问被保护资源</h2><ul>
 <li>带着token（Authorization属性）访问POST：<a target="_blank" rel="noopener" href="http://tacocloud:8080/api/ingredients">http://tacocloud:8080/api/ingredients</a> </li>
-<li>带着token（Authorization属性）访问DELETE：<a target="_blank" rel="noopener" href="http://tacocloud:8080/api/ingredients/">http://tacocloud:8080/api/ingredients/</a>*</li>
+<li>带着token（Authorization属性）访问DELETE：<a target="_blank" rel="noopener" href="http://tacocloud:8080/api/ingredients/*">http://tacocloud:8080/api/ingredients/*</a></li>
 </ul>
 <h1 id="开发客户端应用"><a href="#开发客户端应用" class="headerlink" title="开发客户端应用"></a>开发客户端应用</h1><h2 id="添加依赖-1"><a href="#添加依赖-1" class="headerlink" title="添加依赖"></a>添加依赖</h2><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-oauth2-client&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
-
 <h2 id="代码配置"><a href="#代码配置" class="headerlink" title="代码配置"></a>代码配置</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line">SecurityFilterChain <span class="title function_">defaultSecurityFilterChain</span><span class="params">(HttpSecurity http)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">    http</span><br><span class="line">    .authorizeRequests(</span><br><span class="line">    authorizeRequests -&gt; authorizeRequests.anyRequest().authenticated()</span><br><span class="line">    )</span><br><span class="line">    .oauth2Login(</span><br><span class="line">    oauth2Login -&gt;</span><br><span class="line">    oauth2Login.loginPage(<span class="string">&quot;/oauth2/authorization/taco-admin-client&quot;</span>))</span><br><span class="line">    .oauth2Client(withDefaults());</span><br><span class="line">    <span class="keyword">return</span> http.build();</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
 <h2 id="属性配置"><a href="#属性配置" class="headerlink" title="属性配置"></a>属性配置</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">spring:</span><br><span class="line">security:</span><br><span class="line">oauth2:</span><br><span class="line">client:</span><br><span class="line">registration:</span><br><span class="line">taco-admin-client:</span><br><span class="line">provider: tacocloud</span><br><span class="line">client-id: taco-admin-client</span><br><span class="line">client-secret: secret</span><br><span class="line">authorization-grant-type: authorization_code</span><br><span class="line">redirect-uri: <span class="string">&quot;http://clientadmin:9090/login/oauth2/code/&#123;registrationId&#125;&quot;</span></span><br><span class="line">scope: writeIngredients,deleteIngredients,openid </span><br><span class="line">provider:</span><br><span class="line">tacocloud:</span><br><span class="line">issuer-uri: http:<span class="comment">//authserver:9000</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
 <h2 id="实现请求拦截器"><a href="#实现请求拦截器" class="headerlink" title="实现请求拦截器"></a>实现请求拦截器</h2><p>请求头增加属性：Authorization</p>
 <h2 id="访问"><a href="#访问" class="headerlink" title="访问"></a>访问</h2><ul>
-<li><a target="_blank" rel="noopener" href="http://clientadmin:9090/">http://clientadmin:9090</a></li>
+<li><a target="_blank" rel="noopener" href="http://clientadmin:9090">http://clientadmin:9090</a></li>
 </ul>
 <p><img src="/2023/11/09/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch10-OAuth2/image-20231114223340534.png" alt="image-20231114223340534"></p>
 <h3 id="http-authserver-9000-well-known-openid-configuration"><a href="#http-authserver-9000-well-known-openid-configuration" class="headerlink" title="http://authserver:9000/.well-known/openid-configuration"></a><a target="_blank" rel="noopener" href="http://authserver:9000/.well-known/openid-configuration">http://authserver:9000/.well-known/openid-configuration</a></h3><p><img src="/2023/11/09/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch10-OAuth2/image-20231114223358616.png" alt="image-20231114223358616"></p>
@@ -543,25 +540,25 @@
 <nav id="article-nav">
   <a class="article-nav-btn left "
     
-      href="/2023/11/16/leetcode/leetcode%E5%88%B7%E9%A2%98-19.%E5%9B%9B%E6%95%B0%E4%B9%8B%E5%92%8C/"
-      title="leetcode刷题-19.四数之和"
+      href="/2023/11/09/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch11-%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6(ActiveMQ%E3%80%81RabbitMQ)/"
+      title="服务端-ch11-消息中间件(ActiveMQ、RabbitMQ)"
      >
     <i class="fa-solid fa-angle-left"></i>
     <p class="title-text">
       
-        leetcode刷题-19.四数之和
+        服务端-ch11-消息中间件(ActiveMQ、RabbitMQ)
         
     </p>
   </a>
   <a class="article-nav-btn right "
     
-      href="/2023/11/09/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch11-%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6(ActiveMQ%E3%80%81RabbitMQ)/"
-      title="服务端-ch11-消息中间件(ActiveMQ、RabbitMQ)"
+      href="/2023/11/02/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch09-REST%20API%E5%BC%80%E5%8F%91/"
+      title="服务端-ch09-Rest API开发"
      >
 
     <p class="title-text">
       
-        服务端-ch11-消息中间件(ActiveMQ、RabbitMQ)
+        服务端-ch09-Rest API开发
         
     </p>
     <i class="fa-solid fa-angle-right"></i>

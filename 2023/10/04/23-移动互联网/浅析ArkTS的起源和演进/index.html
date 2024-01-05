@@ -197,9 +197,14 @@
                 <div class="category-count">6</div>
             </a>
         
-            <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">
-                软件工程与计算II
-                <div class="category-count">28</div>
+            <a class="category-link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
+                编译原理
+                <div class="category-count">13</div>
+            </a>
+        
+            <a class="category-link" href="/categories/tdesign/">
+                tdesign
+                <div class="category-count">1</div>
             </a>
         
             <a class="category-link" href="/categories/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91/">
@@ -212,19 +217,14 @@
                 <div class="category-count">12</div>
             </a>
         
-            <a class="category-link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
-                编译原理
-                <div class="category-count">13</div>
+            <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">
+                软件工程与计算II
+                <div class="category-count">28</div>
             </a>
         
-            <a class="category-link" href="/categories/tdesign/">
-                tdesign
+            <a class="category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                机器学习
                 <div class="category-count">1</div>
-            </a>
-        
-            <a class="category-link" href="/categories/%E9%A9%BE%E8%80%83/">
-                驾考
-                <div class="category-count">2</div>
             </a>
         
             <a class="category-link" href="/categories/leetcode/">
@@ -232,9 +232,9 @@
                 <div class="category-count">4</div>
             </a>
         
-            <a class="category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                机器学习
-                <div class="category-count">1</div>
+            <a class="category-link" href="/categories/%E9%A9%BE%E8%80%83/">
+                驾考
+                <div class="category-count">2</div>
             </a>
         </div>
     </div>
@@ -260,7 +260,7 @@
       
         <a class="archive-link" href="/archives/2024/01 ">
           一月 2024 
-          <div class="archive-count">2 </div>
+          <div class="archive-count">3 </div>
         </a>
       
         <a class="archive-link" href="/archives/2023/12 ">
@@ -324,6 +324,12 @@
       <h3 class="widget-title">最新文章</h3>
       <ul>
         
+          <a class="recent-link" href="/2024/01/05/23-%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92/%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/" title="" >
+            <div class="recent-link-text">
+              (no title)
+            </div>
+          </a>
+        
           <a class="recent-link" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/" title="服务端-ch17-k8s使用" >
             <div class="recent-link-text">
               服务端-ch17-k8s使用
@@ -345,12 +351,6 @@
           <a class="recent-link" href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/" title="服务端-ch15-Docker" >
             <div class="recent-link-text">
               服务端-ch15-Docker
-            </div>
-          </a>
-        
-          <a class="recent-link" href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/" title="服务端-ch14-Spring WebFlux" >
-            <div class="recent-link-text">
-              服务端-ch14-Spring WebFlux
             </div>
           </a>
         
@@ -409,17 +409,17 @@
           <h1 id="浅析ArkTS的起源和演进"><a href="#浅析ArkTS的起源和演进" class="headerlink" title="浅析ArkTS的起源和演进"></a>浅析ArkTS的起源和演进</h1><h1 id="1-引言"><a href="#1-引言" class="headerlink" title="1 引言"></a>1 引言</h1><p>Mozilla创造了JS，Microsoft创建了TS，Huawei进一步推出了ArkTS。</p>
 <p>从最初的基础的逻辑交互能力，到具备类型系统的高效工程开发能力，再到融合声明式UI、多维状态管理等丰富的应用开发能力，共同组成了相关的演进脉络。</p>
 <p>ArkTS是HarmonyOS优选的主力应用开发语言。它在TypeScript（简称TS）的基础上，扩展了声明式UI、状态管理等相应的能力，让开发者可以以更简洁、更自然的方式开发高性能应用。TS是JavaScript（简称JS）的超集，ArkTS则是TS的超集。ArkTS会结合应用开发和运行的需求持续演进，包括但不限于引入分布式开发范式、并行和并发能力增强、类型系统增强等方面的语言特性。本期我们结合JS和TS以及相关的开发框架的发展，为大家介绍ArkTS的起源和演进思路。</p>
-<h1 id="2-JS"><a href="#2-JS" class="headerlink" title="2 JS"></a>2 JS</h1><p>JS语言由Mozilla创造，最初主要是为了解决页面中的逻辑交互问题，它和HTML（负责页面内容）、CSS（负责页面布局和样式）共同组成了Web页面&#x2F;应用开发的基础。随着Web和浏览器的普及，以及Node.js进一步将JS扩展到了浏览器以外的环境，JS语言得到了飞速的发展。在2015年相关的标准组织ECMA发布了一个主要的版本ECMAScript 6（简称ES6），这个版本具备了较为完整的语言能力，包括类（Class）、模块（Module）、相关的语言基础API增强（Map&#x2F;Set等）、箭头函数（Arrow Function）等。从2015年开始，ECMA每年都会发布一个标准版本，比如ES2016&#x2F;ES2017&#x2F;ES2018等，JS语言越来越成熟。</p>
+<h1 id="2-JS"><a href="#2-JS" class="headerlink" title="2 JS"></a>2 JS</h1><p>JS语言由Mozilla创造，最初主要是为了解决页面中的逻辑交互问题，它和HTML（负责页面内容）、CSS（负责页面布局和样式）共同组成了Web页面/应用开发的基础。随着Web和浏览器的普及，以及Node.js进一步将JS扩展到了浏览器以外的环境，JS语言得到了飞速的发展。在2015年相关的标准组织ECMA发布了一个主要的版本ECMAScript 6（简称ES6），这个版本具备了较为完整的语言能力，包括类（Class）、模块（Module）、相关的语言基础API增强（Map/Set等）、箭头函数（Arrow Function）等。从2015年开始，ECMA每年都会发布一个标准版本，比如ES2016/ES2017/ES2018等，JS语言越来越成熟。</p>
 <p>为了提升应用的开发效率，相应的JS前端框架也不断地涌现出来。其中比较典型的有Facebook发起的React.js，以及个人开发者尤雨溪发起的Vue.js。React和Vue的主要出发点都是将响应式编程的能力引入到应用开发中，实现数据和界面内容的自动关联处理。具体的实现方式上，React对JS做了一些扩展，引入了JSX（JavaScript XML）语法，可以将HTML的内容统一表示成JS来处理；Vue则是通过扩展的模板语法（Template）的方式来处理。</p>
-<p>下面通过两个示例，为大家简要介绍React和Vue。（<strong>示例来源于w3schools网站：</strong><a target="_blank" rel="noopener" href="https://www.w3schools.com/whatis/%EF%BC%89">https://www.w3schools.com/whatis/）</a></p>
+<p>下面通过两个示例，为大家简要介绍React和Vue。（<strong>示例来源于w3schools网站：</strong><a target="_blank" rel="noopener" href="https://www.w3schools.com/whatis/）">https://www.w3schools.com/whatis/）</a></p>
 <p><strong>1. React示例</strong></p>
 <p><strong>图1</strong> React示例</p>
 <p><img src="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/103/404/958/0260086000103404958.20221102104340.94108790062912697966750549293034:50001231000000:2800:DBC3B5AE63B6879EE21AF9E59D564ADAFE30E9D7CDFF6E6EA226D4128B2982C5.png" alt="img"></p>
-<p>以上代码描述了React如何在指定的页面元素（id为id01的div元素）中改变相应的字符串内容（从”Hello World!”到”Hello John Doe!”）。其中第5行的ReactDOM.render()是React JS库提供的一个方法，它可以将相应的内容刷新到指定的HTML元素中。第6行是符合JSX语义的一段代码，它包含了一个类似HTML结构的字符串（</p><h1>…</h1>），以及一个表达数据绑定语义的字段({name})，会关联到第4行定义的name变量。通过这种方式，JSX把HTML的语义以及数据绑定机制和JS语言结合起来，可以方便地在JS语言中使用。<p></p>
+<p>以上代码描述了React如何在指定的页面元素（id为id01的div元素）中改变相应的字符串内容（从”Hello World!”到”Hello John Doe!”）。其中第5行的ReactDOM.render()是React JS库提供的一个方法，它可以将相应的内容刷新到指定的HTML元素中。第6行是符合JSX语义的一段代码，它包含了一个类似HTML结构的字符串（</p><h1>...</h1>），以及一个表达数据绑定语义的字段({name})，会关联到第4行定义的name变量。通过这种方式，JSX把HTML的语义以及数据绑定机制和JS语言结合起来，可以方便地在JS语言中使用。<p></p>
 <p><strong>2. Vue示例</strong></p>
 <p><strong>图2</strong> Vue示例</p>
 <p><img src="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/103/404/958/0260086000103404958.20221102104352.79912171437667408945886710827184:50001231000000:2800:112F46F30295D467BA9DFF79E4FF0970B0F988D51013AF8C2460142BE3BA0DC9.png" alt="img"></p>
-<p>以上Vue示例代码也描述了类似的功能。其中第1<del>3行是类似HTML的语法，描述一个id为app的div页面元素，其中的是数据绑定的语义，在Vue中表示为Template。第6</del>9行是JS代码，描述了一个Vue对象，对应了上述的app页面元素以及所需的数据变量message的内容信息。第11~13行则是JS函数，它改变message变量的值为”John Doe”。执行这个函数时Vue会自动实现相应的UI界面刷新。</p>
+<p>以上Vue示例代码也描述了类似的功能。其中第1~3行是类似HTML的语法，描述一个id为app的div页面元素，其中的是数据绑定的语义，在Vue中表示为Template。第6~9行是JS代码，描述了一个Vue对象，对应了上述的app页面元素以及所需的数据变量message的内容信息。第11~13行则是JS函数，它改变message变量的值为”John Doe”。执行这个函数时Vue会自动实现相应的UI界面刷新。</p>
 <p>如上所示，React和Vue所表达的能力是类似的，不过侧重点稍微有所不同。React主要是基于JSX的语法，将类HTML的语法融合到JS语言中；Vue则是基于Template机制，在HTML的基础上扩展相应的语义。当然，上面这两个例子只是简要地描述了React和Vue的基础信息，更详细的语法以及CSS相关的使用等都没涉及。</p>
 <p>从运行时的维度来看，基于React以及Vue的应用都可运行在Web引擎上。为了进一步提升相应的性能体验，2015年Facebook在React基础上推出了React Native, 在渲染架构上没有采用传统的Web引擎渲染路径，而是桥接到相应OS平台的原生UI组件上。2019年Facebook引入全新实现的JS引擎Hermes，并推出一系列架构改进来进一步提升React Native的性能体验。2016年阿里巴巴开源的Weex则是基于Vue做了一些类似的改进，也是采用了桥接到原生UI组件的渲染路径。</p>
 <h1 id="3-TS"><a href="#3-TS" class="headerlink" title="3 TS"></a>3 TS</h1><p>随着JS生态的发展，如何更有效地支撑大型的应用工程开发变成了一个重要的课题。大型的应用工程一般会涉及较复杂的代码以及较多的团队协作，对语言的规范性，模块的复用性、扩展性以及相关的开发工具都提出了更高的要求。为此，Microsoft在JS的基础上，创建了TS语言，并在2014年正式发布了1.0版本。TS主要从以下几个方面做了进一步的增强：</p>
@@ -431,7 +431,7 @@
 <p>TS在兼容JS生态方面也做了较好的平衡，TS应用通过相应编译器可以编译出纯JS应用，可以在标准的JS引擎上运行。同时，TS定位为JS的超集，即JS应用也是合法的TS应用。此外，在标准层面上，TS兼容ECMA的相应标准，并维护那些还未成为ECMA标准的新特性。</p>
 <h1 id="4-ArkTS"><a href="#4-ArkTS" class="headerlink" title="4 ArkTS"></a>4 ArkTS</h1><p>如上所述，基于JS的前端框架以及TS的引入，进一步提升了应用开发效率，但依然存在一些不足。</p>
 <p><strong>从开发者维度来看：</strong></p>
-<p>写一个应用需要了解三种语言（JS&#x2F;TS、HTML和CSS）。这对Web开发者相对友好，但对非Web开发者来说，负担较重。</p>
+<p>写一个应用需要了解三种语言（JS/TS、HTML和CSS）。这对Web开发者相对友好，但对非Web开发者来说，负担较重。</p>
 <p><strong>从运行时维度来看：</strong></p>
 <ul>
 <li>在语言运行时方面，尽管TS有了类型的加持，但也只是用于编译时检查，然后通过TS Compiler转成JS，运行时引擎还是无法利用到基于类型系统的优化。</li>
@@ -448,11 +448,11 @@
 <li>语言生态</li>
 <li>开发效率</li>
 <li>性能体验</li>
-<li>跨设备&#x2F;跨平台能力</li>
+<li>跨设备/跨平台能力</li>
 </ul>
-<p>由于JS&#x2F;TS有比较完善的开发者生态，语言也比较中立友好，有相应的标准组织可以逐步演进，JS&#x2F;TS语言成了比较自然的选择。以JS&#x2F;TS为基础，在开发框架的维度，我们做了如下的架构演进设计：</p>
+<p>由于JS/TS有比较完善的开发者生态，语言也比较中立友好，有相应的标准组织可以逐步演进，JS/TS语言成了比较自然的选择。以JS/TS为基础，在开发框架的维度，我们做了如下的架构演进设计：</p>
 <ul>
-<li>通过基于JS扩展的类Web开发范式，来支持主流的前端开发方式。同步的，在运行时方面，通过渲染引擎的增强（平台无关的自绘制机制、声明式UI后端设计、动态布局&#x2F;多态UI组件等），语言编译器和运行时的优化增强（代码预编译、高效FFI-Foreign Function Interface、引擎极小化等），进一步提升相关的性能体验，并可部署到不同设备上（包括百KB级内存的轻量设备）。另外，通过平台适配层的设计，构建了跨OS平台的基础设施。</li>
+<li>通过基于JS扩展的类Web开发范式，来支持主流的前端开发方式。同步的，在运行时方面，通过渲染引擎的增强（平台无关的自绘制机制、声明式UI后端设计、动态布局/多态UI组件等），语言编译器和运行时的优化增强（代码预编译、高效FFI-Foreign Function Interface、引擎极小化等），进一步提升相关的性能体验，并可部署到不同设备上（包括百KB级内存的轻量设备）。另外，通过平台适配层的设计，构建了跨OS平台的基础设施。</li>
 <li>通过基于TS扩展的声明式UI开发范式，提供了更简洁更自然的开发体验。在运行时方面，在上述的基础上，结合语言运行时的类型优化，以及渲染运行时的扁平化流水线技术等，进一步提升性能体验。</li>
 </ul>
 <p><strong>图3</strong> ArkUI开发框架</p>
@@ -531,9 +531,9 @@
 <p><strong>1. 更完善的类型系统</strong></p>
 <p>我们已经设计并实现了专门运行时，利用ArkTS的类型输入，在程序执行一开始就获得较高的运行性能（不像其它传统JS引擎需要预热才能获取高性能）。但是目前的类型系统在运行时的设计上仍然考虑了兼容模式，即在运行时，当对象类型发生变化时会走Bailout机制，以使程序在类型不匹配时仍能正常运行。一种更极致的方式是：引入一种特定模式来支持确定类型的表达，当开发者可以明确类型时，提供相应的信息，这样运行时可以通过针对性设计，进一步提升性能体验。另外，ArkTS将来也会在类型系统中拓展一些新的类型，在与运行时结合的优化中会提供更好的性能体验。</p>
 <p><strong>2. 更灵活的并行化处理</strong></p>
-<p>目前的移动设备基本都是多核设备（包括同一配置的多核以及不同配置的大小核），有些设备还会携带多种计算芯片（CPU&#x2F;GPU&#x2F;NPU&#x2F;…）。语言在并发特性上如何充分应用多核设备甚至异构芯片是一个重要的课题。目前我们采用的仍然是业界常见的类Actor模型的并发接口——Worker，它弥补了Actor模型的些许劣势，即允许用户转移和共享大量的Buffer以避免通信时拷贝的开销。但是开发者仍需自己去管理Worker的生命周期，利用Worker也不能非常方便地触发一个异步并行任务。我们已经在尝试在Actor模型上封装一种任务接口，方便用户更容易利用多核触发异步并行任务。我们也一直在关注Swift、Dart、Kotlin、Go这些语言并发特性的发展和运行时的实现，ArkTS的特定模式中静态类型模型的引入也会给并发机制带来更多高性能实现的可能性，比如对象的冻结、所有权转移、值语义等等。我们将持续致力于提供简洁高效的并发API，帮助应用开发者更容易开发出高性能的应用。</p>
+<p>目前的移动设备基本都是多核设备（包括同一配置的多核以及不同配置的大小核），有些设备还会携带多种计算芯片（CPU/GPU/NPU/…）。语言在并发特性上如何充分应用多核设备甚至异构芯片是一个重要的课题。目前我们采用的仍然是业界常见的类Actor模型的并发接口——Worker，它弥补了Actor模型的些许劣势，即允许用户转移和共享大量的Buffer以避免通信时拷贝的开销。但是开发者仍需自己去管理Worker的生命周期，利用Worker也不能非常方便地触发一个异步并行任务。我们已经在尝试在Actor模型上封装一种任务接口，方便用户更容易利用多核触发异步并行任务。我们也一直在关注Swift、Dart、Kotlin、Go这些语言并发特性的发展和运行时的实现，ArkTS的特定模式中静态类型模型的引入也会给并发机制带来更多高性能实现的可能性，比如对象的冻结、所有权转移、值语义等等。我们将持续致力于提供简洁高效的并发API，帮助应用开发者更容易开发出高性能的应用。</p>
 <p>当然，ArkTS以及ArkUI开发框架还很年轻，还有很多其它方面也会持续演进，比如UI自定义能力的进一步完善，语言运行时以及跨语言交互的进一步优化，跨OS平台能力的扩展，分布式开发范式等等。</p>
-<p>作为应用生态的底座，应用开发框架的创新永无止境。我们希望和广大的开发者一起，持续围绕着开发效率、运行体验、跨设备&#x2F;跨平台等相关方面一起合作，一起创新，共建繁荣的应用生态。</p>
+<p>作为应用生态的底座，应用开发框架的创新永无止境。我们希望和广大的开发者一起，持续围绕着开发效率、运行体验、跨设备/跨平台等相关方面一起合作，一起创新，共建繁荣的应用生态。</p>
 <h1 id="声明式UI基本概念"><a href="#声明式UI基本概念" class="headerlink" title="声明式UI基本概念"></a>声明式UI基本概念</h1><p>应用界面是由一个个页面组成，ArkTS是由ArkUI框架提供，用于以声明式开发范式开发界面的语言。</p>
 <p>声明式UI构建页面的过程，其实是组合组件的过程，声明式UI的思想，主要体现在两个方面：</p>
 <ul>
@@ -544,19 +544,15 @@
 <h2 id="自定义组件的组成"><a href="#自定义组件的组成" class="headerlink" title="自定义组件的组成"></a>自定义组件的组成</h2><p>ArkTS通过struct声明组件名，并通过@Component和@Entry装饰器，来构成一个自定义组件。</p>
 <p>使用@Entry和@Component装饰的自定义组件作为页面的入口，会在页面加载时首先进行渲染。</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Entry</span></span><br><span class="line"><span class="meta">@Componentstruct</span> <span class="title class_">ToDoList</span> &#123;...&#125;</span><br></pre></td></tr></table></figure>
-
 <p>例如ToDoList组件对应如下整个代办页面。</p>
 <p><strong>图1</strong> ToDoList待办列表<br><img src="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230825095806.98989304597628711585478518998133:50001231000000:2800:C24A88963BCA0746465828A1585E08F50B8076FBE561A14DF63DA8E0783563FC.png?needInitFileName=true?needInitFileName=true" alt="点击放大"></p>
 <p>使用@Component装饰的自定义组件，如ToDoItem这个自定义组件则对应如下内容，作为页面的组成部分。</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line">struct <span class="title class_">ToDoItem</span> &#123;...&#125;</span><br></pre></td></tr></table></figure>
-
 <p><strong>图2</strong> ToDoItem<br><img src="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230825095806.70650326811367194086433422357008:50001231000000:2800:9797517A1D28C1C89A68593287208AE4636571735CECEA403D730B24F48FE71D.png?needInitFileName=true?needInitFileName=true" alt="点击放大"></p>
 <p>在自定义组件内需要使用build方法来进行UI描述。</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Entry</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"> struct <span class="title class_">ToDoList</span></span><br><span class="line">   ...</span><br><span class="line">   <span class="title function_">build</span>(<span class="params"></span>) &#123;</span><br><span class="line">    ...</span><br><span class="line">  &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>build方法内可以容纳内置组件和其他自定义组件，如Column和Text都是内置组件，由ArkUI框架提供，ToDoItem为自定义组件，需要开发者使用ArkTS自行声明。</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Entry</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line">struct <span class="title class_">ToDoList</span> &#123;</span><br><span class="line">  ...</span><br><span class="line">  <span class="title function_">build</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="title class_">Column</span>(...) &#123;</span><br><span class="line">      <span class="title class_">Text</span>(...)</span><br><span class="line">        ...</span><br><span class="line">      <span class="title class_">ForEach</span>(...&#123;</span><br><span class="line">        <span class="title class_">TodoItem</span>(...)</span><br><span class="line">      &#125;,...)</span><br><span class="line">    &#125;</span><br><span class="line">  ...</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <h2 id="配置属性与布局"><a href="#配置属性与布局" class="headerlink" title="配置属性与布局"></a>配置属性与布局</h2><p>自定义组件的组成使用基础组件和容器组件等内置组件进行组合。但有时内置组件的样式并不能满足我们的需求，ArkTS提供了属性方法用于描述界面的样式。属性方法支持以下使用方式：</p>
 <ul>
 <li><p>常量传递</p>
@@ -577,7 +573,8 @@
 </li>
 <li><p>内置枚举类型</p>
 <p>除此之外，ArkTS中还提供了内置枚举类型，如Color，FontWeight等，例如设置fontColor改变字体颜色为红色，并私有fontWeight为加粗。</p>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Text</span>(<span class="string">&#x27;Hello World&#x27;</span>)</span><br><span class="line">  .<span class="title function_">fontSize</span>(<span class="variable language_">this</span>.<span class="property">size</span>)</span><br><span class="line">  .<span class="title function_">width</span>(<span class="variable language_">this</span>.<span class="property">count</span> + <span class="number">100</span>)</span><br><span class="line">  .<span class="title function_">height</span>(<span class="variable language_">this</span>.<span class="property">count</span> % <span class="number">2</span> === <span class="number">0</span> ? <span class="number">100</span> : <span class="number">200</span>)</span><br><span class="line">  .<span class="title function_">fontColor</span>(<span class="title class_">Color</span>.<span class="property">Red</span>)</span><br><span class="line">  .<span class="title function_">fontWeight</span>(<span class="title class_">FontWeight</span>.<span class="property">Bold</span>)</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Text</span>(<span class="string">&#x27;Hello World&#x27;</span>)</span><br><span class="line">  .<span class="title function_">fontSize</span>(<span class="variable language_">this</span>.<span class="property">size</span>)</span><br><span class="line">  .<span class="title function_">width</span>(<span class="variable language_">this</span>.<span class="property">count</span> + <span class="number">100</span>)</span><br><span class="line">  .<span class="title function_">height</span>(<span class="variable language_">this</span>.<span class="property">count</span> % <span class="number">2</span> === <span class="number">0</span> ? <span class="number">100</span> : <span class="number">200</span>)</span><br><span class="line">  .<span class="title function_">fontColor</span>(<span class="title class_">Color</span>.<span class="property">Red</span>)</span><br><span class="line">  .<span class="title function_">fontWeight</span>(<span class="title class_">FontWeight</span>.<span class="property">Bold</span>)</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 <p>对于有多种组件需要进行组合时，容器组件则是描述了这些组件应该如何排列的结果。</p>
 <p>ArkUI中的布局容器有很多种，在不同的适用场合选择不同的布局容器实现，ArkTS使用容器组件采用花括号语法，内部放置UI描述。</p>
@@ -586,43 +583,33 @@
 <p>对于如下每一项的布局，两个元素为横向排列，选择Row布局</p>
 <p><strong>图3</strong> Row布局<br><img src="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230825095807.82739632860547547816563386590866:50001231000000:2800:4FC241490CB30958B3BBBE477A471BEC9FDCDFE908667AE15977653D6EE6B890.png?needInitFileName=true?needInitFileName=true" alt="点击放大"></p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Row</span>() &#123;</span><br><span class="line">  <span class="title class_">Image</span>($r(<span class="string">&#x27;app.media.ic_default&#x27;</span>))</span><br><span class="line">    ...</span><br><span class="line">  <span class="title class_">Text</span>(<span class="variable language_">this</span>.<span class="property">content</span>) </span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br><span class="line">...</span><br></pre></td></tr></table></figure>
-
 <p>类似下图所示的布局，整体都是从上往下纵向排列，适用的布局方式是Column列布局。</p>
 <p><strong>图4</strong> Column布局<br><img src="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230825095807.64071686986772820077308829939779:50001231000000:2800:CE428EF1E729667A903A96C498EDD6C220692F2293E1CC42C6BE120057179033.png?needInitFileName=true?needInitFileName=true" alt="点击放大"></p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Column</span>() &#123;</span><br><span class="line">   <span class="title class_">Text</span>($r(<span class="string">&#x27;app.string.page_title&#x27;</span>))</span><br><span class="line">     ...</span><br><span class="line"></span><br><span class="line">   <span class="title class_">ForEach</span>(<span class="variable language_">this</span>.<span class="property">totalTasks</span>,<span class="function">(<span class="params">item</span>) =&gt;</span> &#123;</span><br><span class="line">     <span class="title class_">TodoItem</span>(&#123;<span class="attr">content</span>:item&#125;)</span><br><span class="line">   &#125;,...)</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-
 <p><img src="/2023/10/04/23-%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91/%E6%B5%85%E6%9E%90ArkTS%E7%9A%84%E8%B5%B7%E6%BA%90%E5%92%8C%E6%BC%94%E8%BF%9B/image-20231004155432930.png" alt="image-20231004155432930"></p>
 <h2 id="改变组件状态"><a href="#改变组件状态" class="headerlink" title="改变组件状态"></a>改变组件状态</h2><p>实际开发中由于交互，页面的内容可能需要产生变化，以每一个ToDoItem为例，其在完成时的状态与未完成时的展示效果是不一样的。</p>
 <p><strong>图5</strong> 不同状态的视图<br><img src="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230825095807.16308183046758553581077323299407:50001231000000:2800:7378AF74DE74B299D02D5AAF0FBC71FE78597C01B3DE04A961F611273980A9EE.png?needInitFileName=true?needInitFileName=true" alt="点击放大"></p>
 <p>声明式UI的特点就是UI是随数据更改而自动刷新的，我们这里定义了一个类型为boolean的变量isComplete，其被@State装饰后，框架内建立了数据和视图之间的绑定，其值的改变影响UI的显示。</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@State</span> isComplete : <span class="built_in">boolean</span> = <span class="literal">false</span>;</span><br></pre></td></tr></table></figure>
-
 <p><strong>图6</strong> @State装饰器的作用<br><img src="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230825095807.63166434605292363033167469936539:50001231000000:2800:43BFA92342FAB78115EBEA45450B6C9514B7ED9DDD0AF846D7E815D5E92E8654.png?needInitFileName=true?needInitFileName=true" alt="点击放大"></p>
-<p>用圆圈和对勾这样两个图片，分别来表示该项是否完成，这部分涉及到内容的切换，需要使用条件渲染if &#x2F; else语法来进行组件的显示与消失，当判断条件为真时，组件为已完成的状态，反之则为未完成。</p>
+<p>用圆圈和对勾这样两个图片，分别来表示该项是否完成，这部分涉及到内容的切换，需要使用条件渲染if / else语法来进行组件的显示与消失，当判断条件为真时，组件为已完成的状态，反之则为未完成。</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="variable language_">this</span>.<span class="property">isComplete</span>) &#123;</span><br><span class="line">  <span class="title class_">Image</span>($r(<span class="string">&#x27;app.media.ic_ok&#x27;</span>))</span><br><span class="line">    .<span class="title function_">objectFit</span>(<span class="title class_">ImageFit</span>.<span class="property">Contain</span>)</span><br><span class="line">    .<span class="title function_">width</span>($r(<span class="string">&#x27;app.float.checkbox_width&#x27;</span>))</span><br><span class="line">    .<span class="title function_">height</span>($r(<span class="string">&#x27;app.float.checkbox_width&#x27;</span>))</span><br><span class="line">    .<span class="title function_">margin</span>($r(<span class="string">&#x27;app.float.checkbox_margin&#x27;</span>))</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="title class_">Image</span>($r(<span class="string">&#x27;app.media.ic_default&#x27;</span>))</span><br><span class="line">    .<span class="title function_">objectFit</span>(<span class="title class_">ImageFit</span>.<span class="property">Contain</span>)</span><br><span class="line">    .<span class="title function_">width</span>($r(<span class="string">&#x27;app.float.checkbox_width&#x27;</span>))</span><br><span class="line">    .<span class="title function_">height</span>($r(<span class="string">&#x27;app.float.checkbox_width&#x27;</span>))</span><br><span class="line">    .<span class="title function_">margin</span>($r(<span class="string">&#x27;app.float.checkbox_margin&#x27;</span>))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>由于两个Image的实现具有大量重复代码，ArkTS提供了@Builder装饰器，来修饰一个函数，快速生成布局内容，从而可以避免重复的UI描述内容。这里使用@Bulider声明了一个labelIcon的函数，参数为url，对应要传给Image的图片路径。</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Builder</span> <span class="title function_">labelIcon</span>(<span class="params">url</span>) &#123;</span><br><span class="line">  <span class="title class_">Image</span>(url)</span><br><span class="line">    .<span class="title function_">objectFit</span>(<span class="title class_">ImageFit</span>.<span class="property">Contain</span>)</span><br><span class="line">    .<span class="title function_">width</span>($r(<span class="string">&#x27;app.float.checkbox_width&#x27;</span>))</span><br><span class="line">    .<span class="title function_">height</span>($r(<span class="string">&#x27;app.float.checkbox_width&#x27;</span>))</span><br><span class="line">    .<span class="title function_">margin</span>($r(<span class="string">&#x27;app.float.checkbox_margin&#x27;</span>))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>使用时只需要使用this关键字访问@Builder装饰的函数名，即可快速创建布局。</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span> (<span class="variable language_">this</span>.<span class="property">isComplete</span>) &#123;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="title function_">labelIcon</span>($r(<span class="string">&#x27;app.media.ic_ok&#x27;</span>))</span><br><span class="line">&#125; <span class="keyword">else</span> &#123;</span><br><span class="line">  <span class="variable language_">this</span>.<span class="title function_">labelIcon</span>($r(<span class="string">&#x27;app.media.ic_default&#x27;</span>))</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>为了让待办项带给用户的体验更符合已完成的效果，给内容的字体也增加了相应的样式变化，这里使用了三目运算符来根据状态变化修改其透明度和文字样式，如opacity是控制透明度，decoration是文字是否有划线。通过isComplete的值来控制其变化。</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Text</span>(<span class="variable language_">this</span>.<span class="property">content</span>)</span><br><span class="line">  ...</span><br><span class="line">  .<span class="title function_">opacity</span>(<span class="variable language_">this</span>.<span class="property">isComplete</span> ? <span class="title class_">CommonConstants</span>.<span class="property">OPACITY_COMPLETED</span> : <span class="title class_">CommonConstants</span>.<span class="property">OPACITY_DEFAULT</span>)</span><br><span class="line">  .<span class="title function_">decoration</span>(&#123; <span class="attr">type</span>: <span class="variable language_">this</span>.<span class="property">isComplete</span> ? <span class="title class_">TextDecorationType</span>.<span class="property">LineThrough</span> : <span class="title class_">TextDecorationType</span>.<span class="property">None</span> &#125;)</span><br></pre></td></tr></table></figure>
-
 <p>最后，为了实现与用户交互的效果，在组件上添加了onClick点击事件，当用户点击该待办项时，数据isComplete的更改就能够触发UI的更新。</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Component</span></span><br><span class="line">struct <span class="title class_">ToDoItem</span> &#123;</span><br><span class="line">  <span class="meta">@State</span> isComplete : <span class="built_in">boolean</span> = <span class="literal">false</span>;</span><br><span class="line">  <span class="meta">@Builder</span> <span class="title function_">labelIcon</span>(<span class="params">icon</span>) &#123;...&#125;</span><br><span class="line">  ...</span><br><span class="line">  <span class="title function_">build</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="title class_">Row</span>() &#123;</span><br><span class="line">      <span class="keyword">if</span> (<span class="variable language_">this</span>.<span class="property">isComplete</span>) &#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="title function_">labelIcon</span>($r(<span class="string">&#x27;app.media.ic_ok&#x27;</span>))</span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="variable language_">this</span>.<span class="title function_">labelIcon</span>($r(<span class="string">&#x27;app.media.ic_default&#x27;</span>))</span><br><span class="line">      &#125;</span><br><span class="line">      ... </span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">    .<span class="title function_">onClick</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">      <span class="variable language_">this</span>.<span class="property">isComplete</span>= !<span class="variable language_">this</span>.<span class="property">isComplete</span>;</span><br><span class="line">     &#125;)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <h2 id="循环渲染列表数据"><a href="#循环渲染列表数据" class="headerlink" title="循环渲染列表数据"></a>循环渲染列表数据</h2><p>刚刚只是完成了一个ToDoItem组件的开发，当我们有多条待办数据需要显示在页面时，就需要使用到ForEach循环渲染语法。</p>
 <p>例如这里我们有五条待办数据需要展示在页面上。</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">total_Tasks</span>:<span class="title class_">Array</span>&lt;<span class="built_in">string</span>&gt; = [</span><br><span class="line">  <span class="string">&#x27;早起晨练&#x27;</span>,</span><br><span class="line">  <span class="string">&#x27;准备早餐&#x27;</span>,</span><br><span class="line">  <span class="string">&#x27;阅读名著&#x27;</span>,</span><br><span class="line">  <span class="string">&#x27;学习ArkTS&#x27;</span>,</span><br><span class="line">  <span class="string">&#x27;看剧放松&#x27;</span></span><br><span class="line">]</span><br></pre></td></tr></table></figure>
-
 <p>ForEach基本使用中，只需要了解要渲染的数据以及要生成的UI内容两个部分，例如这里要渲染的数组为以上的五条待办事项，要渲染的内容是ToDoItem这个自定义组件，也可以是其他内置组件。</p>
 <p><strong>图7</strong> ForEach基本使用<br><img src="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230825095807.59151385932116777982352271823301:50001231000000:2800:1162E732BF34071AA3077EDCC7E32C9E5FCB1542972E867A5484DEAFCDD9444D.png?needInitFileName=true?needInitFileName=true" alt="点击放大"></p>
 <p>ToDoItem这个自定义组件中，每一个ToDoItem要显示的文本参数content需要外部传入，参数传递使用花括号的形式，用content接受数组内的内容项item。</p>
 <p>最终完成的代码及其效果如下。</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Entry</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line">struct <span class="title class_">ToDoList</span> &#123;</span><br><span class="line">   ...</span><br><span class="line">   <span class="title function_">build</span>(<span class="params"></span>) &#123;</span><br><span class="line">     <span class="title class_">Row</span>() &#123;</span><br><span class="line">       <span class="title class_">Column</span>() &#123;</span><br><span class="line">         <span class="title class_">Text</span>(...)</span><br><span class="line">           ...</span><br><span class="line">         <span class="title class_">ForEach</span>(<span class="variable language_">this</span>.<span class="property">totalTasks</span>,<span class="function">(<span class="params">item</span>) =&gt;</span> &#123;</span><br><span class="line">           <span class="title class_">TodoItem</span>(&#123;<span class="attr">content</span>:item&#125;)</span><br><span class="line">         &#125;,...)</span><br><span class="line">       &#125;</span><br><span class="line">       .<span class="title function_">width</span>(<span class="string">&#x27;100%&#x27;</span>)</span><br><span class="line">     &#125;</span><br><span class="line">     .<span class="title function_">height</span>(<span class="string">&#x27;100%&#x27;</span>)</span><br><span class="line">   &#125;</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure>
-
 <p><strong>图8</strong> ToDoList页面<br><img src="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230825095807.41980763760353693205545347622754:50001231000000:2800:43CBD8180AD6A066680C7EF37293CEFFEC3F37F88349232689A529DB9B7CE394.png?needInitFileName=true?needInitFileName=true" alt="点击放大"></p>
 <p><a target="_blank" rel="noopener" href="https://gitee.com/harmonyos/codelabs/tree/master/ToDoListArkTS">Codelabs: 分享知识与见解，一起探索HarmonyOS的独特魅力。 - Gitee.com</a></p>
 

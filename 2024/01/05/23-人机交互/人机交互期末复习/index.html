@@ -1,0 +1,1499 @@
+<!DOCTYPE html>
+
+
+<html theme="dark" showBanner="true" hasBanner="true" > 
+<link href="/fontawesome/css/fontawesome.css" rel="stylesheet">
+<link href="/fontawesome/css/brands.css" rel="stylesheet">
+<link href="/fontawesome/css/solid.css" rel="stylesheet">
+<script src="/js/color.global.min.js" ></script>
+<script src="/js/load-settings.js" ></script>
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+
+  
+  <title>Asimov&#39;s Blog</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+  <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
+
+  <meta name="description" content="还没有把图片下载下来这里只整理知识点，适合考前两小时快速过一遍。 Part 1 基础概述 HCI&#x2F;CHI：Human-Computer Interaction&#x2F;Computer-Human Interaction MMI&#x2F;HMI：Man-Machine Interaction&#x2F;Human-Machine Interaction UCD：User-Centered Design HF：Human F">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Asimov&#39;s Blog">
+<meta property="og:url" content="https://chendingya.github.io/2024/01/05/23-%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92/%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/index.html">
+<meta property="og:site_name" content="Asimov&#39;s Blog">
+<meta property="og:description" content="还没有把图片下载下来这里只整理知识点，适合考前两小时快速过一遍。 Part 1 基础概述 HCI&#x2F;CHI：Human-Computer Interaction&#x2F;Computer-Human Interaction MMI&#x2F;HMI：Man-Machine Interaction&#x2F;Human-Machine Interaction UCD：User-Centered Design HF：Human F">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://jv5sp5rouqq.feishu.cn/space/api/box/stream/download/asynccode/?code=Y2JlZjVjYjI3NTRkZGFiOWViYjMyMTBhNjRkYWNlMzJfSVJ4WnVFTWk0Q0xiZjY1djFJWm1vUmFaY09YWlZwZGNfVG9rZW46TWxTU2Jzb0pGb05TRlh4b2d4ZWNJUHpnblc1XzE3MDQ0NDEwMTY6MTcwNDQ0NDYxNl9WNA">
+<meta property="og:image" content="https://jv5sp5rouqq.feishu.cn/space/api/box/stream/download/asynccode/?code=ZmQ4OGYyYTI4N2YxMjFkNDk5Y2E1YjdmYjg2ZDQyNjlfVm40STE5YUpsZmNOR1hkT1NHZTl5c1d1WUpsOEJRdUlfVG9rZW46U3ZsemIzSUVNb1k2QmF4RkcyOGNxc1FybnpkXzE3MDQ0NDEwMTY6MTcwNDQ0NDYxNl9WNA">
+<meta property="og:image" content="https://jv5sp5rouqq.feishu.cn/space/api/box/stream/download/asynccode/?code=MjkxZGExOGYyMDNmM2YwNDBiYjc4ZDQ0YzlhMDA3MjhfWFBGSGQxcmJUMFA2dVZGNzk1T1c0VEVNdDBwd2h1N0FfVG9rZW46VHFkUmJNdHZ5b0Q3Rmt4TE1DSmM5WmNhbndkXzE3MDQ0NDEwMTY6MTcwNDQ0NDYxNl9WNA">
+<meta property="og:image" content="https://jv5sp5rouqq.feishu.cn/space/api/box/stream/download/asynccode/?code=OTUxYzVkNGYwNmU2MDRlOTdmOThmNmZkYzJjYjAyYzVfNjRtWW5UWHhDdUt1SzJLWG8zOUhkTHN3d002VDFFbGtfVG9rZW46Wm9vbWJNaklqb1BaMHB4RVB1cGNzZDBtbkNxXzE3MDQ0NDEwMTY6MTcwNDQ0NDYxNl9WNA">
+<meta property="og:image" content="https://jv5sp5rouqq.feishu.cn/space/api/box/stream/download/asynccode/?code=YzFlZTc4NWUyMmZiN2RiNDVhMWQ4ZmE3MmFjZDk0MmJfYzlCZEp0aVhhTWp5Y3NZengzQnJFc0lPUGl1NHFtaGFfVG9rZW46Vk5MSGJseVJtb2pOaHJ4aVpYTmNTeEd5bkVGXzE3MDQ0NDEwMTY6MTcwNDQ0NDYxNl9WNA">
+<meta property="og:image" content="https://jv5sp5rouqq.feishu.cn/space/api/box/stream/download/asynccode/?code=Y2IyNTcyZmRmZDdiYzFkYjczZjRkMDlmNTAyNjIyNmZfeExoTlNPYm5uOWNvbXp0ZmxuTzFnanppZFBqQ25WdVhfVG9rZW46VGNnWmJEWnlBb0gzcGx4Wk80VGNEWjZTbmtjXzE3MDQ0NDEwMTY6MTcwNDQ0NDYxNl9WNA">
+<meta property="og:image" content="https://jv5sp5rouqq.feishu.cn/space/api/box/stream/download/asynccode/?code=ZDcyNTQxMDI0OTM5ZjQzOGFmMDliODRjYWRiYmFlMDJfajc1QTdYN2I1SWRXbFpkMWdXUUNtRHlOdVVsNlhhZjlfVG9rZW46SG1OWWI1U0VDb3BBcnF4UGhpemNZUG5TbkNjXzE3MDQ0NDEwMTY6MTcwNDQ0NDYxNl9WNA">
+<meta property="og:image" content="https://jv5sp5rouqq.feishu.cn/space/api/box/stream/download/asynccode/?code=YjcyMjcwYWE3Njk5NGE4MWUwNDU3MTA4MzMzNmY1MGRfdzA2aFdtemtVOHJHNUZtOG1LNEJPQkhhZVlaSkU1eHBfVG9rZW46VEZwUGJhR1Rzb3lPcHJ4dDFwY2M2VXV6bmVnXzE3MDQ0NDEwMTY6MTcwNDQ0NDYxNl9WNA">
+<meta property="og:image" content="https://jv5sp5rouqq.feishu.cn/space/api/box/stream/download/asynccode/?code=NzcyYjAwMTQwZmNkZWRhM2M5NmNjYzFlY2FkYjExMzRfdWpoWUJwcXMzZ2dnZ2NLSlhHbG9kYkw5aFZveEs2SUxfVG9rZW46RDRzZWJyQzNTb0pka3Z4Mmt1c2N2TTlKbkllXzE3MDQ0NDEwMTY6MTcwNDQ0NDYxNl9WNA">
+<meta property="og:image" content="https://jv5sp5rouqq.feishu.cn/space/api/box/stream/download/asynccode/?code=OGEzNjM0YTg0Y2Q4ZGI0OWQ4ZmM3ZjMyYmZjMWY2NDlfaTEweFZ1THI5Tjdsa2dmZGdldkRMR0hoRU1wM3ZLZWtfVG9rZW46Rzl2cWJZWlpab2VhcW54M0ZHRmNKMDY0blllXzE3MDQ0NDEwMTY6MTcwNDQ0NDYxNl9WNA">
+<meta property="og:image" content="https://jv5sp5rouqq.feishu.cn/space/api/box/stream/download/asynccode/?code=N2E5MjEyYjRhMWNlMjA4MTg0YjJiNDA4YjUzYTEzNWJfdk14WndwRm1VUkIydDZXaFpqSnlrY3N2UUxHUTdsY0FfVG9rZW46TVBRZGJPa0FLb1gxNzZ4TGxjbGNYWG9YblViXzE3MDQ0NDEwMTY6MTcwNDQ0NDYxNl9WNA">
+<meta property="og:image" content="https://jv5sp5rouqq.feishu.cn/space/api/box/stream/download/asynccode/?code=YjU5ZjIxY2I2OTFmY2I4ODlkM2E3M2UyZjAwNjdjYjFfTXRDc0tBWjdKWUpoV2p2cVhMZ3hjZFBVNGJCUDRzVmtfVG9rZW46WVJ3NWJVYTg5b1FnVnd4U3RicWNNVTBYbnNlXzE3MDQ0NDEwMTY6MTcwNDQ0NDYxNl9WNA">
+<meta property="og:image" content="https://jv5sp5rouqq.feishu.cn/space/api/box/stream/download/asynccode/?code=OGZlM2U5ZDFiOWUyY2FjNTRhODFjZjE2ZTViNWFlMWNfVGRWV3pLTktxZ2x1WFJLUlI0eTFEUFJlbUMzaWhDV0FfVG9rZW46RWJqNWJqMks1b1lya0J4MDBYcWNlb1VzbmtjXzE3MDQ0NDEwMTY6MTcwNDQ0NDYxNl9WNA">
+<meta property="og:image" content="https://jv5sp5rouqq.feishu.cn/space/api/box/stream/download/asynccode/?code=N2JlNjgzNTIxNjJhYzhiYTIwYWU5NTFmYjYyZWMzOTJfUnQwZ1Zmc3VRb0tSMUk2UlprbUpEdm5KRzNjTFZPR0pfVG9rZW46WkV6SmJtWmZ2b1NCMUN4OHdUamNJenNSbnFoXzE3MDQ0NDEwMTY6MTcwNDQ0NDYxNl9WNA">
+<meta property="article:published_time" content="2024-01-05T07:54:05.973Z">
+<meta property="article:modified_time" content="2024-01-05T07:53:42.780Z">
+<meta property="article:author" content="Asimov">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://jv5sp5rouqq.feishu.cn/space/api/box/stream/download/asynccode/?code=Y2JlZjVjYjI3NTRkZGFiOWViYjMyMTBhNjRkYWNlMzJfSVJ4WnVFTWk0Q0xiZjY1djFJWm1vUmFaY09YWlZwZGNfVG9rZW46TWxTU2Jzb0pGb05TRlh4b2d4ZWNJUHpnblc1XzE3MDQ0NDEwMTY6MTcwNDQ0NDYxNl9WNA">
+  
+    <link rel="alternate" href="/atom.xml" title="Asimov's Blog" type="application/atom+xml">
+  
+  
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: light)" href="/images/favicon-light-192.png" sizes="192x192">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-32.png" sizes="32x32">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-128.png" sizes="128x128">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-180.png" sizes="180x180">
+    <link rel="icon" media="(prefers-color-scheme: dark)" href="/images/favicon-dark-192.png" sizes="192x192">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+<body>
+  
+  
+    
+<div id="banner" class="">
+  <img src="/pic/back.png" itemprop="image">
+  <div id="banner-dim"></div>
+</div>
+ 
+   
+  <div id="main-grid" class="shadow   ">
+    <div id="nav" class=""  >
+      <navbar id="navbar">
+  <nav id="title-nav">
+    <a href="/">
+      <div id="vivia-logo">
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+        <div class="dot"></div>
+      </div>
+      <div>Asimov's Blog </div>
+    </a>
+  </nav>
+  <nav id="main-nav">
+    
+      <a class="main-nav-link" href="/">Home</a>
+    
+      <a class="main-nav-link" href="/archives">Archives</a>
+    
+      <a class="main-nav-link" href="/about">About</a>
+    
+  </nav>
+  <nav id="sub-nav">
+    <a id="theme-btn" class="nav-icon">
+      <span class="light-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M438.5-829.913v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-829.913Zm0 747.826v-48q0-17.452 11.963-29.476 11.964-12.024 29.326-12.024 17.363 0 29.537 12.024t12.174 29.476v48q0 17.452-11.963 29.476-11.964 12.024-29.326 12.024-17.363 0-29.537-12.024T438.5-82.087ZM877.913-438.5h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537t29.476-12.174h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T877.913-438.5Zm-747.826 0h-48q-17.452 0-29.476-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T82.087-521.5h48q17.452 0 29.476 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T130.087-438.5Zm660.174-290.87-34.239 32q-12.913 12.674-29.565 12.174-16.653-.5-29.327-13.174-12.674-12.673-12.554-28.826.12-16.152 12.794-28.826l33-35q12.913-12.674 30.454-12.674t30.163 12.847q12.709 12.846 12.328 30.826-.38 17.98-13.054 30.653ZM262.63-203.978l-32 34q-12.913 12.674-30.454 12.674t-30.163-12.847q-12.709-12.846-12.328-30.826.38-17.98 13.054-30.653l33.239-31q12.913-12.674 29.565-12.174 16.653.5 29.327 13.174 12.674 12.673 12.554 28.826-.12 16.152-12.794 28.826Zm466.74 33.239-32-33.239q-12.674-12.913-12.174-29.565.5-16.653 13.174-29.327 12.673-12.674 28.826-13.054 16.152-.38 28.826 12.294l35 33q12.674 12.913 12.674 30.454t-12.847 30.163q-12.846 12.709-30.826 12.328-17.98-.38-30.653-13.054ZM203.978-697.37l-34-33q-12.674-12.913-13.174-29.945-.5-17.033 12.174-29.707t31.326-13.293q18.653-.62 31.326 13.054l32 34.239q11.674 12.913 11.174 29.565-.5 16.653-13.174 29.327-12.673 12.674-28.826 12.554-16.152-.12-28.826-12.794ZM480-240q-100 0-170-70t-70-170q0-100 70-170t170-70q100 0 170 70t70 170q0 100-70 170t-170 70Zm-.247-82q65.703 0 111.475-46.272Q637-414.544 637-480.247t-45.525-111.228Q545.95-637 480.247-637t-111.475 45.525Q323-545.95 323-480.247t45.525 111.975Q414.05-322 479.753-322ZM481-481Z"/></svg></span>
+      <span class="dark-mode-icon"><svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M480.239-116.413q-152.63 0-258.228-105.478Q116.413-327.37 116.413-480q0-130.935 77.739-227.435t206.304-125.043q43.022-9.631 63.87 10.869t3.478 62.805q-8.891 22.043-14.315 44.463-5.424 22.42-5.424 46.689 0 91.694 64.326 155.879 64.325 64.186 156.218 64.186 24.369 0 46.978-4.946 22.609-4.945 44.413-14.076 42.826-17.369 62.967 1.142 20.142 18.511 10.511 61.054Q807.174-280 712.63-198.206q-94.543 81.793-232.391 81.793Zm0-95q79.783 0 143.337-40.217 63.554-40.218 95.793-108.283-15.608 4.044-31.097 5.326-15.49 1.283-31.859.805-123.706-4.066-210.777-90.539-87.071-86.473-91.614-212.092-.24-16.369.923-31.978 1.164-15.609 5.446-30.978-67.826 32.478-108.282 96.152Q211.652-559.543 211.652-480q0 111.929 78.329 190.258 78.329 78.329 190.258 78.329ZM466.13-465.891Z"/></svg></span>
+    </a>
+    
+      <a id="nav-rss-link" class="nav-icon mobile-hide" href="/atom.xml" title="RSS 订阅">
+        <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M198-120q-25.846 0-44.23-18.384-18.384-18.385-18.384-44.23 0-25.846 18.384-44.23 18.384-18.385 44.23-18.385 25.846 0 44.23 18.385 18.384 18.384 18.384 44.23 0 25.845-18.384 44.23Q223.846-120 198-120Zm538.385 0q-18.846 0-32.923-13.769-14.076-13.769-15.922-33.23-8.692-100.616-51.077-188.654-42.385-88.039-109.885-155.539-67.5-67.501-155.539-109.885Q283-663.462 182.385-672.154q-19.461-1.846-33.23-16.23-13.769-14.385-13.769-33.846t14.076-32.922q14.077-13.461 32.923-12.23 120.076 8.692 226.038 58.768 105.961 50.077 185.73 129.846 79.769 79.769 129.846 185.731 50.077 105.961 58.769 226.038 1.231 18.846-12.538 32.922Q756.461-120 736.385-120Zm-252 0q-18.231 0-32.423-13.461t-18.653-33.538Q418.155-264.23 348.886-333.5q-69.27-69.27-166.501-84.423-20.077-4.462-33.538-18.961-13.461-14.5-13.461-33.346 0-19.076 13.884-33.23 13.884-14.153 33.115-10.922 136.769 15.384 234.384 112.999 97.615 97.615 112.999 234.384 3.231 19.23-10.538 33.115Q505.461-120 484.385-120Z"/></svg>
+      </a>
+    
+    <div id="nav-menu-btn" class="nav-icon">
+      <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="M177.37-252.282q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Zm0-186.218q-17.453 0-29.477-11.963-12.024-11.964-12.024-29.326 0-17.363 12.024-29.537T177.37-521.5h605.26q17.453 0 29.477 11.963 12.024 11.964 12.024 29.326 0 17.363-12.024 29.537T782.63-438.5H177.37Zm0-186.217q-17.453 0-29.477-11.964-12.024-11.963-12.024-29.326t12.024-29.537q12.024-12.174 29.477-12.174h605.26q17.453 0 29.477 11.964 12.024 11.963 12.024 29.326t-12.024 29.537q-12.024 12.174-29.477 12.174H177.37Z"/></svg>
+    </div>
+  </nav>
+</navbar>
+<div id="nav-dropdown" class="hidden">
+  <div id="dropdown-link-list">
+    
+      <a class="nav-dropdown-link" href="/">Home</a>
+    
+      <a class="nav-dropdown-link" href="/archives">Archives</a>
+    
+      <a class="nav-dropdown-link" href="/about">About</a>
+    
+    
+      <a class="nav-dropdown-link" href="/atom.xml" title="RSS 订阅">RSS</a>
+     
+    </div>
+</div>
+<script>
+  let dropdownBtn = document.getElementById("nav-menu-btn");
+  let dropdownEle = document.getElementById("nav-dropdown");
+  dropdownBtn.onclick = function() {
+    dropdownEle.classList.toggle("hidden");
+  }
+</script>
+    </div>
+    <div id="sidebar-wrapper">
+      <sidebar id="sidebar">
+  
+    <div class="widget-wrap">
+  <div class="info-card">
+    <div class="avatar">
+      
+        <image src=/pic/avatar.png></image>
+      
+      <div class="img-dim"></div>
+    </div>
+    <div class="info">
+      <div class="username">Asimov </div>
+      <div class="dot"></div>
+      <div class="subtitle">为美好的明天线上祝福！ </div>
+      <div class="link-list">
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://github.com/chendingya" title="GitHub"><i class="fa-brands fa-github"></i></a>
+        
+          <a class="link-btn" target="_blank" rel="noopener" href="https://chillcharlie357.github.io/" title="Charlie's Blog"><i class="fa-solid fa-graduation-cap"></i></a>
+         
+      </div>  
+    </div>
+  </div>
+</div>
+
+  
+  <div class="sticky">
+    
+      
+
+
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">分类</h3>
+      <div class="category-box">
+            <a class="category-link" href="/categories/hello-world/">
+                hello world
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/Hexo/">
+                Hexo
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/">
+                数据库
+                <div class="category-count">6</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
+                编译原理
+                <div class="category-count">13</div>
+            </a>
+        
+            <a class="category-link" href="/categories/tdesign/">
+                tdesign
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91/">
+                服务端开发
+                <div class="category-count">16</div>
+            </a>
+        
+            <a class="category-link" href="/categories/openharmony/">
+                openharmony
+                <div class="category-count">12</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">
+                软件工程与计算II
+                <div class="category-count">28</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                机器学习
+                <div class="category-count">1</div>
+            </a>
+        
+            <a class="category-link" href="/categories/leetcode/">
+                leetcode
+                <div class="category-count">4</div>
+            </a>
+        
+            <a class="category-link" href="/categories/%E9%A9%BE%E8%80%83/">
+                驾考
+                <div class="category-count">2</div>
+            </a>
+        </div>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">标签</h3>
+      <ul class="widget-tag-list" itemprop="keywords"><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/Hexo/" rel="tag">Hexo</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/SQL/" rel="tag">SQL</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/hello-world/" rel="tag">hello world</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/openharmony/" rel="tag">openharmony</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/springboot/" rel="tag">springboot</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/tdesign/" rel="tag">tdesign</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E4%BD%8D%E8%BF%90%E7%AE%97/" rel="tag">位运算</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92/" rel="tag">动态规划</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%8F%8C%E5%90%91%E9%93%BE%E8%A1%A8/" rel="tag">双向链表</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%8F%8C%E6%8C%87%E9%92%88/" rel="tag">双指针</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E5%93%88%E5%B8%8C%E8%A1%A8/" rel="tag">哈希表</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%8E%92%E5%BA%8F/" rel="tag">排序</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91/" rel="tag">服务端开发</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/" rel="tag">期末复习</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/" rel="tag">机器学习</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/" rel="tag">编译原理</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/" rel="tag">软件工程与计算II</a></li><li class="widget-tag-list-item"><a class="widget-tag-list-link" href="/tags/%E9%A9%BE%E8%80%83/" rel="tag">驾考</a></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">归档</h3>
+      
+      
+        <a class="archive-link" href="/archives/2024/01 ">
+          一月 2024 
+          <div class="archive-count">3 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/12 ">
+          十二月 2023 
+          <div class="archive-count">3 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/11 ">
+          十一月 2023 
+          <div class="archive-count">5 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/10 ">
+          十月 2023 
+          <div class="archive-count">20 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/09 ">
+          九月 2023 
+          <div class="archive-count">4 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/07 ">
+          七月 2023 
+          <div class="archive-count">2 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/04 ">
+          四月 2023 
+          <div class="archive-count">10 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/03 ">
+          三月 2023 
+          <div class="archive-count">9 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2023/01 ">
+          一月 2023 
+          <div class="archive-count">1 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2022/10 ">
+          十月 2022 
+          <div class="archive-count">1 </div>
+        </a>
+      
+        <a class="archive-link" href="/archives/2022/06 ">
+          六月 2022 
+          <div class="archive-count">28 </div>
+        </a>
+      
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget-wrap">
+    <div class="widget">
+      <h3 class="widget-title">最新文章</h3>
+      <ul>
+        
+          <a class="recent-link" href="/2024/01/05/23-%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92/%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/" title="" >
+            <div class="recent-link-text">
+              (no title)
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/" title="服务端-ch17-k8s使用" >
+            <div class="recent-link-text">
+              服务端-ch17-k8s使用
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/" title="机器学习-期末复习" >
+            <div class="recent-link-text">
+              机器学习-期末复习
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/12/30/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch16-%E5%AE%B9%E5%99%A8%E9%95%9C%E5%83%8F%E6%9E%84%E5%BB%BA%E4%B8%8E%E7%BC%96%E6%8E%92/" title="服务端-ch16-容器镜像构建与编排" >
+            <div class="recent-link-text">
+              服务端-ch16-容器镜像构建与编排
+            </div>
+          </a>
+        
+          <a class="recent-link" href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/" title="服务端-ch15-Docker" >
+            <div class="recent-link-text">
+              服务端-ch15-Docker
+            </div>
+          </a>
+        
+      </ul>
+    </div>
+  </div>
+
+    
+  </div>
+</sidebar>
+    </div>
+    <div id="content-body">
+       
+
+<article id="post-23-人机交互/人机交互期末复习" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  
+    
+   
+  <div class="article-inner">
+    <div class="article-main">
+      <header class="article-header">
+        
+<div class="main-title-bar">
+  <div class="main-title-dot"></div>
+  
+    
+      <h1 class="p-name article-title" itemprop="headline name">
+        无标题
+      </h1>
+    
+  
+</div>
+
+        <div class='meta-info-bar'>
+          <div class="meta-info">
+  <time class="dt-published" datetime="2024-01-05T07:54:05.973Z" itemprop="datePublished">2024-01-05</time>
+</div>
+          <div class="need-seperator meta-info">
+            <div class="meta-cate-flex">
+  
+    未分类 
+   
+</div>
+  
+          </div>
+          <div class="wordcount need-seperator meta-info">
+            8.8k 词 
+          </div>
+        </div>
+        
+      </header>
+      <div class="e-content article-entry" itemprop="articleBody">
+        
+          <h1 id="还没有把图片下载下来"><a href="#还没有把图片下载下来" class="headerlink" title="还没有把图片下载下来"></a>还没有把图片下载下来</h1><p>这里只整理知识点，适合考前两小时快速过一遍。</p>
+<h1 id="Part-1-基础"><a href="#Part-1-基础" class="headerlink" title="Part 1 基础"></a><strong>Part 1 基础</strong></h1><h2 id="概述"><a href="#概述" class="headerlink" title="概述"></a><strong>概述</strong></h2><ul>
+<li>HCI/CHI：Human-Computer Interaction/Computer-Human Interaction</li>
+<li>MMI/HMI：Man-Machine Interaction/Human-Machine Interaction</li>
+<li>UCD：User-Centered Design</li>
+<li>HF：Human Factors</li>
+<li>什么是人机交互</li>
+<li>抓住三方面答：人、计算机和他们之间互相联系的方式（交互），交互是重点。</li>
+<li>ACM定义：有关交互式计算机系统的设计、评估、实现以及与之相关现象的学科</li>
+<li>人机交互的研究内容<ul>
+<li>U：使用计算机的上下文</li>
+<li>H：人的特性</li>
+<li>C：计算机系统和用户接口架构</li>
+<li>D：开发过程</li>
+</ul>
+</li>
+<li>重要性<ul>
+<li>企业角度</li>
+<li>市场角度</li>
+<li>个人角度</li>
+<li>人性因素角度</li>
+</ul>
+</li>
+<li>发展历史<ul>
+<li>批处理阶段</li>
+<li>联机终端阶段（命令行）</li>
+<li>GUI阶段（现在）</li>
+<li>多媒体界面（未来）</li>
+</ul>
+</li>
+</ul>
+<h2 id="基础知识"><a href="#基础知识" class="headerlink" title="基础知识"></a><strong>基础知识</strong></h2><ul>
+<li>交互框架 <ul>
+<li>执行评估<ul>
+<li>执行隔阂 用户为达目标而制定的动作与系统允许的动作之间的差别  </li>
+<li>评估隔阂 系统状态的<strong>实际表现</strong>与用户预期之间的差别</li>
+</ul>
+</li>
+<li>活动周期EEC<ul>
+<li>四个组成部分<ul>
+<li>目标</li>
+<li>执行</li>
+<li>客观因素</li>
+<li>评估</li>
+</ul>
+</li>
+<li>1-4：执行阶段 <ul>
+<li>形成目标</li>
+<li>形成意图</li>
+<li>明确动作</li>
+<li>执行动作</li>
+</ul>
+</li>
+<li>5-7：评估阶段<ul>
+<li>感知系统状态</li>
+<li>解释系统状态</li>
+<li>评估输出</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>循环这个过程</li>
+<li>可以用来识别出交互存在的问题，即系统表现和用户预期之间的差距</li>
+</ul>
+</li>
+<li>交互形式：交互泛型（图形页面如何与机器交互）泛型决定了技术类型<ul>
+<li>命令行交互</li>
+<li>菜单驱动界面（菜单/菜单栏）</li>
+<li>基于表格的界面（表单）</li>
+<li>直接操纵（拖拽等）</li>
+<li>问答界面（对话框）</li>
+<li>隐喻界面（图标）</li>
+<li>自然语言交互</li>
+</ul>
+</li>
+<li>信息处理模型（研究人对外界信息的接收、存储、集成、检索和使用，可预测人执行特定任务的效率，如可推算人需要多长时间来感知和响应某个刺激（又 称“反应时间”），信息过载会出现怎样的瓶颈现象等。<ul>
+<li>人类处理机模型 最著名的<strong>信息处理模型</strong>，描述了人们从感知信息到付诸行动的认知过程<ul>
+<li>感知处理器<ul>
+<li>信息将被输出到声音存储和视觉存储区域</li>
+</ul>
+</li>
+<li>认知处理器<ul>
+<li>输入将被输出到工作记忆，能够访问工作记忆和长时记忆中的信息</li>
+</ul>
+</li>
+<li>动作处理器<ul>
+<li>执行动作</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="认知心理学"><a href="#认知心理学" class="headerlink" title="认知心理学"></a>认知心理学</h3><ul>
+<li><p>格式塔/完型心理学</p>
+<ul>
+<li>相近性原则<ul>
+<li><strong>空间上比较靠近</strong>的物体容易被视为整体</li>
+<li>设计界面时应按照相关性对组件进行分组</li>
+<li><img src="https://jv5sp5rouqq.feishu.cn/space/api/box/stream/download/asynccode/?code=Y2JlZjVjYjI3NTRkZGFiOWViYjMyMTBhNjRkYWNlMzJfSVJ4WnVFTWk0Q0xiZjY1djFJWm1vUmFaY09YWlZwZGNfVG9rZW46TWxTU2Jzb0pGb05TRlh4b2d4ZWNJUHpnblc1XzE3MDQ0NDEwMTY6MTcwNDQ0NDYxNl9WNA" alt="img"></li>
+</ul>
+</li>
+<li>相似性原则 </li>
+<li>人们习惯将看上去<strong>相似的物体</strong>看成一个整体</li>
+<li>功能相近的组件应该使用相同或相近的表现形式</li>
+<li><p><img src="https://jv5sp5rouqq.feishu.cn/space/api/box/stream/download/asynccode/?code=ZmQ4OGYyYTI4N2YxMjFkNDk5Y2E1YjdmYjg2ZDQyNjlfVm40STE5YUpsZmNOR1hkT1NHZTl5c1d1WUpsOEJRdUlfVG9rZW46U3ZsemIzSUVNb1k2QmF4RkcyOGNxc1FybnpkXzE3MDQ0NDEwMTY6MTcwNDQ0NDYxNl9WNA" alt="img"></p>
+</li>
+<li><p>连续性原则</p>
+<ul>
+<li><strong>共线或具有相同方向</strong>的物体会被组合在一起</li>
+<li>将组件对齐，更有助于增强用户的主观感知效果</li>
+<li><img src="https://jv5sp5rouqq.feishu.cn/space/api/box/stream/download/asynccode/?code=MjkxZGExOGYyMDNmM2YwNDBiYjc4ZDQ0YzlhMDA3MjhfWFBGSGQxcmJUMFA2dVZGNzk1T1c0VEVNdDBwd2h1N0FfVG9rZW46VHFkUmJNdHZ5b0Q3Rmt4TE1DSmM5WmNhbndkXzE3MDQ0NDEwMTY6MTcwNDQ0NDYxNl9WNA" alt="img"></li>
+</ul>
+</li>
+<li>对称性原则<ul>
+<li><strong>相互对称且能够组合为有意义单元的物体</strong>会被组合在一起</li>
+</ul>
+</li>
+<li><p><img src="https://jv5sp5rouqq.feishu.cn/space/api/box/stream/download/asynccode/?code=OTUxYzVkNGYwNmU2MDRlOTdmOThmNmZkYzJjYjAyYzVfNjRtWW5UWHhDdUt1SzJLWG8zOUhkTHN3d002VDFFbGtfVG9rZW46Wm9vbWJNaklqb1BaMHB4RVB1cGNzZDBtbkNxXzE3MDQ0NDEwMTY6MTcwNDQ0NDYxNl9WNA" alt="img"></p>
+</li>
+<li><p>完整和闭合原则</p>
+<ul>
+<li>人们倾向于<strong>忽视轮廓的间隙</strong>而将其视作一个完整的整体</li>
+<li>页面上的空白可帮助实现分组</li>
+<li><img src="https://jv5sp5rouqq.feishu.cn/space/api/box/stream/download/asynccode/?code=YzFlZTc4NWUyMmZiN2RiNDVhMWQ4ZmE3MmFjZDk0MmJfYzlCZEp0aVhhTWp5Y3NZengzQnJFc0lPUGl1NHFtaGFfVG9rZW46Vk5MSGJseVJtb2pOaHJ4aVpYTmNTeEd5bkVGXzE3MDQ0NDEwMTY6MTcwNDQ0NDYxNl9WNA" alt="img"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>违反格式塔则可以突出某个物体</li>
+<li>视错觉：上下文信息有助于增强人们的视觉感知</li>
+<li>记忆特性<ul>
+<li>三个阶段，Atkinson和Shiffrin<ul>
+<li>感觉记忆<ol>
+<li>瞬时记忆，持续约1s</li>
+<li>作用：视觉暂留，视频的实现</li>
+</ol>
+</li>
+<li>短时记忆<ol>
+<li>工作记忆，30s左右。储存当前正在处理的信息。</li>
+<li>感觉记忆经编码后进入短时记忆</li>
+<li>Short Term Memory, 简称 STM</li>
+<li><strong>存储能力</strong>：7+2，7-2个信息单元</li>
+</ol>
+</li>
+<li>长时记忆<ol>
+<li>短时记忆中的信息经进一步加工后会变为长时记忆不代表长时记忆区的信息丢失了</li>
+<li>遗忘：可能失去了提取信息的途径，或原有联系受到了干扰。但不代表记忆丢失。</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><img src="https://jv5sp5rouqq.feishu.cn/space/api/box/stream/download/asynccode/?code=Y2IyNTcyZmRmZDdiYzFkYjczZjRkMDlmNTAyNjIyNmZfeExoTlNPYm5uOWNvbXp0ZmxuTzFnanppZFBqQ25WdVhfVG9rZW46VGNnWmJEWnlBb0gzcGx4Wk80VGNEWjZTbmtjXzE3MDQ0NDEwMTY6MTcwNDQ0NDYxNl9WNA" alt="img"></li>
+</ul>
+</li>
+<li>交互设备<ul>
+<li></li>
+</ul>
+</li>
+</ul>
+<h2 id="交互设计的目标和原则"><a href="#交互设计的目标和原则" class="headerlink" title="交互设计的目标和原则"></a><strong>交互设计的目标和原则</strong></h2><ul>
+<li><p>目标</p>
+<ul>
+<li>可用性目标（产品应该具有的）<ul>
+<li>易学性 关键问题在于确定用户准备花费多少时间学习一个产品</li>
+<li>易记性 学会使用并记住该产品如何使用的难易程度</li>
+<li>高效用 一定程度上该产品提供了正确的功能，可以让用户做他们需要做 的或想做的事情</li>
+<li>高效率 当用户学会使用产品之后，用户应该具有更高的生产力水平（效率）</li>
+<li>安全性 避免用户发生危险和陷入不好的情形</li>
+</ul>
+</li>
+<li>用户体验目标（产品给用户额外带来的）<ul>
+<li>用户与系统交互时的感受</li>
+<li>体验和可用性的关系 </li>
+<li>主观 vs.客观 </li>
+<li>矛盾性<ul>
+<li>许多玩家喜欢找最具挑战、非简单的游戏：违反可用性 </li>
+<li>用塑料锤砸屏幕上的地鼠较用鼠标点击更费劲且更易出错，但会带来一个 更愉快和有趣的体验 </li>
+<li>有些可用性和用户体验目标是不兼容的 </li>
+</ul>
+</li>
+<li><strong>认识和理解可用性和其他用户体验目标之间的关系</strong>是<strong>交互设计的核心</strong></li>
+</ul>
+</li>
+<li><p>简易可用性工程（可能这里会考实验设计？）</p>
+<ul>
+<li>提高产品的可用性为目标的先进的产品开发方法论，强调以人为中心来进行交互式产品的设计研发</li>
+<li>完整的可用性工程过程<ul>
+<li>了解用户 </li>
+<li>竞争性分析 </li>
+<li>设定可用性目标 </li>
+<li>用户参与的设计 </li>
+<li>迭代设计 </li>
+<li>产品发布后的工作 </li>
+</ul>
+</li>
+<li><h4 id="简化的可用性工程过程-四种主要技术"><a href="#简化的可用性工程过程-四种主要技术" class="headerlink" title="简化的可用性工程过程 四种主要技术"></a>简化的可用性工程过程 <strong>四种主要技术</strong></h4></li>
+<li><p><strong>用户和任务观察</strong>  直接与潜在用户进行接触</p>
+</li>
+<li><strong>场景（scenario）</strong> 简便易行的原型工具，通过省略整个系统的若干部分来减少实现的复杂性</li>
+<li><strong>简化的边做边说（thinking aloud）</strong>让真实用户在使用系统执行一组特定任务的时候，讲出他们的所思所想 <strong>最有价值的单个可用性工程方法</strong> 可了解用户为什么这样做，并确定其可能对系统产生的误解</li>
+<li><strong>启发式评估</strong>  <strong>5名专家能够发现约80%的可用性问题</strong>，剩下的可以通过简化的边做边说方法来发现 为避免个人的偏见，应当让<strong>多个不同的人来进行经验性评估</strong> <ul>
+<li>系统状态可见性（进度条）</li>
+<li>和现实世界吻合（说人话）</li>
+<li>用户有控制的自主权（后退）</li>
+<li>一致化和标准化（确认在左还是右）</li>
+<li>预防错误（日历牌）</li>
+<li>认知而不是记忆（步骤条）</li>
+<li>使用的灵活性和效率（快捷键）</li>
+<li>审美感和最小化设计（遥控器）</li>
+<li>帮助用户识别、诊断和修正错误（说人话）</li>
+<li>帮助和文档（F1）</li>
+</ul>
+</li>
+<li><h4 id="可用性度量"><a href="#可用性度量" class="headerlink" title="可用性度量"></a>可用性度量</h4></li>
+<li><p>就是选一些用户来执行预定的任务，观察比较执行情况</p>
+</li>
+<li>易学性度量<ul>
+<li>从未使用过的用户</li>
+<li>统计到达某种熟练程度的时间（熟练程度：能够在特定的时间里完成一组特定的任务）</li>
+</ul>
+</li>
+<li>易记性度量<ul>
+<li>新手用户，熟练用户，非频繁使用用户（最能体现）</li>
+<li>①对特定长时间内没有使用系统的用户进行测试，记录执行特定任务所需的时间</li>
+<li>②在完成特定任务后要求用户解释各种命令的作用</li>
+</ul>
+</li>
+<li>使用效率度量<ul>
+<li>按已使用系统的小时数对用户进行分类</li>
+<li>记录不同用户群体的使用效率并绘制出曲线</li>
+</ul>
+</li>
+<li>错误率度量<ul>
+<li>所有用户</li>
+<li>统计用户在操作中的错误次数（可以在其他度量过程中一起进行）</li>
+</ul>
+</li>
+<li>满意度度量<ul>
+<li>所有用户</li>
+<li>在其他测试完成后询问用户（Likert度量尺度&amp;语义差异尺度）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><p>交互设计原则</p>
+<ul>
+<li>一般原则<ul>
+<li>可学习性</li>
+<li>灵活性</li>
+<li>健壮性</li>
+</ul>
+</li>
+<li><h4 id="八条黄金原则（和启发式规则有很多可以对应的地方）"><a href="#八条黄金原则（和启发式规则有很多可以对应的地方）" class="headerlink" title="八条黄金原则（和启发式规则有很多可以对应的地方）"></a>八条黄金原则（和启发式规则有很多可以对应的地方）</h4></li>
+<li><p>尽可能一致（一致性和标准化）</p>
+<ul>
+<li>一致的颜色、布局、字体等 </li>
+</ul>
+</li>
+<li>符合普遍可用性 （灵活性和高效性）<ul>
+<li>（不同用户群体都能轻松使用）</li>
+<li>专家用户/新手用户</li>
+</ul>
+</li>
+<li>提供信息丰富的反馈（系统状态可见性）<ul>
+<li>界面对象的可视化表现 </li>
+</ul>
+</li>
+<li>设计说明对话款以生成结束信息（系统状态可见性？）<ul>
+<li>让用户知道什么时候他们已经完成了任务</li>
+</ul>
+</li>
+<li>预防并处理错误（预防错误）<ul>
+<li>将不适当的菜单选项功能以灰色显示屏蔽 </li>
+<li>禁止在数值输入域中出现字母字符</li>
+<li>提供简单的、有建设性的、具体的指导来帮助用户恢复操作 </li>
+</ul>
+</li>
+<li>让操作容易撤销（自主权和控制权）<ul>
+<li>减轻用户的焦虑情绪，并鼓励用户尝试新的选</li>
+</ul>
+</li>
+<li>支持内部控制点（自主权和控制权）<ul>
+<li>提供出口：取消、重做、放弃等 </li>
+</ul>
+</li>
+<li>减轻短时记忆负担（认知而不是记忆）<ul>
+<li>确保提供用户足够的学习代码、记忆操作方法和操作序列的时间 </li>
+<li>提供适当的在线帮助信息 </li>
+</ul>
+</li>
+<li><h4 id="nielson-十项启发式规则"><a href="#nielson-十项启发式规则" class="headerlink" title="nielson 十项启发式规则"></a>nielson 十项启发式规则</h4></li>
+<li><p>系统状态可见性（进度条）</p>
+</li>
+<li>和现实世界吻合（说人话）</li>
+<li>用户有控制的自主权（后退）</li>
+<li>一致化和标准化（确认在左还是右）</li>
+<li>预防错误（日历牌）</li>
+<li>认知而不是记忆（步骤条）</li>
+<li>使用的灵活性和效率（快捷键）</li>
+<li>审美感和最小化设计（遥控器）</li>
+<li>帮助用户识别、诊断和修正错误（说人话）</li>
+<li>帮助和文档（F1）</li>
+<li><h4 id="Norman-的七项原理"><a href="#Norman-的七项原理" class="headerlink" title="Norman 的七项原理"></a>Norman 的七项原理</h4></li>
+<li><p>应用现实世界和头脑中的知识</p>
+<ul>
+<li>系统应该在环境内部提供必要的知识。</li>
+</ul>
+</li>
+<li>简化任务结构<ul>
+<li>简化任务结构可避免复杂的问题求解和过多的内存负载。</li>
+</ul>
+</li>
+<li>使事情变得明显<ul>
+<li>要求界面使系统清楚能做什么事情以及如何完成，同时应该使用户清楚地看到这些操作在系统上的结果，其目的是架起执行和评估之间的桥梁。</li>
+</ul>
+</li>
+<li>获得正确的映射<ul>
+<li>应该将用户的意图和操作清晰地映射到系统的控制和事件上，保持相互之间清楚的对应关系和对应程度</li>
+<li>如对控制键和滑动键等而言，小的移动应该对应小的效果</li>
+</ul>
+</li>
+<li>利用自然和人为的限制力量<ul>
+<li>限制指除正确操作之外，禁止用户做其他事情</li>
+</ul>
+</li>
+<li>容错设计<ul>
+<li>在设计时应预见用户可能犯的错误，并提供系统的恢复机制</li>
+</ul>
+</li>
+<li>当所有都不成功时进行标准化<ul>
+<li>当驾驶员进入一辆从未驾驶过的汽车时，能够很快对其进驾驶，这是因为主要的控制已经标准化了</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="主要问题"><a href="#主要问题" class="headerlink" title="主要问题"></a>主要问题</h2><p>用户</p>
+<p>需求</p>
+<p>候选方案</p>
+<p>决策 </p>
+<p> 交互设计生命周期 </p>
+<p>星型模型</p>
+<p>可用性工程生命周期模型 </p>
+<h1 id="需求"><a href="#需求" class="headerlink" title="需求"></a>需求</h1><h2 id="产品特性"><a href="#产品特性" class="headerlink" title="产品特性"></a>产品特性</h2><ul>
+<li>功能不同 </li>
+<li>物理条件不同 </li>
+<li>使用环境不同 </li>
+</ul>
+<h2 id="用户特性"><a href="#用户特性" class="headerlink" title="用户特性"></a>用户特性</h2><ul>
+<li>心理学原理部分，假设每个人都有相似的能力和局限性 </li>
+<li>交互产品设计人员应该意识到个性的差异 </li>
+<li>用户差异 体验水平 年龄 文化 健康 </li>
+</ul>
+<h2 id="用户建模"><a href="#用户建模" class="headerlink" title="用户建模"></a>用户建模</h2><ul>
+<li>人物角色 (Personas）<ul>
+<li><strong>不是真实的人</strong></li>
+<li>是基于观察到的那些<strong>真实人的行为和动机</strong>，并且在整个设计过程中<strong>代表真实的人</strong> </li>
+<li>是在人口统计学调查收集到的<strong>实际用户的行为数据的基础上形成的综合原型</strong> </li>
+<li>概念简单，但使用起来相当复杂 ：拼凑出几个用户档案是不行的 </li>
+</ul>
+</li>
+<li>人物角色的作用<ul>
+<li>解决产品开发过程中出现的3个设计问题 </li>
+<li>弹性用户 <ul>
+<li>为弹性用户设计赋予了开发者根据自己的意愿编码，而仍然能够为“用户”服务的许可 </li>
+</ul>
+</li>
+<li>自参考设计 <ul>
+<li>设计者或者程序员将其自己的目标、动机、技巧及心智模型投射到产品的设计中 </li>
+</ul>
+</li>
+<li>边缘情况设计 <ul>
+<li>必须考虑边缘情况，但它们又不应该成为设计的关注点 问：A会经常进行这种操作吗</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>人物角色的构造<ul>
+<li>与某个系统有关的用户假定的一组公共需要、兴趣、期望、行为模式和责任 </li>
+<li>这些属性可能是若干用户共有 </li>
+<li>同一个用户也可以扮演系统的任意个不同角色 </li>
+<li>基于如下问题 <ul>
+<li><strong>谁</strong>将使用系统？ </li>
+<li>这些用户属于<strong>哪些类型的人群</strong>？ </li>
+<li>是什么因素决定他们将<strong>怎样使用系统</strong>？ </li>
+<li>他们与软件的关系有什么<strong>特征</strong>？ </li>
+<li>他们通常需要软件提供什么<strong>支持</strong>？ </li>
+<li>他们对软件会有怎样的<strong>行为</strong>？</li>
+<li>他们对软件的行为有什么<strong>期望</strong>？</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>人物角色的建模<ul>
+<li>拼凑 采用头脑风暴方法，不去考虑他们的细节 </li>
+<li>组织 将这些片段按照所构造模型的需要进行分组和分类，归并或删除那些冗余重叠的东西 </li>
+<li>细节 建立和完善相应描述，补充遗漏的数据</li>
+<li>求精 对模型进行推敲，以便改进和完善 </li>
+<li>以上过程循环反复    </li>
+</ul>
+</li>
+</ul>
+<h2 id="需求获取、分析、验证"><a href="#需求获取、分析、验证" class="headerlink" title="需求获取、分析、验证"></a>需求获取、分析、验证</h2><ul>
+<li>需求获取：通过观察（直接或间接）</li>
+<li>需求定义<ul>
+<li>角色+场景</li>
+<li>五个步骤<ul>
+<li>创建问题和前景综述</li>
+<li>头脑风暴</li>
+<li>确定角色的期望</li>
+<li>构建场景</li>
+<li>确立需求</li>
+</ul>
+</li>
+<li>不断迭代</li>
+</ul>
+</li>
+<li>需求验证：把得出的需求给用户看<ul>
+<li>原型：低保证，高保真（低保真好，高保真用户不会改）<ul>
+<li>原型重要<ul>
+<li>评估和反馈是交互设计的核心</li>
+<li>与文档相比，涉众能够更容易地看到、持有和与原型进行交互</li>
+<li>团队成员能够有效沟通</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="场景和观察"><a href="#场景和观察" class="headerlink" title="场景和观察"></a>场景和观察</h3><ul>
+<li>观察<ul>
+<li>直接观察 <ul>
+<li>陪同他们工作而直接获得信息 </li>
+<li>可能影响被观察者的日常活动 </li>
+</ul>
+</li>
+<li>间接观察 <ul>
+<li>用视频/录音获得信息 </li>
+<li>观察者更舒适 </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>场景<ul>
+<li>“讲故事”<ul>
+<li>是人们解释自己做什么或者希望执行某个任务的最自然方式</li>
+<li>故事的焦点就是用户希望达到的目标 </li>
+<li>若场景说明不断提到某个特定形式、行为或者地点，就表明它是该活动的核心 </li>
+</ul>
+</li>
+<li>场景说明通常来自专题讨论或者访谈，目的是解释或讨论有关用户目标 的一些问题 </li>
+</ul>
+</li>
+</ul>
+<h3 id="HTA-层次化任务分析"><a href="#HTA-层次化任务分析" class="headerlink" title="HTA 层次化任务分析"></a>HTA 层次化任务分析</h3><ul>
+<li>把任务分解为若干子任务，再把子任务进一步分解为更细致的子任务。</li>
+<li>之后，把他们组织成一个“执行次序”，说明在实际情形下如何执行各项任务 </li>
+<li>图形描述<ul>
+<li><img src="https://jv5sp5rouqq.feishu.cn/space/api/box/stream/download/asynccode/?code=ZDcyNTQxMDI0OTM5ZjQzOGFmMDliODRjYWRiYmFlMDJfajc1QTdYN2I1SWRXbFpkMWdXUUNtRHlOdVVsNlhhZjlfVG9rZW46SG1OWWI1U0VDb3BBcnF4UGhpemNZUG5TbkNjXzE3MDQ0NDEwMTY6MTcwNDQ0NDYxNl9WNA" alt="img"></li>
+</ul>
+</li>
+<li>文字描述<ul>
+<li><img src="https://jv5sp5rouqq.feishu.cn/space/api/box/stream/download/asynccode/?code=YjcyMjcwYWE3Njk5NGE4MWUwNDU3MTA4MzMzNmY1MGRfdzA2aFdtemtVOHJHNUZtOG1LNEJPQkhhZVlaSkU1eHBfVG9rZW46VEZwUGJhR1Rzb3lPcHJ4dDFwY2M2VXV6bmVnXzE3MDQ0NDEwMTY6MTcwNDQ0NDYxNl9WNA" alt="img"></li>
+</ul>
+</li>
+</ul>
+<h2 id="原型"><a href="#原型" class="headerlink" title="原型"></a>原型</h2><p>概念模型和心智模型</p>
+<ul>
+<li>制作原型之前要首先关注用户的心智模型 </li>
+<li>概念模型是对系统如何组织和操作的高级描述 </li>
+<li>理想情况下，用户的心智模型应该与设计师的概念模型相同 </li>
+</ul>
+<h3 id="心智模型"><a href="#心智模型" class="headerlink" title="心智模型"></a>心智模型</h3><p>心智模式又叫心智模型。所谓心智模式是指深植我们心中关于我们自己、别人、组织及周围世界每个层面的假设、形象和故事。并深受习惯思维、定势思维、已有知识的局限。</p>
+<h1 id="交互式系统的设计"><a href="#交互式系统的设计" class="headerlink" title="交互式系统的设计"></a>交互式系统的设计</h1><h2 id="设计框架（主要和前面的交互框架区分）"><a href="#设计框架（主要和前面的交互框架区分）" class="headerlink" title="设计框架（主要和前面的交互框架区分）"></a>设计框架（主要和前面的交互框架区分）</h2><p>（设计过程的基本活动和特征 </p>
+<ol>
+<li>定义<strong>外形因素和输入方法</strong> <ol>
+<li>外形因素 设计什么样的产品？</li>
+<li>产品输入方法 产品与用户互动的形式</li>
+</ol>
+</li>
+<li>定义<strong>功能和数据元素</strong> <ol>
+<li>数据元素 交互产品中的基本主体，如相片、电子邮件、订单</li>
+<li>功能元素 对数据元素操作的工具以及输入或者放置数据元素的位置</li>
+</ol>
+</li>
+<li>决定<strong>功能组合层次</strong> </li>
+<li>勾画<strong>大致的设计框架</strong> <ol>
+<li>方块图阶段 用粗略的方块图来表达并区分每个视图 对应窗格、控制部件（如工具栏）为每个方块图添加上标签和注解</li>
+<li>不要被界面上某个特殊区域的细枝末节分 散了精力</li>
+</ol>
+</li>
+<li>构建<strong>关键情景场景剧本</strong> <ol>
+<li>这些场景剧本描述了人物角色<strong>最频繁</strong>使用界面的主要路径</li>
+<li>重点在任务层</li>
+<li>可使用低保真草图序列的<strong>故事板</strong></li>
+</ol>
+</li>
+<li><strong>通过验证性的场景剧本来检查设计</strong> <ol>
+<li>不用具备很多细节但包含一系列“如果怎样，将怎样”的问题</li>
+</ol>
+</li>
+</ol>
+<h2 id="简化的设计策略"><a href="#简化的设计策略" class="headerlink" title="简化的设计策略"></a>简化的设计策略</h2><ul>
+<li>删除<ul>
+<li>可以让设计师专注于把有限的重要问题解决好 </li>
+<li>删除视觉混乱，有助于用户心无旁骛地完成自己的目标</li>
+</ul>
+</li>
+<li>组织<ul>
+<li><strong>最快捷</strong>的简化设计方式</li>
+<li>确定清晰的分类标准</li>
+<li>利用不可见的网格来对齐界面元素</li>
+<li>重要的元素要大一些，不太重要的界面元素应该小一些</li>
+<li>把相似元素放在一起</li>
+</ul>
+</li>
+<li>隐藏<ul>
+<li>隐藏是一种<strong>低成本</strong>的简化方案<ul>
+<li>用户不会因不常用的功能分散注意力 </li>
+<li>可作为删除不必要功能的开始 </li>
+<li>必须仔细权衡要隐藏哪些功能</li>
+</ul>
+</li>
+<li>如果自定义的工具很简单，还是有价值的；一般来说，不应该让用户去自定义他们的软件</li>
+<li>渐进展示<ul>
+<li>隐藏精确的控制部件：一项功能包含少数核心的供主流用户使用的控制部件，另有一些为专家级 用户准备的扩展性的精确的控制部件</li>
+</ul>
+</li>
+<li>适时出现<ul>
+<li>《纽约时报》 过分强调隐藏功能（如为每个词加上超链接）会导致混乱，在合适的时机、合适的位置上显示相应功能 </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>转移<ul>
+<li>被精简掉的按钮全部通过电视屏幕上的菜单来管理</li>
+<li>在设备之间转移：移动平台与桌面平台：把某项任务的某些内容（如输入信息）转移到不同的平台 上可能是一种更好的选择 </li>
+<li>向用户转移</li>
+</ul>
+</li>
+<li><strong>删除不必要的</strong> </li>
+<li><strong>组织要提供的</strong> </li>
+<li><strong>隐藏非核心的</strong> </li>
+<li><strong>转移不合适的？</strong> </li>
+</ul>
+<h2 id="设计中的折中"><a href="#设计中的折中" class="headerlink" title="设计中的折中"></a>设计中的折中</h2><p>个性化和配置</p>
+<p>本地化和国际化</p>
+<p>审美学和实用性</p>
+<h2 id="软件设计的细节（感觉又重复一遍）"><a href="#软件设计的细节（感觉又重复一遍）" class="headerlink" title="软件设计的细节（感觉又重复一遍）"></a>软件设计的细节（感觉又重复一遍）</h2><ul>
+<li>设计体贴的软件（尽责，自信，不问过多问题，知道什么时候调整规则，承担责任。具体什么意思看详细版）</li>
+<li>加快响应时间（提前加载）</li>
+<li>减轻用户的记忆负担（帮用户存储一些设置）</li>
+<li>减少等待感（进度条，分步加载，分配任务分散注意力，降低期望值）</li>
+<li>设计好的出错信息</li>
+</ul>
+<h2 id="设计模式"><a href="#设计模式" class="headerlink" title="设计模式"></a>设计模式</h2><ul>
+<li>主导航模式 </li>
+<li>二级导航模式 </li>
+<li>轮播模式的讨论</li>
+</ul>
+<h1 id="交互设计模型与理论"><a href="#交互设计模型与理论" class="headerlink" title="交互设计模型与理论"></a><strong>交互设计模型与理论</strong></h1><h2 id="预测模型："><a href="#预测模型：" class="headerlink" title="预测模型："></a>预测模型：</h2><p>能够预测用户的执行情况而不用实际测试。</p>
+<h2 id="GOMS模型（Goal、Operator、Method、Selection）（最著名的预测模型）"><a href="#GOMS模型（Goal、Operator、Method、Selection）（最著名的预测模型）" class="headerlink" title="GOMS模型（Goal、Operator、Method、Selection）（最著名的预测模型）"></a>GOMS模型（Goal、Operator、Method、Selection）（最著名的预测模型）</h2><ul>
+<li>采用“分而治之”的思想，将一个任务进行多层次的细化 </li>
+<li>把每个操作的时间相加就可以得到一项任务的时间</li>
+<li>从最高层的用户目标开始，递归地分解出子目标直到无法再分，写出各个目标的实现方法</li>
+<li>子目标的关系：顺序关系，选择关系</li>
+<li>没有考虑错误处理、任务间的关系描述过于简单、忽略用户间的个体差异</li>
+</ul>
+<p><img src="https://jv5sp5rouqq.feishu.cn/space/api/box/stream/download/asynccode/?code=NzcyYjAwMTQwZmNkZWRhM2M5NmNjYzFlY2FkYjExMzRfdWpoWUJwcXMzZ2dnZ2NLSlhHbG9kYkw5aFZveEs2SUxfVG9rZW46RDRzZWJyQzNTb0pka3Z4Mmt1c2N2TTlKbkllXzE3MDQ0NDEwMTY6MTcwNDQ0NDYxNl9WNA" alt="img"></p>
+<h2 id="KLM（击键层次模型）：GOMS模型的一种（这里很可能会考计算题！）"><a href="#KLM（击键层次模型）：GOMS模型的一种（这里很可能会考计算题！）" class="headerlink" title="KLM（击键层次模型）：GOMS模型的一种（这里很可能会考计算题！）"></a>KLM（击键层次模型）：GOMS模型的一种（这里很可能会考计算题！）</h2><ul>
+<li>简化的模型，对执行时间进行量化预测。</li>
+<li><strong>场合：预测无错误情况下专家用户在特定输入前提下完成任务的时间。</strong></li>
+<li>操作符</li>
+</ul>
+<p><img src="https://jv5sp5rouqq.feishu.cn/space/api/box/stream/download/asynccode/?code=OGEzNjM0YTg0Y2Q4ZGI0OWQ4ZmM3ZjMyYmZjMWY2NDlfaTEweFZ1THI5Tjdsa2dmZGdldkRMR0hoRU1wM3ZLZWtfVG9rZW46Rzl2cWJZWlpab2VhcW54M0ZHRmNKMDY0blllXzE3MDQ0NDEwMTY6MTcwNDQ0NDYxNl9WNA" alt="img"></p>
+<ul>
+<li>方法<ul>
+<li>列出操作步骤：操作符名称+[到哪儿]的序列</li>
+<li>累加操作的预计时间</li>
+<li>操作符表格会给，不用背</li>
+<li>要看详细版的例子和规则</li>
+</ul>
+</li>
+<li>例子</li>
+</ul>
+<p><img src="https://jv5sp5rouqq.feishu.cn/space/api/box/stream/download/asynccode/?code=N2E5MjEyYjRhMWNlMjA4MTg0YjJiNDA4YjUzYTEzNWJfdk14WndwRm1VUkIydDZXaFpqSnlrY3N2UUxHUTdsY0FfVG9rZW46TVBRZGJPa0FLb1gxNzZ4TGxjbGNYWG9YblViXzE3MDQ0NDEwMTY6MTcwNDQ0NDYxNl9WNA" alt="img"></p>
+<ul>
+<li>放置M操作符的启发规则 </li>
+</ul>
+<p><img src="https://jv5sp5rouqq.feishu.cn/space/api/box/stream/download/asynccode/?code=YjU5ZjIxY2I2OTFmY2I4ODlkM2E3M2UyZjAwNjdjYjFfTXRDc0tBWjdKWUpoV2p2cVhMZ3hjZFBVNGJCUDRzVmtfVG9rZW46WVJ3NWJVYTg5b1FnVnd4U3RicWNNVTBYbnNlXzE3MDQ0NDEwMTY6MTcwNDQ0NDYxNl9WNA" alt="img"></p>
+<ol>
+<li>在每一步需要访问长时记忆区的操作前放置一个M </li>
+<li>在所有K和P之前放置M K -&gt; MK; P -&gt; MP </li>
+<li>删除键入单词或字符串之间的M MKMKMK -&gt; MKKK </li>
+<li>删除复合操作之间的M (如, 选中P和点击P1 ) MPMP1 -&gt; MPP1</li>
+</ol>
+<h2 id="Fitts定律"><a href="#Fitts定律" class="headerlink" title="Fitts定律"></a>Fitts定律</h2><ul>
+<li>预测指向某个目标的时间。依据：大小、距离</li>
+<li>场合：可指导设计人员设计按钮的位置、大小和密集程度</li>
+<li><strong>“最健壮并被广泛采用的人类运动模型之一”</strong></li>
+<li><p>得到的建议</p>
+<ul>
+<li>大目标、小距离</li>
+<li>尽可能大地占据屏幕空间</li>
+<li>最好的像素是光标所处的像素</li>
+<li>利用屏幕边缘</li>
+<li>大菜单</li>
+<li><p>动态特性建模</p>
+</li>
+<li><p>状态转移网络</p>
+</li>
+<li>三态模型</li>
+<li><p>语言模型：BNF</p>
+</li>
+<li><p>系统模型：Z标记法</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="用户中心设计"><a href="#用户中心设计" class="headerlink" title="用户中心设计"></a><strong>用户中心设计</strong></h2><ul>
+<li>三个假设<ul>
+<li>好的设计结果使用户感到满意</li>
+<li>设计过程是设计人员和客户间的协作过程</li>
+<li>整个过程中，客户和设计人员持续沟通</li>
+</ul>
+</li>
+<li>四个原则<ul>
+<li>尽早以用户为中心进行设计</li>
+<li>综合设计</li>
+<li>尽早并持续进行测试</li>
+<li>迭代设计</li>
+</ul>
+</li>
+<li>用户参与设计（看完整版）<ul>
+<li>重要性（为什么）</li>
+<li>形式</li>
+<li>参与式设计</li>
+</ul>
+</li>
+<li>理解用户工作<ul>
+<li>上下文询问法/情景调查<ul>
+<li>基于学徒模型</li>
+<li>研究人员也参与建立（观察法时用户不知道研究人员的存在）</li>
+<li>四个原则<ul>
+<li>上下文环境</li>
+<li>伙伴关系</li>
+<li>解释</li>
+<li>焦点</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>反思（总之就是”UCD无法创造出新的需求“）<ul>
+<li>影响创新性</li>
+<li>可操作性受限</li>
+<li>忽略人的主观能动性和对技术的适应能力</li>
+</ul>
+</li>
+<li>改进：活动为中心的设计（ACD）</li>
+</ul>
+<h1 id="评估"><a href="#评估" class="headerlink" title="评估"></a><strong>评估</strong></h1><h2 id="基础知识-1"><a href="#基础知识-1" class="headerlink" title="基础知识"></a><strong>基础知识</strong></h2><ul>
+<li>评估是系统化的数据收集过程。目的是了解用户在特定环境中使用产品执行特定任务的情况</li>
+</ul>
+<h3 id="目标"><a href="#目标" class="headerlink" title="目标"></a>目标</h3><ul>
+<li>评估系统功能的范围和可达性</li>
+<li>评估交互中用户的经验</li>
+<li>确定系统的某些特定问题</li>
+</ul>
+<h3 id="原则"><a href="#原则" class="headerlink" title="原则"></a>原则</h3><ul>
+<li>应该依赖于产品的用户</li>
+<li><strong>评估与设计结合进行</strong></li>
+<li>应在用户的<strong>实际工作任务和操作环境下进行</strong></li>
+<li>要选择有<strong>广泛代表性的用户</strong></li>
+</ul>
+<h3 id="评估范型"><a href="#评估范型" class="headerlink" title="评估范型"></a>评估范型</h3><ul>
+<li>快速评估（非正式地询问）</li>
+<li>可用性测试（评估用户执行典型任务时的情况，如出错次数、完成任务的时间等。类似简易可用性工程中的度量方法）</li>
+<li>实地研究（在自然工作环境中观察用户的真实使用情况）</li>
+<li>预测性评估（专家预测用户行为。典型例子就是启发性评估）</li>
+</ul>
+<h3 id="评估技术"><a href="#评估技术" class="headerlink" title="评估技术"></a>评估技术</h3><ul>
+<li>观察用户</li>
+<li>询问用户意见</li>
+<li>询问专家意见</li>
+<li>测试用户的执行情况</li>
+<li>使用原型</li>
+<li>基于模型和理论，预测界面的有效性（GOMS和KLM）</li>
+</ul>
+<h3 id="评估方法（可用性评估方法汇总）"><a href="#评估方法（可用性评估方法汇总）" class="headerlink" title="评估方法（可用性评估方法汇总）"></a>评估方法（可用性评估方法汇总）</h3><ul>
+<li>启发式评估</li>
+<li>边做边说</li>
+<li>观察</li>
+<li>问卷调查</li>
+<li>访谈</li>
+<li>焦点小组</li>
+<li>用户反馈</li>
+<li>可用性测试</li>
+</ul>
+<h3 id="DECIDE评估框架"><a href="#DECIDE评估框架" class="headerlink" title="DECIDE评估框架"></a>DECIDE评估框架</h3><ul>
+<li>决定总体目标（Determine）</li>
+<li>发掘需要回答的具体问题（Explorer）</li>
+<li>选择用于回答具体问题的评估范型和技术（Choose）<ul>
+<li>范型决定了技术类型</li>
+</ul>
+</li>
+<li>标识必须解决的实际问题（Identify）<ul>
+<li>应选择恰当的用户参与评估</li>
+<li>任务时间多长</li>
+<li>设施及设备</li>
+<li>期限及预算是否允许</li>
+<li>是否需要专门技能</li>
+</ul>
+</li>
+<li>处理有关道德的问题（Decide）<ul>
+<li>应保护个人隐私</li>
+</ul>
+</li>
+<li>评估解释并标识数据（Evaluate）<ul>
+<li>搜集什么类型的数据，如何分析，如何表示 通常由评估技术决定</li>
+<li>可靠性 非正式访谈的可靠性较低 </li>
+<li>有效性 能否得到想要的测量数据 </li>
+<li>偏见 评估人员可能有选择地搜集自己认为重要的数据 </li>
+<li>范围 研究发现是否具有普遍性 </li>
+<li>环境影响 霍桑效应 </li>
+</ul>
+</li>
+</ul>
+<h3 id="小规模试验（看完整版）"><a href="#小规模试验（看完整版）" class="headerlink" title="小规模试验（看完整版）"></a>小规模试验（看完整版）</h3><ul>
+<li>小规模试验可进行多次 <ul>
+<li>类似迭代设计 </li>
+<li>测试——反馈——修改——再测试 </li>
+<li>快速、成本低 </li>
+</ul>
+</li>
+</ul>
+<h3 id="可用性问题分级（看完整版）"><a href="#可用性问题分级（看完整版）" class="headerlink" title="可用性问题分级（看完整版）"></a>可用性问题分级（看完整版）</h3><p><img src="https://jv5sp5rouqq.feishu.cn/space/api/box/stream/download/asynccode/?code=OGZlM2U5ZDFiOWUyY2FjNTRhODFjZjE2ZTViNWFlMWNfVGRWV3pLTktxZ2x1WFJLUlI0eTFEUFJlbUMzaWhDV0FfVG9rZW46RWJqNWJqMks1b1lya0J4MDBYcWNlb1VzbmtjXzE3MDQ0NDEwMTY6MTcwNDQ0NDYxNl9WNA" alt="img"></p>
+<p><img src="https://jv5sp5rouqq.feishu.cn/space/api/box/stream/download/asynccode/?code=N2JlNjgzNTIxNjJhYzhiYTIwYWU5NTFmYjYyZWMzOTJfUnQwZ1Zmc3VRb0tSMUk2UlprbUpEdm5KRzNjTFZPR0pfVG9rZW46WkV6SmJtWmZ2b1NCMUN4OHdUamNJenNSbnFoXzE3MDQ0NDEwMTY6MTcwNDQ0NDYxNl9WNA" alt="img"></p>
+<h2 id="评估之观察用户"><a href="#评估之观察用户" class="headerlink" title="评估之观察用户"></a><strong>评估之观察用户</strong></h2><ul>
+<li>直接观察<ul>
+<li>方式<ul>
+<li>真实环境中的观察 现场观察 用户的实际环境中观察用户在使用软件时的情况</li>
+<li>受控环境中的观察 实验室观察</li>
+</ul>
+</li>
+<li>观察框架<ul>
+<li>人员：有哪些人员在场？他们有何特征？承担什么角色？</li>
+<li>行为 ：人们说了什么？做了什么？举止如何？是否存在规律性的行为？语调和肢体语言如何？ </li>
+<li>时间：行为何时发生？是否与其他行为相关联？ </li>
+<li>地点 ：行为发生于何处？是否受物理条件的影响？ </li>
+<li>原因：行为为何发生？事件或交互的促成因素是什么？不同的人是否有不 同的看法？ </li>
+<li>方式：行为是如何组织的？受哪些规则或标准的影响？ </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>间接观察<ul>
+<li>日志和交互记录 <ul>
+<li>可根据搜集到的数据，推断实际情形，并找出可用性和用户体验方面的问题</li>
+<li>体现了用户是如何完成真实任务的  使得从工作在不同环境下的大量用户那里自动收集数据变得相当容易</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>数据记录<ul>
+<li>日志和交互记录</li>
+<li>音视频记录</li>
+<li>纸笔</li>
+</ul>
+</li>
+<li>数据分析（应该不会考吧？）</li>
+</ul>
+<h2 id="评估之询问用户"><a href="#评估之询问用户" class="headerlink" title="评估之询问用户"></a><strong>评估之询问用户</strong></h2><h3 id="访谈"><a href="#访谈" class="headerlink" title="访谈"></a>访谈</h3><ul>
+<li>请用户详细讲述记录里面任何可能引发可用性问题的地方 <ul>
+<li>如对一个没用过系统某个功能的用户，询问为什么没有使用某项功能</li>
+</ul>
+</li>
+</ul>
+<h3 id="原则-技巧"><a href="#原则-技巧" class="headerlink" title="原则 技巧"></a>原则 技巧</h3><ul>
+<li>避免过长的问题 </li>
+<li>避免使用复合句 <ul>
+<li>对：“这款手机与你先前拥有的手机相比，你觉得如何” </li>
+<li>错：“你觉得这款手机怎么样？你是否有其他的手机？若是的话，你觉得它怎么样？”</li>
+</ul>
+</li>
+<li>避免使用可能让用户感觉尴尬的术语或他们无法理解的语言</li>
+<li>避免使用有诱导性的问题 <ul>
+<li>你为什么喜欢这种交互方式？ </li>
+</ul>
+</li>
+<li>尽可能保证问题是中性的 </li>
+</ul>
+<h4 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h4><ul>
+<li>“开始”阶段 <ul>
+<li>访问人先介绍自己 </li>
+<li>解释访谈的原因，消除受访人对道德问题的疑虑，询问受访人是否介意被记录（录音或摄像） </li>
+</ul>
+</li>
+<li>“热身”阶段 <ul>
+<li>先提出简单的问题 </li>
+</ul>
+</li>
+<li>主要访谈阶段 <ul>
+<li>按逻辑次序由易到难提问 </li>
+</ul>
+</li>
+<li>“冷却”阶段 <ul>
+<li>提出若干容易的问题，消除用户的紧张感觉 </li>
+</ul>
+</li>
+<li>结束访谈 <ul>
+<li>感谢受访者，关闭录音机，收好笔记本，表面访谈已经结束 </li>
+</ul>
+</li>
+</ul>
+<h4 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h4><ul>
+<li>非结构化访谈 <ul>
+<li>问题是<strong>开放式</strong>的，不限定内容和格式 </li>
+<li>受访人自行选择详细回答还是简要回答 </li>
+<li>访问人应确保能够搜集到重要问题的回答 </li>
+</ul>
+</li>
+<li>结构化访谈 <ul>
+<li>根据预先确定的一组问题进行访谈 </li>
+<li>问题通常是“<strong>封闭式</strong>”的，它要求准确的回答 </li>
+</ul>
+</li>
+<li>半结构化访谈 <ul>
+<li><strong>开放式问题+封闭式问题</strong> </li>
+<li>注意不要暗示答案 </li>
+</ul>
+</li>
+<li>集体访谈 <ul>
+<li>基本思想：个别成员的看法是在应用的上下文中通过与其他用户的交流而形成的 </li>
+<li>“焦点小组”是集体访谈的一种形式 </li>
+</ul>
+</li>
+</ul>
+<h3 id="问卷调查"><a href="#问卷调查" class="headerlink" title="问卷调查"></a>问卷调查</h3><h4 id="设计原则"><a href="#设计原则" class="headerlink" title="设计原则"></a>设计原则</h4><ul>
+<li>应确保问题明确，具体 </li>
+<li>在可能时，采用封闭式问题并提供充分的答案选项 </li>
+<li>对于征求用户意见的问题，应提供一个“无看法”的答案选项 </li>
+<li>注意提问次序，先提出一般化问题，再提出具体问题 </li>
+<li>避免使用复杂的多重问题 </li>
+<li>在使用等级标度时，应设定适当的等级范围，并确保它们不重叠 <ul>
+<li>做到直观、一致 </li>
+</ul>
+</li>
+<li>避免使用术语 </li>
+<li>明确说明如何完成问卷 <ul>
+<li>如说明应在选项前的方框内打“√” </li>
+</ul>
+</li>
+<li>在设计问卷时，既要做到紧凑，也应适当留空 </li>
+</ul>
+<p>上面两者都属于间接方法。不能完全听信</p>
+<h2 id="评估之询问专家"><a href="#评估之询问专家" class="headerlink" title="评估之询问专家"></a><strong>评估之询问专家</strong></h2><h3 id="认知走查"><a href="#认知走查" class="headerlink" title="认知走查"></a>认知走查</h3><ul>
+<li>无需用户</li>
+<li>逐步检查使用系统执行任务的过程，得出人们<strong>第一次使用时的想法和大致流程</strong>。能找出非常具体的问题</li>
+</ul>
+<h4 id="步骤-1"><a href="#步骤-1" class="headerlink" title="步骤"></a>步骤</h4><ul>
+<li>标识并记录典型用户的特性 </li>
+<li>基于评估重点，设计样本任务 <ul>
+<li>应该是大多数用户要做的典型任务 </li>
+</ul>
+</li>
+<li>制作界面原型（或界面描述），明确用户执行任务的具体步骤 </li>
+<li>由设计人员和专家级评估人员（一位或多位）共同进行分析 </li>
+<li>评估人员结合应用的上下文，逐步检查每项任务的操作步骤 <ul>
+<li>正确的操作对于用户是否足够明显？（可预见）<ul>
+<li>即用户能否知道如何完成任务 </li>
+</ul>
+</li>
+<li>用户能否注意到正确的操作？ （可理解） <ul>
+<li>功能名称或图标设计是否容易理解 </li>
+</ul>
+</li>
+<li>能否正确解释操作的响应？（可解释）<ul>
+<li>执行—评估交互周期的完成 </li>
+</ul>
+</li>
+<li>认知走查的记录工作非常重要！ </li>
+</ul>
+</li>
+<li>在完成逐步检查之后，汇总关键信息 </li>
+<li>修改设计，更正发现的问题 </li>
+</ul>
+<h3 id="协作走查"><a href="#协作走查" class="headerlink" title="协作走查"></a>协作走查</h3><ul>
+<li>由用户、开发人员和可用性专家合作，讨论与可用性问题</li>
+</ul>
+<h3 id="启发式评估"><a href="#启发式评估" class="headerlink" title="启发式评估"></a>启发式评估</h3><ul>
+<li>无需用户。快速有效，但可能出现虚假警报和漏报</li>
+</ul>
+<h2 id="评估之用户测试"><a href="#评估之用户测试" class="headerlink" title="评估之用户测试"></a><strong>评估之用户测试</strong></h2><ul>
+<li>适用于对原型和能够运行的系统进行测试</li>
+<li>测试设计<ul>
+<li>需要考虑实际限制并作出适当的折衷</li>
+<li>确保不同参与者的测试条件相同</li>
+<li>确保评估目标特征具有代表性</li>
+<li>实验可重复</li>
+</ul>
+</li>
+</ul>
+<h3 id="以DECIDE框架为基础"><a href="#以DECIDE框架为基础" class="headerlink" title="以DECIDE框架为基础"></a>以DECIDE框架为基础</h3><ul>
+<li>定义问题和目标<ul>
+<li>举例：对菜单结构的关注 </li>
+<li>用户在第一次尝试使用时将能选择正确的菜单 </li>
+<li>用户在少于5秒的时间内，能够导航到正确的3级菜单 </li>
+</ul>
+</li>
+<li>选择参与者：<ul>
+<li>了解用户的特性有助于选择典型用户 </li>
+<li>要尽可能接近实际用户 </li>
+<li>通常也需要平衡性别比例 </li>
+<li>至少4~5位，5~12位用户就足够了（视情况而言）</li>
+<li>注意均衡处理和消除顺序效应<ul>
+<li>顺序效应即参与者在执行前一组任务时获得的经验将影响后面的测试任务 </li>
+<li>如果有两项任务A和B，那么，应让一半的参与者先执行A，再执行B，另一 半则先执行B，再执行A</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>设计测试任务。每项任务5-20分钟。<br>- </li>
+<li>明确测试步骤。总时间控制在1小时之内。<ul>
+<li>正式测试前应进行小规模测试</li>
+<li>在必要时，评估人员应询问参与者遇到了什么问题 </li>
+<li>若用户确实无法完成某些任务，应让他们继续下一项任务</li>
+<li>必须分析所有搜集到的数据 </li>
+</ul>
+</li>
+<li>数据收集<ul>
+<li>使用的度量类型（定性/定量）依赖于所选择的任务<ul>
+<li>完成任务的时间 </li>
+<li>停止使用产品一段时间后，完成任务的时间 </li>
+<li>执行每项任务时的出错次数和错误类型 </li>
+<li>单位时间内的出错次数 </li>
+<li>求助在线帮助或手册的次数 </li>
+<li>用户犯某个特定错误的次数 </li>
+<li>成功完成任务的用户数 </li>
+</ul>
+</li>
+</ul>
+</li>
+<li>数据分析<ul>
+<li>最常用的描述性统计方法是次数统计 平均数统计 </li>
+</ul>
+</li>
+</ul>
+<h1 id="附：评估大题作答方法"><a href="#附：评估大题作答方法" class="headerlink" title="附：评估大题作答方法"></a><strong>附：评估大题作答方法</strong></h1><ul>
+<li>各种评估方法概要<ul>
+<li>观察用户（任务分析，后续研究）<ul>
+<li>直接观察<ul>
+<li>实验室观察：易于分析<ul>
+<li>边做边说</li>
+</ul>
+</li>
+<li>现场观察（发现<strong>同使用环境有关的问题</strong>的最佳手段）</li>
+</ul>
+</li>
+<li>间接观察：日志和交互记录（<strong>直接观察会影响用户或评估人员无法在现场时使用</strong>）</li>
+</ul>
+</li>
+<li>询问用户意见（任务分析、后续研究）<ul>
+<li>访谈<ul>
+<li>非结构化、半结构化、结构化</li>
+<li>集体访谈（焦点访谈：问<strong>用户想要什么</strong>，而不是看使用是否有问题）</li>
+</ul>
+</li>
+<li>问卷调查</li>
+</ul>
+</li>
+<li>询问专家意见（任意阶段）<ul>
+<li>认知走查（只适合评估一个产品的<strong>易学习性</strong>）</li>
+<li>协作走查（由用户、专家、开发者合作，发现<strong>可用性</strong>问题）</li>
+<li>启发式评估（用于<strong>早期设计</strong>）</li>
+</ul>
+</li>
+<li>用户测试（对<strong>原型和能够运行的系统</strong>进行测试）<ul>
+<li>DECIDE模型</li>
+</ul>
+</li>
+<li>分析模型（界面的<strong>有效性</strong>，或用来比较用户使用不同方案的<strong>执行效率</strong>）<ul>
+<li>Fitts</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>注意题目中<ul>
+<li>对设计阶段的要求，如“设计初期阶段”，“已经设计和实现了”，“有一个xxx原型”，“在实现和给出原型之前”；</li>
+<li>对目标的要求，如“那种xx最容易学习”—&gt;易学性，“能减少等待时间”—&gt;效率，“在发布前想进行评估” —&gt; 可用性和用户体验。</li>
+</ul>
+</li>
+<li><p>以筛选合适的评估方法和技术。</p>
+</li>
+<li><p>各个技术的详细内容写什么</p>
+<ul>
+<li>实验室观察：做的任务，进行测试，记录……可以边做边说，统计数据并分析</li>
+<li>访谈：谈什么，并做记录</li>
+<li>问卷调查：问什么，并做记录</li>
+<li>认知走查：试图想象出用户在第一次使用某个产品是的想法和所采取的动作，大致流程如何</li>
+<li>协作走查：逐步检查任务场景，讨论可用性问题</li>
+<li>启发式评估：分析每个问题对应的启发式规则，列出所有问题，给出“问题描述、严重等级、修复等级、违反规则、改进建议”列表</li>
+<li>用户测试：选择……作为参与者，怎么分组，怎么做，记录什么，统计数据，分析</li>
+</ul>
+</li>
+</ul>
+
+        
+      </div>
+
+         
+    </div>
+    
+     
+  </div>
+  
+    
+<nav id="article-nav">
+  <a class="article-nav-btn left  disabled "
+     >
+    <i class="fa-solid fa-angle-left"></i>
+    <p class="title-text">
+        
+    </p>
+  </a>
+  <a class="article-nav-btn right "
+    
+      href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/"
+      title="服务端-ch17-k8s使用"
+     >
+
+    <p class="title-text">
+      
+        服务端-ch17-k8s使用
+        
+    </p>
+    <i class="fa-solid fa-angle-right"></i>
+  </a>
+</nav>
+
+
+  
+</article>
+
+
+  
+  <script src='//unpkg.com/valine/dist/Valine.min.js'></script>
+  <div id="comment-card" class="comment-card">
+    <div class="main-title-bar">
+      <div class="main-title-dot"></div>
+      <div class="main-title">留言 </div>
+    </div>
+    <div id="vcomments"></div>
+  </div>
+  <script>
+      new Valine({"enable":true,"appId":null,"appKey":null,"placeholder":"Just go go","pageSize":20,"highlight":true,"serverURLs":null,"el":"#vcomments"});
+  </script>
+ 
+    </div>
+    <div id="footer-wrapper">
+      <footer id="footer">
+  
+  <div id="footer-info" class="inner">
+    
+      <a target="_blank" rel="noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" style="margin-inline:5px" title="本站采用知识共享署名-非商业性使用-相同方式共享4.0国际许可协议进行许可"><img src="https://img.shields.io/badge/Copyright-BY--NC--SA%204.0-d42328?style=flat&amp;logo=Claris"></a>
+    
+    &copy; 2024 Asimov<br>
+    Powered by <a href="https://hexo.io/" target="_blank">Hexo</a> & Theme <a target="_blank" rel="noopener" href="https://github.com/saicaca/hexo-theme-vivia">Vivia</a>
+  </div>
+</footer>
+
+    </div>
+    <div class="back-to-top-wrapper">
+    <button id="back-to-top-btn" class="back-to-top-btn hide" onclick="topFunction()">
+        <i class="fa-solid fa-angle-up"></i>
+    </button>
+</div>
+
+<script>
+    function topFunction() {
+        window.scroll({ top: 0, behavior: 'smooth' });
+    }
+    let btn = document.getElementById('back-to-top-btn');
+    function scrollFunction() {
+        if (document.body.scrollTop > 600 || document.documentElement.scrollTop > 600) {
+            btn.classList.remove('hide')
+        } else {
+            btn.classList.add('hide')
+        }
+    }
+    window.onscroll = function() {
+        scrollFunction();
+    }
+</script>
+
+  </div>
+  <script src="/js/light-dark-switch.js"></script>
+</body>
+</html>

@@ -189,9 +189,14 @@
                 <div class="category-count">6</div>
             </a>
         
-            <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">
-                软件工程与计算II
-                <div class="category-count">28</div>
+            <a class="category-link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
+                编译原理
+                <div class="category-count">13</div>
+            </a>
+        
+            <a class="category-link" href="/categories/tdesign/">
+                tdesign
+                <div class="category-count">1</div>
             </a>
         
             <a class="category-link" href="/categories/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91/">
@@ -204,19 +209,14 @@
                 <div class="category-count">12</div>
             </a>
         
-            <a class="category-link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
-                编译原理
-                <div class="category-count">13</div>
+            <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">
+                软件工程与计算II
+                <div class="category-count">28</div>
             </a>
         
-            <a class="category-link" href="/categories/tdesign/">
-                tdesign
+            <a class="category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                机器学习
                 <div class="category-count">1</div>
-            </a>
-        
-            <a class="category-link" href="/categories/%E9%A9%BE%E8%80%83/">
-                驾考
-                <div class="category-count">2</div>
             </a>
         
             <a class="category-link" href="/categories/leetcode/">
@@ -224,9 +224,9 @@
                 <div class="category-count">4</div>
             </a>
         
-            <a class="category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                机器学习
-                <div class="category-count">1</div>
+            <a class="category-link" href="/categories/%E9%A9%BE%E8%80%83/">
+                驾考
+                <div class="category-count">2</div>
             </a>
         </div>
     </div>
@@ -252,7 +252,7 @@
       
         <a class="archive-link" href="/archives/2024/01 ">
           一月 2024 
-          <div class="archive-count">2 </div>
+          <div class="archive-count">3 </div>
         </a>
       
         <a class="archive-link" href="/archives/2023/12 ">
@@ -316,6 +316,12 @@
       <h3 class="widget-title">最新文章</h3>
       <ul>
         
+          <a class="recent-link" href="/2024/01/05/23-%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92/%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/" title="" >
+            <div class="recent-link-text">
+              (no title)
+            </div>
+          </a>
+        
           <a class="recent-link" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/" title="服务端-ch17-k8s使用" >
             <div class="recent-link-text">
               服务端-ch17-k8s使用
@@ -337,12 +343,6 @@
           <a class="recent-link" href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/" title="服务端-ch15-Docker" >
             <div class="recent-link-text">
               服务端-ch15-Docker
-            </div>
-          </a>
-        
-          <a class="recent-link" href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/" title="服务端-ch14-Spring WebFlux" >
-            <div class="recent-link-text">
-              服务端-ch14-Spring WebFlux
             </div>
           </a>
         
@@ -419,12 +419,9 @@
 </ul>
 <p><img src="/2023/04/04/23-Compilers/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230516220923086.png" alt="image-20230516220923086"></p>
 <ul>
-<li><p>假设S1的开头为B.true的标签</p>
-</li>
-<li><p>B中需要有goto跳转，但是B自己本身是不知道这些L1, L2 标签在哪</p>
-</li>
-<li><p>但是S知道，所以B goto的时候应该跳过S1，到S1后：</p>
-<ul>
+<li>假设S1的开头为B.true的标签</li>
+<li>B中需要有goto跳转，但是B自己本身是不知道这些L1, L2 标签在哪</li>
+<li>但是S知道，所以B goto的时候应该跳过S1，到S1后：<ul>
 <li>当B为true，S会通过<strong>继承属性</strong>B.true告诉B应该跳转到S1的位置</li>
 <li>同样，B.false会告诉B应该跳转到B.false：但是B.false在哪S也不知道，P知道</li>
 <li><img src="/2023/04/04/23-Compilers/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230516221022961.png" alt="image-20230516221022961"></li>
@@ -462,7 +459,7 @@
 <li>non-bool：E：不需要生成跳转</li>
 <li><strong>两种表达式的作用不同，分开来能让中间代码的生成变简单</strong></li>
 </ul>
-<h3 id="表达式的中间代码翻译"><a href="#表达式的中间代码翻译" class="headerlink" title="表达式的中间代码翻译"></a>表达式的中间代码翻译</h3><p><strong>例子：a &#x3D; b + −c</strong></p>
+<h3 id="表达式的中间代码翻译"><a href="#表达式的中间代码翻译" class="headerlink" title="表达式的中间代码翻译"></a>表达式的中间代码翻译</h3><p><strong>例子：a = b + −c</strong></p>
 <p>结果：</p>
 <p><img src="/2023/04/04/23-Compilers/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230517105825714.png" alt="image-20230517105825714"></p>
 <ul>
@@ -475,7 +472,7 @@
 <h4 id="先画语法分析树"><a href="#先画语法分析树" class="headerlink" title="先画语法分析树"></a>先画语法分析树</h4><p><img src="/2023/04/04/23-Compilers/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230517105433166.png" alt="image-20230517105433166"></p>
 <ul>
 <li>第一行是E2.code</li>
-<li>E.addr &#x3D; top.get(id.lexeme)：从当前作用域的最顶层拿到id</li>
+<li>E.addr = top.get(id.lexeme)：从当前作用域的最顶层拿到id</li>
 <li>E1没有生成code</li>
 <li>然后是生成E.code，先生成一个临时变量t2来保存</li>
 <li>S.code是把E.code加上生成的表达赋值的code，是第三条</li>
@@ -488,9 +485,9 @@
 </li>
 </ul>
 <h2 id="数组的引用"><a href="#数组的引用" class="headerlink" title="数组的引用"></a>数组的引用</h2><p>声明 : int a[2][3] </p>
-<p>数组引用 : x &#x3D; a[1][2]; a[1][2] &#x3D; x </p>
+<p>数组引用 : x = a[1][2]; a[1][2] = x </p>
 <p>需要计算 a[1][2] 相对于数组基地址 a 的偏移地址 </p>
-<p>addr(a[1][2]) &#x3D; base + 1 × 12 + 2 × 4</p>
+<p>addr(a[1][2]) = base + 1 × 12 + 2 × 4</p>
 <p><img src="/2023/04/04/23-Compilers/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230526171547949.png" alt="image-20230526171547949"></p>
 <h2 id="实例：c-a-i-j"><a href="#实例：c-a-i-j" class="headerlink" title="实例：c + a[i][j]"></a>实例：c + a[i][j]</h2><p><img src="/2023/04/04/23-Compilers/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230526173312021.png" alt="image-20230526173312021"></p>
 <p>综合属性 L.array(.base) : 数组基地址 (即, 数组名)</p>
@@ -498,28 +495,28 @@
 <p><img src="/2023/04/04/23-Compilers/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230526173353737.png" alt="image-20230526173353737"></p>
 <ul>
 <li>在声明int a[i][j]就已经处理好a的类型和大小宽度了，已经放入符号表</li>
-<li>左边红框缺少宽度：L.type.width &#x3D; 12</li>
-<li>每往上一层就剥掉一层括号[]，将得到的宽度存入t<del>1</del>，t<del>2</del></li>
-<li>t<del>3</del>是在做累加，就是需要访问的元素的下标所对应的真实地址</li>
+<li>左边红框缺少宽度：L.type.width = 12</li>
+<li>每往上一层就剥掉一层括号[]，将得到的宽度存入t~1~，t~2~</li>
+<li>t~3~是在做累加，就是需要访问的元素的下标所对应的真实地址</li>
 </ul>
 <h2 id="LLVM中真实的IR"><a href="#LLVM中真实的IR" class="headerlink" title="LLVM中真实的IR"></a>LLVM中真实的IR</h2><p><img src="/2023/04/04/23-Compilers/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230526174708008.png" alt="image-20230526174708008"></p>
 <ul>
 <li>在IR中，用getelementptr指令GEP做数组下标访问，简化了计算</li>
-<li>%2的类型是：[2 * [3 * i32]]*</li>
+<li>%2的类型是：[2 <em> [3 </em> i32]]*</li>
 <li>%8：c</li>
 <li>%9：i，类型为i32，在%10中变成i64</li>
 <li>%12：j</li>
-<li>getelementptr:&lt;base-type&gt;, &lt;base-type&gt;* &lt;base-addr&gt; , [i32 &lt;index&gt;]+</li>
-<li>&lt;base-type&gt;：若干个整数下标中的第一个：base type used for the first index：<ul>
+<li>getelementptr:\<base-type>, \<base-type>* \<base-addr> , [i32 \<index>]+</index></base-addr></base-type></base-type></li>
+<li>\<base-type>：若干个整数下标中的第一个：base type used for the first index：<ul>
 <li>It does not change the pointer type. 不改变</li>
-<li>It offsets by the &lt;base-type&gt;.</li>
-<li>&lt;index1&gt;：不是在做访问数组元素，而是在做数组指针的移动，做一个偏移，根据类型的大小 </li>
+<li>It offsets by the \<base-type>.</base-type></li>
+<li>\<index1>：不是在做访问数组元素，而是在做数组指针的移动，做一个偏移，根据类型的大小 </index1></li>
 <li><img src="/2023/04/04/23-Compilers/ch12-ir-expr-%E8%A1%A8%E8%BE%BE%E5%BC%8F%E7%BF%BB%E8%AF%91/image-20230527111740130.png" alt="image-20230527111740130"></li>
 <li>如果第一个index为1，则指针移动到24bytes之后</li>
 <li>接下来的下标，每访问一层就脱掉一层</li>
 <li>数组下标被称作“聚合式信息”</li>
 </ul>
-</li>
+</base-type></li>
 <li>GEP不只是用于数组这种聚合数据类型，结构体（作为是多个不同类型元素放在一起）也可以用，可以通过偏移量来访问其中的元素</li>
 <li>%11：先是i64 0，表示访问的是(2, (3, int))类型，指针指着数组开头；接着是i64 %10，即访问i，i为1，指针移动到第一行开头，类型为(3, int)。%11的类型已经是(3, i32)*</li>
 <li>%14同理：符号拓展j，然后访问第一行的最后一个元素，%14的类型已经是i32*了</li>

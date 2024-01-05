@@ -201,9 +201,14 @@
                 <div class="category-count">6</div>
             </a>
         
-            <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">
-                软件工程与计算II
-                <div class="category-count">28</div>
+            <a class="category-link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
+                编译原理
+                <div class="category-count">13</div>
+            </a>
+        
+            <a class="category-link" href="/categories/tdesign/">
+                tdesign
+                <div class="category-count">1</div>
             </a>
         
             <a class="category-link" href="/categories/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91/">
@@ -216,19 +221,14 @@
                 <div class="category-count">12</div>
             </a>
         
-            <a class="category-link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
-                编译原理
-                <div class="category-count">13</div>
+            <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">
+                软件工程与计算II
+                <div class="category-count">28</div>
             </a>
         
-            <a class="category-link" href="/categories/tdesign/">
-                tdesign
+            <a class="category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                机器学习
                 <div class="category-count">1</div>
-            </a>
-        
-            <a class="category-link" href="/categories/%E9%A9%BE%E8%80%83/">
-                驾考
-                <div class="category-count">2</div>
             </a>
         
             <a class="category-link" href="/categories/leetcode/">
@@ -236,9 +236,9 @@
                 <div class="category-count">4</div>
             </a>
         
-            <a class="category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                机器学习
-                <div class="category-count">1</div>
+            <a class="category-link" href="/categories/%E9%A9%BE%E8%80%83/">
+                驾考
+                <div class="category-count">2</div>
             </a>
         </div>
     </div>
@@ -264,7 +264,7 @@
       
         <a class="archive-link" href="/archives/2024/01 ">
           一月 2024 
-          <div class="archive-count">2 </div>
+          <div class="archive-count">3 </div>
         </a>
       
         <a class="archive-link" href="/archives/2023/12 ">
@@ -328,6 +328,12 @@
       <h3 class="widget-title">最新文章</h3>
       <ul>
         
+          <a class="recent-link" href="/2024/01/05/23-%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92/%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/" title="" >
+            <div class="recent-link-text">
+              (no title)
+            </div>
+          </a>
+        
           <a class="recent-link" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/" title="服务端-ch17-k8s使用" >
             <div class="recent-link-text">
               服务端-ch17-k8s使用
@@ -349,12 +355,6 @@
           <a class="recent-link" href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/" title="服务端-ch15-Docker" >
             <div class="recent-link-text">
               服务端-ch15-Docker
-            </div>
-          </a>
-        
-          <a class="recent-link" href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/" title="服务端-ch14-Spring WebFlux" >
-            <div class="recent-link-text">
-              服务端-ch14-Spring WebFlux
             </div>
           </a>
         
@@ -421,8 +421,7 @@
 </li>
 <li><p>被规约的右部被称为<strong>句柄</strong></p>
 </li>
-<li><p>句柄的识别是靠自动机</p>
-</li>
+<li>句柄的识别是靠自动机</li>
 </ul>
 <p><strong>自底向上</strong>构建语法分析树：从词法单元流不断规约</p>
 <ul>
@@ -434,7 +433,7 @@
 <h2 id="自顶向下的-“推导”-与-自底向上的-“归约”"><a href="#自顶向下的-“推导”-与-自底向上的-“归约”" class="headerlink" title="自顶向下的 “推导” 与 自底向上的 “归约”"></a>自顶向下的 “推导” 与 自底向上的 “归约”</h2><p><img src="/2023/04/08/23-Compilers/ch16-parser-lr0-LR0%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623102847885.png" alt="image-20230623102847885"></p>
 <ul>
 <li>一般默认第一条展开式的左部就是起始符号</li>
-<li>最右推导rm：当有多个终结符可选，选右边的：T * F -&gt; T * id</li>
+<li>最右推导rm：当有多个终结符可选，选右边的：T <em> F -&gt; T </em> id</li>
 <li>先把id规约为F，再把F规约为T，但是T不能盲目规约为E，然后把第二个id规约到F</li>
 <li>希望从左往右扫描的时候就把规约做完，所以规约的顺序是一个反向的最右推导</li>
 </ul>
@@ -480,7 +479,7 @@
 <li>s5：遇到id， s5，压入id，状态转为5，<strong>指针移动</strong>（指针在压入的时候移动）</li>
 <li>r6：用6号规则规约，弹出id，<strong>状态转变为0号状态</strong>，压入F，所以<strong>转变为3号状态</strong></li>
 <li>r4：指针没有变，用4号规则做规约，F弹出，变为0号状态，压入T，转变为2号状态</li>
-<li>s7：移入<em>，变为7号状态，*<em>指针往后移动</em></em></li>
+<li>s7：移入<em>，变为7号状态，<em>*指针往后移动</em></em></li>
 <li>s5：移入id，转变为5号状态，指针移动</li>
 <li>5号状态下看到$：r6：弹出id，状态为7,7号遇到F，状态为10</li>
 <li>r3：弹出三个，状态0，压入T，变为状态2</li>

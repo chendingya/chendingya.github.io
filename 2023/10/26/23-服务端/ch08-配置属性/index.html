@@ -20,12 +20,12 @@
   <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
   <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
-  <meta name="description" content="ch08-配置属性属性来源（ property source） application.properties、application.yml：server.port &#x3D; 8090  两个文件可以混用   命令行参数（ commandLineArgs ）：java -jar taco-cloud-sd-jdbc-0.0.3-SNAPSHOT.jar – server.port&#x3D;8">
+  <meta name="description" content="ch08-配置属性属性来源（ property source） application.properties、application.yml：server.port &#x3D; 8090  两个文件可以混用   命令行参数（ commandLineArgs ）：java -jar taco-cloud-sd-jdbc-0.0.3-SNAPSHOT.jar — server.port&#x3D;8081 在程序中直接">
 <meta property="og:type" content="article">
 <meta property="og:title" content="服务端-ch08-配置属性">
 <meta property="og:url" content="https://chendingya.github.io/2023/10/26/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch08-%E9%85%8D%E7%BD%AE%E5%B1%9E%E6%80%A7/index.html">
 <meta property="og:site_name" content="Asimov&#39;s Blog">
-<meta property="og:description" content="ch08-配置属性属性来源（ property source） application.properties、application.yml：server.port &#x3D; 8090  两个文件可以混用   命令行参数（ commandLineArgs ）：java -jar taco-cloud-sd-jdbc-0.0.3-SNAPSHOT.jar – server.port&#x3D;8">
+<meta property="og:description" content="ch08-配置属性属性来源（ property source） application.properties、application.yml：server.port &#x3D; 8090  两个文件可以混用   命令行参数（ commandLineArgs ）：java -jar taco-cloud-sd-jdbc-0.0.3-SNAPSHOT.jar — server.port&#x3D;8081 在程序中直接">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://chendingya.github.io/2023/10/26/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch08-%E9%85%8D%E7%BD%AE%E5%B1%9E%E6%80%A7/image-20231029140728033.png">
 <meta property="og:image" content="https://chendingya.github.io/2023/10/26/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch08-%E9%85%8D%E7%BD%AE%E5%B1%9E%E6%80%A7/image-20231029140742440.png">
@@ -175,9 +175,14 @@
                 <div class="category-count">6</div>
             </a>
         
-            <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">
-                软件工程与计算II
-                <div class="category-count">28</div>
+            <a class="category-link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
+                编译原理
+                <div class="category-count">13</div>
+            </a>
+        
+            <a class="category-link" href="/categories/tdesign/">
+                tdesign
+                <div class="category-count">1</div>
             </a>
         
             <a class="category-link" href="/categories/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91/">
@@ -190,19 +195,14 @@
                 <div class="category-count">12</div>
             </a>
         
-            <a class="category-link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
-                编译原理
-                <div class="category-count">13</div>
+            <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">
+                软件工程与计算II
+                <div class="category-count">28</div>
             </a>
         
-            <a class="category-link" href="/categories/tdesign/">
-                tdesign
+            <a class="category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                机器学习
                 <div class="category-count">1</div>
-            </a>
-        
-            <a class="category-link" href="/categories/%E9%A9%BE%E8%80%83/">
-                驾考
-                <div class="category-count">2</div>
             </a>
         
             <a class="category-link" href="/categories/leetcode/">
@@ -210,9 +210,9 @@
                 <div class="category-count">4</div>
             </a>
         
-            <a class="category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                机器学习
-                <div class="category-count">1</div>
+            <a class="category-link" href="/categories/%E9%A9%BE%E8%80%83/">
+                驾考
+                <div class="category-count">2</div>
             </a>
         </div>
     </div>
@@ -238,7 +238,7 @@
       
         <a class="archive-link" href="/archives/2024/01 ">
           一月 2024 
-          <div class="archive-count">2 </div>
+          <div class="archive-count">3 </div>
         </a>
       
         <a class="archive-link" href="/archives/2023/12 ">
@@ -302,6 +302,12 @@
       <h3 class="widget-title">最新文章</h3>
       <ul>
         
+          <a class="recent-link" href="/2024/01/05/23-%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92/%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/" title="" >
+            <div class="recent-link-text">
+              (no title)
+            </div>
+          </a>
+        
           <a class="recent-link" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/" title="服务端-ch17-k8s使用" >
             <div class="recent-link-text">
               服务端-ch17-k8s使用
@@ -323,12 +329,6 @@
           <a class="recent-link" href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/" title="服务端-ch15-Docker" >
             <div class="recent-link-text">
               服务端-ch15-Docker
-            </div>
-          </a>
-        
-          <a class="recent-link" href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/" title="服务端-ch14-Spring WebFlux" >
-            <div class="recent-link-text">
-              服务端-ch14-Spring WebFlux
             </div>
           </a>
         
@@ -385,23 +385,23 @@
       <div class="e-content article-entry" itemprop="articleBody">
         
           <h1 id="ch08-配置属性"><a href="#ch08-配置属性" class="headerlink" title="ch08-配置属性"></a>ch08-配置属性</h1><h2 id="属性来源（-property-source）"><a href="#属性来源（-property-source）" class="headerlink" title="属性来源（ property source）"></a>属性来源（ property source）</h2><ul>
-<li>application.properties、application.yml：server.port &#x3D; 8090 <ul>
+<li>application.properties、application.yml：server.port = 8090 <ul>
 <li>两个文件可以混用</li>
 </ul>
 </li>
-<li>命令行参数（ commandLineArgs ）：java -jar taco-cloud-sd-jdbc-0.0.3-SNAPSHOT.jar – server.port&#x3D;8081<ul>
+<li>命令行参数（ commandLineArgs ）：java -jar taco-cloud-sd-jdbc-0.0.3-SNAPSHOT.jar — server.port=8081<ul>
 <li>在程序中直接获取</li>
 </ul>
 </li>
-<li>JVM系统属性：java -Dserver.port&#x3D;8091 -jar taco-cloud-sd-jdbc-0.0.3-SNAPSHOT.jar</li>
-<li>操作系统环境变量：set SERVER_PORT&#x3D;8082、java -jar taco-cloud-sd-jdbc-0.0.3-SNAPSHOT.jar</li>
+<li>JVM系统属性：java -Dserver.port=8091 -jar taco-cloud-sd-jdbc-0.0.3-SNAPSHOT.jar</li>
+<li>操作系统环境变量：set SERVER_PORT=8082、java -jar taco-cloud-sd-jdbc-0.0.3-SNAPSHOT.jar</li>
 </ul>
 <h2 id="YAML文件"><a href="#YAML文件" class="headerlink" title="YAML文件"></a>YAML文件</h2><ul>
 <li>使用缩进表示层级关系，不允许使用Tab键，只允许使用空格</li>
 <li># 表示注释，从这个字符一直到行尾，都会被解析器忽略。 </li>
 <li>对象，键值对，使用冒号结构表示 <ul>
 <li>animal: pets </li>
-<li>hash: { name: Steve, foo: bar }</li>
+<li>hash: { name: Steve, foo: bar } </li>
 </ul>
 </li>
 <li>数组,一组连词线开头的行，构成一个数组 - Cat - Dog - Goldfish<ul>
@@ -410,27 +410,18 @@
 </li>
 </ul>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#server:</span></span><br><span class="line"><span class="comment">#  port: 8443</span></span><br><span class="line"><span class="comment">#  ssl:</span></span><br><span class="line"><span class="comment">#    key-store: classpath:mykeys.p12</span></span><br><span class="line"><span class="comment">#    key-store-password: letmein</span></span><br><span class="line"><span class="comment">#    key-password: letmein</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">datasource:</span></span><br><span class="line">    <span class="attr">driverClassName:</span> <span class="string">&quot;org.h2.Driver&quot;</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">&quot;jdbc:h2:mem:tacocloud&quot;</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">sa</span></span><br><span class="line">    <span class="attr">password:</span> <span class="string">sa</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#    driver-class-name: com.mysql.cj.jdbc.Driver</span></span><br><span class="line"><span class="comment">#    url: jdbc:mysql://localhost:3306/tacocloud</span></span><br><span class="line"><span class="comment">#    username: root</span></span><br><span class="line"><span class="comment">#    password: exampledb20</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#  sql:</span></span><br><span class="line"><span class="comment">#    init:</span></span><br><span class="line"><span class="comment">#      mode: always</span></span><br><span class="line"><span class="comment">#      schema-locations: classpath:schema.sql</span></span><br><span class="line"><span class="comment">##      data-locations:</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#logging:</span></span><br><span class="line"><span class="comment">#  level:</span></span><br><span class="line"><span class="comment">#    root: WARN</span></span><br><span class="line"><span class="comment">#    org:</span></span><br><span class="line"><span class="comment">#      Springframework:</span></span><br><span class="line"><span class="comment">#        security: DEBUG</span></span><br><span class="line"><span class="comment">#    org.springframework.security: DEBUG</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">security:</span></span><br><span class="line">    <span class="attr">user:</span></span><br><span class="line">      <span class="attr">name:</span> <span class="string">buzz</span></span><br><span class="line">      <span class="attr">password:</span> <span class="string">infinity</span></span><br><span class="line">  <span class="attr">datasource:</span></span><br><span class="line">    <span class="attr">generate-unique-name:</span> <span class="literal">false</span></span><br><span class="line">    <span class="attr">name:</span> <span class="string">tacocloud</span></span><br><span class="line"></span><br><span class="line"><span class="attr">taco:</span></span><br><span class="line">  <span class="attr">orders:</span></span><br><span class="line">    <span class="attr">pageSize:</span> <span class="number">10</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">  <span class="attr">discount:</span></span><br><span class="line">    <span class="attr">codes:</span></span><br><span class="line">      <span class="attr">abcdef:</span> <span class="number">10</span></span><br><span class="line"></span><br><span class="line"><span class="meta">---</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">profiles:</span> <span class="string">prod</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">datasource:</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">jdbc:mysql://localhost/tacocloud</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">tacouser</span></span><br><span class="line">    <span class="attr">password:</span> <span class="string">tacopassword</span></span><br><span class="line"></span><br><span class="line"><span class="attr">logging:</span></span><br><span class="line">  <span class="attr">level:</span></span><br><span class="line">    <span class="attr">tacos:</span> <span class="string">WARN</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-
-
 <h2 id="配置数据源"><a href="#配置数据源" class="headerlink" title="配置数据源"></a>配置数据源</h2><ul>
 <li>org.h2.Driver</li>
 <li>com.mysql.cj.jdbc.Driver</li>
 </ul>
 <p>schema.sql</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> if <span class="keyword">not</span> <span class="keyword">exists</span> Taco_Order (</span><br><span class="line">  id <span class="type">BIGINT</span> AUTO_INCREMENT <span class="keyword">PRIMARY</span> KEY,</span><br><span class="line">  delivery_Name <span class="type">varchar</span>(<span class="number">50</span>) <span class="keyword">not</span> <span class="keyword">null</span>,</span><br><span class="line">  delivery_Street <span class="type">varchar</span>(<span class="number">50</span>) <span class="keyword">not</span> <span class="keyword">null</span>,</span><br><span class="line">  delivery_City <span class="type">varchar</span>(<span class="number">50</span>) <span class="keyword">not</span> <span class="keyword">null</span>,</span><br><span class="line">  delivery_State <span class="type">varchar</span>(<span class="number">20</span>) <span class="keyword">not</span> <span class="keyword">null</span>,</span><br><span class="line">  delivery_Zip <span class="type">varchar</span>(<span class="number">10</span>) <span class="keyword">not</span> <span class="keyword">null</span>,</span><br><span class="line">  cc_number <span class="type">varchar</span>(<span class="number">19</span>) <span class="keyword">not</span> <span class="keyword">null</span>,</span><br><span class="line">  cc_expiration <span class="type">varchar</span>(<span class="number">5</span>) <span class="keyword">not</span> <span class="keyword">null</span>,</span><br><span class="line">  cc_cvv <span class="type">varchar</span>(<span class="number">3</span>) <span class="keyword">not</span> <span class="keyword">null</span>,</span><br><span class="line">  placed_at <span class="type">timestamp</span> <span class="keyword">not</span> <span class="keyword">null</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> if <span class="keyword">not</span> <span class="keyword">exists</span> Taco (</span><br><span class="line">  id <span class="type">BIGINT</span> AUTO_INCREMENT <span class="keyword">PRIMARY</span> KEY,</span><br><span class="line">  name <span class="type">varchar</span>(<span class="number">50</span>) <span class="keyword">not</span> <span class="keyword">null</span>,</span><br><span class="line">  taco_order <span class="type">bigint</span> <span class="keyword">not</span> <span class="keyword">null</span>,</span><br><span class="line">  taco_order_key <span class="type">bigint</span> <span class="keyword">not</span> <span class="keyword">null</span>,</span><br><span class="line">  created_at <span class="type">timestamp</span> <span class="keyword">not</span> <span class="keyword">null</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> if <span class="keyword">not</span> <span class="keyword">exists</span> Ingredient_Ref (</span><br><span class="line">  ingredient <span class="type">varchar</span>(<span class="number">4</span>) <span class="keyword">not</span> <span class="keyword">null</span>,</span><br><span class="line">  taco <span class="type">bigint</span> <span class="keyword">not</span> <span class="keyword">null</span>,</span><br><span class="line">  taco_key <span class="type">bigint</span> <span class="keyword">not</span> <span class="keyword">null</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">create</span> <span class="keyword">table</span> if <span class="keyword">not</span> <span class="keyword">exists</span> Ingredient (</span><br><span class="line">  id <span class="type">varchar</span>(<span class="number">4</span>) <span class="keyword">PRIMARY</span> KEY  <span class="keyword">not</span> <span class="keyword">null</span>,</span><br><span class="line">  name <span class="type">varchar</span>(<span class="number">25</span>) <span class="keyword">not</span> <span class="keyword">null</span>,</span><br><span class="line">  type <span class="type">varchar</span>(<span class="number">10</span>) <span class="keyword">not</span> <span class="keyword">null</span></span><br><span class="line">);</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">alter</span> <span class="keyword">table</span> Taco</span><br><span class="line">    <span class="keyword">add</span> <span class="keyword">foreign</span> key (taco_order) <span class="keyword">references</span> Taco_Order(id);</span><br></pre></td></tr></table></figure>
-
-
-
 <h2 id="建立HTTPS安全通道"><a href="#建立HTTPS安全通道" class="headerlink" title="建立HTTPS安全通道"></a>建立HTTPS安全通道</h2><ul>
 <li>HTTPS (Secure Hypertext Transfer Protocol) 安全超文本传输协议，是一个安全通信通道，</li>
 <li>它基于 HTTP开发用于在客户计算机和服务器之间交换信息。</li>
-<li>它使用安全套接字层(SSL)进行信息交换，简单来说它是HTTP的安全版 ,是<strong>使用TLS&#x2F;SSL加密的 HTTP协议</strong>。</li>
-<li>HTTP协议采用明文传输信息，存在信息窃听、信息篡改和信息劫持的风险，而协议 TLS&#x2F;SSL具有身份验证、信息加密和完整性校验的功能，可以避免此类问题发生。 </li>
+<li>它使用安全套接字层(SSL)进行信息交换，简单来说它是HTTP的安全版 ,是<strong>使用TLS/SSL加密的 HTTP协议</strong>。</li>
+<li>HTTP协议采用明文传输信息，存在信息窃听、信息篡改和信息劫持的风险，而协议 TLS/SSL具有身份验证、信息加密和完整性校验的功能，可以避免此类问题发生。 </li>
 <li>SSL(Secure Sockets Layer 安全套接字协议 )，及其继任者传输层安全（Transport Layer Security ， TLS）是为网络通信提供安全及数据完整性的一种 安全协议。</li>
 <li>TLS 与SSL在传输层与应用层之间对网 络连接进行加密。</li>
 </ul>
@@ -449,12 +440,10 @@
 <h2 id="密钥库类型-PKCS12"><a href="#密钥库类型-PKCS12" class="headerlink" title="密钥库类型: PKCS12"></a>密钥库类型: PKCS12</h2><ul>
 <li><p>格式 : PKCS12，Public Key Cryptography Standards #12 </p>
 </li>
-<li><p>扩展名 : .p12&#x2F;.pfx </p>
+<li><p>扩展名 : .p12/.pfx </p>
 </li>
-<li><p>描述 : 【PKCS #12】个人信息交换语法标准 </p>
-</li>
-<li><p>特点 : </p>
-<ul>
+<li>描述 : 【PKCS #12】个人信息交换语法标准 </li>
+<li>特点 : <ul>
 <li>1、包含私钥、公钥及其证书 </li>
 <li>2、密钥库和私钥用相同密码进行保护</li>
 </ul>
@@ -468,11 +457,8 @@
 </ul>
 <p>配置SSL </p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">server: </span><br><span class="line">	port: 8443 </span><br><span class="line">	ssl: </span><br><span class="line">		key-store: classpath:mykeys.p12 </span><br><span class="line">		key-store-password: letmein </span><br><span class="line">		key-password: letmein </span><br></pre></td></tr></table></figure>
-
-
-
 <ul>
-<li>app访问：<a target="_blank" rel="noopener" href="https://localhost:8443/%E3%80%81https://localhost:8443/h2-console">https://localhost:8443/、https://localhost:8443/h2-console</a></li>
+<li>app访问：<a target="_blank" rel="noopener" href="https://localhost:8443/、https://localhost:8443/h2-console">https://localhost:8443/、https://localhost:8443/h2-console</a></li>
 </ul>
 <h3 id="更多参考学习"><a href="#更多参考学习" class="headerlink" title="更多参考学习"></a>更多参考学习</h3><ul>
 <li><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/400702879">https://zhuanlan.zhihu.com/p/400702879</a></li>
@@ -484,45 +470,39 @@
 </li>
 <li><p>默认日志级别：INFO </p>
 </li>
-<li><p>日志配置（application.yml）</p>
+<li><p>日志配置（application.yml） </p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">logging: </span><br><span class="line">    level: </span><br><span class="line">    root: WARN </span><br><span class="line">		org: Springframework: security: DEBUG</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-  <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">logging: </span><br><span class="line">    level: </span><br><span class="line">    root: WARN </span><br><span class="line">		org: Springframework: security: DEBUG</span><br></pre></td></tr></table></figure>
-
-
-
 <h3 id="自定义配置属性：-taco-orders-pageSize属性"><a href="#自定义配置属性：-taco-orders-pageSize属性" class="headerlink" title="自定义配置属性： taco.orders.pageSize属性"></a>自定义配置属性： taco.orders.pageSize属性</h3><ul>
-<li>@ConfigurationProperties(prefix&#x3D;”taco.orders”) </li>
+<li>@ConfigurationProperties(prefix=”taco.orders”) </li>
 <li>@Validated </li>
 <li>通过application.yml文件提供值 </li>
-<li>环境变量：taco_orders_pageSize&#x3D;12 </li>
-<li>程序参数：–taco.orders.pageSize&#x3D;13  访问：<a target="_blank" rel="noopener" href="http://localhost:8080/orders">http://localhost:8080/orders</a></li>
+<li>环境变量：taco_orders_pageSize=12 </li>
+<li>程序参数：—taco.orders.pageSize=13  访问：<a target="_blank" rel="noopener" href="http://localhost:8080/orders">http://localhost:8080/orders</a></li>
 </ul>
 <p>代码OrderProps</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> tacos.web;</span><br><span class="line"><span class="keyword">import</span> javax.validation.constraints.Max;</span><br><span class="line"><span class="keyword">import</span> javax.validation.constraints.Min;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.context.properties.</span><br><span class="line">                                        ConfigurationProperties;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Component;</span><br><span class="line"><span class="keyword">import</span> org.springframework.validation.annotation.Validated;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> lombok.Data;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@ConfigurationProperties(prefix=&quot;taco.orders&quot;)</span></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="meta">@Validated</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">OrderProps</span> &#123;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Min(value=5, message=&quot;must be between 5 and 25&quot;)</span></span><br><span class="line">  <span class="meta">@Max(value=25, message=&quot;must be between 5 and 25&quot;)</span></span><br><span class="line">  <span class="keyword">private</span> <span class="type">int</span> <span class="variable">pageSize</span> <span class="operator">=</span> <span class="number">20</span>;</span><br><span class="line"></span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
 <h3 id="自定义配置属性：taco-discount-codes"><a href="#自定义配置属性：taco-discount-codes" class="headerlink" title="自定义配置属性：taco.discount. codes"></a>自定义配置属性：taco.discount. codes</h3><p>Map，对象和数组 </p>
 <p>访问：<a target="_blank" rel="noopener" href="http://localhost:8080/discounts">http://localhost:8080/discounts</a></p>
 <p>代码</p>
 <p>DiscountCodeProps</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> tacos;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.boot.context.properties.ConfigurationProperties;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Component;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> lombok.Data;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="meta">@ConfigurationProperties(prefix=&quot;taco.discount&quot;)</span></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DiscountCodeProps</span> &#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> Map&lt;String, Integer&gt; codes = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">  </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>DiscountController</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> tacos.web;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Controller;</span><br><span class="line"><span class="keyword">import</span> org.springframework.ui.Model;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.GetMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> tacos.DiscountCodeProps;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/discounts&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DiscountController</span> &#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> DiscountCodeProps discountProps;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="title function_">DiscountController</span><span class="params">(DiscountCodeProps discountProps)</span> &#123;</span><br><span class="line">    <span class="built_in">this</span>.discountProps = discountProps;</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="meta">@GetMapping</span></span><br><span class="line">  <span class="keyword">public</span> String <span class="title function_">displayDiscountCodes</span><span class="params">(Model model)</span> &#123;</span><br><span class="line">    Map&lt;String, Integer&gt; codes = discountProps.getCodes();</span><br><span class="line">    model.addAttribute(<span class="string">&quot;codes&quot;</span>, codes);</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;discountList&quot;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p><strong>联动见application.yml中的discount</strong></p>
 <h2 id="Spring-profile"><a href="#Spring-profile" class="headerlink" title="Spring profile"></a>Spring profile</h2><ul>
 <li>定义特定profile的属性，通过使用不同的YAML或属性文件<ul>
 <li>application-{profile名}.properties </li>
-<li>application-{profile名}.yml</li>
+<li>application-{profile名}.yml </li>
 </ul>
 </li>
 <li>也可以将不同profile属性放到同一个YAML文件中，使用3个短线进行分隔，并且使用spring.profiles属性来命 名profile</li>
 </ul>
 <h3 id="激活profile"><a href="#激活profile" class="headerlink" title="激活profile"></a>激活profile</h3><ul>
-<li>环境变量： spring_profiles_active&#x3D;prod </li>
-<li>命令行参数：java -jar ***.jar –spring.profiles.active&#x3D;prod </li>
-<li>JVM系统属性：java -Dspring.profiles.active&#x3D;prod -jar ****.jar </li>
+<li>环境变量： spring_profiles_active=prod </li>
+<li>命令行参数：java -jar ***.jar —spring.profiles.active=prod </li>
+<li>JVM系统属性：java -Dspring.profiles.active=prod -jar *<em>*</em>.jar </li>
 <li>使用注解@Profile条件化地创建Bean，可以加到@Configuration或@Bean上</li>
 </ul>
 

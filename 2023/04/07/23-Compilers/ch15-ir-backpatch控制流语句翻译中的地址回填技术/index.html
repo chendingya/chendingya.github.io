@@ -191,9 +191,14 @@
                 <div class="category-count">6</div>
             </a>
         
-            <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">
-                软件工程与计算II
-                <div class="category-count">28</div>
+            <a class="category-link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
+                编译原理
+                <div class="category-count">13</div>
+            </a>
+        
+            <a class="category-link" href="/categories/tdesign/">
+                tdesign
+                <div class="category-count">1</div>
             </a>
         
             <a class="category-link" href="/categories/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91/">
@@ -206,19 +211,14 @@
                 <div class="category-count">12</div>
             </a>
         
-            <a class="category-link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
-                编译原理
-                <div class="category-count">13</div>
+            <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">
+                软件工程与计算II
+                <div class="category-count">28</div>
             </a>
         
-            <a class="category-link" href="/categories/tdesign/">
-                tdesign
+            <a class="category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                机器学习
                 <div class="category-count">1</div>
-            </a>
-        
-            <a class="category-link" href="/categories/%E9%A9%BE%E8%80%83/">
-                驾考
-                <div class="category-count">2</div>
             </a>
         
             <a class="category-link" href="/categories/leetcode/">
@@ -226,9 +226,9 @@
                 <div class="category-count">4</div>
             </a>
         
-            <a class="category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                机器学习
-                <div class="category-count">1</div>
+            <a class="category-link" href="/categories/%E9%A9%BE%E8%80%83/">
+                驾考
+                <div class="category-count">2</div>
             </a>
         </div>
     </div>
@@ -254,7 +254,7 @@
       
         <a class="archive-link" href="/archives/2024/01 ">
           一月 2024 
-          <div class="archive-count">2 </div>
+          <div class="archive-count">3 </div>
         </a>
       
         <a class="archive-link" href="/archives/2023/12 ">
@@ -318,6 +318,12 @@
       <h3 class="widget-title">最新文章</h3>
       <ul>
         
+          <a class="recent-link" href="/2024/01/05/23-%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92/%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/" title="" >
+            <div class="recent-link-text">
+              (no title)
+            </div>
+          </a>
+        
           <a class="recent-link" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/" title="服务端-ch17-k8s使用" >
             <div class="recent-link-text">
               服务端-ch17-k8s使用
@@ -339,12 +345,6 @@
           <a class="recent-link" href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/" title="服务端-ch15-Docker" >
             <div class="recent-link-text">
               服务端-ch15-Docker
-            </div>
-          </a>
-        
-          <a class="recent-link" href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/" title="服务端-ch14-Spring WebFlux" >
-            <div class="recent-link-text">
-              服务端-ch14-Spring WebFlux
             </div>
           </a>
         
@@ -442,17 +442,15 @@
 <p><strong>帮子节点填充</strong></p>
 <p><img src="/2023/04/07/23-Compilers/ch15-ir-backpatch%E6%8E%A7%E5%88%B6%E6%B5%81%E8%AF%AD%E5%8F%A5%E7%BF%BB%E8%AF%91%E4%B8%AD%E7%9A%84%E5%9C%B0%E5%9D%80%E5%9B%9E%E5%A1%AB%E6%8A%80%E6%9C%AF/image-20230622153752740.png" alt="image-20230622153752740"></p>
 <ul>
-<li><p>merge就是把B1.false和B2.false（都是去往B.false）合并起来，赋值给B.falselist</p>
-</li>
+<li>merge就是把B1.false和B2.false（都是去往B.false）合并起来，赋值给B.falselist</li>
 <li><p>B2为true，因为短路，所以即是去往B.true</p>
 </li>
 <li><p><strong>backpatch就是把所有去往B1.true的指令集合替换为B2的第一条指令的地址值</strong></p>
 </li>
-<li><p><strong>M是获取当前指令的下一条指令（B2的第一条指令）的地址</strong></p>
-</li>
+<li><strong>M是获取当前指令的下一条指令（B2的第一条指令）的地址</strong></li>
 </ul>
 <h3 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h3><p><strong>考试提供生成规则</strong></p>
-<p>x &lt; 100 || (x &gt; 200 &amp;&amp;x !&#x3D; y)</p>
+<p>x &lt; 100 || (x &gt; 200 &amp;&amp;x != y)</p>
 <p><img src="/2023/04/07/23-Compilers/ch15-ir-backpatch%E6%8E%A7%E5%88%B6%E6%B5%81%E8%AF%AD%E5%8F%A5%E7%BF%BB%E8%AF%91%E4%B8%AD%E7%9A%84%E5%9C%B0%E5%9D%80%E5%9B%9E%E5%A1%AB%E6%8A%80%E6%9C%AF/image-20230622154644961.png" alt="image-20230622154644961"></p>
 <p><img src="/2023/04/07/23-Compilers/ch15-ir-backpatch%E6%8E%A7%E5%88%B6%E6%B5%81%E8%AF%AD%E5%8F%A5%E7%BF%BB%E8%AF%91%E4%B8%AD%E7%9A%84%E5%9C%B0%E5%9D%80%E5%9B%9E%E5%A1%AB%E6%8A%80%E6%9C%AF/image-20230622155219283.png" alt="image-20230622155219283"></p>
 <p><img src="/2023/04/07/23-Compilers/ch15-ir-backpatch%E6%8E%A7%E5%88%B6%E6%B5%81%E8%AF%AD%E5%8F%A5%E7%BF%BB%E8%AF%91%E4%B8%AD%E7%9A%84%E5%9C%B0%E5%9D%80%E5%9B%9E%E5%A1%AB%E6%8A%80%E6%9C%AF/image-20230622155316362.png" alt="image-20230622155316362"></p>
@@ -484,7 +482,7 @@
 <p><img src="/2023/04/07/23-Compilers/ch15-ir-backpatch%E6%8E%A7%E5%88%B6%E6%B5%81%E8%AF%AD%E5%8F%A5%E7%BF%BB%E8%AF%91%E4%B8%AD%E7%9A%84%E5%9C%B0%E5%9D%80%E5%9B%9E%E5%A1%AB%E6%8A%80%E6%9C%AF/image-20230622160951386.png" alt="image-20230622160951386"></p>
 <h2 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h2><ul>
 <li>为左部非终结符布尔表达式 B 计算综合属性 B.truelist 与 B.falselist </li>
-<li>为左部非终结符赋值语句&#x2F;产生赋值语句的语句 S&#x2F;L 计算综合属性 S&#x2F;L.nextlist </li>
+<li>为左部非终结符赋值语句/产生赋值语句的语句 S/L 计算综合属性 S/L.nextlist </li>
 <li>并为已能确定目标地址的跳转指令进行<strong>回填</strong> (考虑每个综合属性)</li>
 </ul>
 

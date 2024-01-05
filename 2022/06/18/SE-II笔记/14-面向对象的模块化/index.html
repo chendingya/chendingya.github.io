@@ -20,12 +20,12 @@
   <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
   <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
-  <meta name="description" content="14-面向对象的模块化   1. 模块化的原则(总结) 2. 面向对象中的模块与耦合 2.1. 类 2.2. 模块 2.3. 耦合中的结构方法与OO方法 2.4. 降低耦合的设计原则   3. 访问耦合 3.1. 隐式耦合:Cascading Message 级联调用问题 3.1.1. 解决方案 — 引入局部变量 3.1.2. Cascading Message问题案例 3.1.3. 解决方案 —">
+  <meta name="description" content="14-面向对象的模块化  1. 模块化的原则(总结) 2. 面向对象中的模块与耦合 2.1. 类 2.2. 模块 2.3. 耦合中的结构方法与OO方法 2.4. 降低耦合的设计原则   3. 访问耦合 3.1. 隐式耦合:Cascading Message 级联调用问题 3.1.1. 解决方案 — 引入局部变量 3.1.2. Cascading Message问题案例 3.1.3. 解决方案 —">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SE-II-ch14-面向对象的模块化">
 <meta property="og:url" content="https://chendingya.github.io/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/14-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%A8%A1%E5%9D%97%E5%8C%96/index.html">
 <meta property="og:site_name" content="Asimov&#39;s Blog">
-<meta property="og:description" content="14-面向对象的模块化   1. 模块化的原则(总结) 2. 面向对象中的模块与耦合 2.1. 类 2.2. 模块 2.3. 耦合中的结构方法与OO方法 2.4. 降低耦合的设计原则   3. 访问耦合 3.1. 隐式耦合:Cascading Message 级联调用问题 3.1.1. 解决方案 — 引入局部变量 3.1.2. Cascading Message问题案例 3.1.3. 解决方案 —">
+<meta property="og:description" content="14-面向对象的模块化  1. 模块化的原则(总结) 2. 面向对象中的模块与耦合 2.1. 类 2.2. 模块 2.3. 耦合中的结构方法与OO方法 2.4. 降低耦合的设计原则   3. 访问耦合 3.1. 隐式耦合:Cascading Message 级联调用问题 3.1.1. 解决方案 — 引入局部变量 3.1.2. Cascading Message问题案例 3.1.3. 解决方案 —">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/1.png">
 <meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/2.png">
@@ -201,9 +201,14 @@
                 <div class="category-count">6</div>
             </a>
         
-            <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">
-                软件工程与计算II
-                <div class="category-count">28</div>
+            <a class="category-link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
+                编译原理
+                <div class="category-count">13</div>
+            </a>
+        
+            <a class="category-link" href="/categories/tdesign/">
+                tdesign
+                <div class="category-count">1</div>
             </a>
         
             <a class="category-link" href="/categories/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91/">
@@ -216,19 +221,14 @@
                 <div class="category-count">12</div>
             </a>
         
-            <a class="category-link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
-                编译原理
-                <div class="category-count">13</div>
+            <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">
+                软件工程与计算II
+                <div class="category-count">28</div>
             </a>
         
-            <a class="category-link" href="/categories/tdesign/">
-                tdesign
+            <a class="category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                机器学习
                 <div class="category-count">1</div>
-            </a>
-        
-            <a class="category-link" href="/categories/%E9%A9%BE%E8%80%83/">
-                驾考
-                <div class="category-count">2</div>
             </a>
         
             <a class="category-link" href="/categories/leetcode/">
@@ -236,9 +236,9 @@
                 <div class="category-count">4</div>
             </a>
         
-            <a class="category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                机器学习
-                <div class="category-count">1</div>
+            <a class="category-link" href="/categories/%E9%A9%BE%E8%80%83/">
+                驾考
+                <div class="category-count">2</div>
             </a>
         </div>
     </div>
@@ -264,7 +264,7 @@
       
         <a class="archive-link" href="/archives/2024/01 ">
           一月 2024 
-          <div class="archive-count">2 </div>
+          <div class="archive-count">3 </div>
         </a>
       
         <a class="archive-link" href="/archives/2023/12 ">
@@ -328,6 +328,12 @@
       <h3 class="widget-title">最新文章</h3>
       <ul>
         
+          <a class="recent-link" href="/2024/01/05/23-%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92/%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/" title="" >
+            <div class="recent-link-text">
+              (no title)
+            </div>
+          </a>
+        
           <a class="recent-link" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/" title="服务端-ch17-k8s使用" >
             <div class="recent-link-text">
               服务端-ch17-k8s使用
@@ -349,12 +355,6 @@
           <a class="recent-link" href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/" title="服务端-ch15-Docker" >
             <div class="recent-link-text">
               服务端-ch15-Docker
-            </div>
-          </a>
-        
-          <a class="recent-link" href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/" title="服务端-ch14-Spring WebFlux" >
-            <div class="recent-link-text">
-              服务端-ch14-Spring WebFlux
             </div>
           </a>
         
@@ -411,99 +411,97 @@
       <div class="e-content article-entry" itemprop="articleBody">
         
           <h2 id="14-面向对象的模块化"><a href="#14-面向对象的模块化" class="headerlink" title="14-面向对象的模块化"></a>14-面向对象的模块化</h2><!-- TOC -->
-
 <ul>
-<li><a href="#1-%E6%A8%A1%E5%9D%97%E5%8C%96%E7%9A%84%E5%8E%9F%E5%88%99%E6%80%BB%E7%BB%93">1. 模块化的原则(总结)</a></li>
-<li><a href="#2-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%AD%E7%9A%84%E6%A8%A1%E5%9D%97%E4%B8%8E%E8%80%A6%E5%90%88">2. 面向对象中的模块与耦合</a><ul>
-<li><a href="#21-%E7%B1%BB">2.1. 类</a></li>
-<li><a href="#22-%E6%A8%A1%E5%9D%97">2.2. 模块</a></li>
-<li><a href="#23-%E8%80%A6%E5%90%88%E4%B8%AD%E7%9A%84%E7%BB%93%E6%9E%84%E6%96%B9%E6%B3%95%E4%B8%8Eoo%E6%96%B9%E6%B3%95">2.3. 耦合中的结构方法与OO方法</a></li>
-<li><a href="#24-%E9%99%8D%E4%BD%8E%E8%80%A6%E5%90%88%E7%9A%84%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99">2.4. 降低耦合的设计原则</a></li>
+<li><a href="#1-模块化的原则总结">1. 模块化的原则(总结)</a></li>
+<li><a href="#2-面向对象中的模块与耦合">2. 面向对象中的模块与耦合</a><ul>
+<li><a href="#21-类">2.1. 类</a></li>
+<li><a href="#22-模块">2.2. 模块</a></li>
+<li><a href="#23-耦合中的结构方法与oo方法">2.3. 耦合中的结构方法与OO方法</a></li>
+<li><a href="#24-降低耦合的设计原则">2.4. 降低耦合的设计原则</a></li>
 </ul>
 </li>
-<li><a href="#3-%E8%AE%BF%E9%97%AE%E8%80%A6%E5%90%88">3. 访问耦合</a><ul>
-<li><a href="#31-%E9%9A%90%E5%BC%8F%E8%80%A6%E5%90%88cascading-message-%E7%BA%A7%E8%81%94%E8%B0%83%E7%94%A8%E9%97%AE%E9%A2%98">3.1. 隐式耦合:Cascading Message 级联调用问题</a><ul>
-<li><a href="#311-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88--%E5%BC%95%E5%85%A5%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F">3.1.1. 解决方案 — 引入局部变量</a></li>
-<li><a href="#312-cascading-message%E9%97%AE%E9%A2%98%E6%A1%88%E4%BE%8B">3.1.2. Cascading Message问题案例</a></li>
-<li><a href="#313-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88--%E5%A7%94%E6%89%98">3.1.3. 解决方案 — 委托</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#4-%E7%BB%84%E4%BB%B6%E8%80%A6%E5%90%88%E5%8E%9F%E7%90%86">4. 组件耦合原理</a><ul>
-<li><a href="#41-%E5%8E%9F%E5%88%99%E5%9B%9B%E9%9D%A2%E5%90%91%E6%8E%A5%E5%8F%A3%E7%BC%96%E7%A8%8B">4.1. 原则四：面向接口编程</a></li>
-<li><a href="#42-%E5%8E%9F%E5%88%99%E4%BA%94%E8%BF%AA%E7%B1%B3%E7%89%B9%E6%B3%95%E5%88%99">4.2. 原则五:迪米特法则</a><ul>
-<li><a href="#421-%E9%97%AE%E9%A2%98%E6%A1%88%E4%BE%8B">4.2.1. 问题案例</a></li>
-</ul>
-</li>
-<li><a href="#43-%E5%8E%9F%E5%88%99%E5%85%AD%E6%8E%A5%E5%8F%A3%E9%9A%94%E7%A6%BB%E5%8E%9F%E5%88%99isp%E4%B9%9F%E5%8F%AB%E6%8E%A5%E5%8F%A3%E6%9C%80%E5%B0%8F%E5%8C%96%E5%8E%9F%E5%88%99">4.3. 原则六：接口隔离原则(ISP)&#x2F;也叫接口最小化原则</a></li>
-<li><a href="#44-%E8%A7%A3%E9%87%8A%E6%8E%A5%E5%8F%A3%E9%9A%94%E7%A6%BB%E5%8E%9F%E5%88%99">4.4. 解释接口隔离原则</a><ul>
-<li><a href="#441-%E6%A1%88%E4%BE%8B%E4%B8%80gui%E7%95%8C%E9%9D%A2%E9%97%AE%E9%A2%98">4.4.1. 案例一:GUI界面问题</a></li>
-<li><a href="#442-%E6%A1%88%E4%BE%8B%E4%BA%8Capplication%E7%9A%84%E4%BE%9D%E8%B5%96%E9%97%AE%E9%A2%98">4.4.2. 案例二:Application的依赖问题</a></li>
+<li><a href="#3-访问耦合">3. 访问耦合</a><ul>
+<li><a href="#31-隐式耦合cascading-message-级联调用问题">3.1. 隐式耦合:Cascading Message 级联调用问题</a><ul>
+<li><a href="#311-解决方案--引入局部变量">3.1.1. 解决方案 — 引入局部变量</a></li>
+<li><a href="#312-cascading-message问题案例">3.1.2. Cascading Message问题案例</a></li>
+<li><a href="#313-解决方案--委托">3.1.3. 解决方案 — 委托</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#5-%E7%BB%A7%E6%89%BF%E8%80%A6%E5%90%88">5. 继承耦合</a><ul>
-<li><a href="#51-%E4%BF%AE%E9%A5%B0%E7%BB%A7%E6%89%BF%E8%80%A6%E5%90%88">5.1. 修饰继承耦合</a><ul>
-<li><a href="#511-%E6%A1%88%E4%BE%8B">5.1.1. 案例</a></li>
+<li><a href="#4-组件耦合原理">4. 组件耦合原理</a><ul>
+<li><a href="#41-原则四面向接口编程">4.1. 原则四：面向接口编程</a></li>
+<li><a href="#42-原则五迪米特法则">4.2. 原则五:迪米特法则</a><ul>
+<li><a href="#421-问题案例">4.2.1. 问题案例</a></li>
 </ul>
 </li>
-<li><a href="#52-%E5%AE%8C%E5%96%84%E7%BB%A7%E6%89%BF%E8%80%A6%E5%90%88">5.2. 完善继承耦合</a></li>
-<li><a href="#53-%E6%89%A9%E5%B1%95%E7%BB%A7%E6%89%BF%E8%80%A6%E5%90%88">5.3. 扩展继承耦合</a></li>
-</ul>
-</li>
-<li><a href="#6-%E9%99%8D%E4%BD%8E%E7%BB%A7%E6%89%BF%E8%80%A6%E5%90%88%E7%9A%84%E6%96%B9%E6%B3%95">6. 降低继承耦合的方法</a><ul>
-<li><a href="#61-%E7%BB%A7%E6%89%BF%E8%80%A6%E5%90%88%E5%8E%9F%E7%90%86">6.1. 继承耦合原理</a></li>
-<li><a href="#62-%E5%8E%9F%E5%88%99%E4%B8%83%E9%87%8C%E6%B0%8F%E6%9B%BF%E6%8D%A2%E5%8E%9F%E5%88%99">6.2. 原则七：里氏替换原则</a><ul>
-<li><a href="#621-%E9%97%AE%E9%A2%98%E6%A1%88%E4%BE%8B%E4%B8%80%E9%93%B6%E8%A1%8C%E9%97%AE%E9%A2%98">6.2.1. 问题案例一:银行问题</a></li>
-<li><a href="#622-%E9%97%AE%E9%A2%98%E6%A1%88%E4%BE%8B%E4%BA%8Cis-a-square-a-rectangle">6.2.2. 问题案例二:Is a Square a Rectangle?</a></li>
-<li><a href="#623-%E9%97%AE%E9%A2%98%E6%A1%88%E4%BE%8B%E4%B8%89penguin-is-a-bird">6.2.3. 问题案例三:Penguin is a bird?</a></li>
-</ul>
-</li>
-<li><a href="#63-%E9%87%8C%E6%B0%8F%E6%9B%BF%E6%8D%A2%E5%8E%9F%E5%88%99%E6%80%BB%E7%BB%93">6.3. 里氏替换原则总结</a><ul>
-<li><a href="#631-%E8%AF%BE%E5%A0%82%E7%BB%83%E4%B9%A0">6.3.1. 课堂练习</a></li>
-</ul>
-</li>
-<li><a href="#64-%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99%E5%85%AB%E7%BB%84%E5%90%88%E4%BB%A3%E6%9B%BF%E7%BB%A7%E6%89%BF">6.4. 设计原则八:组合代替继承</a><ul>
-<li><a href="#641-coad%E7%9A%84%E7%BB%A7%E6%89%BF%E8%A7%84%E5%88%99">6.4.1. Coad的继承规则</a></li>
-<li><a href="#642-%E7%BB%A7%E6%89%BF%E7%BB%84%E5%90%88-%E5%AE%9E%E4%BE%8B%E4%B8%80">6.4.2. 继承&#x2F;组合 实例一</a></li>
-<li><a href="#643-%E7%BB%A7%E6%89%BF%E7%BB%84%E5%90%88-%E7%A4%BA%E4%BE%8B%E4%BA%8C">6.4.3. 继承&#x2F;组合 示例二</a></li>
+<li><a href="#43-原则六接口隔离原则isp也叫接口最小化原则">4.3. 原则六：接口隔离原则(ISP)/也叫接口最小化原则</a></li>
+<li><a href="#44-解释接口隔离原则">4.4. 解释接口隔离原则</a><ul>
+<li><a href="#441-案例一gui界面问题">4.4.1. 案例一:GUI界面问题</a></li>
+<li><a href="#442-案例二application的依赖问题">4.4.2. 案例二:Application的依赖问题</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#7-%E5%86%85%E8%81%9A">7. 内聚</a><ul>
-<li><a href="#71-%E6%96%B9%E6%B3%95%E5%86%85%E8%81%9A">7.1. 方法内聚</a></li>
-<li><a href="#72-%E6%8F%90%E9%AB%98%E5%86%85%E8%81%9A%E7%9A%84%E6%96%B9%E6%B3%95">7.2. 提高内聚的方法</a><ul>
-<li><a href="#721-%E5%8E%9F%E5%88%99%E4%B9%9D%E5%8D%95%E4%B8%80%E8%B4%A3%E4%BB%BB%E5%8E%9F%E5%88%99srp">7.2.1. 原则九：单一责任原则(SRP)</a><ul>
-<li><a href="#7211-%E9%97%AE%E9%A2%98%E6%A1%88%E4%BE%8B">7.2.1.1. 问题案例</a></li>
-<li><a href="#7212-%E7%BB%93%E5%B1%80%E6%96%B9%E6%A1%88">7.2.1.2. 结局方案</a></li>
+<li><a href="#5-继承耦合">5. 继承耦合</a><ul>
+<li><a href="#51-修饰继承耦合">5.1. 修饰继承耦合</a><ul>
+<li><a href="#511-案例">5.1.1. 案例</a></li>
 </ul>
 </li>
-<li><a href="#722-%E5%8D%95%E4%B8%80%E8%81%8C%E8%B4%A3%E5%8E%9F%E5%88%99">7.2.2. 单一职责原则</a></li>
+<li><a href="#52-完善继承耦合">5.2. 完善继承耦合</a></li>
+<li><a href="#53-扩展继承耦合">5.3. 扩展继承耦合</a></li>
 </ul>
 </li>
-<li><a href="#73-%E8%AF%BE%E5%A0%82%E7%BB%83%E4%B9%A0">7.3. 课堂练习</a></li>
+<li><a href="#6-降低继承耦合的方法">6. 降低继承耦合的方法</a><ul>
+<li><a href="#61-继承耦合原理">6.1. 继承耦合原理</a></li>
+<li><a href="#62-原则七里氏替换原则">6.2. 原则七：里氏替换原则</a><ul>
+<li><a href="#621-问题案例一银行问题">6.2.1. 问题案例一:银行问题</a></li>
+<li><a href="#622-问题案例二is-a-square-a-rectangle">6.2.2. 问题案例二:Is a Square a Rectangle?</a></li>
+<li><a href="#623-问题案例三penguin-is-a-bird">6.2.3. 问题案例三:Penguin is a bird?</a></li>
 </ul>
 </li>
-<li><a href="#8-%E8%80%A6%E5%90%88%E5%92%8C%E5%86%85%E8%81%9A%E7%9A%84%E5%BA%A6%E9%87%8F">8. 耦合和内聚的度量</a><ul>
-<li><a href="#81-%E7%B1%BB%E4%B9%8B%E9%97%B4%E7%9A%84%E8%80%A6%E5%90%88%E5%BA%A6%E9%87%8F">8.1. 类之间的耦合度量</a><ul>
-<li><a href="#811-%E7%AC%AC%E4%B8%80%E7%A7%8D%E5%BA%A6%E9%87%8Fcbo%E6%96%B9%E6%B3%95%E8%B0%83%E7%94%A8%E8%80%A6%E5%90%88">8.1.1. 第一种度量:CBO(方法调用耦合)</a></li>
-<li><a href="#812-%E7%AC%AC%E4%BA%8C%E7%A7%8D%E5%BA%A6%E9%87%8Fdac%E6%95%B0%E6%8D%AE%E6%8A%BD%E8%B1%A1%E8%80%A6%E5%90%88">8.1.2. 第二种度量:DAC(数据抽象耦合)</a></li>
-<li><a href="#813-%E7%AC%AC%E4%B8%89%E7%A7%8D%E5%BA%A6%E9%87%8Fca%E5%92%8Cce%E6%9C%89%E6%95%88%E5%92%8C">8.1.3. 第三种度量:Ca和Ce(有效和)</a></li>
-<li><a href="#814-%E7%AC%AC%E5%9B%9B%E7%A7%8D%E5%BA%A6%E9%87%8Fdit-%E7%BB%A7%E6%89%BF%E6%A0%91%E7%9A%84%E6%B7%B1%E5%BA%A6">8.1.4. 第四种度量:DIT 继承树的深度</a></li>
-<li><a href="#815-%E7%AC%AC%E4%BA%94%E7%A7%8D%E5%BA%A6%E9%87%8F-number-of-children-noc-%E5%AD%90%E7%B1%BB%E7%9A%84%E6%95%B0%E9%87%8F">8.1.5. 第五种度量 Number of children (NOC) 子类的数量</a></li>
-<li><a href="#816-%E8%A1%A1%E9%87%8F%E7%B1%BB%E5%87%9D%E8%81%9A%E5%8A%9B-lcom">8.1.6. 衡量类凝聚力 LCOM</a></li>
+<li><a href="#63-里氏替换原则总结">6.3. 里氏替换原则总结</a><ul>
+<li><a href="#631-课堂练习">6.3.1. 课堂练习</a></li>
 </ul>
 </li>
-<li><a href="#82-summaryprinciples-from-modularization-%E6%A8%A1%E5%9D%97%E5%8C%96%E7%9A%84%E5%8E%9F%E5%88%99">8.2. Summary:Principles from Modularization 模块化的原则</a></li>
+<li><a href="#64-设计原则八组合代替继承">6.4. 设计原则八:组合代替继承</a><ul>
+<li><a href="#641-coad的继承规则">6.4.1. Coad的继承规则</a></li>
+<li><a href="#642-继承组合-实例一">6.4.2. 继承/组合 实例一</a></li>
+<li><a href="#643-继承组合-示例二">6.4.3. 继承/组合 示例二</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#7-内聚">7. 内聚</a><ul>
+<li><a href="#71-方法内聚">7.1. 方法内聚</a></li>
+<li><a href="#72-提高内聚的方法">7.2. 提高内聚的方法</a><ul>
+<li><a href="#721-原则九单一责任原则srp">7.2.1. 原则九：单一责任原则(SRP)</a><ul>
+<li><a href="#7211-问题案例">7.2.1.1. 问题案例</a></li>
+<li><a href="#7212-结局方案">7.2.1.2. 结局方案</a></li>
+</ul>
+</li>
+<li><a href="#722-单一职责原则">7.2.2. 单一职责原则</a></li>
+</ul>
+</li>
+<li><a href="#73-课堂练习">7.3. 课堂练习</a></li>
+</ul>
+</li>
+<li><a href="#8-耦合和内聚的度量">8. 耦合和内聚的度量</a><ul>
+<li><a href="#81-类之间的耦合度量">8.1. 类之间的耦合度量</a><ul>
+<li><a href="#811-第一种度量cbo方法调用耦合">8.1.1. 第一种度量:CBO(方法调用耦合)</a></li>
+<li><a href="#812-第二种度量dac数据抽象耦合">8.1.2. 第二种度量:DAC(数据抽象耦合)</a></li>
+<li><a href="#813-第三种度量ca和ce有效和">8.1.3. 第三种度量:Ca和Ce(有效和)</a></li>
+<li><a href="#814-第四种度量dit-继承树的深度">8.1.4. 第四种度量:DIT 继承树的深度</a></li>
+<li><a href="#815-第五种度量-number-of-children-noc-子类的数量">8.1.5. 第五种度量 Number of children (NOC) 子类的数量</a></li>
+<li><a href="#816-衡量类凝聚力-lcom">8.1.6. 衡量类凝聚力 LCOM</a></li>
+</ul>
+</li>
+<li><a href="#82-summaryprinciples-from-modularization-模块化的原则">8.2. Summary:Principles from Modularization 模块化的原则</a></li>
 </ul>
 </li>
 </ul>
 <!-- /TOC -->
-
-<h1 id="1-模块化的原则-总结"><a href="#1-模块化的原则-总结" class="headerlink" title="1. 模块化的原则(总结)"></a>1. 模块化的原则(总结)</h1><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/1.png"></p>
+<h1 id="1-模块化的原则-总结"><a href="#1-模块化的原则-总结" class="headerlink" title="1. 模块化的原则(总结)"></a>1. 模块化的原则(总结)</h1><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/1.png" alt></p>
 <ol>
 <li>核心就是上面的</li>
 <li>题目是，给例子，发现违反的原则并纠正</li>
@@ -538,28 +536,28 @@
 <li>原则三：Do not Repeat</li>
 <li>原则四：Programming to Interface</li>
 </ol>
-<h1 id="3-访问耦合"><a href="#3-访问耦合" class="headerlink" title="3. 访问耦合"></a>3. 访问耦合</h1><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/2.png"></p>
+<h1 id="3-访问耦合"><a href="#3-访问耦合" class="headerlink" title="3. 访问耦合"></a>3. 访问耦合</h1><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/2.png" alt></p>
 <p>上面的规格是指参数。</p>
 <p>这里<strong>耦合性的强弱是根据在A中能否很轻易的看到B被引用</strong>，越容易看到，耦合度越低</p>
 <p>隐式访问是需要避免的，实现访问是可以接受的，后面两者是提倡的</p>
-<h2 id="3-1-隐式耦合-Cascading-Message-级联调用问题"><a href="#3-1-隐式耦合-Cascading-Message-级联调用问题" class="headerlink" title="3.1. 隐式耦合:Cascading Message 级联调用问题"></a>3.1. 隐式耦合:Cascading Message 级联调用问题</h2><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/3.png"></p>
+<h2 id="3-1-隐式耦合-Cascading-Message-级联调用问题"><a href="#3-1-隐式耦合-Cascading-Message-级联调用问题" class="headerlink" title="3.1. 隐式耦合:Cascading Message 级联调用问题"></a>3.1. 隐式耦合:Cascading Message 级联调用问题</h2><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/3.png" alt></p>
 <h3 id="3-1-1-解决方案-—-引入局部变量"><a href="#3-1-1-解决方案-—-引入局部变量" class="headerlink" title="3.1.1. 解决方案 — 引入局部变量"></a>3.1.1. 解决方案 — 引入局部变量</h3><p>显式的展现耦合关系</p>
-<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/4.png"></p>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/4.png" alt></p>
 <ul>
 <li>避免隐式耦合，变为显式耦合，降低耦合度</li>
 </ul>
-<h3 id="3-1-2-Cascading-Message问题案例"><a href="#3-1-2-Cascading-Message问题案例" class="headerlink" title="3.1.2. Cascading Message问题案例"></a>3.1.2. Cascading Message问题案例</h3><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/5.png"></p>
+<h3 id="3-1-2-Cascading-Message问题案例"><a href="#3-1-2-Cascading-Message问题案例" class="headerlink" title="3.1.2. Cascading Message问题案例"></a>3.1.2. Cascading Message问题案例</h3><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/5.png" alt></p>
 <ul>
 <li>上面的代码中通过A.b.c就实现了调用，看不出代码和customer之间是有关系的。这样的方式不合适</li>
 </ul>
-<h3 id="3-1-3-解决方案-—-委托"><a href="#3-1-3-解决方案-—-委托" class="headerlink" title="3.1.3. 解决方案 — 委托"></a>3.1.3. 解决方案 — 委托</h3><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/6.png"></p>
+<h3 id="3-1-3-解决方案-—-委托"><a href="#3-1-3-解决方案-—-委托" class="headerlink" title="3.1.3. 解决方案 — 委托"></a>3.1.3. 解决方案 — 委托</h3><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/6.png" alt></p>
 <ul>
 <li>使用委托的方式来解决，委托给一个类来完成这个业务，让Account去完成下一步的调用，这样左边的类和customer就没关系了</li>
 </ul>
 <h1 id="4-组件耦合原理"><a href="#4-组件耦合原理" class="headerlink" title="4. 组件耦合原理"></a>4. 组件耦合原理</h1><h2 id="4-1-原则四：面向接口编程"><a href="#4-1-原则四：面向接口编程" class="headerlink" title="4.1. 原则四：面向接口编程"></a>4.1. 原则四：面向接口编程</h2><ol>
 <li>编程到所需的接口，不仅是受支持的接口</li>
 <li>按照约定设计<ol>
-<li>模块&#x2F;类合同：所需方法&#x2F;提供的方法</li>
+<li>模块/类合同：所需方法/提供的方法</li>
 <li>方法合同：前提条件，后置条件，不变式</li>
 </ol>
 </li>
@@ -572,7 +570,7 @@
 </li>
 <li>案例</li>
 </ol>
-<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/8.png"></p>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/8.png" alt></p>
 <h2 id="4-2-原则五-迪米特法则"><a href="#4-2-原则五-迪米特法则" class="headerlink" title="4.2. 原则五:迪米特法则"></a>4.2. 原则五:迪米特法则</h2><ol>
 <li>通俗说法【<strong>不和陌生人说话</strong>】<ol>
 <li>你可以自己玩。(调用this的方法)</li>
@@ -596,7 +594,7 @@
 </li>
 </ol>
 <p>迪米特法则特别强调不要出现如 a.b.Method的方法应该只有 a.Method，这与避免隐式耦合的观点一致</p>
-<h3 id="4-2-1-问题案例"><a href="#4-2-1-问题案例" class="headerlink" title="4.2.1. 问题案例"></a>4.2.1. 问题案例</h3><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/7.png"></p>
+<h3 id="4-2-1-问题案例"><a href="#4-2-1-问题案例" class="headerlink" title="4.2.1. 问题案例"></a>4.2.1. 问题案例</h3><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/7.png" alt></p>
 <ul>
 <li>通过联系人获得信息</li>
 <li>如何获得其他的引用？<ol>
@@ -607,7 +605,7 @@
 </ol>
 </li>
 </ul>
-<h2 id="4-3-原则六：接口隔离原则-ISP-也叫接口最小化原则"><a href="#4-3-原则六：接口隔离原则-ISP-也叫接口最小化原则" class="headerlink" title="4.3. 原则六：接口隔离原则(ISP)&#x2F;也叫接口最小化原则"></a>4.3. 原则六：接口隔离原则(ISP)&#x2F;也叫接口最小化原则</h2><ol>
+<h2 id="4-3-原则六：接口隔离原则-ISP-也叫接口最小化原则"><a href="#4-3-原则六：接口隔离原则-ISP-也叫接口最小化原则" class="headerlink" title="4.3. 原则六：接口隔离原则(ISP)/也叫接口最小化原则"></a>4.3. 原则六：接口隔离原则(ISP)/也叫接口最小化原则</h2><ol>
 <li><p>不应强迫客户端依赖于不使用的接口。 马丁(R. Martin)，1996年</p>
 <p>【不应当依赖于一个大接口】</p>
 </li>
@@ -625,17 +623,17 @@
 <li>可能会导致不想要的依赖：使用类的一个方面的接口也间接依赖于其他方面的依赖性</li>
 <li>ISP有助于解决问题：使用多个客户特定的接口</li>
 </ol>
-<h3 id="4-4-1-案例一-GUI界面问题"><a href="#4-4-1-案例一-GUI界面问题" class="headerlink" title="4.4.1. 案例一:GUI界面问题"></a>4.4.1. 案例一:GUI界面问题</h3><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/9.png"></p>
+<h3 id="4-4-1-案例一-GUI界面问题"><a href="#4-4-1-案例一-GUI界面问题" class="headerlink" title="4.4.1. 案例一:GUI界面问题"></a>4.4.1. 案例一:GUI界面问题</h3><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/9.png" alt></p>
 <ul>
 <li>进一步细化接口，避免出现不必要的依赖。【<strong>把大接口分成小接口</strong>】</li>
 </ul>
-<h3 id="4-4-2-案例二-Application的依赖问题"><a href="#4-4-2-案例二-Application的依赖问题" class="headerlink" title="4.4.2. 案例二:Application的依赖问题"></a>4.4.2. 案例二:Application的依赖问题</h3><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/10.png"></p>
+<h3 id="4-4-2-案例二-Application的依赖问题"><a href="#4-4-2-案例二-Application的依赖问题" class="headerlink" title="4.4.2. 案例二:Application的依赖问题"></a>4.4.2. 案例二:Application的依赖问题</h3><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/10.png" alt></p>
 <ul>
 <li>想法一:将ApplicationForm拆开</li>
 <li>想法二:将Controller合并</li>
 <li>根据具体情况选择想法一 和想法二</li>
 </ul>
-<h1 id="5-继承耦合"><a href="#5-继承耦合" class="headerlink" title="5. 继承耦合"></a>5. 继承耦合</h1><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/11.png"></p>
+<h1 id="5-继承耦合"><a href="#5-继承耦合" class="headerlink" title="5. 继承耦合"></a>5. 继承耦合</h1><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/11.png" alt></p>
 <ol>
 <li>在以上的各种类型的继承关系中，<strong>修改规格、修改实现、精化规格是不可以接受的。</strong></li>
 <li>精化实现是可以接受的，也是经常被使用的，即方法的重写</li>
@@ -651,7 +649,7 @@
 </li>
 <li>危害多态</li>
 </ol>
-<h3 id="5-1-1-案例"><a href="#5-1-1-案例" class="headerlink" title="5.1.1. 案例"></a>5.1.1. 案例</h3><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/12.png"></p>
+<h3 id="5-1-1-案例"><a href="#5-1-1-案例" class="headerlink" title="5.1.1. 案例"></a>5.1.1. 案例</h3><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/12.png" alt></p>
 <ul>
 <li>父类能做的子类都能做吗?√</li>
 <li>子类能做的父类都能做吗?×</li>
@@ -665,7 +663,7 @@
 </li>
 <li>常见的</li>
 </ol>
-<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/13.png"></p>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/13.png" alt></p>
 <h2 id="5-3-扩展继承耦合"><a href="#5-3-扩展继承耦合" class="headerlink" title="5.3. 扩展继承耦合"></a>5.3. 扩展继承耦合</h2><ol>
 <li>子类仅添加方法和实例变量，而没有修改或修饰任何继承的方法和实例变量</li>
 <li>如果客户端使用父引用，则仅需要父引用：一次引用</li>
@@ -674,13 +672,13 @@
 <li><strong>所有派生类都必须可以替代其基类并起到相同的作用</strong>，如果违反了，那么父类和子类一定有较强的耦合</li>
 <li>“使用指针或对基类的引用的函数必须能够在不知道的情况下使用派生类的对象。” -R. Martin，1996年</li>
 </ol>
-<h3 id="6-2-1-问题案例一-银行问题"><a href="#6-2-1-问题案例一-银行问题" class="headerlink" title="6.2.1. 问题案例一:银行问题"></a>6.2.1. 问题案例一:银行问题</h3><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/14.png"></p>
+<h3 id="6-2-1-问题案例一-银行问题"><a href="#6-2-1-问题案例一-银行问题" class="headerlink" title="6.2.1. 问题案例一:银行问题"></a>6.2.1. 问题案例一:银行问题</h3><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/14.png" alt></p>
 <ul>
 <li>继承关系有问题吗？</li>
 <li>继承后子类能够当做父类看待吗？不能，因为子类要求比父类更强，因此在execute中if判断余额是大于要取钱的数目时，会调用payer，但子类中要求余额减去债务才能取钱，要求更高了，所以方法调用会出错</li>
 <li>解决方案:在父类中增加新的变量完成，这样在execute方法中执行就不会出错了，因为此时判断的就是可</li>
 </ul>
-<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/15.png"></p>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/15.png" alt></p>
 <h3 id="6-2-2-问题案例二-Is-a-Square-a-Rectangle"><a href="#6-2-2-问题案例二-Is-a-Square-a-Rectangle" class="headerlink" title="6.2.2. 问题案例二:Is a Square a Rectangle?"></a>6.2.2. 问题案例二:Is a Square a Rectangle?</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Rect</span> <span class="variable">r</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Rect</span>();</span><br><span class="line">setWidth = <span class="number">4</span>;</span><br><span class="line">setHeight = <span class="number">5</span>;</span><br><span class="line"><span class="keyword">assert</span>(<span class="number">20</span> == getArea());</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Square</span> <span class="keyword">extends</span> <span class="title class_">Rect</span>&#123;</span><br><span class="line">   <span class="comment">// Square invariant, height = width</span></span><br><span class="line">   setWidth(x) &#123;</span><br><span class="line">      setHeight()=x;</span><br><span class="line">   &#125;</span><br><span class="line">   setHeight(x) &#123;</span><br><span class="line">      setWidth(x)</span><br><span class="line">   &#125;</span><br><span class="line">&#125; <span class="comment">// violate LSP?</span></span><br></pre></td></tr></table></figure>
 <ol>
 <li>正方形继承长方形:正方形条件比长方形条件更强，多限制条件。</li>
@@ -693,7 +691,6 @@
 <li>Penguins Fail to Fly!</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">PlayWithBird</span> <span class="params">(Bird abird)</span> &#123;</span><br><span class="line">   abird.fly();</span><br><span class="line">   <span class="comment">// OK if Parrot.</span></span><br><span class="line">   <span class="comment">// if bird happens to be Penguin...OOOPS!!</span></span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
-
 <ol>
 <li>不建模：”企鹅不可能”，它建模”企鹅可能很好，但如果他们尝试是错误的”，则尝试运行时错误→不可取</li>
 <li>考虑可替代性-LSP失败</li>
@@ -734,7 +731,7 @@
 </ol>
 </li>
 </ol>
-<h3 id="6-3-1-课堂练习"><a href="#6-3-1-课堂练习" class="headerlink" title="6.3.1. 课堂练习"></a>6.3.1. 课堂练习</h3><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/30.png"></p>
+<h3 id="6-3-1-课堂练习"><a href="#6-3-1-课堂练习" class="headerlink" title="6.3.1. 课堂练习"></a>6.3.1. 课堂练习</h3><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/30.png" alt></p>
 <ol>
 <li><p>两种设计都不好，都让 commonDoor 去实现了alarm，而它不应该能发出警报。因此子类不能当作父类来看待，因为父类要求的警报功能，子类 commonDoor 做不到，没有实现【<strong>注意不能把方法继承了，但里面什么都不做</strong>，这样是不对的】</p>
 </li>
@@ -757,42 +754,41 @@
 </ol>
 </li>
 </ol>
-<h3 id="6-4-2-继承-组合-实例一"><a href="#6-4-2-继承-组合-实例一" class="headerlink" title="6.4.2. 继承&#x2F;组合 实例一"></a>6.4.2. 继承&#x2F;组合 实例一</h3><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/16.png"></p>
+<h3 id="6-4-2-继承-组合-实例一"><a href="#6-4-2-继承-组合-实例一" class="headerlink" title="6.4.2. 继承/组合 实例一"></a>6.4.2. 继承/组合 实例一</h3><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/16.png" alt></p>
 <ul>
 <li>如果出现一个用户既是 Passenger 也是 Agent </li>
 <li>Java不允许多继承</li>
 </ul>
-<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/17.png"></p>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/17.png" alt></p>
 <ul>
 <li>直接的想法就是直接组合</li>
 <li>Person里面持有Passenger、Agent，但是这时候对于单一身份的人是很奇怪的</li>
 </ul>
-<h3 id="6-4-3-继承-组合-示例二【经典方式-star-】"><a href="#6-4-3-继承-组合-示例二【经典方式-star-】" class="headerlink" title="6.4.3. 继承&#x2F;组合 示例二【经典方式:star:】"></a>6.4.3. 继承&#x2F;组合 示例二【经典方式:star:】</h3><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/18.png"></p>
+<h3 id="6-4-3-继承-组合-示例二【经典方式-star-】"><a href="#6-4-3-继承-组合-示例二【经典方式-star-】" class="headerlink" title="6.4.3. 继承/组合 示例二【经典方式:star:】"></a>6.4.3. 继承/组合 示例二【经典方式:star:】</h3><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/18.png" alt></p>
 <ul>
 <li>Person持有Role，Passenger和Agent实现抽象接口PersonRole</li>
 <li>Role可以是一个List，因此可以实现一个人既是 passenger 也是 agent</li>
 </ul>
 <figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Object</span> &#123;  </span><br><span class="line">	<span class="keyword">public</span>: <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">update</span><span class="params">()</span> </span>&#123;&#125;; </span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">draw</span><span class="params">()</span> </span>&#123;&#125;;</span><br><span class="line"> 	<span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">collide</span><span class="params">(Object objects[])</span> </span>&#123;&#125;; </span><br><span class="line">&#125;; </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Visible</span> : <span class="keyword">public</span> Object &#123; </span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">      <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">draw</span><span class="params">()</span> </span>&#123; </span><br><span class="line">        <span class="comment">/* draw model at position of this object */</span> &#125;; </span><br><span class="line">    <span class="keyword">private</span>: Model* model; </span><br><span class="line">&#125;; </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solid</span> : <span class="keyword">public</span> Object &#123; </span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">      <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">collide</span><span class="params">(Object objects[])</span> </span>&#123; </span><br><span class="line">	<span class="comment">/* check and react to collisions with objects */</span> &#125;; </span><br><span class="line">&#125;; </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Movable</span> : <span class="keyword">public</span> Object &#123; </span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">      <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">update</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		 <span class="comment">/* update position */</span> &#125;; </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li>问题:游戏引擎中存在很多的对象,三个类分别实现方法之一</li>
 <li><strong>继承三件事但是只做了一件，Promise No Less不符合</strong></li>
 <li><strong>接口应该拆成3个</strong></li>
 </ul>
-<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/1.jpg"></p>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/1.jpg" alt></p>
 <h1 id="7-内聚"><a href="#7-内聚" class="headerlink" title="7. 内聚"></a>7. 内聚</h1><ol>
 <li><strong>方法内聚和结构化中的函数内聚一致</strong>，功能内聚、信息内聚、过程内聚、时间内聚、逻辑内聚、偶然内聚。</li>
 <li>类的内聚衡量类的成员变量和方法之间的内聚：类应该是信息内聚的又应该是功能内聚的</li>
 </ol>
-<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/19.png"></p>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/19.png" alt></p>
 <ul>
 <li>方法和属性保持一致</li>
 </ul>
-<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/20.png"></p>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/20.png" alt></p>
 <ul>
 <li>提高内聚性:将一个类分为三个类</li>
 </ul>
-<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/21.png"></p>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/21.png" alt></p>
 <ul>
 <li>将时间抽象出来，可以进一步抽象</li>
 </ul>
@@ -814,7 +810,7 @@
 <li><strong>类履行某种职责的责任也是类变化的原因</strong></li>
 <li>一个高内聚的类不仅要是功能内聚的，还应该是信息内聚的。</li>
 </ol>
-<h4 id="7-2-1-1-问题案例"><a href="#7-2-1-1-问题案例" class="headerlink" title="7.2.1.1. 问题案例"></a>7.2.1.1. 问题案例</h4><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/22.png"></p>
+<h4 id="7-2-1-1-问题案例"><a href="#7-2-1-1-问题案例" class="headerlink" title="7.2.1.1. 问题案例"></a>7.2.1.1. 问题案例</h4><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/22.png" alt></p>
 <ul>
 <li>修改的原因:<ul>
 <li>业务逻辑</li>
@@ -823,12 +819,12 @@
 </li>
 <li>如何修改如何分开</li>
 </ul>
-<h4 id="7-2-1-2-结局方案"><a href="#7-2-1-2-结局方案" class="headerlink" title="7.2.1.2. 结局方案"></a>7.2.1.2. 结局方案</h4><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/23.png"></p>
+<h4 id="7-2-1-2-结局方案"><a href="#7-2-1-2-结局方案" class="headerlink" title="7.2.1.2. 结局方案"></a>7.2.1.2. 结局方案</h4><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/23.png" alt></p>
 <ul>
 <li>我们将两部分职责分开</li>
 </ul>
 <h3 id="7-2-2-单一职责原则"><a href="#7-2-2-单一职责原则" class="headerlink" title="7.2.2. 单一职责原则"></a>7.2.2. 单一职责原则</h3><ol>
-<li><strong>类只有一个改变的理由：职能&#x2F;职责的凝聚力</strong></li>
+<li><strong>类只有一个改变的理由：职能/职责的凝聚力</strong></li>
 <li>几个职责：表示更改的几个原因→更频繁的更改</li>
 <li>听起来很简单<ol>
 <li>在现实生活中并非如此轻松</li>
@@ -836,15 +832,15 @@
 </ol>
 </li>
 </ol>
-<h2 id="7-3-课堂练习"><a href="#7-3-课堂练习" class="headerlink" title="7.3. 课堂练习"></a>7.3. 课堂练习</h2><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/25.png"></p>
+<h2 id="7-3-课堂练习"><a href="#7-3-课堂练习" class="headerlink" title="7.3. 课堂练习"></a>7.3. 课堂练习</h2><p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/25.png" alt></p>
 <ul>
 <li>打电话和挂起两个职责分离开</li>
 </ul>
-<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/26.png"></p>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/26.png" alt></p>
 <ul>
 <li>几何画板:Draw和Area的计算如何分开</li>
 </ul>
-<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/27.png"></p>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/27.png" alt></p>
 <ul>
 <li>解决方案:集合长方形和图形长方形一一对应</li>
 </ul>
@@ -852,7 +848,7 @@
 <ol>
 <li><p>对象类之间的耦合(CBO)</p>
 </li>
-<li><p>CBO &#x3D; <strong>该类访问其他类的成员方法的数量 + 其他类的成员访问该类的成员方法的数量</strong></p>
+<li><p>CBO = <strong>该类访问其他类的成员方法的数量 + 其他类的成员访问该类的成员方法的数量</strong></p>
 <p>外界的其他类不包括存在继承关系的类。</p>
 </li>
 <li><p>越低越好</p>
@@ -860,12 +856,11 @@
 </ol>
 <h3 id="8-1-2-第二种度量-DAC-数据抽象耦合"><a href="#8-1-2-第二种度量-DAC-数据抽象耦合" class="headerlink" title="8.1.2. 第二种度量:DAC(数据抽象耦合)"></a>8.1.2. 第二种度量:DAC(数据抽象耦合)</h3><p><em>Data Abstraction Coupling</em></p>
 <ol>
-<li><p>数据抽象耦合(DAC)</p>
-</li>
-<li><p>DAC &#x3D; <strong>统计一类包含的其他类的其他类的实例的数量，不包括继承关系带来的实例引用</strong></p>
-</li>
-<li><p>越低越好</p>
-</li>
+<li>数据抽象耦合(DAC)</li>
+<li>DAC = <strong>统计一类包含的其他类的其他类的实例的数量，不包括继承关系带来的实例引用</strong></li>
+</ol>
+<ol>
+<li>越低越好</li>
 </ol>
 <h3 id="8-1-3-第三种度量-Ca和Ce-有效和"><a href="#8-1-3-第三种度量-Ca和Ce-有效和" class="headerlink" title="8.1.3. 第三种度量:Ca和Ce(有效和)"></a>8.1.3. 第三种度量:Ca和Ce(有效和)</h3><ol>
 <li>Ce和Ca(有效和有效偶联)<ol>
@@ -893,20 +888,19 @@
 <ol>
 <li><strong>是一个类的直接子类的数量</strong></li>
 <li>随着 NOC 的增长，可复用性增加，抽象减弱了【<strong>和 DIT 增长的效果一样</strong>】</li>
-<li>随着 NOC 的增长，抽象可能变得<strong>稀疏</strong>，**<font color="red">即当子类变多后，如果能将这么多子类都抽象成一个父类，难度比较大，因为子类多了，共性就会减少</font>**</li>
+<li>随着 NOC 的增长，抽象可能变得<strong>稀疏</strong>，<strong><font color="red">即当子类变多后，如果能将这么多子类都抽象成一个父类，难度比较大，因为子类多了，共性就会减少</font></strong></li>
 <li>一般 NOC 超过 3，就需要认真审查继承机制的正确性，检查是否满足 LSP</li>
 </ol>
 <h3 id="8-1-6-衡量类凝聚力-LCOM（不考）"><a href="#8-1-6-衡量类凝聚力-LCOM（不考）" class="headerlink" title="8.1.6. 衡量类凝聚力 LCOM（不考）"></a>8.1.6. 衡量类凝聚力 LCOM（不考）</h3><blockquote>
 <p>Lack of cohesion in methods (LCOM) </p>
 </blockquote>
-<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/28.png"></p>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/28.png" alt></p>
 <ul>
 <li>交集为空则在P中，交集不为空则在Q中</li>
 </ul>
 <ol>
-<li><p>值越低越好</p>
-</li>
-<li><p><strong>如果LCOM&gt;&#x3D; 1，说明所有方法中的相互之间隔离比较大，相交的部分很少，因此它们不应该放在一个类中，应将类划分</strong></p>
+<li>值越低越好</li>
+<li><p><strong>如果LCOM&gt;= 1，说明所有方法中的相互之间隔离比较大，相交的部分很少，因此它们不应该放在一个类中，应将类划分</strong></p>
 </li>
 <li><p>还定义了许多其他版本的LCOM</p>
 </li>
@@ -938,25 +932,25 @@
 <nav id="article-nav">
   <a class="article-nav-btn left "
     
-      href="/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/13-%E6%A8%A1%E5%9D%97%E5%8C%96%E4%B8%8E%E4%BF%A1%E6%81%AF%E9%9A%90%E8%97%8F/"
-      title="SE-II-ch13-详细设计中的模块化与信息隐藏"
+      href="/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/12-%E8%AF%A6%E7%BB%86%E8%AE%BE%E8%AE%A1/"
+      title="SE-II-ch12-详细设计"
      >
     <i class="fa-solid fa-angle-left"></i>
     <p class="title-text">
       
-        SE-II-ch13-详细设计中的模块化与信息隐藏
+        SE-II-ch12-详细设计
         
     </p>
   </a>
   <a class="article-nav-btn right "
     
-      href="/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/15-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E4%BF%A1%E6%81%AF%E9%9A%90%E8%97%8F/"
-      title="SE-II-ch15-面向对象的信息隐藏"
+      href="/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/13-%E6%A8%A1%E5%9D%97%E5%8C%96%E4%B8%8E%E4%BF%A1%E6%81%AF%E9%9A%90%E8%97%8F/"
+      title="SE-II-ch13-详细设计中的模块化与信息隐藏"
      >
 
     <p class="title-text">
       
-        SE-II-ch15-面向对象的信息隐藏
+        SE-II-ch13-详细设计中的模块化与信息隐藏
         
     </p>
     <i class="fa-solid fa-angle-right"></i>

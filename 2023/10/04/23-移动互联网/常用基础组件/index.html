@@ -209,9 +209,14 @@
                 <div class="category-count">6</div>
             </a>
         
-            <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">
-                软件工程与计算II
-                <div class="category-count">28</div>
+            <a class="category-link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
+                编译原理
+                <div class="category-count">13</div>
+            </a>
+        
+            <a class="category-link" href="/categories/tdesign/">
+                tdesign
+                <div class="category-count">1</div>
             </a>
         
             <a class="category-link" href="/categories/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91/">
@@ -224,19 +229,14 @@
                 <div class="category-count">12</div>
             </a>
         
-            <a class="category-link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
-                编译原理
-                <div class="category-count">13</div>
+            <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">
+                软件工程与计算II
+                <div class="category-count">28</div>
             </a>
         
-            <a class="category-link" href="/categories/tdesign/">
-                tdesign
+            <a class="category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                机器学习
                 <div class="category-count">1</div>
-            </a>
-        
-            <a class="category-link" href="/categories/%E9%A9%BE%E8%80%83/">
-                驾考
-                <div class="category-count">2</div>
             </a>
         
             <a class="category-link" href="/categories/leetcode/">
@@ -244,9 +244,9 @@
                 <div class="category-count">4</div>
             </a>
         
-            <a class="category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                机器学习
-                <div class="category-count">1</div>
+            <a class="category-link" href="/categories/%E9%A9%BE%E8%80%83/">
+                驾考
+                <div class="category-count">2</div>
             </a>
         </div>
     </div>
@@ -272,7 +272,7 @@
       
         <a class="archive-link" href="/archives/2024/01 ">
           一月 2024 
-          <div class="archive-count">2 </div>
+          <div class="archive-count">3 </div>
         </a>
       
         <a class="archive-link" href="/archives/2023/12 ">
@@ -336,6 +336,12 @@
       <h3 class="widget-title">最新文章</h3>
       <ul>
         
+          <a class="recent-link" href="/2024/01/05/23-%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92/%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/" title="" >
+            <div class="recent-link-text">
+              (no title)
+            </div>
+          </a>
+        
           <a class="recent-link" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/" title="服务端-ch17-k8s使用" >
             <div class="recent-link-text">
               服务端-ch17-k8s使用
@@ -357,12 +363,6 @@
           <a class="recent-link" href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/" title="服务端-ch15-Docker" >
             <div class="recent-link-text">
               服务端-ch15-Docker
-            </div>
-          </a>
-        
-          <a class="recent-link" href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/" title="服务端-ch14-Spring WebFlux" >
-            <div class="recent-link-text">
-              服务端-ch14-Spring WebFlux
             </div>
           </a>
         
@@ -424,6 +424,7 @@
 <p>下面我们将分别介绍这些常用基础组件的使用。</p>
 <h1 id="2-Text"><a href="#2-Text" class="headerlink" title="2 Text"></a>2 Text</h1><p>Text组件用于在界面上展示一段文本信息，可以包含子组件Span。</p>
 <h2 id="文本样式"><a href="#文本样式" class="headerlink" title="文本样式"></a>文本样式</h2><p>针对包含文本元素的组件，例如Text、Span、Button、TextInput等，可使用fontColor、fontSize、fontStyle、 fontWeight、fontFamily这些文本样式，分别设置文本的颜色、大小、样式、粗细以及字体，文本样式的属性如下表：</p>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -432,14 +433,16 @@
 <th>描述</th>
 </tr>
 </thead>
-<tbody><tr>
+<tbody>
+<tr>
 <td>fontColor</td>
 <td>ResourceColor</td>
 <td>设置文本颜色。</td>
 </tr>
 <tr>
 <td>fontSize</td>
-<td>Length | Resource</td>
+<td>Length \</td>
+<td>Resource</td>
 <td>设置文本尺寸，Length为number类型时，使用fp单位。</td>
 </tr>
 <tr>
@@ -449,24 +452,27 @@
 </tr>
 <tr>
 <td>fontWeight</td>
-<td>number | FontWeight | string</td>
+<td>number \</td>
+<td>FontWeight \</td>
+<td>string</td>
 <td>设置文本的字体粗细，number类型取值[100, 900]，取值间隔为100，默认为400，取值越大，字体越粗。string类型仅支持number类型取值的字符串形式，例如“400”，以及“bold”、“bolder”、“lighter”、“regular”、“medium”，分别对应FontWeight中相应的枚举值。默认值：FontWeight.Normal。</td>
 </tr>
 <tr>
 <td>fontFamily</td>
-<td>string | Resource</td>
+<td>string \</td>
+<td>Resource</td>
 <td>设置文本的字体列表。使用多个字体，使用“，”进行分割，优先级按顺序生效。例如：“Arial，sans-serif”。</td>
 </tr>
-</tbody></table>
+</tbody>
+</table>
+</div>
 <p>下面示例代码中包含两个Text组件，第一个使用的是默认样式，第二个给文本设置了一些文本样式。</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Entry</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line">struct <span class="title class_">TextDemo</span> &#123;</span><br><span class="line">  <span class="title function_">build</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="title class_">Row</span>() &#123;</span><br><span class="line">      <span class="title class_">Column</span>() &#123;</span><br><span class="line">        <span class="title class_">Text</span>(<span class="string">&#x27;HarmonyOS&#x27;</span>)</span><br><span class="line">        <span class="title class_">Text</span>(<span class="string">&#x27;HarmonyOS&#x27;</span>)</span><br><span class="line">          .<span class="title function_">fontColor</span>(<span class="title class_">Color</span>.<span class="property">Blue</span>)</span><br><span class="line">          .<span class="title function_">fontSize</span>(<span class="number">20</span>)</span><br><span class="line">          .<span class="title function_">fontStyle</span>(<span class="title class_">FontStyle</span>.<span class="property">Italic</span>)</span><br><span class="line">          .<span class="title function_">fontWeight</span>(<span class="title class_">FontWeight</span>.<span class="property">Bold</span>)</span><br><span class="line">          .<span class="title function_">fontFamily</span>(<span class="string">&#x27;Arial&#x27;</span>)</span><br><span class="line">      &#125;</span><br><span class="line">      .<span class="title function_">width</span>(<span class="string">&#x27;100%&#x27;</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    .<span class="title function_">backgroundColor</span>(<span class="number">0xF1F3F5</span>)</span><br><span class="line">    .<span class="title function_">height</span>(<span class="string">&#x27;100%&#x27;</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>效果图如下：</p>
 <p><img src="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/103/404/958/0260086000103404958.20221102114323.57981255142134670738558204839276:50001231000000:2800:F3EE4576F8914D849A63F9C5ECBB4975EE604C6F1946761DEA0A651962DB4A54.png" alt="img"></p>
 <p>除了通用属性和文本样式设置，下面列举了一些Text组件的常用属性的使用。</p>
 <h2 id="设置文本对齐方式"><a href="#设置文本对齐方式" class="headerlink" title="设置文本对齐方式"></a>设置文本对齐方式</h2><p>使用textAlign属性可以设置文本的对齐方式，示例代码如下：</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Text</span>(<span class="string">&#x27;HarmonyOS&#x27;</span>)</span><br><span class="line">  .<span class="title function_">width</span>(<span class="number">200</span>)</span><br><span class="line">  .<span class="title function_">textAlign</span>(<span class="title class_">TextAlign</span>.<span class="property">Start</span>)</span><br><span class="line">  .<span class="title function_">backgroundColor</span>(<span class="number">0xE6F2FD</span>)</span><br></pre></td></tr></table></figure>
-
 <p>textAlign参数类型为TextAlign，定义了以下几种类型：</p>
 <ul>
 <li><p>Start（默认值）：水平对齐首部。</p>
@@ -481,13 +487,11 @@
 </ul>
 <h2 id="设置文本超长显示"><a href="#设置文本超长显示" class="headerlink" title="设置文本超长显示"></a>设置文本超长显示</h2><p>当文本内容较多超出了Text组件范围的时候，您可以使用textOverflow设置文本截取方式，需配合maxLines使用，单独设置不生效，maxLines用于设置文本显示最大行数。下面的示例代码将textOverflow设置为Ellipsis ，它将显示不下的文本用 “…” 表示：</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Text</span>(<span class="string">&#x27;This is the text content of Text Component This is the text content of Text Component&#x27;</span>)</span><br><span class="line">  .<span class="title function_">fontSize</span>(<span class="number">16</span>)</span><br><span class="line">  .<span class="title function_">maxLines</span>(<span class="number">1</span>)</span><br><span class="line">  .<span class="title function_">textOverflow</span>(&#123;<span class="attr">overflow</span>:<span class="title class_">TextOverflow</span>.<span class="property">Ellipsis</span>&#125;)</span><br><span class="line">  .<span class="title function_">backgroundColor</span>(<span class="number">0xE6F2FD</span>) </span><br></pre></td></tr></table></figure>
-
 <p>效果图如下：</p>
 <p><img src="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/103/404/958/0260086000103404958.20221102114644.68621516400405905798472500772263:50001231000000:2800:A59BEB8CFE497FC541786416270A6AFBE858A57D1260B775BF6FF3B2E907264B.png" alt="img"></p>
 <h2 id="设置文本装饰线"><a href="#设置文本装饰线" class="headerlink" title="设置文本装饰线"></a>设置文本装饰线</h2><p>使用decoration设置文本装饰线样式及其颜色，大家在浏览网页的时候经常可以看到装饰线，例如带有下划线超链接文本。decoration包含type和color两个参数，其中type用于设置装饰线样式，参数类型为TextDecorationTyp，color为可选参数。</p>
 <p>下面的示例代码给文本设置了下划线，下划线颜色为黑色：</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Text</span>(<span class="string">&#x27;HarmonyOS&#x27;</span>)</span><br><span class="line">  .<span class="title function_">fontSize</span>(<span class="number">20</span>)</span><br><span class="line">  .<span class="title function_">decoration</span>(&#123; <span class="attr">type</span>: <span class="title class_">TextDecorationType</span>.<span class="property">Underline</span>, <span class="attr">color</span>: <span class="title class_">Color</span>.<span class="property">Black</span> &#125;)</span><br><span class="line">  .<span class="title function_">backgroundColor</span>(<span class="number">0xE6F2FD</span>)</span><br></pre></td></tr></table></figure>
-
 <p>效果图如下：</p>
 <p><img src="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/103/404/958/0260086000103404958.20221102114652.69929054773100409790044510283833:50001231000000:2800:A94A866A6D98B51775AE12C3032607C04C117EAA8718BF4250850536BE1EF13E.png" alt="img"></p>
 <p>TextDecorationTyp包含以下几种类型：</p>
@@ -507,7 +511,6 @@
 </ul>
 <h1 id="3-Image"><a href="#3-Image" class="headerlink" title="3 Image"></a>3 Image</h1><p>Image组件用来渲染展示图片，它可以让界面变得更加丰富多彩。只需要给Image组件设置图片地址、宽和高，图片就能加载出来，示例如下：</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Image</span>($r(<span class="string">&quot;app.media.icon&quot;</span>))</span><br><span class="line">  .<span class="title function_">width</span>(<span class="number">100</span>)</span><br><span class="line">  .<span class="title function_">height</span>(<span class="number">100</span>)</span><br></pre></td></tr></table></figure>
-
 <p>效果图如下：</p>
 <p><img src="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/103/404/958/0260086000103404958.20221102114731.39553189055211199745202206018464:50001231000000:2800:E0097635C3FE290FC9F65597FC978BCA530F5095D149BFB0A350FF57AEC2FA1A.png" alt="img"></p>
 <h2 id="设置缩放类型"><a href="#设置缩放类型" class="headerlink" title="设置缩放类型"></a>设置缩放类型</h2><p>为了使图片在页面中有更好的显示效果，有时候需要对图片进行缩放处理。您可以使用objectFit属性设置图片的缩放类型，objectFit的参数类型为ImageFit。</p>
@@ -515,7 +518,6 @@
 <p><img src="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/103/404/958/0260086000103404958.20221102114739.77512714800298501080868850482759:50001231000000:2800:8D788340321FFC1F46F5A06C88E506AD5E769F26D95717A5881C3FC1C09BBF76.png" alt="img"></p>
 <p>将图片加载到Image组件，设置宽高各100，设置objectFit为Cover（默认值），设置图片背景色为灰色0xCCCCCC。示例代码如下：</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Image</span>($r(<span class="string">&quot;app.media.image2&quot;</span>))</span><br><span class="line">  .<span class="title function_">objectFit</span>(<span class="title class_">ImageFit</span>.<span class="property">Cover</span>)</span><br><span class="line">  .<span class="title function_">backgroundColor</span>(<span class="number">0xCCCCCC</span>)</span><br><span class="line">  .<span class="title function_">width</span>(<span class="number">100</span>)</span><br><span class="line">  .<span class="title function_">height</span>(<span class="number">100</span>) </span><br></pre></td></tr></table></figure>
-
 <p>效果图如下：</p>
 <p><img src="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/103/404/958/0260086000103404958.20221102114748.77856821710199152384867059247638:50001231000000:2800:397491140D28842CCE2BC0E60F5999E608782F715E5C294D5172CA7DF129558D.png" alt="img"></p>
 <p>ImageFit包含以下几种类型：</p>
@@ -541,26 +543,21 @@
 </ul>
 <h2 id="加载网络图片"><a href="#加载网络图片" class="headerlink" title="加载网络图片"></a>加载网络图片</h2><p>比如浏览新闻的时候，图片一般从网络加载而来，Image组件支持加载网络图片，将图片地址换成网络图片地址进行加载。</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Image</span>(<span class="string">&#x27;https://www.example.com/xxx.png&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
 <p>为了成功加载网络图片，您需要在module.json5文件中申明网络访问权限。</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    <span class="string">&quot;module&quot;</span> : &#123;</span><br><span class="line">        <span class="string">&quot;requestPermissions&quot;</span>:[</span><br><span class="line">           &#123;</span><br><span class="line">             <span class="string">&quot;name&quot;</span>: <span class="string">&quot;ohos.permission.INTERNET&quot;</span></span><br><span class="line">           &#125;</span><br><span class="line">        ]</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p><img src="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/103/404/958/0260086000103404958.20221102115035.57901904356964270856139117822179:50001231000000:2800:38B8FF4B793C0D18A93C462CCD38A2644D9C09D65674F94484ECDE7556979346.png" alt="img"></p>
 <p>应用访问网络需要申请ohos.permission.INTERNET权限，因为HarmonyOS提供了一种访问控制机制即应用权限，用来保证这些数据或功能不会被不当或恶意使用。关于应用权限的的详细信息开发者可以参考：<a target="_blank" rel="noopener" href="https://developer.harmonyos.com/cn/docs/documentation/doc-guides/accesstoken-overview-0000001333641125">访问控制</a>。</p>
 <h1 id="4-TextInput"><a href="#4-TextInput" class="headerlink" title="4 TextInput"></a>4 TextInput</h1><p><img src="/2023/10/04/23-%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91/%E5%B8%B8%E7%94%A8%E5%9F%BA%E7%A1%80%E7%BB%84%E4%BB%B6/image-20231004171500452.png" alt="image-20231004171500452"></p>
 <p>TextInput组件用于输入单行文本，响应输入事件。TextInput的使用也非常广泛，例如应用登录账号密码、发送消息等。和Text组件一样，TextInput组件也支持文本样式设置，下面的示例代码实现了一个简单的输入框：</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">TextInput</span>()</span><br><span class="line">  .<span class="title function_">fontColor</span>(<span class="title class_">Color</span>.<span class="property">Blue</span>)</span><br><span class="line">  .<span class="title function_">fontSize</span>(<span class="number">20</span>)</span><br><span class="line">  .<span class="title function_">fontStyle</span>(<span class="title class_">FontStyle</span>.<span class="property">Italic</span>)</span><br><span class="line">  .<span class="title function_">fontWeight</span>(<span class="title class_">FontWeight</span>.<span class="property">Bold</span>)</span><br><span class="line">  .<span class="title function_">fontFamily</span>(<span class="string">&#x27;Arial&#x27;</span>) </span><br></pre></td></tr></table></figure>
-
 <p>效果图如下：</p>
 <p><img src="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/103/404/958/0260086000103404958.20221102115050.52007374582615623658877407943036:50001231000000:2800:0E13911716C4593FFFE505D017280722EF6A8B33E0CEC9DFB56264D63094E2E3.png" alt="img"></p>
 <h2 id="设置输入提示文本"><a href="#设置输入提示文本" class="headerlink" title="设置输入提示文本"></a>设置输入提示文本</h2><p>当我们平时使用输入框的时候，往往会有一些提示文字。例如登录账号的时候会有“请输入账号”这样的文本提示，当用户输入内容之后，提示文本就会消失，这种提示功能使用placeholder属性就可以轻松的实现。您还可以使用placeholderColor和placeholderFont分别设置提示文本的颜色和样式，示例代码如下：</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">TextInput</span>(&#123; <span class="attr">placeholder</span>: <span class="string">&#x27;请输入帐号&#x27;</span> &#125;)</span><br><span class="line">  .<span class="title function_">placeholderColor</span>(<span class="number">0x999999</span>)</span><br><span class="line">  .<span class="title function_">placeholderFont</span>(&#123; <span class="attr">size</span>: <span class="number">20</span>, <span class="attr">weight</span>: <span class="title class_">FontWeight</span>.<span class="property">Medium</span>, <span class="attr">family</span>: <span class="string">&#x27;cursive&#x27;</span>, <span class="attr">style</span>: <span class="title class_">FontStyle</span>.<span class="property">Italic</span> &#125;)</span><br></pre></td></tr></table></figure>
-
 <p>效果图如下：</p>
 <p><img src="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/103/404/958/0260086000103404958.20221102115100.71218216501593991658353961758535:50001231000000:2800:AA026BFE5F8E049506B4D2EEF7BF7DABE7284E5D4226C75AA32B57E124399DAA.gif" alt="img"></p>
 <h2 id="设置输入类型"><a href="#设置输入类型" class="headerlink" title="设置输入类型"></a>设置输入类型</h2><p>可以使用type属性来设置输入框类型。例如密码输入框，一般输入密码的时候，为了用户密码安全，内容会显示为“……”，针对这种场景，将type属性设置为InputType.Password就可以实现。示例代码如下：</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">TextInput(&#123; placeholder: &#x27;请输入密码&#x27; &#125;)</span><br><span class="line">  .type(InputType.Password)</span><br></pre></td></tr></table></figure>
-
 <p>效果图如下：</p>
 <p><img src="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/103/404/958/0260086000103404958.20221102115110.98778894209644360311002826080034:50001231000000:2800:8BE918EFF85332BB9140B61DFA66D7145E578618FA793045987D49CF092433EC.gif" alt="img"></p>
 <p>type的参数类型为InputType，包含以下几种输入类型：</p>
@@ -580,17 +577,14 @@
 </ul>
 <h2 id="设置光标位置"><a href="#设置光标位置" class="headerlink" title="设置光标位置"></a>设置光标位置</h2><p>可以使用TextInputController动态设置光位置，下面的示例代码使用TextInputController的caretPosition方法，将光标移动到了第二个字符后。</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Entry</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line">struct <span class="title class_">TextInputDemo</span> &#123;</span><br><span class="line">  <span class="attr">controller</span>: <span class="title class_">TextInputController</span> = <span class="keyword">new</span> <span class="title class_">TextInputController</span>()</span><br><span class="line"> </span><br><span class="line">  <span class="title function_">build</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="title class_">Column</span>() &#123;</span><br><span class="line">      <span class="title class_">TextInput</span>(&#123; <span class="attr">controller</span>: <span class="variable language_">this</span>.<span class="property">controller</span> &#125;)</span><br><span class="line">      <span class="title class_">Button</span>(<span class="string">&#x27;设置光标位置&#x27;</span>)</span><br><span class="line">        .<span class="title function_">onClick</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">          <span class="variable language_">this</span>.<span class="property">controller</span>.<span class="title function_">caretPosition</span>(<span class="number">2</span>)</span><br><span class="line">        &#125;)</span><br><span class="line">    &#125;</span><br><span class="line">    .<span class="title function_">height</span>(<span class="string">&#x27;100%&#x27;</span>)</span><br><span class="line">    .<span class="title function_">backgroundColor</span>(<span class="number">0xE6F2FD</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>效果图如下：</p>
 <p><img src="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/103/404/958/0260086000103404958.20221102115317.35282590037382074976290780085823:50001231000000:2800:CC4870F4F8F97CC04C6F11016FD88D50323C29F810F9D24B1C43E38E82A2BDEB.gif" alt="img"></p>
 <h2 id="获取输入文本"><a href="#获取输入文本" class="headerlink" title="获取输入文本"></a>获取输入文本</h2><p>我们可以给TextInput设置onChange事件，输入文本发生变化时触发回调，下面示例代码中的value为实时获取用户输入的文本信息。</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Entry</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line">struct <span class="title class_">TextInputDemo</span> &#123;</span><br><span class="line">  <span class="meta">@State</span> <span class="attr">text</span>: <span class="built_in">string</span> = <span class="string">&#x27;&#x27;</span></span><br><span class="line"> </span><br><span class="line">  <span class="title function_">build</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="title class_">Column</span>() &#123;</span><br><span class="line">      <span class="title class_">TextInput</span>(&#123; <span class="attr">placeholder</span>: <span class="string">&#x27;请输入账号&#x27;</span> &#125;)</span><br><span class="line">        .<span class="title function_">caretColor</span>(<span class="title class_">Color</span>.<span class="property">Blue</span>)</span><br><span class="line">        .<span class="title function_">onChange</span>(<span class="function">(<span class="params">value: <span class="built_in">string</span></span>) =&gt;</span> &#123;</span><br><span class="line">          <span class="variable language_">this</span>.<span class="property">text</span> = value</span><br><span class="line">        &#125;)</span><br><span class="line">      <span class="title class_">Text</span>(<span class="variable language_">this</span>.<span class="property">text</span>)</span><br><span class="line">    &#125;</span><br><span class="line">    .<span class="title function_">alignItems</span>(<span class="title class_">HorizontalAlign</span>.<span class="property">Center</span>)</span><br><span class="line">    .<span class="title function_">padding</span>(<span class="number">12</span>)</span><br><span class="line">    .<span class="title function_">backgroundColor</span>(<span class="number">0xE6F2FD</span>)</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>效果图如下：</p>
 <p><img src="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/103/404/958/0260086000103404958.20221102115338.69547694354764992883763360730107:50001231000000:2800:BA25C8408214B902ECBD215DABB7916AED4E7FB78B8F280799A83B607AA7C909.gif" alt="img"></p>
 <h1 id="5-Button"><a href="#5-Button" class="headerlink" title="5 Button"></a>5 Button</h1><p>Button组件主要用来响应点击操作，可以包含子组件。下面的示例代码实现了一个“登录按钮”：</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Button</span>(<span class="string">&#x27;登录&#x27;</span>, &#123; <span class="attr">type</span>: <span class="title class_">ButtonType</span>.<span class="property">Capsule</span>, <span class="attr">stateEffect</span>: <span class="literal">true</span> &#125;)</span><br><span class="line">  .<span class="title function_">width</span>(<span class="string">&#x27;90%&#x27;</span>)</span><br><span class="line">  .<span class="title function_">height</span>(<span class="number">40</span>)</span><br><span class="line">  .<span class="title function_">fontSize</span>(<span class="number">16</span>)</span><br><span class="line">  .<span class="title function_">fontWeight</span>(<span class="title class_">FontWeight</span>.<span class="property">Medium</span>)</span><br><span class="line">  .<span class="title function_">backgroundColor</span>(<span class="string">&#x27;#007DFF&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
 <p>效果图如下：</p>
 <p><img src="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/103/404/958/0260086000103404958.20221102115354.26733108824112602628872699815029:50001231000000:2800:3DB0F3BDDC39FA9DA9B6E2CBA0E80BE64853C6EB2527A6EE2B245EE38E99F134.png" alt="img"></p>
 <h2 id="设置按钮样式"><a href="#设置按钮样式" class="headerlink" title="设置按钮样式"></a>设置按钮样式</h2><p>type用于定义按钮样式，示例代码中ButtonType.Capsule表示胶囊形按钮；stateEffect用于设置按钮按下时是否开启切换效果，当状态置为false时，点击效果关闭，默认值为true。</p>
@@ -608,34 +602,26 @@
 </ul>
 <h2 id="设置按钮点击事件"><a href="#设置按钮点击事件" class="headerlink" title="设置按钮点击事件"></a>设置按钮点击事件</h2><p>可以给Button绑定onClick事件，每当用户点击Button的时候，就会回调执行onClick方法，调用里面的逻辑代码。</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Button</span>(<span class="string">&#x27;登录&#x27;</span>, &#123; <span class="attr">type</span>: <span class="title class_">ButtonType</span>.<span class="property">Capsule</span>, <span class="attr">stateEffect</span>: <span class="literal">true</span> &#125;)</span><br><span class="line">  ...</span><br><span class="line">  .<span class="title function_">onClick</span>(<span class="function">() =&gt;</span> &#123;</span><br><span class="line">  <span class="comment">// 处理点击事件逻辑</span></span><br><span class="line">  &#125;)</span><br></pre></td></tr></table></figure>
-
 <h2 id="包含子组件"><a href="#包含子组件" class="headerlink" title="包含子组件"></a>包含子组件</h2><p>Button组件可以包含子组件，让您可以开发出更丰富多样的Button，下面的示例代码中Button组件包含了一个Image组件：</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Button</span>(&#123; <span class="attr">type</span>: <span class="title class_">ButtonType</span>.<span class="property">Circle</span>, <span class="attr">stateEffect</span>: <span class="literal">true</span> &#125;) &#123;</span><br><span class="line">  <span class="title class_">Image</span>($r(<span class="string">&#x27;app.media.icon_delete&#x27;</span>))</span><br><span class="line">    .<span class="title function_">width</span>(<span class="number">30</span>)</span><br><span class="line">    .<span class="title function_">height</span>(<span class="number">30</span>)</span><br><span class="line">&#125;</span><br><span class="line">.<span class="title function_">width</span>(<span class="number">55</span>)</span><br><span class="line">.<span class="title function_">height</span>(<span class="number">55</span>)</span><br><span class="line">.<span class="title function_">backgroundColor</span>(<span class="number">0x317aff</span>)</span><br></pre></td></tr></table></figure>
-
 <p>效果图如下：</p>
 <p><img src="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/103/404/958/0260086000103404958.20221102115439.25988537294891479063435944038115:50001231000000:2800:7FB346C30BFCECCBDB87006E52813894BCCD0DCF5041B524F5B5C59F851D0DAA.png" alt="img"></p>
 <h1 id="6-LoadingProgress"><a href="#6-LoadingProgress" class="headerlink" title="6 LoadingProgress"></a>6 LoadingProgress</h1><p>LoadingProgress组件用于显示加载进展，比如应用的登录界面，当我们点击登录的时候，显示的“正在登录”的进度条状态。LoadingProgress的使用非常简单，只需要设置颜色和宽高就可以了。</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">LoadingProgress</span>()</span><br><span class="line">  .<span class="title function_">color</span>(<span class="title class_">Color</span>.<span class="property">Blue</span>)</span><br><span class="line">  .<span class="title function_">height</span>(<span class="number">60</span>)</span><br><span class="line">  .<span class="title function_">width</span>(<span class="number">60</span>)</span><br></pre></td></tr></table></figure>
-
 <p>效果图如下：</p>
 <p><img src="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/103/404/958/0260086000103404958.20221102115448.33909926886752830021497148543403:50001231000000:2800:98D471A991979097448D44923AF569FB44492907377352F8752E055DDECD23C2.gif" alt="img"></p>
 <h1 id="7-使用资源引用类型"><a href="#7-使用资源引用类型" class="headerlink" title="7 使用资源引用类型"></a>7 使用资源引用类型</h1><p>Resource是资源引用类型，用于设置组件属性的值。推荐大家优先使用Resource类型，将资源文件（字符串、图片、音频等）统一存放于resources目录下，便于开发者统一维护。同时系统可以根据当前配置加载合适的资源，例如，开发者可以根据屏幕尺寸呈现不同的布局效果，或根据语言设置提供不同的字符串。</p>
 <p>例如下面的这段代码，直接在代码中写入了字符串和数字这样的硬编码。</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Button</span>(<span class="string">&#x27;登录&#x27;</span>, &#123; <span class="attr">type</span>: <span class="title class_">ButtonType</span>.<span class="property">Capsule</span>, <span class="attr">stateEffect</span>: <span class="literal">true</span> &#125;)</span><br><span class="line">  .<span class="title function_">width</span>(<span class="number">300</span>)</span><br><span class="line">  .<span class="title function_">height</span>(<span class="number">40</span>)</span><br><span class="line">  .<span class="title function_">fontSize</span>(<span class="number">16</span>)</span><br><span class="line">  .<span class="title function_">fontWeight</span>(<span class="title class_">FontWeight</span>.<span class="property">Medium</span>)</span><br><span class="line">  .<span class="title function_">backgroundColor</span>(<span class="string">&#x27;#007DFF&#x27;</span>)</span><br></pre></td></tr></table></figure>
-
-<p>我们可以将这些硬编码写到entry&#x2F;src&#x2F;main&#x2F;resources下的资源文件中。</p>
+<p>我们可以将这些硬编码写到entry/src/main/resources下的资源文件中。</p>
 <p>在string.json中定义Button显示的文本。</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;string&quot;</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">&quot;name&quot;</span>: <span class="string">&quot;login_text&quot;</span>,</span><br><span class="line">      <span class="string">&quot;value&quot;</span>: <span class="string">&quot;登录&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
-
 <p>在float.json中定义Button的宽高和字体大小。</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;float&quot;</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">&quot;name&quot;</span>: <span class="string">&quot;button_width&quot;</span>,</span><br><span class="line">      <span class="string">&quot;value&quot;</span>: <span class="string">&quot;300vp&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">&quot;name&quot;</span>: <span class="string">&quot;button_height&quot;</span>,</span><br><span class="line">      <span class="string">&quot;value&quot;</span>: <span class="string">&quot;40vp&quot;</span></span><br><span class="line">    &#125;,</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">&quot;name&quot;</span>: <span class="string">&quot;login_fontSize&quot;</span>,</span><br><span class="line">      <span class="string">&quot;value&quot;</span>: <span class="string">&quot;18fp&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>在color.json中定义Button的背景颜色。</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  <span class="string">&quot;color&quot;</span>: [</span><br><span class="line">    &#123;</span><br><span class="line">      <span class="string">&quot;name&quot;</span>: <span class="string">&quot;button_color&quot;</span>,</span><br><span class="line">      <span class="string">&quot;value&quot;</span>: <span class="string">&quot;#1890ff&quot;</span></span><br><span class="line">    &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>然后在Button组件通过“$r(‘app.type.name’)”的形式引用应用资源。app代表应用内resources目录中定义的资源；type代表资源类型（或资源的存放位置），可以取“color”、“float”、“string”、“plural”、“media”；name代表资源命名，由开发者定义资源时确定。</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="title class_">Button</span>($r(<span class="string">&#x27;app.string.login_text&#x27;</span>), &#123; <span class="attr">type</span>: <span class="title class_">ButtonType</span>.<span class="property">Capsule</span> &#125;)</span><br><span class="line">  .<span class="title function_">width</span>($r(<span class="string">&#x27;app.float.button_width&#x27;</span>))</span><br><span class="line">  .<span class="title function_">height</span>($r(<span class="string">&#x27;app.float.button_height&#x27;</span>))</span><br><span class="line">  .<span class="title function_">fontSize</span>($r(<span class="string">&#x27;app.float.login_fontSize&#x27;</span>))</span><br><span class="line">  .<span class="title function_">backgroundColor</span>($r(<span class="string">&#x27;app.color.button_color&#x27;</span>))</span><br></pre></td></tr></table></figure>
-
 <h1 id="8-参考资料"><a href="#8-参考资料" class="headerlink" title="8 参考资料"></a>8 参考资料</h1><p>常用基础的组件的更多使用方法可以参考：</p>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-basic-components-text-0000001333720953">Text</a></li>

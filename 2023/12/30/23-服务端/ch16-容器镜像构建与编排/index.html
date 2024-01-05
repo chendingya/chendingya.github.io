@@ -173,9 +173,14 @@
                 <div class="category-count">6</div>
             </a>
         
-            <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">
-                软件工程与计算II
-                <div class="category-count">28</div>
+            <a class="category-link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
+                编译原理
+                <div class="category-count">13</div>
+            </a>
+        
+            <a class="category-link" href="/categories/tdesign/">
+                tdesign
+                <div class="category-count">1</div>
             </a>
         
             <a class="category-link" href="/categories/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91/">
@@ -188,19 +193,14 @@
                 <div class="category-count">12</div>
             </a>
         
-            <a class="category-link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
-                编译原理
-                <div class="category-count">13</div>
+            <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">
+                软件工程与计算II
+                <div class="category-count">28</div>
             </a>
         
-            <a class="category-link" href="/categories/tdesign/">
-                tdesign
+            <a class="category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                机器学习
                 <div class="category-count">1</div>
-            </a>
-        
-            <a class="category-link" href="/categories/%E9%A9%BE%E8%80%83/">
-                驾考
-                <div class="category-count">2</div>
             </a>
         
             <a class="category-link" href="/categories/leetcode/">
@@ -208,9 +208,9 @@
                 <div class="category-count">4</div>
             </a>
         
-            <a class="category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                机器学习
-                <div class="category-count">1</div>
+            <a class="category-link" href="/categories/%E9%A9%BE%E8%80%83/">
+                驾考
+                <div class="category-count">2</div>
             </a>
         </div>
     </div>
@@ -236,7 +236,7 @@
       
         <a class="archive-link" href="/archives/2024/01 ">
           一月 2024 
-          <div class="archive-count">2 </div>
+          <div class="archive-count">3 </div>
         </a>
       
         <a class="archive-link" href="/archives/2023/12 ">
@@ -300,6 +300,12 @@
       <h3 class="widget-title">最新文章</h3>
       <ul>
         
+          <a class="recent-link" href="/2024/01/05/23-%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92/%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/" title="" >
+            <div class="recent-link-text">
+              (no title)
+            </div>
+          </a>
+        
           <a class="recent-link" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/" title="服务端-ch17-k8s使用" >
             <div class="recent-link-text">
               服务端-ch17-k8s使用
@@ -321,12 +327,6 @@
           <a class="recent-link" href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/" title="服务端-ch15-Docker" >
             <div class="recent-link-text">
               服务端-ch15-Docker
-            </div>
-          </a>
-        
-          <a class="recent-link" href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/" title="服务端-ch14-Spring WebFlux" >
-            <div class="recent-link-text">
-              服务端-ch14-Spring WebFlux
             </div>
           </a>
         
@@ -427,7 +427,7 @@
 <li>如何编写dockerfile: <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/26904830">如何编写最佳的Dockerfile - 知乎 </a><ol>
 <li><code>.dockerignore</code>文件</li>
 <li>容器只运行单个应用<ul>
-<li>解耦，未来可以单独对一个应用进行升级&#x2F;重启&#x2F;…</li>
+<li>解耦，未来可以单独对一个应用进行升级/重启/…</li>
 </ul>
 </li>
 <li>将多个RUN指令合并为一个<ul>
@@ -483,26 +483,32 @@
 <p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/93459395">Docker三剑客之docker-compose - 知乎 </a></p>
 <h2 id="YAML文件"><a href="#YAML文件" class="headerlink" title="YAML文件"></a>YAML文件</h2><p>指定容器名之后只能部署一个，默认情况下为服务名+编号</p>
 <h2 id="docker-compose常用命令👍"><a href="#docker-compose常用命令👍" class="headerlink" title="docker-compose常用命令👍"></a>docker-compose常用命令👍</h2><ul>
-<li>docker-compose –help</li>
+<li>docker-compose —help</li>
 <li>docker-compose up -d <ul>
 <li># 该命令十分强大，它将尝试自动完成包括构建镜像，（重新）创建服务，启动服务，并关联服务相关容器的一系列操作</li>
 </ul>
 </li>
-<li>docker-compose ps、docker-compose ps –services </li>
+<li>docker-compose ps、docker-compose ps —services </li>
 <li>docker-compose images </li>
 <li>docker-compose stop <ul>
-<li># 终止整个服务集合</li>
+<li># 终止整个服务集合 </li>
 </ul>
 </li>
-<li>docker-compose stop nginx </li>
+<li>docker-compose stop nginx <ul>
 <li># 终止指定的服务 （这有个点就是启动的时候会先启动 depond_on 中的容器，关闭的时候不会影响到 depond_on 中的）</li>
-<li>docker-compose logs -f [services…] </li>
+</ul>
+</li>
+<li>docker-compose logs -f [services…] <ul>
 <li># 查看容器的输出日志 </li>
+</ul>
+</li>
 <li>docker-compose build [SERVICE…]</li>
 <li>docker-compose rm nginx # 移除指定的容器</li>
-<li>docker-compose up -d –scale flask&#x3D;3 organizationservice&#x3D;2 </li>
+<li>docker-compose up -d —scale flask=3 organizationservice=2 <ul>
 <li>设置指定服务运行的容器个数</li>
 <li>scale：横向伸缩</li>
+</ul>
+</li>
 </ul>
 <h2 id="ports、expose、links、depends-on"><a href="#ports、expose、links、depends-on" class="headerlink" title="ports、expose、links、depends_on"></a>ports、expose、links、depends_on</h2><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/382779508">docker-compose的ports、expose、links、depends_on的使用技巧 - 知乎 </a></p>
 <ul>
@@ -528,10 +534,10 @@
 <li>Logging 驱动是可以插拔的框架</li>
 <li>Logging 驱动是 Container 用来使用服务来访问 log data 的工具</li>
 <li>Docker 支持很多种类的 Logging Driver</li>
-<li>默认驱动（log-driver）: “json-file”，存放到主机目录：&#x2F;var&#x2F;lib&#x2F;docker&#x2F;containers&#x2F;[容器ID]-json.log</li>
+<li>默认驱动（log-driver）: “json-file”，存放到主机目录：/var/lib/docker/containers/[容器ID]-json.log</li>
 <li>单个容器的日志配置<ul>
 <li>docker run –log-driver syslog nginx</li>
-<li>docker run –log-driver json-file –log-opt max-size&#x3D;50m nginx</li>
+<li>docker run –log-driver json-file –log-opt max-size=50m nginx</li>
 </ul>
 </li>
 <li>更多驱动：fluentd、splunk、awslogs</li>

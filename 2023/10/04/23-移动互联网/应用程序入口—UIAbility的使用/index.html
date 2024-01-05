@@ -185,9 +185,14 @@
                 <div class="category-count">6</div>
             </a>
         
-            <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">
-                软件工程与计算II
-                <div class="category-count">28</div>
+            <a class="category-link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
+                编译原理
+                <div class="category-count">13</div>
+            </a>
+        
+            <a class="category-link" href="/categories/tdesign/">
+                tdesign
+                <div class="category-count">1</div>
             </a>
         
             <a class="category-link" href="/categories/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91/">
@@ -200,19 +205,14 @@
                 <div class="category-count">12</div>
             </a>
         
-            <a class="category-link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
-                编译原理
-                <div class="category-count">13</div>
+            <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">
+                软件工程与计算II
+                <div class="category-count">28</div>
             </a>
         
-            <a class="category-link" href="/categories/tdesign/">
-                tdesign
+            <a class="category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                机器学习
                 <div class="category-count">1</div>
-            </a>
-        
-            <a class="category-link" href="/categories/%E9%A9%BE%E8%80%83/">
-                驾考
-                <div class="category-count">2</div>
             </a>
         
             <a class="category-link" href="/categories/leetcode/">
@@ -220,9 +220,9 @@
                 <div class="category-count">4</div>
             </a>
         
-            <a class="category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                机器学习
-                <div class="category-count">1</div>
+            <a class="category-link" href="/categories/%E9%A9%BE%E8%80%83/">
+                驾考
+                <div class="category-count">2</div>
             </a>
         </div>
     </div>
@@ -248,7 +248,7 @@
       
         <a class="archive-link" href="/archives/2024/01 ">
           一月 2024 
-          <div class="archive-count">2 </div>
+          <div class="archive-count">3 </div>
         </a>
       
         <a class="archive-link" href="/archives/2023/12 ">
@@ -312,6 +312,12 @@
       <h3 class="widget-title">最新文章</h3>
       <ul>
         
+          <a class="recent-link" href="/2024/01/05/23-%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92/%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/" title="" >
+            <div class="recent-link-text">
+              (no title)
+            </div>
+          </a>
+        
           <a class="recent-link" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/" title="服务端-ch17-k8s使用" >
             <div class="recent-link-text">
               服务端-ch17-k8s使用
@@ -333,12 +339,6 @@
           <a class="recent-link" href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/" title="服务端-ch15-Docker" >
             <div class="recent-link-text">
               服务端-ch15-Docker
-            </div>
-          </a>
-        
-          <a class="recent-link" href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/" title="服务端-ch14-Spring WebFlux" >
-            <div class="recent-link-text">
-              服务端-ch14-Spring WebFlux
             </div>
           </a>
         
@@ -404,9 +404,9 @@
 <p>在一个应用包含一个UIAbility的场景下，可以通过新建多个页面来实现和丰富应用的内容。这会涉及到UIAbility内页面的新建以及UIAbility内页面的跳转和数据传递。</p>
 <h2 id="页面的创建与跳转"><a href="#页面的创建与跳转" class="headerlink" title="页面的创建与跳转"></a>页面的创建与跳转</h2><p>打开DevEco Studio，选择一个Empty Ability工程模板，创建一个工程，例如命名为MyApplication。</p>
 <ul>
-<li>在src&#x2F;main&#x2F;ets&#x2F;entryability目录下，初始会生成一个UIAbility文件EntryAbility.ts。可以在EntryAbility.ts文件中根据业务需要实现UIAbility的生命周期回调内容。</li>
-<li>在src&#x2F;main&#x2F;ets&#x2F;pages目录下，会生成一个Index页面。这也是基于UIAbility实现的应用的入口页面。可以在Index页面中根据业务需要实现入口页面的功能。</li>
-<li>在src&#x2F;main&#x2F;ets&#x2F;pages目录下，右键，新建一个Second页面，用于实现页面间的跳转和数据传递。</li>
+<li>在src/main/ets/entryability目录下，初始会生成一个UIAbility文件EntryAbility.ts。可以在EntryAbility.ts文件中根据业务需要实现UIAbility的生命周期回调内容。</li>
+<li>在src/main/ets/pages目录下，会生成一个Index页面。这也是基于UIAbility实现的应用的入口页面。可以在Index页面中根据业务需要实现入口页面的功能。</li>
+<li>在src/main/ets/pages目录下，右键，新建一个Second页面，用于实现页面间的跳转和数据传递。</li>
 </ul>
 <p>为了实现页面的跳转和数据传递，需要新建一个页面。在原有Index页面的基础上，新建一个页面，例如命名为Second.ets。</p>
 <p>页面间的导航可以通过页面路由router模块来实现。</p>
@@ -414,7 +414,6 @@
 <p><img src="/2023/10/04/23-%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91/%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%85%A5%E5%8F%A3%E2%80%94UIAbility%E7%9A%84%E4%BD%BF%E7%94%A8/image-20231004165114290.png" alt="image-20231004165114290"></p>
 <h3 id="页面跳转和参数接收"><a href="#页面跳转和参数接收" class="headerlink" title="页面跳转和参数接收"></a>页面跳转和参数接收</h3><p>在使用页面路由之前，需要先导入router模块，如下代码所示。</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> router <span class="keyword">from</span> <span class="string">&#x27;@ohos.router&#x27;</span>;</span><br></pre></td></tr></table></figure>
-
 <p>页面跳转的几种方式，根据需要选择一种方式跳转即可。</p>
 <ul>
 <li><p>方式一：API9及以上，router.pushUrl()方法新增了mode参数，可以将mode参数配置为router.RouterMode.Single单实例模式和router.RouterMode.Standard多实例模式。</p>
@@ -425,12 +424,12 @@
 </li>
 <li><p>方式二：API9及以上，router.replaceUrl()方法新增了mode参数，可以将mode参数配置为router.RouterMode.Single单实例模式和router.RouterMode.Standard多实例模式。</p>
 <p>在单实例模式下：如果目标页面的url在页面栈中已经存在同url页面，离栈顶最近同url页面会被移动到栈顶，替换当前页面，并销毁被替换的当前页面，移动后的页面为新建页，页面栈的元素数量会减1；如果目标页面的url在页面栈中不存在同url页面，按多实例模式跳转，页面栈的元素数量不变。</p>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">router.<span class="title function_">pushUrl</span>(&#123;</span><br><span class="line">  <span class="attr">url</span>: <span class="string">&#x27;pages/Second&#x27;</span>, </span><br><span class="line">  <span class="attr">params</span>: &#123;</span><br><span class="line">    <span class="attr">src</span>: <span class="string">&#x27;Index页面传来的数据&#x27;</span>,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;, router.<span class="property">RouterMode</span>.<span class="property">Single</span>)</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">router.<span class="title function_">pushUrl</span>(&#123;</span><br><span class="line">  <span class="attr">url</span>: <span class="string">&#x27;pages/Second&#x27;</span>, </span><br><span class="line">  <span class="attr">params</span>: &#123;</span><br><span class="line">    <span class="attr">src</span>: <span class="string">&#x27;Index页面传来的数据&#x27;</span>,</span><br><span class="line">  &#125;</span><br><span class="line">&#125;, router.<span class="property">RouterMode</span>.<span class="property">Single</span>)</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 <p>已经实现了页面的跳转，接下来，在Second页面中如何进行自定义参数的接收呢？</p>
 <p>通过调用router.getParams()方法获取Index页面传递过来的自定义参数。</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> router <span class="keyword">from</span> <span class="string">&#x27;@ohos.router&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Entry</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line">struct <span class="title class_">Second</span> &#123;</span><br><span class="line">  <span class="meta">@State</span> <span class="attr">src</span>: <span class="built_in">string</span> = router.<span class="title function_">getParams</span>()?.[<span class="string">&#x27;src&#x27;</span>];</span><br><span class="line">  <span class="comment">// 页面刷新展示</span></span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>效果示意如下图所示。在Index页面中，点击“Next”后，即可从Index页面跳转到Second页面，并在Second页面中接收参数和进行页面刷新展示。</p>
 <p><img src="/2023/10/04/23-%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91/%E5%BA%94%E7%94%A8%E7%A8%8B%E5%BA%8F%E5%85%A5%E5%8F%A3%E2%80%94UIAbility%E7%9A%84%E4%BD%BF%E7%94%A8/image-20231004165134341.png" alt="image-20231004165134341"></p>
 <p><strong>图2</strong> Index页面跳转到Second页面</p>
@@ -439,17 +438,16 @@
 <p>在Second页面中，可以通过调用router.back()方法实现返回到上一个页面，或者在调用router.back()方法时增加可选的options参数（增加url参数）返回到指定页面。</p>
 <p>说明</p>
 <ul>
-<li><p>调用router.back()返回的目标页面需要在页面栈中存在才能正常跳转。</p>
-</li>
-<li><p>例如调用router.pushUrl()方法跳转到Second页面，在Second页面可以通过调用router.back()方法返回到上一个页面。</p>
-</li>
+<li>调用router.back()返回的目标页面需要在页面栈中存在才能正常跳转。</li>
+<li>例如调用router.pushUrl()方法跳转到Second页面，在Second页面可以通过调用router.back()方法返回到上一个页面。</li>
 <li><p>例如调用router.clear()方法清空了页面栈中所有历史页面，仅保留当前页面，此时则无法通过调用router.back()方法返回到上一个页面。</p>
 </li>
 <li><p>返回上一个页面。</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">router.<span class="title function_">back</span>();</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>返回到指定页面。</p>
-<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">router.<span class="title function_">back</span>(&#123; <span class="attr">url</span>: <span class="string">&#x27;pages/Index&#x27;</span> &#125;);</span><br></pre></td></tr></table></figure></li>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">router.<span class="title function_">back</span>(&#123; <span class="attr">url</span>: <span class="string">&#x27;pages/Index&#x27;</span> &#125;);</span><br></pre></td></tr></table></figure>
+</li>
 </ul>
 <p>效果示意如下图所示。在Second页面中，点击“Back”后，即可从Second页面返回到Index页面。</p>
 <p><strong>图3</strong> Second页面返回到Index页面</p>
@@ -462,16 +460,13 @@
 <li>如需关闭页面返回询问对话框功能，可以通过调用router.disableAlertBeforeBackPage()方法关闭该功能即可。</li>
 </ul>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">router.<span class="title function_">enableBackPageAlert</span>(&#123;</span><br><span class="line">  <span class="attr">message</span>: <span class="string">&#x27;Message Info&#x27;</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">router.<span class="title function_">back</span>();</span><br></pre></td></tr></table></figure>
-
 <p>在Second页面中，调用router.back()方法返回上一个页面或者返回指定页面时，根据需要继续增加自定义参数，例如在返回时增加一个自定义参数src。</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">router.<span class="title function_">enableBackPageAlert</span>(&#123;</span><br><span class="line">  <span class="attr">message</span>: <span class="string">&#x27;Message Info&#x27;</span></span><br><span class="line">&#125;);</span><br><span class="line"></span><br><span class="line">router.<span class="title function_">back</span>();</span><br></pre></td></tr></table></figure>
-
 <p>从Second页面返回到Index页面。在Index页面通过调用router.getParams()方法，获取Second页面传递过来的自定义参数。</p>
 <p>说明</p>
 <p><strong>调用router.back()方法，不会新建页面，返回的是原来的页面，在原来页面中@State声明的变量不会重复声明，以及也不会触发页面的aboutToAppear()生命周期回调，因此无法直接在变量声明以及页面的aboutToAppear()生命周期回调中接收和解析router.back()传递过来的自定义参数。</strong></p>
 <p>可以放在业务需要的位置进行参数解析。示例代码在Index页面中的onPageShow()生命周期回调中进行参数的解析。</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> router <span class="keyword">from</span> <span class="string">&#x27;@ohos.router&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Entry</span></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line">struct <span class="title class_">Index</span> &#123;</span><br><span class="line">  <span class="meta">@State</span> <span class="attr">src</span>: <span class="built_in">string</span> = <span class="string">&#x27;&#x27;</span>;</span><br><span class="line"></span><br><span class="line">  <span class="title function_">onPageShow</span>(<span class="params"></span>) &#123;</span><br><span class="line">    <span class="variable language_">this</span>.<span class="property">src</span> = router.<span class="title function_">getParams</span>()?.[<span class="string">&#x27;src&#x27;</span>];</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="comment">// 页面刷新展示</span></span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>效果示意图如下图所示。在Second页面中，点击“Back”后，即可从Second页面返回到Index页面，并在Index页面中接收参数和进行页面刷新展示。</p>
 <p><strong>图4</strong> Second页面带参数返回Index页面</p>
 <p><img src="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230825095812.65278488588268530339423906572602:50001231000000:2800:1AD47605D5369ADDD567F430B9EE3389F66625A227F8357A6BC9425D158F57D4.png?needInitFileName=true?needInitFileName=true" alt="点击放大"></p>
@@ -490,15 +485,13 @@
 <ul>
 <li><p>Create状态，在UIAbility实例创建时触发，系统会调用onCreate回调。可以在onCreate回调中进行相关初始化操作。</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">UIAbility</span> <span class="keyword">from</span> <span class="string">&#x27;@ohos.app.ability.UIAbility&#x27;</span>; </span><br><span class="line"><span class="keyword">import</span> <span class="variable language_">window</span> <span class="keyword">from</span> <span class="string">&#x27;@ohos.window&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">class</span> <span class="title class_">EntryAbility</span> <span class="keyword">extends</span> <span class="title class_ inherited__">UIAbility</span> &#123;</span><br><span class="line">    <span class="title function_">onCreate</span>(<span class="params">want, launchParam</span>) &#123; </span><br><span class="line">        <span class="comment">// 应用初始化</span></span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>例如用户打开电池管理应用，在应用加载过程中，在UI页面可见之前，可以在onCreate回调中读取当前系统的电量情况，用于后续的UI页面展示。</p>
 </li>
 <li><p>UIAbility实例创建完成之后，在进入Foreground之前，系统会创建一个WindowStage。每一个UIAbility实例都对应持有一个WindowStage实例。</p>
-<p>WindowStage为本地窗口管理器，用于管理窗口相关的内容，例如与界面相关的获焦&#x2F;失焦、可见&#x2F;不可见。</p>
+<p>WindowStage为本地窗口管理器，用于管理窗口相关的内容，例如与界面相关的获焦/失焦、可见/不可见。</p>
 <p>可以在onWindowStageCreate回调中，设置UI页面加载、设置WindowStage的事件订阅。</p>
 <p>在onWindowStageCreate(windowStage)中通过loadContent接口设置应用要加载的页面，Window接口的使用详见<a target="_blank" rel="noopener" href="https://developer.harmonyos.com/cn/docs/documentation/doc-guides-V3/application-window-stage-0000001427584712-V3?catalogVersion=V3">窗口开发指导</a>。</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">UIAbility</span> <span class="keyword">from</span> <span class="string">&#x27;@ohos.app.ability.UIAbility&#x27;</span>; </span><br><span class="line"><span class="keyword">import</span> <span class="variable language_">window</span> <span class="keyword">from</span> <span class="string">&#x27;@ohos.window&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">class</span> <span class="title class_">EntryAbility</span> <span class="keyword">extends</span> <span class="title class_ inherited__">UIAbility</span> &#123;</span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">    <span class="title function_">onWindowStageCreate</span>(<span class="params">windowStage: <span class="variable language_">window</span>.WindowStage</span>) &#123;</span><br><span class="line">        <span class="comment">// 设置UI页面加载</span></span><br><span class="line">        <span class="comment">// 设置WindowStage的事件订阅（获焦/失焦、可见/不可见）</span></span><br><span class="line">        ...</span><br><span class="line"></span><br><span class="line">        windowStage.<span class="title function_">loadContent</span>(<span class="string">&#x27;pages/Index&#x27;</span>, <span class="function">(<span class="params">err, data</span>) =&gt;</span> &#123; </span><br><span class="line">            ...</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>例如用户打开游戏应用，正在打游戏的时候，有一个消息通知，打开消息，消息会以弹窗的形式弹出在游戏应用的上方，此时，游戏应用就从获焦切换到了失焦状态，消息应用切换到了获焦状态。对于消息应用，在onWindowStageCreate回调中，会触发获焦的事件回调，可以进行设置消息应用的背景颜色、高亮等操作。</p>
 </li>
 <li><p>Foreground和Background状态，分别在UIAbility切换至前台或者切换至后台时触发。</p>
@@ -506,19 +499,16 @@
 <p>onForeground回调，在UIAbility的UI页面可见之前，即UIAbility切换至前台时触发。可以在onForeground回调中申请系统需要的资源，或者重新申请在onBackground中释放的资源。</p>
 <p>onBackground回调，在UIAbility的UI页面完全不可见之后，即UIAbility切换至后台时候触发。可以在onBackground回调中释放UI页面不可见时无用的资源，或者在此回调中执行较为耗时的操作，例如状态保存等。</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">UIAbility</span> <span class="keyword">from</span> <span class="string">&#x27;@ohos.app.ability.UIAbility&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="variable language_">window</span> <span class="keyword">from</span> <span class="string">&#x27;@ohos.window&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">class</span> <span class="title class_">EntryAbility</span> <span class="keyword">extends</span> <span class="title class_ inherited__">UIAbility</span> &#123;</span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">    <span class="title function_">onForeground</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="comment">// 申请系统需要的资源，或者重新申请在onBackground中释放的资源</span></span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="title function_">onBackground</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="comment">// 释放UI页面不可见时无用的资源，或者在此回调中执行较为耗时的操作</span></span><br><span class="line">        <span class="comment">// 例如状态保存等</span></span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>例如用户打开地图应用查看当前地理位置的时候，假设地图应用已获得用户的定位权限授权。在UI页面显示之前，可以在onForeground回调中打开定位功能，从而获取到当前的位置信息。</p>
 <p>当地图应用切换到后台状态，可以在onBackground回调中停止定位功能，以节省系统的资源消耗。</p>
 </li>
 <li><p>前面我们了解了UIAbility实例创建时的onWindowStageCreate回调的相关作用。</p>
 <p>对应于onWindowStageCreate回调。在UIAbility实例销毁之前，则会先进入onWindowStageDestroy回调，我们可以在该回调中释放UI页面资源。</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">UIAbility</span> <span class="keyword">from</span> <span class="string">&#x27;@ohos.app.ability.UIAbility&#x27;</span>;</span><br><span class="line"><span class="keyword">import</span> <span class="variable language_">window</span> <span class="keyword">from</span> <span class="string">&#x27;@ohos.window&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">class</span> <span class="title class_">EntryAbility</span> <span class="keyword">extends</span> <span class="title class_ inherited__">UIAbility</span> &#123;</span><br><span class="line">    ...</span><br><span class="line"></span><br><span class="line">    <span class="title function_">onWindowStageDestroy</span>(<span class="params"></span>) &#123;</span><br><span class="line">        <span class="comment">// 释放UI页面资源</span></span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>例如在onWindowStageCreate中设置的获焦&#x2F;失焦等WindowStage订阅事件。</p>
+<p>例如在onWindowStageCreate中设置的获焦/失焦等WindowStage订阅事件。</p>
 </li>
 <li><p>Destroy状态，在UIAbility销毁时触发。可以在onDestroy回调中进行系统资源的释放、数据的保存等操作。</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="title class_">UIAbility</span> <span class="keyword">from</span> <span class="string">&#x27;@ohos.app.ability.UIAbility&#x27;</span>; </span><br><span class="line"><span class="keyword">import</span> <span class="variable language_">window</span> <span class="keyword">from</span> <span class="string">&#x27;@ohos.window&#x27;</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">export</span> <span class="keyword">default</span> <span class="keyword">class</span> <span class="title class_">EntryAbility</span> <span class="keyword">extends</span> <span class="title class_ inherited__">UIAbility</span> &#123;</span><br><span class="line">  ...</span><br><span class="line"></span><br><span class="line">    <span class="title function_">onDestroy</span>(<span class="params"></span>) &#123; </span><br><span class="line">        <span class="comment">// 系统资源的释放、数据的保存等</span></span><br><span class="line">        ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>例如用户使用应用的程序退出功能，会调用UIAbilityContext的terminalSelf()方法，从而完成UIAbility销毁。或者用户使用最近任务列表关闭该UIAbility实例时，也会完成UIAbility的销毁。</p>
 </li>
 </ul>
@@ -550,11 +540,9 @@
 <p>singleton启动模式，每次调用startAbility()启动UIAbility时，如果应用进程中该类型的UIAbility实例已经存在，则复用系统中的UIAbility实例，系统中只存在唯一一个该UIAbility实例。</p>
 <p>singleton启动模式的开发使用，在module.json5文件中的“launchType”字段配置为“singleton”即可。</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">   <span class="string">&quot;module&quot;</span>: &#123;</span><br><span class="line">     ...</span><br><span class="line">     <span class="string">&quot;abilities&quot;</span>: [</span><br><span class="line">       &#123;</span><br><span class="line">         <span class="string">&quot;launchType&quot;</span>: <span class="string">&quot;singleton&quot;</span>,</span><br><span class="line">         ...</span><br><span class="line">       &#125;</span><br><span class="line">     ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <h3 id="multiton启动模式"><a href="#multiton启动模式" class="headerlink" title="multiton启动模式"></a>multiton启动模式</h3><p>multiton启动模式，每次调用startAbility()方法时，都会在应用进程中创建一个该类型的UIAbility实例。</p>
 <p>multiton启动模式的开发使用，在module.json5文件中的“launchType”字段配置为“multiton”即可。</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">   <span class="string">&quot;module&quot;</span>: &#123;</span><br><span class="line">     ...</span><br><span class="line">     <span class="string">&quot;abilities&quot;</span>: [</span><br><span class="line">       &#123;</span><br><span class="line">         <span class="string">&quot;launchType&quot;</span>: <span class="string">&quot;multiton&quot;</span>,</span><br><span class="line">         ...</span><br><span class="line">       &#125;</span><br><span class="line">     ]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <h3 id="specified启动模式"><a href="#specified启动模式" class="headerlink" title="specified启动模式"></a>specified启动模式</h3><p>specified启动模式，根据业务需要是否创建一个新的UIAbility实例。在UIAbility实例创建之前，会先进入AbilityStage的onAcceptWant回调，在onAcceptWant回调中为每一个UIAbility实例创建一个Key，后续每次调用startAbility()方法创建该类型的UIAbility实例都会询问使用哪个Key对应的UIAbility实例来响应startAbility()请求。</p>
 <p>specified启动模式的开发使用的步骤如下所示。</p>
 <ol>
@@ -566,38 +554,9 @@
 </li>
 <li><p>在被拉起方UIAbility对应的AbilityStage的onAcceptWant生命周期回调中，解析传入的want参数，获取“instanceKey”自定义参数。根据业务需要返回一个该UIAbility实例的字符串Key标识。如果之前启动过此Key标识的UIAbility，则会将之前的UIAbility拉回前台并获焦，而不创建新的实例，否则创建新的实例并启动。</p>
 <figure class="highlight typescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="title function_">onAcceptWant</span>(want): <span class="built_in">string</span> &#123;</span><br><span class="line">    <span class="comment">// 在被启动方的AbilityStage中，针对启动模式为specified的UIAbility返回一个UIAbility实例对应的一个Key值</span></span><br><span class="line">    <span class="comment">// 当前示例指的是device Module的EntryAbility</span></span><br><span class="line"><span class="keyword">if</span> (want.<span class="property">abilityName</span> === <span class="string">&#x27;MainAbility&#x27;</span>) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">`DeviceModule_MainAbilityInstance_<span class="subst">$&#123;want.parameters.instanceKey&#125;</span>`</span>;</span><br><span class="line"> &#125;</span><br><span class="line"></span><br><span class="line"> <span class="keyword">return</span> <span class="string">&#x27;&#x27;</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>例如在文档应用中，可以对不同的文档实例内容绑定不同的Key值。当每次新建文档的时候，可以传入不同的新Key值（如可以将文件的路径作为一个Key标识），此时AbilityStage中启动UIAbility时都会创建一个新的UIAbility实例；当新建的文档保存之后，回到桌面，或者新打开一个已保存的文档，回到桌面，此时再次打开该已保存的文档，此时AbilityStage中再次启动该UIAbility时，打开的仍然是之前原来已保存的文档界面。</p>
 <p>操作举例如下表所示。</p>
-<table>
-<thead>
-<tr>
-<th>操作序号</th>
-<th>文档内容</th>
-<th>UIAbility实例</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>1</td>
-<td>打开文件A</td>
-<td>对应UIAbility实例1</td>
-</tr>
-<tr>
-<td>2</td>
-<td>关闭打开文件A的进程，回到桌面，再次打开文件A</td>
-<td>对应UIAbility实例2</td>
-</tr>
-<tr>
-<td>3</td>
-<td>打开文件B</td>
-<td>对应UIAbility实例3</td>
-</tr>
-<tr>
-<td>4</td>
-<td>再次打开文件A</td>
-<td>对应UIAbility实例2</td>
-</tr>
-</tbody></table>
+<p>| 操作序号 | 文档内容                                     | UIAbility实例      |<br>| ———— | —————————————————————— | ————————— |<br>| 1        | 打开文件A                                    | 对应UIAbility实例1 |<br>| 2        | 关闭打开文件A的进程，回到桌面，再次打开文件A | 对应UIAbility实例2 |<br>| 3        | 打开文件B                                    | 对应UIAbility实例3 |<br>| 4        | 再次打开文件A                                | 对应UIAbility实例2 |</p>
 </li>
 </ol>
 <h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>

@@ -198,9 +198,14 @@
                 <div class="category-count">6</div>
             </a>
         
-            <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">
-                软件工程与计算II
-                <div class="category-count">28</div>
+            <a class="category-link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
+                编译原理
+                <div class="category-count">13</div>
+            </a>
+        
+            <a class="category-link" href="/categories/tdesign/">
+                tdesign
+                <div class="category-count">1</div>
             </a>
         
             <a class="category-link" href="/categories/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91/">
@@ -213,19 +218,14 @@
                 <div class="category-count">12</div>
             </a>
         
-            <a class="category-link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
-                编译原理
-                <div class="category-count">13</div>
+            <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">
+                软件工程与计算II
+                <div class="category-count">28</div>
             </a>
         
-            <a class="category-link" href="/categories/tdesign/">
-                tdesign
+            <a class="category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                机器学习
                 <div class="category-count">1</div>
-            </a>
-        
-            <a class="category-link" href="/categories/%E9%A9%BE%E8%80%83/">
-                驾考
-                <div class="category-count">2</div>
             </a>
         
             <a class="category-link" href="/categories/leetcode/">
@@ -233,9 +233,9 @@
                 <div class="category-count">4</div>
             </a>
         
-            <a class="category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                机器学习
-                <div class="category-count">1</div>
+            <a class="category-link" href="/categories/%E9%A9%BE%E8%80%83/">
+                驾考
+                <div class="category-count">2</div>
             </a>
         </div>
     </div>
@@ -261,7 +261,7 @@
       
         <a class="archive-link" href="/archives/2024/01 ">
           一月 2024 
-          <div class="archive-count">2 </div>
+          <div class="archive-count">3 </div>
         </a>
       
         <a class="archive-link" href="/archives/2023/12 ">
@@ -325,6 +325,12 @@
       <h3 class="widget-title">最新文章</h3>
       <ul>
         
+          <a class="recent-link" href="/2024/01/05/23-%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92/%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/" title="" >
+            <div class="recent-link-text">
+              (no title)
+            </div>
+          </a>
+        
           <a class="recent-link" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/" title="服务端-ch17-k8s使用" >
             <div class="recent-link-text">
               服务端-ch17-k8s使用
@@ -346,12 +352,6 @@
           <a class="recent-link" href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/" title="服务端-ch15-Docker" >
             <div class="recent-link-text">
               服务端-ch15-Docker
-            </div>
-          </a>
-        
-          <a class="recent-link" href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/" title="服务端-ch14-Spring WebFlux" >
-            <div class="recent-link-text">
-              服务端-ch14-Spring WebFlux
             </div>
           </a>
         
@@ -447,7 +447,7 @@
 <ul>
 <li>优先级：<ul>
 <li>- : 4 ;  </li>
-<li>! : 3 ;</li>
+<li>! : 3 ;  </li>
 </ul>
 </li>
 <li>- 想要 实现右结合：不是左递归，所以改写的时候在上面和ID一起，优先级不变</li>
@@ -482,7 +482,7 @@
 </ul>
 <p><img src="/2023/03/31/23-Compilers/ch08/image-20230419135549559.png" alt="image-20230419135549559"></p>
 <ul>
-<li>InputMismatchException是文法错误：选择了某个备选分支，开始分析时，期望是t这个词法单元，但是指针指向的是a，t !&#x3D; a，想匹配的词法单元不是我想要的<ul>
+<li>InputMismatchException是文法错误：选择了某个备选分支，开始分析时，期望是t这个词法单元，但是指针指向的是a，t != a，想匹配的词法单元不是我想要的<ul>
 <li>剩余输入不符合当前规则的任何一个备选分支</li>
 </ul>
 </li>
@@ -491,14 +491,14 @@
 <p>《ANTLR 4 权威指南》第 9.2 节: 修改和转发 ANTLR 的错误消息</p>
 <p>如果想要更加详细的信息：覆写接口方法</p>
 <p><img src="/2023/03/31/23-Compilers/ch08/image-20230421131629488.png" alt="image-20230421131629488"></p>
-<h3 id="恢复"><a href="#恢复" class="headerlink" title="恢复"></a>恢复</h3><h4 id="恐慌-应急-Panic-模式"><a href="#恐慌-应急-Panic-模式" class="headerlink" title="恐慌&#x2F;应急 (Panic) 模式:"></a>恐慌&#x2F;应急 (Panic) 模式:</h4><p>假装成功、调整状态、继续进行</p>
+<h3 id="恢复"><a href="#恢复" class="headerlink" title="恢复"></a>恢复</h3><h4 id="恐慌-应急-Panic-模式"><a href="#恐慌-应急-Panic-模式" class="headerlink" title="恐慌/应急 (Panic) 模式:"></a>恐慌/应急 (Panic) 模式:</h4><p>假装成功、调整状态、继续进行</p>
 <h4 id="四项基本原则"><a href="#四项基本原则" class="headerlink" title="四项基本原则:"></a>四项基本原则:</h4><h5 id="1-特殊情况-特殊处理"><a href="#1-特殊情况-特殊处理" class="headerlink" title="(1) 特殊情况, 特殊处理"></a>(1) 特殊情况, 特殊处理</h5><p>如果下一个词法单元符合预期, 则采用 <strong>“单词法符号移除 (single-token deletion)”</strong> 或 <strong>“单词法符号补全 (single-token insertion)” 策略”</strong></p>
 <ul>
 <li>单词法符号移除</li>
 </ul>
 <p><img src="/2023/03/31/23-Compilers/ch08/image-20230419135832643.png" alt="image-20230419135832643"></p>
 <p>符号移除：多出一个符号，接下来的符号是期望的，就把多出来的移除</p>
-<p>​	<img src="/2023/03/31/23-Compilers/ch08/image-20230421131926277.png" alt="image-20230421131926277"></p>
+<p>​    <img src="/2023/03/31/23-Compilers/ch08/image-20230421131926277.png" alt="image-20230421131926277"></p>
 <ul>
 <li>单词法符号补全</li>
 </ul>
@@ -508,21 +508,21 @@
 <h5 id="2-一般情况-统一处理"><a href="#2-一般情况-统一处理" class="headerlink" title="(2) 一般情况, 统一处理"></a>(2) 一般情况, 统一处理</h5><p>采用 <strong>“同步-返回 (sync-and-return)”</strong> 策略, 使用 <strong>“重新同步集合 (resynchronization set)”</strong> 从当前规则中恢复</p>
 <p>例子：</p>
 <p><img src="/2023/03/31/23-Compilers/ch08/image-20230419153244753.png" alt="image-20230419153244753"></p>
-<p>Following({expr, atom}) &#x3D; { ˆ , ]} </p>
+<p>Following({expr, atom}) = { ˆ , ]} </p>
 <p><img src="/2023/03/31/23-Compilers/ch08/image-20230419153252803.png" alt="image-20230419153252803"></p>
-<p>Following({expr}) &#x3D; {]}</p>
+<p>Following({expr}) = {]}</p>
 <p>输入为一对中括号[]：</p>
 <ul>
 <li>ANTLR4能识别，并且补全中间缺少的应该有的内容</li>
 <li>正常匹配expr和atom：因为没有别的可选项</li>
 <li>int与]不匹配，持续往后扫描，<strong>抛弃一些符号，直到找到一个想要的词法单元</strong>：<strong>即following({expr, atom})集合</strong>，要么是^要么是]，找到了就表明可以恢复</li>
 <li>这个例子没有抛弃任何符号</li>
-<li>从atom恢复到expr这一层，下面期望^，但指向的符号是]，所以<strong>扔一些词法单元，直到找到following({expr})&#x3D;&#x3D; {]}</strong></li>
+<li>从atom恢复到expr这一层，下面期望^，但指向的符号是]，所以<strong>扔一些词法单元，直到找到following({expr})== {]}</strong></li>
 <li>这一层也没有抛弃任何词法单元</li>
 <li>从expr恢复到group，group需要]，匹配上了，完成恢复过程</li>
 <li>恢复：当前符号不是我想要的，哪些符号是我想要的：假设能够匹配成功atom，期望一个幂运算的符号^，假设能够匹配成功expr，期望一个]或)（ 但是‘)’是不可能的，因为前面已经匹配成功‘]’，已经选定了第一条规则 ），这时候正好下一个字符是]，于是匹配掉了，后面的内容就可以正常匹配了</li>
 <li><strong>恢复是一层一层完成的</strong></li>
-<li>蚂蚁蚂蚁的恢复解释：丢弃词法单元直到碰到当前 Following 集合中的某个词法单元，然后从当前规则中恢复，也就是返回上一层，继续分析。比如，在 <code>【】</code> 例子中，atom 期望 INT&#x2F;ID，与 ] 不匹配，则不断丢弃输入中的词法单元，直到遇到 ^ 或者 ]。对于这个例子，恰巧当前词法单元就是 ]，所以并没有丢弃任何词法单元，就能从 atom 中恢复，返回到 expr 层。expr 期望看到 ^，与 ] 也不匹配，则不断丢弃词法单元直到遇到 ]。这里同样也没有丢弃任何词法单元，就能从 expr 中恢复，返回到 group 层。group 期望看到 ]，与当前词法单元匹配，成功恢复。</li>
+<li>蚂蚁蚂蚁的恢复解释：丢弃词法单元直到碰到当前 Following 集合中的某个词法单元，然后从当前规则中恢复，也就是返回上一层，继续分析。比如，在 <code>【】</code> 例子中，atom 期望 INT/ID，与 ] 不匹配，则不断丢弃输入中的词法单元，直到遇到 ^ 或者 ]。对于这个例子，恰巧当前词法单元就是 ]，所以并没有丢弃任何词法单元，就能从 atom 中恢复，返回到 expr 层。expr 期望看到 ^，与 ] 也不匹配，则不断丢弃词法单元直到遇到 ]。这里同样也没有丢弃任何词法单元，就能从 expr 中恢复，返回到 group 层。group 期望看到 ]，与当前词法单元匹配，成功恢复。</li>
 </ul>
 <p>Follow (静态) 集合与 Following (动态) 集合的区别：</p>
 <ul>
@@ -592,7 +592,7 @@
 <li>D’：只在Pa.2上有b：P7是由Ps1来的，ε转移到P‘a，上下第二组返回到p1和p3</li>
 <li>f1：看到c，于是只有第一条还活着</li>
 <li>f2：看到d，于是只有第二条活着</li>
-<li>只有第二次bd看到d，f2状态才被构建</li>
+<li>只有第二次bd看到d，f2状态才被构建 </li>
 </ul>
 <p>然后可以选择哪个备选分支，接下来就是常规处理</p>
 <p><strong>转移，然后ε转移求闭包、不动点，整个过程和从NFA生成DFA的子集构造法一模一样：</strong></p>

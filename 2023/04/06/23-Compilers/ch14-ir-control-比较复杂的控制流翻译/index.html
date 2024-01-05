@@ -20,12 +20,12 @@
   <link rel="preload" href="/css/fonts/Roboto-Regular.ttf" as="font" type="font/ttf" crossorigin="anonymous">
   <link rel="preload" href="/css/fonts/Roboto-Bold.ttf" as="font" type="font/ttf" crossorigin="anonymous">
 
-  <meta name="description" content="ch14-ir-control-比较复杂的控制流翻译如何生成更短、更高效的代码?   t3 &#x3D; true的赋值不是必须的：我只要知道根据bool表达式跳转到哪即可  直接用布尔表达式改变控制流br 使用控制流跳转间接表明布尔表达式的值 实现思路：分工 合作 父节点为子节点准备跳转指令的目标标签  子节点通过继承属性确定跳转目标  P → S 	S → if (B) S1  S知道B.tr">
+  <meta name="description" content="ch14-ir-control-比较复杂的控制流翻译如何生成更短、更高效的代码?   t3 &#x3D; true的赋值不是必须的：我只要知道根据bool表达式跳转到哪即可  直接用布尔表达式改变控制流br 使用控制流跳转间接表明布尔表达式的值 实现思路：分工 合作 父节点为子节点准备跳转指令的目标标签  子节点通过继承属性确定跳转目标  P → S     S → if (B) S1  S知道B.true">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ch14-ir-control-比较复杂的控制流翻译">
 <meta property="og:url" content="https://chendingya.github.io/2023/04/06/23-Compilers/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/index.html">
 <meta property="og:site_name" content="Asimov&#39;s Blog">
-<meta property="og:description" content="ch14-ir-control-比较复杂的控制流翻译如何生成更短、更高效的代码?   t3 &#x3D; true的赋值不是必须的：我只要知道根据bool表达式跳转到哪即可  直接用布尔表达式改变控制流br 使用控制流跳转间接表明布尔表达式的值 实现思路：分工 合作 父节点为子节点准备跳转指令的目标标签  子节点通过继承属性确定跳转目标  P → S 	S → if (B) S1  S知道B.tr">
+<meta property="og:description" content="ch14-ir-control-比较复杂的控制流翻译如何生成更短、更高效的代码?   t3 &#x3D; true的赋值不是必须的：我只要知道根据bool表达式跳转到哪即可  直接用布尔表达式改变控制流br 使用控制流跳转间接表明布尔表达式的值 实现思路：分工 合作 父节点为子节点准备跳转指令的目标标签  子节点通过继承属性确定跳转目标  P → S     S → if (B) S1  S知道B.true">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://chendingya.github.io/2023/04/06/23-Compilers/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230527195529306.png">
 <meta property="og:image" content="https://chendingya.github.io/2023/04/06/23-Compilers/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230527172334371.png">
@@ -200,9 +200,14 @@
                 <div class="category-count">6</div>
             </a>
         
-            <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">
-                软件工程与计算II
-                <div class="category-count">28</div>
+            <a class="category-link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
+                编译原理
+                <div class="category-count">13</div>
+            </a>
+        
+            <a class="category-link" href="/categories/tdesign/">
+                tdesign
+                <div class="category-count">1</div>
             </a>
         
             <a class="category-link" href="/categories/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91/">
@@ -215,19 +220,14 @@
                 <div class="category-count">12</div>
             </a>
         
-            <a class="category-link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
-                编译原理
-                <div class="category-count">13</div>
+            <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">
+                软件工程与计算II
+                <div class="category-count">28</div>
             </a>
         
-            <a class="category-link" href="/categories/tdesign/">
-                tdesign
+            <a class="category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                机器学习
                 <div class="category-count">1</div>
-            </a>
-        
-            <a class="category-link" href="/categories/%E9%A9%BE%E8%80%83/">
-                驾考
-                <div class="category-count">2</div>
             </a>
         
             <a class="category-link" href="/categories/leetcode/">
@@ -235,9 +235,9 @@
                 <div class="category-count">4</div>
             </a>
         
-            <a class="category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                机器学习
-                <div class="category-count">1</div>
+            <a class="category-link" href="/categories/%E9%A9%BE%E8%80%83/">
+                驾考
+                <div class="category-count">2</div>
             </a>
         </div>
     </div>
@@ -263,7 +263,7 @@
       
         <a class="archive-link" href="/archives/2024/01 ">
           一月 2024 
-          <div class="archive-count">2 </div>
+          <div class="archive-count">3 </div>
         </a>
       
         <a class="archive-link" href="/archives/2023/12 ">
@@ -327,6 +327,12 @@
       <h3 class="widget-title">最新文章</h3>
       <ul>
         
+          <a class="recent-link" href="/2024/01/05/23-%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92/%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/" title="" >
+            <div class="recent-link-text">
+              (no title)
+            </div>
+          </a>
+        
           <a class="recent-link" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/" title="服务端-ch17-k8s使用" >
             <div class="recent-link-text">
               服务端-ch17-k8s使用
@@ -348,12 +354,6 @@
           <a class="recent-link" href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/" title="服务端-ch15-Docker" >
             <div class="recent-link-text">
               服务端-ch15-Docker
-            </div>
-          </a>
-        
-          <a class="recent-link" href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/" title="服务端-ch14-Spring WebFlux" >
-            <div class="recent-link-text">
-              服务端-ch14-Spring WebFlux
             </div>
           </a>
         
@@ -412,14 +412,14 @@
           <h1 id="ch14-ir-control-比较复杂的控制流翻译"><a href="#ch14-ir-control-比较复杂的控制流翻译" class="headerlink" title="ch14-ir-control-比较复杂的控制流翻译"></a>ch14-ir-control-比较复杂的控制流翻译</h1><h2 id="如何生成更短、更高效的代码"><a href="#如何生成更短、更高效的代码" class="headerlink" title="如何生成更短、更高效的代码?"></a>如何生成更短、更高效的代码?</h2><p><img src="/2023/04/06/23-Compilers/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230527195529306.png" alt="image-20230527195529306"></p>
 <p><img src="/2023/04/06/23-Compilers/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230527172334371.png" alt="image-20230527172334371"></p>
 <ul>
-<li>t3 &#x3D; true的赋值不是必须的：我只要知道根据bool表达式跳转到哪即可</li>
+<li>t3 = true的赋值不是必须的：我只要知道根据bool表达式跳转到哪即可</li>
 </ul>
 <p><strong>直接用布尔表达式改变控制流br</strong></p>
 <p>使用控制流跳转间接表明布尔表达式的值</p>
 <p>实现思路：分工 合作</p>
 <p>父节点为子节点准备跳转指令的目标标签 </p>
 <p>子节点通过继承属性确定跳转目标 </p>
-<p>P → S 	S → if (B) S1</p>
+<p>P → S     S → if (B) S1</p>
 <ul>
 <li>S知道B.true和B.false这两个继承属性</li>
 </ul>
@@ -438,7 +438,7 @@
 <p>没有S和B，不需要准备继承属性</p>
 <h3 id="if语句的翻译"><a href="#if语句的翻译" class="headerlink" title="if语句的翻译"></a>if语句的翻译</h3><p><img src="/2023/04/06/23-Compilers/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230602165726202.png" alt="image-20230602165726202"></p>
 <ul>
-<li>label加在B.code和S<del>1</del>.code之间：作用：当我翻译B的时候，里面可能会有goto语句，如果B为true，就会goto到B.true这个label</li>
+<li>label加在B.code和S~1~.code之间：作用：当我翻译B的时候，里面可能会有goto语句，如果B为true，就会goto到B.true这个label</li>
 <li>B.true：new label()，新建一个label</li>
 <li>B.false：S.next</li>
 </ul>
@@ -450,12 +450,12 @@
 <h3 id="更复杂的if-else模式："><a href="#更复杂的if-else模式：" class="headerlink" title="更复杂的if-else模式："></a>更复杂的if-else模式：</h3><p><img src="/2023/04/06/23-Compilers/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230602172818803.png" alt="image-20230602172818803"></p>
 <ul>
 <li>B.true和B.false生成和放置的位置和之前的if-assign相似</li>
-<li>goto S.next是B.true之后，执行了S<del>1</del>.code，不执行S<del>2</del>.code，所以跳转到S.next</li>
+<li>goto S.next是B.true之后，执行了S~1~.code，不执行S~2~.code，所以跳转到S.next</li>
 </ul>
 <p>例子详解：</p>
 <p><img src="/2023/04/06/23-Compilers/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230602174248576.png" alt="image-20230602174248576"></p>
 <ul>
-<li>S<del>11</del>和S<del>12</del>都继承了S<del>1</del>的next，S<del>1</del>和S<del>2</del>都继承了S的next</li>
+<li>S~11~和S~12~都继承了S~1~的next，S~1~和S~2~都继承了S的next</li>
 <li>S.code是根据上面的生成规则生成的，对应蚂蚁注释里的L1-L4</li>
 </ul>
 <h3 id="while语句的翻译"><a href="#while语句的翻译" class="headerlink" title="while语句的翻译"></a>while语句的翻译</h3><p><img src="/2023/04/06/23-Compilers/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230602174407487.png" alt="image-20230602174407487"></p>
@@ -489,15 +489,13 @@
 <ul>
 <li>如果x &lt; 100 ，意味着短路</li>
 <li>如果x &gt; 200，意味着不短路</li>
-<li>如果x&lt;&#x3D; 200，意味着短路</li>
+<li>如果x&lt;= 200，意味着短路</li>
 </ul>
 <h4 id="命令执行验证："><a href="#命令执行验证：" class="headerlink" title="命令执行验证："></a>命令执行验证：</h4><p><img src="/2023/04/06/23-Compilers/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622142815003.png" alt="image-20230622142815003"></p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">生成中间代码</span><br><span class="line">clang -S -emit-llvm if-boolexpr.c -o if-boolexpr-opt0.ll</span><br><span class="line">生成dot文件</span><br><span class="line">opt -dot-cfg if-boolexpr-opt0.ll</span><br><span class="line">让dot文件画图</span><br><span class="line">dot -Tpdf .main.dot -o if-boolexpr-opt0-cfg.pdf</span><br></pre></td></tr></table></figure>
-
 <p><img src="/2023/04/06/23-Compilers/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622142833550.png" alt="image-20230622142833550"></p>
 <h2 id="ANTLR实现"><a href="#ANTLR实现" class="headerlink" title="ANTLR实现"></a>ANTLR实现</h2><p>CodeGenListener.java</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> codegen;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.antlr.v4.runtime.tree.ParseTreeProperty;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.FileWriter;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CodeGenListener</span> <span class="keyword">extends</span> <span class="title class_">ControlBaseListener</span> &#123;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">final</span> ParseTreeProperty&lt;String&gt; trueLabel = <span class="keyword">new</span> <span class="title class_">ParseTreeProperty</span>&lt;&gt;();</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">final</span> ParseTreeProperty&lt;String&gt; falseLabel = <span class="keyword">new</span> <span class="title class_">ParseTreeProperty</span>&lt;&gt;();</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">final</span> ParseTreeProperty&lt;String&gt; nextLabel = <span class="keyword">new</span> <span class="title class_">ParseTreeProperty</span>&lt;&gt;();</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">final</span> ParseTreeProperty&lt;String&gt; beginLabel = <span class="keyword">new</span> <span class="title class_">ParseTreeProperty</span>&lt;&gt;();</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">final</span> ParseTreeProperty&lt;String&gt; codeProperty = <span class="keyword">new</span> <span class="title class_">ParseTreeProperty</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> FileWriter fileWriter;</span><br><span class="line">  <span class="keyword">private</span> <span class="type">int</span> <span class="variable">labelCounter</span> <span class="operator">=</span> <span class="number">1</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> <span class="title function_">CodeGenListener</span><span class="params">(String file)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">    fileWriter = <span class="keyword">new</span> <span class="title class_">FileWriter</span>(file);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">enterProg</span><span class="params">(ControlParser.ProgContext ctx)</span> &#123;</span><br><span class="line">    nextLabel.put(ctx.stat(), getNewLabel());</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">exitProg</span><span class="params">(ControlParser.ProgContext ctx)</span> &#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">code</span> <span class="operator">=</span> String.format(<span class="string">&quot;%s%n%s:&quot;</span>,</span><br><span class="line">        codeProperty.get(ctx.stat()),</span><br><span class="line">        nextLabel.get(ctx.stat()));</span><br><span class="line"></span><br><span class="line">    codeProperty.put(ctx, code);</span><br><span class="line"></span><br><span class="line">    dump(codeProperty.get(ctx));</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">exitAssignStat</span><span class="params">(ControlParser.AssignStatContext ctx)</span> &#123;</span><br><span class="line">    codeProperty.put(ctx, <span class="string">&quot;ASSIGN&quot;</span>);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">enterWhileStat</span><span class="params">(ControlParser.WhileStatContext ctx)</span> &#123;</span><br><span class="line">    beginLabel.put(ctx, getNewLabel() + <span class="string">&quot;begin&quot;</span>);</span><br><span class="line"></span><br><span class="line">    trueLabel.put(ctx.bool(), getNewLabel());</span><br><span class="line">    falseLabel.put(ctx.bool(), nextLabel.get(ctx));</span><br><span class="line">    nextLabel.put(ctx.stat(), beginLabel.get(ctx));</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">exitWhileStat</span><span class="params">(ControlParser.WhileStatContext ctx)</span> &#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">code</span> <span class="operator">=</span> String.format(<span class="string">&quot;%s:%n%s%n%s:%n%s%n%s&quot;</span>,</span><br><span class="line">        <span class="comment">//对着规则一行一行翻译</span></span><br><span class="line">        beginLabel.get(ctx),</span><br><span class="line">        codeProperty.get(ctx.bool()),</span><br><span class="line">        trueLabel.get(ctx.bool()),</span><br><span class="line">        codeProperty.get(ctx.stat()),</span><br><span class="line">        <span class="string">&quot;goto &quot;</span> + beginLabel.get(ctx));</span><br><span class="line"></span><br><span class="line">    codeProperty.put(ctx, code);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">enterIfStat</span><span class="params">(ControlParser.IfStatContext ctx)</span> &#123;</span><br><span class="line">    trueLabel.put(ctx.bool(), getNewLabel());</span><br><span class="line">    falseLabel.put(ctx.bool(), nextLabel.get(ctx));</span><br><span class="line">    nextLabel.put(ctx.stat(), nextLabel.get(ctx));</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">exitIfStat</span><span class="params">(ControlParser.IfStatContext ctx)</span> &#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">code</span> <span class="operator">=</span> String.format(<span class="string">&quot;%s%n%s:%n%s&quot;</span>,</span><br><span class="line">        codeProperty.get(ctx.bool()),</span><br><span class="line">        trueLabel.get(ctx.bool()),</span><br><span class="line">        codeProperty.get(ctx.stat()));</span><br><span class="line"></span><br><span class="line">    codeProperty.put(ctx, code);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">enterAndExpr</span><span class="params">(ControlParser.AndExprContext ctx)</span> &#123;</span><br><span class="line">    trueLabel.put(ctx.lhs, getNewLabel());</span><br><span class="line">    falseLabel.put(ctx.lhs, falseLabel.get(ctx));</span><br><span class="line"></span><br><span class="line">    trueLabel.put(ctx.rhs, trueLabel.get(ctx));</span><br><span class="line">    falseLabel.put(ctx.rhs, falseLabel.get(ctx));</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">exitAndExpr</span><span class="params">(ControlParser.AndExprContext ctx)</span> &#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">code</span> <span class="operator">=</span> String.format(<span class="string">&quot;%s%n%s:%n%s&quot;</span>,</span><br><span class="line">        codeProperty.get(ctx.lhs),</span><br><span class="line">        trueLabel.get(ctx.lhs),</span><br><span class="line">        codeProperty.get(ctx.rhs));</span><br><span class="line"></span><br><span class="line">    codeProperty.put(ctx, code);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">exitOrExpr</span><span class="params">(ControlParser.OrExprContext ctx)</span> &#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">code</span> <span class="operator">=</span> String.format(<span class="string">&quot;%s%n%s:%n%s&quot;</span>,</span><br><span class="line">        codeProperty.get(ctx.lhs),</span><br><span class="line">        falseLabel.get(ctx.lhs),</span><br><span class="line">        codeProperty.get(ctx.rhs));</span><br><span class="line"></span><br><span class="line">    codeProperty.put(ctx, code);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">enterOrExpr</span><span class="params">(ControlParser.OrExprContext ctx)</span> &#123;</span><br><span class="line">    trueLabel.put(ctx.lhs, trueLabel.get(ctx));</span><br><span class="line">    falseLabel.put(ctx.lhs, getNewLabel());</span><br><span class="line"></span><br><span class="line">    trueLabel.put(ctx.rhs, trueLabel.get(ctx));</span><br><span class="line">    falseLabel.put(ctx.rhs, falseLabel.get(ctx));</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">exitRelExpr</span><span class="params">(ControlParser.RelExprContext ctx)</span> &#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">code</span> <span class="operator">=</span> String.format(<span class="string">&quot;if %s goto %s%ngoto %s&quot;</span>,</span><br><span class="line">        ctx.getText(),</span><br><span class="line">        trueLabel.get(ctx),</span><br><span class="line">        falseLabel.get(ctx));</span><br><span class="line"></span><br><span class="line">    codeProperty.put(ctx, code);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">exitTrueExpr</span><span class="params">(ControlParser.TrueExprContext ctx)</span> &#123;</span><br><span class="line">    codeProperty.put(ctx, <span class="string">&quot;goto &quot;</span> + trueLabel.get(ctx));</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">exitFalseExpr</span><span class="params">(ControlParser.FalseExprContext ctx)</span> &#123;</span><br><span class="line">    codeProperty.put(ctx, <span class="string">&quot;goto &quot;</span> + falseLabel.get(ctx));</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">void</span> <span class="title function_">dump</span><span class="params">(String code)</span> &#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">      fileWriter.write(code);</span><br><span class="line">      fileWriter.close();</span><br><span class="line">    &#125; <span class="keyword">catch</span> (IOException ioe) &#123;</span><br><span class="line">      System.err.println(ioe.getMessage() + <span class="string">&quot; : &quot;</span> + code);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> String <span class="title function_">getNewLabel</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;L&quot;</span> + labelCounter++;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
 <p>死循环</p>
 <p><img src="/2023/04/06/23-Compilers/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622145040712.png" alt="image-20230622145040712"></p>
 <h2 id="布尔表达式的作用"><a href="#布尔表达式的作用" class="headerlink" title="布尔表达式的作用"></a>布尔表达式的作用</h2><p><img src="/2023/04/06/23-Compilers/ch14-ir-control-%E6%AF%94%E8%BE%83%E5%A4%8D%E6%9D%82%E7%9A%84%E6%8E%A7%E5%88%B6%E6%B5%81%E7%BF%BB%E8%AF%91/image-20230622145434253.png" alt="image-20230622145434253"></p>

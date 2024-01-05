@@ -181,9 +181,14 @@
                 <div class="category-count">6</div>
             </a>
         
-            <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">
-                软件工程与计算II
-                <div class="category-count">28</div>
+            <a class="category-link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
+                编译原理
+                <div class="category-count">13</div>
+            </a>
+        
+            <a class="category-link" href="/categories/tdesign/">
+                tdesign
+                <div class="category-count">1</div>
             </a>
         
             <a class="category-link" href="/categories/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91/">
@@ -196,19 +201,14 @@
                 <div class="category-count">12</div>
             </a>
         
-            <a class="category-link" href="/categories/%E7%BC%96%E8%AF%91%E5%8E%9F%E7%90%86/">
-                编译原理
-                <div class="category-count">13</div>
+            <a class="category-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">
+                软件工程与计算II
+                <div class="category-count">28</div>
             </a>
         
-            <a class="category-link" href="/categories/tdesign/">
-                tdesign
+            <a class="category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
+                机器学习
                 <div class="category-count">1</div>
-            </a>
-        
-            <a class="category-link" href="/categories/%E9%A9%BE%E8%80%83/">
-                驾考
-                <div class="category-count">2</div>
             </a>
         
             <a class="category-link" href="/categories/leetcode/">
@@ -216,9 +216,9 @@
                 <div class="category-count">4</div>
             </a>
         
-            <a class="category-link" href="/categories/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">
-                机器学习
-                <div class="category-count">1</div>
+            <a class="category-link" href="/categories/%E9%A9%BE%E8%80%83/">
+                驾考
+                <div class="category-count">2</div>
             </a>
         </div>
     </div>
@@ -244,7 +244,7 @@
       
         <a class="archive-link" href="/archives/2024/01 ">
           一月 2024 
-          <div class="archive-count">2 </div>
+          <div class="archive-count">3 </div>
         </a>
       
         <a class="archive-link" href="/archives/2023/12 ">
@@ -308,6 +308,12 @@
       <h3 class="widget-title">最新文章</h3>
       <ul>
         
+          <a class="recent-link" href="/2024/01/05/23-%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92/%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/" title="" >
+            <div class="recent-link-text">
+              (no title)
+            </div>
+          </a>
+        
           <a class="recent-link" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/" title="服务端-ch17-k8s使用" >
             <div class="recent-link-text">
               服务端-ch17-k8s使用
@@ -329,12 +335,6 @@
           <a class="recent-link" href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/" title="服务端-ch15-Docker" >
             <div class="recent-link-text">
               服务端-ch15-Docker
-            </div>
-          </a>
-        
-          <a class="recent-link" href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/" title="服务端-ch14-Spring WebFlux" >
-            <div class="recent-link-text">
-              服务端-ch14-Spring WebFlux
             </div>
           </a>
         
@@ -436,13 +436,13 @@
 </li>
 <li><p><strong><code>-e username=&quot;ritchie&quot;</code>:设置环境变量</strong></p>
 <ul>
-<li>可以用环境变量给容器初始化&#x2F;传入特定参数，在微服务中很常用</li>
+<li>可以用环境变量给容器初始化/传入特定参数，在微服务中很常用</li>
 <li>例：给mysql容器传<code>MYSQL_ROOT_PASSWORD</code></li>
 </ul>
 </li>
 <li><p><code>--env-file=c:/templ /tl .txt</code>: 从指定文件读入环境变量</p>
 </li>
-<li><p><strong>–expose &#x3D; 2000-2002: 开放（暴露）一个端口或一组端口，用于指出容器内可能对外暴露的端(不一定映射)</strong></p>
+<li><p><strong>—expose = 2000-2002: 开放（暴露）一个端口或一组端口，用于指出容器内可能对外暴露的端(不一定映射)</strong></p>
 <ul>
 <li>如果加上-P则会建立外部端口映射</li>
 </ul>
@@ -462,7 +462,6 @@
 </ul>
 <p>如何在镜像中查看网卡信息和ip地址？</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker run --rm -it busybox</span><br><span class="line">cat /etc/hosts</span><br><span class="line">ip a</span><br></pre></td></tr></table></figure>
-
 <ul>
 <li><code>--link</code>的例子：<code>docker run -d --name node --link selenium_hub:hub selenium/node-chrome-debug</code>。创建并启动名为node的容器，并把该容器和名为selenium_hub的容器链接起来。hub是该容器在link下的别名（alias），通俗易懂的讲，站在node容器的角度，selenium_hub和hub都是1cbbf6f07804容器的名字，并且作为容器的hostname，node用这2个名字中的哪一个都可以访问到1cbbf6f07804容器并与之通信（docker通过DNS自动解析）。</li>
 </ul>
@@ -476,7 +475,7 @@
 </li>
 <li><p>否则一直共享底层文件</p>
 </li>
-<li><p>docker history &lt;image name&gt; 查看镜像的层</p>
+<li><p>docker history \<image name> 查看镜像的层</image></p>
 </li>
 </ul>
 <p><img src="https://chillcharlie-img.oss-cn-hangzhou.aliyuncs.com/image%2F2023%2F12%2F14%2F20-16-50-cef8d6cc91e64be46d5afa44e9e97583-20231214201648-b1c6b2.png" alt="image.png"></p>
@@ -503,8 +502,7 @@
 <h1 id="容器网络👍"><a href="#容器网络👍" class="headerlink" title="容器网络👍"></a>容器网络👍</h1><p>不同Network Driver的区别：<a target="_blank" rel="noopener" href="https://docs.docker.com/network/drivers/">Network drivers overview | Docker Docs </a></p>
 <p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/212772001">Docker 网络模式详解及容器间网络通信 - 知乎 </a></p>
 <ul>
-<li><p>none网络， <code>--net=none</code></p>
-</li>
+<li>none网络， <code>--net=none</code></li>
 <li><p>host网络，<code>--net=host</code></p>
 <ul>
 <li>共享宿主机的网络</li>
@@ -520,14 +518,12 @@
 <li>新创建的容器共享其他容器的网络</li>
 </ul>
 </li>
-<li><p>共享相同的ip地址和端口号，类似k8s的pod</p>
-</li>
-<li><p><code>docker run --network=my-net</code>：在同一个network里的多个容器可以相互通信<br><code>docker network connect </code></p>
-</li>
+<li>共享相同的ip地址和端口号，类似k8s的pod</li>
+<li><code>docker run --network=my-net</code>：在同一个network里的多个容器可以相互通信<br><code>docker network connect</code></li>
 </ul>
 <p><img src="https://chillcharlie-img.oss-cn-hangzhou.aliyuncs.com/image%2F2023%2F12%2F14%2F20-47-39-95ea83a90dd44b9bcaeacda307e0cb5c-20231214204737-dcac1b.png" alt="image.png"></p>
 <p>上图中host为宿主机，docker0为网关，docker1和docker2为容器<br>host eth0：宿主机网卡</p>
-<h1 id="Vscode中基于docker容器开发"><a href="#Vscode中基于docker容器开发" class="headerlink" title="Vscode中基于docker容器开发"></a>Vscode中基于docker容器开发</h1><p>C&#x2F;C++：底层开发，嵌入式，性能要求高</p>
+<h1 id="Vscode中基于docker容器开发"><a href="#Vscode中基于docker容器开发" class="headerlink" title="Vscode中基于docker容器开发"></a>Vscode中基于docker容器开发</h1><p>C/C++：底层开发，嵌入式，性能要求高</p>
 <p>Java：</p>
 <p>Python</p>
 <p>JS：前端开发，服务端，基于JS的测试工具</p>
