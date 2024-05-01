@@ -1,0 +1,825 @@
+
+<!DOCTYPE html><html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.28.1" theme-name="Stellar" theme-version="1.28.1">
+  
+  <meta name="generator" content="Hexo 7.2.0">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f9fafb">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
+  
+  <title>SE-II-ch20-软件交付 - Asimov's Blog</title>
+
+  
+    <meta name="description" content="20-软件交付   1. 什么是软件交付 2. 安装与部署 2.1. 安装 2.2. 创建安装包的步骤 2.2.1. 确定安装环境 2.2.2. 列举安装清单 2.2.3. 设计和建立安装包 2.2.4. 测试安装包   2.3. 部署 2.4. 部署的步骤 2.4.1. 确定部署环境 2.4.2. 确定部署任务 2.4.3. 完成部署准备 2.4.4. 执行部署任务     3. 培训与文档支持">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SE-II-ch20-软件交付">
+<meta property="og:url" content="https://chendingya.github.io/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/20-%E8%BD%AF%E4%BB%B6%E4%BA%A4%E4%BB%98/index.html">
+<meta property="og:site_name" content="Asimov&#39;s Blog">
+<meta property="og:description" content="20-软件交付   1. 什么是软件交付 2. 安装与部署 2.1. 安装 2.2. 创建安装包的步骤 2.2.1. 确定安装环境 2.2.2. 列举安装清单 2.2.3. 设计和建立安装包 2.2.4. 测试安装包   2.3. 部署 2.4. 部署的步骤 2.4.1. 确定部署环境 2.4.2. 确定部署任务 2.4.3. 完成部署准备 2.4.4. 执行部署任务     3. 培训与文档支持">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2022-06-18T08:02:34.000Z">
+<meta property="article:modified_time" content="2023-09-17T07:54:32.480Z">
+<meta property="article:author" content="Asimov">
+<meta property="article:tag" content="软件工程与计算II">
+<meta name="twitter:card" content="summary">
+  
+  
+  
+  <meta name="keywords" content="软件工程与计算II">
+
+  <!-- feed -->
+  
+
+  <link rel="stylesheet" href="/css/main.css?v=1.28.1">
+
+  
+
+  
+
+  
+</head>
+<body>
+
+<div class="l_body s:aa content tech" id="start" layout="post" ><aside class="l_left"><div class="leftbar-container">
+
+
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="undefined" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">Asimov's Blog</div><div class="sub cap">亚历山大</div></a></div></header>
+
+<div class="nav-area">
+<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" placeholder="站内搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
+
+
+<nav class="menu dis-select"></nav>
+</div>
+<div class="widgets">
+
+
+<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/"><span class="title">软件测试-期末复习</span></a><a class="item title" href="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/"><span class="title">机器学习-期末复习</span></a><a class="item title" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/"><span class="title">服务端-ch17-k8s使用</span></a><a class="item title" href="/2023/12/30/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch16-%E5%AE%B9%E5%99%A8%E9%95%9C%E5%83%8F%E6%9E%84%E5%BB%BA%E4%B8%8E%E7%BC%96%E6%8E%92/"><span class="title">服务端-ch16-容器镜像构建与编排</span></a><a class="item title" href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/"><span class="title">服务端-ch15-Docker</span></a><a class="item title" href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/"><span class="title">服务端-ch14-Spring WebFlux</span></a><a class="item title" href="/2023/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch13-%E5%8F%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"><span class="title">服务端-ch13-反应式编程基础</span></a><a class="item title" href="/2023/11/23/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch12-Spring%20Integration/"><span class="title">服务端-ch12-Spring Integration</span></a><a class="item title" href="/2023/11/09/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch11-%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6(ActiveMQ%E3%80%81RabbitMQ)/"><span class="title">服务端-ch11-消息中间件(ActiveMQ、RabbitMQ)</span></a><a class="item title" href="/2023/11/09/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch10-OAuth2/"><span class="title">服务端-ch10-OAuth2</span></a></div></widget>
+</div>
+
+</div></aside><div class="l_main" id="main">
+
+
+
+
+
+<div class="article banner top">
+  <div class="content">
+    <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">软件工程与计算II</a></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2022-06-18T08:02:34.000Z">2022-06-18</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2023-09-17T07:54:32.480Z">2023-09-17</time></span></div></div></div>
+    
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>SE-II-ch20-软件交付</span></h1>
+        
+      </div>
+    </div>
+    
+  </div>
+  </div><article class="md-text content"><h2 id="20-软件交付"><a href="#20-软件交付" class="headerlink" title="20-软件交付"></a>20-软件交付</h2><!-- TOC -->
+
+<ul>
+<li><a href="#1-%E4%BB%80%E4%B9%88%E6%98%AF%E8%BD%AF%E4%BB%B6%E4%BA%A4%E4%BB%98">1. 什么是软件交付</a></li>
+<li><a href="#2-%E5%AE%89%E8%A3%85%E4%B8%8E%E9%83%A8%E7%BD%B2">2. 安装与部署</a><ul>
+<li><a href="#21-%E5%AE%89%E8%A3%85">2.1. 安装</a></li>
+<li><a href="#22-%E5%88%9B%E5%BB%BA%E5%AE%89%E8%A3%85%E5%8C%85%E7%9A%84%E6%AD%A5%E9%AA%A4">2.2. 创建安装包的步骤</a><ul>
+<li><a href="#221-%E7%A1%AE%E5%AE%9A%E5%AE%89%E8%A3%85%E7%8E%AF%E5%A2%83">2.2.1. 确定安装环境</a></li>
+<li><a href="#222-%E5%88%97%E4%B8%BE%E5%AE%89%E8%A3%85%E6%B8%85%E5%8D%95">2.2.2. 列举安装清单</a></li>
+<li><a href="#223-%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%BB%BA%E7%AB%8B%E5%AE%89%E8%A3%85%E5%8C%85">2.2.3. 设计和建立安装包</a></li>
+<li><a href="#224-%E6%B5%8B%E8%AF%95%E5%AE%89%E8%A3%85%E5%8C%85">2.2.4. 测试安装包</a></li>
+</ul>
+</li>
+<li><a href="#23-%E9%83%A8%E7%BD%B2">2.3. 部署</a></li>
+<li><a href="#24-%E9%83%A8%E7%BD%B2%E7%9A%84%E6%AD%A5%E9%AA%A4">2.4. 部署的步骤</a><ul>
+<li><a href="#241-%E7%A1%AE%E5%AE%9A%E9%83%A8%E7%BD%B2%E7%8E%AF%E5%A2%83">2.4.1. 确定部署环境</a></li>
+<li><a href="#242-%E7%A1%AE%E5%AE%9A%E9%83%A8%E7%BD%B2%E4%BB%BB%E5%8A%A1">2.4.2. 确定部署任务</a></li>
+<li><a href="#243-%E5%AE%8C%E6%88%90%E9%83%A8%E7%BD%B2%E5%87%86%E5%A4%87">2.4.3. 完成部署准备</a></li>
+<li><a href="#244-%E6%89%A7%E8%A1%8C%E9%83%A8%E7%BD%B2%E4%BB%BB%E5%8A%A1">2.4.4. 执行部署任务</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#3-%E5%9F%B9%E8%AE%AD%E4%B8%8E%E6%96%87%E6%A1%A3%E6%94%AF%E6%8C%81">3. 培训与文档支持</a><ul>
+<li><a href="#31-%E5%9F%B9%E8%AE%AD">3.1. 培训</a><ul>
+<li><a href="#311-%E5%9F%B9%E8%AE%AD%E7%9A%84%E6%B3%A8%E6%84%8F%E7%82%B9">3.1.1. 培训的注意点</a></li>
+</ul>
+</li>
+<li><a href="#32-%E6%96%87%E6%A1%A3%E6%94%AF%E6%8C%81">3.2. 文档支持</a><ul>
+<li><a href="#321-%E7%94%A8%E6%88%B7%E6%96%87%E6%A1%A3">3.2.1. 用户文档</a></li>
+<li><a href="#322-%E7%94%A8%E6%88%B7%E6%96%87%E6%A1%A3%E7%9A%84%E5%BD%A2%E5%BC%8F">3.2.2. 用户文档的形式</a></li>
+<li><a href="#323-%E7%94%A8%E6%88%B7%E6%96%87%E6%A1%A3%E7%9A%84%E5%86%85%E5%AE%B9%E7%BB%84%E7%BB%87">3.2.3. 用户文档的内容组织</a></li>
+<li><a href="#324-%E7%94%A8%E6%88%B7%E6%96%87%E6%A1%A3%E7%9A%84%E8%A6%81%E7%B4%A0">3.2.4. 用户文档的要素</a></li>
+<li><a href="#325-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86%E5%91%98%E6%96%87%E6%A1%A3">3.2.5. 系统管理员文档</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#4-%E9%A1%B9%E7%9B%AE%E8%AF%84%E4%BB%B7">4. 项目评价</a><ul>
+<li><a href="#41-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E8%BF%9B%E8%A1%8C%E9%A1%B9%E7%9B%AE%E8%AF%84%E4%BB%B7">4.1. 为什么要进行项目评价</a></li>
+<li><a href="#42-%E9%A1%B9%E7%9B%AE%E8%AF%84%E4%BB%B7%E7%9A%84%E5%86%85%E5%AE%B9">4.2. 项目评价的内容</a></li>
+<li><a href="#43-%E9%A1%B9%E7%9B%AE%E8%AF%84%E4%BB%B7%E6%96%B9%E6%B3%95">4.3. 项目评价方法</a><ul>
+<li><a href="#431-%E9%A1%B9%E7%9B%AE%E8%AF%84%E5%AE%A1">4.3.1. 项目评审</a></li>
+<li><a href="#432-%E6%9C%89%E5%85%B3%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%E7%9A%84%E9%97%AE%E9%A2%98">4.3.2. 有关项目管理的问题：</a></li>
+<li><a href="#433-%E6%9C%89%E5%85%B3%E4%BA%A7%E5%93%81%E7%9A%84%E9%97%AE%E9%A2%98">4.3.3. 有关产品的问题：</a></li>
+<li><a href="#434-%E6%9C%89%E5%85%B3%E5%9B%A2%E9%98%9F%E5%92%8C%E4%B8%AA%E4%BA%BA%E7%9A%84%E9%97%AE%E9%A2%98">4.3.4. 有关团队和个人的问题：</a></li>
+</ul>
+</li>
+<li><a href="#44-%E5%BA%A6%E9%87%8F%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90">4.4. 度量数据分析</a><ul>
+<li><a href="#441-%E4%BA%A7%E5%93%81%E4%BF%A1%E6%81%AF%E5%AE%9A%E9%87%8F%E7%9A%84%E5%BA%A6%E9%87%8F">4.4.1. 产品信息定量的度量</a></li>
+<li><a href="#442-%E5%AE%9A%E6%80%A7%E6%96%87%E4%BB%B6">4.4.2. 定性文件</a></li>
+</ul>
+</li>
+<li><a href="#45-%E8%AF%84%E4%BB%B7%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9">4.5. 评价的注意事项</a><ul>
+<li><a href="#451-%E9%A1%B9%E7%9B%AE%E7%9A%84%E8%AF%84%E4%BB%B7%E9%9C%80%E8%A6%81%E4%BB%94%E7%BB%86%E7%9A%84%E8%AE%A1%E5%88%92">4.5.1. 项目的评价需要仔细的计划</a></li>
+<li><a href="#452-%E8%AF%84%E4%BB%B7%E8%A6%81%E5%AE%A2%E8%A7%82">4.5.2. 评价要客观</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#5-%E6%80%BB%E7%BB%93">5. 总结</a></li>
+</ul>
+<!-- /TOC -->
+
+<h1 id="1-什么是软件交付"><a href="#1-什么是软件交付" class="headerlink" title="1. 什么是软件交付"></a>1. 什么是软件交付</h1><ol>
+<li>软件交付是软件项目的结束阶段，标志着软件开发任务的完成</li>
+<li><strong>软件交付是软件开发与软件维护两个既连续又不同的软件产品生存状态的分水岭。</strong></li>
+<li>只有做好软件交付工作，才是真正地完成整个项目。</li>
+</ol>
+<h1 id="2-安装与部署【两种软件交付方式】"><a href="#2-安装与部署【两种软件交付方式】" class="headerlink" title="2. 安装与部署【两种软件交付方式】"></a>2. 安装与部署【两种软件交付方式】</h1><ol>
+<li>需求阶段：考虑环境约束等</li>
+<li>体系结构设计阶段：进行产品部署的设计决策，包括网络拓扑、库文件、动态链接库、配置文件等<ol>
+<li>32位环境还是64位环境等问题</li>
+</ol>
+</li>
+<li>开发阶段：使用的支持软件也会影响到交付，可能要求客户安装特定支撑软件或者硬件</li>
+</ol>
+<h2 id="2-1-安装"><a href="#2-1-安装" class="headerlink" title="2.1. 安装"></a>2.1. 安装</h2><ol>
+<li>安装是软件交付的最常见形式，现在大多数产品都通过安装的形式交付，它要求开发团队创建一个安装包，用户可以通过的执行将软件产品部署到工作环境。</li>
+<li>安装包需要进行仔细的设计，并使用工具(例如Advanced Installer 、Setup Factory 等)帮助进行安装包的创建。一个好软件产品应该简单、健壮、可靠、完全。要创建很容易使用的安装包，让用户可以无需创建安装包的人员的帮助就能使用。</li>
+</ol>
+<h2 id="2-2-创建安装包的步骤"><a href="#2-2-创建安装包的步骤" class="headerlink" title="2.2. 创建安装包的步骤"></a>2.2. 创建安装包的步骤</h2><h3 id="2-2-1-确定安装环境"><a href="#2-2-1-确定安装环境" class="headerlink" title="2.2.1. 确定安装环境"></a>2.2.1. 确定安装环境</h3><ol>
+<li>确定安装包需要<strong>支持的操作系统</strong>，这既需要考虑当前用户的工作环境，又需要考虑产品未来的市场规划；</li>
+<li>确定软件产品的语言支撑环境，例如使用Java语言开发的软件产品就需要安装JDK；</li>
+<li>确定软件产品需要的软件支持，例如数据库系统、网络系统等；</li>
+<li>确定硬件等其他要求，例如有些软件产品可能会要求扫描仪、视频卡、通信设备等特殊硬件。</li>
+<li>例如，对超市销售系统MSCS，它的安装环境为：Window XP、 Window Vista、Window 7三种操作系统；Java运行环境JDK；数据库管理系统软件(如果使用了数据库的话)。</li>
+</ol>
+<h3 id="2-2-2-列举安装清单"><a href="#2-2-2-列举安装清单" class="headerlink" title="2.2.2. 列举安装清单"></a>2.2.2. 列举安装清单</h3><ol>
+<li>要根据软件产品的实现情况，结合所需的环境支撑，列举需要安装的文件、初始化数据、注册表等清单信息，要清楚<strong>标明它们在安装后将会出现的位置</strong>。</li>
+<li>在考虑安装位置时要遵守一致性，标记名称的使用要意义清楚，让用户能便利地找出相应文件。</li>
+<li>例如，对超市销售系统MSCS，它所有的可执行程序文件都是需要安装的文件，初始化数据有两处，一处是设置默认的管理员用户帐号，另一处是设置数据库管理系统连接数据。</li>
+</ol>
+<h3 id="2-2-3-设计和建立安装包"><a href="#2-2-3-设计和建立安装包" class="headerlink" title="2.2.3. 设计和建立安装包"></a>2.2.3. 设计和建立安装包</h3><ol>
+<li>要对安装包进行详细的设计，包括一个渐进的安装步骤，各步骤的人机交互方式等等。完成设计后就可以使用安装工具创建安装包。</li>
+<li>例如，超市销售系统MSCS安装包可以按照下列步骤建立:<ol>
+<li>检查操作系统环境</li>
+<li>检查JDK，如果没有合适的JDK，则提醒用户安装JDK</li>
+<li>检查数据库管理系统软件，如果合适的数据库管理系统软件，则提醒用户进行安装</li>
+<li>设置数据库管理系统连接参数</li>
+<li>连接数据库管理系统，创建MSCS的数据库</li>
+<li>拷贝文件</li>
+<li>设置初始化数据，包括数据库系统连接参数和MSCS的默认管理帐号</li>
+<li>安装成功。</li>
+</ol>
+</li>
+</ol>
+<h3 id="2-2-4-测试安装包"><a href="#2-2-4-测试安装包" class="headerlink" title="2.2.4. 测试安装包"></a>2.2.4. 测试安装包</h3><ol>
+<li>安装包需要在目标环境中进行安装测试，以发现可能的问题。</li>
+<li>需要注意的是：必须以用户的工作环境为<strong>目标环境</strong>进行测试，因为用户使用的机器环境与开发者的机器环境有很大的不同(包括程序环境、操作系统版本、支撑软件版本等等)，在开发者机器上可以正确执行的安装包未必能够在用户的机器上运行。</li>
+</ol>
+<h2 id="2-3-部署"><a href="#2-3-部署" class="headerlink" title="2.3. 部署"></a>2.3. 部署</h2><ol>
+<li><strong>在软件产品比较复杂时，仅仅通过一个安装包无法完成软件交付任务，这时可以使用另一种常见的软件交付方式——部署。</strong></li>
+<li>部署通常是由开发人员直接操纵软件产品的目标环境，使得软件产品能够在目标环境中正常运行。</li>
+<li>部署的过程中通常需要执行安装任务，但是还有很多比安装复杂得多的其他任务，例如：安装、设置或调整操作系统，尤其是权限管理参数；安装、设置和调整数据库系统，包括新建数据库和设置访问权限；安装和设置库文件、应用服务器等应用环境。</li>
+</ol>
+<h2 id="2-4-部署的步骤"><a href="#2-4-部署的步骤" class="headerlink" title="2.4. 部署的步骤"></a>2.4. 部署的步骤</h2><h3 id="2-4-1-确定部署环境"><a href="#2-4-1-确定部署环境" class="headerlink" title="2.4.1. 确定部署环境"></a>2.4.1. 确定部署环境</h3><ol>
+<li>和安装一样，软件部署要首先要需要确定部署的目标环境，当然它比安装要求的更高一些。它需要对目标环境进行调查分析，搞清楚部署前的环境细节，然后才能与软件产品需要的环境细节进行比较，才能明确需要执行的部署任务。</li>
+<li>具体来说，软件部署需要了解服务器与网络拓扑、安全控制与权限管理、软硬件系统的配置信息等。</li>
+</ol>
+<h3 id="2-4-2-确定部署任务"><a href="#2-4-2-确定部署任务" class="headerlink" title="2.4.2. 确定部署任务"></a>2.4.2. 确定部署任务</h3><ol>
+<li>将软件产品需要的目标环境与部署前的环境进行比较，分析二者之间的差距，并将其确立为部署的任务。</li>
+<li>确定任务之后，还需要以渐进的方式安排任务之间的执行次序。例如，先安装和配置操作系统，然后安装和配置相应的软硬件系统，最后完成软件产品的安装与配置，等等。</li>
+</ol>
+<h3 id="2-4-3-完成部署准备"><a href="#2-4-3-完成部署准备" class="headerlink" title="2.4.3. 完成部署准备"></a>2.4.3. 完成部署准备</h3><ol>
+<li>有些部署工作可以完全依靠现场执行，但多数的部署任务需要进行一定的事前准备，尤其是要综合考虑部署工作可能出现的各种情况，制定完备的应对方案。</li>
+</ol>
+<h3 id="2-4-4-执行部署任务"><a href="#2-4-4-执行部署任务" class="headerlink" title="2.4.4. 执行部署任务"></a>2.4.4. 执行部署任务</h3><ol>
+<li>按照准备的计划，执行相应的部署任务。</li>
+</ol>
+<h1 id="3-培训与文档支持"><a href="#3-培训与文档支持" class="headerlink" title="3. 培训与文档支持"></a>3. 培训与文档支持</h1><ol>
+<li>帮助用户<strong>理解</strong>产品，并使其能够<strong>轻松地使用</strong>产品</li>
+<li><strong>不能让用户学会使用软件产品，那么就不算是完成了软件交付任务</strong></li>
+<li>帮助用户学会使用软件产品的<strong>两个关键任务</strong>：<ol>
+<li><strong>培训</strong></li>
+<li><strong>文档支持</strong></li>
+</ol>
+</li>
+</ol>
+<h2 id="3-1-培训"><a href="#3-1-培训" class="headerlink" title="3.1. 培训"></a>3.1. 培训</h2><ol>
+<li>培训主要是教会用户使用软件产品的功能来完成其工作和任务。依据任务的不同，要为不同的用户进行不同类型的培训。</li>
+<li>例如，对超市销售系统MSCS<ol>
+<li>培训收银员使用系统进行销售和退货</li>
+<li>培训客户经理使用系统进行库存管理和会员管理</li>
+<li>培训总经理使用系统制定销售策略和进行库存分析</li>
+<li>培训系统管理员进行用户管理。</li>
+</ol>
+</li>
+</ol>
+<h3 id="3-1-1-培训的注意点"><a href="#3-1-1-培训的注意点" class="headerlink" title="3.1.1. 培训的注意点"></a>3.1.1. 培训的注意点</h3><ol>
+<li>尤其不能忽略的是对<strong>系统管理员</strong>进行培训。要培训系统管理员如何启动和运行新系统、如何配置系统、如何授权或拒绝对系统的访问、如何支持用户、如何处理异常等。</li>
+<li>在培训中，只介绍能够帮助用户完成主要工作和任务的功能，<strong>不要把培训当作软件产品所有功能的展示会</strong>。对于一些很少会被使用并且<strong>不太重要</strong>的功能，即使培训也会很快被用户忘记，可以让用户使用<strong>文档支持</strong>来学会使用。</li>
+<li>培训时，要关注用户的工作和任务，不必涉及系统的内部操作，不必知道系统的存储方式、访问方式和权限控制方式。</li>
+</ol>
+<h2 id="3-2-文档支持"><a href="#3-2-文档支持" class="headerlink" title="3.2. 文档支持"></a>3.2. 文档支持</h2><ol>
+<li>文档是软件交付的重要部分<ol>
+<li>培训时作为参考材料</li>
+<li>交付完成之后继续帮助用户使用系统</li>
+</ol>
+</li>
+<li>用户文档</li>
+<li>系统管理员文档</li>
+<li><strong>简单的系统只有用户文档，绝大多数系统都有用户文档和系统管理员文档</strong></li>
+</ol>
+<h3 id="3-2-1-用户文档"><a href="#3-2-1-用户文档" class="headerlink" title="3.2.1. 用户文档"></a>3.2.1. 用户文档</h3><ol>
+<li>用户文档是指为用户编写参考指南或者操作教程，常见的如用户使用手册、联机帮助文档等，统称为用户文档。</li>
+</ol>
+<h3 id="3-2-2-用户文档的形式"><a href="#3-2-2-用户文档的形式" class="headerlink" title="3.2.2. 用户文档的形式"></a>3.2.2. 用户文档的形式</h3><ol>
+<li>用户文档可以是纸质的，也可以是电子的，可以只有一份文档，也可以是由多份文档组成的集合，具体情况要视用户的特点而定。</li>
+<li>用户文档的写作要考虑用户群体的特点，<strong>最好是图文结合的方式</strong>，以方便普通用户的使用。用户文档写作应该使用逐层展开和系统化(例如层次编码、列表)的方式描述复杂内容。</li>
+</ol>
+<h3 id="3-2-3-用户文档的内容组织"><a href="#3-2-3-用户文档的内容组织" class="headerlink" title="3.2.3. 用户文档的内容组织"></a>3.2.3. 用户文档的内容组织</h3><ol>
+<li>文档内容的组织应当支持其使用模式，常见的是<strong>指导模式和参考模式</strong>两种。</li>
+<li>指导模式根据用户的任务组织程序规程，<strong>相关的软件任务组织在相同的章节或主题</strong>。<strong>指导模式要先描述简单的、共性的任务，然后再以其为基础组织更加复杂的任务描述。</strong></li>
+<li>参考模式按照方便随机访问独立信息单元的方式组织内容。例如，<strong>按字母顺序排列软件的命令或错误消息列表。</strong></li>
+<li>如果文档需要同时包含两种模式，就需要将其清楚地区分成不同的章节或主题，或者在同一个章节或主题内区分为不同的格式。</li>
+</ol>
+<h3 id="3-2-4-用户文档的要素"><a href="#3-2-4-用户文档的要素" class="headerlink" title="3.2.4. 用户文档的要素"></a>3.2.4. 用户文档的要素</h3><blockquote>
+<p>表格描述参见课本339页</p>
+</blockquote>
+<ol>
+<li>标识信息<ol>
+<li>包括文档标题、文档产生的版本和日期、相关的软件产品和版本</li>
+<li>标识信息应该放在包装袋或者封面，用户可以不用翻阅文档就能看到</li>
+</ol>
+</li>
+<li>引言<ol>
+<li>正文的第一部分，描述文档的预期读者、描述范围，以及对文档目的、功能和操作环境的概要描述</li>
+</ol>
+</li>
+<li>文档使用信息<ol>
+<li>文档使用信息描述了关于文档的使用信息，例如，解释各种图示的含义、介绍如何使用帮助等。</li>
+</ol>
+</li>
+<li>操作模式<ol>
+<li>操作模式是使用用户文档的模式，例如对操作流程的图示或者文字性描述，再例如解释操作的理论、原因、算法或者通用概念。</li>
+</ol>
+</li>
+<li>操作规程<ol>
+<li>指导模式文档应该包括很多软件功能都会涉及的常见活动规程：<ol>
+<li>需要由用户执行的软件安装与卸载</li>
+<li>图形用户界面特性的使用指导</li>
+<li>访问、登录或者关闭软件</li>
+<li>通过软件的导航，访问和退出相关功能</li>
+<li>数据操作(输入、保存、读取、打印、更新和删除)</li>
+<li>取消、中断和重启操作的方法</li>
+</ol>
+</li>
+<li><strong>对于完成用户任务的操作流程，指导模式文档应该从基本信息、指导步骤和结束信息三个方面来描述</strong></li>
+<li><strong>基本信息</strong>：<ol>
+<li>简要概述操作规程的目的，定义或解释必要的概念</li>
+<li>标明执行任务前需要完成的技术活动</li>
+<li>列举用户完成任务所需要的资源情况，例如数据、文档、密码等</li>
+</ol>
+</li>
+<li><strong>指导步骤</strong>：使用祈使语句描述用户行为，并指出预期的结果。指导步骤要说明：<ol>
+<li>用户输入数据的域值范围、最大长度和格式</li>
+<li>相应的错误消息和恢复办法</li>
+<li>其它可选的步骤和重复步骤</li>
+</ol>
+</li>
+<li><strong>结束信息</strong>：标明操作规程的最后步骤，让用户知道怎样判断整个操作规程的成功完成，告诉用户如何退出操作规程</li>
+</ol>
+</li>
+<li>软件命令信息<ol>
+<li>解释用户输入命令的格式和操作规程，包括必要参数、可选参数、缺省值等，要示例说明命令的使用，说明怎样判断命令是成功完成还是异常中止</li>
+</ol>
+</li>
+<li>错误信息与问题解决<ol>
+<li>文档要详细描述软件使用中的已知问题，让用户清楚如何自行解决问题或者怎样向技术支持人员报告准确的信息</li>
+</ol>
+</li>
+<li>导航特征<ol>
+<li>包括章节、主题、页码、链接、图标等</li>
+<li>提高导航特征和效率</li>
+</ol>
+</li>
+</ol>
+<h3 id="3-2-5-系统管理员文档"><a href="#3-2-5-系统管理员文档" class="headerlink" title="3.2.5. 系统管理员文档"></a>3.2.5. 系统管理员文档</h3><ol>
+<li>与用户文档注重系统使用细节不同，系统管理员文档<strong>更注重系统维护方面的内容</strong>，例如系统性能调整、访问权限控制、常见故障解决等等。因此，系统管理员文档需要详细介绍软硬件的配置方式、网络连接方式、安全验证与访问授权方法、备份与容灾方法、部件替换方法等等。</li>
+</ol>
+<h1 id="4-项目评价"><a href="#4-项目评价" class="headerlink" title="4. 项目评价"></a>4. 项目评价</h1><ol>
+<li>开发者自我反省</li>
+</ol>
+<h2 id="4-1-为什么要进行项目评价"><a href="#4-1-为什么要进行项目评价" class="headerlink" title="4.1. 为什么要进行项目评价"></a>4.1. 为什么要进行项目评价</h2><ol>
+<li>设置”项目”是要保证项目中的各种事件与活动能够依照计划顺利进行，项目评价就是检查其事件与活动的实际执行情况。在理论上，项目评价<strong>可以发生在项目进行的任何时机，尤其是到达各个里程碑之后</strong>。但<strong>最重要的项目评价是在项目结束时进行的项目评价</strong>，这也是本章节所要描的项目评价。</li>
+<li>虽然从单个项目看，项目已经结束，评价似乎用处不大。但是考虑到一个组织会有很多项目持续进行，那么<strong>评价一个已结束项目就可以”以史为鉴”，帮助更好地完成后续项目</strong>。而且因为项目已经完成，<strong>总结和评价就远比项目进行中更加准确</strong>。</li>
+<li>项目评价工作也需要仔细组织，不是简单的开个总结会完事，否则就无法获得比较深入的信息。</li>
+</ol>
+<h2 id="4-2-项目评价的内容"><a href="#4-2-项目评价的内容" class="headerlink" title="4.2. 项目评价的内容"></a>4.2. 项目评价的内容</h2><ol>
+<li>一个已结束的项目具有各种事件和活动的信息，通过组织对项目的不同方面内容进行评价，就可以获得各种不同方面的经验，就可以搞清楚出现了哪些问题、为什么会出现、怎样解决、有哪些偏差、最终结果与质量、以及(最重要的是)在下个项目中有哪些需要提高。</li>
+<li>常见的项目评价<strong>针对四个方面</strong>：<ol>
+<li><strong>项目管理</strong>：可以帮助建立对项目的更准确认知，例如常见的管理问题与偏差、时间与成本耗费分布等。</li>
+<li><strong>产品</strong>：可以帮助开发者建立对产品的更准确认知，提高产品的开发经验。</li>
+<li><strong>团队</strong>：可以帮助开发者更好地组织分工，也可以帮助团队建立更好的沟通与交流途径。</li>
+<li><strong>个人</strong>：可以帮助开发者更准确认知自己的生产力，学习常见问题及其处理方法，了解自己的长处和不足并持续提高。</li>
+</ol>
+</li>
+</ol>
+<h2 id="4-3-项目评价方法"><a href="#4-3-项目评价方法" class="headerlink" title="4.3. 项目评价方法"></a>4.3. 项目评价方法</h2><ol>
+<li>评审</li>
+<li>度量数据分析</li>
+</ol>
+<h3 id="4-3-1-项目评审"><a href="#4-3-1-项目评审" class="headerlink" title="4.3.1. 项目评审"></a>4.3.1. 项目评审</h3><ol>
+<li>项目评审通过评审重要项目制品的方法来评价项目，这些重要制品包括项目计划、管理文档、会议记录、历史数据等。</li>
+<li>成功的评审需要评审方法，而不是自由处理。检查列表是最为常用的评审方法。</li>
+<li>checkList如下</li>
+</ol>
+<h3 id="4-3-2-有关项目管理的问题："><a href="#4-3-2-有关项目管理的问题：" class="headerlink" title="4.3.2. 有关项目管理的问题："></a>4.3.2. 有关项目管理的问题：</h3><ol>
+<li>项目所使用的过程是什么？瀑布&#x2F;迭代开发</li>
+<li>实际的过程与原先确定的过程有什么不同？</li>
+<li>进度表是如何随着时间的变化而改变的？</li>
+<li>有多少个同步点和里程碑按时达到或错失？</li>
+<li>过程的哪些部分运行得好？</li>
+<li>过程的哪些部分本应该能运行得更好？</li>
+<li>工具支持这个过程吗？</li>
+<li>从整体上讲，这个过程运行得有效吗？</li>
+<li>在今后，尤其要对哪些方面进行改进？</li>
+<li>在每个阶段和每项任务上花费的时间是多少？</li>
+</ol>
+<h3 id="4-3-3-有关产品的问题："><a href="#4-3-3-有关产品的问题：" class="headerlink" title="4.3.3. 有关产品的问题："></a>4.3.3. 有关产品的问题：</h3><ol>
+<li>在项目的生命周期中，产品是如何变化的？</li>
+<li>有没有出现重要的产品返工的情况？如果有，是在什么时候？</li>
+<li>工具支持产品的制造、维护和测量吗？</li>
+<li>产品最后的规模有多大？产品的质量如何？</li>
+</ol>
+<h3 id="4-3-4-有关团队和个人的问题："><a href="#4-3-4-有关团队和个人的问题：" class="headerlink" title="4.3.4. 有关团队和个人的问题："></a>4.3.4. 有关团队和个人的问题：</h3><ol>
+<li>团队(个人)工作中哪些个风险发生了，其影响又是怎样的？</li>
+<li>在何时做出了哪项重要决定？</li>
+<li>所遇到的主要问题是什么？</li>
+<li>这个决定又是如何影响这个项目的？</li>
+<li>对这些问题的解决方法产生了什么样的效果？</li>
+<li>开发团队成员是如何看待自己的职责的？</li>
+</ol>
+<h2 id="4-4-度量数据分析"><a href="#4-4-度量数据分析" class="headerlink" title="4.4. 度量数据分析"></a>4.4. 度量数据分析</h2><ol>
+<li>度量数据可以提供丰富的信息，通过分析这些信息，开发团队可以获取正确和深入的结论。</li>
+<li>例如，通过分析项目活动的任务量，就可以了解每个人的生产力、项目的工作量分布、特殊任务的工作量耗费等。</li>
+</ol>
+<h3 id="4-4-1-产品信息定量的度量"><a href="#4-4-1-产品信息定量的度量" class="headerlink" title="4.4.1. 产品信息定量的度量"></a>4.4.1. 产品信息定量的度量</h3><ol>
+<li>一个项目常见的产品信息度量应该包括：<ol>
+<li>(随着时间而变化的)产品的增长情况和变化历史。</li>
+<li>产品在每个里程碑上的测量。</li>
+<li>产品复杂度和内容的测量。</li>
+<li>过程和工具对产品的影响。</li>
+</ol>
+</li>
+</ol>
+<h3 id="4-4-2-定性文件"><a href="#4-4-2-定性文件" class="headerlink" title="4.4.2. 定性文件"></a>4.4.2. 定性文件</h3><ol>
+<li>在进行度量数据分析时可能会遇到数据贫乏——这意味着没有足够的定量数据来支持项目评价，这时可以用问卷调查表和面谈来补充数据信息。也可以通过检查定性文件来建立数据信息，这些定性文件可能包括：<ol>
+<li>对团队会议和子团队会议所做的记录。</li>
+<li>项目电子邮件的存档(来获得问题确定和决策的日期)。</li>
+<li>任务列表、项目决策和行动条目中的信息。</li>
+</ol>
+</li>
+</ol>
+<h2 id="4-5-评价的注意事项"><a href="#4-5-评价的注意事项" class="headerlink" title="4.5. 评价的注意事项"></a>4.5. 评价的注意事项</h2><h3 id="4-5-1-项目的评价需要仔细的计划"><a href="#4-5-1-项目的评价需要仔细的计划" class="headerlink" title="4.5.1. 项目的评价需要仔细的计划"></a>4.5.1. 项目的评价需要仔细的计划</h3><ol>
+<li>作为项目管理活动的一部分，项目评价也需要进行计划，计划的内容包括：<ol>
+<li>执行项目评价的时间，要在项目结束后，并且不能时间太久导致项目活动细节遗忘</li>
+<li>确定项目评价的关键主题</li>
+<li>确定参与项目评价的人员</li>
+<li>确定需要收集的数据，并将数据收集任务分配给相关人员。</li>
+</ol>
+</li>
+</ol>
+<h3 id="4-5-2-评价要客观"><a href="#4-5-2-评价要客观" class="headerlink" title="4.5.2. 评价要客观"></a>4.5.2. 评价要客观</h3><ol>
+<li>对项目的评价要客观，要保持对项目和过程的关注，不要偏离目标指责和突出个人。如果不能做到客观，列举没有进行分析的测量数据或信息，而仅仅为了表明整个项目是一个巨大成功的话，那就无法得到有益的经验，就是浪费时间。评价不是向高级管理层夸夸其谈的文档，而是团队每个成员和组织通过一个又一个项目来不断获得提高的途径。</li>
+</ol>
+<h1 id="5-总结"><a href="#5-总结" class="headerlink" title="5. 总结"></a>5. 总结</h1><ol>
+<li>不要忽视软件交付阶段的任务<ol>
+<li>通过安装与部署将软件产品移交给用户</li>
+<li>通过培训与文档支持保障用户能够有效掌握和使用软件</li>
+</ol>
+</li>
+<li>一个项目的成功或失败都值得总结，<strong>以改进将来的项目</strong>，即要在项目结束后及时进行项目评价</li>
+</ol>
+
+<div class="article-footer fs14">
+    <section id="license">
+      <div class="header"><span>许可协议</span></div>
+      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div>
+    </section>
+    </div>
+</article>
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/19-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/">SE-II-ch19-软件测试</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/21-%E8%BD%AF%E4%BB%B6%E7%9A%84%E7%BB%B4%E6%8A%A4%E4%B8%8E%E6%BC%94%E5%8C%96/">SE-II-ch21-软件的维护与演化</a></div></section></div>
+
+
+
+
+
+
+<footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">Asimov</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.28.1">Stellar 1.28.1</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+</div></footer>
+<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
+<div class="widgets">
+
+
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#20-%E8%BD%AF%E4%BB%B6%E4%BA%A4%E4%BB%98"><span class="toc-text">20-软件交付</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E4%BB%80%E4%B9%88%E6%98%AF%E8%BD%AF%E4%BB%B6%E4%BA%A4%E4%BB%98"><span class="toc-text">1. 什么是软件交付</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E5%AE%89%E8%A3%85%E4%B8%8E%E9%83%A8%E7%BD%B2%E3%80%90%E4%B8%A4%E7%A7%8D%E8%BD%AF%E4%BB%B6%E4%BA%A4%E4%BB%98%E6%96%B9%E5%BC%8F%E3%80%91"><span class="toc-text">2. 安装与部署【两种软件交付方式】</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E5%AE%89%E8%A3%85"><span class="toc-text">2.1. 安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%E5%88%9B%E5%BB%BA%E5%AE%89%E8%A3%85%E5%8C%85%E7%9A%84%E6%AD%A5%E9%AA%A4"><span class="toc-text">2.2. 创建安装包的步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-1-%E7%A1%AE%E5%AE%9A%E5%AE%89%E8%A3%85%E7%8E%AF%E5%A2%83"><span class="toc-text">2.2.1. 确定安装环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-2-%E5%88%97%E4%B8%BE%E5%AE%89%E8%A3%85%E6%B8%85%E5%8D%95"><span class="toc-text">2.2.2. 列举安装清单</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-3-%E8%AE%BE%E8%AE%A1%E5%92%8C%E5%BB%BA%E7%AB%8B%E5%AE%89%E8%A3%85%E5%8C%85"><span class="toc-text">2.2.3. 设计和建立安装包</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-4-%E6%B5%8B%E8%AF%95%E5%AE%89%E8%A3%85%E5%8C%85"><span class="toc-text">2.2.4. 测试安装包</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-%E9%83%A8%E7%BD%B2"><span class="toc-text">2.3. 部署</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-%E9%83%A8%E7%BD%B2%E7%9A%84%E6%AD%A5%E9%AA%A4"><span class="toc-text">2.4. 部署的步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-1-%E7%A1%AE%E5%AE%9A%E9%83%A8%E7%BD%B2%E7%8E%AF%E5%A2%83"><span class="toc-text">2.4.1. 确定部署环境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-2-%E7%A1%AE%E5%AE%9A%E9%83%A8%E7%BD%B2%E4%BB%BB%E5%8A%A1"><span class="toc-text">2.4.2. 确定部署任务</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-3-%E5%AE%8C%E6%88%90%E9%83%A8%E7%BD%B2%E5%87%86%E5%A4%87"><span class="toc-text">2.4.3. 完成部署准备</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-4-%E6%89%A7%E8%A1%8C%E9%83%A8%E7%BD%B2%E4%BB%BB%E5%8A%A1"><span class="toc-text">2.4.4. 执行部署任务</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E5%9F%B9%E8%AE%AD%E4%B8%8E%E6%96%87%E6%A1%A3%E6%94%AF%E6%8C%81"><span class="toc-text">3. 培训与文档支持</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E5%9F%B9%E8%AE%AD"><span class="toc-text">3.1. 培训</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-1-%E5%9F%B9%E8%AE%AD%E7%9A%84%E6%B3%A8%E6%84%8F%E7%82%B9"><span class="toc-text">3.1.1. 培训的注意点</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-%E6%96%87%E6%A1%A3%E6%94%AF%E6%8C%81"><span class="toc-text">3.2. 文档支持</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-1-%E7%94%A8%E6%88%B7%E6%96%87%E6%A1%A3"><span class="toc-text">3.2.1. 用户文档</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-2-%E7%94%A8%E6%88%B7%E6%96%87%E6%A1%A3%E7%9A%84%E5%BD%A2%E5%BC%8F"><span class="toc-text">3.2.2. 用户文档的形式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-3-%E7%94%A8%E6%88%B7%E6%96%87%E6%A1%A3%E7%9A%84%E5%86%85%E5%AE%B9%E7%BB%84%E7%BB%87"><span class="toc-text">3.2.3. 用户文档的内容组织</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-4-%E7%94%A8%E6%88%B7%E6%96%87%E6%A1%A3%E7%9A%84%E8%A6%81%E7%B4%A0"><span class="toc-text">3.2.4. 用户文档的要素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-5-%E7%B3%BB%E7%BB%9F%E7%AE%A1%E7%90%86%E5%91%98%E6%96%87%E6%A1%A3"><span class="toc-text">3.2.5. 系统管理员文档</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-%E9%A1%B9%E7%9B%AE%E8%AF%84%E4%BB%B7"><span class="toc-text">4. 项目评价</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E8%BF%9B%E8%A1%8C%E9%A1%B9%E7%9B%AE%E8%AF%84%E4%BB%B7"><span class="toc-text">4.1. 为什么要进行项目评价</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-%E9%A1%B9%E7%9B%AE%E8%AF%84%E4%BB%B7%E7%9A%84%E5%86%85%E5%AE%B9"><span class="toc-text">4.2. 项目评价的内容</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-3-%E9%A1%B9%E7%9B%AE%E8%AF%84%E4%BB%B7%E6%96%B9%E6%B3%95"><span class="toc-text">4.3. 项目评价方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-1-%E9%A1%B9%E7%9B%AE%E8%AF%84%E5%AE%A1"><span class="toc-text">4.3.1. 项目评审</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-2-%E6%9C%89%E5%85%B3%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%9A"><span class="toc-text">4.3.2. 有关项目管理的问题：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-3-%E6%9C%89%E5%85%B3%E4%BA%A7%E5%93%81%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%9A"><span class="toc-text">4.3.3. 有关产品的问题：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-3-4-%E6%9C%89%E5%85%B3%E5%9B%A2%E9%98%9F%E5%92%8C%E4%B8%AA%E4%BA%BA%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%9A"><span class="toc-text">4.3.4. 有关团队和个人的问题：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-4-%E5%BA%A6%E9%87%8F%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90"><span class="toc-text">4.4. 度量数据分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-1-%E4%BA%A7%E5%93%81%E4%BF%A1%E6%81%AF%E5%AE%9A%E9%87%8F%E7%9A%84%E5%BA%A6%E9%87%8F"><span class="toc-text">4.4.1. 产品信息定量的度量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-4-2-%E5%AE%9A%E6%80%A7%E6%96%87%E4%BB%B6"><span class="toc-text">4.4.2. 定性文件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-5-%E8%AF%84%E4%BB%B7%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9"><span class="toc-text">4.5. 评价的注意事项</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-5-1-%E9%A1%B9%E7%9B%AE%E7%9A%84%E8%AF%84%E4%BB%B7%E9%9C%80%E8%A6%81%E4%BB%94%E7%BB%86%E7%9A%84%E8%AE%A1%E5%88%92"><span class="toc-text">4.5.1. 项目的评价需要仔细的计划</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-5-2-%E8%AF%84%E4%BB%B7%E8%A6%81%E5%AE%A2%E8%A7%82"><span class="toc-text">4.5.2. 评价要客观</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-%E6%80%BB%E7%BB%93"><span class="toc-text">5. 总结</span></a></div><div class="widget-footer">
+
+<a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12c0-4.714 0-7.071 1.464-8.536C4.93 2 7.286 2 12 2c4.714 0 7.071 0 8.535 1.464C22 4.93 22 7.286 22 12c0 4.714 0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12Z"/><path stroke-linecap="round" stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M10.46 1.25h3.08c1.603 0 2.86 0 3.864.095c1.023.098 1.861.3 2.6.752a5.75 5.75 0 0 1 1.899 1.899c.452.738.654 1.577.752 2.6c.095 1.004.095 2.261.095 3.865v1.067c0 1.141 0 2.036-.05 2.759c-.05.735-.153 1.347-.388 1.913a5.75 5.75 0 0 1-3.112 3.112c-.805.334-1.721.408-2.977.43a10.81 10.81 0 0 0-.929.036c-.198.022-.275.054-.32.08c-.047.028-.112.078-.224.232c-.121.166-.258.396-.476.764l-.542.916c-.773 1.307-2.69 1.307-3.464 0l-.542-.916a10.605 10.605 0 0 0-.476-.764c-.112-.154-.177-.204-.224-.232c-.045-.026-.122-.058-.32-.08c-.212-.023-.49-.03-.93-.037c-1.255-.021-2.171-.095-2.976-.429A5.75 5.75 0 0 1 1.688 16.2c-.235-.566-.338-1.178-.389-1.913c-.049-.723-.049-1.618-.049-2.76v-1.066c0-1.604 0-2.86.095-3.865c.098-1.023.3-1.862.752-2.6a5.75 5.75 0 0 1 1.899-1.899c.738-.452 1.577-.654 2.6-.752C7.6 1.25 8.857 1.25 10.461 1.25M6.739 2.839c-.914.087-1.495.253-1.959.537A4.25 4.25 0 0 0 3.376 4.78c-.284.464-.45 1.045-.537 1.96c-.088.924-.089 2.11-.089 3.761v1c0 1.175 0 2.019.046 2.685c.045.659.131 1.089.278 1.441a4.25 4.25 0 0 0 2.3 2.3c.515.214 1.173.294 2.429.316h.031c.398.007.747.013 1.037.045c.311.035.616.104.909.274c.29.17.5.395.682.645c.169.232.342.525.538.856l.559.944a.52.52 0 0 0 .882 0l.559-.944c.196-.331.37-.624.538-.856c.182-.25.392-.476.682-.645c.293-.17.598-.24.909-.274c.29-.032.639-.038 1.037-.045h.032c1.255-.022 1.913-.102 2.428-.316a4.25 4.25 0 0 0 2.3-2.3c.147-.352.233-.782.278-1.441c.046-.666.046-1.51.046-2.685v-1c0-1.651 0-2.837-.089-3.762c-.087-.914-.253-1.495-.537-1.959a4.25 4.25 0 0 0-1.403-1.403c-.464-.284-1.045-.45-1.96-.537c-.924-.088-2.11-.089-3.761-.089h-3c-1.651 0-2.837 0-3.762.089" clip-rule="evenodd"/><path fill="currentColor" d="M9 11a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0"/></svg><span>参与讨论</span></a></div></widget>
+</div></aside><div class='float-panel blur'>
+  <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+  </button>
+  <button type='button' style='display:none' class='mobile-only leftbar-toggle mobile' onclick='sidebar.leftbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"/><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"/></g></svg>
+  </button>
+</div>
+</div><div class="scripts">
+<script type="text/javascript">
+  const ctx = {
+    date_suffix: {
+      just: `刚刚`,
+      min: `分钟前`,
+      hour: `小时前`,
+      day: `天前`,
+    },
+    root : `/`,
+  };
+
+  // required plugins (only load if needs)
+  if (`local_search`) {
+    ctx.search = {};
+    ctx.search.service = `local_search`;
+    if (ctx.search.service == 'local_search') {
+      let service_obj = Object.assign({}, `{"field":"all","path":"/search.json","content":true,"sort":"-date"}`);
+      ctx.search[ctx.search.service] = service_obj;
+    }
+  }
+  const def = {
+    avatar: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg`,
+    cover: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg`,
+  };
+  const deps = {
+    jquery: `https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js`,
+    marked: `https://cdn.bootcdn.net/ajax/libs/marked/4.0.18/marked.min.js`
+  }
+  
+
+</script>
+
+<script type="text/javascript">
+  const utils = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    css: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    js: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')){
+        src = ctx.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    jq: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        utils.js(deps.jquery).then(fn)
+      } else {
+        fn()
+      }
+    },
+    
+    onLoading: (el) => {
+      if (el) {
+        $(el).append('<div class="loading-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg></div>');
+      }
+    },
+    onLoadSuccess: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap').remove();
+      }
+    },
+    onLoadFailure: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap svg').remove();
+        $(el).find('.loading-wrap').append('<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3L21 20H3L12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 10V14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"/></path></g><circle cx="12" cy="17" r="1" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.4s" values="0;1"/></circle></svg>');
+        $(el).find('.loading-wrap').addClass('error');
+      }
+    },
+    request: (el, url, callback, onFailure) => {
+      let retryTimes = 3;
+      utils.onLoading(el);
+      function req() {
+        return new Promise((resolve, reject) => {
+          let status = 0; // 0 等待 1 完成 2 超时
+          let timer = setTimeout(() => {
+            if (status === 0) {
+              status = 2;
+              timer = null;
+              reject('请求超时');
+              if (retryTimes == 0) {
+                onFailure();
+              }
+            }
+          }, 5000);
+          fetch(url).then(function(response) {
+            if (status !== 2) {
+              clearTimeout(timer);
+              resolve(response);
+              timer = null;
+              status = 1;
+            }
+            if (response.ok) {
+              return response.json();
+            }
+            throw new Error('Network response was not ok.');
+          }).then(function(data) {
+            retryTimes = 0;
+            utils.onLoadSuccess(el);
+            callback(data);
+          }).catch(function(error) {
+            if (retryTimes > 0) {
+              retryTimes -= 1;
+              setTimeout(() => {
+                req();
+              }, 5000);
+            } else {
+              utils.onLoadFailure(el);
+              onFailure();
+            }
+          });
+        });
+      }
+      req();
+    },
+  };
+</script>
+
+<script>
+  const sidebar = {
+    leftbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    rightbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('rightbar');
+        l_body.removeAttribute('leftbar');
+      }
+    },
+    dismiss: () => {
+      if (l_body) {
+        l_body.removeAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    toggleTOC: () => {
+      document.querySelector('#data-toc').classList.toggle('collapse');
+    }
+  }
+</script>
+
+<!-- required -->
+<script src="/js/main.js?v=1.28.1" async></script>
+
+<!-- optional -->
+
+
+
+<script defer>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.services = Object.assign({}, JSON.parse(`{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"}}`));
+    for (let id of Object.keys(ctx.services)) {
+      const js = ctx.services[id].js;
+      if (id == 'siteinfo') {
+        ctx.cardlinks = document.querySelectorAll('a.link-card[cardlink]');
+        if (ctx.cardlinks?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            setCardLink(ctx.cardlinks);
+          });
+        }
+      } else {
+        const els = document.getElementsByClassName(`ds-${id}`);
+        if (els?.length > 0) {
+          utils.jq(() => {
+            if (id == 'timeline' || 'memos' || 'marked') {
+              utils.js(deps.marked).then(function () {
+                utils.js(js, { defer: true });
+              });
+            } else {
+              utils.js(js, { defer: true });
+            }
+          });
+        }
+      }
+    }
+  });
+</script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.search = {
+      path: `/search.json`,
+    }
+    utils.js('/js/search/local-search.js', { defer: true });
+  });
+</script><script>
+  window.FPConfig = {
+    delay: 0,
+    ignoreKeywords: [],
+    maxRPS: 5,
+    hoverDelay: 25
+  };
+</script>
+<script defer src="https://cdn.bootcdn.net/ajax/libs/flying-pages/2.1.2/flying-pages.min.js"></script><script defer src="https://cdn.bootcdn.net/ajax/libs/vanilla-lazyload/17.8.4/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazy",
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    window.lazyLoadInstance?.update();
+  });
+</script><script>
+  ctx.fancybox = {
+    selector: `.timenode p>img`,
+    css: `https://cdn.bootcdn.net/ajax/libs/fancyapps-ui/5.0.22/fancybox/fancybox.min.css`,
+    js: `https://cdn.bootcdn.net/ajax/libs/fancyapps-ui/5.0.22/fancybox/fancybox.umd.min.js`
+  };
+  var selector = '[data-fancybox]:not(.error)';
+  if (ctx.fancybox.selector) {
+    selector += `, ${ctx.fancybox.selector}`
+  }
+  var needFancybox = document.querySelectorAll(selector).length !== 0;
+  if (!needFancybox) {
+    const els = document.getElementsByClassName('ds-memos');
+    if (els != undefined && els.length > 0) {
+      needFancybox = true;
+    }
+  }
+  if (needFancybox) {
+    utils.css(ctx.fancybox.css);
+    utils.js(ctx.fancybox.js, { defer: true }).then(function () {
+      Fancybox.bind(selector, {
+        hideScrollbar: false,
+        Thumbs: {
+          autoStart: false,
+        },
+        caption: (fancybox, slide) => {
+          return slide.triggerEl.alt || slide.triggerEl.dataset.caption || null
+        }
+      });
+    })
+  }
+</script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    const swiper_api = document.getElementById('swiper-api');
+    if (swiper_api != undefined) {
+      utils.css(`https://unpkg.com/swiper@10.3.1/swiper-bundle.min.css`);
+      utils.js(`https://unpkg.com/swiper@10.3.1/swiper-bundle.min.js`, { defer: true }).then(function () {
+        const effect = swiper_api.getAttribute('effect') || '';
+        var swiper = new Swiper('.swiper#swiper-api', {
+          slidesPerView: 'auto',
+          spaceBetween: 8,
+          centeredSlides: true,
+          effect: effect,
+          rewind: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+      })
+    }
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    window.codeElements = document.querySelectorAll('.code');
+    if (window.codeElements.length > 0) {
+      ctx.copycode = {
+        default_text: `Copy`,
+        success_text: `Copied`,
+        toast: `复制成功`,
+      };
+      utils.js('/js/plugins/copycode.js');
+    }
+  });
+</script>
+
+
+<!-- inject -->
+
+</div></body></html>

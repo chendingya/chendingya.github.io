@@ -1,0 +1,670 @@
+
+<!DOCTYPE html><html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.28.1" theme-name="Stellar" theme-version="1.28.1">
+  
+  <meta name="generator" content="Hexo 7.2.0">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f9fafb">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
+  
+  <title>服务端-ch04-Web开发框架 Web MVC - Asimov's Blog</title>
+
+  
+    <meta name="description" content="ch04-Web开发框架 Web MVCSpring MVC👍 model-view-controller  模型（model）：存储内容，指数据、领域类 视图（view）：显示内容 控制器（controller）：处理用户输入   领域类 ModelAttribute @ModelAttribute(name &#x3D; &lt;key&gt;) 1234567  - 注解返回值为&#96;value&#96;- 方">
+<meta property="og:type" content="article">
+<meta property="og:title" content="服务端-ch04-Web开发框架 Web MVC">
+<meta property="og:url" content="https://chendingya.github.io/2023/10/02/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch04-Web%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6%20Web%20MVC/index.html">
+<meta property="og:site_name" content="Asimov&#39;s Blog">
+<meta property="og:description" content="ch04-Web开发框架 Web MVCSpring MVC👍 model-view-controller  模型（model）：存储内容，指数据、领域类 视图（view）：显示内容 控制器（controller）：处理用户输入   领域类 ModelAttribute @ModelAttribute(name &#x3D; &lt;key&gt;) 1234567  - 注解返回值为&#96;value&#96;- 方">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://chendingya.github.io/ch04-Web%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6%20Web%20MVC/image-20231001183842428.png">
+<meta property="og:image" content="https://chendingya.github.io/ch04-Web%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6%20Web%20MVC/image-20231002102832477.png">
+<meta property="og:image" content="https://chendingya.github.io/ch04-Web%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6%20Web%20MVC/image-20231009131543484.png">
+<meta property="og:image" content="https://chendingya.github.io/ch04-Web%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6%20Web%20MVC/image-20231002144903310.png">
+<meta property="og:image" content="https://chendingya.github.io/ch04-Web%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6%20Web%20MVC/image-20231009142037835.png">
+<meta property="og:image" content="https://chendingya.github.io/ch04-Web%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6%20Web%20MVC/image-20231002163242385.png">
+<meta property="og:image" content="https://chendingya.github.io/ch04-Web%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6%20Web%20MVC/image-20231002163429476.png">
+<meta property="og:image" content="https://chendingya.github.io/ch04-Web%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6%20Web%20MVC/image-20231009131203096.png">
+<meta property="article:published_time" content="2023-10-02T02:02:34.000Z">
+<meta property="article:modified_time" content="2024-01-03T07:36:05.302Z">
+<meta property="article:author" content="Asimov">
+<meta property="article:tag" content="服务端开发">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://chendingya.github.io/ch04-Web%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6%20Web%20MVC/image-20231001183842428.png">
+  
+  
+  
+  <meta name="keywords" content="服务端开发">
+
+  <!-- feed -->
+  
+
+  <link rel="stylesheet" href="/css/main.css?v=1.28.1">
+
+  
+
+  
+
+  
+</head>
+<body>
+
+<div class="l_body s:aa content tech" id="start" layout="post" ><aside class="l_left"><div class="leftbar-container">
+
+
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="undefined" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">Asimov's Blog</div><div class="sub cap">亚历山大</div></a></div></header>
+
+<div class="nav-area">
+<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" placeholder="站内搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
+
+
+<nav class="menu dis-select"></nav>
+</div>
+<div class="widgets">
+
+
+<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/"><span class="title">软件测试-期末复习</span></a><a class="item title" href="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/"><span class="title">机器学习-期末复习</span></a><a class="item title" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/"><span class="title">服务端-ch17-k8s使用</span></a><a class="item title" href="/2023/12/30/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch16-%E5%AE%B9%E5%99%A8%E9%95%9C%E5%83%8F%E6%9E%84%E5%BB%BA%E4%B8%8E%E7%BC%96%E6%8E%92/"><span class="title">服务端-ch16-容器镜像构建与编排</span></a><a class="item title" href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/"><span class="title">服务端-ch15-Docker</span></a><a class="item title" href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/"><span class="title">服务端-ch14-Spring WebFlux</span></a><a class="item title" href="/2023/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch13-%E5%8F%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"><span class="title">服务端-ch13-反应式编程基础</span></a><a class="item title" href="/2023/11/23/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch12-Spring%20Integration/"><span class="title">服务端-ch12-Spring Integration</span></a><a class="item title" href="/2023/11/09/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch11-%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6(ActiveMQ%E3%80%81RabbitMQ)/"><span class="title">服务端-ch11-消息中间件(ActiveMQ、RabbitMQ)</span></a><a class="item title" href="/2023/11/09/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch10-OAuth2/"><span class="title">服务端-ch10-OAuth2</span></a></div></widget>
+</div>
+
+</div></aside><div class="l_main" id="main">
+
+
+
+
+
+<div class="article banner top">
+  <div class="content">
+    <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E6%9C%8D%E5%8A%A1%E7%AB%AF%E5%BC%80%E5%8F%91/">服务端开发</a></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2023-10-02T02:02:34.000Z">2023-10-02</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2024-01-03T07:36:05.302Z">2024-01-03</time></span></div></div></div>
+    
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>服务端-ch04-Web开发框架 Web MVC</span></h1>
+        
+      </div>
+    </div>
+    
+  </div>
+  </div><article class="md-text content"><h1 id="ch04-Web开发框架-Web-MVC"><a href="#ch04-Web开发框架-Web-MVC" class="headerlink" title="ch04-Web开发框架 Web MVC"></a>ch04-Web开发框架 Web MVC</h1><h2 id="Spring-MVC👍"><a href="#Spring-MVC👍" class="headerlink" title="Spring MVC👍"></a>Spring MVC👍</h2><ul>
+<li>model-view-controller </li>
+<li>模型（model）：存储内容，指数据、领域类</li>
+<li>视图（view）：显示内容</li>
+<li>控制器（controller）：处理用户输入</li>
+</ul>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/ch04-Web%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6%20Web%20MVC/image-20231001183842428.png" alt="image-20231001183842428"></p>
+<h3 id="领域类"><a href="#领域类" class="headerlink" title="领域类"></a>领域类</h3><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/ch04-Web%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6%20Web%20MVC/image-20231002102832477.png" alt="image-20231002102832477"></p>
+<h2 id="ModelAttribute"><a href="#ModelAttribute" class="headerlink" title="ModelAttribute"></a>ModelAttribute</h2><ul>
+<li><pre><code>@ModelAttribute(name = &lt;key&gt;)
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">  - 注解返回值为`value`</span><br><span class="line"></span><br><span class="line">- 方法被Spring自动调用</span><br><span class="line"></span><br><span class="line">### 方法级别</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+@ModelAttribute(&quot;attributeName&quot;)
+public SomeObject methodName() &#123;
+  // 创建并返回 SomeObject 对象
+&#125;
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">方法的返回值将被添加到模型中，并使用指定的属性名作为key。在控制器处理请求之前，该方法会先被调用。</span><br><span class="line"></span><br><span class="line">### 参数级别</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+@GetMapping(&quot;/path&quot;)
+public String methodName(@ModelAttribute(&quot;attributeName&quot;) SomeObject object) &#123;
+  // 处理请求
+&#125;
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">在这种写法中，`@ModelAttribute`注解标记在方法的参数上，指定了要从模型中获取的属性的名称。参数将被自动绑定到模型中的相应属性，以便在方法内部使用。</span><br><span class="line"></span><br><span class="line">### 默认命名规则</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+@GetMapping(&quot;/path&quot;)
+public String methodName(@ModelAttribute SomeObject object) &#123;
+  // 处理请求
+&#125;
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">如果没有指定`@ModelAttribute`注解的属性名称，Spring MVC会根据参数类型自动推断属性名称，并将其添加到模型中。</span><br><span class="line">在上面的示例中，`SomeObject`类型的参数将使用类名的首字母小写作为属性名称。</span><br><span class="line"></span><br><span class="line">## 实例</span><br><span class="line"></span><br><span class="line">TacoOrder.java</span><br><span class="line"></span><br><span class="line">```java</span><br><span class="line">package tacos;</span><br><span class="line">import javax.validation.constraints.Digits;</span><br><span class="line">import javax.validation.constraints.NotBlank;</span><br><span class="line">import javax.validation.constraints.Pattern;</span><br><span class="line">import org.hibernate.validator.constraints.CreditCardNumber;</span><br><span class="line">import java.util.List;</span><br><span class="line">import java.util.ArrayList;</span><br><span class="line">import lombok.Data;</span><br><span class="line"></span><br><span class="line">@Data</span><br><span class="line">public class TacoOrder &#123;</span><br><span class="line"></span><br><span class="line">  @NotBlank(message=&quot;Delivery name is required&quot;)</span><br><span class="line">  private String deliveryName;</span><br><span class="line"></span><br><span class="line">  @NotBlank(message=&quot;Street is required&quot;)</span><br><span class="line">  private String deliveryStreet;</span><br><span class="line"></span><br><span class="line">  @NotBlank(message=&quot;City is required&quot;)</span><br><span class="line">  private String deliveryCity;</span><br><span class="line"></span><br><span class="line">  @NotBlank(message=&quot;State is required&quot;)</span><br><span class="line">  private String deliveryState;</span><br><span class="line"></span><br><span class="line">  @NotBlank(message=&quot;Zip code is required&quot;)</span><br><span class="line">  private String deliveryZip;</span><br><span class="line"></span><br><span class="line">  @CreditCardNumber(message=&quot;Not a valid credit card number&quot;)</span><br><span class="line">  private String ccNumber;</span><br><span class="line"></span><br><span class="line">  @Pattern(regexp=&quot;^(0[1-9]|1[0-2])([\\/])([2-9][0-9])$&quot;,</span><br><span class="line">           message=&quot;Must be formatted MM/YY&quot;)</span><br><span class="line">  private String ccExpiration;</span><br><span class="line"></span><br><span class="line">  @Digits(integer=3, fraction=0, message=&quot;Invalid CVV&quot;)</span><br><span class="line">  private String ccCVV;</span><br><span class="line"></span><br><span class="line">  private List&lt;Taco&gt; tacos = new ArrayList&lt;&gt;();</span><br><span class="line"></span><br><span class="line">  public void addTaco(Taco taco) &#123;</span><br><span class="line">    this.tacos.add(taco);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</code></pre>
+</li>
+</ul>
+<p>Taco.java</p>
+<ul>
+<li>@NotNull<br>@Size(min&#x3D;5, message&#x3D;”Name must be at least 5 characters long”)：表单规范not null</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> tacos;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> javax.validation.constraints.NotNull;</span><br><span class="line"><span class="keyword">import</span> javax.validation.constraints.Size;</span><br><span class="line"><span class="keyword">import</span> lombok.Data;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Taco</span> &#123;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@NotNull</span></span><br><span class="line">  <span class="meta">@Size(min=5, message=&quot;Name must be at least 5 characters long&quot;)</span></span><br><span class="line">  <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@NotNull</span></span><br><span class="line">  <span class="meta">@Size(min=1, message=&quot;You must choose at least 1 ingredient&quot;)</span></span><br><span class="line">  <span class="keyword">private</span> List&lt;Ingredient&gt; ingredients;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>@data：等效于code-&gt;generator-&gt;get&#x2F;set</li>
+<li>需要安装lombok插件</li>
+</ul>
+<p>枚举类Ingredient.java</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> tacos;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> lombok.Data;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Ingredient</span> &#123;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">final</span> String id;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">final</span> String name;</span><br><span class="line">  <span class="keyword">private</span> <span class="keyword">final</span> Type type;</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">enum</span> <span class="title class_">Type</span> &#123;</span><br><span class="line">    WRAP, PROTEIN, VEGGIES, CHEESE, SAUCE</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="控制器的实现DesignTacoController"><a href="#控制器的实现DesignTacoController" class="headerlink" title="控制器的实现DesignTacoController"></a>控制器的实现DesignTacoController</h2><ul>
+<li><p>@Slf4j：<strong>lombok的注解</strong>，log对象创建的简化</p>
+<ul>
+<li><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/ch04-Web%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6%20Web%20MVC/image-20231009131543484.png" alt="image-20231009131543484"></li>
+</ul>
+</li>
+<li><p>@RequestMapping(“&#x2F;design”) “ ：请求的映射，控制器可以处理以design为前缀的url，如design&#x2F;a</p>
+</li>
+<li><p>@Controller：@Component类似，请求spring实例化该类</p>
+</li>
+<li><p>@GetMapping：处理浏览器发出的get请求</p>
+<ul>
+<li>return design：逻辑视图名，自动匹配真正的视图名，在resource下templates找一个叫design.html的视图，然后渲染视图，<strong>需要添加依赖</strong></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-thymeleaf&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Spring Boot的自动配置功能会发现thymeleaf在类路径中，因此会为Spring MVC自动创建支撑thymeleaf视图的Bean</li>
+<li>thymeleaf与Servlet request属性协作（与spring model解耦）</li>
+<li>@ModelAttribute(name &#x3D; “tacoOrder”)：定义了一个key-value，key为name，value为return，会被在get方法被调用前自动调用</li>
+<li>@SessionAttributes(“tacoOrder”)：指定tacoorder是session类型的对象：一次会话，多次请求，希望对象在会话过程中一直存在</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> tacos.web;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.Arrays;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"><span class="keyword">import</span> java.util.stream.Collectors;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Controller;</span><br><span class="line"><span class="keyword">import</span> org.springframework.ui.Model;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.GetMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.ModelAttribute;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.PostMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.SessionAttributes;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> lombok.extern.slf4j.Slf4j;</span><br><span class="line"><span class="keyword">import</span> tacos.Ingredient;</span><br><span class="line"><span class="keyword">import</span> tacos.Ingredient.Type;</span><br><span class="line"><span class="keyword">import</span> tacos.Taco;</span><br><span class="line"><span class="keyword">import</span> tacos.TacoOrder;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.validation.Valid;</span><br><span class="line"><span class="keyword">import</span> org.springframework.validation.Errors;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/design&quot;)</span></span><br><span class="line"><span class="meta">@SessionAttributes(&quot;tacoOrder&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">DesignTacoController</span> &#123;</span><br><span class="line"></span><br><span class="line"><span class="meta">@ModelAttribute</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">addIngredientsToModel</span><span class="params">(Model model)</span> &#123;</span><br><span class="line">    <span class="comment">//model就是数据，往模型中添加数据就可以使用这种方式</span></span><br><span class="line">	List&lt;Ingredient&gt; ingredients = Arrays.asList(</span><br><span class="line">        <span class="comment">//以下皆为配料</span></span><br><span class="line">	  <span class="keyword">new</span> <span class="title class_">Ingredient</span>(<span class="string">&quot;FLTO&quot;</span>, <span class="string">&quot;Flour Tortilla&quot;</span>, Type.WRAP),</span><br><span class="line">	  <span class="keyword">new</span> <span class="title class_">Ingredient</span>(<span class="string">&quot;COTO&quot;</span>, <span class="string">&quot;Corn Tortilla&quot;</span>, Type.WRAP),</span><br><span class="line">	  <span class="keyword">new</span> <span class="title class_">Ingredient</span>(<span class="string">&quot;GRBF&quot;</span>, <span class="string">&quot;Ground Beef&quot;</span>, Type.PROTEIN),</span><br><span class="line">	  <span class="keyword">new</span> <span class="title class_">Ingredient</span>(<span class="string">&quot;CARN&quot;</span>, <span class="string">&quot;Carnitas&quot;</span>, Type.PROTEIN),</span><br><span class="line">	  <span class="keyword">new</span> <span class="title class_">Ingredient</span>(<span class="string">&quot;TMTO&quot;</span>, <span class="string">&quot;Diced Tomatoes&quot;</span>, Type.VEGGIES),</span><br><span class="line">	  <span class="keyword">new</span> <span class="title class_">Ingredient</span>(<span class="string">&quot;LETC&quot;</span>, <span class="string">&quot;Lettuce&quot;</span>, Type.VEGGIES),</span><br><span class="line">	  <span class="keyword">new</span> <span class="title class_">Ingredient</span>(<span class="string">&quot;CHED&quot;</span>, <span class="string">&quot;Cheddar&quot;</span>, Type.CHEESE),</span><br><span class="line">	  <span class="keyword">new</span> <span class="title class_">Ingredient</span>(<span class="string">&quot;JACK&quot;</span>, <span class="string">&quot;Monterrey Jack&quot;</span>, Type.CHEESE),</span><br><span class="line">	  <span class="keyword">new</span> <span class="title class_">Ingredient</span>(<span class="string">&quot;SLSA&quot;</span>, <span class="string">&quot;Salsa&quot;</span>, Type.SAUCE),</span><br><span class="line">	  <span class="keyword">new</span> <span class="title class_">Ingredient</span>(<span class="string">&quot;SRCR&quot;</span>, <span class="string">&quot;Sour Cream&quot;</span>, Type.SAUCE)</span><br><span class="line">	);</span><br><span class="line"></span><br><span class="line">	Type[] types = Ingredient.Type.values();</span><br><span class="line">	<span class="keyword">for</span> (Type type : types) &#123;</span><br><span class="line">        <span class="comment">//针对model注入属性key-value，key为配料的类型，value为方法</span></span><br><span class="line">	  model.addAttribute(type.toString().toLowerCase(),</span><br><span class="line">	      filterByType(ingredients, type));</span><br><span class="line">	&#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//定义了一个key-value，key为name，value为return</span></span><br><span class="line">  <span class="meta">@ModelAttribute(name = &quot;tacoOrder&quot;)</span></span><br><span class="line">  <span class="keyword">public</span> TacoOrder <span class="title function_">order</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">TacoOrder</span>();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@ModelAttribute(name = &quot;taco&quot;)</span></span><br><span class="line">  <span class="keyword">public</span> Taco <span class="title function_">taco</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="keyword">new</span> <span class="title class_">Taco</span>();</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@GetMapping</span></span><br><span class="line">  <span class="keyword">public</span> String <span class="title function_">showDesignForm</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;design&quot;</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  @PostMapping</span></span><br><span class="line"><span class="comment">  public String processTaco(Taco taco,</span></span><br><span class="line"><span class="comment">  			@ModelAttribute TacoOrder tacoOrder) &#123;</span></span><br><span class="line"><span class="comment">    tacoOrder.addTaco(taco);</span></span><br><span class="line"><span class="comment">    log.info(&quot;Processing taco: &#123;&#125;&quot;, taco);</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    return &quot;redirect:/orders/current&quot;;</span></span><br><span class="line"><span class="comment">  &#125;</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">//传入tacoOrder对象	</span></span><br><span class="line">  <span class="meta">@PostMapping</span></span><br><span class="line">  <span class="keyword">public</span> String <span class="title function_">processTaco</span><span class="params">(</span></span><br><span class="line"><span class="params">		  <span class="meta">@Valid</span> Taco taco, Errors errors,</span></span><br><span class="line"><span class="params">		  <span class="meta">@ModelAttribute</span> TacoOrder tacoOrder)</span> &#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (errors.hasErrors()) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="string">&quot;design&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    tacoOrder.addTaco(taco);</span><br><span class="line">    log.info(<span class="string">&quot;Processing taco: &#123;&#125;&quot;</span>, taco);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;redirect:/orders/current&quot;</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> Iterable&lt;Ingredient&gt; <span class="title function_">filterByType</span><span class="params">(</span></span><br><span class="line"><span class="params">      //迭代器其实就是列表，每一个列表就是配料</span></span><br><span class="line"><span class="params">      List&lt;Ingredient&gt; ingredients, Type type)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> ingredients</span><br><span class="line">              .stream()</span><br><span class="line">              .filter(x -&gt; x.getType().equals(type))</span><br><span class="line">              .collect(Collectors.toList());</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>design.html</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- tag::all[] --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- tag::head[] --&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">xmlns</span>=<span class="string">&quot;http://www.w3.org/1999/xhtml&quot;</span></span></span><br><span class="line"><span class="tag">      <span class="attr">xmlns:th</span>=<span class="string">&quot;http://www.thymeleaf.org&quot;</span>&gt;</span></span><br><span class="line">  <span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Taco Cloud<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">th:href</span>=<span class="string">&quot;@&#123;/styles.css&#125;&quot;</span> /&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"></span><br><span class="line">  <span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">h1</span>&gt;</span>Design your taco!<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">img</span> <span class="attr">th:src</span>=<span class="string">&quot;@&#123;/images/TacoCloud.png&#125;&quot;</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- tag::formTag[] --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">form</span> <span class="attr">method</span>=<span class="string">&quot;POST&quot;</span> <span class="attr">th:object</span>=<span class="string">&quot;$&#123;taco&#125;&quot;</span>&gt;</span></span><br><span class="line">    <span class="comment">&lt;!-- end::all[] --&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;validationError&quot;</span></span></span><br><span class="line"><span class="tag">          <span class="attr">th:if</span>=<span class="string">&quot;$&#123;#fields.hasErrors(&#x27;ingredients&#x27;)&#125;&quot;</span></span></span><br><span class="line"><span class="tag">          <span class="attr">th:errors</span>=<span class="string">&quot;*&#123;ingredients&#125;&quot;</span>&gt;</span>Ingredient Error<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- tag::all[] --&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;grid&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- end::formTag[] --&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- end::head[] --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;ingredient-group&quot;</span> <span class="attr">id</span>=<span class="string">&quot;wraps&quot;</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- tag::designateWrap[] --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">h3</span>&gt;</span>Designate your wrap:<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">th:each</span>=<span class="string">&quot;ingredient : $&#123;wrap&#125;&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">th:field</span>=<span class="string">&quot;*&#123;ingredients&#125;&quot;</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> </span></span><br><span class="line"><span class="tag">               <span class="attr">th:value</span>=<span class="string">&quot;$&#123;ingredient.id&#125;&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">th:text</span>=<span class="string">&quot;$&#123;ingredient.name&#125;&quot;</span>&gt;</span>INGREDIENT<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- end::designateWrap[] --&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;ingredient-group&quot;</span> <span class="attr">id</span>=<span class="string">&quot;proteins&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">h3</span>&gt;</span>Pick your protein:<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">th:each</span>=<span class="string">&quot;ingredient : $&#123;protein&#125;&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">th:field</span>=<span class="string">&quot;*&#123;ingredients&#125;&quot;</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> </span></span><br><span class="line"><span class="tag">               <span class="attr">th:value</span>=<span class="string">&quot;$&#123;ingredient.id&#125;&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">th:text</span>=<span class="string">&quot;$&#123;ingredient.name&#125;&quot;</span>&gt;</span>INGREDIENT<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;ingredient-group&quot;</span> <span class="attr">id</span>=<span class="string">&quot;cheeses&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">h3</span>&gt;</span>Choose your cheese:<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">th:each</span>=<span class="string">&quot;ingredient : $&#123;cheese&#125;&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">th:field</span>=<span class="string">&quot;*&#123;ingredients&#125;&quot;</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> </span></span><br><span class="line"><span class="tag">               <span class="attr">th:value</span>=<span class="string">&quot;$&#123;ingredient.id&#125;&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">th:text</span>=<span class="string">&quot;$&#123;ingredient.name&#125;&quot;</span>&gt;</span>INGREDIENT<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;ingredient-group&quot;</span> <span class="attr">id</span>=<span class="string">&quot;veggies&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">h3</span>&gt;</span>Determine your veggies:<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">th:each</span>=<span class="string">&quot;ingredient : $&#123;veggies&#125;&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">th:field</span>=<span class="string">&quot;*&#123;ingredients&#125;&quot;</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> </span></span><br><span class="line"><span class="tag">               <span class="attr">th:value</span>=<span class="string">&quot;$&#123;ingredient.id&#125;&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">th:text</span>=<span class="string">&quot;$&#123;ingredient.name&#125;&quot;</span>&gt;</span>INGREDIENT<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	  <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">&quot;ingredient-group&quot;</span> <span class="attr">id</span>=<span class="string">&quot;sauces&quot;</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">h3</span>&gt;</span>Select your sauce:<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span> <span class="attr">th:each</span>=<span class="string">&quot;ingredient : $&#123;sauce&#125;&quot;</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">th:field</span>=<span class="string">&quot;*&#123;ingredients&#125;&quot;</span> <span class="attr">type</span>=<span class="string">&quot;checkbox&quot;</span> </span></span><br><span class="line"><span class="tag">               <span class="attr">th:value</span>=<span class="string">&quot;$&#123;ingredient.id&#125;&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">span</span> <span class="attr">th:text</span>=<span class="string">&quot;$&#123;ingredient.name&#125;&quot;</span>&gt;</span>INGREDIENT<span class="tag">&lt;/<span class="name">span</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line">      <span class="tag">&lt;<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">      <span class="tag">&lt;<span class="name">h3</span>&gt;</span>Name your taco creation:<span class="tag">&lt;/<span class="name">h3</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">&quot;text&quot;</span> <span class="attr">th:field</span>=<span class="string">&quot;*&#123;name&#125;&quot;</span>/&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- end::all[] --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">&quot;validationError&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">th:if</span>=<span class="string">&quot;$&#123;#fields.hasErrors(&#x27;name&#x27;)&#125;&quot;</span></span></span><br><span class="line"><span class="tag">            <span class="attr">th:errors</span>=<span class="string">&quot;*&#123;name&#125;&quot;</span>&gt;</span>Name Error<span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">      <span class="comment">&lt;!-- tag::all[] --&gt;</span></span><br><span class="line">      <span class="tag">&lt;<span class="name">br</span>/&gt;</span></span><br><span class="line"></span><br><span class="line">      <span class="tag">&lt;<span class="name">button</span>&gt;</span>Submit Your Taco<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">      <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- tag::closeFormTag[] --&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- end::closeFormTag[] --&gt;</span></span><br><span class="line">  <span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- end::all[] --&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<p>OrderController.java</p>
+<ul>
+<li>@RequestMapping(“&#x2F;orders”)：处理orders前缀</li>
+<li>@GetMapping(“&#x2F;current”)：处理current后缀</li>
+<li>&#x2F;orders&#x2F;current</li>
+<li>@Slf4j：等效生成下图，代码中可以对日志进行处理<ul>
+<li><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/ch04-Web%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6%20Web%20MVC/image-20231002144903310.png" alt="image-20231002144903310"></li>
+<li>​    log.info(“Order submitted: {}”, order);    可以打印log信息</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> tacos.web;</span><br><span class="line"><span class="keyword">import</span> javax.validation.Valid;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Controller;</span><br><span class="line"><span class="keyword">import</span> org.springframework.validation.Errors;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.GetMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.PostMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.SessionAttributes;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.bind.support.SessionStatus;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> lombok.extern.slf4j.Slf4j;</span><br><span class="line"><span class="keyword">import</span> tacos.TacoOrder;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Slf4j</span></span><br><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="meta">@RequestMapping(&quot;/orders&quot;)</span></span><br><span class="line"><span class="meta">@SessionAttributes(&quot;tacoOrder&quot;)</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">OrderController</span> &#123;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@GetMapping(&quot;/current&quot;)</span></span><br><span class="line">  <span class="keyword">public</span> String <span class="title function_">orderForm</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;orderForm&quot;</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment">  @PostMapping</span></span><br><span class="line"><span class="comment">  public String processOrder(TacoOrder order,</span></span><br><span class="line"><span class="comment">		  SessionStatus sessionStatus) &#123;</span></span><br><span class="line"><span class="comment">    log.info(&quot;Order submitted: &#123;&#125;&quot;, order);</span></span><br><span class="line"><span class="comment">    sessionStatus.setComplete();</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">    return &quot;redirect:/&quot;;</span></span><br><span class="line"><span class="comment">  &#125;</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"></span><br><span class="line">  <span class="meta">@PostMapping</span></span><br><span class="line">  <span class="keyword">public</span> String <span class="title function_">processOrder</span><span class="params">(<span class="meta">@Valid</span> TacoOrder order, Errors errors,</span></span><br><span class="line"><span class="params">		  SessionStatus sessionStatus)</span> &#123;</span><br><span class="line">    <span class="keyword">if</span> (errors.hasErrors()) &#123;</span><br><span class="line">      <span class="keyword">return</span> <span class="string">&quot;orderForm&quot;</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    log.info(<span class="string">&quot;Order submitted: &#123;&#125;&quot;</span>, order);</span><br><span class="line">    sessionStatus.setComplete();</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;redirect:/&quot;</span>;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="处理表单提交"><a href="#处理表单提交" class="headerlink" title="处理表单提交"></a>处理表单提交</h2><ul>
+<li>Converter </li>
+<li>✓ 将String转换成Ingredient</li>
+<li>redirect重定向<ul>
+<li><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/ch04-Web%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6%20Web%20MVC/image-20231009142037835.png" alt="image-20231009142037835"></li>
+</ul>
+</li>
+</ul>
+<h3 id="toco的转化器converter"><a href="#toco的转化器converter" class="headerlink" title="toco的转化器converter"></a>toco的转化器converter</h3><ul>
+<li>key为id，value为ingredient</li>
+<li>用来做参数的转换</li>
+<li>只需要将这个类实例化在上下文中，spring会在合适的时候对对象进行这样的转换</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> tacos.web;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.util.HashMap;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.springframework.core.convert.converter.Converter;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Component;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> tacos.Ingredient;</span><br><span class="line"><span class="keyword">import</span> tacos.Ingredient.Type;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Component</span></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">IngredientByIdConverter</span> <span class="keyword">implements</span> <span class="title class_">Converter</span>&lt;String, Ingredient&gt; &#123;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">private</span> Map&lt;String, Ingredient&gt; ingredientMap = <span class="keyword">new</span> <span class="title class_">HashMap</span>&lt;&gt;();</span><br><span class="line">  </span><br><span class="line">  <span class="keyword">public</span> <span class="title function_">IngredientByIdConverter</span><span class="params">()</span> &#123;</span><br><span class="line">    ingredientMap.put(<span class="string">&quot;FLTO&quot;</span>, </span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Ingredient</span>(<span class="string">&quot;FLTO&quot;</span>, <span class="string">&quot;Flour Tortilla&quot;</span>, Type.WRAP));</span><br><span class="line">    ingredientMap.put(<span class="string">&quot;COTO&quot;</span>, </span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Ingredient</span>(<span class="string">&quot;COTO&quot;</span>, <span class="string">&quot;Corn Tortilla&quot;</span>, Type.WRAP));</span><br><span class="line">    ingredientMap.put(<span class="string">&quot;GRBF&quot;</span>, </span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Ingredient</span>(<span class="string">&quot;GRBF&quot;</span>, <span class="string">&quot;Ground Beef&quot;</span>, Type.PROTEIN));</span><br><span class="line">    ingredientMap.put(<span class="string">&quot;CARN&quot;</span>, </span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Ingredient</span>(<span class="string">&quot;CARN&quot;</span>, <span class="string">&quot;Carnitas&quot;</span>, Type.PROTEIN));</span><br><span class="line">    ingredientMap.put(<span class="string">&quot;TMTO&quot;</span>, </span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Ingredient</span>(<span class="string">&quot;TMTO&quot;</span>, <span class="string">&quot;Diced Tomatoes&quot;</span>, Type.VEGGIES));</span><br><span class="line">    ingredientMap.put(<span class="string">&quot;LETC&quot;</span>, </span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Ingredient</span>(<span class="string">&quot;LETC&quot;</span>, <span class="string">&quot;Lettuce&quot;</span>, Type.VEGGIES));</span><br><span class="line">    ingredientMap.put(<span class="string">&quot;CHED&quot;</span>, </span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Ingredient</span>(<span class="string">&quot;CHED&quot;</span>, <span class="string">&quot;Cheddar&quot;</span>, Type.CHEESE));</span><br><span class="line">    ingredientMap.put(<span class="string">&quot;JACK&quot;</span>, </span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Ingredient</span>(<span class="string">&quot;JACK&quot;</span>, <span class="string">&quot;Monterrey Jack&quot;</span>, Type.CHEESE));</span><br><span class="line">    ingredientMap.put(<span class="string">&quot;SLSA&quot;</span>, </span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Ingredient</span>(<span class="string">&quot;SLSA&quot;</span>, <span class="string">&quot;Salsa&quot;</span>, Type.SAUCE));</span><br><span class="line">    ingredientMap.put(<span class="string">&quot;SRCR&quot;</span>, </span><br><span class="line">        <span class="keyword">new</span> <span class="title class_">Ingredient</span>(<span class="string">&quot;SRCR&quot;</span>, <span class="string">&quot;Sour Cream&quot;</span>, Type.SAUCE));</span><br><span class="line">  &#125;</span><br><span class="line">  </span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> Ingredient <span class="title function_">convert</span><span class="params">(String id)</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> ingredientMap.get(id);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="路径参数-PathVariable"><a href="#路径参数-PathVariable" class="headerlink" title="路径参数@PathVariable"></a>路径参数@PathVariable</h3><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/ch04-Web%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6%20Web%20MVC/image-20231002163242385.png" alt="image-20231002163242385"></p>
+<h3 id="请求参数-查询参数-RequestParam"><a href="#请求参数-查询参数-RequestParam" class="headerlink" title="请求参数(查询参数)@RequestParam"></a>请求参数(查询参数)@RequestParam</h3><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/ch04-Web%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6%20Web%20MVC/image-20231002163429476.png" alt="image-20231002163429476"></p>
+<p>表单参数，默认，对应model，可以使用@Valid校验<br>json请求体，@RequestBody</p>
+<h2 id="Spring-MVC获取参数的几种方式👍"><a href="#Spring-MVC获取参数的几种方式👍" class="headerlink" title="Spring MVC获取参数的几种方式👍"></a>Spring MVC获取参数的几种方式👍</h2><ul>
+<li>表单 (form)参数，转成model (成员类型可能会用到Converter进行类型转换)，可以使用@Valid校验</li>
+<li>路径参数，@PathVariable，例子:&#x2F;book&#x2F;{id}</li>
+<li>请求参数(查询参数)，@RequestParam，例子: &#x2F;challenge?mode&#x3D;2&amp;id&#x3D;13412431234</li>
+<li>json请求体，@RequestBody，会用到HttpMessageConverter消息转换器，Rest API<ul>
+<li>HttpMessageConverter：json与java对象互转</li>
+</ul>
+</li>
+</ul>
+<h2 id="Spring-MVC的请求处理过程👍"><a href="#Spring-MVC的请求处理过程👍" class="headerlink" title="Spring MVC的请求处理过程👍"></a>Spring MVC的请求处理过程👍</h2><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/ch04-Web%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6%20Web%20MVC/image-20231009131203096.png" alt="image-20231009131203096"></p>
+<ul>
+<li>Web容器开发的基本单元是Servlet，请求先到servlet。</li>
+<li>mapping根据url把请求转到controller，其中spring框架会做参数解析。</li>
+<li>controller接受请求，数据解析，拿到数据后转到业务层</li>
+<li>业务层：处理，数据持久化，访问数据库层</li>
+<li>数据库层：数据库访问层Dao，分关系型数据库和非关系型数据库，返回控制器层</li>
+<li>控制器层返回数据到DispatcherServlt，DispatcherServlt拿到数据和逻辑视图名</li>
+<li>逻辑视图名与特定的页面渲染的第三方库，渲染视图，返回浏览器端</li>
+<li>DispatcherServlt：spring自己实现的，用途就是截获request</li>
+</ul>
+<h2 id="Spring-MVC的请求映射注解👍"><a href="#Spring-MVC的请求映射注解👍" class="headerlink" title="Spring MVC的请求映射注解👍"></a>Spring MVC的请求映射注解👍</h2><p>@RequestMapping </p>
+<p>@GetMapping ：获取</p>
+<p>@PostMapping ：提交数据、创建新资源</p>
+<p>@PutMapping ：更新资源</p>
+<p>@DeleteMapping ：删除资源 	</p>
+<p>@PatchMapping</p>
+<h2 id="重定向👍"><a href="#重定向👍" class="headerlink" title="重定向👍"></a>重定向👍</h2><p>控制器处理完成后可以返回逻辑视图名，也可以重定向到其他url</p>
+<ul>
+<li>http状态码：302</li>
+<li>控制器<code>return redirect:</code></li>
+</ul>
+<h2 id="Servlet规范"><a href="#Servlet规范" class="headerlink" title="Servlet规范"></a>Servlet规范</h2><ul>
+<li>实现<ul>
+<li>tomcat</li>
+<li>jetty</li>
+</ul>
+</li>
+<li>最小开发单元</li>
+</ul>
+<ul>
+<li>Web容器的实现规范，与Spring无关<ul>
+<li>Web容器&#x2F;服务器，里面放Servlet对象</li>
+</ul>
+</li>
+</ul>
+<h3 id="Servlet对象"><a href="#Servlet对象" class="headerlink" title="Servlet对象"></a>Servlet对象</h3><p>Request（可以带很多property属性，key-value数据结构）</p>
+<p>Response</p>
+<h2 id="校验表单输入"><a href="#校验表单输入" class="headerlink" title="校验表单输入"></a>校验表单输入</h2><ul>
+<li>JavaBean Validation API</li>
+<li>spring-boot-starter-validation（有Hibernate针对 JavaBean Validation API的实现）<ul>
+<li>领域类上添加校验规则 </li>
+<li>控制器中声明校验：@Valid</li>
+<li>修改表单视图以展现校验错误</li>
+</ul>
+</li>
+</ul>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- tag::validationStarter[] --</span></span><br><span class="line"><span class="comment">    &lt;dependency&gt;</span></span><br><span class="line"><span class="comment">        &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span></span><br><span class="line"><span class="comment">        &lt;artifactId&gt;spring-boot-starter-validation&lt;/artifactId&gt;</span></span><br><span class="line"><span class="comment">    &lt;/dependency&gt;</span></span><br><span class="line"><span class="comment">&lt;!-- end::validationStarter[] --&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+
+<h2 id="更多视图模板库"><a href="#更多视图模板库" class="headerlink" title="更多视图模板库"></a>更多视图模板库</h2><p>Thymeleaf<br>FreeMarker<br>Groovy Templates<br>JSP<br>Mustache</p>
+<h2 id="使用视图控制器（View-Controller）"><a href="#使用视图控制器（View-Controller）" class="headerlink" title="使用视图控制器（View Controller）"></a>使用视图控制器（View Controller）</h2><ul>
+<li>如果一个控制器非常简单，不需要填充模型或处理输入</li>
+<li>接口WebMvcConfigurer，用于配置</li>
+<li>简单的从请求URL到视图 ✓ registry.addViewController(“&#x2F;“).setViewName(“home”); &#x2F;&#x2F;GET请求 </li>
+<li>接口WebMvcConfigurer也可实现到启动类中</li>
+</ul>
+
+<div class="article-footer fs14">
+    <section id="license">
+      <div class="header"><span>许可协议</span></div>
+      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div>
+    </section>
+    </div>
+</article>
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/2023/10/04/23-%E7%A7%BB%E5%8A%A8%E4%BA%92%E8%81%94%E7%BD%91/%E6%B5%85%E6%9E%90ArkTS%E7%9A%84%E8%B5%B7%E6%BA%90%E5%92%8C%E6%BC%94%E8%BF%9B/">ArkTS的起源、演进和使用</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/2023/09/21/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch03-%E9%9D%A2%E5%90%91%E5%88%87%E9%9D%A2%E7%BC%96%E7%A8%8B%EF%BC%88AOP%EF%BC%89/">服务端开发-ch03-面向切面编程（AOP）</a></div></section></div>
+
+
+
+
+
+
+<footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">Asimov</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.28.1">Stellar 1.28.1</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+</div></footer>
+<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
+<div class="widgets">
+
+
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ch04-Web%E5%BC%80%E5%8F%91%E6%A1%86%E6%9E%B6-Web-MVC"><span class="toc-text">ch04-Web开发框架 Web MVC</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Spring-MVC%F0%9F%91%8D"><span class="toc-text">Spring MVC👍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%A2%86%E5%9F%9F%E7%B1%BB"><span class="toc-text">领域类</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ModelAttribute"><span class="toc-text">ModelAttribute</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A7%E5%88%B6%E5%99%A8%E7%9A%84%E5%AE%9E%E7%8E%B0DesignTacoController"><span class="toc-text">控制器的实现DesignTacoController</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%84%E7%90%86%E8%A1%A8%E5%8D%95%E6%8F%90%E4%BA%A4"><span class="toc-text">处理表单提交</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#toco%E7%9A%84%E8%BD%AC%E5%8C%96%E5%99%A8converter"><span class="toc-text">toco的转化器converter</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%AF%E5%BE%84%E5%8F%82%E6%95%B0-PathVariable"><span class="toc-text">路径参数@PathVariable</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%B7%E6%B1%82%E5%8F%82%E6%95%B0-%E6%9F%A5%E8%AF%A2%E5%8F%82%E6%95%B0-RequestParam"><span class="toc-text">请求参数(查询参数)@RequestParam</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spring-MVC%E8%8E%B7%E5%8F%96%E5%8F%82%E6%95%B0%E7%9A%84%E5%87%A0%E7%A7%8D%E6%96%B9%E5%BC%8F%F0%9F%91%8D"><span class="toc-text">Spring MVC获取参数的几种方式👍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spring-MVC%E7%9A%84%E8%AF%B7%E6%B1%82%E5%A4%84%E7%90%86%E8%BF%87%E7%A8%8B%F0%9F%91%8D"><span class="toc-text">Spring MVC的请求处理过程👍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spring-MVC%E7%9A%84%E8%AF%B7%E6%B1%82%E6%98%A0%E5%B0%84%E6%B3%A8%E8%A7%A3%F0%9F%91%8D"><span class="toc-text">Spring MVC的请求映射注解👍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%8D%E5%AE%9A%E5%90%91%F0%9F%91%8D"><span class="toc-text">重定向👍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Servlet%E8%A7%84%E8%8C%83"><span class="toc-text">Servlet规范</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Servlet%E5%AF%B9%E8%B1%A1"><span class="toc-text">Servlet对象</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%A1%E9%AA%8C%E8%A1%A8%E5%8D%95%E8%BE%93%E5%85%A5"><span class="toc-text">校验表单输入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9B%B4%E5%A4%9A%E8%A7%86%E5%9B%BE%E6%A8%A1%E6%9D%BF%E5%BA%93"><span class="toc-text">更多视图模板库</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E8%A7%86%E5%9B%BE%E6%8E%A7%E5%88%B6%E5%99%A8%EF%BC%88View-Controller%EF%BC%89"><span class="toc-text">使用视图控制器（View Controller）</span></a></li></ol></li></ol></div><div class="widget-footer">
+
+<a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12c0-4.714 0-7.071 1.464-8.536C4.93 2 7.286 2 12 2c4.714 0 7.071 0 8.535 1.464C22 4.93 22 7.286 22 12c0 4.714 0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12Z"/><path stroke-linecap="round" stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M10.46 1.25h3.08c1.603 0 2.86 0 3.864.095c1.023.098 1.861.3 2.6.752a5.75 5.75 0 0 1 1.899 1.899c.452.738.654 1.577.752 2.6c.095 1.004.095 2.261.095 3.865v1.067c0 1.141 0 2.036-.05 2.759c-.05.735-.153 1.347-.388 1.913a5.75 5.75 0 0 1-3.112 3.112c-.805.334-1.721.408-2.977.43a10.81 10.81 0 0 0-.929.036c-.198.022-.275.054-.32.08c-.047.028-.112.078-.224.232c-.121.166-.258.396-.476.764l-.542.916c-.773 1.307-2.69 1.307-3.464 0l-.542-.916a10.605 10.605 0 0 0-.476-.764c-.112-.154-.177-.204-.224-.232c-.045-.026-.122-.058-.32-.08c-.212-.023-.49-.03-.93-.037c-1.255-.021-2.171-.095-2.976-.429A5.75 5.75 0 0 1 1.688 16.2c-.235-.566-.338-1.178-.389-1.913c-.049-.723-.049-1.618-.049-2.76v-1.066c0-1.604 0-2.86.095-3.865c.098-1.023.3-1.862.752-2.6a5.75 5.75 0 0 1 1.899-1.899c.738-.452 1.577-.654 2.6-.752C7.6 1.25 8.857 1.25 10.461 1.25M6.739 2.839c-.914.087-1.495.253-1.959.537A4.25 4.25 0 0 0 3.376 4.78c-.284.464-.45 1.045-.537 1.96c-.088.924-.089 2.11-.089 3.761v1c0 1.175 0 2.019.046 2.685c.045.659.131 1.089.278 1.441a4.25 4.25 0 0 0 2.3 2.3c.515.214 1.173.294 2.429.316h.031c.398.007.747.013 1.037.045c.311.035.616.104.909.274c.29.17.5.395.682.645c.169.232.342.525.538.856l.559.944a.52.52 0 0 0 .882 0l.559-.944c.196-.331.37-.624.538-.856c.182-.25.392-.476.682-.645c.293-.17.598-.24.909-.274c.29-.032.639-.038 1.037-.045h.032c1.255-.022 1.913-.102 2.428-.316a4.25 4.25 0 0 0 2.3-2.3c.147-.352.233-.782.278-1.441c.046-.666.046-1.51.046-2.685v-1c0-1.651 0-2.837-.089-3.762c-.087-.914-.253-1.495-.537-1.959a4.25 4.25 0 0 0-1.403-1.403c-.464-.284-1.045-.45-1.96-.537c-.924-.088-2.11-.089-3.761-.089h-3c-1.651 0-2.837 0-3.762.089" clip-rule="evenodd"/><path fill="currentColor" d="M9 11a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0"/></svg><span>参与讨论</span></a></div></widget>
+</div></aside><div class='float-panel blur'>
+  <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+  </button>
+  <button type='button' style='display:none' class='mobile-only leftbar-toggle mobile' onclick='sidebar.leftbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"/><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"/></g></svg>
+  </button>
+</div>
+</div><div class="scripts">
+<script type="text/javascript">
+  const ctx = {
+    date_suffix: {
+      just: `刚刚`,
+      min: `分钟前`,
+      hour: `小时前`,
+      day: `天前`,
+    },
+    root : `/`,
+  };
+
+  // required plugins (only load if needs)
+  if (`local_search`) {
+    ctx.search = {};
+    ctx.search.service = `local_search`;
+    if (ctx.search.service == 'local_search') {
+      let service_obj = Object.assign({}, `{"field":"all","path":"/search.json","content":true,"sort":"-date"}`);
+      ctx.search[ctx.search.service] = service_obj;
+    }
+  }
+  const def = {
+    avatar: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg`,
+    cover: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg`,
+  };
+  const deps = {
+    jquery: `https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js`,
+    marked: `https://cdn.bootcdn.net/ajax/libs/marked/4.0.18/marked.min.js`
+  }
+  
+
+</script>
+
+<script type="text/javascript">
+  const utils = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    css: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    js: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')){
+        src = ctx.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    jq: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        utils.js(deps.jquery).then(fn)
+      } else {
+        fn()
+      }
+    },
+    
+    onLoading: (el) => {
+      if (el) {
+        $(el).append('<div class="loading-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg></div>');
+      }
+    },
+    onLoadSuccess: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap').remove();
+      }
+    },
+    onLoadFailure: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap svg').remove();
+        $(el).find('.loading-wrap').append('<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3L21 20H3L12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 10V14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"/></path></g><circle cx="12" cy="17" r="1" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.4s" values="0;1"/></circle></svg>');
+        $(el).find('.loading-wrap').addClass('error');
+      }
+    },
+    request: (el, url, callback, onFailure) => {
+      let retryTimes = 3;
+      utils.onLoading(el);
+      function req() {
+        return new Promise((resolve, reject) => {
+          let status = 0; // 0 等待 1 完成 2 超时
+          let timer = setTimeout(() => {
+            if (status === 0) {
+              status = 2;
+              timer = null;
+              reject('请求超时');
+              if (retryTimes == 0) {
+                onFailure();
+              }
+            }
+          }, 5000);
+          fetch(url).then(function(response) {
+            if (status !== 2) {
+              clearTimeout(timer);
+              resolve(response);
+              timer = null;
+              status = 1;
+            }
+            if (response.ok) {
+              return response.json();
+            }
+            throw new Error('Network response was not ok.');
+          }).then(function(data) {
+            retryTimes = 0;
+            utils.onLoadSuccess(el);
+            callback(data);
+          }).catch(function(error) {
+            if (retryTimes > 0) {
+              retryTimes -= 1;
+              setTimeout(() => {
+                req();
+              }, 5000);
+            } else {
+              utils.onLoadFailure(el);
+              onFailure();
+            }
+          });
+        });
+      }
+      req();
+    },
+  };
+</script>
+
+<script>
+  const sidebar = {
+    leftbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    rightbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('rightbar');
+        l_body.removeAttribute('leftbar');
+      }
+    },
+    dismiss: () => {
+      if (l_body) {
+        l_body.removeAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    toggleTOC: () => {
+      document.querySelector('#data-toc').classList.toggle('collapse');
+    }
+  }
+</script>
+
+<!-- required -->
+<script src="/js/main.js?v=1.28.1" async></script>
+
+<!-- optional -->
+
+
+
+<script defer>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.services = Object.assign({}, JSON.parse(`{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"}}`));
+    for (let id of Object.keys(ctx.services)) {
+      const js = ctx.services[id].js;
+      if (id == 'siteinfo') {
+        ctx.cardlinks = document.querySelectorAll('a.link-card[cardlink]');
+        if (ctx.cardlinks?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            setCardLink(ctx.cardlinks);
+          });
+        }
+      } else {
+        const els = document.getElementsByClassName(`ds-${id}`);
+        if (els?.length > 0) {
+          utils.jq(() => {
+            if (id == 'timeline' || 'memos' || 'marked') {
+              utils.js(deps.marked).then(function () {
+                utils.js(js, { defer: true });
+              });
+            } else {
+              utils.js(js, { defer: true });
+            }
+          });
+        }
+      }
+    }
+  });
+</script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.search = {
+      path: `/search.json`,
+    }
+    utils.js('/js/search/local-search.js', { defer: true });
+  });
+</script><script>
+  window.FPConfig = {
+    delay: 0,
+    ignoreKeywords: [],
+    maxRPS: 5,
+    hoverDelay: 25
+  };
+</script>
+<script defer src="https://cdn.bootcdn.net/ajax/libs/flying-pages/2.1.2/flying-pages.min.js"></script><script defer src="https://cdn.bootcdn.net/ajax/libs/vanilla-lazyload/17.8.4/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazy",
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    window.lazyLoadInstance?.update();
+  });
+</script><script>
+  ctx.fancybox = {
+    selector: `.timenode p>img`,
+    css: `https://cdn.bootcdn.net/ajax/libs/fancyapps-ui/5.0.22/fancybox/fancybox.min.css`,
+    js: `https://cdn.bootcdn.net/ajax/libs/fancyapps-ui/5.0.22/fancybox/fancybox.umd.min.js`
+  };
+  var selector = '[data-fancybox]:not(.error)';
+  if (ctx.fancybox.selector) {
+    selector += `, ${ctx.fancybox.selector}`
+  }
+  var needFancybox = document.querySelectorAll(selector).length !== 0;
+  if (!needFancybox) {
+    const els = document.getElementsByClassName('ds-memos');
+    if (els != undefined && els.length > 0) {
+      needFancybox = true;
+    }
+  }
+  if (needFancybox) {
+    utils.css(ctx.fancybox.css);
+    utils.js(ctx.fancybox.js, { defer: true }).then(function () {
+      Fancybox.bind(selector, {
+        hideScrollbar: false,
+        Thumbs: {
+          autoStart: false,
+        },
+        caption: (fancybox, slide) => {
+          return slide.triggerEl.alt || slide.triggerEl.dataset.caption || null
+        }
+      });
+    })
+  }
+</script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    const swiper_api = document.getElementById('swiper-api');
+    if (swiper_api != undefined) {
+      utils.css(`https://unpkg.com/swiper@10.3.1/swiper-bundle.min.css`);
+      utils.js(`https://unpkg.com/swiper@10.3.1/swiper-bundle.min.js`, { defer: true }).then(function () {
+        const effect = swiper_api.getAttribute('effect') || '';
+        var swiper = new Swiper('.swiper#swiper-api', {
+          slidesPerView: 'auto',
+          spaceBetween: 8,
+          centeredSlides: true,
+          effect: effect,
+          rewind: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+      })
+    }
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    window.codeElements = document.querySelectorAll('.code');
+    if (window.codeElements.length > 0) {
+      ctx.copycode = {
+        default_text: `Copy`,
+        success_text: `Copied`,
+        toast: `复制成功`,
+      };
+      utils.js('/js/plugins/copycode.js');
+    }
+  });
+</script>
+
+
+<!-- inject -->
+
+</div></body></html>

@@ -1,0 +1,627 @@
+
+<!DOCTYPE html><html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.28.1" theme-name="Stellar" theme-version="1.28.1">
+  
+  <meta name="generator" content="Hexo 7.2.0">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f9fafb">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
+  
+  <title>SE-II-软件工程与计算II重点整理(第8-11章) - Asimov's Blog</title>
+
+  
+    <meta name="description" content="软件工程与计算II重点整理(第8-11章)第八章 软件设计1.软件设计的定义a)为使一软件系统满足规定的需求而定义系统或部件的体系结构、部件、接口和其他特征的过程； b)设计过程的结果。 2.软件设计的核心思想复杂度控制 分解、抽象、层次性 3.软件工程设计有哪三个层次？各层的主要思想是什么？低层设计、中层设计、高层设计。 低层：将基本的语言单位组织起来，建立高质量的数据结构+算法 中层：模块划分">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SE-II-软件工程与计算II重点整理(第8-11章)">
+<meta property="og:url" content="https://chendingya.github.io/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC8-11%E7%AB%A0)/index.html">
+<meta property="og:site_name" content="Asimov&#39;s Blog">
+<meta property="og:description" content="软件工程与计算II重点整理(第8-11章)第八章 软件设计1.软件设计的定义a)为使一软件系统满足规定的需求而定义系统或部件的体系结构、部件、接口和其他特征的过程； b)设计过程的结果。 2.软件设计的核心思想复杂度控制 分解、抽象、层次性 3.软件工程设计有哪三个层次？各层的主要思想是什么？低层设计、中层设计、高层设计。 低层：将基本的语言单位组织起来，建立高质量的数据结构+算法 中层：模块划分">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://chendingya.github.io/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC8-11%E7%AB%A0)/image-20230616204231528.png">
+<meta property="og:image" content="https://chendingya.github.io/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC8-11%E7%AB%A0)/image-20230616204242803.png">
+<meta property="article:published_time" content="2022-06-20T08:02:34.000Z">
+<meta property="article:modified_time" content="2023-09-17T08:07:09.856Z">
+<meta property="article:author" content="Asimov">
+<meta property="article:tag" content="软件工程与计算II">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://chendingya.github.io/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC8-11%E7%AB%A0)/image-20230616204231528.png">
+  
+  
+  
+  <meta name="keywords" content="软件工程与计算II">
+
+  <!-- feed -->
+  
+
+  <link rel="stylesheet" href="/css/main.css?v=1.28.1">
+
+  
+
+  
+
+  
+</head>
+<body>
+
+<div class="l_body s:aa content tech" id="start" layout="post" ><aside class="l_left"><div class="leftbar-container">
+
+
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="undefined" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">Asimov's Blog</div><div class="sub cap">亚历山大</div></a></div></header>
+
+<div class="nav-area">
+<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" placeholder="站内搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
+
+
+<nav class="menu dis-select"></nav>
+</div>
+<div class="widgets">
+
+
+<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/"><span class="title">软件测试-期末复习</span></a><a class="item title" href="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/"><span class="title">机器学习-期末复习</span></a><a class="item title" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/"><span class="title">服务端-ch17-k8s使用</span></a><a class="item title" href="/2023/12/30/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch16-%E5%AE%B9%E5%99%A8%E9%95%9C%E5%83%8F%E6%9E%84%E5%BB%BA%E4%B8%8E%E7%BC%96%E6%8E%92/"><span class="title">服务端-ch16-容器镜像构建与编排</span></a><a class="item title" href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/"><span class="title">服务端-ch15-Docker</span></a><a class="item title" href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/"><span class="title">服务端-ch14-Spring WebFlux</span></a><a class="item title" href="/2023/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch13-%E5%8F%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"><span class="title">服务端-ch13-反应式编程基础</span></a><a class="item title" href="/2023/11/23/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch12-Spring%20Integration/"><span class="title">服务端-ch12-Spring Integration</span></a><a class="item title" href="/2023/11/09/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch11-%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6(ActiveMQ%E3%80%81RabbitMQ)/"><span class="title">服务端-ch11-消息中间件(ActiveMQ、RabbitMQ)</span></a><a class="item title" href="/2023/11/09/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch10-OAuth2/"><span class="title">服务端-ch10-OAuth2</span></a></div></widget>
+</div>
+
+</div></aside><div class="l_main" id="main">
+
+
+
+
+
+<div class="article banner top">
+  <div class="content">
+    <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">软件工程与计算II</a></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2022-06-20T08:02:34.000Z">2022-06-20</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2023-09-17T08:07:09.856Z">2023-09-17</time></span></div></div></div>
+    
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>SE-II-软件工程与计算II重点整理(第8-11章)</span></h1>
+        
+      </div>
+    </div>
+    
+  </div>
+  </div><article class="md-text content"><h1 id="软件工程与计算II重点整理-第8-11章"><a href="#软件工程与计算II重点整理-第8-11章" class="headerlink" title="软件工程与计算II重点整理(第8-11章)"></a>软件工程与计算II重点整理(第8-11章)</h1><h2 id="第八章-软件设计"><a href="#第八章-软件设计" class="headerlink" title="第八章 软件设计"></a>第八章 软件设计</h2><h2 id="1-软件设计的定义"><a href="#1-软件设计的定义" class="headerlink" title="1.软件设计的定义"></a>1.软件设计的定义</h2><p>a)为使一软件系统满足规定的需求而定义系统或部件的体系结构、部件、接口和其他特征的过程；</p>
+<p>b)设计过程的结果。</p>
+<h2 id="2-软件设计的核心思想"><a href="#2-软件设计的核心思想" class="headerlink" title="2.软件设计的核心思想"></a>2.软件设计的核心思想</h2><p><strong>复杂度控制</strong></p>
+<p><strong>分解、抽象、层次性</strong></p>
+<h2 id="3-软件工程设计有哪三个层次？各层的主要思想是什么？"><a href="#3-软件工程设计有哪三个层次？各层的主要思想是什么？" class="headerlink" title="3.软件工程设计有哪三个层次？各层的主要思想是什么？"></a>3.软件工程设计有哪三个层次？各层的主要思想是什么？</h2><p>低层设计、中层设计、高层设计。</p>
+<p>低层：将<strong>基本的语言单位组织</strong>起来，建立高质量的数据结构+算法</p>
+<p>中层：<strong>模块划分隐藏一些程序片段的细节，暴露接口于外界</strong></p>
+<p>高层：体系结构，部件承载计算和状态，连接件承载交互，同样重要</p>
+<h2 id="第九、十章-软件体系结构设计与构建"><a href="#第九、十章-软件体系结构设计与构建" class="headerlink" title="第九、十章 软件体系结构设计与构建"></a>第九、十章 软件体系结构设计与构建</h2><h2 id="1-体系结构的概念"><a href="#1-体系结构的概念" class="headerlink" title="1.体系结构的概念"></a>1.体系结构的概念</h2><p><strong>部件+连接件+配置部件：</strong></p>
+<p>部件：承载系统主要功能，包括处理与数据</p>
+<p>连接件：定义部件间的交互，是连接的抽象表示</p>
+<p>配置：定义了部件和连接件之间的关联方式，将它们组织成系统的总体结构</p>
+<h2 id="2-体系结构的风格的优缺点"><a href="#2-体系结构的风格的优缺点" class="headerlink" title="2.体系结构的风格的优缺点"></a>2.体系结构的风格的优缺点</h2><p>常见风格模式：</p>
+<h3 id="1）主程序-子程序风格"><a href="#1）主程序-子程序风格" class="headerlink" title="(1）主程序&#x2F;子程序风格"></a>(1）主程序&#x2F;子程序风格</h3><p><strong>部件：程序、函数、模块</strong></p>
+<p><strong>连接件：它们之间的调用控制</strong></p>
+<p>从子程序层次结构顶部开始且向下移动层次化分解：基于定义使用关系单线程控制</p>
+<p>隐含子系统结构：子程序通常合并成模块</p>
+<p>层次化推理：子程序的正确性依赖于它调用的子程序的正确性</p>
+<p><strong>优点：流程清晰，易于理解；强控制性。</strong></p>
+<p><strong>缺点：</strong></p>
+<p>a.程序调用是一种强耦合的连接方式，非常依赖交互方的接口规格，使得系统难以修改和复用；</p>
+<p> b.基于程序调用（声明－使用）关系的连接方式限制了各部件之间的数据交互，可能会使得不同部件使用隐含的共享数据交流，产生不必要的公共耦合，进而破坏它的“正确性”控制能力。</p>
+<p>实现：功能分解、集中控制，每个构件一个模块实现，主要是单向依赖。使用utility或tools等基础模块</p>
+<h3 id="2）面向对象式风格"><a href="#2）面向对象式风格" class="headerlink" title="(2）面向对象式风格"></a>(2）面向对象式风格</h3><p><strong>部件: 对象或模块</strong></p>
+<p><strong>连接件: 功能或调用（方法）</strong></p>
+<p>数据表示对于其他对象是<strong>隐藏的对象负责保持数据表示的完整性</strong>（例如一些不变量）每个对象都是自主代理</p>
+<p><strong>优点：内部实现的可修改性；易开发、易理解、易复用的结构组织。</strong></p>
+<p><strong>缺点：接口的耦合性；标识的耦合性；副作用（Ex：A和B都修改C）。</strong></p>
+<p>适用于核心问题是识别和保护相关机构信息（数据）的应用数据表示和相关操作封装在抽象数据类型，</p>
+<p>例: 抽象数据类型实现：任务分解，（委托式）分散式控制，每个构件一个模块实现，使用接口将双向依赖转换为单向依赖</p>
+<p>将每个构件分割为多个模块，以保证单向依赖，使用utility或tools等基础模块</p>
+<h3 id="3）分层风格"><a href="#3）分层风格" class="headerlink" title="(3）分层风格"></a>(3）分层风格</h3><p><strong>上层调用下层，禁止逆向调用，跨层调用</strong></p>
+<p><strong>部件: 通常是程序或对象的集合</strong></p>
+<p><strong>连接件: 通常是有限可见度下的程序调用或方法调用</strong></p>
+<p>优点：设计机制清晰，易于理解；<strong>支持并行开发；更好的可复用性与内部可修改性。</strong></p>
+<p>缺点：<strong>交互协议难以修改</strong>；性能损失；难以确定层次数量和粒度。</p>
+<p>应用：适用于包含不同类服务的应用，而且这些服务能够分层组织尤其当应用可能在某些层改变，例如交互，通信，硬件，平台等</p>
+<p>例子:<strong>分层通信协议</strong>，每一层在某种程度的抽象上提供了通信的基底，低层定义了低层次的交互最底层是硬件连接（物理层）</p>
+<p>实现：关注点分离（每层逐次抽象），层间接口使用固定协议（固定控制），每层一或多个模块实现，单向依赖，层间数据传递建立专门模块，使用utility或tools等基础模块</p>
+<h3 id="4）MVC风格"><a href="#4）MVC风格" class="headerlink" title="(4）MVC风格"></a>(4）MVC风格</h3><p><strong>模型——视图——控制器</strong></p>
+<p>Model子系统被设计成不依赖任何View或Controller子系统</p>
+<p>它们状态的改变会传播到View子系统部件：</p>
+<p><strong>Model部件负责维护领域知识和通知视图变化；</strong></p>
+<p><strong>View部件负责给用户显示信息和将用户手势发送给控制器；</strong></p>
+<p><strong>Controller改变模型的状态、将用户操作映射到模型更新、选择视图进行响应</strong></p>
+<p><strong>连接件: 程序调用，消息，事件</strong></p>
+<p>优点：<strong>易开发性</strong>；视图和控制的可修改性；适宜于网络系统开发的特征。</p>
+<p>缺点：<strong>复杂性；模型修改困难。</strong></p>
+<p>适用于以下应用:在运行时，用户界面的改变很容易且是可能的用户界面的调整或移植不会影响该应用功能部分的设计和编码 例:Web 应用实现：特定技术，通常专用于WEB：Model与Controller单向，Controller与View双向，Model与View双向</p>
+<p>典型实现：View：JSP，HTML；Controller：Servlet；Model：JavaBean</p>
+<h2 id="3-体系结构设计的过程"><a href="#3-体系结构设计的过程" class="headerlink" title="3.体系结构设计的过程"></a>3.体系结构设计的过程</h2><p>1.分析<strong>关键需求和项目约束</strong>；</p>
+<p>2.通过<strong>选择体系结构风格</strong>，确定顶层架构；</p>
+<p>3.进行软件<strong>体系结构逻辑设计</strong>；</p>
+<p>4.依赖逻辑设计进行<strong>软件体系结构设计</strong>；</p>
+<p>5.完善体系结构设计；</p>
+<p>6.添加<strong>构建接口</strong></p>
+<p>7.迭代3-7</p>
+<blockquote>
+<p>安全与网络分布：方案比较</p>
+<p>方案一：哪个接口更多、更复杂？ 将RMI置于更少、更简单的层间接口</p>
+<p>方案二：哪两层之间更内聚？将RMI置于更不内聚的层间接口</p>
+<p>方案后果：更简洁、更易于修改</p>
+<p>方案一：Mainui只包含登录</p>
+<p>方案二：Mainui包含登录和主界面  </p>
+</blockquote>
+<blockquote>
+<p>关键区分：是否需要共同的主界面、界面一样  </p>
+</blockquote>
+<h2 id="4-包的原则"><a href="#4-包的原则" class="headerlink" title="4.包的原则"></a>4.包的原则</h2><p><strong>最高原则：包与包之间不能有重复和冗余、复用发布等价原则、共同封闭原则、共同复用原则、无环依赖原则、稳定依赖原则、稳定抽象原则</strong></p>
+<h3 id="（1）复用发布等价原则REP"><a href="#（1）复用发布等价原则REP" class="headerlink" title="（1）复用发布等价原则REP"></a>（1）复用发布等价原则REP</h3><p>（不要把很多用例放在一个包）为复用者聚合构件（类），单一的类通常不可复用，几个协作类组成一个包</p>
+<p>一个包中的类应该形成一个<strong>可复用和可发布</strong>的模块，模块提供一致的功能，减少复用者的工作</p>
+<h3 id="（2）共同封闭原则CCP"><a href="#（2）共同封闭原则CCP" class="headerlink" title="（2）共同封闭原则CCP"></a>（2）共同封闭原则CCP</h3><p>最小化变化给程序员造成的影响（不要把一个用例拆成多个包）<strong>当一个变化是必要的，如果该变化影响尽可能少的包，则对程序员是有利的</strong>，因为需要时间编译和链接以及重新生效把具有相似闭包的类聚合在一起，包闭合了预期的变化</p>
+<p>限制对一些包的修改，减少包的发布频率，减少程序员的工作</p>
+<h3 id="（3）共同复用原则CRP"><a href="#（3）共同复用原则CRP" class="headerlink" title="（3）共同复用原则CRP"></a>（3）共同复用原则CRP</h3><p><strong>根据公共复用给类分组，避免给用户带来不必要的依赖常常导致细分包</strong>，获得<strong>更多更小更集中</strong>的包，减少复用者的工作</p>
+<p><strong>CCP和CRP原则相互排斥</strong>，例如它们不能同时被满足：CRP使得复用者的工作更简单，而CCP使维护者的生活更简单；CCP努力让包尽可能大，而CRP设法让包很小。项目的早期，架构师可能以CCP为主导来辅助开发和维护。架构稳定后，架构师可能重构包结构，为了外部复用者而最大化CRP。</p>
+<h3 id="（4）无环依赖原则ADP"><a href="#（4）无环依赖原则ADP" class="headerlink" title="（4）无环依赖原则ADP"></a>（4）无环依赖原则ADP</h3><p>包的依赖结构应是一个有向无环图一块块地稳固和发布项目，以自上而下的层次结构组织包依赖</p>
+<p>解决：分解包／抽象依赖</p>
+<h3 id="（5）稳定依赖原则SDP"><a href="#（5）稳定依赖原则SDP" class="headerlink" title="（5）稳定依赖原则SDP"></a>（5）稳定依赖原则SDP</h3><p>例如：向下接口的依赖是不稳定依赖</p>
+<p>一个包影响三个包，这不稳定。</p>
+<p>三个包影响一个包，稳定。</p>
+<h3 id="（6）稳定抽象原则SAP"><a href="#（6）稳定抽象原则SAP" class="headerlink" title="（6）稳定抽象原则SAP"></a>（6）稳定抽象原则SAP</h3><p><strong>稳定包应是抽象包，不稳定包应是具体包</strong></p>
+<p><strong>稳定包包含高层设计</strong>，抽象它们使得对扩展开发对修改关闭（OCP）。一些灵活性留在稳定的难以改变的包中。</p>
+<p>对象创建：</p>
+<blockquote>
+<p>方案一: Spring方案,需要事先明确依赖关系在程序启动时,第三方(初始化程序)一次性创建完成对象实例并set给上一层Service：View——Logic；DAO: Logic——Data</p>
+<p>方案二: 也适用于非层间的包依赖解除构造一个第三方(Factory)负责创建具体对象实例</p>
+<p>上层和下层都依赖于第三方，但第三方可以视作例外（即不影响层间独立关系）</p>
+</blockquote>
+<h2 id="5-体系结构构件之间接口的定义（必考）"><a href="#5-体系结构构件之间接口的定义（必考）" class="headerlink" title="5.体系结构构件之间接口的定义（必考）"></a>5.体系结构构件之间接口的定义（必考）</h2><p>根据分配的需求确定模块对外接口，如逻辑层接口根据界面的需求得到，数据层接口根据逻辑层调用得到</p>
+<p>根据<strong>刺激与响应</strong>确定接口，<strong>依据详细规格明确接口内容（数据、返回值）</strong></p>
+<p>（1）通常情况下，VIEW的required接口可以直接作为相应Logic的Provided</p>
+<p>（2）通常情况下，LOGIC的required接口需要分解为同层模块和不同Data的Provided</p>
+<p>（3）Data一般没有层间依赖，接口通常来自于上一层的相应模块</p>
+<blockquote>
+<p>【示例】saleLogic的其他接口来源 :</p>
+<p>（1）其他被归类为saleLogic模块承担的需求，如退货用例</p>
+<p>（2）同层模块间的依赖解除双向依赖：需要被抽象为一个独立接口和独立包，saleLogic再导入上面的包独立接口和独立包也属于saleLogic模块最终承担的Provide接口，也需要转化为对Data的Required接口在分析其他模块时逐步完善，例如进行礼品赠送时查看特定客户的销售记录、库存分析时查看一定时间段内的销售记录或特定商品的销售记录  </p>
+</blockquote>
+<blockquote>
+<p>在独立接口和独立包中定义有限制的领域类供外界使用，例如对象限制为查询接口，限制数据种类等等  </p>
+</blockquote>
+<h2 id="6-体系结构开发集成测试用例：Stub和Driver"><a href="#6-体系结构开发集成测试用例：Stub和Driver" class="headerlink" title="6.体系结构开发集成测试用例：Stub和Driver"></a>6.体系结构开发集成测试用例：Stub和Driver</h2><p>（1）依据模块接口建立桩程序Stub——<strong>为了完成程序的编译和连接而使用的暂时代码，对外模拟和代替承担模块接口的关键类，比真实程序简单的多，使用最为简单的逻辑</strong></p>
+<blockquote>
+<p>【示例】P177 SalesBLService_Stub  </p>
+</blockquote>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC8-11%E7%AB%A0)/image-20230616204231528.png"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC8-11%E7%AB%A0)/image-20230616204242803.png"></p>
+<p>（2）编写驱动程序，在桩程序帮助下进行集成测试View的测试比较特殊，其他层都需要增加Driver进行测试可以基于Junit编写Driver；基于接口规格设计测试用例开发View层时：需要logic的stub开发logic层时：需要模仿view的driver，需要data的stub，需要模拟同层调用的driver和stub</p>
+<p>开发data层时：需要模拟logic的driver</p>
+<p>（3）持续集成：逐步编写各个模块内部程序，替换相应的桩程序<br>真实程序不仅实现业务逻辑，而且会使用其他模块的接口程序（真实程序或者桩程序）<br>开始：客户端: view driver, logic stub, data stub；服务器端: logic driver, data stub进展：客户端: (逐步替换)driver,逐步替换logic stub, data stub；服务器端: logic driver, 逐步替换 data stub</p>
+<p>最后联调：使用真实的客户端和服务器</p>
+<h2 id="第11章-人机交互设计"><a href="#第11章-人机交互设计" class="headerlink" title="第11章 人机交互设计"></a>第11章 人机交互设计</h2><h2 id="1-可用性"><a href="#1-可用性" class="headerlink" title="1.可用性"></a>1.可用性</h2><p>易用性是人机交互中一个既重要又复杂的概念。它不仅关注人使用系统的过程，同时还关注系统对使用它的人所产生的作用，因为比较复杂，所以易用性不是一个单一的质量维度，而是多维度的质量属性。从易于度量的角度讲，<strong>易用性的常用维度包括：易学性、易记性、有效率、低出错率和主观满意度。</strong></p>
+<h2 id="2-界面设计的注意事项及解释（至少5个）"><a href="#2-界面设计的注意事项及解释（至少5个）" class="headerlink" title="2.界面设计的注意事项及解释（至少5个）"></a>2.界面设计的注意事项及解释（至少5个）</h2><p>【题型】例子违反了哪条界面设计原则</p>
+<p>（1）不要暴露内部结构例子：该设计明显暴露了软件结构，三个独立软件过程：创建、更新、解除</p>
+<p>（2）展示细节——所见即所得</p>
+<p>（3）常见界面类型：软件系统通常同时使用多种界面类型，以适应差异性的用户和任务。</p>
+<h2 id="3-精神模型，差异性"><a href="#3-精神模型，差异性" class="headerlink" title="3.精神模型，差异性"></a>3.精神模型，差异性</h2><p>（1）精神模型就是用户进行人机交互时头脑中的任务模型依据精神模型可以进行<strong>隐喻（Metaphor）设计</strong>：隐喻又被称为视觉隐喻，是视觉上的图像，但会被用户映射为业务事物。用户在识别图像时，会依据隐喻将控件功能与已知的熟悉事物联系起来，形成任务模型；隐喻本质上是在用户已有知识的基础上建立一组新的知识，实现界面视觉提示和系统功能之间的知觉联系。</p>
+<p>（2）用户希望看到的+希望用户看到的：识别并添加哪些能够帮助用户完成任务的功能，任务的频率也要纳入考虑常见错误：加入一些容易加入（例如正好是一个独立的软件过程）的功能，这会扰乱用户的精神模型，影响使用过程的顺利性</p>
+<p>（3）新手用户：关注易学性，进行业务导航，尽量避免出错专家用户：关注效率熟练用户：在易学性和效率之间进行折中好的人机交互应该为不同的用户群体提供差异化的交互机制。</p>
+<p>既为新手用户提供易学性高的人机交互机制（图形界面）</p>
+<p>又为专家用户提供效率高的人机交互机制（命令行、快捷方式、热键）</p>
+<h2 id="4-导航、反馈、协作式设计"><a href="#4-导航、反馈、协作式设计" class="headerlink" title="4.导航、反馈、协作式设计"></a>4.导航、反馈、协作式设计</h2><p>（1）导航主动将自己的产品和服务简明扼要地告诉用户，目的是为用户提供一个很好的完成任务的入口，<strong>好的导航会让这个入口非常符合人的精神模型</strong>。全局结构按照任务模型将软件产品的功能组织起来，并区分不同的重要性和主题提供给不同的用户。<strong>全局结构常用的导航控件包括窗口、菜单、列表、快捷方式、热键等等</strong>。全局结构的设计主要以功能分层和任务交互过程为主要依据。</p>
+<p>局部结构通过安排界面布局细节，制造视觉上的线索来给用户提供导航。<strong>局部结构常用的导航控件包括可视化控件布局与组合、按钮设置、文本颜色或字体大小等等。</strong>局部结构的设计主要以用户关注的任务细节为主要依据。</p>
+<p>（2）反馈让用户能够意识到行为的结果，但不能打断用户工作时的意识流用户喜欢较短的响应时间；</p>
+<p>较长的响应时间（&gt;15秒）具有破坏性；用户会根据响应时间的变化调整自己的工作方式；</p>
+<p>较短的响应时间导致了较短的用户思考时间；</p>
+<p>较快的节奏可能会提高效率，但也会增加出错率；</p>
+<p>根据任务选择适当的响应时间：打字、光标移动、鼠标定位：50～150毫秒；简单频繁的任务：1秒；普通的任务：2～4秒；复杂的任务：8～12秒</p>
+<p>响应时间适度的变化是可接受的；意外延迟可能具有破坏性；经验测试有助于设置适当的响应时间。</p>
+<p>（3）协作式设计</p>
+<p>A.<strong>简洁设计</strong>（摘要图片优于文字描述）列举、隐藏、赋予（标签、图标等线索暗示）</p>
+<p>B.<strong>一致性设计</strong>（确认与删除键相对位置不一致）</p>
+<p>C.<strong>低出错率设计</strong>（用具体的指导来提示用户出错）限制输入：列表、可选框等选择性组件代替输入框；按钮代替命令行；限定输入：类型，范围，格式…限制范围：简单化单步操作辅助：事前提示；事后检查；随时可以撤销</p>
+<p>D.<strong>易记性设计</strong>：减少短期记忆负担；使用逐层递进的方式展示信息；使用直观的快捷方式。重新认知比记忆更容易；设置有意义的缺省值，可以帮助用户减少记忆负担。</p>
+
+<div class="article-footer fs14">
+    <section id="license">
+      <div class="header"><span>许可协议</span></div>
+      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div>
+    </section>
+    </div>
+</article>
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/">SE-II-软件工程与计算II重点整理(第6-7章)</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/11-%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1/">SE-II-ch11-人机交互设计</a></div></section></div>
+
+
+
+
+
+
+<footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">Asimov</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.28.1">Stellar 1.28.1</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+</div></footer>
+<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
+<div class="widgets">
+
+
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86-%E7%AC%AC8-11%E7%AB%A0"><span class="toc-text">软件工程与计算II重点整理(第8-11章)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%85%AB%E7%AB%A0-%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1"><span class="toc-text">第八章 软件设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-text">1.软件设计的定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E7%9A%84%E6%A0%B8%E5%BF%83%E6%80%9D%E6%83%B3"><span class="toc-text">2.软件设计的核心思想</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E8%AE%BE%E8%AE%A1%E6%9C%89%E5%93%AA%E4%B8%89%E4%B8%AA%E5%B1%82%E6%AC%A1%EF%BC%9F%E5%90%84%E5%B1%82%E7%9A%84%E4%B8%BB%E8%A6%81%E6%80%9D%E6%83%B3%E6%98%AF%E4%BB%80%E4%B9%88%EF%BC%9F"><span class="toc-text">3.软件工程设计有哪三个层次？各层的主要思想是什么？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B9%9D%E3%80%81%E5%8D%81%E7%AB%A0-%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E6%9E%84%E5%BB%BA"><span class="toc-text">第九、十章 软件体系结构设计与构建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E7%9A%84%E6%A6%82%E5%BF%B5"><span class="toc-text">1.体系结构的概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E7%9A%84%E9%A3%8E%E6%A0%BC%E7%9A%84%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="toc-text">2.体系结构的风格的优缺点</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1%EF%BC%89%E4%B8%BB%E7%A8%8B%E5%BA%8F-%E5%AD%90%E7%A8%8B%E5%BA%8F%E9%A3%8E%E6%A0%BC"><span class="toc-text">(1）主程序&#x2F;子程序风格</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2%EF%BC%89%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%BC%8F%E9%A3%8E%E6%A0%BC"><span class="toc-text">(2）面向对象式风格</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3%EF%BC%89%E5%88%86%E5%B1%82%E9%A3%8E%E6%A0%BC"><span class="toc-text">(3）分层风格</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4%EF%BC%89MVC%E9%A3%8E%E6%A0%BC"><span class="toc-text">(4）MVC风格</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1%E7%9A%84%E8%BF%87%E7%A8%8B"><span class="toc-text">3.体系结构设计的过程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%8C%85%E7%9A%84%E5%8E%9F%E5%88%99"><span class="toc-text">4.包的原则</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%881%EF%BC%89%E5%A4%8D%E7%94%A8%E5%8F%91%E5%B8%83%E7%AD%89%E4%BB%B7%E5%8E%9F%E5%88%99REP"><span class="toc-text">（1）复用发布等价原则REP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%882%EF%BC%89%E5%85%B1%E5%90%8C%E5%B0%81%E9%97%AD%E5%8E%9F%E5%88%99CCP"><span class="toc-text">（2）共同封闭原则CCP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%883%EF%BC%89%E5%85%B1%E5%90%8C%E5%A4%8D%E7%94%A8%E5%8E%9F%E5%88%99CRP"><span class="toc-text">（3）共同复用原则CRP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%884%EF%BC%89%E6%97%A0%E7%8E%AF%E4%BE%9D%E8%B5%96%E5%8E%9F%E5%88%99ADP"><span class="toc-text">（4）无环依赖原则ADP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%885%EF%BC%89%E7%A8%B3%E5%AE%9A%E4%BE%9D%E8%B5%96%E5%8E%9F%E5%88%99SDP"><span class="toc-text">（5）稳定依赖原则SDP</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%EF%BC%886%EF%BC%89%E7%A8%B3%E5%AE%9A%E6%8A%BD%E8%B1%A1%E5%8E%9F%E5%88%99SAP"><span class="toc-text">（6）稳定抽象原则SAP</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E6%9E%84%E4%BB%B6%E4%B9%8B%E9%97%B4%E6%8E%A5%E5%8F%A3%E7%9A%84%E5%AE%9A%E4%B9%89%EF%BC%88%E5%BF%85%E8%80%83%EF%BC%89"><span class="toc-text">5.体系结构构件之间接口的定义（必考）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E5%BC%80%E5%8F%91%E9%9B%86%E6%88%90%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%EF%BC%9AStub%E5%92%8CDriver"><span class="toc-text">6.体系结构开发集成测试用例：Stub和Driver</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC11%E7%AB%A0-%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1"><span class="toc-text">第11章 人机交互设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%8F%AF%E7%94%A8%E6%80%A7"><span class="toc-text">1.可用性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E7%95%8C%E9%9D%A2%E8%AE%BE%E8%AE%A1%E7%9A%84%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9%E5%8F%8A%E8%A7%A3%E9%87%8A%EF%BC%88%E8%87%B3%E5%B0%915%E4%B8%AA%EF%BC%89"><span class="toc-text">2.界面设计的注意事项及解释（至少5个）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E7%B2%BE%E7%A5%9E%E6%A8%A1%E5%9E%8B%EF%BC%8C%E5%B7%AE%E5%BC%82%E6%80%A7"><span class="toc-text">3.精神模型，差异性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E5%AF%BC%E8%88%AA%E3%80%81%E5%8F%8D%E9%A6%88%E3%80%81%E5%8D%8F%E4%BD%9C%E5%BC%8F%E8%AE%BE%E8%AE%A1"><span class="toc-text">4.导航、反馈、协作式设计</span></a></li></ol></li></ol></div><div class="widget-footer">
+
+<a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12c0-4.714 0-7.071 1.464-8.536C4.93 2 7.286 2 12 2c4.714 0 7.071 0 8.535 1.464C22 4.93 22 7.286 22 12c0 4.714 0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12Z"/><path stroke-linecap="round" stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M10.46 1.25h3.08c1.603 0 2.86 0 3.864.095c1.023.098 1.861.3 2.6.752a5.75 5.75 0 0 1 1.899 1.899c.452.738.654 1.577.752 2.6c.095 1.004.095 2.261.095 3.865v1.067c0 1.141 0 2.036-.05 2.759c-.05.735-.153 1.347-.388 1.913a5.75 5.75 0 0 1-3.112 3.112c-.805.334-1.721.408-2.977.43a10.81 10.81 0 0 0-.929.036c-.198.022-.275.054-.32.08c-.047.028-.112.078-.224.232c-.121.166-.258.396-.476.764l-.542.916c-.773 1.307-2.69 1.307-3.464 0l-.542-.916a10.605 10.605 0 0 0-.476-.764c-.112-.154-.177-.204-.224-.232c-.045-.026-.122-.058-.32-.08c-.212-.023-.49-.03-.93-.037c-1.255-.021-2.171-.095-2.976-.429A5.75 5.75 0 0 1 1.688 16.2c-.235-.566-.338-1.178-.389-1.913c-.049-.723-.049-1.618-.049-2.76v-1.066c0-1.604 0-2.86.095-3.865c.098-1.023.3-1.862.752-2.6a5.75 5.75 0 0 1 1.899-1.899c.738-.452 1.577-.654 2.6-.752C7.6 1.25 8.857 1.25 10.461 1.25M6.739 2.839c-.914.087-1.495.253-1.959.537A4.25 4.25 0 0 0 3.376 4.78c-.284.464-.45 1.045-.537 1.96c-.088.924-.089 2.11-.089 3.761v1c0 1.175 0 2.019.046 2.685c.045.659.131 1.089.278 1.441a4.25 4.25 0 0 0 2.3 2.3c.515.214 1.173.294 2.429.316h.031c.398.007.747.013 1.037.045c.311.035.616.104.909.274c.29.17.5.395.682.645c.169.232.342.525.538.856l.559.944a.52.52 0 0 0 .882 0l.559-.944c.196-.331.37-.624.538-.856c.182-.25.392-.476.682-.645c.293-.17.598-.24.909-.274c.29-.032.639-.038 1.037-.045h.032c1.255-.022 1.913-.102 2.428-.316a4.25 4.25 0 0 0 2.3-2.3c.147-.352.233-.782.278-1.441c.046-.666.046-1.51.046-2.685v-1c0-1.651 0-2.837-.089-3.762c-.087-.914-.253-1.495-.537-1.959a4.25 4.25 0 0 0-1.403-1.403c-.464-.284-1.045-.45-1.96-.537c-.924-.088-2.11-.089-3.761-.089h-3c-1.651 0-2.837 0-3.762.089" clip-rule="evenodd"/><path fill="currentColor" d="M9 11a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0"/></svg><span>参与讨论</span></a></div></widget>
+</div></aside><div class='float-panel blur'>
+  <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+  </button>
+  <button type='button' style='display:none' class='mobile-only leftbar-toggle mobile' onclick='sidebar.leftbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"/><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"/></g></svg>
+  </button>
+</div>
+</div><div class="scripts">
+<script type="text/javascript">
+  const ctx = {
+    date_suffix: {
+      just: `刚刚`,
+      min: `分钟前`,
+      hour: `小时前`,
+      day: `天前`,
+    },
+    root : `/`,
+  };
+
+  // required plugins (only load if needs)
+  if (`local_search`) {
+    ctx.search = {};
+    ctx.search.service = `local_search`;
+    if (ctx.search.service == 'local_search') {
+      let service_obj = Object.assign({}, `{"field":"all","path":"/search.json","content":true,"sort":"-date"}`);
+      ctx.search[ctx.search.service] = service_obj;
+    }
+  }
+  const def = {
+    avatar: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg`,
+    cover: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg`,
+  };
+  const deps = {
+    jquery: `https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js`,
+    marked: `https://cdn.bootcdn.net/ajax/libs/marked/4.0.18/marked.min.js`
+  }
+  
+
+</script>
+
+<script type="text/javascript">
+  const utils = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    css: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    js: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')){
+        src = ctx.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    jq: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        utils.js(deps.jquery).then(fn)
+      } else {
+        fn()
+      }
+    },
+    
+    onLoading: (el) => {
+      if (el) {
+        $(el).append('<div class="loading-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg></div>');
+      }
+    },
+    onLoadSuccess: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap').remove();
+      }
+    },
+    onLoadFailure: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap svg').remove();
+        $(el).find('.loading-wrap').append('<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3L21 20H3L12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 10V14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"/></path></g><circle cx="12" cy="17" r="1" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.4s" values="0;1"/></circle></svg>');
+        $(el).find('.loading-wrap').addClass('error');
+      }
+    },
+    request: (el, url, callback, onFailure) => {
+      let retryTimes = 3;
+      utils.onLoading(el);
+      function req() {
+        return new Promise((resolve, reject) => {
+          let status = 0; // 0 等待 1 完成 2 超时
+          let timer = setTimeout(() => {
+            if (status === 0) {
+              status = 2;
+              timer = null;
+              reject('请求超时');
+              if (retryTimes == 0) {
+                onFailure();
+              }
+            }
+          }, 5000);
+          fetch(url).then(function(response) {
+            if (status !== 2) {
+              clearTimeout(timer);
+              resolve(response);
+              timer = null;
+              status = 1;
+            }
+            if (response.ok) {
+              return response.json();
+            }
+            throw new Error('Network response was not ok.');
+          }).then(function(data) {
+            retryTimes = 0;
+            utils.onLoadSuccess(el);
+            callback(data);
+          }).catch(function(error) {
+            if (retryTimes > 0) {
+              retryTimes -= 1;
+              setTimeout(() => {
+                req();
+              }, 5000);
+            } else {
+              utils.onLoadFailure(el);
+              onFailure();
+            }
+          });
+        });
+      }
+      req();
+    },
+  };
+</script>
+
+<script>
+  const sidebar = {
+    leftbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    rightbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('rightbar');
+        l_body.removeAttribute('leftbar');
+      }
+    },
+    dismiss: () => {
+      if (l_body) {
+        l_body.removeAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    toggleTOC: () => {
+      document.querySelector('#data-toc').classList.toggle('collapse');
+    }
+  }
+</script>
+
+<!-- required -->
+<script src="/js/main.js?v=1.28.1" async></script>
+
+<!-- optional -->
+
+
+
+<script defer>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.services = Object.assign({}, JSON.parse(`{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"}}`));
+    for (let id of Object.keys(ctx.services)) {
+      const js = ctx.services[id].js;
+      if (id == 'siteinfo') {
+        ctx.cardlinks = document.querySelectorAll('a.link-card[cardlink]');
+        if (ctx.cardlinks?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            setCardLink(ctx.cardlinks);
+          });
+        }
+      } else {
+        const els = document.getElementsByClassName(`ds-${id}`);
+        if (els?.length > 0) {
+          utils.jq(() => {
+            if (id == 'timeline' || 'memos' || 'marked') {
+              utils.js(deps.marked).then(function () {
+                utils.js(js, { defer: true });
+              });
+            } else {
+              utils.js(js, { defer: true });
+            }
+          });
+        }
+      }
+    }
+  });
+</script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.search = {
+      path: `/search.json`,
+    }
+    utils.js('/js/search/local-search.js', { defer: true });
+  });
+</script><script>
+  window.FPConfig = {
+    delay: 0,
+    ignoreKeywords: [],
+    maxRPS: 5,
+    hoverDelay: 25
+  };
+</script>
+<script defer src="https://cdn.bootcdn.net/ajax/libs/flying-pages/2.1.2/flying-pages.min.js"></script><script defer src="https://cdn.bootcdn.net/ajax/libs/vanilla-lazyload/17.8.4/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazy",
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    window.lazyLoadInstance?.update();
+  });
+</script><script>
+  ctx.fancybox = {
+    selector: `.timenode p>img`,
+    css: `https://cdn.bootcdn.net/ajax/libs/fancyapps-ui/5.0.22/fancybox/fancybox.min.css`,
+    js: `https://cdn.bootcdn.net/ajax/libs/fancyapps-ui/5.0.22/fancybox/fancybox.umd.min.js`
+  };
+  var selector = '[data-fancybox]:not(.error)';
+  if (ctx.fancybox.selector) {
+    selector += `, ${ctx.fancybox.selector}`
+  }
+  var needFancybox = document.querySelectorAll(selector).length !== 0;
+  if (!needFancybox) {
+    const els = document.getElementsByClassName('ds-memos');
+    if (els != undefined && els.length > 0) {
+      needFancybox = true;
+    }
+  }
+  if (needFancybox) {
+    utils.css(ctx.fancybox.css);
+    utils.js(ctx.fancybox.js, { defer: true }).then(function () {
+      Fancybox.bind(selector, {
+        hideScrollbar: false,
+        Thumbs: {
+          autoStart: false,
+        },
+        caption: (fancybox, slide) => {
+          return slide.triggerEl.alt || slide.triggerEl.dataset.caption || null
+        }
+      });
+    })
+  }
+</script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    const swiper_api = document.getElementById('swiper-api');
+    if (swiper_api != undefined) {
+      utils.css(`https://unpkg.com/swiper@10.3.1/swiper-bundle.min.css`);
+      utils.js(`https://unpkg.com/swiper@10.3.1/swiper-bundle.min.js`, { defer: true }).then(function () {
+        const effect = swiper_api.getAttribute('effect') || '';
+        var swiper = new Swiper('.swiper#swiper-api', {
+          slidesPerView: 'auto',
+          spaceBetween: 8,
+          centeredSlides: true,
+          effect: effect,
+          rewind: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+      })
+    }
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    window.codeElements = document.querySelectorAll('.code');
+    if (window.codeElements.length > 0) {
+      ctx.copycode = {
+        default_text: `Copy`,
+        success_text: `Copied`,
+        toast: `复制成功`,
+      };
+      utils.js('/js/plugins/copycode.js');
+    }
+  });
+</script>
+
+
+<!-- inject -->
+
+</div></body></html>

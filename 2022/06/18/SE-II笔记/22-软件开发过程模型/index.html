@@ -1,0 +1,893 @@
+
+<!DOCTYPE html><html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.28.1" theme-name="Stellar" theme-version="1.28.1">
+  
+  <meta name="generator" content="Hexo 7.2.0">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f9fafb">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
+  
+  <title>SE-II-ch22-软件开发过程模型 - Asimov's Blog</title>
+
+  
+    <meta name="description" content="22-软件开发过程模型 各类别模型很重要     1. 软件开发各典型阶段 1.1. 第4-21章开发活动总结   2. 软件生命周期模型 3. 软件过程模型 重要 3.1. 构建-修复模型 3.1.1. 缺点 3.1.2. 适用范围   3.2. 瀑布模型 3.2.1. 优点 3.2.2. 缺点 3.2.3. 适用范围   3.3. 增量迭代模型 3.3.1. 优点 3.3.2. 缺点 3.3.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SE-II-ch22-软件开发过程模型">
+<meta property="og:url" content="https://chendingya.github.io/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/22-%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B%E6%A8%A1%E5%9E%8B/index.html">
+<meta property="og:site_name" content="Asimov&#39;s Blog">
+<meta property="og:description" content="22-软件开发过程模型 各类别模型很重要     1. 软件开发各典型阶段 1.1. 第4-21章开发活动总结   2. 软件生命周期模型 3. 软件过程模型 重要 3.1. 构建-修复模型 3.1.1. 缺点 3.1.2. 适用范围   3.2. 瀑布模型 3.2.1. 优点 3.2.2. 缺点 3.2.3. 适用范围   3.3. 增量迭代模型 3.3.1. 优点 3.3.2. 缺点 3.3.">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt22/1.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt22/2.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt22/3.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt22/4.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt22/5.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt22/6.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt22/7.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt22/8.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt22/9.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt22/10.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt22/11.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt22/12.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt22/13.png">
+<meta property="article:published_time" content="2022-06-18T08:02:34.000Z">
+<meta property="article:modified_time" content="2023-09-17T07:56:55.524Z">
+<meta property="article:author" content="Asimov">
+<meta property="article:tag" content="软件工程与计算II">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt22/1.png">
+  
+  
+  
+  <meta name="keywords" content="软件工程与计算II">
+
+  <!-- feed -->
+  
+
+  <link rel="stylesheet" href="/css/main.css?v=1.28.1">
+
+  
+
+  
+
+  
+</head>
+<body>
+
+<div class="l_body s:aa content tech" id="start" layout="post" ><aside class="l_left"><div class="leftbar-container">
+
+
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="undefined" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">Asimov's Blog</div><div class="sub cap">亚历山大</div></a></div></header>
+
+<div class="nav-area">
+<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" placeholder="站内搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
+
+
+<nav class="menu dis-select"></nav>
+</div>
+<div class="widgets">
+
+
+<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/"><span class="title">软件测试-期末复习</span></a><a class="item title" href="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/"><span class="title">机器学习-期末复习</span></a><a class="item title" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/"><span class="title">服务端-ch17-k8s使用</span></a><a class="item title" href="/2023/12/30/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch16-%E5%AE%B9%E5%99%A8%E9%95%9C%E5%83%8F%E6%9E%84%E5%BB%BA%E4%B8%8E%E7%BC%96%E6%8E%92/"><span class="title">服务端-ch16-容器镜像构建与编排</span></a><a class="item title" href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/"><span class="title">服务端-ch15-Docker</span></a><a class="item title" href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/"><span class="title">服务端-ch14-Spring WebFlux</span></a><a class="item title" href="/2023/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch13-%E5%8F%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"><span class="title">服务端-ch13-反应式编程基础</span></a><a class="item title" href="/2023/11/23/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch12-Spring%20Integration/"><span class="title">服务端-ch12-Spring Integration</span></a><a class="item title" href="/2023/11/09/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch11-%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6(ActiveMQ%E3%80%81RabbitMQ)/"><span class="title">服务端-ch11-消息中间件(ActiveMQ、RabbitMQ)</span></a><a class="item title" href="/2023/11/09/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch10-OAuth2/"><span class="title">服务端-ch10-OAuth2</span></a></div></widget>
+</div>
+
+</div></aside><div class="l_main" id="main">
+
+
+
+
+
+<div class="article banner top">
+  <div class="content">
+    <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II/">软件工程与计算II</a></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2022-06-18T08:02:34.000Z">2022-06-18</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2023-09-17T07:56:55.524Z">2023-09-17</time></span></div></div></div>
+    
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>SE-II-ch22-软件开发过程模型</span></h1>
+        
+      </div>
+    </div>
+    
+  </div>
+  </div><article class="md-text content"><h2 id="22-软件开发过程模型"><a href="#22-软件开发过程模型" class="headerlink" title="22-软件开发过程模型"></a>22-软件开发过程模型</h2><ul>
+<li>各类别模型很重要</li>
+</ul>
+<!-- TOC -->
+
+<ul>
+<li><a href="#1-%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E5%90%84%E5%85%B8%E5%9E%8B%E9%98%B6%E6%AE%B5">1. 软件开发各典型阶段</a><ul>
+<li><a href="#11-%E7%AC%AC4-21%E7%AB%A0%E5%BC%80%E5%8F%91%E6%B4%BB%E5%8A%A8%E6%80%BB%E7%BB%93">1.1. 第4-21章开发活动总结</a></li>
+</ul>
+</li>
+<li><a href="#2-%E8%BD%AF%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%A8%A1%E5%9E%8B">2. 软件生命周期模型</a></li>
+<li><a href="#3-%E8%BD%AF%E4%BB%B6%E8%BF%87%E7%A8%8B%E6%A8%A1%E5%9E%8B-%E9%87%8D%E8%A6%81">3. 软件过程模型 重要</a><ul>
+<li><a href="#31-%E6%9E%84%E5%BB%BA-%E4%BF%AE%E5%A4%8D%E6%A8%A1%E5%9E%8B">3.1. 构建-修复模型</a><ul>
+<li><a href="#311-%E7%BC%BA%E7%82%B9">3.1.1. 缺点</a></li>
+<li><a href="#312-%E9%80%82%E7%94%A8%E8%8C%83%E5%9B%B4">3.1.2. 适用范围</a></li>
+</ul>
+</li>
+<li><a href="#32-%E7%80%91%E5%B8%83%E6%A8%A1%E5%9E%8B">3.2. 瀑布模型</a><ul>
+<li><a href="#321-%E4%BC%98%E7%82%B9">3.2.1. 优点</a></li>
+<li><a href="#322-%E7%BC%BA%E7%82%B9">3.2.2. 缺点</a></li>
+<li><a href="#323-%E9%80%82%E7%94%A8%E8%8C%83%E5%9B%B4">3.2.3. 适用范围</a></li>
+</ul>
+</li>
+<li><a href="#33-%E5%A2%9E%E9%87%8F%E8%BF%AD%E4%BB%A3%E6%A8%A1%E5%9E%8B">3.3. 增量迭代模型</a><ul>
+<li><a href="#331-%E4%BC%98%E7%82%B9">3.3.1. 优点</a></li>
+<li><a href="#332-%E7%BC%BA%E7%82%B9">3.3.2. 缺点</a></li>
+<li><a href="#333-%E9%80%82%E7%94%A8%E6%80%A7">3.3.3. 适用性</a></li>
+</ul>
+</li>
+<li><a href="#34-%E6%BC%94%E5%8C%96%E6%A8%A1%E5%9E%8B">3.4. 演化模型</a><ul>
+<li><a href="#341-%E4%BC%98%E7%82%B9">3.4.1. 优点</a></li>
+<li><a href="#342-%E7%BC%BA%E7%82%B9">3.4.2. 缺点</a></li>
+<li><a href="#343-%E9%80%82%E7%94%A8%E6%80%A7">3.4.3. 适用性</a></li>
+</ul>
+</li>
+<li><a href="#35-%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%9E%8B">3.5. 原型模型</a><ul>
+<li><a href="#351-%E4%BC%98%E7%82%B9">3.5.1. 优点</a></li>
+<li><a href="#352-%E7%BC%BA%E7%82%B9">3.5.2. 缺点</a></li>
+<li><a href="#353-%E9%80%82%E7%94%A8%E6%80%A7">3.5.3. 适用性</a></li>
+</ul>
+</li>
+<li><a href="#36-%E8%9E%BA%E6%97%8B%E6%A8%A1%E5%9E%8B">3.6. 螺旋模型</a><ul>
+<li><a href="#361-%E8%BF%87%E7%A8%8B%E6%8F%8F%E8%BF%B0">3.6.1. 过程描述</a></li>
+<li><a href="#362-%E4%BC%98%E7%82%B9">3.6.2. 优点</a></li>
+<li><a href="#363-%E7%BC%BA%E7%82%B9">3.6.3. 缺点</a></li>
+<li><a href="#364-%E9%80%82%E7%94%A8%E6%80%A7">3.6.4. 适用性</a></li>
+</ul>
+</li>
+<li><a href="#37-rational-%E7%BB%9F%E4%B8%80%E8%BF%87%E7%A8%8B">3.7. Rational 统一过程</a><ul>
+<li><a href="#371-rup%E6%A0%B8%E5%BF%83%E6%80%9D%E6%83%B3">3.7.1. RUP核心思想</a></li>
+<li><a href="#372-rup%E8%A3%81%E5%89%AA">3.7.2. RUP裁剪</a></li>
+<li><a href="#373-%E4%BC%98%E7%82%B9">3.7.3. 优点</a></li>
+<li><a href="#374-%E7%BC%BA%E7%82%B9">3.7.4. 缺点</a></li>
+<li><a href="#375-%E9%80%82%E7%94%A8%E6%80%A7">3.7.5. 适用性</a></li>
+</ul>
+</li>
+<li><a href="#38-%E6%95%8F%E6%8D%B7%E8%BF%87%E7%A8%8B">3.8. 敏捷过程</a><ul>
+<li><a href="#381-%E6%95%8F%E6%8D%B7%E6%80%9D%E6%83%B3">3.8.1. 敏捷思想</a></li>
+<li><a href="#382-%E6%95%8F%E6%8D%B7%E5%8E%9F%E5%88%99">3.8.2. 敏捷原则</a></li>
+<li><a href="#383-%E8%B7%B5%E8%A1%8C%E6%95%8F%E6%8D%B7%E6%80%9D%E6%83%B3%E4%B8%8E%E5%8E%9F%E5%88%99%E7%9A%84%E8%BF%87%E7%A8%8B%E6%96%B9%E6%B3%95">3.8.3. 践行敏捷思想与原则的过程方法</a></li>
+<li><a href="#384-%E6%9E%81%E9%99%90%E7%BC%96%E7%A8%8B">3.8.4. 极限编程</a></li>
+<li><a href="#385-%E7%89%B9%E7%82%B9">3.8.5. 特点</a></li>
+<li><a href="#386-%E9%80%82%E7%94%A8%E6%80%A7">3.8.6. 适用性</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#4-%E6%80%BB%E7%BB%93">4. 总结</a></li>
+</ul>
+<!-- /TOC -->
+
+<h1 id="1-软件开发各典型阶段"><a href="#1-软件开发各典型阶段" class="headerlink" title="1. 软件开发各典型阶段"></a>1. 软件开发各典型阶段</h1><ol>
+<li>具体详见课本360-362页</li>
+</ol>
+<h2 id="1-1-第4-21章开发活动总结"><a href="#1-1-第4-21章开发活动总结" class="headerlink" title="1.1. 第4-21章开发活动总结"></a>1.1. 第4-21章开发活动总结</h2><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt22/1.png"></p>
+<ul>
+<li>系统需求的开发和软件需求的开发</li>
+<li>分析系统的相应约束</li>
+<li>软件设计:<ul>
+<li>软件结构设计</li>
+<li>软件细节设计</li>
+<li>人机交互设计:包含美工</li>
+</ul>
+</li>
+</ul>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt22/2.png"></p>
+<ul>
+<li>软件构造:<ul>
+<li>构造软件就是进行编码</li>
+</ul>
+</li>
+<li>软件测试进行单元测试，集成测试、系统测试等等<ul>
+<li>软件测试的覆盖情况</li>
+<li>各种测试的概念(重要)</li>
+</ul>
+</li>
+<li>软件交付:<ul>
+<li>安装与部署</li>
+<li>用户培训</li>
+<li>文档支持</li>
+</ul>
+</li>
+<li>更精细的表格参考课本362页</li>
+</ul>
+<h1 id="2-软件生命周期模型"><a href="#2-软件生命周期模型" class="headerlink" title="2. 软件生命周期模型"></a>2. 软件生命周期模型</h1><ol>
+<li>人们将软件从<strong>生产到报废</strong>的生命周期分割为不同阶段，每段阶段有明确的典型输入&#x2F;输出、主要活动和执行人，各个阶段形成明确、连续的顺次过程，这些阶段划分就被称为<strong>软件生命周期模型</strong>。</li>
+<li>典型的软件生命周期【如下图，还有其他的软件生命周期模型如RUP】</li>
+<li>可以有不同的生命周期划分方式<ol>
+<li>例如第21章的软件演化生命周期模型</li>
+</ol>
+</li>
+<li>软件维护的结束就是软件报废。</li>
+</ol>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt22/3.png"></p>
+<h1 id="3-软件过程模型-重要"><a href="#3-软件过程模型-重要" class="headerlink" title="3. 软件过程模型 重要"></a>3. 软件过程模型 重要</h1><ol>
+<li>软件过程模型在生命周期模型的基础则进一步详细说明各个阶段的任务、活动、对象及其组织、控制过程。</li>
+<li>与简略的软件生命周期模型不同，软件过程模型可以被看作是网络化的活动组织</li>
+<li>不同的生命周期模型有不同的软件过程模型<ol>
+<li>阶段划分不一样</li>
+</ol>
+</li>
+<li><strong>同一个生命周期模型也会有多个不同的软件过程模型</strong><ol>
+<li>虽然阶段划分一样，但是各个阶段的时间安排、先后衔接等执行过程不一样</li>
+</ol>
+</li>
+</ol>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt22/4.png"></p>
+<h2 id="3-1-构建-修复模型"><a href="#3-1-构建-修复模型" class="headerlink" title="3.1. 构建-修复模型"></a>3.1. 构建-修复模型</h2><ol>
+<li>最早也是最自然产生的软件开发模型，<strong>对软件开发活动没有任何规划和组织</strong>，是完全依靠开发人员个人能力进行软件开发的方式。</li>
+</ol>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt22/5.png"></p>
+<h3 id="3-1-1-缺点"><a href="#3-1-1-缺点" class="headerlink" title="3.1.1. 缺点"></a>3.1.1. 缺点</h3><ol>
+<li>在这种模型中，没有对开发工作进行规范和组织，所以随着软件系统的<strong>复杂度提升</strong>，开发活动<strong>会超出个人的直接控制能力</strong>，构建-修复模型就会导致开发活动无法有效进行而失败；</li>
+<li>没有分析<strong>需求的真实性</strong>，给软件开发带来很大的风险；</li>
+<li>没有考虑<strong>软件结构的质量</strong>，使得软件结构在不断的修改中变得质量越来越糟，直至无法修改；</li>
+<li>没有考虑<strong>测试和程序的可维护性，也没有任何文档</strong>，软件的维护十分困难。</li>
+</ol>
+<h3 id="3-1-2-适用范围"><a href="#3-1-2-适用范围" class="headerlink" title="3.1.2. 适用范围"></a>3.1.2. 适用范围</h3><ol>
+<li>软件规模很小，只需要几百行程序，其开发复杂度是个人能力能够胜任的；</li>
+<li>软件对质量的要求不高，即使出错也无所谓；</li>
+<li>只关注开发活动，对后期维护的要求不高，甚至不需要进行维护。</li>
+</ol>
+<h2 id="3-2-瀑布模型"><a href="#3-2-瀑布模型" class="headerlink" title="3.2. 瀑布模型"></a>3.2. 瀑布模型</h2><ol>
+<li>瀑布模型是<strong>按照软件生命周期模型</strong>将软件开发活动组织为需求开发、软件设计、软件实现、软件测试、软件交付和软件维护等活动，并且规定了它们自上而下、相互邻接的次序。</li>
+<li>允许活动出现反复和迭代，<strong>重点在于要求每个活动的结果必须要进行验证</strong></li>
+<li><strong>文档驱动</strong>：按照文档的划分、产生和验证来规划、组织和控制开发活动</li>
+</ol>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt22/6.png"></p>
+<h3 id="3-2-1-优点"><a href="#3-2-1-优点" class="headerlink" title="3.2.1. 优点"></a>3.2.1. 优点</h3><ol>
+<li>为软件开发活动定义了清晰的阶段划分(包括输入&#x2F;输出、主要工作及其关注点)，这让开发者能够以关注点分离的方式更好地进行那些复杂度超越个人能力的软件项目的开发活动。</li>
+</ol>
+<h3 id="3-2-2-缺点"><a href="#3-2-2-缺点" class="headerlink" title="3.2.2. 缺点"></a>3.2.2. 缺点</h3><ol>
+<li>对文档的过高期望具有局限性。</li>
+<li>一方面会耗费很大的工作量和成本</li>
+<li>另一方面<strong>很难为经常变化的需求建立完备可靠的文档</strong>。</li>
+<li>对开发活动的<strong>线性顺序假设具有局限性</strong>。<ol>
+<li>要求一个阶段的工作经过验证后才能进入后续阶段是不切实际的。在实际开发中，常常需要进行一定的后续工作才能验证当前的工作是否正确、可靠。</li>
+</ol>
+</li>
+<li>客户、用户参与具有局限性。<ol>
+<li>成功的项目开发需要客户、用户从始至终的参与，而不仅仅是一个阶段，在瀑布模型中客户和用户仅仅在一个阶段参与了。</li>
+</ol>
+</li>
+<li>里程碑粒度具有局限性：<strong>里程碑粒度过粗</strong>，基本丧失了”早发现缺陷早修复”这一思想，如需求分析中可以进行更小粒度的划分</li>
+</ol>
+<h3 id="3-2-3-适用范围"><a href="#3-2-3-适用范围" class="headerlink" title="3.2.3. 适用范围"></a>3.2.3. 适用范围</h3><ol>
+<li><strong>需求非常成熟、稳定</strong>，没有不确定的内容，也不会发生变化；</li>
+<li><strong>所需的技术成熟、可靠</strong>，没有不确定的技术难点，也没有开发人员不熟悉的技术问题；</li>
+<li><strong>要求复杂度适中</strong>，不至于产生太大的文档负担和过粗的里程碑。</li>
+</ol>
+<h2 id="3-3-增量迭代模型"><a href="#3-3-增量迭代模型" class="headerlink" title="3.3. 增量迭代模型"></a>3.3. 增量迭代模型</h2><ol>
+<li>增量迭代模型是在项目开始时，通过系统需求开发和核心体系结构设计活动完成项目对前景和范围的界定，然后再将后续开发活动组织为<strong>多个迭代、并行的瀑布式开发模型。需求驱动</strong>。</li>
+<li>软件规模日益增长带来了挑战及其对策<ol>
+<li>周期过长-渐进交付</li>
+<li>时间压力-并行开发</li>
+</ol>
+</li>
+<li>迭代式、渐进交付和并行开发共同促使了增量迭代模型的产生和普及。</li>
+</ol>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt22/7.png"></p>
+<ol>
+<li><strong>增量迭代模型需要在项目早期就确定项目的目标和范围，项目需求要比较成熟和稳定【确定所有的需求数量】</strong></li>
+<li>少量的不确定性和影响不大的需求变更通过迭代的方式加以解决 </li>
+<li>每个迭代的增量需求相对独立，被开发为产品的独立部分交付给用户</li>
+<li><strong>第一个迭代完成的往往是产品的核心部门，满足基本的需求</strong></li>
+<li><strong>需求驱动</strong>：增量需求是增量迭代模型进行迭代规划、开发活动组织和控制的主要依据</li>
+</ol>
+<h3 id="3-3-1-优点"><a href="#3-3-1-优点" class="headerlink" title="3.3.1. 优点"></a>3.3.1. 优点</h3><ol>
+<li>迭代式开发更加符合软件开发的实践情况，具有更好的适用性；</li>
+<li>并行开发可以帮助缩短软件产品的开发时间；</li>
+<li>渐进交付可以加强用户反馈，降低开发风险。</li>
+</ol>
+<h3 id="3-3-2-缺点"><a href="#3-3-2-缺点" class="headerlink" title="3.3.2. 缺点"></a>3.3.2. 缺点</h3><ol>
+<li>由于各个构件是逐渐并入已有的软件体系结构中的，所以加入构件必须不破坏已构造好的系统部分，这需要软件具备开放式的体系结构。</li>
+<li>增量交付模型需要一个完备、清晰的项目前景和范围以进行并发开发规划，但是在一些不稳定的领域，不确定性太多或者需求变化非常频繁，很难在项目开始就确定前景和范围。</li>
+</ol>
+<h3 id="3-3-3-适用性"><a href="#3-3-3-适用性" class="headerlink" title="3.3.3. 适用性"></a>3.3.3. 适用性</h3><ol>
+<li>因为能够很好地适用于<strong>大规模软件系统开发</strong>，所以增量迭代模型在实践中有着广泛的应用，尤其是比较成熟和稳定的领域。</li>
+</ol>
+<h2 id="3-4-演化模型"><a href="#3-4-演化模型" class="headerlink" title="3.4. 演化模型"></a>3.4. 演化模型</h2><ol>
+<li>演化模型将软件开发活动组织为多个迭代、并行的瀑布式开发活动。</li>
+<li>演化模型与增量迭代模型相比<ol>
+<li>都是迭代、并行开发和渐进交付，都适合大规模软件开发</li>
+</ol>
+</li>
+<li><strong>演化模型能够更好地应对需求变更，更适用于需求变更比较频繁或不确定性较多的领域。</strong><ol>
+<li>Ch21：演化模糊了维护与新开发的界限</li>
+<li><strong>区别：</strong>在增量迭代模型中，需求的数目是确定的，只是拆分成多个来开发；而在演化模型中，<strong>多了反馈机制</strong>，因此上一个演化可以对下一个演化提供反馈【根据用户的反馈修改需求】，动态调整需求的数目，所以演化模型中的需求数目是动态变化的</li>
+</ol>
+</li>
+</ol>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt22/8.png"></p>
+<h3 id="3-4-1-优点"><a href="#3-4-1-优点" class="headerlink" title="3.4.1. 优点"></a>3.4.1. 优点</h3><ol>
+<li><strong>使用了迭代式开发，具有更好的适用性</strong>，尤其是其演化式迭代安排能够适用于那些需求变更比较频繁或不确定性较多的软件系统的开发；</li>
+<li>并行开发可以帮助<strong>缩短</strong>软件产品的开发时间；</li>
+<li>渐进交付可以<strong>加强用户反馈</strong>，降低开发风险。</li>
+</ol>
+<h3 id="3-4-2-缺点"><a href="#3-4-2-缺点" class="headerlink" title="3.4.2. 缺点"></a>3.4.2. 缺点</h3><ol>
+<li><strong>无法在项目早期阶段建立项目范围【需求数量是不确定的，需求是模糊的，要根据用户反馈进一步演化】</strong>，所以项目的整体计划、进度调度、尤其是商务协商事宜无法准确把握；</li>
+<li>后续迭代的开发活动是在前导迭代基础上进行修改和扩展的，<strong>这容易让后续迭代忽略设分析与设计工作</strong>，蜕变为构建-修复方式。</li>
+<li><strong>容易退化为构建修复方式</strong></li>
+</ol>
+<h3 id="3-4-3-适用性"><a href="#3-4-3-适用性" class="headerlink" title="3.4.3. 适用性"></a>3.4.3. 适用性</h3><ol>
+<li>在实践中，<strong>不稳定领域的大规模软件系统</strong>开发适合使用<strong>演化模型</strong>进行组织。</li>
+</ol>
+<h2 id="3-5-原型模型"><a href="#3-5-原型模型" class="headerlink" title="3.5. 原型模型"></a>3.5. 原型模型</h2><ol>
+<li>原型模型将需求开发活动展开为<strong>抛弃式原型开发活动和演化式原型开发活动</strong></li>
+<li>原型模型在整体安排迭代的情况下，强调”抛弃式原型”的演化模型。抛弃式原型解决对未来知识的局限性产生的<strong>不确定性</strong>，将未来置于现在进行推敲。</li>
+<li>抛弃式原型<ol>
+<li><strong>它通过模拟”未来”的产品【如桩和驱动就是类似的原理，只是模拟，用来解决不确定性，比如用户是否会喜欢等，在未来真正的产品开发出来后被抛弃。比如用户想要一个word，但不知道是是什么样的，先开发一个简单的txt文本编辑器原型，看看用户反馈，他们想要怎么样的，再进一步开发，同时这个txt文本编辑器就会被抛弃】</strong>，将”未来”的知识置于”现在” 进行推敲，解决不确定性。</li>
+<li>存在的原因是”不确定的”，这一类原型在后续的开发过程中会被抛弃</li>
+</ol>
+</li>
+<li>演化式原型<ol>
+<li>在迭代中构建，是系统的核心，并不断扩充，<strong>最终成为真正的软件产品。</strong></li>
+<li>它将作为真正产品的一部分，所以必须有很好的质量。在迭代式开发中，通常会在第一个迭代中构建一个核心的体系结构演化式原型，并且在后续迭代中不断扩充，成为真正的软件产品。</li>
+</ol>
+</li>
+</ol>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt22/9.png"></p>
+<ol>
+<li>原型模型的<strong>基本特征是注重使用抛弃式原型</strong>，适用于不确定性较多的软件开发。</li>
+</ol>
+<h3 id="3-5-1-优点"><a href="#3-5-1-优点" class="headerlink" title="3.5.1. 优点"></a>3.5.1. 优点</h3><ol>
+<li>对原型方法的使用<strong>加强了与客户、用户的交流</strong>，可以让最终产品取得更好的满意度；</li>
+<li>适用于非常新颖的领域，这些领域因为新颖所以有着大量的不确定性。</li>
+</ol>
+<h3 id="3-5-2-缺点"><a href="#3-5-2-缺点" class="headerlink" title="3.5.2. 缺点"></a>3.5.2. 缺点</h3><ol>
+<li><strong>原型方法能够解决风险</strong>，但是自身也能带来新的风险，例如<strong>原型开发的成本较高</strong>，可能会耗尽项目的费用和时间；</li>
+<li>实践中，很多项目负责人不舍得抛弃”抛弃式原型”，使得质量较差的代码进入了最终产品，导致了最终产品的低质量。</li>
+</ol>
+<h3 id="3-5-3-适用性"><a href="#3-5-3-适用性" class="headerlink" title="3.5.3. 适用性"></a>3.5.3. 适用性</h3><ol>
+<li>实践中，原型模型主要用于在有着大量不确定性的新颖领域进行开发活动组织。</li>
+</ol>
+<h2 id="3-6-螺旋模型"><a href="#3-6-螺旋模型" class="headerlink" title="3.6. 螺旋模型"></a>3.6. 螺旋模型</h2><ol>
+<li>螺旋模型是风险驱动的，完全按照风险解决的方式组织软件开发活动。<ol>
+<li>确定目标、解决方案和约束</li>
+<li>评估方案，发现风险</li>
+<li>寻找风险解决方法</li>
+<li>落实风险解决方案</li>
+<li>计划下一个迭代</li>
+</ol>
+</li>
+<li>风险是指因为不确定性(对未来知识了解有限)而可能给项目带来损失的情况</li>
+<li>螺旋模型的基本思想是尽早解决比较高的风险，如果有些问题实在无法解决，那么早发现比目结束时再发现要好，至少损失要小得多。</li>
+<li>原型能够澄清不确定性，所以原型能够解决风险，螺旋模型是充分利用原型方法来解决风险的。</li>
+<li>原型模型 vs 螺旋模型<ol>
+<li>原型模型：使用原型解决需求的不确定性</li>
+<li>螺旋模型：实用原型解决项目开发中常见的各种类型的技术风险，包括系统需求开发、软件需求开发、软件体系结构设计、详细设计等各个阶段</li>
+</ol>
+</li>
+<li>自内向外，螺旋模型有4次风险解决迭代，分别解决了几个高风险的阶段的问题<ol>
+<li>解决系统需求开发中的风险，尤其是产品概念设计风险，得到一个确定的产品前景和范围。</li>
+<li>解决软件需求开发中的风险，得到清晰的软件需求</li>
+<li>解决软件体系结构设计中的技术风险，构建高质量的核心体系结构原型。</li>
+<li>解决详细设计和实现中的关键技术风险，建立一个可实现的高质量软件结构。</li>
+</ol>
+</li>
+</ol>
+<h3 id="3-6-1-过程描述"><a href="#3-6-1-过程描述" class="headerlink" title="3.6.1. 过程描述"></a>3.6.1. 过程描述</h3><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt22/10.png"></p>
+<h3 id="3-6-2-优点"><a href="#3-6-2-优点" class="headerlink" title="3.6.2. 优点"></a>3.6.2. 优点</h3><ol>
+<li>可以降低风险，减少项目因风险造成的损失。</li>
+</ol>
+<h3 id="3-6-3-缺点"><a href="#3-6-3-缺点" class="headerlink" title="3.6.3. 缺点"></a>3.6.3. 缺点</h3><ol>
+<li>风险解决需要使用原型手段，也就会存在原型自身带来的风险，这一点与原型模型相同；</li>
+<li>模型过于复杂，不利于管理者依据其组织软件开发活动；</li>
+</ol>
+<h3 id="3-6-4-适用性"><a href="#3-6-4-适用性" class="headerlink" title="3.6.4. 适用性"></a>3.6.4. 适用性</h3><ol>
+<li>在实践中，螺旋模型在高风险的大规模软件系统开发中有着较多的应用。</li>
+</ol>
+<h2 id="3-7-Rational-统一过程"><a href="#3-7-Rational-统一过程" class="headerlink" title="3.7. Rational 统一过程"></a>3.7. Rational 统一过程</h2><ol>
+<li>统一过程(Rational Unified Process，RUP)总结和借鉴传统上的各种有效经验，建立最佳实践方法的集合，并提供有效的过程定制手段，允许开发者根据特定的需要定制一个有效的过程模型。</li>
+</ol>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt22/11.png"></p>
+<h3 id="3-7-1-RUP核心思想"><a href="#3-7-1-RUP核心思想" class="headerlink" title="3.7.1. RUP核心思想"></a>3.7.1. RUP核心思想</h3><ol>
+<li>迭代式开发，这是过去被反复证明的最佳实践方法；</li>
+<li>管理需求，重视需求工程中除了需求开发之外的需求管理活动；</li>
+<li>使用基于组件的体系结构，它帮助建立一个可维护、易开发、易复用的软件体系结构；</li>
+<li>可视化建模，利用UML进行建模；</li>
+<li>验证软件质量，尽早和持续地开展验证，以尽早发现缺陷，降低风险和成本；</li>
+<li>控制软件变更，适应1990s以后需求变更越来越重要的事实。</li>
+<li>注:<ol>
+<li>每一个迭代中都可能有很多个不同阶段在同时运行</li>
+</ol>
+</li>
+</ol>
+<h3 id="3-7-2-RUP裁剪"><a href="#3-7-2-RUP裁剪" class="headerlink" title="3.7.2. RUP裁剪"></a>3.7.2. RUP裁剪</h3><ol>
+<li>RUP是一个通用的过程模板，在一个项目使用RUP指导开发活动组织时，需要对RUP进行裁剪和配置。</li>
+<li>确定本项目需要哪些工作流。RUP的9个核心工作流并不总是需要的，可以取舍。</li>
+<li>确定每个工作流需要哪些制品。</li>
+<li>确定4个阶段之间如何演进，决定每个阶段要哪些工作流，每个工作流执行到什么程度，制品有哪些。</li>
+<li>确定每个阶段内的迭代计划。</li>
+<li>规划工作流的组织，这涉及人员、任务及制品，通常用活动图的形式给出。</li>
+</ol>
+<h3 id="3-7-3-优点"><a href="#3-7-3-优点" class="headerlink" title="3.7.3. 优点"></a>3.7.3. 优点</h3><ol>
+<li>吸收和借鉴了传统上的最佳实践方法，尤其是其核心的6个实践方法，能够保证软件开发过程的组织是基本有效和合理的。</li>
+<li>RUP依据其定制机制的不同，可以适用于小型项目，也可以适用于大型项目的开发，适用面广泛。</li>
+<li>RUP有一套软件工程工具的支持，这可以帮助RUP的有效实施。</li>
+</ol>
+<h3 id="3-7-4-缺点"><a href="#3-7-4-缺点" class="headerlink" title="3.7.4. 缺点"></a>3.7.4. 缺点</h3><ol>
+<li>没有考虑交付之后的软件维护问题</li>
+<li>裁剪和配置工作不是一个简单的任务，无法保证每个项目都能定制一个有效的RUP过程。</li>
+</ol>
+<h3 id="3-7-5-适用性"><a href="#3-7-5-适用性" class="headerlink" title="3.7.5. 适用性"></a>3.7.5. 适用性</h3><ol>
+<li>RUP是重量级过程，能够胜任大型软件团队开发大型项目时的活动组织。但RUP经过裁剪和定制，也可以变为轻量级过程，也能够胜任小团队的开发活动组织。</li>
+</ol>
+<h2 id="3-8-敏捷过程"><a href="#3-8-敏捷过程" class="headerlink" title="3.8. 敏捷过程"></a>3.8. 敏捷过程</h2><ol>
+<li>传统的过程模型在应对需求变更和重视用户价值等发展时遇到了极大的挑战。<ol>
+<li>传统的软件过程模型过度强调了”纪律”，忽视了个人的能力，尤其是过度强调了计划、文档和工具，导致项目开发失去了灵活性，不能快速地应对需求变更和用户反馈。</li>
+</ol>
+</li>
+<li>针对传统过程模型的缺陷和新的形势，人们总结实践中的经验和最佳实践方法，尝试建立轻量级过程方法。</li>
+<li>2001年，企业界一些对轻量级过程方法有着共同思想的人士召开了一次会议，会议上宣布成立敏捷联盟，敏捷过程方法正式诞生。</li>
+</ol>
+<h3 id="3-8-1-敏捷思想"><a href="#3-8-1-敏捷思想" class="headerlink" title="3.8.1. 敏捷思想"></a>3.8.1. 敏捷思想</h3><ol>
+<li>敏捷过程并不是要为软件开发活动组织提供一种特定的过程模型，而是倡导一些指导性的思想和原则</li>
+<li>最为重要的敏捷思想是敏捷联盟宣言所声明的价值观：<ol>
+<li>个体和互动 高于 流程和工具</li>
+<li>工作的软件 高于 详尽的文档</li>
+<li>客户合作 高于 合同谈判</li>
+<li>响应变化 高于 遵循计划</li>
+</ol>
+</li>
+<li>也就是说，尽管右项有其价值，敏捷方法更重视左项的价值。</li>
+</ol>
+<h3 id="3-8-2-敏捷原则"><a href="#3-8-2-敏捷原则" class="headerlink" title="3.8.2. 敏捷原则"></a>3.8.2. 敏捷原则</h3><ol>
+<li>我们最重要的目标，是通过<strong>持续不断地及早交付有价值的软件</strong>使客户满意。</li>
+<li>欣然面对需求变化，即使在开发后期也一样。为了客户的竞争优势，敏捷过程掌控变化。</li>
+<li>经常地交付可工作的软件，相隔几星期或一两个月，倾向于采取较短的周期。</li>
+<li>业务人员和开发人员必须相互合作，项目中的每一天都例外。</li>
+<li>激发个体的斗志，以他们为核心搭建项目。提供所需的环境和支援，辅以信任，从而达成目标。</li>
+<li>不论团队内外，传递信息效果最好效率也最高的方式是面对面的交谈。</li>
+<li>可工作的软件是进度的首要度量标准。</li>
+<li>敏捷过程倡导可持续开发。责任人、开发人员和用户要能够共同维持其步调稳定延续。</li>
+<li>坚持不懈地追求技术卓越和良好设计，敏捷能力由此增强。</li>
+<li>以简洁为本，它是极力减少不必要工作量的艺术。</li>
+<li>最好的架构、需求和设计出自自组织团队。</li>
+<li>团队定期地反思如何能提高成效，并依此调整自身的举止表现。</li>
+</ol>
+<h3 id="3-8-3-践行敏捷思想与原则的过程方法"><a href="#3-8-3-践行敏捷思想与原则的过程方法" class="headerlink" title="3.8.3. 践行敏捷思想与原则的过程方法"></a>3.8.3. 践行敏捷思想与原则的过程方法</h3><ol>
+<li>极限编程XP(eXtreme Programming)</li>
+<li>Scrum</li>
+<li>特性驱动开发(FDD&#x2F;Feature Driven Development)</li>
+<li>自适应软件开发(ASD&#x2F;Adaptive Software Development)</li>
+<li>动态系统开发方法(DSDM&#x2F;Dynamic Systems Development Method)</li>
+</ol>
+<h3 id="3-8-4-极限编程"><a href="#3-8-4-极限编程" class="headerlink" title="3.8.4. 极限编程"></a>3.8.4. 极限编程</h3><ol>
+<li>极限编程XP的一个重要思想是极限利用简单、有效的方法解决问题(这也是它被称为极限编程的原因)，例如：<ol>
+<li>如果单元测试好用，那么就让所有人一直做单元测试(测试驱动)；</li>
+<li>如果集成测试好用，那么就一直做集成测试(持续集成)；</li>
+<li>如果代码评审好用，那么就一直做评审(结对编程)；</li>
+<li>如果简洁性好用，那么就只做最简洁的事情(简单设计)；</li>
+<li>如果设计好用，那么就一直设计(重构)；</li>
+<li>如果短迭代好用，那么就把迭代做的足够小(小版本发布)；</li>
+<li>如果用户参与好用，那么就让用户始终参与(现场客户)。</li>
+</ol>
+</li>
+</ol>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt22/12.png"><br><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt22/13.png"></p>
+<h3 id="3-8-5-特点"><a href="#3-8-5-特点" class="headerlink" title="3.8.5. 特点"></a>3.8.5. 特点</h3><ol>
+<li>敏捷过程包含的方法众多，各有特点，除了共 同的思想和原则之外，很难准确描述它们的共 同点，所以也无法确切界定它们的优缺点。</li>
+</ol>
+<h3 id="3-8-6-适用性"><a href="#3-8-6-适用性" class="headerlink" title="3.8.6. 适用性"></a>3.8.6. 适用性</h3><ol>
+<li>从敏捷联盟声明的思想和原则来看，它们反映了1990s之后软件工程的发展趋势，所以得到了广泛的应用，尤其是能够适应于快速变化或者时间压力较大的项目。</li>
+</ol>
+<h1 id="4-总结"><a href="#4-总结" class="headerlink" title="4. 总结"></a>4. 总结</h1><ol>
+<li>软件生命周期模型和过程模型都是人们关于如何组织软件开发活动的有效经验总结</li>
+<li>不同的过程模型适用于不同情况软件项目的开发活动组织</li>
+</ol>
+
+<div class="article-footer fs14">
+    <section id="license">
+      <div class="header"><span>许可协议</span></div>
+      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div>
+    </section>
+    </div>
+</article>
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/21-%E8%BD%AF%E4%BB%B6%E7%9A%84%E7%BB%B4%E6%8A%A4%E4%B8%8E%E6%BC%94%E5%8C%96/">SE-II-ch21-软件的维护与演化</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/23-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E8%81%8C%E4%B8%9A%E5%9F%BA%E7%A1%80/">SE-II-ch23-软件工程职业基础</a></div></section></div>
+
+
+
+
+
+
+<footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">Asimov</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.28.1">Stellar 1.28.1</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+</div></footer>
+<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
+<div class="widgets">
+
+
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#22-%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B%E6%A8%A1%E5%9E%8B"><span class="toc-text">22-软件开发过程模型</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E5%90%84%E5%85%B8%E5%9E%8B%E9%98%B6%E6%AE%B5"><span class="toc-text">1. 软件开发各典型阶段</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-%E7%AC%AC4-21%E7%AB%A0%E5%BC%80%E5%8F%91%E6%B4%BB%E5%8A%A8%E6%80%BB%E7%BB%93"><span class="toc-text">1.1. 第4-21章开发活动总结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E8%BD%AF%E4%BB%B6%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%A8%A1%E5%9E%8B"><span class="toc-text">2. 软件生命周期模型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E8%BD%AF%E4%BB%B6%E8%BF%87%E7%A8%8B%E6%A8%A1%E5%9E%8B-%E9%87%8D%E8%A6%81"><span class="toc-text">3. 软件过程模型 重要</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E6%9E%84%E5%BB%BA-%E4%BF%AE%E5%A4%8D%E6%A8%A1%E5%9E%8B"><span class="toc-text">3.1. 构建-修复模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-1-%E7%BC%BA%E7%82%B9"><span class="toc-text">3.1.1. 缺点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-2-%E9%80%82%E7%94%A8%E8%8C%83%E5%9B%B4"><span class="toc-text">3.1.2. 适用范围</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-2-%E7%80%91%E5%B8%83%E6%A8%A1%E5%9E%8B"><span class="toc-text">3.2. 瀑布模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-1-%E4%BC%98%E7%82%B9"><span class="toc-text">3.2.1. 优点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-2-%E7%BC%BA%E7%82%B9"><span class="toc-text">3.2.2. 缺点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-3-%E9%80%82%E7%94%A8%E8%8C%83%E5%9B%B4"><span class="toc-text">3.2.3. 适用范围</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-3-%E5%A2%9E%E9%87%8F%E8%BF%AD%E4%BB%A3%E6%A8%A1%E5%9E%8B"><span class="toc-text">3.3. 增量迭代模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-1-%E4%BC%98%E7%82%B9"><span class="toc-text">3.3.1. 优点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-2-%E7%BC%BA%E7%82%B9"><span class="toc-text">3.3.2. 缺点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-3-%E9%80%82%E7%94%A8%E6%80%A7"><span class="toc-text">3.3.3. 适用性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-4-%E6%BC%94%E5%8C%96%E6%A8%A1%E5%9E%8B"><span class="toc-text">3.4. 演化模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-1-%E4%BC%98%E7%82%B9"><span class="toc-text">3.4.1. 优点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-2-%E7%BC%BA%E7%82%B9"><span class="toc-text">3.4.2. 缺点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-3-%E9%80%82%E7%94%A8%E6%80%A7"><span class="toc-text">3.4.3. 适用性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-5-%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%9E%8B"><span class="toc-text">3.5. 原型模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-1-%E4%BC%98%E7%82%B9"><span class="toc-text">3.5.1. 优点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-2-%E7%BC%BA%E7%82%B9"><span class="toc-text">3.5.2. 缺点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-3-%E9%80%82%E7%94%A8%E6%80%A7"><span class="toc-text">3.5.3. 适用性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-6-%E8%9E%BA%E6%97%8B%E6%A8%A1%E5%9E%8B"><span class="toc-text">3.6. 螺旋模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-6-1-%E8%BF%87%E7%A8%8B%E6%8F%8F%E8%BF%B0"><span class="toc-text">3.6.1. 过程描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-6-2-%E4%BC%98%E7%82%B9"><span class="toc-text">3.6.2. 优点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-6-3-%E7%BC%BA%E7%82%B9"><span class="toc-text">3.6.3. 缺点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-6-4-%E9%80%82%E7%94%A8%E6%80%A7"><span class="toc-text">3.6.4. 适用性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-7-Rational-%E7%BB%9F%E4%B8%80%E8%BF%87%E7%A8%8B"><span class="toc-text">3.7. Rational 统一过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-7-1-RUP%E6%A0%B8%E5%BF%83%E6%80%9D%E6%83%B3"><span class="toc-text">3.7.1. RUP核心思想</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-7-2-RUP%E8%A3%81%E5%89%AA"><span class="toc-text">3.7.2. RUP裁剪</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-7-3-%E4%BC%98%E7%82%B9"><span class="toc-text">3.7.3. 优点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-7-4-%E7%BC%BA%E7%82%B9"><span class="toc-text">3.7.4. 缺点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-7-5-%E9%80%82%E7%94%A8%E6%80%A7"><span class="toc-text">3.7.5. 适用性</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-8-%E6%95%8F%E6%8D%B7%E8%BF%87%E7%A8%8B"><span class="toc-text">3.8. 敏捷过程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-8-1-%E6%95%8F%E6%8D%B7%E6%80%9D%E6%83%B3"><span class="toc-text">3.8.1. 敏捷思想</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-8-2-%E6%95%8F%E6%8D%B7%E5%8E%9F%E5%88%99"><span class="toc-text">3.8.2. 敏捷原则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-8-3-%E8%B7%B5%E8%A1%8C%E6%95%8F%E6%8D%B7%E6%80%9D%E6%83%B3%E4%B8%8E%E5%8E%9F%E5%88%99%E7%9A%84%E8%BF%87%E7%A8%8B%E6%96%B9%E6%B3%95"><span class="toc-text">3.8.3. 践行敏捷思想与原则的过程方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-8-4-%E6%9E%81%E9%99%90%E7%BC%96%E7%A8%8B"><span class="toc-text">3.8.4. 极限编程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-8-5-%E7%89%B9%E7%82%B9"><span class="toc-text">3.8.5. 特点</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-8-6-%E9%80%82%E7%94%A8%E6%80%A7"><span class="toc-text">3.8.6. 适用性</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-%E6%80%BB%E7%BB%93"><span class="toc-text">4. 总结</span></a></div><div class="widget-footer">
+
+<a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12c0-4.714 0-7.071 1.464-8.536C4.93 2 7.286 2 12 2c4.714 0 7.071 0 8.535 1.464C22 4.93 22 7.286 22 12c0 4.714 0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12Z"/><path stroke-linecap="round" stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M10.46 1.25h3.08c1.603 0 2.86 0 3.864.095c1.023.098 1.861.3 2.6.752a5.75 5.75 0 0 1 1.899 1.899c.452.738.654 1.577.752 2.6c.095 1.004.095 2.261.095 3.865v1.067c0 1.141 0 2.036-.05 2.759c-.05.735-.153 1.347-.388 1.913a5.75 5.75 0 0 1-3.112 3.112c-.805.334-1.721.408-2.977.43a10.81 10.81 0 0 0-.929.036c-.198.022-.275.054-.32.08c-.047.028-.112.078-.224.232c-.121.166-.258.396-.476.764l-.542.916c-.773 1.307-2.69 1.307-3.464 0l-.542-.916a10.605 10.605 0 0 0-.476-.764c-.112-.154-.177-.204-.224-.232c-.045-.026-.122-.058-.32-.08c-.212-.023-.49-.03-.93-.037c-1.255-.021-2.171-.095-2.976-.429A5.75 5.75 0 0 1 1.688 16.2c-.235-.566-.338-1.178-.389-1.913c-.049-.723-.049-1.618-.049-2.76v-1.066c0-1.604 0-2.86.095-3.865c.098-1.023.3-1.862.752-2.6a5.75 5.75 0 0 1 1.899-1.899c.738-.452 1.577-.654 2.6-.752C7.6 1.25 8.857 1.25 10.461 1.25M6.739 2.839c-.914.087-1.495.253-1.959.537A4.25 4.25 0 0 0 3.376 4.78c-.284.464-.45 1.045-.537 1.96c-.088.924-.089 2.11-.089 3.761v1c0 1.175 0 2.019.046 2.685c.045.659.131 1.089.278 1.441a4.25 4.25 0 0 0 2.3 2.3c.515.214 1.173.294 2.429.316h.031c.398.007.747.013 1.037.045c.311.035.616.104.909.274c.29.17.5.395.682.645c.169.232.342.525.538.856l.559.944a.52.52 0 0 0 .882 0l.559-.944c.196-.331.37-.624.538-.856c.182-.25.392-.476.682-.645c.293-.17.598-.24.909-.274c.29-.032.639-.038 1.037-.045h.032c1.255-.022 1.913-.102 2.428-.316a4.25 4.25 0 0 0 2.3-2.3c.147-.352.233-.782.278-1.441c.046-.666.046-1.51.046-2.685v-1c0-1.651 0-2.837-.089-3.762c-.087-.914-.253-1.495-.537-1.959a4.25 4.25 0 0 0-1.403-1.403c-.464-.284-1.045-.45-1.96-.537c-.924-.088-2.11-.089-3.761-.089h-3c-1.651 0-2.837 0-3.762.089" clip-rule="evenodd"/><path fill="currentColor" d="M9 11a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0"/></svg><span>参与讨论</span></a></div></widget>
+</div></aside><div class='float-panel blur'>
+  <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+  </button>
+  <button type='button' style='display:none' class='mobile-only leftbar-toggle mobile' onclick='sidebar.leftbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"/><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"/></g></svg>
+  </button>
+</div>
+</div><div class="scripts">
+<script type="text/javascript">
+  const ctx = {
+    date_suffix: {
+      just: `刚刚`,
+      min: `分钟前`,
+      hour: `小时前`,
+      day: `天前`,
+    },
+    root : `/`,
+  };
+
+  // required plugins (only load if needs)
+  if (`local_search`) {
+    ctx.search = {};
+    ctx.search.service = `local_search`;
+    if (ctx.search.service == 'local_search') {
+      let service_obj = Object.assign({}, `{"field":"all","path":"/search.json","content":true,"sort":"-date"}`);
+      ctx.search[ctx.search.service] = service_obj;
+    }
+  }
+  const def = {
+    avatar: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg`,
+    cover: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg`,
+  };
+  const deps = {
+    jquery: `https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js`,
+    marked: `https://cdn.bootcdn.net/ajax/libs/marked/4.0.18/marked.min.js`
+  }
+  
+
+</script>
+
+<script type="text/javascript">
+  const utils = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    css: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    js: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')){
+        src = ctx.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    jq: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        utils.js(deps.jquery).then(fn)
+      } else {
+        fn()
+      }
+    },
+    
+    onLoading: (el) => {
+      if (el) {
+        $(el).append('<div class="loading-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg></div>');
+      }
+    },
+    onLoadSuccess: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap').remove();
+      }
+    },
+    onLoadFailure: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap svg').remove();
+        $(el).find('.loading-wrap').append('<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3L21 20H3L12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 10V14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"/></path></g><circle cx="12" cy="17" r="1" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.4s" values="0;1"/></circle></svg>');
+        $(el).find('.loading-wrap').addClass('error');
+      }
+    },
+    request: (el, url, callback, onFailure) => {
+      let retryTimes = 3;
+      utils.onLoading(el);
+      function req() {
+        return new Promise((resolve, reject) => {
+          let status = 0; // 0 等待 1 完成 2 超时
+          let timer = setTimeout(() => {
+            if (status === 0) {
+              status = 2;
+              timer = null;
+              reject('请求超时');
+              if (retryTimes == 0) {
+                onFailure();
+              }
+            }
+          }, 5000);
+          fetch(url).then(function(response) {
+            if (status !== 2) {
+              clearTimeout(timer);
+              resolve(response);
+              timer = null;
+              status = 1;
+            }
+            if (response.ok) {
+              return response.json();
+            }
+            throw new Error('Network response was not ok.');
+          }).then(function(data) {
+            retryTimes = 0;
+            utils.onLoadSuccess(el);
+            callback(data);
+          }).catch(function(error) {
+            if (retryTimes > 0) {
+              retryTimes -= 1;
+              setTimeout(() => {
+                req();
+              }, 5000);
+            } else {
+              utils.onLoadFailure(el);
+              onFailure();
+            }
+          });
+        });
+      }
+      req();
+    },
+  };
+</script>
+
+<script>
+  const sidebar = {
+    leftbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    rightbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('rightbar');
+        l_body.removeAttribute('leftbar');
+      }
+    },
+    dismiss: () => {
+      if (l_body) {
+        l_body.removeAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    toggleTOC: () => {
+      document.querySelector('#data-toc').classList.toggle('collapse');
+    }
+  }
+</script>
+
+<!-- required -->
+<script src="/js/main.js?v=1.28.1" async></script>
+
+<!-- optional -->
+
+
+
+<script defer>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.services = Object.assign({}, JSON.parse(`{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"}}`));
+    for (let id of Object.keys(ctx.services)) {
+      const js = ctx.services[id].js;
+      if (id == 'siteinfo') {
+        ctx.cardlinks = document.querySelectorAll('a.link-card[cardlink]');
+        if (ctx.cardlinks?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            setCardLink(ctx.cardlinks);
+          });
+        }
+      } else {
+        const els = document.getElementsByClassName(`ds-${id}`);
+        if (els?.length > 0) {
+          utils.jq(() => {
+            if (id == 'timeline' || 'memos' || 'marked') {
+              utils.js(deps.marked).then(function () {
+                utils.js(js, { defer: true });
+              });
+            } else {
+              utils.js(js, { defer: true });
+            }
+          });
+        }
+      }
+    }
+  });
+</script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.search = {
+      path: `/search.json`,
+    }
+    utils.js('/js/search/local-search.js', { defer: true });
+  });
+</script><script>
+  window.FPConfig = {
+    delay: 0,
+    ignoreKeywords: [],
+    maxRPS: 5,
+    hoverDelay: 25
+  };
+</script>
+<script defer src="https://cdn.bootcdn.net/ajax/libs/flying-pages/2.1.2/flying-pages.min.js"></script><script defer src="https://cdn.bootcdn.net/ajax/libs/vanilla-lazyload/17.8.4/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazy",
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    window.lazyLoadInstance?.update();
+  });
+</script><script>
+  ctx.fancybox = {
+    selector: `.timenode p>img`,
+    css: `https://cdn.bootcdn.net/ajax/libs/fancyapps-ui/5.0.22/fancybox/fancybox.min.css`,
+    js: `https://cdn.bootcdn.net/ajax/libs/fancyapps-ui/5.0.22/fancybox/fancybox.umd.min.js`
+  };
+  var selector = '[data-fancybox]:not(.error)';
+  if (ctx.fancybox.selector) {
+    selector += `, ${ctx.fancybox.selector}`
+  }
+  var needFancybox = document.querySelectorAll(selector).length !== 0;
+  if (!needFancybox) {
+    const els = document.getElementsByClassName('ds-memos');
+    if (els != undefined && els.length > 0) {
+      needFancybox = true;
+    }
+  }
+  if (needFancybox) {
+    utils.css(ctx.fancybox.css);
+    utils.js(ctx.fancybox.js, { defer: true }).then(function () {
+      Fancybox.bind(selector, {
+        hideScrollbar: false,
+        Thumbs: {
+          autoStart: false,
+        },
+        caption: (fancybox, slide) => {
+          return slide.triggerEl.alt || slide.triggerEl.dataset.caption || null
+        }
+      });
+    })
+  }
+</script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    const swiper_api = document.getElementById('swiper-api');
+    if (swiper_api != undefined) {
+      utils.css(`https://unpkg.com/swiper@10.3.1/swiper-bundle.min.css`);
+      utils.js(`https://unpkg.com/swiper@10.3.1/swiper-bundle.min.js`, { defer: true }).then(function () {
+        const effect = swiper_api.getAttribute('effect') || '';
+        var swiper = new Swiper('.swiper#swiper-api', {
+          slidesPerView: 'auto',
+          spaceBetween: 8,
+          centeredSlides: true,
+          effect: effect,
+          rewind: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+      })
+    }
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    window.codeElements = document.querySelectorAll('.code');
+    if (window.codeElements.length > 0) {
+      ctx.copycode = {
+        default_text: `Copy`,
+        success_text: `Copied`,
+        toast: `复制成功`,
+      };
+      utils.js('/js/plugins/copycode.js');
+    }
+  });
+</script>
+
+
+<!-- inject -->
+
+</div></body></html>

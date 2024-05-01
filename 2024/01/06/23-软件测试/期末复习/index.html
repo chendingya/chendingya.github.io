@@ -1,0 +1,1092 @@
+
+<!DOCTYPE html><html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.28.1" theme-name="Stellar" theme-version="1.28.1">
+  
+  <meta name="generator" content="Hexo 7.2.0">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f9fafb">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
+  
+  <title>软件测试-期末复习 - Asimov's Blog</title>
+
+  
+    <meta name="description" content="自动化测试测试的局限性 输入空间庞大 无法穷举所有输入 实现逻辑复杂  无法想到所有场景  测试预言未知 无法判定测试的预期输出  随机测试大数定律  测试执行次数够多  测试数据随机生成  概率低的偶然现象发生 模糊测试通过异常的输入自动化发现待 测程序缺陷的技术。  三个组件输入生成组件（Input Generator） 测试执行组件 （Test Executor） 输出分析组件（Output">
+<meta property="og:type" content="article">
+<meta property="og:title" content="软件测试-期末复习">
+<meta property="og:url" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/index.html">
+<meta property="og:site_name" content="Asimov&#39;s Blog">
+<meta property="og:description" content="自动化测试测试的局限性 输入空间庞大 无法穷举所有输入 实现逻辑复杂  无法想到所有场景  测试预言未知 无法判定测试的预期输出  随机测试大数定律  测试执行次数够多  测试数据随机生成  概率低的偶然现象发生 模糊测试通过异常的输入自动化发现待 测程序缺陷的技术。  三个组件输入生成组件（Input Generator） 测试执行组件 （Test Executor） 输出分析组件（Output">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://chendingya.github.io/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106195255535.png">
+<meta property="og:image" content="https://chendingya.github.io/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106204541569.png">
+<meta property="og:image" content="https://chendingya.github.io/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106204822670.png">
+<meta property="og:image" content="https://chendingya.github.io/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106211248817.png">
+<meta property="og:image" content="https://chendingya.github.io/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106195337129.png">
+<meta property="og:image" content="https://chendingya.github.io/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106201717276.png">
+<meta property="og:image" content="https://chendingya.github.io/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106202621753.png">
+<meta property="og:image" content="https://chendingya.github.io/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106202947994.png">
+<meta property="og:image" content="https://chendingya.github.io/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106215343774.png">
+<meta property="og:image" content="https://chendingya.github.io/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109134502083.png">
+<meta property="og:image" content="https://chendingya.github.io/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109140523221.png">
+<meta property="og:image" content="https://chendingya.github.io/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109140707165.png">
+<meta property="og:image" content="https://chendingya.github.io/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109140913265.png">
+<meta property="og:image" content="https://chendingya.github.io/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109140926391.png">
+<meta property="og:image" content="https://chendingya.github.io/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109140935119.png">
+<meta property="og:image" content="https://chendingya.github.io/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109141043172.png">
+<meta property="og:image" content="https://chendingya.github.io/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109141635902.png">
+<meta property="og:image" content="https://chendingya.github.io/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109141922437.png">
+<meta property="og:image" content="https://chendingya.github.io/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109141943465.png">
+<meta property="og:image" content="https://chendingya.github.io/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109141700025.png">
+<meta property="og:image" content="https://chendingya.github.io/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109141720827.png">
+<meta property="og:image" content="https://chendingya.github.io/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109141748701.png">
+<meta property="og:image" content="https://chendingya.github.io/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109141817915.png">
+<meta property="og:image" content="https://chendingya.github.io/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109141958418.png">
+<meta property="og:image" content="https://chendingya.github.io/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109142059124.png">
+<meta property="og:image" content="https://chendingya.github.io/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109142207437.png">
+<meta property="og:image" content="https://chendingya.github.io/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109142329303.png">
+<meta property="og:image" content="https://chendingya.github.io/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106195424999.png">
+<meta property="og:image" content="https://chendingya.github.io/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109142900083.png">
+<meta property="og:image" content="https://chendingya.github.io/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109142908293.png">
+<meta property="og:image" content="https://chendingya.github.io/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109142934328.png">
+<meta property="og:image" content="https://chendingya.github.io/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109142950041.png">
+<meta property="og:image" content="https://chendingya.github.io/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109143018218.png">
+<meta property="og:image" content="https://chendingya.github.io/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109143037499.png">
+<meta property="og:image" content="https://chendingya.github.io/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109143057171.png">
+<meta property="og:image" content="https://chendingya.github.io/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106195444002.png">
+<meta property="og:image" content="https://chendingya.github.io/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109143243794.png">
+<meta property="og:image" content="https://chendingya.github.io/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109143253753.png">
+<meta property="og:image" content="https://chendingya.github.io/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109143305702.png">
+<meta property="og:image" content="https://chendingya.github.io/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109143736557.png">
+<meta property="og:image" content="https://chendingya.github.io/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109143755649.png">
+<meta property="og:image" content="https://chendingya.github.io/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109143948439.png">
+<meta property="og:image" content="https://chendingya.github.io/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109144519652.png">
+<meta property="article:published_time" content="2024-01-06T10:32:34.000Z">
+<meta property="article:modified_time" content="2024-01-09T06:45:53.587Z">
+<meta property="article:author" content="Asimov">
+<meta property="article:tag" content="期末复习">
+<meta property="article:tag" content="测试">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://chendingya.github.io/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106195255535.png">
+  
+  
+  
+  <meta name="keywords" content="期末复习,测试">
+
+  <!-- feed -->
+  
+
+  <link rel="stylesheet" href="/css/main.css?v=1.28.1">
+
+  
+
+  
+
+  
+</head>
+<body>
+
+<div class="l_body s:aa content tech" id="start" layout="post" ><aside class="l_left"><div class="leftbar-container">
+
+
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="undefined" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">Asimov's Blog</div><div class="sub cap">亚历山大</div></a></div></header>
+
+<div class="nav-area">
+<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" placeholder="站内搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
+
+
+<nav class="menu dis-select"></nav>
+</div>
+<div class="widgets">
+
+
+<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/"><span class="title">软件测试-期末复习</span></a><a class="item title" href="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/"><span class="title">机器学习-期末复习</span></a><a class="item title" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/"><span class="title">服务端-ch17-k8s使用</span></a><a class="item title" href="/2023/12/30/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch16-%E5%AE%B9%E5%99%A8%E9%95%9C%E5%83%8F%E6%9E%84%E5%BB%BA%E4%B8%8E%E7%BC%96%E6%8E%92/"><span class="title">服务端-ch16-容器镜像构建与编排</span></a><a class="item title" href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/"><span class="title">服务端-ch15-Docker</span></a><a class="item title" href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/"><span class="title">服务端-ch14-Spring WebFlux</span></a><a class="item title" href="/2023/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch13-%E5%8F%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"><span class="title">服务端-ch13-反应式编程基础</span></a><a class="item title" href="/2023/11/23/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch12-Spring%20Integration/"><span class="title">服务端-ch12-Spring Integration</span></a><a class="item title" href="/2023/11/09/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch11-%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6(ActiveMQ%E3%80%81RabbitMQ)/"><span class="title">服务端-ch11-消息中间件(ActiveMQ、RabbitMQ)</span></a><a class="item title" href="/2023/11/09/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch10-OAuth2/"><span class="title">服务端-ch10-OAuth2</span></a></div></widget>
+</div>
+
+</div></aside><div class="l_main" id="main">
+
+
+
+
+
+<div class="article banner top">
+  <div class="content">
+    <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/">软件测试</a></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2024-01-06T10:32:34.000Z">2024-01-06</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2024-01-09T06:45:53.587Z">2024-01-09</time></span></div></div></div>
+    
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>软件测试-期末复习</span></h1>
+        
+      </div>
+    </div>
+    
+  </div>
+  </div><article class="md-text content"><h1 id="自动化测试"><a href="#自动化测试" class="headerlink" title="自动化测试"></a>自动化测试</h1><h2 id="测试的局限性"><a href="#测试的局限性" class="headerlink" title="测试的局限性"></a>测试的局限性</h2><ul>
+<li>输入空间庞大 无法穷举所有输入</li>
+<li>实现逻辑复杂  无法想到所有场景 </li>
+<li>测试预言未知 无法判定测试的预期输出</li>
+</ul>
+<h3 id="随机测试"><a href="#随机测试" class="headerlink" title="随机测试"></a>随机测试</h3><p>大数定律 </p>
+<p>测试执行次数够多 </p>
+<p>测试数据随机生成 </p>
+<p>概率低的偶然现象发生</p>
+<h1 id="模糊测试"><a href="#模糊测试" class="headerlink" title="模糊测试"></a>模糊测试</h1><p>通过异常的输入自动化发现待 测程序缺陷的技术。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106195255535.png" alt="image-20240106195255535"></p>
+<h2 id="三个组件"><a href="#三个组件" class="headerlink" title="三个组件"></a>三个组件</h2><p>输入生成组件（Input Generator）</p>
+<p>测试执行组件 （Test Executor）</p>
+<p>输出分析组件（Output Analyzer）</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106204541569.png" alt="image-20240106204541569"></p>
+<h3 id="测试输入（Test-Input）"><a href="#测试输入（Test-Input）" class="headerlink" title="测试输入（Test Input）"></a>测试输入（Test Input）</h3><p>测试输入是一组用于驱动待测程序执行的数据 </p>
+<h3 id="测试用例（Test-Case）"><a href="#测试用例（Test-Case）" class="headerlink" title="测试用例（Test Case）"></a>测试用例（Test Case）</h3><p>测试用例是一组用于确定应用软件或软件系统是否能够正确工作的条件或变量 </p>
+<p>输入 + 逻辑（调用序列） + 预言 </p>
+<h3 id="种子输入（Seed-Input）"><a href="#种子输入（Seed-Input）" class="headerlink" title="种子输入（Seed Input）"></a>种子输入（Seed Input）</h3><p>种子输入是一个或一组在模糊测试过程中<strong>为输入生成（Input Generation）提供基准的测试输入</strong>，简称种子（Seed）。</p>
+<h2 id="框架"><a href="#框架" class="headerlink" title="框架"></a>框架</h2><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106204822670.png" alt="image-20240106204822670"></p>
+<h2 id="分类"><a href="#分类" class="headerlink" title="分类"></a>分类</h2><p> 根据组件核心或技术贡献进行分类 </p>
+<ul>
+<li>按照采用的运行时信息：黑盒、灰盒、白盒</li>
+<li>按照输入生成的策略：Mutation-based, Generation-based</li>
+<li>按照引导过程：Search-based（一些启发式算法），Gradient-based（梯度下降） </li>
+<li>按照测试目标：定向、非定向、某一类缺陷</li>
+<li>按照应用领域：网络协议、Compiler、DNN、IoT、内核 </li>
+<li>按照优化角度：种子调度、变异策略、能量调度、过程建模</li>
+</ul>
+<h3 id="黑盒（Blackbox）模糊测试"><a href="#黑盒（Blackbox）模糊测试" class="headerlink" title="黑盒（Blackbox）模糊测试"></a>黑盒（Blackbox）模糊测试</h3><ul>
+<li>特点：不监控执行过程，也不使用执行过程中产生的任何信息， 仅从输入和输出端入手优化模糊测试 </li>
+<li>引导方式：<strong>利用输入格式或输出状态引导测试执行</strong> </li>
+<li>优缺点：<strong>效率高，但引导的有效性上面有所欠缺</strong> </li>
+<li>代表性工作：KIF 2 、IoTFuzzer 3 、CodeAlchemist 4</li>
+</ul>
+<h3 id="白盒（Whitebox）模糊测试"><a href="#白盒（Whitebox）模糊测试" class="headerlink" title="白盒（Whitebox）模糊测试"></a>白盒（Whitebox）模糊测试</h3><ul>
+<li>特点：使用混合执行、污点分析（Taint Analysis）等<strong>比较昂贵</strong> 的白盒分析技术优化模糊测试过程 </li>
+<li>引导方式：<strong>利用详细的程序分析结果引导测试执行</strong></li>
+<li>优缺点：<strong>反馈更加有效，但是效率不高</strong>、适配性较差 </li>
+<li>代表性工作：Driller2、QSYM3、CONFETTI4</li>
+</ul>
+<h3 id="灰盒（Greybox）模糊测试"><a href="#灰盒（Greybox）模糊测试" class="headerlink" title="灰盒（Greybox）模糊测试"></a>灰盒（Greybox）模糊测试</h3><ul>
+<li>Coverage-based Greybox Fuzzing, CGF </li>
+<li>特点：采用轻量级插装对程序进行监控，在执行过程中收集各类信息，如分支覆盖、线程执行、堆栈状态等 </li>
+<li>引导方式：利用收集到的执行信息（内部状态）引导测试执行</li>
+<li>代表性工作：AFL、AFLGo、EcoFuzz、Zest、BeDivFuzz</li>
+</ul>
+<h2 id="基于变异的模糊测试"><a href="#基于变异的模糊测试" class="headerlink" title="基于变异的模糊测试"></a>基于变异的模糊测试</h2><p>Mutation-based：基于随机变异或启发式变异策略</p>
+<ul>
+<li>本质：将<strong>种子输入转换为比特串（Bits），对比特串进行变换</strong> </li>
+<li>优点：可拓展性强，易于泛化，理论上可用于任意输入（图 片、文本、音视频）</li>
+<li>缺点：容易破坏输入的结构、产生无效输入（Invalid  Input）；生成的大部分输入都无法通过语义检查 （Semantic Checking），很难探测深层次的程序状态和程序元素（Program Elements</li>
+</ul>
+<h3 id="AFL变异算子"><a href="#AFL变异算子" class="headerlink" title="AFL变异算子"></a>AFL变异算子</h3><ul>
+<li>bitflip L&#x2F;S ：以S为增量，每次翻转L位</li>
+<li>arith L&#x2F;8：加&#x2F;减长度为L的小整数 </li>
+<li>interest L&#x2F;8：翻转“有趣”字节位 </li>
+<li>havoc：对输入进行大肆破坏 </li>
+<li>splice：随机拼接两个种子输入</li>
+</ul>
+<h2 id="基于生成的模糊测试"><a href="#基于生成的模糊测试" class="headerlink" title="基于生成的模糊测试"></a>基于生成的模糊测试</h2><p>Generation-based：基于一定的文法规则&#x2F;结构信息</p>
+<ul>
+<li>本质：利用给定的、或者挖掘&#x2F;学习得到的文法规则，来构建能够通过（语法）检查的结构化输入</li>
+<li>优点：<strong>容易生成合法、有效输入（Valid Inputs），适用于对输入结构性要求较高的场景</strong>，如针对解析器（Parser）、解释器（Interpreter）以及编译器（Compiler）的测试 </li>
+<li>缺点：需要人工赋予一定的领域知识。在没有人工指定文法 的情况下，很难得到完整的文法规则</li>
+</ul>
+<h2 id="基于搜索的模糊测试"><a href="#基于搜索的模糊测试" class="headerlink" title="基于搜索的模糊测试"></a>基于搜索的模糊测试</h2><p>Search-based：Fuzzing as Search Problem</p>
+<ul>
+<li>核心：将模糊测试过程建模为搜索问题，根据模型构造启发式算法（Heuristic）解决问题 </li>
+<li>启发式：遗传算法-AFL1、马尔科夫链-AFLFast2、信息熵Entropic3、多臂老虎机问题-EcoFuzz</li>
+</ul>
+<h2 id="基于梯度的模糊测试"><a href="#基于梯度的模糊测试" class="headerlink" title="基于梯度的模糊测试"></a>基于梯度的模糊测试</h2><p>Gradient-based：Fuzzing as Optimization Problem</p>
+<ul>
+<li>核心：将模糊测试过程建模为优化问题，问题的目标是最大化缺陷发掘数量，<strong>利用梯度下降算法持续求解最优解</strong></li>
+<li>目标退阶：缺陷离散分布且无法预知 替换为代码覆盖 •</li>
+<li>应用DL技术-Neuzz1 &amp; MTFuzz2；利用梯度下降取代符号执行的约束求解过程-Angora3</li>
+</ul>
+<h2 id="定向灰盒模糊测试"><a href="#定向灰盒模糊测试" class="headerlink" title="定向灰盒模糊测试"></a>定向灰盒模糊测试</h2><p>AFLGo1：定向灰盒模糊测试</p>
+<p>基本思路：Distance + Annealing-based Scheduling，为 更靠近目标位置的种子分配更多的能量</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106211248817.png" alt="image-20240106211248817"></p>
+<h1 id="变异测试"><a href="#变异测试" class="headerlink" title="变异测试"></a>变异测试</h1><p>变异测试旨在找出有效的测试用例，发现程序中真正的错误。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106195337129.png" alt="image-20240106195337129"></p>
+<h2 id="变异体"><a href="#变异体" class="headerlink" title="变异体"></a>变异体</h2><p>基于一定的语法（Syntax）变换规则，通过对源程序进行程 序变换（Program Transformation）得到的一系列变体</p>
+<p>假设 </p>
+<ul>
+<li>源程序不包含缺陷 现有的测试套件没有发现缺陷 </li>
+<li>变异体表达了某种缺陷  人工缺陷（Artificial Defect）</li>
+</ul>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106201717276.png" alt="image-20240106201717276"></p>
+<h2 id="变异得分（Mutation-Score）"><a href="#变异得分（Mutation-Score）" class="headerlink" title="变异得分（Mutation Score）"></a>变异得分（Mutation Score）</h2><ul>
+<li><p>变异测试对测试套件错误检测能力的量化 </p>
+</li>
+<li><p>杀死与存活：<strong>变异体是否导致某个测试用例运行失败</strong>；测试 用例是否“检测”到某个变异体 </p>
+<ul>
+<li>检测到：变体被杀死（Killed）</li>
+<li>未检测到：变体存活（Survived）</li>
+</ul>
+</li>
+<li><p>计算公式 </p>
+<p>$score &#x3D;  \frac{mut _k}{mut_s + mut_k}* 100%$</p>
+</li>
+</ul>
+<h2 id="变异体的分类"><a href="#变异体的分类" class="headerlink" title="变异体的分类"></a>变异体的分类</h2><ul>
+<li>有效变异体 <ul>
+<li>夭折变异体（Stillborn Mutant）</li>
+<li>等价变异体（Equivalent Mutant）</li>
+<li>冗余变异体（Redundant Mutant） <ul>
+<li>重复变异体（Duplicated Mutant）</li>
+<li>蕴含变异体（Subsumed Mutant）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="等价"><a href="#等价" class="headerlink" title="等价"></a>等价</h3><ul>
+<li>对于待测程序p的变体mut，如果mut和p的语法不同、语义相同，则称mut是p的等价变异体</li>
+<li>语义相同：对于给定输入，两个程序总能给出相同的输出</li>
+</ul>
+<h3 id="蕴含"><a href="#蕴含" class="headerlink" title="蕴含"></a>蕴含</h3><ul>
+<li>对于两个变体$mut_1$和$mut_2$，如果∀杀死$mut_1$的测试用例t都可以杀死$mut_2$，则称$mut_1$蕴含$mut_2$</li>
+</ul>
+<h2 id="变异算子（Mutation-Operator）"><a href="#变异算子（Mutation-Operator）" class="headerlink" title="变异算子（Mutation Operator）"></a>变异算子（Mutation Operator）</h2><ul>
+<li>一系列语法变换规则（Syntactic Transformation Rule） </li>
+<li>变异（Mutate）的依据，反映了测试人员关注的缺陷种类</li>
+<li>基本形式 <ul>
+<li>对程序的源代码进行变换（Source Code Level）</li>
+<li>对程序的编译结果（中间表示）进行变换，例如：针对Java  Bytecode的程序变换算子</li>
+<li>元变异（Meta-mutation）</li>
+</ul>
+</li>
+</ul>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106202621753.png" alt="image-20240106202621753"></p>
+<h2 id="变异测试为什么有效"><a href="#变异测试为什么有效" class="headerlink" title="变异测试为什么有效"></a>变异测试为什么有效</h2><ul>
+<li>假设1：缺陷是简单的、可模拟的 <ul>
+<li>变异体能够模拟测试人员关注的缺陷类型，即：最常出现的 缺陷类型； </li>
+<li>能够在变异测试中暴露这些人工缺陷的测试套件一定能检测出待测程序中潜在的同类缺陷</li>
+<li>老练程序员假设：一个老练程序员编写的错误程序与正确程序相差不大</li>
+</ul>
+</li>
+<li>假设2：缺陷可叠加 <ul>
+<li>复杂变异体可以通过耦合简单变异体得到 </li>
+<li>能够杀死简单变异体的测试用例可以杀死复杂变异体</li>
+</ul>
+</li>
+<li>假设3：缺陷检测有效性 <ul>
+<li>缺陷检测能力是测试用例最重要的属性 </li>
+<li>变异得分能够有效地反映测试用例&#x2F;套件的错误检测能力 </li>
+<li>传递性假设：能够杀死变异体（暴露人工缺陷）的测试用例 也能有效发现真实世界的缺陷</li>
+</ul>
+</li>
+</ul>
+<h2 id="变异测试流程"><a href="#变异测试流程" class="headerlink" title="变异测试流程"></a>变异测试流程</h2><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106202947994.png" alt="image-20240106202947994"></p>
+<ul>
+<li>变异分析：1，2，3，5，6</li>
+<li>变异应用：4，7，10</li>
+</ul>
+<h3 id="如何设计有效的变异算子？"><a href="#如何设计有效的变异算子？" class="headerlink" title="如何设计有效的变异算子？"></a>如何设计有效的变异算子？</h3><p>设计原则 </p>
+<ul>
+<li>根据编程语言：Java，C#，C&#x2F;C++，JS，AspectJ •</li>
+<li>根据语言设计原则：OO，AOP </li>
+<li>根据应用场景：Web，Android，Ajax </li>
+<li>根据Bug类型：安全漏洞、内存缺陷、交互错误</li>
+</ul>
+<h3 id="变异体约减"><a href="#变异体约减" class="headerlink" title="变异体约减"></a>变异体约减</h3><p>变异体约减旨在从变异体全集中选出具有代表性变异体子集</p>
+<h4 id="约减策略"><a href="#约减策略" class="headerlink" title="约减策略"></a>约减策略</h4><ul>
+<li>随机选取1：选取总量的10%~60%，缺陷丢失率为6%~26% </li>
+<li>基于类型2：某些类型的变异体可能要更加重要 </li>
+<li>基于分布3：利用AST选取更加分散的变异体</li>
+</ul>
+<h3 id="变异体生成"><a href="#变异体生成" class="headerlink" title="变异体生成"></a>变异体生成</h3><p>变异体生成技术 </p>
+<ul>
+<li>元变异（Meta-mutation） </li>
+<li>基于字节码操作（Bytecode Manipulation</li>
+<li>热替换（Hot-Swap, Just-In-Time）</li>
+</ul>
+<h3 id="变异体优化"><a href="#变异体优化" class="headerlink" title="变异体优化"></a>变异体优化</h3><h4 id="去除有等价和无效变异体"><a href="#去除有等价和无效变异体" class="headerlink" title="去除有等价和无效变异体"></a>去除有等价和无效变异体</h4><p><strong>通过静态分析的方式，识别并移除有问题的变异</strong></p>
+<h4 id="识别等价变异体"><a href="#识别等价变异体" class="headerlink" title="识别等价变异体"></a>识别等价变异体</h4><p>常用技术</p>
+<ul>
+<li>代码优化（Code optimization）。对源代码和变异体进行优化， 移除优化后与源代码相同的变异体</li>
+<li>静态数据流分析，如值分析（Value Analysis）。等价变异体汇 总存在特定的数据流模板，可以由此识别等价变异体</li>
+</ul>
+<h3 id="变异体执行"><a href="#变异体执行" class="headerlink" title="变异体执行"></a>变异体执行</h3><h4 id="变异体矩阵"><a href="#变异体矩阵" class="headerlink" title="变异体矩阵"></a>变异体矩阵</h4><p>记录每个测试用例对每个变异体的执行情况 </p>
+<p>m*n维矩阵：m为变异体个数，n为测试用例个数</p>
+<h2 id="应用"><a href="#应用" class="headerlink" title="应用"></a>应用</h2><ul>
+<li>评估作用：利用变异得分度量测试的充分性</li>
+<li>引导作用：利用变异测试&#x2F;分析的结果来引导测试过程</li>
+<li>传统应用：应用于确定性系统 <ul>
+<li>测试生成（Test Generation） </li>
+<li>预言生成（Oracle Problem）</li>
+<li>测试优化（排序 &amp; 选择）</li>
+<li>Debug引导 （缺陷定位 &amp; 自动修复</li>
+</ul>
+</li>
+<li>变异 &amp; AI：应用于非确定性系统（DNN）</li>
+</ul>
+<h1 id="回归测试"><a href="#回归测试" class="headerlink" title="回归测试"></a>回归测试</h1><h2 id="回归测试研究框架"><a href="#回归测试研究框架" class="headerlink" title="回归测试研究框架"></a>回归测试研究框架</h2><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106215343774.png" alt="image-20240106215343774"></p>
+<h2 id="回归测试优化"><a href="#回归测试优化" class="headerlink" title="回归测试优化"></a>回归测试优化</h2><ul>
+<li><p>测试用例修复 [1]：识别出因相关模块的外部接口或内在语义发生变更为失效的用例，并其进行修复。</p>
+</li>
+<li><p>测试用例选择 [2]：通过分析代码修改，从已有测试用例中选择出所 有可检测代码修改的测试用例，并确保未被选择的测试用例在修改前后程序上的执行行为保持一致。 </p>
+</li>
+<li><p>测试用例扩充 [3] ：在代码修改影响分析基础上，对已有测试用例集 的充分性进行评估，若不充分则设计新的测试用例以确保对代码修改的充分测试</p>
+</li>
+<li><p>测试用例缩减 [4]：在满足指定测试需求覆盖前提下，识别并移除冗 余测试用例来降低回归测试用例集规模。</p>
+</li>
+<li><p>测试用例优先级 [5]：当测试预算不足以执行完所有测试用例时，可 以基于特定优先级准则，对测试用例进行优先级排序以优化其执行次 序，旨在最大化优先级目标，例如测试用例集的缺陷检测速率。</p>
+</li>
+</ul>
+<h1 id="web测试"><a href="#web测试" class="headerlink" title="web测试"></a>web测试</h1><p>功能测试 Functional Testing 根据产品特性和设计 需求，验证一个产品 的特性和行为是否满 足设计需求</p>
+<h2 id="功能测试常用步骤"><a href="#功能测试常用步骤" class="headerlink" title="功能测试常用步骤"></a>功能测试常用步骤</h2><ol>
+<li>根据需求来细分功能点 </li>
+<li>根据功能点派生测试需求 </li>
+<li>根据测试需求设计功能测试用例 </li>
+<li>逐项执行功能测试用例验证产品</li>
+</ol>
+<h2 id="相关的测试类型"><a href="#相关的测试类型" class="headerlink" title="相关的测试类型"></a>相关的测试类型</h2><ul>
+<li>正确性<ul>
+<li>产品功能是否与需求和设计文档一致</li>
+</ul>
+</li>
+<li>可靠性 <ul>
+<li>用户交互是否引发软件崩溃和其它异常</li>
+</ul>
+</li>
+<li>易用性 <ul>
+<li>软件产品完成特定任务的难易程度</li>
+</ul>
+</li>
+</ul>
+<h2 id="功能测试示例"><a href="#功能测试示例" class="headerlink" title="功能测试示例"></a>功能测试示例</h2><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109134502083.png" alt="image-20240109134502083"></p>
+<h2 id="性能测试度量方法"><a href="#性能测试度量方法" class="headerlink" title="性能测试度量方法"></a>性能测试度量方法</h2><ul>
+<li>不同的关注对象采用不同的性能的度量方法</li>
+<li>服务端性能采用CPU、内存等使用率来度量</li>
+<li>客户端性能通常根据系统处理特定用户请求的响 应时间来度量</li>
+</ul>
+<h3 id="性能测试度量对象"><a href="#性能测试度量对象" class="headerlink" title="性能测试度量对象"></a>性能测试度量对象</h3><ul>
+<li>响应时间</li>
+<li>并发用户数</li>
+<li>吞吐量</li>
+<li>性能计数器</li>
+</ul>
+<h2 id="负载测试"><a href="#负载测试" class="headerlink" title="负载测试"></a>负载测试</h2><ul>
+<li>负载测试用于验证应用系统在正常负载条件下的行为 </li>
+<li>性能行为通过一些性能指标体现</li>
+<li>两种方式：<ul>
+<li>直接到达负载数（如并发用户数，事务数等） </li>
+<li>逐步增加负载数（如并发用户数，事务数等）</li>
+</ul>
+</li>
+</ul>
+<h2 id="压力测试"><a href="#压力测试" class="headerlink" title="压力测试"></a>压力测试</h2><ul>
+<li>压力测试是评估应用系统处于或超过预期负 载时的行为 </li>
+<li>压力测试关注的行为不一定是性能行为，<strong>可能是某种Bug，比如同步问题，内存泄露等</strong></li>
+<li>在压力级别逐渐增加时，系统性能应该按照预期缓慢下降，但是不应该崩溃 </li>
+<li>压力测试还可以发现系统崩溃的临界点，从而发现系统中的薄弱环节</li>
+</ul>
+<h2 id="Web功能测试方法"><a href="#Web功能测试方法" class="headerlink" title="Web功能测试方法"></a>Web功能测试方法</h2><ul>
+<li><p>功能相关性</p>
+</li>
+<li><p>数据相关性</p>
+</li>
+<li><p>检查按钮的功能是否正确</p>
+</li>
+<li><p>字符串长度检查</p>
+</li>
+<li><p>字符类型检查</p>
+</li>
+<li><p>标点符号检查</p>
+</li>
+<li><p>特殊字符检查</p>
+</li>
+<li><p>中文字符处理</p>
+</li>
+<li><p>检查信息的完整性</p>
+</li>
+<li><p>信息重复</p>
+</li>
+<li><p>检查删除功能</p>
+</li>
+<li><p>检查添加和修改是否一致</p>
+</li>
+<li><p>重复提交表单</p>
+<p>……</p>
+</li>
+</ul>
+<h2 id="探索式测试方法"><a href="#探索式测试方法" class="headerlink" title="探索式测试方法"></a>探索式测试方法</h2><p>探索式测试(ET)是一种帮助测试人员如何在需求不完善的情况下 尽早发现更多软件质量风险的测试手段。</p>
+<p> <strong>它是一种测试风格，测试思维，而不是具体的测试技术</strong></p>
+<h3 id="产生过程"><a href="#产生过程" class="headerlink" title="产生过程"></a>产生过程</h3><p>目前缺陷的检测有两种方式：自动化测试 和 手工测试。</p>
+<ul>
+<li>自动化测试： <ul>
+<li>a、有代码维护成本、学习成本，而且测试程序本身也存在问题。</li>
+<li>b、只要能在合理的场景中使用自动化还是能提高效率的，并不是所有的测试都 适合自动化。</li>
+</ul>
+</li>
+<li>手工测试： <ul>
+<li>需手脑并用，发挥聪明才智，才能设计出导致软件失效或符合软件设计效果的 真实场景。如果想发现与应用程序业务逻辑相关的缺陷手工测试是最佳选择。</li>
+<li>缺点：<ul>
+<li>a、慢 </li>
+<li>b、无规律 </li>
+<li>c、不易复现 </li>
+<li>d、不可反复使用 </li>
+<li>e、无可借鉴的经验</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>基于以上缺点诞生了手工测试的技术 —— 探索式测试</li>
+</ul>
+<h3 id="指导方法"><a href="#指导方法" class="headerlink" title="指导方法"></a>指导方法</h3><ul>
+<li>局部探索式测试法（小范围的，比如一个对话框等） <ul>
+<li>在运行任何一个测试用例时都都需要作出很多细微的战术层面决定</li>
+</ul>
+</li>
+<li>全局探索式测试法（总体测试，整个程序功能）<ul>
+<li>基于“漫游”概念，如同一个导游带领旅游团队参观大都市中的一系列 著名景点，漫游测试法提供的路线可以指导测试人员如何探索软件的方 方面面。</li>
+<li>全局测试法对于制定完整的测试策略给出了指导意义</li>
+</ul>
+</li>
+<li>混合探索式测试法（把探索式测试的实质和使用脚本的手工测试 合并起来） <ul>
+<li>使用正式脚本可以为探索式测试设立一个明确框架范围，探索式测试可 以提高脚本测试的有效性，为脚本中的测试用例提供更多种多样的变化</li>
+</ul>
+</li>
+</ul>
+<h1 id="众包测试"><a href="#众包测试" class="headerlink" title="众包测试"></a>众包测试</h1><p>众包：利用群体力量来完成传统方法中成本高昂或耗时的大规模任务， 是Howe Jeff于2006年在美国《连线》杂志上首次提出的一种商业模式。</p>
+<h2 id="众包测试流程"><a href="#众包测试流程" class="headerlink" title="众包测试流程"></a>众包测试流程</h2><ul>
+<li><strong>申请上传</strong>：用户将自己的应用程序上传到 众测平台， 并指定相应的测试任务和酬劳信息。</li>
+<li><strong>任务选择和环境设置</strong>：众测人员自由选择他们想要完 成的任务。选择后测试人员从平台上下载应用程序进 行测试。 </li>
+<li><strong>提交报告</strong>：众测人员根据选择的待测应用，对测试到 的缺陷提交缺陷报告。 </li>
+<li><strong>生成最终测试报告：</strong>平台收集补充信息，生成最终的 缺陷报告，包括：一般信息、设备信息、操作路径等。 </li>
+<li><strong>报告验证</strong>：客户将验证所有最终的缺陷报告，并决定 如何酬劳每个提交报告的众包测试人员</li>
+</ul>
+<h2 id="众包测试的优势"><a href="#众包测试的优势" class="headerlink" title="众包测试的优势"></a>众包测试的优势</h2><ul>
+<li>更充分的测试时间</li>
+<li>更广泛的测试方法</li>
+<li>更多样的测试环境</li>
+<li>更全面的测试方法</li>
+</ul>
+<h2 id="众包测试中的缺陷类型"><a href="#众包测试中的缺陷类型" class="headerlink" title="众包测试中的缺陷类型"></a>众包测试中的缺陷类型</h2><ul>
+<li>功能缺陷</li>
+<li>显示问题</li>
+<li>性能问题 </li>
+<li>布局问题</li>
+<li>应用崩溃 </li>
+<li>错误提示 </li>
+<li>空白屏</li>
+</ul>
+<h2 id="众包测试面临的挑战"><a href="#众包测试面临的挑战" class="headerlink" title="众包测试面临的挑战"></a>众包测试面临的挑战</h2><ul>
+<li>任务分配 </li>
+<li>任务奖励</li>
+<li>众测过程引导</li>
+<li>测试报告质量控制</li>
+</ul>
+<h2 id="协作式众包测试"><a href="#协作式众包测试" class="headerlink" title="协作式众包测试"></a>协作式众包测试</h2><ul>
+<li>信息共享：用户在提交报告时进行实时相似报告推荐，避免重复报告提交。</li>
+<li>任务分配：审核页面推荐待审核的报告列表，测试页面推荐待测页面。</li>
+<li>协作方式：点赞点踩操作：利用用户的交叉审核，验证报告有效性。</li>
+<li>一键Fork：Fork他人结果后进行修改，利用多人协作提升报告质量。</li>
+</ul>
+<h2 id="测试报告"><a href="#测试报告" class="headerlink" title="测试报告"></a>测试报告</h2><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109140523221.png" alt="image-20240109140523221"></p>
+<p>众测报告信息 </p>
+<ul>
+<li>缺陷截图 </li>
+<li>文本描述</li>
+<li>缺陷行为描述、复现步骤、期望行为</li>
+<li>测试环境信息</li>
+</ul>
+<h2 id="众测报告聚合"><a href="#众测报告聚合" class="headerlink" title="众测报告聚合"></a>众测报告聚合</h2><p>大量的测试报告——较多的重复数据</p>
+<ul>
+<li>懒惰和缺乏经验的用户。</li>
+<li>测试报告搜索功能较差。</li>
+<li>偶然的重复——由于网络等原因不小心提交了多次</li>
+<li>给开发者增加了许多工作量。</li>
+<li>不同的信息可以使开发者对Bug有一个更全面的了解。</li>
+</ul>
+<h3 id="Aggregator"><a href="#Aggregator" class="headerlink" title="Aggregator"></a>Aggregator</h3><ol>
+<li>截屏集合的距离矩阵DS计算 </li>
+<li>文本集合的距离矩阵DT计算</li>
+<li>距离矩阵的合并–Balanced Distance的计算<ul>
+<li>若文本完全相同，则认为<strong>平衡距离为0</strong></li>
+<li>若截屏完全相同，则平衡距离为<strong>加权的文本距离</strong></li>
+<li>文本和截屏均不相同时，使用<strong>二者的调和平均数</strong></li>
+</ul>
+</li>
+<li>合成层次聚类( Agglomerative Hirarchical Clustering )<ul>
+<li>将所有样本点各自归为一类，两两类别计算距离</li>
+<li>将距离最短的两个类合成一个类，计算新类与旧类的距离</li>
+<li>重复操作</li>
+<li>直至所有样本点都归于一类</li>
+</ul>
+</li>
+</ol>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109140707165.png" alt="image-20240109140707165"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109140913265.png" alt="image-20240109140913265"></p>
+<h3 id="Summarizer"><a href="#Summarizer" class="headerlink" title="Summarizer"></a>Summarizer</h3><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109140926391.png" alt="image-20240109140926391"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109140935119.png" alt="image-20240109140935119"></p>
+<h2 id="众测报告排序"><a href="#众测报告排序" class="headerlink" title="众测报告排序"></a>众测报告排序</h2><ul>
+<li>使用文本+图片结合分析的方法</li>
+<li>通过自然语言处理算法计算文本的相似度</li>
+<li>通过SPM算法（Spatial Pyramid Matching）识别缺陷截图相似度 </li>
+<li>通过使用一种多目标的优化算法结合文本与截图相似度完成针对测试报告的相似度比较</li>
+</ul>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109141043172.png" alt="image-20240109141043172"></p>
+<p>处理截图主要涉及三个操作： </p>
+<ul>
+<li>建立特征直方图 </li>
+<li>计算截图之间的距离</li>
+<li>计算截图集合之间的距离 </li>
+<li>将图片转化为特征向量便于计算</li>
+</ul>
+<p>处理文本主要涉及两个操作： </p>
+<ul>
+<li>关键词的提取  过滤无用词汇：这些词会对文本距离计算产生消极影响</li>
+<li>文本距离的计算 使用Jaccard距离计算测试报告集 中文本描述间距离</li>
+</ul>
+<h1 id="移动应用自动化-GUI-测试"><a href="#移动应用自动化-GUI-测试" class="headerlink" title="移动应用自动化 GUI 测试"></a>移动应用自动化 GUI 测试</h1><p><strong>GUI测试 &#x3D; 控件定位 &#x2F; 匹配 + 操作执行</strong></p>
+<h2 id="自动化测试框架"><a href="#自动化测试框架" class="headerlink" title="自动化测试框架"></a>自动化测试框架</h2><ul>
+<li><p>Selenium</p>
+<ul>
+<li>Selenium 是一个开源的自动化测试工具，专门用于自动化网 页浏览器的操作。 </li>
+<li>Selenium 允许测试人员使用多种编程语言编写测试脚本（如 Java、C#、Python、Ruby、JavaScript 等），以模拟用户 对网页的各种操作，如点击、填写表单、导航等</li>
+</ul>
+</li>
+<li><p>Appium</p>
+<ul>
+<li>Appium 是一个扩展了 Selenium 的 WebDriver 协议来支持移 动应用自动化的工具，允许使用 Selenium 的客户端库来编写 适用于 iOS 和 Android 应用的测试脚本</li>
+</ul>
+</li>
+</ul>
+<p>人工录制 + 自动化回放 </p>
+<p>基于模型的自动化测试技术</p>
+<h2 id="基于图像的简单控件定位"><a href="#基于图像的简单控件定位" class="headerlink" title="基于图像的简单控件定位"></a>基于图像的简单控件定位</h2><p>Sikuli 来自 MIT 的 Sikuli 通过图像 匹配算法来完成对 GUI 元素 的识别和定位。</p>
+<p>Airtest 来自网易的 Airtest 连接到某个窗 口或移动设备上，然后进行 GUI  测试脚本的编写。</p>
+<h3 id="存在的问题"><a href="#存在的问题" class="headerlink" title="存在的问题"></a>存在的问题</h3><ul>
+<li><p>测试脚本的执行仍依赖于操作系统接口，如 Android 的 ADB</p>
+</li>
+<li><p>使用像素级方式定位控件的方式难以应对复杂场景，如不同分辨率的设备 </p>
+</li>
+<li><p>仍面临人工编写和维护脚本的成本</p>
+</li>
+</ul>
+<h3 id="深度图像理解（控件提取）"><a href="#深度图像理解（控件提取）" class="headerlink" title="深度图像理解（控件提取）"></a>深度图像理解（控件提取）</h3><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109141635902.png" alt="image-20240109141635902"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109141922437.png" alt="image-20240109141922437"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109141943465.png" alt="image-20240109141943465"></p>
+<h3 id="深度图像理解（文字识别-）"><a href="#深度图像理解（文字识别-）" class="headerlink" title="深度图像理解（文字识别 ）"></a>深度图像理解（文字识别 ）</h3><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109141700025.png" alt="image-20240109141700025"></p>
+<h3 id="深度图像理解（界面理解）"><a href="#深度图像理解（界面理解）" class="headerlink" title="深度图像理解（界面理解）"></a>深度图像理解（界面理解）</h3><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109141720827.png" alt="image-20240109141720827"></p>
+<h3 id="基于深度图像理解的自动化探索工具"><a href="#基于深度图像理解的自动化探索工具" class="headerlink" title="基于深度图像理解的自动化探索工具"></a>基于深度图像理解的自动化探索工具</h3><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109141748701.png" alt="image-20240109141748701"></p>
+<ol>
+<li>无法感知异形屏幕对 UI 控件的遮挡 </li>
+<li>难以模拟真实场景下人的交互操作 </li>
+<li>仍依赖操作系统接口执行测试操作</li>
+</ol>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109141817915.png" alt="image-20240109141817915"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109141958418.png" alt="image-20240109141958418"></p>
+<h1 id="测试预言问题"><a href="#测试预言问题" class="headerlink" title="测试预言问题"></a>测试预言问题</h1><h2 id="测试预言"><a href="#测试预言" class="headerlink" title="测试预言"></a>测试预言</h2><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109142059124.png" alt="image-20240109142059124"></p>
+<h2 id="测试预言定义（Test-Oracle）"><a href="#测试预言定义（Test-Oracle）" class="headerlink" title="测试预言定义（Test Oracle）"></a>测试预言定义（Test Oracle）</h2><ul>
+<li>是文档：体现被测单元的预期功能1（Intended Functionality）</li>
+<li>被测单元：模块、类、方法、函数、语句</li>
+<li>是机制：验证待测程序的行为是否符合预期</li>
+<li>是程序：判定程序的执行是否违反了某种正确性政策</li>
+<li>是约束：</li>
+<li>是映射：</li>
+</ul>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109142207437.png" alt="image-20240109142207437"></p>
+<h2 id="测试预言分类"><a href="#测试预言分类" class="headerlink" title="测试预言分类"></a>测试预言分类</h2><ul>
+<li><strong>隐式预言</strong>：用于检测<strong>显著缺陷（Obvious Bug）</strong>的测试预言。例如， 预期外的程序崩溃（Crash）就是一种典型的显著缺陷。 </li>
+<li>显式预言：根据软件的预期功能提取得到的预言，一般用于检测<strong>功能性缺陷（Functional Bug）。</strong></li>
+</ul>
+<p>显式预言如上图举例</p>
+<p>隐式预言如下图</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109142329303.png" alt="image-20240109142329303"></p>
+<h2 id="预言问题："><a href="#预言问题：" class="headerlink" title="预言问题："></a>预言问题：</h2><p>给定系统的输入，<strong>如何找到能够正确辨别出符合期望的 正确行为与发现潜在的不正确行为</strong>测试预言的挑战性难题。</p>
+<p>预言问题具有挑战性的原因</p>
+<ul>
+<li>缺少清晰的规格：文档通常用自然语言编写，而自然语言存在二义性</li>
+<li>软件的动态特征：网络问题导致的问题、线程调度产生的并发问题 </li>
+<li>优先的测试资源：测试预言空间和测试输入空间一样无法穷尽</li>
+</ul>
+<h2 id="预言问题现状"><a href="#预言问题现状" class="headerlink" title="预言问题现状"></a>预言问题现状</h2><p>复杂的预言难以构建，容易构建的预言效果差</p>
+<h2 id="预言问题解决方案"><a href="#预言问题解决方案" class="headerlink" title="预言问题解决方案"></a>预言问题解决方案</h2><p>利用静态程序分析手段自动化构建测试预言</p>
+<ul>
+<li>从文本文档&#x2F;注释中自动提取（Specification Mining）</li>
+<li>设计形式化的文档语言：体系结构设计语言（ADL）</li>
+<li>使用不完全测试预言（Partial Test Oracle） <ul>
+<li>蜕变测试（Metamorphic Testing） </li>
+<li>差分测试（Differential Testing）</li>
+</ul>
+</li>
+</ul>
+<h1 id="蜕变测试"><a href="#蜕变测试" class="headerlink" title="蜕变测试"></a>蜕变测试</h1><p>蜕变关系(Metamorphic Relation, MR) 是指多次执行目标程序时，<strong>输入与输出之间期望遵循的关系。</strong></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106195424999.png" alt="image-20240106195424999"></p>
+<p>应对（自动化）软件测试中的两大难题</p>
+<ul>
+<li>可靠测试集问题（Reliable Test Set Problem） <strong>测试生成&#x2F;扩增</strong> </li>
+<li>预言问题（Oracle Problem）<strong>正确性验证</strong></li>
+</ul>
+<p>蜕变测试本质：<strong>充分利用成功测试用例</strong></p>
+<ul>
+<li>对成功测试用例表现出的必要属性（Necessary Properties） 的复用； </li>
+<li>必要属性：从相关成功测试用例的集合和程序规格中提取出的、 <strong>待测软件必须遵守的属性</strong>； </li>
+<li>属性的必要性：<strong>违反必要属性的测试一定发现了某种软件缺陷。</strong></li>
+</ul>
+<h2 id="三要素"><a href="#三要素" class="headerlink" title="三要素"></a>三要素</h2><h3 id="蜕变关系（MR-Metamorphic-Relation）"><a href="#蜕变关系（MR-Metamorphic-Relation）" class="headerlink" title="蜕变关系（MR, Metamorphic Relation）"></a>蜕变关系（MR, Metamorphic Relation）</h3><p>一组待测算法&#x2F;功能 的必要属性，蜕变测试的核心</p>
+<p>蜕变关系可以是非等式关系</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109142900083.png" alt="image-20240109142900083"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109142908293.png" alt="image-20240109142908293"></p>
+<h3 id="蜕变集合（Metamorphic-Group）"><a href="#蜕变集合（Metamorphic-Group）" class="headerlink" title="蜕变集合（Metamorphic Group）"></a>蜕变集合（Metamorphic Group）</h3><p>由表达了蜕变关系的一组测试输入组成的集合 </p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109142934328.png" alt="image-20240109142934328"></p>
+<h3 id="蜕变测试过程"><a href="#蜕变测试过程" class="headerlink" title="蜕变测试过程"></a>蜕变测试过程</h3><p>应用蜕变关系和蜕变集合进行测试的一般流程</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109142950041.png" alt="image-20240109142950041"></p>
+<h2 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h2><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109143018218.png" alt="image-20240109143018218"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109143037499.png" alt="image-20240109143037499"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109143057171.png" alt="image-20240109143057171"></p>
+<h1 id="差分测试"><a href="#差分测试" class="headerlink" title="差分测试"></a>差分测试</h1><p>基本思想：通过将同一测试用例运行到一系列相似功能的应用中观察执行差异来检测bug。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106195444002.png" alt="image-20240106195444002"></p>
+<h2 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h2><p>差分测试（Differential Testing）也称为差分模糊测试，是 一种常用的软件测试技术，通过向一系列类似的应用程序 （或同一应用程序的不同实现）提供相同的输入，根据这些相似程序执行结 果是否存在差异来判定是否检测到缺陷1,2。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109143243794.png" alt="image-20240109143243794"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109143253753.png" alt="image-20240109143253753"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109143305702.png" alt="image-20240109143305702"></p>
+<h2 id="蜕变和差分测试的辨析"><a href="#蜕变和差分测试的辨析" class="headerlink" title="蜕变和差分测试的辨析"></a>蜕变和差分测试的辨析</h2><ul>
+<li>相同点：<ul>
+<li>都利用了待测程序中的必要属性（Necessary Property）； </li>
+<li>都是黑盒测试技术</li>
+</ul>
+</li>
+<li>不同点<ul>
+<li>必要属性的类型不同：<ul>
+<li>蜕变测试利用了<strong>单一待测程序的必要属性</strong>；</li>
+<li>差分 测试则利用了<strong>多个相似待测程序间的必要属性</strong>；</li>
+</ul>
+</li>
+<li>正确性验证的准则不同：<ul>
+<li>蜕变测试的正确性验证准则是可变的，由蜕变关系决定；</li>
+<li>差分测试的正确性准则是固定的，即不同相似待测程序在同 一测试输入上的输出结果应该相同</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="智能软件测试"><a href="#智能软件测试" class="headerlink" title="智能软件测试"></a>智能软件测试</h1><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109143736557.png" alt="image-20240109143736557"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109143755649.png" alt="image-20240109143755649"></p>
+<h2 id="测试标准"><a href="#测试标准" class="headerlink" title="测试标准"></a>测试标准</h2><ul>
+<li>Neuron Coverage</li>
+<li>k-Multisection Neuron Coverage</li>
+<li>Neuron Boundary Coverage</li>
+<li>Strong Neuron Activation Coverage</li>
+<li>Top-k Neuron Coverage</li>
+</ul>
+<h2 id="数据扩增"><a href="#数据扩增" class="headerlink" title="数据扩增"></a>数据扩增</h2><p>数据扩增：通过轻微变换现有数据或创建新的合成图像来得到新数 据的技术。应用领域有图像扩增、文本扩增、雷达扩增……</p>
+<h2 id="突变测试"><a href="#突变测试" class="headerlink" title="突变测试"></a>突变测试</h2><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109143948439.png" alt="image-20240109143948439"></p>
+<h2 id="标准"><a href="#标准" class="headerlink" title="标准"></a>标准</h2><ul>
+<li>鲁棒性</li>
+<li>后门攻击</li>
+<li>公平性</li>
+<li>可解释性AI</li>
+<li>隐私性</li>
+</ul>
+<h2 id="Framework-Library-Testing"><a href="#Framework-Library-Testing" class="headerlink" title="Framework &#x2F; Library Testing"></a>Framework &#x2F; Library Testing</h2><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109144519652.png" alt="image-20240109144519652"></p>
+
+<div class="article-footer fs14">
+    <section id="license">
+      <div class="header"><span>许可协议</span></div>
+      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div>
+    </section>
+    </div>
+</article>
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/2024/05/01/23-%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92/%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/">2024-05-01</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/">服务端-ch17-k8s使用</a></div></section></div>
+
+
+
+
+
+
+<footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">Asimov</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.28.1">Stellar 1.28.1</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+</div></footer>
+<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
+<div class="widgets">
+
+
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95"><span class="toc-text">自动化测试</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E7%9A%84%E5%B1%80%E9%99%90%E6%80%A7"><span class="toc-text">测试的局限性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9A%8F%E6%9C%BA%E6%B5%8B%E8%AF%95"><span class="toc-text">随机测试</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95"><span class="toc-text">模糊测试</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E4%B8%AA%E7%BB%84%E4%BB%B6"><span class="toc-text">三个组件</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E8%BE%93%E5%85%A5%EF%BC%88Test-Input%EF%BC%89"><span class="toc-text">测试输入（Test Input）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%EF%BC%88Test-Case%EF%BC%89"><span class="toc-text">测试用例（Test Case）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A7%8D%E5%AD%90%E8%BE%93%E5%85%A5%EF%BC%88Seed-Input%EF%BC%89"><span class="toc-text">种子输入（Seed Input）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A1%86%E6%9E%B6"><span class="toc-text">框架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%86%E7%B1%BB"><span class="toc-text">分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%BB%91%E7%9B%92%EF%BC%88Blackbox%EF%BC%89%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95"><span class="toc-text">黑盒（Blackbox）模糊测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%99%BD%E7%9B%92%EF%BC%88Whitebox%EF%BC%89%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95"><span class="toc-text">白盒（Whitebox）模糊测试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%81%B0%E7%9B%92%EF%BC%88Greybox%EF%BC%89%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95"><span class="toc-text">灰盒（Greybox）模糊测试</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E5%8F%98%E5%BC%82%E7%9A%84%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95"><span class="toc-text">基于变异的模糊测试</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#AFL%E5%8F%98%E5%BC%82%E7%AE%97%E5%AD%90"><span class="toc-text">AFL变异算子</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E7%94%9F%E6%88%90%E7%9A%84%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95"><span class="toc-text">基于生成的模糊测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E6%90%9C%E7%B4%A2%E7%9A%84%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95"><span class="toc-text">基于搜索的模糊测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E6%A2%AF%E5%BA%A6%E7%9A%84%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95"><span class="toc-text">基于梯度的模糊测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E5%90%91%E7%81%B0%E7%9B%92%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95"><span class="toc-text">定向灰盒模糊测试</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%98%E5%BC%82%E6%B5%8B%E8%AF%95"><span class="toc-text">变异测试</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%98%E5%BC%82%E4%BD%93"><span class="toc-text">变异体</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%98%E5%BC%82%E5%BE%97%E5%88%86%EF%BC%88Mutation-Score%EF%BC%89"><span class="toc-text">变异得分（Mutation Score）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%98%E5%BC%82%E4%BD%93%E7%9A%84%E5%88%86%E7%B1%BB"><span class="toc-text">变异体的分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AD%89%E4%BB%B7"><span class="toc-text">等价</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%95%B4%E5%90%AB"><span class="toc-text">蕴含</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%98%E5%BC%82%E7%AE%97%E5%AD%90%EF%BC%88Mutation-Operator%EF%BC%89"><span class="toc-text">变异算子（Mutation Operator）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%98%E5%BC%82%E6%B5%8B%E8%AF%95%E4%B8%BA%E4%BB%80%E4%B9%88%E6%9C%89%E6%95%88"><span class="toc-text">变异测试为什么有效</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%98%E5%BC%82%E6%B5%8B%E8%AF%95%E6%B5%81%E7%A8%8B"><span class="toc-text">变异测试流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E8%AE%BE%E8%AE%A1%E6%9C%89%E6%95%88%E7%9A%84%E5%8F%98%E5%BC%82%E7%AE%97%E5%AD%90%EF%BC%9F"><span class="toc-text">如何设计有效的变异算子？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%98%E5%BC%82%E4%BD%93%E7%BA%A6%E5%87%8F"><span class="toc-text">变异体约减</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BA%A6%E5%87%8F%E7%AD%96%E7%95%A5"><span class="toc-text">约减策略</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%98%E5%BC%82%E4%BD%93%E7%94%9F%E6%88%90"><span class="toc-text">变异体生成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%98%E5%BC%82%E4%BD%93%E4%BC%98%E5%8C%96"><span class="toc-text">变异体优化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8E%BB%E9%99%A4%E6%9C%89%E7%AD%89%E4%BB%B7%E5%92%8C%E6%97%A0%E6%95%88%E5%8F%98%E5%BC%82%E4%BD%93"><span class="toc-text">去除有等价和无效变异体</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AF%86%E5%88%AB%E7%AD%89%E4%BB%B7%E5%8F%98%E5%BC%82%E4%BD%93"><span class="toc-text">识别等价变异体</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%98%E5%BC%82%E4%BD%93%E6%89%A7%E8%A1%8C"><span class="toc-text">变异体执行</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%98%E5%BC%82%E4%BD%93%E7%9F%A9%E9%98%B5"><span class="toc-text">变异体矩阵</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%94%E7%94%A8"><span class="toc-text">应用</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9B%9E%E5%BD%92%E6%B5%8B%E8%AF%95"><span class="toc-text">回归测试</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9E%E5%BD%92%E6%B5%8B%E8%AF%95%E7%A0%94%E7%A9%B6%E6%A1%86%E6%9E%B6"><span class="toc-text">回归测试研究框架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9E%E5%BD%92%E6%B5%8B%E8%AF%95%E4%BC%98%E5%8C%96"><span class="toc-text">回归测试优化</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#web%E6%B5%8B%E8%AF%95"><span class="toc-text">web测试</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95%E5%B8%B8%E7%94%A8%E6%AD%A5%E9%AA%A4"><span class="toc-text">功能测试常用步骤</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9B%B8%E5%85%B3%E7%9A%84%E6%B5%8B%E8%AF%95%E7%B1%BB%E5%9E%8B"><span class="toc-text">相关的测试类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95%E7%A4%BA%E4%BE%8B"><span class="toc-text">功能测试示例</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E5%BA%A6%E9%87%8F%E6%96%B9%E6%B3%95"><span class="toc-text">性能测试度量方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E5%BA%A6%E9%87%8F%E5%AF%B9%E8%B1%A1"><span class="toc-text">性能测试度量对象</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B4%9F%E8%BD%BD%E6%B5%8B%E8%AF%95"><span class="toc-text">负载测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95"><span class="toc-text">压力测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Web%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95"><span class="toc-text">Web功能测试方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8E%A2%E7%B4%A2%E5%BC%8F%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95"><span class="toc-text">探索式测试方法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%A7%E7%94%9F%E8%BF%87%E7%A8%8B"><span class="toc-text">产生过程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8C%87%E5%AF%BC%E6%96%B9%E6%B3%95"><span class="toc-text">指导方法</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BC%97%E5%8C%85%E6%B5%8B%E8%AF%95"><span class="toc-text">众包测试</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%97%E5%8C%85%E6%B5%8B%E8%AF%95%E6%B5%81%E7%A8%8B"><span class="toc-text">众包测试流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%97%E5%8C%85%E6%B5%8B%E8%AF%95%E7%9A%84%E4%BC%98%E5%8A%BF"><span class="toc-text">众包测试的优势</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%97%E5%8C%85%E6%B5%8B%E8%AF%95%E4%B8%AD%E7%9A%84%E7%BC%BA%E9%99%B7%E7%B1%BB%E5%9E%8B"><span class="toc-text">众包测试中的缺陷类型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%97%E5%8C%85%E6%B5%8B%E8%AF%95%E9%9D%A2%E4%B8%B4%E7%9A%84%E6%8C%91%E6%88%98"><span class="toc-text">众包测试面临的挑战</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%8F%E4%BD%9C%E5%BC%8F%E4%BC%97%E5%8C%85%E6%B5%8B%E8%AF%95"><span class="toc-text">协作式众包测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A"><span class="toc-text">测试报告</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%97%E6%B5%8B%E6%8A%A5%E5%91%8A%E8%81%9A%E5%90%88"><span class="toc-text">众测报告聚合</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Aggregator"><span class="toc-text">Aggregator</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Summarizer"><span class="toc-text">Summarizer</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%97%E6%B5%8B%E6%8A%A5%E5%91%8A%E6%8E%92%E5%BA%8F"><span class="toc-text">众测报告排序</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A7%BB%E5%8A%A8%E5%BA%94%E7%94%A8%E8%87%AA%E5%8A%A8%E5%8C%96-GUI-%E6%B5%8B%E8%AF%95"><span class="toc-text">移动应用自动化 GUI 测试</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6"><span class="toc-text">自动化测试框架</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E5%9B%BE%E5%83%8F%E7%9A%84%E7%AE%80%E5%8D%95%E6%8E%A7%E4%BB%B6%E5%AE%9A%E4%BD%8D"><span class="toc-text">基于图像的简单控件定位</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%98%E5%9C%A8%E7%9A%84%E9%97%AE%E9%A2%98"><span class="toc-text">存在的问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E5%9B%BE%E5%83%8F%E7%90%86%E8%A7%A3%EF%BC%88%E6%8E%A7%E4%BB%B6%E6%8F%90%E5%8F%96%EF%BC%89"><span class="toc-text">深度图像理解（控件提取）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E5%9B%BE%E5%83%8F%E7%90%86%E8%A7%A3%EF%BC%88%E6%96%87%E5%AD%97%E8%AF%86%E5%88%AB-%EF%BC%89"><span class="toc-text">深度图像理解（文字识别 ）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%B1%E5%BA%A6%E5%9B%BE%E5%83%8F%E7%90%86%E8%A7%A3%EF%BC%88%E7%95%8C%E9%9D%A2%E7%90%86%E8%A7%A3%EF%BC%89"><span class="toc-text">深度图像理解（界面理解）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E6%B7%B1%E5%BA%A6%E5%9B%BE%E5%83%8F%E7%90%86%E8%A7%A3%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E6%8E%A2%E7%B4%A2%E5%B7%A5%E5%85%B7"><span class="toc-text">基于深度图像理解的自动化探索工具</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E9%A2%84%E8%A8%80%E9%97%AE%E9%A2%98"><span class="toc-text">测试预言问题</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E9%A2%84%E8%A8%80"><span class="toc-text">测试预言</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E9%A2%84%E8%A8%80%E5%AE%9A%E4%B9%89%EF%BC%88Test-Oracle%EF%BC%89"><span class="toc-text">测试预言定义（Test Oracle）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E9%A2%84%E8%A8%80%E5%88%86%E7%B1%BB"><span class="toc-text">测试预言分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%84%E8%A8%80%E9%97%AE%E9%A2%98%EF%BC%9A"><span class="toc-text">预言问题：</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%84%E8%A8%80%E9%97%AE%E9%A2%98%E7%8E%B0%E7%8A%B6"><span class="toc-text">预言问题现状</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%A2%84%E8%A8%80%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-text">预言问题解决方案</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%9C%95%E5%8F%98%E6%B5%8B%E8%AF%95"><span class="toc-text">蜕变测试</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E8%A6%81%E7%B4%A0"><span class="toc-text">三要素</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%9C%95%E5%8F%98%E5%85%B3%E7%B3%BB%EF%BC%88MR-Metamorphic-Relation%EF%BC%89"><span class="toc-text">蜕变关系（MR, Metamorphic Relation）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%9C%95%E5%8F%98%E9%9B%86%E5%90%88%EF%BC%88Metamorphic-Group%EF%BC%89"><span class="toc-text">蜕变集合（Metamorphic Group）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%9C%95%E5%8F%98%E6%B5%8B%E8%AF%95%E8%BF%87%E7%A8%8B"><span class="toc-text">蜕变测试过程</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90"><span class="toc-text">例子</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B7%AE%E5%88%86%E6%B5%8B%E8%AF%95"><span class="toc-text">差分测试</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89"><span class="toc-text">定义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%9C%95%E5%8F%98%E5%92%8C%E5%B7%AE%E5%88%86%E6%B5%8B%E8%AF%95%E7%9A%84%E8%BE%A8%E6%9E%90"><span class="toc-text">蜕变和差分测试的辨析</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%99%BA%E8%83%BD%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95"><span class="toc-text">智能软件测试</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E6%A0%87%E5%87%86"><span class="toc-text">测试标准</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E6%89%A9%E5%A2%9E"><span class="toc-text">数据扩增</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AA%81%E5%8F%98%E6%B5%8B%E8%AF%95"><span class="toc-text">突变测试</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%87%E5%87%86"><span class="toc-text">标准</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Framework-Library-Testing"><span class="toc-text">Framework &#x2F; Library Testing</span></a></li></ol></li></ol></div><div class="widget-footer">
+
+<a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12c0-4.714 0-7.071 1.464-8.536C4.93 2 7.286 2 12 2c4.714 0 7.071 0 8.535 1.464C22 4.93 22 7.286 22 12c0 4.714 0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12Z"/><path stroke-linecap="round" stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M10.46 1.25h3.08c1.603 0 2.86 0 3.864.095c1.023.098 1.861.3 2.6.752a5.75 5.75 0 0 1 1.899 1.899c.452.738.654 1.577.752 2.6c.095 1.004.095 2.261.095 3.865v1.067c0 1.141 0 2.036-.05 2.759c-.05.735-.153 1.347-.388 1.913a5.75 5.75 0 0 1-3.112 3.112c-.805.334-1.721.408-2.977.43a10.81 10.81 0 0 0-.929.036c-.198.022-.275.054-.32.08c-.047.028-.112.078-.224.232c-.121.166-.258.396-.476.764l-.542.916c-.773 1.307-2.69 1.307-3.464 0l-.542-.916a10.605 10.605 0 0 0-.476-.764c-.112-.154-.177-.204-.224-.232c-.045-.026-.122-.058-.32-.08c-.212-.023-.49-.03-.93-.037c-1.255-.021-2.171-.095-2.976-.429A5.75 5.75 0 0 1 1.688 16.2c-.235-.566-.338-1.178-.389-1.913c-.049-.723-.049-1.618-.049-2.76v-1.066c0-1.604 0-2.86.095-3.865c.098-1.023.3-1.862.752-2.6a5.75 5.75 0 0 1 1.899-1.899c.738-.452 1.577-.654 2.6-.752C7.6 1.25 8.857 1.25 10.461 1.25M6.739 2.839c-.914.087-1.495.253-1.959.537A4.25 4.25 0 0 0 3.376 4.78c-.284.464-.45 1.045-.537 1.96c-.088.924-.089 2.11-.089 3.761v1c0 1.175 0 2.019.046 2.685c.045.659.131 1.089.278 1.441a4.25 4.25 0 0 0 2.3 2.3c.515.214 1.173.294 2.429.316h.031c.398.007.747.013 1.037.045c.311.035.616.104.909.274c.29.17.5.395.682.645c.169.232.342.525.538.856l.559.944a.52.52 0 0 0 .882 0l.559-.944c.196-.331.37-.624.538-.856c.182-.25.392-.476.682-.645c.293-.17.598-.24.909-.274c.29-.032.639-.038 1.037-.045h.032c1.255-.022 1.913-.102 2.428-.316a4.25 4.25 0 0 0 2.3-2.3c.147-.352.233-.782.278-1.441c.046-.666.046-1.51.046-2.685v-1c0-1.651 0-2.837-.089-3.762c-.087-.914-.253-1.495-.537-1.959a4.25 4.25 0 0 0-1.403-1.403c-.464-.284-1.045-.45-1.96-.537c-.924-.088-2.11-.089-3.761-.089h-3c-1.651 0-2.837 0-3.762.089" clip-rule="evenodd"/><path fill="currentColor" d="M9 11a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0"/></svg><span>参与讨论</span></a></div></widget>
+</div></aside><div class='float-panel blur'>
+  <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+  </button>
+  <button type='button' style='display:none' class='mobile-only leftbar-toggle mobile' onclick='sidebar.leftbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"/><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"/></g></svg>
+  </button>
+</div>
+</div><div class="scripts">
+<script type="text/javascript">
+  const ctx = {
+    date_suffix: {
+      just: `刚刚`,
+      min: `分钟前`,
+      hour: `小时前`,
+      day: `天前`,
+    },
+    root : `/`,
+  };
+
+  // required plugins (only load if needs)
+  if (`local_search`) {
+    ctx.search = {};
+    ctx.search.service = `local_search`;
+    if (ctx.search.service == 'local_search') {
+      let service_obj = Object.assign({}, `{"field":"all","path":"/search.json","content":true,"sort":"-date"}`);
+      ctx.search[ctx.search.service] = service_obj;
+    }
+  }
+  const def = {
+    avatar: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg`,
+    cover: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg`,
+  };
+  const deps = {
+    jquery: `https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js`,
+    marked: `https://cdn.bootcdn.net/ajax/libs/marked/4.0.18/marked.min.js`
+  }
+  
+
+</script>
+
+<script type="text/javascript">
+  const utils = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    css: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    js: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')){
+        src = ctx.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    jq: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        utils.js(deps.jquery).then(fn)
+      } else {
+        fn()
+      }
+    },
+    
+    onLoading: (el) => {
+      if (el) {
+        $(el).append('<div class="loading-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg></div>');
+      }
+    },
+    onLoadSuccess: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap').remove();
+      }
+    },
+    onLoadFailure: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap svg').remove();
+        $(el).find('.loading-wrap').append('<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3L21 20H3L12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 10V14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"/></path></g><circle cx="12" cy="17" r="1" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.4s" values="0;1"/></circle></svg>');
+        $(el).find('.loading-wrap').addClass('error');
+      }
+    },
+    request: (el, url, callback, onFailure) => {
+      let retryTimes = 3;
+      utils.onLoading(el);
+      function req() {
+        return new Promise((resolve, reject) => {
+          let status = 0; // 0 等待 1 完成 2 超时
+          let timer = setTimeout(() => {
+            if (status === 0) {
+              status = 2;
+              timer = null;
+              reject('请求超时');
+              if (retryTimes == 0) {
+                onFailure();
+              }
+            }
+          }, 5000);
+          fetch(url).then(function(response) {
+            if (status !== 2) {
+              clearTimeout(timer);
+              resolve(response);
+              timer = null;
+              status = 1;
+            }
+            if (response.ok) {
+              return response.json();
+            }
+            throw new Error('Network response was not ok.');
+          }).then(function(data) {
+            retryTimes = 0;
+            utils.onLoadSuccess(el);
+            callback(data);
+          }).catch(function(error) {
+            if (retryTimes > 0) {
+              retryTimes -= 1;
+              setTimeout(() => {
+                req();
+              }, 5000);
+            } else {
+              utils.onLoadFailure(el);
+              onFailure();
+            }
+          });
+        });
+      }
+      req();
+    },
+  };
+</script>
+
+<script>
+  const sidebar = {
+    leftbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    rightbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('rightbar');
+        l_body.removeAttribute('leftbar');
+      }
+    },
+    dismiss: () => {
+      if (l_body) {
+        l_body.removeAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    toggleTOC: () => {
+      document.querySelector('#data-toc').classList.toggle('collapse');
+    }
+  }
+</script>
+
+<!-- required -->
+<script src="/js/main.js?v=1.28.1" async></script>
+
+<!-- optional -->
+
+
+
+<script defer>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.services = Object.assign({}, JSON.parse(`{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"}}`));
+    for (let id of Object.keys(ctx.services)) {
+      const js = ctx.services[id].js;
+      if (id == 'siteinfo') {
+        ctx.cardlinks = document.querySelectorAll('a.link-card[cardlink]');
+        if (ctx.cardlinks?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            setCardLink(ctx.cardlinks);
+          });
+        }
+      } else {
+        const els = document.getElementsByClassName(`ds-${id}`);
+        if (els?.length > 0) {
+          utils.jq(() => {
+            if (id == 'timeline' || 'memos' || 'marked') {
+              utils.js(deps.marked).then(function () {
+                utils.js(js, { defer: true });
+              });
+            } else {
+              utils.js(js, { defer: true });
+            }
+          });
+        }
+      }
+    }
+  });
+</script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.search = {
+      path: `/search.json`,
+    }
+    utils.js('/js/search/local-search.js', { defer: true });
+  });
+</script><script>
+  window.FPConfig = {
+    delay: 0,
+    ignoreKeywords: [],
+    maxRPS: 5,
+    hoverDelay: 25
+  };
+</script>
+<script defer src="https://cdn.bootcdn.net/ajax/libs/flying-pages/2.1.2/flying-pages.min.js"></script><script defer src="https://cdn.bootcdn.net/ajax/libs/vanilla-lazyload/17.8.4/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazy",
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    window.lazyLoadInstance?.update();
+  });
+</script><script>
+  ctx.fancybox = {
+    selector: `.timenode p>img`,
+    css: `https://cdn.bootcdn.net/ajax/libs/fancyapps-ui/5.0.22/fancybox/fancybox.min.css`,
+    js: `https://cdn.bootcdn.net/ajax/libs/fancyapps-ui/5.0.22/fancybox/fancybox.umd.min.js`
+  };
+  var selector = '[data-fancybox]:not(.error)';
+  if (ctx.fancybox.selector) {
+    selector += `, ${ctx.fancybox.selector}`
+  }
+  var needFancybox = document.querySelectorAll(selector).length !== 0;
+  if (!needFancybox) {
+    const els = document.getElementsByClassName('ds-memos');
+    if (els != undefined && els.length > 0) {
+      needFancybox = true;
+    }
+  }
+  if (needFancybox) {
+    utils.css(ctx.fancybox.css);
+    utils.js(ctx.fancybox.js, { defer: true }).then(function () {
+      Fancybox.bind(selector, {
+        hideScrollbar: false,
+        Thumbs: {
+          autoStart: false,
+        },
+        caption: (fancybox, slide) => {
+          return slide.triggerEl.alt || slide.triggerEl.dataset.caption || null
+        }
+      });
+    })
+  }
+</script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    const swiper_api = document.getElementById('swiper-api');
+    if (swiper_api != undefined) {
+      utils.css(`https://unpkg.com/swiper@10.3.1/swiper-bundle.min.css`);
+      utils.js(`https://unpkg.com/swiper@10.3.1/swiper-bundle.min.js`, { defer: true }).then(function () {
+        const effect = swiper_api.getAttribute('effect') || '';
+        var swiper = new Swiper('.swiper#swiper-api', {
+          slidesPerView: 'auto',
+          spaceBetween: 8,
+          centeredSlides: true,
+          effect: effect,
+          rewind: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+      })
+    }
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    window.codeElements = document.querySelectorAll('.code');
+    if (window.codeElements.length > 0) {
+      ctx.copycode = {
+        default_text: `Copy`,
+        success_text: `Copied`,
+        toast: `复制成功`,
+      };
+      utils.js('/js/plugins/copycode.js');
+    }
+  });
+</script>
+
+
+<!-- inject -->
+
+</div></body></html>
