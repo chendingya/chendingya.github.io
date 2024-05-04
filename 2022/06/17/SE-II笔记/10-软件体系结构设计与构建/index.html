@@ -20,18 +20,18 @@
   <title>SE-II-ch10-软件体系结构设计与构建 - Asimov's Blog</title>
 
   
-    <meta name="description" content="10-软件体系结构设计与构建 体系结构之间的接口： 重点还有根据分配的需求确定模块的对外接口 初步设计关键类 编写接口规范(提供服务和需要服务)   根据体系结构开发继承测试用例(Stub和Driver)     1. 体系结构设计过程(简略步骤) 重要 2. 第一步:分析关键需求和项目约束 2.1. 系统结构需求 2.2. 实践案例   3. 第二步:通过选择体系结构风格 3.1. 实践案例">
+    <meta name="description" content="10-软件体系结构设计与构建  体系结构之间的接口：  重点还有根据分配的需求确定模块的对外接口 初步设计关键类 编写接口规范(提供服务和需要服务)   根据体系结构开发继承测试用例(Stub和Driver)    1. 体系结构设计过程(简略步骤) 重要 2. 第一步:分析关键需求和项目约束  2.1. 系统结构需求 2.2. 实践案例   3. 第二步:通过选择体系结构风格  3.1. 实践案">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SE-II-ch10-软件体系结构设计与构建">
 <meta property="og:url" content="https://chendingya.github.io/2022/06/17/SE-II%E7%AC%94%E8%AE%B0/10-%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E6%9E%84%E5%BB%BA/index.html">
 <meta property="og:site_name" content="Asimov&#39;s Blog">
-<meta property="og:description" content="10-软件体系结构设计与构建 体系结构之间的接口： 重点还有根据分配的需求确定模块的对外接口 初步设计关键类 编写接口规范(提供服务和需要服务)   根据体系结构开发继承测试用例(Stub和Driver)     1. 体系结构设计过程(简略步骤) 重要 2. 第一步:分析关键需求和项目约束 2.1. 系统结构需求 2.2. 实践案例   3. 第二步:通过选择体系结构风格 3.1. 实践案例">
+<meta property="og:description" content="10-软件体系结构设计与构建  体系结构之间的接口：  重点还有根据分配的需求确定模块的对外接口 初步设计关键类 编写接口规范(提供服务和需要服务)   根据体系结构开发继承测试用例(Stub和Driver)    1. 体系结构设计过程(简略步骤) 重要 2. 第一步:分析关键需求和项目约束  2.1. 系统结构需求 2.2. 实践案例   3. 第二步:通过选择体系结构风格  3.1. 实践案">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/3.png">
 <meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/1.png">
 <meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/2.png">
 <meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/1.png">
-<meta property="og:image" content="c:\Users\wbl\AppData\Roaming\Typora\typora-user-images\image-20220617174855199.png">
+<meta property="og:image" content="c:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220617174855199.png">
 <meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/2.png">
 <meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/4.png">
 <meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/5.png">
@@ -49,20 +49,20 @@
 <meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/17.png">
 <meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/18.png">
 <meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/19.png">
-<meta property="og:image" content="c:\Users\wbl\AppData\Roaming\Typora\typora-user-images\image-20220617191501128.png">
+<meta property="og:image" content="c:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220617191501128.png">
 <meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/21.png">
 <meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/22.png">
 <meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/23.png">
 <meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/24.png">
-<meta property="og:image" content="c:\Users\wbl\AppData\Roaming\Typora\typora-user-images\image-20220424121743904.png">
-<meta property="og:image" content="c:\Users\wbl\AppData\Roaming\Typora\typora-user-images\image-20220424121753478.png">
-<meta property="og:image" content="c:\Users\wbl\AppData\Roaming\Typora\typora-user-images\image-20220424121802686.png">
+<meta property="og:image" content="c:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220424121743904.png">
+<meta property="og:image" content="c:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220424121753478.png">
+<meta property="og:image" content="c:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220424121802686.png">
 <meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/25.png">
 <meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/26.png">
 <meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/27.png">
 <meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/28.png">
 <meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/29.png">
-<meta property="og:image" content="c:\Users\wbl\AppData\Roaming\Typora\typora-user-images\image-20220618191420065.png">
+<meta property="og:image" content="c:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220618191420065.png">
 <meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/31.png">
 <meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/32.png">
 <meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/33.png">
@@ -113,7 +113,7 @@
 <div class="widgets">
 
 
-<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2024/05/01/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%841/"><span class="title">系统架构1</span></a><a class="item title" href="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/"><span class="title">软件测试-期末复习</span></a><a class="item title" href="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/"><span class="title">机器学习-期末复习</span></a><a class="item title" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/"><span class="title">服务端-ch17-k8s使用</span></a><a class="item title" href="/2023/12/30/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch16-%E5%AE%B9%E5%99%A8%E9%95%9C%E5%83%8F%E6%9E%84%E5%BB%BA%E4%B8%8E%E7%BC%96%E6%8E%92/"><span class="title">服务端-ch16-容器镜像构建与编排</span></a><a class="item title" href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/"><span class="title">服务端-ch15-Docker</span></a><a class="item title" href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/"><span class="title">服务端-ch14-Spring WebFlux</span></a><a class="item title" href="/2023/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch13-%E5%8F%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"><span class="title">服务端-ch13-反应式编程基础</span></a><a class="item title" href="/2023/11/23/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch12-Spring%20Integration/"><span class="title">服务端-ch12-Spring Integration</span></a><a class="item title" href="/2023/11/09/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch11-%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6(ActiveMQ%E3%80%81RabbitMQ)/"><span class="title">服务端-ch11-消息中间件(ActiveMQ、RabbitMQ)</span></a></div></widget>
+<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2024/05/02/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%842/"><span class="title">系统架构2-质量属性Quality Attributes</span></a><a class="item title" href="/2024/05/01/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%841/"><span class="title">系统架构1-Intro</span></a><a class="item title" href="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/"><span class="title">软件测试-期末复习</span></a><a class="item title" href="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/"><span class="title">机器学习-期末复习</span></a><a class="item title" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/"><span class="title">服务端-ch17-k8s使用</span></a><a class="item title" href="/2023/12/30/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch16-%E5%AE%B9%E5%99%A8%E9%95%9C%E5%83%8F%E6%9E%84%E5%BB%BA%E4%B8%8E%E7%BC%96%E6%8E%92/"><span class="title">服务端-ch16-容器镜像构建与编排</span></a><a class="item title" href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/"><span class="title">服务端-ch15-Docker</span></a><a class="item title" href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/"><span class="title">服务端-ch14-Spring WebFlux</span></a><a class="item title" href="/2023/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch13-%E5%8F%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"><span class="title">服务端-ch13-反应式编程基础</span></a><a class="item title" href="/2023/11/23/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch12-Spring%20Integration/"><span class="title">服务端-ch12-Spring Integration</span></a></div></widget>
 </div>
 <footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/chendingya?tab=repositories" target="_blank" rel="external nofollow noopener noreferrer"><img no-lazy src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" / onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a></div></footer>
 </div></aside><div class="l_main" id="main">
@@ -137,8 +137,10 @@
     </div>
     
   </div>
-  </div><article class="md-text content"><h2 id="10-软件体系结构设计与构建"><a href="#10-软件体系结构设计与构建" class="headerlink" title="10-软件体系结构设计与构建"></a>10-软件体系结构设计与构建</h2><ol>
-<li>体系结构之间的接口：<ol>
+  </div><article class="md-text content"><h2 id="10-软件体系结构设计与构建">10-软件体系结构设计与构建</h2>
+<ol>
+<li>体系结构之间的接口：
+<ol>
 <li>重点还有根据分配的需求确定模块的对外接口</li>
 <li>初步设计关键类</li>
 <li>编写接口规范(提供服务和需要服务)</li>
@@ -147,44 +149,51 @@
 <li>根据体系结构开发继承测试用例(Stub和Driver)</li>
 </ol>
 <!-- TOC -->
-
 <ul>
 <li><a href="#1-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1%E8%BF%87%E7%A8%8B%E7%AE%80%E7%95%A5%E6%AD%A5%E9%AA%A4-%E9%87%8D%E8%A6%81">1. 体系结构设计过程(简略步骤) 重要</a></li>
-<li><a href="#2-%E7%AC%AC%E4%B8%80%E6%AD%A5%E5%88%86%E6%9E%90%E5%85%B3%E9%94%AE%E9%9C%80%E6%B1%82%E5%92%8C%E9%A1%B9%E7%9B%AE%E7%BA%A6%E6%9D%9F">2. 第一步:分析关键需求和项目约束</a><ul>
+<li><a href="#2-%E7%AC%AC%E4%B8%80%E6%AD%A5%E5%88%86%E6%9E%90%E5%85%B3%E9%94%AE%E9%9C%80%E6%B1%82%E5%92%8C%E9%A1%B9%E7%9B%AE%E7%BA%A6%E6%9D%9F">2. 第一步:分析关键需求和项目约束</a>
+<ul>
 <li><a href="#21-%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84%E9%9C%80%E6%B1%82">2.1. 系统结构需求</a></li>
 <li><a href="#22-%E5%AE%9E%E8%B7%B5%E6%A1%88%E4%BE%8B">2.2. 实践案例</a></li>
 </ul>
 </li>
-<li><a href="#3-%E7%AC%AC%E4%BA%8C%E6%AD%A5%E9%80%9A%E8%BF%87%E9%80%89%E6%8B%A9%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E9%A3%8E%E6%A0%BC">3. 第二步:通过选择体系结构风格</a><ul>
+<li><a href="#3-%E7%AC%AC%E4%BA%8C%E6%AD%A5%E9%80%9A%E8%BF%87%E9%80%89%E6%8B%A9%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E9%A3%8E%E6%A0%BC">3. 第二步:通过选择体系结构风格</a>
+<ul>
 <li><a href="#31-%E5%AE%9E%E8%B7%B5%E6%A1%88%E4%BE%8B">3.1. 实践案例</a></li>
 </ul>
 </li>
-<li><a href="#4-%E7%AC%AC%E4%B8%89%E6%AD%A5%E8%BF%9B%E8%A1%8C%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E9%80%BB%E8%BE%91%E6%8A%BD%E8%B1%A1%E8%AE%BE%E8%AE%A1">4. 第三步:进行软件体系结构逻辑(抽象)设计</a><ul>
+<li><a href="#4-%E7%AC%AC%E4%B8%89%E6%AD%A5%E8%BF%9B%E8%A1%8C%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E9%80%BB%E8%BE%91%E6%8A%BD%E8%B1%A1%E8%AE%BE%E8%AE%A1">4. 第三步:进行软件体系结构逻辑(抽象)设计</a>
+<ul>
 <li><a href="#41-%E4%BE%9D%E6%8D%AE%E6%A6%82%E8%A6%81%E5%8A%9F%E8%83%BD%E9%9C%80%E6%B1%82%E4%B8%8E%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E9%A3%8E%E6%A0%BC%E5%BB%BA%E7%AB%8B%E5%88%9D%E5%A7%8B%E8%AE%BE%E8%AE%A1">4.1. 依据概要功能需求与体系结构风格建立初始设计</a></li>
-<li><a href="#42-%E4%BD%BF%E7%94%A8%E9%9D%9E%E5%8A%9F%E8%83%BD%E6%80%A7%E9%9C%80%E6%B1%82%E4%B8%8E%E9%A1%B9%E7%9B%AE%E7%BA%A6%E6%9D%9F%E8%AF%84%E4%BB%B7%E5%92%8C%E6%94%B9%E8%BF%9B%E5%88%9D%E5%A7%8B%E8%AE%BE%E8%AE%A1">4.2. 使用非功能性需求与项目约束评价和改进初始设计</a><ul>
+<li><a href="#42-%E4%BD%BF%E7%94%A8%E9%9D%9E%E5%8A%9F%E8%83%BD%E6%80%A7%E9%9C%80%E6%B1%82%E4%B8%8E%E9%A1%B9%E7%9B%AE%E7%BA%A6%E6%9D%9F%E8%AF%84%E4%BB%B7%E5%92%8C%E6%94%B9%E8%BF%9B%E5%88%9D%E5%A7%8B%E8%AE%BE%E8%AE%A1">4.2. 使用非功能性需求与项目约束评价和改进初始设计</a>
+<ul>
 <li><a href="#421-%E5%88%9D%E6%AD%A5%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%88%86%E6%9E%90">4.2.1. 初步设计的分析</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#5-package-design-principles-%E5%8C%85%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99">5. Package Design Principles 包设计原则</a><ul>
+<li><a href="#5-package-design-principles-%E5%8C%85%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99">5. Package Design Principles 包设计原则</a>
+<ul>
 <li><a href="#51-common-closure-principle-ccp-%E5%85%B1%E5%90%8C%E5%B0%81%E9%97%AD%E5%8E%9F%E5%88%99">5.1. Common Closure Principle (CCP) 共同封闭原则</a></li>
 <li><a href="#52-common-reuse-principle-crp-%E5%85%B1%E5%90%8C%E9%87%8D%E7%94%A8%E5%8E%9F%E5%88%99">5.2. Common Reuse Principle (CRP) 共同重用原则</a></li>
 <li><a href="#53-%E5%85%B1%E5%90%8C%E5%B0%81%E9%97%AD%E5%8E%9F%E5%88%99%E5%92%8C%E5%85%B1%E5%90%8C%E9%87%8D%E7%94%A8%E7%9A%84%E5%8E%9F%E5%88%99%E7%9A%84%E6%8A%98%E8%A1%B7">5.3. 共同封闭原则和共同重用的原则的折衷</a></li>
 <li><a href="#54-reuse-release-equivalency-principle-rep-%E9%87%8D%E7%94%A8%E5%8F%91%E5%B8%83%E7%AD%89%E4%BB%B7%E5%8E%9F%E5%88%99">5.4. Reuse-Release Equivalency Principle (REP) 重用发布等价原则</a></li>
-<li><a href="#55-the-acyclic-dependencies-principle-adp-%E6%97%A0%E7%8E%AF%E4%BE%9D%E8%B5%96%E5%8E%9F%E5%88%99">5.5. The Acyclic Dependencies Principle (ADP) 无环依赖原则</a><ul>
+<li><a href="#55-the-acyclic-dependencies-principle-adp-%E6%97%A0%E7%8E%AF%E4%BE%9D%E8%B5%96%E5%8E%9F%E5%88%99">5.5. The Acyclic Dependencies Principle (ADP) 无环依赖原则</a>
+<ul>
 <li><a href="#551-dependencies-are-a-dag">5.5.1. Dependencies are a DAG</a></li>
 <li><a href="#552-%E4%BE%9D%E8%B5%96%E5%BE%AA%E7%8E%AF%E6%89%93%E7%A0%B4%E5%BE%AA%E7%8E%AF%E7%AC%AC%E4%B8%80%E7%A7%8D%E6%96%B9%E5%BC%8F">5.5.2. 依赖循环打破循环：第一种方式：</a></li>
 <li><a href="#553-%E4%BE%9D%E8%B5%96%E5%BE%AA%E7%8E%AF%E6%89%93%E7%A0%B4%E5%BE%AA%E7%8E%AF%E7%AC%AC%E4%BA%8C%E7%A7%8D%E6%96%B9%E5%BC%8F">5.5.3. 依赖循环打破循环：第二种方式：</a></li>
 <li><a href="#554-%E6%97%A0%E7%8E%AF%E4%BE%9D%E8%B5%96%E5%8E%9F%E5%88%99%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF">5.5.4. 无环依赖原则的应用场景</a></li>
 </ul>
 </li>
-<li><a href="#56-stable-dependencies-principle-sdp-%E7%A8%B3%E5%AE%9A%E4%BE%9D%E8%B5%96%E5%8E%9F%E5%88%99">5.6. Stable Dependencies Principle (SDP) 稳定依赖原则</a><ul>
+<li><a href="#56-stable-dependencies-principle-sdp-%E7%A8%B3%E5%AE%9A%E4%BE%9D%E8%B5%96%E5%8E%9F%E5%88%99">5.6. Stable Dependencies Principle (SDP) 稳定依赖原则</a>
+<ul>
 <li><a href="#561-%E7%A8%B3%E5%AE%9A%E4%BE%9D%E8%B5%96%E5%8E%9F%E5%88%99">5.6.1. 稳定依赖原则</a></li>
 </ul>
 </li>
 <li><a href="#57-%E5%8C%85%E7%9A%84%E7%A8%B3%E5%AE%9A%E6%80%A7%E5%BA%A6%E9%87%8F">5.7. 包的稳定性度量</a></li>
-<li><a href="#58-stable-abstractions-principle-sap-%E7%A8%B3%E5%AE%9A%E6%8A%BD%E8%B1%A1%E5%8E%9F%E5%88%99">5.8. Stable Abstractions Principle (SAP) 稳定抽象原则</a><ul>
+<li><a href="#58-stable-abstractions-principle-sap-%E7%A8%B3%E5%AE%9A%E6%8A%BD%E8%B1%A1%E5%8E%9F%E5%88%99">5.8. Stable Abstractions Principle (SAP) 稳定抽象原则</a>
+<ul>
 <li><a href="#581-%E6%8A%BD%E8%B1%A1%E6%80%A7%E5%BA%A6%E9%87%8F">5.8.1. 抽象性度量</a></li>
 <li><a href="#582-%E4%BE%8B%E5%AD%90">5.8.2. 例子</a></li>
 </ul>
@@ -192,7 +201,8 @@
 <li><a href="#59-%E5%8C%85%E8%AE%BE%E8%AE%A1%E7%9A%84%E8%BF%87%E7%A8%8B">5.9. 包设计的过程</a></li>
 </ul>
 </li>
-<li><a href="#6-%E7%AC%AC%E5%9B%9B%E6%AD%A5%E4%BE%9D%E8%B5%96%E9%80%BB%E8%BE%91%E8%AE%BE%E8%AE%A1%E8%BF%9B%E8%A1%8C%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E5%AE%9E%E7%8E%B0%E8%AE%BE%E8%AE%A1">6. 第四步:依赖逻辑设计进行软件体系结构(实现)设计；</a><ul>
+<li><a href="#6-%E7%AC%AC%E5%9B%9B%E6%AD%A5%E4%BE%9D%E8%B5%96%E9%80%BB%E8%BE%91%E8%AE%BE%E8%AE%A1%E8%BF%9B%E8%A1%8C%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E5%AE%9E%E7%8E%B0%E8%AE%BE%E8%AE%A1">6. 第四步:依赖逻辑设计进行软件体系结构(实现)设计；</a>
+<ul>
 <li><a href="#61-%E5%88%9D%E5%A7%8B%E7%89%A9%E7%90%86%E5%8C%85">6.1. 初始物理包</a></li>
 <li><a href="#62-%E7%BB%86%E8%8A%82%E8%80%83%E8%99%91">6.2. 细节考虑</a></li>
 <li><a href="#63-%E8%BF%9E%E9%94%81%E8%B6%85%E5%B8%82%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91%E5%8C%85%E5%9B%BE">6.3. 连锁超市管理系统开发包图</a></li>
@@ -200,12 +210,14 @@
 <li><a href="#65-%E9%83%A8%E7%BD%B2%E5%9B%BE">6.5. 部署图</a></li>
 </ul>
 </li>
-<li><a href="#7-%E7%AC%AC%E4%BA%94%E6%AD%A5%E5%AE%8C%E5%96%84%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1">7. 第五步:完善体系结构设计</a><ul>
+<li><a href="#7-%E7%AC%AC%E4%BA%94%E6%AD%A5%E5%AE%8C%E5%96%84%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1">7. 第五步:完善体系结构设计</a>
+<ul>
 <li><a href="#71-%E5%AE%8C%E5%96%84%E5%90%AF%E5%8A%A8%E5%92%8C%E7%BD%91%E7%BB%9C%E9%93%BE%E6%8E%A5">7.1. 完善启动和网络链接</a></li>
 <li><a href="#72-%E7%BB%86%E5%8C%96salesbl%E6%A8%A1%E5%9D%97">7.2. 细化salesbl模块</a></li>
-<li><a href="#73-%E6%95%B0%E6%8D%AE%E5%AE%9A%E4%B9%89">7.3. 数据定义</a><ul>
+<li><a href="#73-%E6%95%B0%E6%8D%AE%E5%AE%9A%E4%B9%89">7.3. 数据定义</a>
+<ul>
 <li><a href="#731-java-%E5%AE%9E%E4%BD%93">7.3.1. Java 实体</a></li>
-<li><a href="#732-pojoplain-old-java-objects-simple-java-entities">7.3.2. POJO(Plain Old Java Objects)&#x3D; Simple Java Entities</a></li>
+<li><a href="#732-pojoplain-old-java-objects-simple-java-entities">7.3.2. POJO(Plain Old Java Objects)= Simple Java Entities</a></li>
 <li><a href="#733-value-objects%E9%80%BB%E8%BE%91%E5%B1%82%E5%90%91%E5%B1%95%E7%A4%BA%E5%B1%82%E4%BC%A0%E9%80%92%E6%95%B0%E6%8D%AE">7.3.3. Value Objects(逻辑层向展示层传递数据)</a></li>
 <li><a href="#734-%E5%9B%BE%E4%B9%A6%E5%9C%B0%E5%9D%80%E4%B8%9A%E5%8A%A1%E5%AE%9E%E4%BD%93">7.3.4. 图书地址业务实体</a></li>
 </ul>
@@ -214,15 +226,18 @@
 <li><a href="#75-%E6%8C%81%E4%B9%85%E5%8C%96%E5%AF%B9%E8%B1%A1-userpo%E7%9A%84%E7%BB%86%E5%8C%96">7.5. 持久化对象 UserPO的细化</a></li>
 </ul>
 </li>
-<li><a href="#8-%E7%AC%AC%E5%85%AD%E6%AD%A5%E6%B7%BB%E5%8A%A0%E6%9E%84%E4%BB%B6%E6%8E%A5%E5%8F%A3">8. 第六步:添加构件接口</a><ul>
+<li><a href="#8-%E7%AC%AC%E5%85%AD%E6%AD%A5%E6%B7%BB%E5%8A%A0%E6%9E%84%E4%BB%B6%E6%8E%A5%E5%8F%A3">8. 第六步:添加构件接口</a>
+<ul>
 <li><a href="#81-%E6%9E%84%E4%BB%B6%E5%88%9D%E6%AD%A5%E8%AE%BE%E8%AE%A1">8.1. 构件初步设计</a></li>
 <li><a href="#82-%E7%A1%AE%E5%AE%9A%E6%A8%A1%E5%9D%97%E5%AF%B9%E5%A4%96%E6%8E%A5">8.2. 确定模块对外接⼝</a></li>
 <li><a href="#83-%E7%BC%96%E5%86%99%E6%8E%A5%E5%8F%A3%E8%A7%84%E8%8C%83">8.3. 编写接口规范</a></li>
 </ul>
 </li>
-<li><a href="#9-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E7%9A%84%E5%8E%9F%E5%9E%8B%E6%9E%84%E5%BB%BA">9. 体系结构的原型构建</a><ul>
+<li><a href="#9-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E7%9A%84%E5%8E%9F%E5%9E%8B%E6%9E%84%E5%BB%BA">9. 体系结构的原型构建</a>
+<ul>
 <li><a href="#91-%E5%8C%85%E7%9A%84%E5%88%9B%E5%BB%BA">9.1. 包的创建</a></li>
-<li><a href="#92-%E9%87%8D%E8%A6%81%E6%96%87%E4%BB%B6%E7%9A%84%E5%88%9B%E5%BB%BA">9.2. 重要文件的创建</a><ul>
+<li><a href="#92-%E9%87%8D%E8%A6%81%E6%96%87%E4%BB%B6%E7%9A%84%E5%88%9B%E5%BB%BA">9.2. 重要文件的创建</a>
+<ul>
 <li><a href="#921-%E6%96%87%E4%BB%B6%E5%88%97%E8%A1%A8">9.2.1. 文件列表</a></li>
 </ul>
 </li>
@@ -230,8 +245,10 @@
 <li><a href="#94-%E5%85%B3%E9%94%AE%E9%9C%80%E6%B1%82%E7%9A%84%E5%AE%9E%E7%8E%B0">9.4. 关键需求的实现</a></li>
 </ul>
 </li>
-<li><a href="#10-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E9%9B%86%E6%88%90%E4%B8%8E%E6%B5%8B%E8%AF%95">10. 体系结构集成与测试</a><ul>
-<li><a href="#101-%E9%9B%86%E6%88%90%E7%9A%84%E7%AD%96%E7%95%A5">10.1. 集成的策略</a><ul>
+<li><a href="#10-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E9%9B%86%E6%88%90%E4%B8%8E%E6%B5%8B%E8%AF%95">10. 体系结构集成与测试</a>
+<ul>
+<li><a href="#101-%E9%9B%86%E6%88%90%E7%9A%84%E7%AD%96%E7%95%A5">10.1. 集成的策略</a>
+<ul>
 <li><a href="#1011-%E5%A4%A7%E7%88%86%E7%82%B8%E9%9B%86%E6%88%90">10.1.1. 大爆炸集成</a></li>
 <li><a href="#1012-%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E9%9B%86%E6%88%90">10.1.2. 自顶向下集成</a></li>
 <li><a href="#1013-%E8%87%AA%E5%BA%95%E5%90%91%E4%B8%8A%E9%9B%86%E6%88%90">10.1.3. 自底向上集成</a></li>
@@ -243,11 +260,13 @@
 <li><a href="#104-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%B7%B5">10.4. 项目实践</a></li>
 </ul>
 </li>
-<li><a href="#11-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E6%96%87%E6%A1%A3%E5%8C%96">11. 体系结构文档化</a><ul>
+<li><a href="#11-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E6%96%87%E6%A1%A3%E5%8C%96">11. 体系结构文档化</a>
+<ul>
 <li><a href="#111-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1%E6%96%87%E6%A1%A3%E6%A8%A1%E7%89%88-ieee1471-2000">11.1. 体系结构设计文档模版 IEEE1471-2000</a></li>
 </ul>
 </li>
-<li><a href="#12-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E8%AF%84%E5%AE%A1">12. 体系结构评审</a><ul>
+<li><a href="#12-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E8%AF%84%E5%AE%A1">12. 体系结构评审</a>
+<ul>
 <li><a href="#121-%E8%AF%84%E5%AE%A1%E7%9A%84%E8%A7%92%E5%BA%A6">12.1. 评审的角度</a></li>
 <li><a href="#122-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E8%AF%84%E5%AE%A1%E7%9A%84%E6%96%B9%E6%B3%95">12.2. 体系结构评审的方法</a></li>
 <li><a href="#123-%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1%E6%96%87%E6%A1%A3%E7%9A%84checklist">12.3. 软件体系结构设计文档的Checklist</a></li>
@@ -255,110 +274,128 @@
 </li>
 </ul>
 <!-- /TOC -->
-
-<h1 id="1-体系结构设计过程-简略步骤-重要"><a href="#1-体系结构设计过程-简略步骤-重要" class="headerlink" title="1. 体系结构设计过程(简略步骤) 重要"></a>1. 体系结构设计过程(简略步骤) 重要</h1><ol>
+<h1>1. 体系结构设计过程(简略步骤) 重要</h1>
+<ol>
 <li>分析关键需求和项目约束：分析用例文档和需求规格说明书(包含需求规格和项目约束)。注意既要考虑功能性需求，又要考虑非功能性需求，甚至很大意义上体系结构设计是为了满足非功能性需求【质量属性】。</li>
 <li>通过选择体系结构风格：选择分层风格(信息系统、并行开发、非web应用)，进行评审。</li>
 <li>进⾏软件体系结构逻辑(抽象)设计：产生逻辑包图</li>
-<li>依赖逻辑设计进行软件体系结构(实现)设计：产生物理包图&#x2F;开发包图</li>
+<li>依赖逻辑设计进行软件体系结构(实现)设计：产生物理包图/开发包图</li>
 <li>完善体系结构设计：关键类图，持久化数据格式的定义等</li>
 <li>添加构件接口：包、重要文件的创建，定义接口</li>
-<li>迭代过程3-6<blockquote>
+<li>迭代过程3-6</li>
+</ol>
+<blockquote>
 <ol>
 <li>步骤1-3是逻辑设计，步骤4-7是物理设计</li>
 <li>本文接下来的部分将要按照这个思路进行下去</li>
 </ol>
 </blockquote>
-</li>
-</ol>
-<h1 id="2-第一步-分析关键需求和项目约束"><a href="#2-第一步-分析关键需求和项目约束" class="headerlink" title="2. 第一步:分析关键需求和项目约束"></a>2. 第一步:分析关键需求和项目约束</h1><ol>
-<li>一般来说，体系结构设计的输入要素主要由两个来源：<ol>
+<h1>2. 第一步:分析关键需求和项目约束</h1>
+<ol>
+<li>一般来说，体系结构设计的输入要素主要由两个来源：
+<ol>
 <li>软件需求规格说明</li>
 <li>项目约束</li>
 </ol>
 </li>
 <li>体系结构设计必须落实所有的功能性需求和非功能性需求</li>
 </ol>
-<h2 id="2-1-系统结构需求"><a href="#2-1-系统结构需求" class="headerlink" title="2.1. 系统结构需求"></a>2.1. 系统结构需求</h2><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/3.png"></p>
-<h2 id="2-2-实践案例"><a href="#2-2-实践案例" class="headerlink" title="2.2. 实践案例"></a>2.2. 实践案例</h2><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/1.png"></p>
+<h2 id="2-1-系统结构需求">2.1. 系统结构需求</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/3.png" alt=""></p>
+<h2 id="2-2-实践案例">2.2. 实践案例</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/1.png" alt=""></p>
 <ol>
-<li>需求<ul>
-<li>a 概要功能需求:10 个功能 </li>
-<li>b 非功能性需求<ul>
-<li>安全需求:Security1~3 </li>
+<li>需求
+<ul>
+<li>a 概要功能需求:10 个功能</li>
+<li>b 非功能性需求
+<ul>
+<li>安全需求:Security1~3</li>
 <li>约束:IC2</li>
 </ul>
 </li>
 </ul>
 </li>
-<li>项目约束<ul>
-<li>a 开发技术:Java </li>
-<li>b 时间较为紧张 </li>
+<li>项目约束
+<ul>
+<li>a 开发技术:Java</li>
+<li>b 时间较为紧张</li>
 <li>c 开发人员:不熟悉 Web 技术</li>
 </ul>
 </li>
 </ol>
-<h1 id="3-第二步-通过选择体系结构风格"><a href="#3-第二步-通过选择体系结构风格" class="headerlink" title="3. 第二步:通过选择体系结构风格"></a>3. 第二步:通过选择体系结构风格</h1><p><a target="_blank" rel="noopener" href="https://www.bbsmax.com/A/l1dyoDW6Je/">Web开发的分层结构与MVC模式 (bbsmax.com)</a></p>
-<h2 id="3-1-实践案例"><a href="#3-1-实践案例" class="headerlink" title="3.1. 实践案例"></a>3.1. 实践案例</h2><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/2.png"></p>
+<h1>3. 第二步:通过选择体系结构风格</h1>
+<p><a target="_blank" rel="noopener" href="https://www.bbsmax.com/A/l1dyoDW6Je/">Web开发的分层结构与MVC模式 (bbsmax.com)</a></p>
+<h2 id="3-1-实践案例">3.1. 实践案例</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/2.png" alt=""></p>
 <ol>
-<li>分层风格<ol>
+<li>分层风格
+<ol>
 <li>协议不变情况下易于修改</li>
 <li>能够促进并行开发:只需要界定好层与层之间的接口</li>
 </ol>
 </li>
 </ol>
-<h1 id="4-第三步-进行软件体系结构逻辑-抽象-设计"><a href="#4-第三步-进行软件体系结构逻辑-抽象-设计" class="headerlink" title="4. 第三步:进行软件体系结构逻辑(抽象)设计"></a>4. 第三步:进行软件体系结构逻辑(抽象)设计</h1><p>逻辑设计的目的是建立能够满足概要功能需求、质量需求和项目约束的软件体系结构逻辑设计</p>
-<h2 id="4-1-依据概要功能需求与体系结构风格建立初始设计"><a href="#4-1-依据概要功能需求与体系结构风格建立初始设计" class="headerlink" title="4.1. 依据概要功能需求与体系结构风格建立初始设计"></a>4.1. 依据概要功能需求与体系结构风格建立初始设计</h2><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/1.png"></p>
+<h1>4. 第三步:进行软件体系结构逻辑(抽象)设计</h1>
+<p>逻辑设计的目的是建立能够满足概要功能需求、质量需求和项目约束的软件体系结构逻辑设计</p>
+<h2 id="4-1-依据概要功能需求与体系结构风格建立初始设计">4.1. 依据概要功能需求与体系结构风格建立初始设计</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/1.png" alt=""></p>
 <ol>
-<li>将需求分配到子系统和模块<ol>
+<li>将需求分配到子系统和模块
+<ol>
 <li>考虑功能的相同性：不同任务，但是相同功能</li>
 <li>考虑可复用性：结构、数据、行为的可复用性</li>
 </ol>
 </li>
-<li><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="C:\Users\wbl\AppData\Roaming\Typora\typora-user-images\image-20220617174855199.png" alt="image-20220617174855199"></li>
+<li><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="C:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220617174855199.png" alt="image-20220617174855199"></li>
 </ol>
 <img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/2.png" style="zoom: 67%;" />
-
 <ol start="4">
-<li><p>销售是否只用到Sale的数据：显然不是，即一个模块内的信息可能在多个模块中会重复的出现，软件设计的结果中不能将相同的信息或行为同时分布在多个地方，所以对上述的信息或行为相同的情况，<strong>可以将信息或行为放在一个模块中，让其他的模块依赖于该模块即可</strong></p>
+<li>
+<p>销售是否只用到Sale的数据：显然不是，即一个模块内的信息可能在多个模块中会重复的出现，软件设计的结果中不能将相同的信息或行为同时分布在多个地方，所以对上述的信息或行为相同的情况，<strong>可以将信息或行为放在一个模块中，让其他的模块依赖于该模块即可</strong></p>
 <p>下图中的显示部分用UI后缀，持久层用Data后缀(指包名)</p>
 </li>
 </ol>
 <img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/4.png" style="zoom:80%;" />
-
 <ol start="5">
 <li>连锁超市管理系统的改进概要功能设计，应该将<strong>需要的信息补充上</strong></li>
 </ol>
 <img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/5.png" style="zoom: 67%;" />
-
 <ol start="6">
-<li><p>初步设计方案一:</p>
+<li>
+<p>初步设计方案一:</p>
 <p>层与层之间的交互很复杂</p>
 </li>
 </ol>
 <img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/6.png" style="zoom:67%;" />
-
 <ol start="7">
-<li>初步设计方案二:<ol>
-<li><p>层与层之间就是一一对应了。</p>
+<li>初步设计方案二:
+<ol>
+<li>
+<p>层与层之间就是一一对应了。</p>
 </li>
-<li><p>逻辑层对象进行一一交互，只要互相对应的进行通知即可。</p>
+<li>
+<p>逻辑层对象进行一一交互，只要互相对应的进行通知即可。</p>
 <p>将交互放在了组内，<strong>组间的交互一定比组内交互要麻烦困难</strong></p>
 </li>
-<li><p>进一步将业务层的功能进行切割划分</p>
+<li>
+<p>进一步将业务层的功能进行切割划分</p>
 </li>
 </ol>
 </li>
 </ol>
 <img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/7.png" style="zoom:67%;" />
-
-<h2 id="4-2-使用非功能性需求与项目约束评价和改进初始设计"><a href="#4-2-使用非功能性需求与项目约束评价和改进初始设计" class="headerlink" title="4.2. 使用非功能性需求与项目约束评价和改进初始设计"></a>4.2. 使用非功能性需求与项目约束评价和改进初始设计</h2><h3 id="4-2-1-初步设计的分析"><a href="#4-2-1-初步设计的分析" class="headerlink" title="4.2.1. 初步设计的分析"></a>4.2.1. 初步设计的分析</h3><ol>
-<li>能够满足项目约束:<ol>
+<h2 id="4-2-使用非功能性需求与项目约束评价和改进初始设计">4.2. 使用非功能性需求与项目约束评价和改进初始设计</h2>
+<h3 id="4-2-1-初步设计的分析">4.2.1. 初步设计的分析</h3>
+<ol>
+<li>能够满足项目约束:
+<ol>
 <li>分层风格能<strong>促进并行开发</strong>,从⽽缩短开发时间;</li>
 <li>分层风格<strong>可以使⽤ Java 技术</strong>,⽽不使⽤ Web 技术。</li>
 </ol>
 </li>
-<li>无法满足安全需求(Security1~3)和网络分布约束(IC2),所以需要改进:<ol>
+<li>无法满足安全需求(Security1~3)和网络分布约束(IC2),所以需要改进:
+<ol>
 <li>为使其满足安全需求,可以增加<strong>用户登录与验证功能</strong>,可以建立专门的三个模块 (Presentation、Logic、 Data),也可以将该功能并⼊⽤户管理功能,即为 userui, user, userdata 三个模块增加新的职责。</li>
 <li>为满足<strong>网络分布约束</strong>,需要将模块分布到<strong>客户端和服务器</strong>组成的网络上。</li>
 <li>可以将 Prensentation 层模块部署在客户端,将 Logic 层和 Data 层的模块部署在服务器端。[瘦客户端]</li>
@@ -368,9 +405,10 @@
 </li>
 <li>连锁超市管理系统最终的软件体系结构逻辑设计⽅案</li>
 </ol>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/8.png"></p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/9.png"></p>
-<h1 id="5-Package-Design-Principles-包设计原则-带英文关键"><a href="#5-Package-Design-Principles-包设计原则-带英文关键" class="headerlink" title="5. Package Design Principles 包设计原则(带英文关键)"></a>5. Package Design Principles 包设计原则(带英文关键)</h1><ol>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/8.png" alt=""></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/9.png" alt=""></p>
+<h1>5. Package Design Principles 包设计原则(带英文关键)</h1>
+<ol>
 <li>重用发布等价原则(REP):重用的粒度就是发布的粒度</li>
 <li>共同封闭原则(CCP): 包中所有类对于同一类性质的变化应该是共同封闭的，一个变化若对一个包产生影响，则对该包中的所有类产生影响，而对于其他包不造成任何影响。</li>
 <li>共同重用原理(CRP):一个包中的所有类应该是能够共同重用的。</li>
@@ -379,17 +417,19 @@
 <li>稳定抽象原则(SAP):包的抽象程度应该和其稳定程度一致</li>
 <li>前三条描述的是依赖性，后三条描述的是耦合性</li>
 </ol>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/10.png"></p>
-<h2 id="5-1-Common-Closure-Principle-CCP-共同封闭原则"><a href="#5-1-Common-Closure-Principle-CCP-共同封闭原则" class="headerlink" title="5.1. Common Closure Principle (CCP) 共同封闭原则"></a>5.1. Common Closure Principle (CCP) 共同封闭原则</h2><ol>
-<li><strong>一起修改的类应该放在一起</strong> <strong>class which change together belong together</strong> </li>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/10.png" alt=""></p>
+<h2 id="5-1-Common-Closure-Principle-CCP-共同封闭原则">5.1. Common Closure Principle (CCP) 共同封闭原则</h2>
+<ol>
+<li><strong>一起修改的类应该放在一起</strong> <strong>class which change together belong together</strong></li>
 <li>最小化修改对程序员的影响</li>
 <li>当需要更改时，对程序员有利</li>
 <li>如果更改由于编译和链接时间以及重新验证而影响了尽可能少的软件包</li>
 <li>示例</li>
 </ol>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/11.png"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/11.png" alt=""></p>
 <ol start="6">
-<li>总结<ol>
+<li>总结
+<ol>
 <li>将具有相似闭包的类分组</li>
 <li><strong>面向可以预期</strong>的变更封闭包</li>
 <li>将<strong>更改限制为几个软件包</strong>，这样会使得软件包的合并，得到<strong>更大的包</strong>[比如要修改的全部可以放在一个包中]</li>
@@ -399,44 +439,56 @@
 </ol>
 </li>
 </ol>
-<h2 id="5-2-Common-Reuse-Principle-CRP-共同重用原则"><a href="#5-2-Common-Reuse-Principle-CRP-共同重用原则" class="headerlink" title="5.2. Common Reuse Principle (CRP) 共同重用原则"></a>5.2. Common Reuse Principle (CRP) 共同重用原则</h2><ol>
+<h2 id="5-2-Common-Reuse-Principle-CRP-共同重用原则">5.2. Common Reuse Principle (CRP) 共同重用原则</h2>
+<ol>
 <li><strong>一起被重用的应该在一起</strong> <strong>class in packages should be reused together</strong>[如数学运算的函数应该一起放在一个math包]</li>
 <li>包应重点突出，用户应使用包中的所有类</li>
-<li>总结<ol>
-<li><p>根据常见重用对类进行分组：避免给用户不必要的依赖</p>
+<li>总结
+<ol>
+<li>
+<p>根据常见重用对类进行分组：避免给用户不必要的依赖</p>
 <p>（即包中包含不是经常用到的功能，但其他功能常用，那么不合适，导致对不常用功能造成依赖）因此会导致下面2.</p>
 </li>
-<li><p>遵循CRP通常会导致<strong>软件包拆分</strong>：<strong>获得更多，更小，更专注的包</strong></p>
+<li>
+<p>遵循CRP通常会导致<strong>软件包拆分</strong>：<strong>获得更多，更小，更专注的包</strong></p>
 </li>
-<li><p>减少重新使用者的工作</p>
+<li>
+<p>减少重新使用者的工作</p>
 </li>
 </ol>
 </li>
 </ol>
-<h2 id="5-3-共同封闭原则和共同重用的原则的折衷"><a href="#5-3-共同封闭原则和共同重用的原则的折衷" class="headerlink" title="5.3. 共同封闭原则和共同重用的原则的折衷"></a>5.3. 共同封闭原则和共同重用的原则的折衷</h2><ol>
+<h2 id="5-3-共同封闭原则和共同重用的原则的折衷">5.3. 共同封闭原则和共同重用的原则的折衷</h2>
+<ol>
 <li>CCP和CRP原则是<strong>互斥</strong>的，即不能同时满足它们。</li>
 <li><strong>CRP使重用者的生活更加轻松，而CCP使维护者的生活更加轻松。</strong></li>
 <li>CCP致力于使包装尽可能大，而CRP则尝试使包装很小。</li>
 <li>在<strong>项目的早期</strong>，架构师可以设置包结构，<strong>使CCP占主导地位</strong>，并协助开发和维护。后来，随着<strong>体系结构的稳定</strong>，架构师可以<strong>重构</strong>程序包结构，以使<strong>外部重用程序的CRP最大化</strong>。</li>
 <li>也就是说在软件开发的<strong>不同阶段</strong>CCP和CRP的重视重用程度时<strong>不同</strong>的，要根据项目进展来进行不同程度的学习。</li>
 </ol>
-<h2 id="5-4-Reuse-Release-Equivalency-Principle-REP-重用发布等价原则"><a href="#5-4-Reuse-Release-Equivalency-Principle-REP-重用发布等价原则" class="headerlink" title="5.4. Reuse-Release Equivalency Principle (REP) 重用发布等价原则"></a>5.4. Reuse-Release Equivalency Principle (REP) 重用发布等价原则</h2><ol>
-<li><p><strong>重用的单位是发布单位</strong> <strong>the unit of reuse is unit of release</strong></p>
+<h2 id="5-4-Reuse-Release-Equivalency-Principle-REP-重用发布等价原则">5.4. Reuse-Release Equivalency Principle (REP) 重用发布等价原则</h2>
+<ol>
+<li>
+<p><strong>重用的单位是发布单位</strong> <strong>the unit of reuse is unit of release</strong></p>
 <p>[比如加减乘除，加法已经第三个版本了，但减法仍然是第二个版本，那么两者可能不能通用，发布后使用起来会有问题]</p>
 </li>
-<li><p>是关于重用软件的</p>
+<li>
+<p>是关于重用软件的</p>
 </li>
-<li><p>可重用软件是外部软件，您可以使用它，但其他人可以维护它。</p>
+<li>
+<p>可重用软件是外部软件，您可以使用它，但其他人可以维护它。</p>
 </li>
-<li><p>商业和非商业外部软件之间的重用没有区别。</p>
+<li>
+<p>商业和非商业外部软件之间的重用没有区别。</p>
 </li>
-<li><p>例子</p>
+<li>
+<p>例子</p>
 </li>
 </ol>
 <img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/12.png" style="zoom:67%;" />
-
 <ol start="6">
-<li>总结<ol>
+<li>总结
+<ol>
 <li>为重用器分组组件(类)</li>
 <li><strong>单个类通常是不可重用的：几个协作类组成一个包</strong></li>
 <li>包中的类应构成可重用和可发布的模块：模块提供一致的功能</li>
@@ -445,164 +497,192 @@
 </ol>
 </li>
 </ol>
-<h2 id="5-5-The-Acyclic-Dependencies-Principle-ADP-无环依赖原则"><a href="#5-5-The-Acyclic-Dependencies-Principle-ADP-无环依赖原则" class="headerlink" title="5.5. The Acyclic Dependencies Principle (ADP) 无环依赖原则"></a>5.5. The Acyclic Dependencies Principle (ADP) 无环依赖原则</h2><ol>
+<h2 id="5-5-The-Acyclic-Dependencies-Principle-ADP-无环依赖原则">5.5. The Acyclic Dependencies Principle (ADP) 无环依赖原则</h2>
+<ol>
 <li><strong>程序包的依赖关系结构必须是有向无环图(DAG)</strong> <strong>the dependency structure for packages must be a Directed Acyclic Graph</strong></li>
 <li>稳定并分批发布项目</li>
 <li>以自上而下的层次结构组织程序包依赖关系</li>
 <li><strong>一旦形成环就可能会形成无限的修改</strong>(环中的包的修改会导致大量的修改的发生)</li>
 </ol>
-<h3 id="5-5-1-Dependencies-are-a-DAG"><a href="#5-5-1-Dependencies-are-a-DAG" class="headerlink" title="5.5.1. Dependencies are a DAG"></a>5.5.1. Dependencies are a DAG</h3><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/13.png" style="zoom:67%;" />
-
+<h3 id="5-5-1-Dependencies-are-a-DAG">5.5.1. Dependencies are a DAG</h3>
+<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/13.png" style="zoom:67%;" />
 <ol>
 <li>左侧这个树就形成了环状结构</li>
 </ol>
-<h3 id="5-5-2-依赖循环打破循环：第一种方式："><a href="#5-5-2-依赖循环打破循环：第一种方式：" class="headerlink" title="5.5.2. 依赖循环打破循环：第一种方式："></a>5.5.2. 依赖循环打破循环：第一种方式：</h3><ol>
+<h3 id="5-5-2-依赖循环打破循环：第一种方式：">5.5.2. 依赖循环打破循环：第一种方式：</h3>
+<ol>
 <li>这种情况是<strong>单向依赖产生的闭环</strong></li>
 <li>一种解决方案:<strong>将Common error依赖的一个GUI中的一个包从GUI中抽取出来</strong>，如MessageManager 这样GUI依赖于MM，common error 也依赖于MM，就可以避免循环依赖的出现了。</li>
 </ol>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/14.png"></p>
-<h3 id="5-5-3-依赖循环打破循环：第二种方式："><a href="#5-5-3-依赖循环打破循环：第二种方式：" class="headerlink" title="5.5.3. 依赖循环打破循环：第二种方式："></a>5.5.3. 依赖循环打破循环：第二种方式：</h3><ol>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/14.png" alt=""></p>
+<h3 id="5-5-3-依赖循环打破循环：第二种方式：">5.5.3. 依赖循环打破循环：第二种方式：</h3>
+<ol>
 <li>另一情况，这种情况是<strong>互相依赖产生的闭环</strong>，A依赖于X,Y依赖于B。左边包发生更改，右边包一定要改，而因为右边包发生更改，那么左边包仍然要改，无限循环。<em>【注意不能以为只是改了一个X或者Y，包内的内容是有联系的，根据CCP，X改了，Y可能也变更】</em></li>
-<li>:star:解决方案:<strong>从Y提供一个接口，这个接口被B实现，Y依赖于这个接口</strong>。在Y中只会在BY b &#x3D; new B();时出现B，其他的时候一定都是BY，因此这不是完全的不依赖，而是一种弱的依赖。<strong>因此出现spring中的依赖注入，通过autowired，在Y中完全不需要出现B，也就不存在依赖了，创建B的过程都与Y无关，而是交给spring去做</strong><ol>
+<li>:star:解决方案:<strong>从Y提供一个接口，这个接口被B实现，Y依赖于这个接口</strong>。在Y中只会在BY b = new B();时出现B，其他的时候一定都是BY，因此这不是完全的不依赖，而是一种弱的依赖。<strong>因此出现spring中的依赖注入，通过autowired，在Y中完全不需要出现B，也就不存在依赖了，创建B的过程都与Y无关，而是交给spring去做</strong>
+<ol>
 <li><strong>B实现BY</strong>：<font color =red><em>思考方式：在B中会出现BY，但BY中不会出现B</em></font>，<strong>因此是B依赖于BY</strong></li>
 <li>所以通过修改使得B依赖于BY，<strong>左边依赖于右边了</strong>，<strong>左边发生更改，右边不需要做任何更改</strong>（B发生任何改变，只要他实现了BY接口，<strong>那么Y都不需要更改</strong>）</li>
 </ol>
 </li>
 </ol>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/15.png"></p>
-<h3 id="5-5-4-无环依赖原则的应用场景"><a href="#5-5-4-无环依赖原则的应用场景" class="headerlink" title="5.5.4. 无环依赖原则的应用场景"></a>5.5.4. 无环依赖原则的应用场景</h3><ol>
-<li>层次式风格和主程序&#x2F;子程序风格通常不会产生</li>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/15.png" alt=""></p>
+<h3 id="5-5-4-无环依赖原则的应用场景">5.5.4. 无环依赖原则的应用场景</h3>
+<ol>
+<li>层次式风格和主程序/子程序风格通常不会产生</li>
 <li>⾯向对象式风格<strong>尤其</strong>要注意</li>
-<li>C&#x2F;S的MVC风格可能会发⽣</li>
-<li>基于数据流、事件&#x2F;消息、数据共享进行交互的体系结构风格通常不会发⽣</li>
+<li>C/S的MVC风格可能会发⽣</li>
+<li>基于数据流、事件/消息、数据共享进行交互的体系结构风格通常不会发⽣</li>
 </ol>
-<h2 id="5-6-Stable-Dependencies-Principle-SDP-稳定依赖原则"><a href="#5-6-Stable-Dependencies-Principle-SDP-稳定依赖原则" class="headerlink" title="5.6. Stable Dependencies Principle (SDP) 稳定依赖原则"></a>5.6. Stable Dependencies Principle (SDP) 稳定依赖原则</h2><ol>
+<h2 id="5-6-Stable-Dependencies-Principle-SDP-稳定依赖原则">5.6. Stable Dependencies Principle (SDP) 稳定依赖原则</h2>
+<ol>
 <li><strong>依赖应当指向一个稳定的方向(更改他所需要付出努力)</strong> <strong>dependencies should point in the direction of stability</strong></li>
 <li>稳定性：对应于更换包装所需的时间</li>
 <li>稳定的软件包：项目内难以更改</li>
 <li>稳定性可以量化</li>
 </ol>
-<h3 id="5-6-1-example"><a href="#5-6-1-example" class="headerlink" title="5.6.1. example"></a>5.6.1. example</h3><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/16.png"></p>
+<h3 id="5-6-1-example">5.6.1. example</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/16.png" alt=""></p>
 <ol>
 <li>为什么X是稳定的，而Y是不稳定的(对于x，别人变化不会影响到x)</li>
 </ol>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/17.png"></p>
-<h3 id="5-6-2-包的稳定性度量"><a href="#5-6-2-包的稳定性度量" class="headerlink" title="5.6.2. 包的稳定性度量"></a>5.6.2. 包的稳定性度量</h3><ol>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/17.png" alt=""></p>
+<h3 id="5-6-2-包的稳定性度量">5.6.2. 包的稳定性度量</h3>
+<ol>
 <li>一种方法是<strong>计算进、出该包的依赖关系的数目</strong>。可以使用这些数值来计算该包的位置稳定性(positional stability)。</li>
 <li>(Ca)输入耦合度(Aﬀerent Coupling)：指处于该包的外部并依赖于该包内的类的类的数⽬。</li>
 <li>(Ce)输出耦合度(Eﬀerent Coupling)：指处于该包的内部并依赖于该包外的类的类的数⽬。</li>
-<li><strong>(不稳定性I)I &#x3D; Ce &#x2F; (Ca + Ce)</strong></li>
-<li>该度量的取值范围是[0,1]。I&#x3D;0表示该包具有<strong>大的稳定性</strong>。I&#x3D;1表示该包具有<strong>大的不稳定性</strong>。通过计算和⼀个包内的类有依赖关系的包外的类的数⽬，就可以计算出实体 Ca 和 Ce 。</li>
-<li>当⼀个包的I度量值为1时，就意味着没有任何其他的包依赖于该包(Ca &#x3D; 0)；⽽该包却依赖于其他的包(Ce&gt;0)。这是⼀个包不稳定的状态：它是不承担责任且有依赖性的。<strong>因为没有包依赖于它，所以它就没有不改变理由，而它所依赖的包会给它提供丰富的更改理由。</strong></li>
-<li>另⼀方面，当⼀个包的I度量值为0时，就意味着其他包会依赖于该包(Ca &gt; 0)，但是该包却不依赖于任何其他的包(Ce &#x3D; 0)。<strong>它是负有责任且无依赖性的。这种包达到了大程度的稳定性。它的依赖者使其难以更改，而且没有任何依赖关系会迫使它去改变</strong></li>
+<li><strong>(不稳定性I)I = Ce / (Ca + Ce)</strong></li>
+<li>该度量的取值范围是[0,1]。I=0表示该包具有<strong>大的稳定性</strong>。I=1表示该包具有<strong>大的不稳定性</strong>。通过计算和⼀个包内的类有依赖关系的包外的类的数⽬，就可以计算出实体 Ca 和 Ce 。</li>
+<li>当⼀个包的I度量值为1时，就意味着没有任何其他的包依赖于该包(Ca = 0)；⽽该包却依赖于其他的包(Ce&gt;0)。这是⼀个包不稳定的状态：它是不承担责任且有依赖性的。<strong>因为没有包依赖于它，所以它就没有不改变理由，而它所依赖的包会给它提供丰富的更改理由。</strong></li>
+<li>另⼀方面，当⼀个包的I度量值为0时，就意味着其他包会依赖于该包(Ca &gt; 0)，但是该包却不依赖于任何其他的包(Ce = 0)。<strong>它是负有责任且无依赖性的。这种包达到了大程度的稳定性。它的依赖者使其难以更改，而且没有任何依赖关系会迫使它去改变</strong></li>
 </ol>
-<h2 id="5-7-Stable-Abstractions-Principle-SAP-稳定抽象原则"><a href="#5-7-Stable-Abstractions-Principle-SAP-稳定抽象原则" class="headerlink" title="5.7. Stable Abstractions Principle (SAP) 稳定抽象原则"></a>5.7. Stable Abstractions Principle (SAP) 稳定抽象原则</h2><ol>
+<h2 id="5-7-Stable-Abstractions-Principle-SAP-稳定抽象原则">5.7. Stable Abstractions Principle (SAP) 稳定抽象原则</h2>
+<ol>
 <li><strong>稳定的包应该是抽象的包(接口)</strong> <strong>stable packages should be abstract packages</strong></li>
 <li><strong>不稳定的包应该是具体的包</strong> <strong>unstable packages should be concrete packages</strong></li>
 <li><strong>稳定的包装包含高层的设计</strong>。</li>
 <li>使它们成为<strong>抽象</strong>可以<strong>对拓展开放，对修改关闭</strong>（OCP开闭原则）</li>
 <li>稳定的难以更改的包装中保留了一些灵活性。</li>
 </ol>
-<h3 id="5-7-1-抽象性度量"><a href="#5-7-1-抽象性度量" class="headerlink" title="5.7.1. 抽象性度量"></a>5.7.1. 抽象性度量</h3><ol>
+<h3 id="5-7-1-抽象性度量">5.7.1. 抽象性度量</h3>
+<ol>
 <li>包的抽象性用抽象类的数⽬和包中所有类的数目进行计算。</li>
-<li>假如说包中类的总数是Nc, 抽象类的数⽬是Na,那么抽象度A &#x3D; Na &#x2F; Nc</li>
+<li>假如说包中类的总数是Nc, 抽象类的数⽬是Na,那么抽象度A = Na / Nc</li>
 <li><strong>距离这条斜线越近，合理性越高</strong></li>
 </ol>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/18.png"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/18.png" alt=""></p>
 <ol>
 <li>String类(Instability、Abstraction原点)</li>
 <li>String类就是尴尬的处于<strong>原点</strong>的一个包，很稳定，大家都依赖String，但不抽象，导致任何对String的修改都有可能导致之前开发的java程序无法运行。</li>
 </ol>
-<h3 id="5-7-2-例子"><a href="#5-7-2-例子" class="headerlink" title="5.7.2. 例子"></a>5.7.2. 例子</h3><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/19.png"></p>
+<h3 id="5-7-2-例子">5.7.2. 例子</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/19.png" alt=""></p>
 <p>使用一个接口，展示层调用，逻辑层实现；使用一个接口，逻辑层调用，数据层实现【<strong>类比 spring MVC 中就是如此，层与层之间使用接口</strong>】是合理的：抽象的是稳定的，具体的是不稳定的。</p>
 <p>如上面图中的则不合适</p>
-<h2 id="5-8-包设计的过程"><a href="#5-8-包设计的过程" class="headerlink" title="5.8. 包设计的过程"></a>5.8. 包设计的过程</h2><ol>
+<h2 id="5-8-包设计的过程">5.8. 包设计的过程</h2>
+<ol>
 <li>迭代的过程:先用 CCP 原则对把可能⼀同变化的类组织成包进⾏发布</li>
 <li>随着系统的不断增⻓,我们开始关注创建可重用的元素,于是开始使⽤ CRP 和 REP 来指导包的组合。</li>
 <li>后使⽤ ADP、SDP、SAP 对包图进⾏度量，去掉不好的依赖。(修改设计)</li>
 </ol>
-<h1 id="6-第四步-依赖逻辑设计进行软件体系结构-实现-设计；"><a href="#6-第四步-依赖逻辑设计进行软件体系结构-实现-设计；" class="headerlink" title="6. 第四步:依赖逻辑设计进行软件体系结构(实现)设计；"></a>6. 第四步:依赖逻辑设计进行软件体系结构(实现)设计；</h1><p>逻辑视角描述的是一个概念上的抽象的系统，并不是一个实实在在的物理上的系统 以，需要将软件体系结构的逻辑设计<strong>从开发（开发包、物理模块）、发布（进程）、部署（网络 部署）三个角度进行实现，建立软件体系结构的物理设计。</strong></p>
+<h1>6. 第四步:依赖逻辑设计进行软件体系结构(实现)设计；</h1>
+<p>逻辑视角描述的是一个概念上的抽象的系统，并不是一个实实在在的物理上的系统 以，需要将软件体系结构的逻辑设计<strong>从开发（开发包、物理模块）、发布（进程）、部署（网络 部署）三个角度进行实现，建立软件体系结构的物理设计。</strong></p>
 <ol>
 <li>开发包(构件)设计</li>
 <li>运⾏时的进程</li>
 <li>物理部署</li>
 </ol>
-<h2 id="6-1-初始物理包"><a href="#6-1-初始物理包" class="headerlink" title="6.1. 初始物理包"></a>6.1. 初始物理包</h2><p>简单的情况下，逻辑设计中每一个包都可以转化为一个开发包</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="C:\Users\wbl\AppData\Roaming\Typora\typora-user-images\image-20220617191501128.png" alt="image-20220617191501128"></p>
-<h2 id="6-2-细节考虑-重要"><a href="#6-2-细节考虑-重要" class="headerlink" title="6.2. 细节考虑(重要)"></a>6.2. 细节考虑(重要)</h2><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/21.png"></p>
+<h2 id="6-1-初始物理包">6.1. 初始物理包</h2>
+<p>简单的情况下，逻辑设计中每一个包都可以转化为一个开发包</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="C:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220617191501128.png" alt="image-20220617191501128"></p>
+<h2 id="6-2-细节考虑-重要">6.2. 细节考虑(重要)</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/21.png" alt=""></p>
 <ol>
-<li>Presentation 层与 Logic 层被置于客户端,Data 层被置于服务器端,那么 Logic 层的开发包依赖于 Data 层的开发包是不可能的。<ol>
+<li>Presentation 层与 Logic 层被置于客户端,Data 层被置于服务器端,那么 Logic 层的开发包依赖于 Data 层的开发包是不可能的。
+<ol>
 <li>可以考虑使⽤ RMI 技术,RMI 技术会将 Data 层开发包分解为置于客户端的 dataservice 接口包和置于服务器的 data 开发包。这样⼀来,Logic 层开发包依赖于 dataservice 包,dataservice 和 data 层的开发包都依赖于 RMI 类库包。</li>
 </ol>
 </li>
 <li>所有的 Data 层开发包都需要进⾏数据持久化(例如读写数据库、读写⽂件等),所以它们会有⼀些重复代码,可以将重复代码独⽴为新的开发包然后所有的 Data 层开 发包都依赖于 databaseutility,databaseutility 会依赖于 JDBC 类库包或者 IO 类库包。</li>
 </ol>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/22.png"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/22.png" alt=""></p>
 <ol start="3">
-<li>所有的 Presentation 层开发包都需要使用图形类型建立界面,都要依赖于图形界面类库包。 </li>
+<li>所有的 Presentation 层开发包都需要使用图形类型建立界面,都要依赖于图形界面类库包。</li>
 <li>此外,Presentation 层实现时,由 mainui 包负责整个页面之间的跳转逻辑。其它各包负责各自页面自身的功能。</li>
 </ol>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/23.png"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/23.png" alt=""></p>
 <ol start="5">
-<li>在分层风格的典型设计中,不希望高层直接依赖于低层,⽽是为低层建⽴接⼝包, 实现依赖倒置原则[*程序要依赖于抽象接口，不要依赖于具体实现*](参⻅ 15.4.4), 所以应该调整为:各 Prensentatin 层开发包(<strong>调⽤</strong>)依赖于 Logic 层接⼝包 businesslogicalservice 包,Logic 层开发包(<strong>实现</strong>)依赖于 Logic 层接⼝包 businesslogicalservice 包。</li>
+<li>在分层风格的典型设计中,不希望高层直接依赖于低层,⽽是为低层建⽴接⼝包, 实现依赖倒置原则[<em>程序要依赖于抽象接口，不要依赖于具体实现</em>](参⻅ 15.4.4), 所以应该调整为:各 Prensentatin 层开发包(<strong>调⽤</strong>)依赖于 Logic 层接⼝包 businesslogicalservice 包,Logic 层开发包(<strong>实现</strong>)依赖于 Logic 层接⼝包 businesslogicalservice 包。</li>
 <li>在分层⻛格的典型设计中,Presentation 层与 Logic 层之间、Logic 层与 Data 层之间可能会传递复杂数据对象,那么相邻两层都需要使⽤数据对象声明,所以需要将数据对象声明单独独⽴为开发包**(VO 包与 PO 包)**,或者将数据对象声明放⼊接⼝包(VO 包放⼊ Logic 接⼝包,PO 包独⽴)。</li>
 </ol>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/24.png"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/24.png" alt=""></p>
 <ol start="7">
-<li>开发包的循环依赖现象需要消除,对此可以使⽤依赖倒置原则将循环依赖变为单向依赖: 【<strong>即消除依赖循环的第二种情况</strong>】<ol>
+<li>开发包的循环依赖现象需要消除,对此可以使⽤依赖倒置原则将循环依赖变为单向依赖: 【<strong>即消除依赖循环的第二种情况</strong>】
+<ol>
 <li>Sales与Commodity:将部分 Commodity类抽象接口 commodityInfoService置⼊ Sales 包, 这样 Commodity 单向依赖于 Sales(实现接⼝+调⽤)。</li>
 <li>Sales 与 Member:<strong>将部分 Member 类抽象接⼝置⼊ Sales 包,这样 Member 单向依赖于 Sales(实现接⼝+调⽤)。</strong></li>
 </ol>
 </li>
 <li>在 Logic 层中,<strong>⼀些关于初始化和业务逻辑层上下文的工作被分配到 utilitybl</strong> 包中去。</li>
 </ol>
-<h2 id="补充：4-1-view"><a href="#补充：4-1-view" class="headerlink" title="补充：4+1 view"></a>补充：4+1 view</h2><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="C:\Users\wbl\AppData\Roaming\Typora\typora-user-images\image-20220424121743904.png" alt="image-20220424121743904"></p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="C:\Users\wbl\AppData\Roaming\Typora\typora-user-images\image-20220424121753478.png" alt="image-20220424121753478"></p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="C:\Users\wbl\AppData\Roaming\Typora\typora-user-images\image-20220424121802686.png" alt="image-20220424121802686"></p>
-<h2 id="6-3-连锁超市管理系统开发包图"><a href="#6-3-连锁超市管理系统开发包图" class="headerlink" title="6.3. 连锁超市管理系统开发包图"></a>6.3. 连锁超市管理系统开发包图</h2><ol>
+<h2 id="补充：4-1-view">补充：4+1 view</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="C:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220424121743904.png" alt="image-20220424121743904"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="C:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220424121753478.png" alt="image-20220424121753478"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="C:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220424121802686.png" alt="image-20220424121802686"></p>
+<h2 id="6-3-连锁超市管理系统开发包图">6.3. 连锁超市管理系统开发包图</h2>
+<ol>
 <li>客户端</li>
 </ol>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/25.png"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/25.png" alt=""></p>
 <ol start="2">
 <li>服务器端</li>
 </ol>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/26.png"></p>
-<h2 id="6-4-进程图"><a href="#6-4-进程图" class="headerlink" title="6.4. 进程图"></a>6.4. 进程图</h2><ol>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/26.png" alt=""></p>
+<h2 id="6-4-进程图">6.4. 进程图</h2>
+<ol>
 <li>进程图主要是表明运行时的进程，以及个进程间如何进行通信的。</li>
 </ol>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/27.png"></p>
-<h2 id="6-5-部署图"><a href="#6-5-部署图" class="headerlink" title="6.5. 部署图"></a>6.5. 部署图</h2><ol>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/27.png" alt=""></p>
+<h2 id="6-5-部署图">6.5. 部署图</h2>
+<ol>
 <li>UML部署图描述了一个运行时的<strong>物理节点</strong>，以及在这个节点上运行的软件构建的静态视图。</li>
 </ol>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/28.png"></p>
-<h1 id="7-第五步-完善体系结构设计"><a href="#7-第五步-完善体系结构设计" class="headerlink" title="7. 第五步:完善体系结构设计"></a>7. 第五步:完善体系结构设计</h1><ol>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/28.png" alt=""></p>
+<h1>7. 第五步:完善体系结构设计</h1>
+<ol>
 <li>完善软件体系结构设计</li>
 <li>细化软件体系结构设计</li>
 </ol>
-<h2 id="7-1-增加启动模块和网络模块（完善）"><a href="#7-1-增加启动模块和网络模块（完善）" class="headerlink" title="7.1. 增加启动模块和网络模块（完善）"></a>7.1. 增加启动模块和网络模块（完善）</h2><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/29.png"></p>
+<h2 id="7-1-增加启动模块和网络模块（完善）">7.1. 增加启动模块和网络模块（完善）</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/29.png" alt=""></p>
 <ol>
 <li>失败业务的现场保护问题</li>
 <li>网络连接断开的恢复问题</li>
 <li>除了细化职责建立关键类图之后，模块传递的数据对象也需要被明确定义，因为他们是模块间接口的重要部分，必须严格、准确。</li>
 </ol>
-<h2 id="7-2-细化salesbl模块"><a href="#7-2-细化salesbl模块" class="headerlink" title="7.2. 细化salesbl模块"></a>7.2. 细化salesbl模块</h2><p>软件体系结构设计方案如果仅仅停留在模块的层次，不利于验证其正确性。可以适当<strong>进行软件体系结构的细化</strong>，建立<strong>能够承载模块职责</strong>的<strong>关键类</strong>。关键类建立的过程中往往能够发现软件体系结构设计时忽略的细节。</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="C:\Users\wbl\AppData\Roaming\Typora\typora-user-images\image-20220618191420065.png" alt="image-20220618191420065"></p>
-<h2 id="7-3-细化数据定义"><a href="#7-3-细化数据定义" class="headerlink" title="7.3. 细化数据定义"></a>7.3. 细化数据定义</h2><ol>
+<h2 id="7-2-细化salesbl模块">7.2. 细化salesbl模块</h2>
+<p>软件体系结构设计方案如果仅仅停留在模块的层次，不利于验证其正确性。可以适当<strong>进行软件体系结构的细化</strong>，建立<strong>能够承载模块职责</strong>的<strong>关键类</strong>。关键类建立的过程中往往能够发现软件体系结构设计时忽略的细节。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="C:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220618191420065.png" alt="image-20220618191420065"></p>
+<h2 id="7-3-细化数据定义">7.3. 细化数据定义</h2>
+<ol>
 <li>接口的数据对象</li>
 <li>关键类的重要数据结构</li>
 <li>Value Object (VO)</li>
-<li>Persistent Object(PO)<ol>
+<li>Persistent Object(PO)
+<ol>
 <li>⽤POJO实现</li>
 </ol>
 </li>
 </ol>
-<h3 id="7-3-1-Java-实体"><a href="#7-3-1-Java-实体" class="headerlink" title="7.3.1. Java 实体"></a>7.3.1. Java 实体</h3><ol>
+<h3 id="7-3-1-Java-实体">7.3.1. Java 实体</h3>
+<ol>
 <li>实体是一个可以代表一个临时的业务实体的对象，比如一个账单或者用户</li>
 <li><strong>只是用来保存数据</strong></li>
 <li><strong>没有逻辑业务方法(行为)</strong></li>
 <li>实体必须在使用它们的会话或事务之间持久存在。</li>
 <li>实体是存储在文件或者数据库中的</li>
-<li><strong>实体是一个Beans</strong>，如VO，PO等都是实体类<ol>
+<li><strong>实体是一个Beans</strong>，如VO，PO等都是实体类
+<ol>
 <li>Simple or EJB.</li>
 </ol>
 </li>
@@ -613,7 +693,7 @@
 <ol>
 <li>有一个public默认构造器（例如无参构造器,）</li>
 <li>属性使用public 的get，set方法访问，也就是说设置成private，同时get，set方法与属性名的大小也需要对应。例如属性name，get方法就要写成，public String get<strong>N</strong>ame(){},N大写。</li>
-<li>需要<a target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=%E5%BA%8F%E5%88%97%E5%8C%96&search_source=Entity&hybrid_search_source=Entity&hybrid_search_extra=%7B%22sourceType%22:%22answer%22,%22sourceId%22:18307751%7D">序列化</a>。这个是框架，工具跨平台反映状态必须的</li>
+<li>需要<a target="_blank" rel="noopener" href="https://www.zhihu.com/search?q=%E5%BA%8F%E5%88%97%E5%8C%96&amp;search_source=Entity&amp;hybrid_search_source=Entity&amp;hybrid_search_extra=%7B%22sourceType%22%3A%22answer%22%2C%22sourceId%22%3A18307751%7D">序列化</a>。这个是框架，工具跨平台反映状态必须的</li>
 </ol>
 <p>Because these requirements are largely expressed as conventions rather than by implementing interfaces, some developers view JavaBeans as Plain Old Java Objects that follow specific naming conventions.</p>
 <p><em>最近看<Think in Java>,里面讲到JavaBean最初是为Java GUI的可视化编程实现的.你拖动IDE构建工具创建一个GUI 组件（如多选框）,其实是工具给你创建java类,并提供将类的属性暴露出来给你修改调整,将事件监听器暴露出来.《java 编程思想（第四版）》p823-824</em></p>
@@ -623,11 +703,12 @@
 <p><strong>POJO</strong></p>
 <p>有个叫Josh MacKenzie人觉得，EJB太复杂了，完全没必要每次都用，所以发明了个POJO，POJO是普通的javabean，什么是普通，就是和EJB对应的。该名称用于强调所讨论的对象是普通 Java 对象，而不是特殊对象，尤其不是 Enterprise JavaBean</p>
 <p>​      总之，区别就是，<strong>你先判断是否满足javabean的条件，然后如果再实现一些要求，满足EJB条件就是EJB，否则就是POJO【如果满足javaBean就是javaBean，否则就是POJO，当然javaBean也是POJO】。</strong></p>
-<p> A JavaBean is a POJO that is serializable, has a no-argument constructor, and allows access to properties using getter and setter methods. An Enterprise JavaBean is not a single class but an entire component model ： <strong>JavaBean 是可序列化的 POJO，具有无参数构造函数，并允许使用 getter 和 setter 方法访问属性。 Enterprise JavaBean 不是一个单一的类，而是一个完整的组件模型</strong></p>
+<p>A JavaBean is a POJO that is serializable, has a no-argument constructor, and allows access to properties using getter and setter methods. An Enterprise JavaBean is not a single class but an entire component model ： <strong>JavaBean 是可序列化的 POJO，具有无参数构造函数，并允许使用 getter 和 setter 方法访问属性。 Enterprise JavaBean 不是一个单一的类，而是一个完整的组件模型</strong></p>
 </blockquote>
-<h3 id="7-3-2-POJO-Plain-Old-Java-Objects-Simple-Java-Entities"><a href="#7-3-2-POJO-Plain-Old-Java-Objects-Simple-Java-Entities" class="headerlink" title="7.3.2. POJO(Plain Old Java Objects)&#x3D; Simple Java Entities"></a>7.3.2. POJO(Plain Old Java Objects)&#x3D; Simple Java Entities</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Person</span> <span class="keyword">extends</span> <span class="title class_">Entity</span> &#123;</span><br><span class="line">   <span class="keyword">private</span> String fisrst;</span><br><span class="line">   <span class="keyword">private</span> String last;</span><br><span class="line">   <span class="keyword">private</span> Address address;</span><br><span class="line">   <span class="keyword">private</span> Phone phone;</span><br><span class="line">   <span class="keyword">public</span> Phone <span class="title function_">getPhone</span><span class="params">()</span> &#123; <span class="keyword">return</span> phone; &#125;</span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setPhone</span><span class="params">(Phone p)</span> &#123; phone = p; &#125;</span><br><span class="line">   <span class="comment">// etc</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h3 id="7-3-3-Value-Objects-逻辑层向展示层传递数据"><a href="#7-3-3-Value-Objects-逻辑层向展示层传递数据" class="headerlink" title="7.3.3. Value Objects(逻辑层向展示层传递数据)"></a>7.3.3. Value Objects(逻辑层向展示层传递数据)</h3><p>A Value Object or VO is an object such as <code>java.lang.Integer</code> that hold values (hence value objects).</p>
+<h3 id="7-3-2-POJO-Plain-Old-Java-Objects-Simple-Java-Entities">7.3.2. POJO(Plain Old Java Objects)= Simple Java Entities</h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Person</span> <span class="keyword">extends</span> <span class="title class_">Entity</span> &#123;</span><br><span class="line">   <span class="keyword">private</span> String fisrst;</span><br><span class="line">   <span class="keyword">private</span> String last;</span><br><span class="line">   <span class="keyword">private</span> Address address;</span><br><span class="line">   <span class="keyword">private</span> Phone phone;</span><br><span class="line">   <span class="keyword">public</span> Phone <span class="title function_">getPhone</span><span class="params">()</span> &#123; <span class="keyword">return</span> phone; &#125;</span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">setPhone</span><span class="params">(Phone p)</span> &#123; phone = p; &#125;</span><br><span class="line">   <span class="comment">// etc</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h3 id="7-3-3-Value-Objects-逻辑层向展示层传递数据">7.3.3. Value Objects(逻辑层向展示层传递数据)</h3>
+<p>A Value Object or VO is an object such as <code>java.lang.Integer</code> that hold values (hence value objects).</p>
 <blockquote>
 <p>对于很多人来说，DTO 和 VO 是一回事（但 Fowler 使用 VO 来表示我们看到的其他东西）。 大多数时候，它们遵循 JavaBeans 约定，因此也是 JavaBeans。 而且都是 POJO。</p>
 </blockquote>
@@ -639,83 +720,107 @@
 <li>实体可以创建价值对象。</li>
 </ol>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">PersonVO</span> <span class="keyword">extends</span> <span class="title class_">ValueObject</span> &#123;</span><br><span class="line">   <span class="keyword">public</span> String first;</span><br><span class="line">   <span class="keyword">public</span> String last;</span><br><span class="line">   <span class="keyword">public</span> <span class="type">int</span> addressOid;</span><br><span class="line">   <span class="keyword">public</span> String street;</span><br><span class="line">   <span class="keyword">public</span> String apartment;</span><br><span class="line">   <span class="keyword">public</span> String city;</span><br><span class="line">   <span class="keyword">public</span> String state;</span><br><span class="line">   <span class="keyword">public</span> String zip;</span><br><span class="line">   <span class="keyword">public</span> <span class="type">int</span> phoneOid;</span><br><span class="line">   <span class="keyword">public</span> String phone;</span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">update</span><span class="params">(Person per)</span> &#123; ... &#125;</span><br><span class="line">   <span class="keyword">public</span> Person <span class="title function_">makePerson</span><span class="params">()</span> &#123; ... &#125;</span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
-
-<h3 id="7-3-4-图书地址业务实体"><a href="#7-3-4-图书地址业务实体" class="headerlink" title="7.3.4. 图书地址业务实体"></a>7.3.4. 图书地址业务实体</h3><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/31.png"></p>
+<h3 id="7-3-4-图书地址业务实体">7.3.4. 图书地址业务实体</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/31.png" alt=""></p>
 <ol>
 <li>可以是多个实体的集合</li>
 </ol>
-<h2 id="7-4-项目实践"><a href="#7-4-项目实践" class="headerlink" title="7.4. 项目实践"></a>7.4. 项目实践</h2><ol>
-<li>VO: <strong>View层与Logic之间的数据传递</strong><ol>
+<h2 id="7-4-项目实践">7.4. 项目实践</h2>
+<ol>
+<li>VO: <strong>View层与Logic之间的数据传递</strong>
+<ol>
 <li>Customer(VIP)VO、CommodityVO、SaleLineItemVO、PaymentVO、 GiftVO…</li>
 </ol>
 </li>
-<li>PO：<strong>Logic与Data层之间的数据传递</strong><ol>
+<li>PO：<strong>Logic与Data层之间的数据传递</strong>
+<ol>
 <li>SalesPO、SaleLineItemPO、CustomerPO、CommodityPO、 PaymentPO、GiftPO…</li>
 </ol>
 </li>
 </ol>
-<h2 id="7-5-持久化对象-UserPO的细化"><a href="#7-5-持久化对象-UserPO的细化" class="headerlink" title="7.5. 持久化对象 UserPO的细化"></a>7.5. 持久化对象 UserPO的细化</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UserPO</span> <span class="keyword">implements</span> <span class="title class_">Serializable</span> &#123;</span><br><span class="line">   <span class="type">int</span> id;</span><br><span class="line">   String name;</span><br><span class="line">   String password;</span><br><span class="line">   UserRole role;</span><br><span class="line">   <span class="keyword">public</span> <span class="title function_">UserPO</span><span class="params">(<span class="type">int</span> i, String n, String p, UserRole r)</span>&#123;</span><br><span class="line">      id = i;</span><br><span class="line">      name = n;</span><br><span class="line">      password = p;</span><br><span class="line">      role = r;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">public</span> String <span class="title function_">getName</span><span class="params">()</span>&#123;</span><br><span class="line">      <span class="keyword">return</span> name; </span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getID</span><span class="params">()</span>&#123;</span><br><span class="line">      <span class="keyword">return</span> id;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">public</span> String <span class="title function_">getPassword</span><span class="params">()</span>&#123;</span><br><span class="line">      <span class="keyword">return</span> password;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">public</span> UserRole <span class="title function_">getRole</span><span class="params">()</span>&#123; </span><br><span class="line">      <span class="keyword">return</span> role;</span><br><span class="line">   &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="8-第六步-添加构件接口"><a href="#8-第六步-添加构件接口" class="headerlink" title="8. 第六步:添加构件接口"></a>8. 第六步:添加构件接口</h1><h2 id="8-1-构件初步设计"><a href="#8-1-构件初步设计" class="headerlink" title="8.1. 构件初步设计"></a>8.1. 构件初步设计</h2><ol>
+<h2 id="7-5-持久化对象-UserPO的细化">7.5. 持久化对象 UserPO的细化</h2>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">UserPO</span> <span class="keyword">implements</span> <span class="title class_">Serializable</span> &#123;</span><br><span class="line">   <span class="type">int</span> id;</span><br><span class="line">   String name;</span><br><span class="line">   String password;</span><br><span class="line">   UserRole role;</span><br><span class="line">   <span class="keyword">public</span> <span class="title function_">UserPO</span><span class="params">(<span class="type">int</span> i, String n, String p, UserRole r)</span>&#123;</span><br><span class="line">      id = i;</span><br><span class="line">      name = n;</span><br><span class="line">      password = p;</span><br><span class="line">      role = r;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">public</span> String <span class="title function_">getName</span><span class="params">()</span>&#123;</span><br><span class="line">      <span class="keyword">return</span> name; </span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">public</span> <span class="type">int</span> <span class="title function_">getID</span><span class="params">()</span>&#123;</span><br><span class="line">      <span class="keyword">return</span> id;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">public</span> String <span class="title function_">getPassword</span><span class="params">()</span>&#123;</span><br><span class="line">      <span class="keyword">return</span> password;</span><br><span class="line">   &#125;</span><br><span class="line">   <span class="keyword">public</span> UserRole <span class="title function_">getRole</span><span class="params">()</span>&#123; </span><br><span class="line">      <span class="keyword">return</span> role;</span><br><span class="line">   &#125; </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h1>8. 第六步:添加构件接口</h1>
+<h2 id="8-1-构件初步设计">8.1. 构件初步设计</h2>
+<ol>
 <li>根据分配的需求确定模块对外接⼝</li>
 <li>初步设计关键类</li>
 <li>编写接口规范</li>
 </ol>
-<h2 id="8-2-确定模块对外接口"><a href="#8-2-确定模块对外接口" class="headerlink" title="8.2. 确定模块对外接口"></a>8.2. 确定模块对外接口</h2><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/32.png"></p>
+<h2 id="8-2-确定模块对外接口">8.2. 确定模块对外接口</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/32.png" alt=""></p>
 <ol>
 <li>有的接口是面向业务的</li>
 </ol>
-<h2 id="8-3-编写接口规范"><a href="#8-3-编写接口规范" class="headerlink" title="8.3. 编写接口规范"></a>8.3. 编写接口规范</h2><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/33.png"></p>
+<h2 id="8-3-编写接口规范">8.3. 编写接口规范</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/33.png" alt=""></p>
 <ol>
 <li>规范的书写</li>
 </ol>
-<h2 id="8-4-接口怎么定（必考根据需求写接口）"><a href="#8-4-接口怎么定（必考根据需求写接口）" class="headerlink" title="8.4. 接口怎么定（必考根据需求写接口）"></a>8.4. 接口怎么定（必考根据需求写接口）</h2><ol>
-<li><p>接口来源于哪？</p>
+<h2 id="8-4-接口怎么定（必考根据需求写接口）">8.4. 接口怎么定（必考根据需求写接口）</h2>
+<ol>
+<li>
+<p>接口来源于哪？</p>
 <ul>
-<li><p><strong>逻辑层接口</strong>来源于<strong>需求</strong>，根据需求规格文档&#x2F;<strong>刺激响应序列</strong>可以确定展示层要调用逻辑层什么内容。<strong>刺激是接口的输入参数，响应是接口的返回值</strong></p>
+<li>
+<p><strong>逻辑层接口</strong>来源于<strong>需求</strong>，根据需求规格文档/<strong>刺激响应序列</strong>可以确定展示层要调用逻辑层什么内容。<strong>刺激是接口的输入参数，响应是接口的返回值</strong></p>
 </li>
-<li><p><strong>数据层接口</strong>来源于<strong>逻辑层代码</strong>，增删改查，<strong>需要什么就提供什么</strong>。不需要的就不提供（如红冲，就是不能删除，那么接口里面就不需要提供删除）</p>
+<li>
+<p><strong>数据层接口</strong>来源于<strong>逻辑层代码</strong>，增删改查，<strong>需要什么就提供什么</strong>。不需要的就不提供（如红冲，就是不能删除，那么接口里面就不需要提供删除）</p>
 <p>【<em>当然有可能业务层和逻辑层一样，即比如会员管理，业务层就只是有增删改查的业务，数据层也是这样，一个业务方法对应一个数据方法，这是简单的情况，在复杂情况时是一个业务方法使用多个数据方法</em>】</p>
 </li>
 </ul>
 </li>
 </ol>
-<h1 id="9-体系结构的原型构建（以上均为设计）"><a href="#9-体系结构的原型构建（以上均为设计）" class="headerlink" title="9. 体系结构的原型构建（以上均为设计）"></a>9. 体系结构的原型构建（以上均为设计）</h1><h2 id="9-1-包的创建"><a href="#9-1-包的创建" class="headerlink" title="9.1. 包的创建"></a>9.1. 包的创建</h2><ol>
+<h1>9. 体系结构的原型构建（以上均为设计）</h1>
+<h2 id="9-1-包的创建">9.1. 包的创建</h2>
+<ol>
 <li>包用于将系统组织成有层次结构的机制，可以根据构件的设计来创建项目的包。</li>
 </ol>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/34.png"></p>
-<h2 id="9-2-重要文件的创建"><a href="#9-2-重要文件的创建" class="headerlink" title="9.2. 重要文件的创建"></a>9.2. 重要文件的创建</h2><ol>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/34.png" alt=""></p>
+<h2 id="9-2-重要文件的创建">9.2. 重要文件的创建</h2>
+<ol>
 <li>可选</li>
 <li>数据文件</li>
 <li>系统文件</li>
 <li>配置文件</li>
 </ol>
-<h3 id="9-2-1-文件列表"><a href="#9-2-1-文件列表" class="headerlink" title="9.2.1. 文件列表"></a>9.2.1. 文件列表</h3><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/34.png"></p>
+<h3 id="9-2-1-文件列表">9.2.1. 文件列表</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/34.png" alt=""></p>
 <ol>
-<li>SalesBLService的定义<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">SalesBLService</span> &#123;</span><br><span class="line">   <span class="comment">//销售界⾯得到商品和商品促销的信息</span></span><br><span class="line">   <span class="keyword">public</span> CommodityVO <span class="title function_">getCommodityByID</span><span class="params">(<span class="type">int</span> id)</span>;</span><br><span class="line">   <span class="keyword">public</span> ArrayList&lt;CommodityPromotionVO&gt;  <span class="title function_">getCommodityPromotionListByID</span><span class="params">(intcommodityID)</span>;</span><br><span class="line">   <span class="comment">//销售界⾯得到会员的信息</span></span><br><span class="line">   <span class="keyword">public</span> MemberVO <span class="title function_">getMember</span> <span class="params">()</span>;</span><br><span class="line">   <span class="comment">//销售的步骤</span></span><br><span class="line">   <span class="keyword">public</span> ResultMessage <span class="title function_">addMember</span><span class="params">(<span class="type">int</span> id)</span>;</span><br><span class="line">   <span class="keyword">public</span> ResultMessage <span class="title function_">addCommodity</span><span class="params">(<span class="type">int</span> id, <span class="type">int</span> quantity)</span>;</span><br><span class="line">   <span class="keyword">public</span> <span class="type">double</span> <span class="title function_">getTotal</span><span class="params">(<span class="type">int</span> mode)</span>;</span><br><span class="line">   <span class="keyword">public</span> <span class="type">double</span> <span class="title function_">getChange</span><span class="params">(<span class="type">double</span> payment)</span>;</span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">endSales</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></li>
+<li>SalesBLService的定义</li>
 </ol>
-<h2 id="9-3-定义构件之间的接口"><a href="#9-3-定义构件之间的接口" class="headerlink" title="9.3. 定义构件之间的接口"></a>9.3. 定义构件之间的接口</h2><ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">SalesBLService</span> &#123;</span><br><span class="line">   <span class="comment">//销售界⾯得到商品和商品促销的信息</span></span><br><span class="line">   <span class="keyword">public</span> CommodityVO <span class="title function_">getCommodityByID</span><span class="params">(<span class="type">int</span> id)</span>;</span><br><span class="line">   <span class="keyword">public</span> ArrayList&lt;CommodityPromotionVO&gt;  <span class="title function_">getCommodityPromotionListByID</span><span class="params">(intcommodityID)</span>;</span><br><span class="line">   <span class="comment">//销售界⾯得到会员的信息</span></span><br><span class="line">   <span class="keyword">public</span> MemberVO <span class="title function_">getMember</span> <span class="params">()</span>;</span><br><span class="line">   <span class="comment">//销售的步骤</span></span><br><span class="line">   <span class="keyword">public</span> ResultMessage <span class="title function_">addMember</span><span class="params">(<span class="type">int</span> id)</span>;</span><br><span class="line">   <span class="keyword">public</span> ResultMessage <span class="title function_">addCommodity</span><span class="params">(<span class="type">int</span> id, <span class="type">int</span> quantity)</span>;</span><br><span class="line">   <span class="keyword">public</span> <span class="type">double</span> <span class="title function_">getTotal</span><span class="params">(<span class="type">int</span> mode)</span>;</span><br><span class="line">   <span class="keyword">public</span> <span class="type">double</span> <span class="title function_">getChange</span><span class="params">(<span class="type">double</span> payment)</span>;</span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">endSales</span><span class="params">()</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h2 id="9-3-定义构件之间的接口">9.3. 定义构件之间的接口</h2>
+<ol>
 <li>在包和文件定义之后，我们可以着力开始定义构件之间的接口</li>
 </ol>
-<h2 id="9-4-关键需求的实现"><a href="#9-4-关键需求的实现" class="headerlink" title="9.4. 关键需求的实现"></a>9.4. 关键需求的实现</h2><ol>
-<li>实现一些<strong>关键</strong> <strong>功能需求</strong>。<ol>
+<h2 id="9-4-关键需求的实现">9.4. 关键需求的实现</h2>
+<ol>
+<li>实现一些<strong>关键</strong> <strong>功能需求</strong>。
+<ol>
 <li>⽐如连锁超市系统中销售用例就是⼀个关键的用例。它所覆盖的面广,如果销售用例可以实现的话,其它⽤例的实现就⽐较有信⼼了。⽽且这个需求需要做到端到端的实现。</li>
 <li>⽐如,连锁超市系统中存在客户端和服务器端。那么我们就需要在客户端通过 GUI 界⾯发出指令,通过客户端的业务逻辑处理,访问服务器端的数据,对数据进行修改。只有这样才能表明当前的体系结构可以胜任功能性需求。</li>
 </ol>
 </li>
-<li>对原型的<strong>非功能性指标</strong>进⾏估算和验证。如果出现不符合非功能性需求和项目约束的情况,我们还需要重新对体系结构设计进⾏调整。<ol>
+<li>对原型的<strong>非功能性指标</strong>进⾏估算和验证。如果出现不符合非功能性需求和项目约束的情况,我们还需要重新对体系结构设计进⾏调整。
+<ol>
 <li>⽐如,连锁超市系统中我们⽤文件来保存数据,⽽当数据越来越多,特别是<strong>销售记录要保存 1 年</strong>。这时候,客户端跨⽹络对服务器上⽂件的查找就⽐较慢,可能会使得我们不满⾜实时性的要求。</li>
 <li>这时候,可能我们就要调整体系结构中数据存储的⽅案,⽐如<strong>换成数据库</strong>。或者在客户端的逻辑层和数据层之间,加设数据映射层。<strong>在客户端运⾏初始化时,将数据从服务器端载⼊到客户端的内存中去。</strong></li>
 </ol>
 </li>
 </ol>
-<h1 id="10-体系结构集成与测试"><a href="#10-体系结构集成与测试" class="headerlink" title="10. 体系结构集成与测试"></a>10. 体系结构集成与测试</h1><h2 id="10-1-集成的策略"><a href="#10-1-集成的策略" class="headerlink" title="10.1. 集成的策略"></a>10.1. 集成的策略</h2><ol>
+<h1>10. 体系结构集成与测试</h1>
+<h2 id="10-1-集成的策略">10.1. 集成的策略</h2>
+<ol>
 <li>当体系结构中原型各个模块的代码都编写完成并经过单元测试之后,需要<strong>将所有模块组合起来形成整个软件原型系统</strong>, <strong>这就是集成。</strong></li>
 <li>集成的<strong>目的</strong>是为了逐步<strong>让各个模块合成为⼀个系统来⼯作,从而验证整个系统</strong>的功能、性能、可靠性等需求。</li>
-<li>&#x3D;&#x3D;对于被集成起来的系统⼀般 <strong>主要是通过其暴露出来的接⼝,伪装⼀定的参数和输⼊,进⾏黑盒测试。</strong>&#x3D;&#x3D;</li>
-<li>根据从模块之间集成的先后顺序,⼀般有下列⼏种常⻅的集成策略: <ol>
+<li>==对于被集成起来的系统⼀般 <strong>主要是通过其暴露出来的接⼝,伪装⼀定的参数和输⼊,进⾏黑盒测试。</strong>==</li>
+<li>根据从模块之间集成的先后顺序,⼀般有下列⼏种常⻅的集成策略:
+<ol>
 <li>大爆炸式(<strong>所有放在一起</strong>，看能不能过)</li>
-<li>增量式<ol>
+<li>增量式
+<ol>
 <li>自顶向下式</li>
 <li>自底向上式</li>
 <li>三明治式（既自顶向下，又自底向上，既要写stub，也要写driver）</li>
@@ -726,90 +831,107 @@
 </li>
 <li>模块开发完成后我们进行开发集成测试用例</li>
 </ol>
-<h3 id="10-1-1-大爆炸集成"><a href="#10-1-1-大爆炸集成" class="headerlink" title="10.1.1. 大爆炸集成"></a>10.1.1. 大爆炸集成</h3><ol>
+<h3 id="10-1-1-大爆炸集成">10.1.1. 大爆炸集成</h3>
+<ol>
 <li>大爆炸集成:将所有模块一次性组合在一起。</li>
 <li>优点:可以在短时间内迅速完成集成</li>
 <li>缺点：一次运行成功可能性不高，不容易发现bug</li>
 </ol>
-<h3 id="10-1-2-自顶向下集成"><a href="#10-1-2-自顶向下集成" class="headerlink" title="10.1.2. 自顶向下集成"></a>10.1.2. 自顶向下集成</h3><ol>
+<h3 id="10-1-2-自顶向下集成">10.1.2. 自顶向下集成</h3>
+<ol>
 <li>自顶向下集成是对分层次的架构，<strong>先集成和测试上层的测模块，下层的模块用伪装的具体接口的桩程序</strong>。</li>
-<li>自顶向下集成的优点: <ol>
+<li>自顶向下集成的优点:
+<ol>
 <li>按深度优先可以<strong>⾸先实现和验证⼀个完整的功能需求;</strong></li>
 <li><strong>只需顶端⼀个驱动(Driver);</strong></li>
 <li>利于故障定位。</li>
 <li>一般会带来比较好的顶层设计的优势。</li>
 </ol>
 </li>
-<li>自顶向下集成的缺点:<ol>
+<li>自顶向下集成的缺点:
+<ol>
 <li><strong>stub桩的开发量大;</strong></li>
 <li>底层验证被推迟,且底层组件测试不充分。</li>
 </ol>
 </li>
 <li>自顶向下基层适用于控制结构比较清晰和稳定、<strong>高层接口变化较小、底层接口未定义或经常被修改</strong>、控制组件有具有较大的技术风险的软件系统。</li>
 </ol>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/36.png"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/36.png" alt=""></p>
 <ol start="3">
 <li>测试M1的时候，我们使用假的S7,S4来进行代替**(简单的代替这个模块)(被叫做Stub桩)**</li>
 </ol>
-<h3 id="10-1-3-自底向上集成"><a href="#10-1-3-自底向上集成" class="headerlink" title="10.1.3. 自底向上集成"></a>10.1.3. 自底向上集成</h3><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/37.png"></p>
+<h3 id="10-1-3-自底向上集成">10.1.3. 自底向上集成</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/37.png" alt=""></p>
 <ol>
 <li>高层设计的错误不会被很快的发现。而这往往被我们认为会带来比较致命的问题</li>
-<li>优点:<ol>
+<li>优点:
+<ol>
 <li>对<strong>底层组件较早进行验证</strong></li>
 <li>底层组件开发可以并行</li>
 <li><strong>桩的工作量少</strong></li>
 </ol>
 </li>
-<li>缺点:<ol>
+<li>缺点:
+<ol>
 <li><strong>驱动的开发作用量大</strong></li>
 <li>对<strong>高层的设计被推迟，设计上的高层错误并不能被及时发现</strong></li>
 </ol>
 </li>
 </ol>
-<h3 id="10-1-4-持续集成"><a href="#10-1-4-持续集成" class="headerlink" title="10.1.4. 持续集成"></a>10.1.4. 持续集成</h3><ol>
+<h3 id="10-1-4-持续集成">10.1.4. 持续集成</h3>
+<ol>
 <li>一种增量集成⽅法,但它提倡<strong>尽早集成和频繁集成</strong>。</li>
 <li>尽早集成是指<strong>不需要总是等待⼀个模块开发完成才把它集成起来</strong>,<strong>⽽是在开发之初就利⽤ Stub 集成起来。</strong></li>
 <li>频繁集成是指开发者<strong>每次完成⼀些开发任务之后</strong>,就可以<strong>⽤开发结果替换 Stub 中的相应组件,进⾏集成与测试</strong>。⼀般来说,每⼈每天⾄少集成⼀次,也可以多次。</li>
-<li>结合尽早集成和频繁集成的办法,持续集成可以做到:<ol>
+<li>结合尽早集成和频繁集成的办法,持续集成可以做到:
+<ol>
 <li>防⽌软件开发中出现无法集成与发布的情况。<strong>因为软件项⽬在任何时刻都是可以集成和发布的。</strong></li>
-<li><strong>有利于检查和发现集成缺陷。</strong>因为早的版本主要集成了<strong>简单的 Stub,⽐较容易做到没有错误</strong>。后续代码逐渐开发完成后,频繁集成⼜使得即使出现集成问题也能够尽快发现、尽快解决。</li>
+<li><strong>有利于检查和发现集成缺陷。<strong>因为早的版本主要集成了</strong>简单的 Stub,⽐较容易做到没有错误</strong>。后续代码逐渐开发完成后,频繁集成⼜使得即使出现集成问题也能够尽快发现、尽快解决。</li>
 </ol>
 </li>
-<li>持续集成的频率很⾼,所以手动的集成对软件⼯程师来说是⽆法接受的,必须利⽤版本控制⼯具和持续集成⼯具。如果程序员可以仅仅使⽤⼀条命令就完成⼀次完整的集成,开发团队才有动⼒并且能够坚持进⾏频繁的集成。 </li>
+<li>持续集成的频率很⾼,所以手动的集成对软件⼯程师来说是⽆法接受的,必须利⽤版本控制⼯具和持续集成⼯具。如果程序员可以仅仅使⽤⼀条命令就完成⼀次完整的集成,开发团队才有动⼒并且能够坚持进⾏频繁的集成。</li>
 <li><strong>工具：Jenkins，maven，gitlab等</strong></li>
 <li>如果你们的团队选择，白天进行代码开发，晚上进行代码测试，如果晚上你的代码出现比较严重的问题的时候，有可能会叫醒你来修改代码，以避免第二天浪费更多的时间。</li>
 </ol>
-<h2 id="10-2-依据模块接口建立桩程序Stub"><a href="#10-2-依据模块接口建立桩程序Stub" class="headerlink" title="10.2. 依据模块接口建立桩程序Stub"></a>10.2. 依据模块接口建立桩程序Stub</h2><ol>
-<li>Stub 桩程序<ol>
+<h2 id="10-2-依据模块接口建立桩程序Stub">10.2. 依据模块接口建立桩程序Stub</h2>
+<ol>
+<li>Stub 桩程序
+<ol>
 <li><strong>为了完成程序的编译和连接⽽使⽤的暂时代码</strong></li>
 <li>对外模拟和代替承担模块接⼝的关键类</li>
 <li><strong>⽐真实程序简单的多</strong>，使⽤为<strong>简单</strong>的逻辑:比如简单的替代DAO层。</li>
 </ol>
 </li>
 </ol>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/39.png"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/39.png" alt=""></p>
 <p>**Stub:**用于测试上层，如用于测试上层可以写简单的DAO层，不需要与数据库交互，直接返回我们设定好的数据</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/40.png"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/40.png" alt=""></p>
 <p>**Driver:**用于测试下层，比如用于测试DAO层时，我们会编写一些service和control，仅仅用于测试这个DAO是不是正确</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/41.png"></p>
-<h2 id="10-3-集成与构建"><a href="#10-3-集成与构建" class="headerlink" title="10.3. 集成与构建"></a>10.3. 集成与构建</h2><ol>
-<li>集成<ol>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/41.png" alt=""></p>
+<h2 id="10-3-集成与构建">10.3. 集成与构建</h2>
+<ol>
+<li>集成
+<ol>
 <li>使⽤桩程序辅助集成</li>
 <li>编译与链接</li>
 </ol>
 </li>
-<li>持续集成<ol>
+<li>持续集成
+<ol>
 <li>逐步编写各个模块内部程序，替换相应的<strong>桩程序</strong>【在桩被替换后不一定要立刻删掉，可以注释保留】</li>
 <li>真实程序不仅实现业务逻辑，⽽且会使⽤其他模块的接⼝程序(真实程序或者桩程序)</li>
 <li>每次替换之后都进⾏集成与测试</li>
 </ol>
 </li>
 </ol>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/42.png"></p>
-<h2 id="10-4-项目实践"><a href="#10-4-项目实践" class="headerlink" title="10.4. 项目实践"></a>10.4. 项目实践</h2><ol>
-<li>客户端<ol>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/42.png" alt=""></p>
+<h2 id="10-4-项目实践">10.4. 项目实践</h2>
+<ol>
+<li>客户端
+<ol>
 <li>View层：HCI特殊测试，需要模拟logic的stub</li>
-<li>Logical层：<ol>
+<li>Logical层：
+<ol>
 <li>驱动模拟来⾃View层的请求</li>
 <li>桩程序模拟远程Data</li>
 <li>需要模拟同层调用的driver和stub</li>
@@ -817,32 +939,39 @@
 </li>
 </ol>
 </li>
-<li>服务器端(Data层)<ol>
+<li>服务器端(Data层)
+<ol>
 <li>驱动模拟来⾃客户端的请求</li>
 <li>桩程序模拟未完成的Data模块接⼝</li>
 </ol>
 </li>
 </ol>
-<h1 id="11-体系结构文档化"><a href="#11-体系结构文档化" class="headerlink" title="11. 体系结构文档化"></a>11. 体系结构文档化</h1><h2 id="11-1-体系结构设计文档模版-IEEE1471-2000"><a href="#11-1-体系结构设计文档模版-IEEE1471-2000" class="headerlink" title="11.1. 体系结构设计文档模版 IEEE1471-2000"></a>11.1. 体系结构设计文档模版 IEEE1471-2000</h2><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/43.png"></p>
-<h1 id="12-体系结构评审"><a href="#12-体系结构评审" class="headerlink" title="12. 体系结构评审"></a>12. 体系结构评审</h1><h2 id="12-1-评审的角度"><a href="#12-1-评审的角度" class="headerlink" title="12.1. 评审的角度"></a>12.1. 评审的角度</h2><ol>
+<h1>11. 体系结构文档化</h1>
+<h2 id="11-1-体系结构设计文档模版-IEEE1471-2000">11.1. 体系结构设计文档模版 IEEE1471-2000</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt10/43.png" alt=""></p>
+<h1>12. 体系结构评审</h1>
+<h2 id="12-1-评审的角度">12.1. 评审的角度</h2>
+<ol>
 <li>设计⽅案正确性、先进性、可行性;</li>
 <li>系统组成、系统要求及接⼝协调的合理性;</li>
 <li>对于功能模块的输⼊参数、输出参数的定义是否明确;</li>
 <li>系统性能、可靠性、安全性要求是否合理;</li>
 <li>⽂档的描述是否清晰、明确。</li>
 </ol>
-<h2 id="12-2-体系结构评审的方法"><a href="#12-2-体系结构评审的方法" class="headerlink" title="12.2. 体系结构评审的方法"></a>12.2. 体系结构评审的方法</h2><ol>
+<h2 id="12-2-体系结构评审的方法">12.2. 体系结构评审的方法</h2>
+<ol>
 <li><strong>对结果的评审</strong>：Checklist(动态更新的)</li>
 <li><strong>对设计决策的评审</strong>：如果无法对结果进行评审，那么就对原因进行评审，<strong>如果产出这个东西的原因是合理的，那么结果就认为是合理的</strong></li>
 </ol>
-<h2 id="12-3-软件体系结构设计文档的Checklist"><a href="#12-3-软件体系结构设计文档的Checklist" class="headerlink" title="12.3. 软件体系结构设计文档的Checklist"></a>12.3. 软件体系结构设计文档的Checklist</h2><ol>
-<li>体系结构设计是否为后续开发提供了⼀个足够的视角? </li>
-<li>是否所有的功能都被分配给了具体模块? </li>
-<li>是否所有的⾮功能属性都得到了满⾜? </li>
-<li>是否所有的项⽬约束都得到了满⾜? </li>
-<li>体系结构设计是否为后继设计提供了简洁的概述、背景信息、限制条件和清晰的组织结构? </li>
+<h2 id="12-3-软件体系结构设计文档的Checklist">12.3. 软件体系结构设计文档的Checklist</h2>
+<ol>
+<li>体系结构设计是否为后续开发提供了⼀个足够的视角?</li>
+<li>是否所有的功能都被分配给了具体模块?</li>
+<li>是否所有的⾮功能属性都得到了满⾜?</li>
+<li>是否所有的项⽬约束都得到了满⾜?</li>
+<li>体系结构设计是否为后继设计提供了简洁的概述、背景信息、限制条件和清晰的组织结构?</li>
 <li>体系结构设计是否能应对<strong>可能发⽣的变更</strong>? [比如为了10万用户的设计体系结构设计能够实际支持20万的用户量]</li>
-<li>体系结构设计是否关注点在详细设计和⽤户接⼝的层次之上? </li>
+<li>体系结构设计是否关注点在详细设计和⽤户接⼝的层次之上?</li>
 <li>不同的体系结构设计视⻆的依赖是否⼀致? [当系统比较复杂时，容易忽略]</li>
 <li>系统环境是否定义,包括硬件、软件、和外部系统?</li>
 </ol>
@@ -862,14 +991,15 @@
 
 
 
-<footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">Asimov</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.28.1">Stellar 1.28.1</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">Asimov</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.28.1">Stellar 1.28.1</a> 主题创建。<br>
+本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
 </div></footer>
 <div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
 <div class="widgets">
 
 
 
-<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#10-%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E6%9E%84%E5%BB%BA"><span class="toc-text">10-软件体系结构设计与构建</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1%E8%BF%87%E7%A8%8B-%E7%AE%80%E7%95%A5%E6%AD%A5%E9%AA%A4-%E9%87%8D%E8%A6%81"><span class="toc-text">1. 体系结构设计过程(简略步骤) 重要</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E7%AC%AC%E4%B8%80%E6%AD%A5-%E5%88%86%E6%9E%90%E5%85%B3%E9%94%AE%E9%9C%80%E6%B1%82%E5%92%8C%E9%A1%B9%E7%9B%AE%E7%BA%A6%E6%9D%9F"><span class="toc-text">2. 第一步:分析关键需求和项目约束</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84%E9%9C%80%E6%B1%82"><span class="toc-text">2.1. 系统结构需求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%E5%AE%9E%E8%B7%B5%E6%A1%88%E4%BE%8B"><span class="toc-text">2.2. 实践案例</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E7%AC%AC%E4%BA%8C%E6%AD%A5-%E9%80%9A%E8%BF%87%E9%80%89%E6%8B%A9%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E9%A3%8E%E6%A0%BC"><span class="toc-text">3. 第二步:通过选择体系结构风格</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E5%AE%9E%E8%B7%B5%E6%A1%88%E4%BE%8B"><span class="toc-text">3.1. 实践案例</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-%E7%AC%AC%E4%B8%89%E6%AD%A5-%E8%BF%9B%E8%A1%8C%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E9%80%BB%E8%BE%91-%E6%8A%BD%E8%B1%A1-%E8%AE%BE%E8%AE%A1"><span class="toc-text">4. 第三步:进行软件体系结构逻辑(抽象)设计</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-%E4%BE%9D%E6%8D%AE%E6%A6%82%E8%A6%81%E5%8A%9F%E8%83%BD%E9%9C%80%E6%B1%82%E4%B8%8E%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E9%A3%8E%E6%A0%BC%E5%BB%BA%E7%AB%8B%E5%88%9D%E5%A7%8B%E8%AE%BE%E8%AE%A1"><span class="toc-text">4.1. 依据概要功能需求与体系结构风格建立初始设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-%E4%BD%BF%E7%94%A8%E9%9D%9E%E5%8A%9F%E8%83%BD%E6%80%A7%E9%9C%80%E6%B1%82%E4%B8%8E%E9%A1%B9%E7%9B%AE%E7%BA%A6%E6%9D%9F%E8%AF%84%E4%BB%B7%E5%92%8C%E6%94%B9%E8%BF%9B%E5%88%9D%E5%A7%8B%E8%AE%BE%E8%AE%A1"><span class="toc-text">4.2. 使用非功能性需求与项目约束评价和改进初始设计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-1-%E5%88%9D%E6%AD%A5%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%88%86%E6%9E%90"><span class="toc-text">4.2.1. 初步设计的分析</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-Package-Design-Principles-%E5%8C%85%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99-%E5%B8%A6%E8%8B%B1%E6%96%87%E5%85%B3%E9%94%AE"><span class="toc-text">5. Package Design Principles 包设计原则(带英文关键)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#5-1-Common-Closure-Principle-CCP-%E5%85%B1%E5%90%8C%E5%B0%81%E9%97%AD%E5%8E%9F%E5%88%99"><span class="toc-text">5.1. Common Closure Principle (CCP) 共同封闭原则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-2-Common-Reuse-Principle-CRP-%E5%85%B1%E5%90%8C%E9%87%8D%E7%94%A8%E5%8E%9F%E5%88%99"><span class="toc-text">5.2. Common Reuse Principle (CRP) 共同重用原则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-3-%E5%85%B1%E5%90%8C%E5%B0%81%E9%97%AD%E5%8E%9F%E5%88%99%E5%92%8C%E5%85%B1%E5%90%8C%E9%87%8D%E7%94%A8%E7%9A%84%E5%8E%9F%E5%88%99%E7%9A%84%E6%8A%98%E8%A1%B7"><span class="toc-text">5.3. 共同封闭原则和共同重用的原则的折衷</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-4-Reuse-Release-Equivalency-Principle-REP-%E9%87%8D%E7%94%A8%E5%8F%91%E5%B8%83%E7%AD%89%E4%BB%B7%E5%8E%9F%E5%88%99"><span class="toc-text">5.4. Reuse-Release Equivalency Principle (REP) 重用发布等价原则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-5-The-Acyclic-Dependencies-Principle-ADP-%E6%97%A0%E7%8E%AF%E4%BE%9D%E8%B5%96%E5%8E%9F%E5%88%99"><span class="toc-text">5.5. The Acyclic Dependencies Principle (ADP) 无环依赖原则</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-5-1-Dependencies-are-a-DAG"><span class="toc-text">5.5.1. Dependencies are a DAG</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-5-2-%E4%BE%9D%E8%B5%96%E5%BE%AA%E7%8E%AF%E6%89%93%E7%A0%B4%E5%BE%AA%E7%8E%AF%EF%BC%9A%E7%AC%AC%E4%B8%80%E7%A7%8D%E6%96%B9%E5%BC%8F%EF%BC%9A"><span class="toc-text">5.5.2. 依赖循环打破循环：第一种方式：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-5-3-%E4%BE%9D%E8%B5%96%E5%BE%AA%E7%8E%AF%E6%89%93%E7%A0%B4%E5%BE%AA%E7%8E%AF%EF%BC%9A%E7%AC%AC%E4%BA%8C%E7%A7%8D%E6%96%B9%E5%BC%8F%EF%BC%9A"><span class="toc-text">5.5.3. 依赖循环打破循环：第二种方式：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-5-4-%E6%97%A0%E7%8E%AF%E4%BE%9D%E8%B5%96%E5%8E%9F%E5%88%99%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-text">5.5.4. 无环依赖原则的应用场景</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-6-Stable-Dependencies-Principle-SDP-%E7%A8%B3%E5%AE%9A%E4%BE%9D%E8%B5%96%E5%8E%9F%E5%88%99"><span class="toc-text">5.6. Stable Dependencies Principle (SDP) 稳定依赖原则</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-6-1-example"><span class="toc-text">5.6.1. example</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-6-2-%E5%8C%85%E7%9A%84%E7%A8%B3%E5%AE%9A%E6%80%A7%E5%BA%A6%E9%87%8F"><span class="toc-text">5.6.2. 包的稳定性度量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-7-Stable-Abstractions-Principle-SAP-%E7%A8%B3%E5%AE%9A%E6%8A%BD%E8%B1%A1%E5%8E%9F%E5%88%99"><span class="toc-text">5.7. Stable Abstractions Principle (SAP) 稳定抽象原则</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-7-1-%E6%8A%BD%E8%B1%A1%E6%80%A7%E5%BA%A6%E9%87%8F"><span class="toc-text">5.7.1. 抽象性度量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-7-2-%E4%BE%8B%E5%AD%90"><span class="toc-text">5.7.2. 例子</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-8-%E5%8C%85%E8%AE%BE%E8%AE%A1%E7%9A%84%E8%BF%87%E7%A8%8B"><span class="toc-text">5.8. 包设计的过程</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-%E7%AC%AC%E5%9B%9B%E6%AD%A5-%E4%BE%9D%E8%B5%96%E9%80%BB%E8%BE%91%E8%AE%BE%E8%AE%A1%E8%BF%9B%E8%A1%8C%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84-%E5%AE%9E%E7%8E%B0-%E8%AE%BE%E8%AE%A1%EF%BC%9B"><span class="toc-text">6. 第四步:依赖逻辑设计进行软件体系结构(实现)设计；</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#6-1-%E5%88%9D%E5%A7%8B%E7%89%A9%E7%90%86%E5%8C%85"><span class="toc-text">6.1. 初始物理包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-2-%E7%BB%86%E8%8A%82%E8%80%83%E8%99%91-%E9%87%8D%E8%A6%81"><span class="toc-text">6.2. 细节考虑(重要)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9A4-1-view"><span class="toc-text">补充：4+1 view</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-3-%E8%BF%9E%E9%94%81%E8%B6%85%E5%B8%82%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91%E5%8C%85%E5%9B%BE"><span class="toc-text">6.3. 连锁超市管理系统开发包图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-4-%E8%BF%9B%E7%A8%8B%E5%9B%BE"><span class="toc-text">6.4. 进程图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-5-%E9%83%A8%E7%BD%B2%E5%9B%BE"><span class="toc-text">6.5. 部署图</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-%E7%AC%AC%E4%BA%94%E6%AD%A5-%E5%AE%8C%E5%96%84%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1"><span class="toc-text">7. 第五步:完善体系结构设计</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#7-1-%E5%A2%9E%E5%8A%A0%E5%90%AF%E5%8A%A8%E6%A8%A1%E5%9D%97%E5%92%8C%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9D%97%EF%BC%88%E5%AE%8C%E5%96%84%EF%BC%89"><span class="toc-text">7.1. 增加启动模块和网络模块（完善）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-2-%E7%BB%86%E5%8C%96salesbl%E6%A8%A1%E5%9D%97"><span class="toc-text">7.2. 细化salesbl模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-3-%E7%BB%86%E5%8C%96%E6%95%B0%E6%8D%AE%E5%AE%9A%E4%B9%89"><span class="toc-text">7.3. 细化数据定义</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3-1-Java-%E5%AE%9E%E4%BD%93"><span class="toc-text">7.3.1. Java 实体</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3-2-POJO-Plain-Old-Java-Objects-Simple-Java-Entities"><span class="toc-text">7.3.2. POJO(Plain Old Java Objects)&#x3D; Simple Java Entities</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3-3-Value-Objects-%E9%80%BB%E8%BE%91%E5%B1%82%E5%90%91%E5%B1%95%E7%A4%BA%E5%B1%82%E4%BC%A0%E9%80%92%E6%95%B0%E6%8D%AE"><span class="toc-text">7.3.3. Value Objects(逻辑层向展示层传递数据)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3-4-%E5%9B%BE%E4%B9%A6%E5%9C%B0%E5%9D%80%E4%B8%9A%E5%8A%A1%E5%AE%9E%E4%BD%93"><span class="toc-text">7.3.4. 图书地址业务实体</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-4-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%B7%B5"><span class="toc-text">7.4. 项目实践</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-5-%E6%8C%81%E4%B9%85%E5%8C%96%E5%AF%B9%E8%B1%A1-UserPO%E7%9A%84%E7%BB%86%E5%8C%96"><span class="toc-text">7.5. 持久化对象 UserPO的细化</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#8-%E7%AC%AC%E5%85%AD%E6%AD%A5-%E6%B7%BB%E5%8A%A0%E6%9E%84%E4%BB%B6%E6%8E%A5%E5%8F%A3"><span class="toc-text">8. 第六步:添加构件接口</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#8-1-%E6%9E%84%E4%BB%B6%E5%88%9D%E6%AD%A5%E8%AE%BE%E8%AE%A1"><span class="toc-text">8.1. 构件初步设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-2-%E7%A1%AE%E5%AE%9A%E6%A8%A1%E5%9D%97%E5%AF%B9%E5%A4%96%E6%8E%A5%E5%8F%A3"><span class="toc-text">8.2. 确定模块对外接口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-3-%E7%BC%96%E5%86%99%E6%8E%A5%E5%8F%A3%E8%A7%84%E8%8C%83"><span class="toc-text">8.3. 编写接口规范</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-4-%E6%8E%A5%E5%8F%A3%E6%80%8E%E4%B9%88%E5%AE%9A%EF%BC%88%E5%BF%85%E8%80%83%E6%A0%B9%E6%8D%AE%E9%9C%80%E6%B1%82%E5%86%99%E6%8E%A5%E5%8F%A3%EF%BC%89"><span class="toc-text">8.4. 接口怎么定（必考根据需求写接口）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#9-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E7%9A%84%E5%8E%9F%E5%9E%8B%E6%9E%84%E5%BB%BA%EF%BC%88%E4%BB%A5%E4%B8%8A%E5%9D%87%E4%B8%BA%E8%AE%BE%E8%AE%A1%EF%BC%89"><span class="toc-text">9. 体系结构的原型构建（以上均为设计）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#9-1-%E5%8C%85%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="toc-text">9.1. 包的创建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-2-%E9%87%8D%E8%A6%81%E6%96%87%E4%BB%B6%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="toc-text">9.2. 重要文件的创建</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#9-2-1-%E6%96%87%E4%BB%B6%E5%88%97%E8%A1%A8"><span class="toc-text">9.2.1. 文件列表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-3-%E5%AE%9A%E4%B9%89%E6%9E%84%E4%BB%B6%E4%B9%8B%E9%97%B4%E7%9A%84%E6%8E%A5%E5%8F%A3"><span class="toc-text">9.3. 定义构件之间的接口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-4-%E5%85%B3%E9%94%AE%E9%9C%80%E6%B1%82%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="toc-text">9.4. 关键需求的实现</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#10-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E9%9B%86%E6%88%90%E4%B8%8E%E6%B5%8B%E8%AF%95"><span class="toc-text">10. 体系结构集成与测试</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#10-1-%E9%9B%86%E6%88%90%E7%9A%84%E7%AD%96%E7%95%A5"><span class="toc-text">10.1. 集成的策略</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#10-1-1-%E5%A4%A7%E7%88%86%E7%82%B8%E9%9B%86%E6%88%90"><span class="toc-text">10.1.1. 大爆炸集成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-1-2-%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E9%9B%86%E6%88%90"><span class="toc-text">10.1.2. 自顶向下集成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-1-3-%E8%87%AA%E5%BA%95%E5%90%91%E4%B8%8A%E9%9B%86%E6%88%90"><span class="toc-text">10.1.3. 自底向上集成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-1-4-%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90"><span class="toc-text">10.1.4. 持续集成</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-2-%E4%BE%9D%E6%8D%AE%E6%A8%A1%E5%9D%97%E6%8E%A5%E5%8F%A3%E5%BB%BA%E7%AB%8B%E6%A1%A9%E7%A8%8B%E5%BA%8FStub"><span class="toc-text">10.2. 依据模块接口建立桩程序Stub</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-3-%E9%9B%86%E6%88%90%E4%B8%8E%E6%9E%84%E5%BB%BA"><span class="toc-text">10.3. 集成与构建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-4-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%B7%B5"><span class="toc-text">10.4. 项目实践</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#11-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E6%96%87%E6%A1%A3%E5%8C%96"><span class="toc-text">11. 体系结构文档化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#11-1-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1%E6%96%87%E6%A1%A3%E6%A8%A1%E7%89%88-IEEE1471-2000"><span class="toc-text">11.1. 体系结构设计文档模版 IEEE1471-2000</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#12-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E8%AF%84%E5%AE%A1"><span class="toc-text">12. 体系结构评审</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#12-1-%E8%AF%84%E5%AE%A1%E7%9A%84%E8%A7%92%E5%BA%A6"><span class="toc-text">12.1. 评审的角度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-2-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E8%AF%84%E5%AE%A1%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-text">12.2. 体系结构评审的方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-3-%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1%E6%96%87%E6%A1%A3%E7%9A%84Checklist"><span class="toc-text">12.3. 软件体系结构设计文档的Checklist</span></a></li></ol></div><div class="widget-footer">
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#10-%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E6%9E%84%E5%BB%BA"><span class="toc-text">10-软件体系结构设计与构建</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">1. 体系结构设计过程(简略步骤) 重要</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">2. 第一步:分析关键需求和项目约束</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84%E9%9C%80%E6%B1%82"><span class="toc-text">2.1. 系统结构需求</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%E5%AE%9E%E8%B7%B5%E6%A1%88%E4%BE%8B"><span class="toc-text">2.2. 实践案例</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">3. 第二步:通过选择体系结构风格</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#3-1-%E5%AE%9E%E8%B7%B5%E6%A1%88%E4%BE%8B"><span class="toc-text">3.1. 实践案例</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">4. 第三步:进行软件体系结构逻辑(抽象)设计</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#4-1-%E4%BE%9D%E6%8D%AE%E6%A6%82%E8%A6%81%E5%8A%9F%E8%83%BD%E9%9C%80%E6%B1%82%E4%B8%8E%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E9%A3%8E%E6%A0%BC%E5%BB%BA%E7%AB%8B%E5%88%9D%E5%A7%8B%E8%AE%BE%E8%AE%A1"><span class="toc-text">4.1. 依据概要功能需求与体系结构风格建立初始设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-2-%E4%BD%BF%E7%94%A8%E9%9D%9E%E5%8A%9F%E8%83%BD%E6%80%A7%E9%9C%80%E6%B1%82%E4%B8%8E%E9%A1%B9%E7%9B%AE%E7%BA%A6%E6%9D%9F%E8%AF%84%E4%BB%B7%E5%92%8C%E6%94%B9%E8%BF%9B%E5%88%9D%E5%A7%8B%E8%AE%BE%E8%AE%A1"><span class="toc-text">4.2. 使用非功能性需求与项目约束评价和改进初始设计</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-2-1-%E5%88%9D%E6%AD%A5%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%88%86%E6%9E%90"><span class="toc-text">4.2.1. 初步设计的分析</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">5. Package Design Principles 包设计原则(带英文关键)</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#5-1-Common-Closure-Principle-CCP-%E5%85%B1%E5%90%8C%E5%B0%81%E9%97%AD%E5%8E%9F%E5%88%99"><span class="toc-text">5.1. Common Closure Principle (CCP) 共同封闭原则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-2-Common-Reuse-Principle-CRP-%E5%85%B1%E5%90%8C%E9%87%8D%E7%94%A8%E5%8E%9F%E5%88%99"><span class="toc-text">5.2. Common Reuse Principle (CRP) 共同重用原则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-3-%E5%85%B1%E5%90%8C%E5%B0%81%E9%97%AD%E5%8E%9F%E5%88%99%E5%92%8C%E5%85%B1%E5%90%8C%E9%87%8D%E7%94%A8%E7%9A%84%E5%8E%9F%E5%88%99%E7%9A%84%E6%8A%98%E8%A1%B7"><span class="toc-text">5.3. 共同封闭原则和共同重用的原则的折衷</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-4-Reuse-Release-Equivalency-Principle-REP-%E9%87%8D%E7%94%A8%E5%8F%91%E5%B8%83%E7%AD%89%E4%BB%B7%E5%8E%9F%E5%88%99"><span class="toc-text">5.4. Reuse-Release Equivalency Principle (REP) 重用发布等价原则</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-5-The-Acyclic-Dependencies-Principle-ADP-%E6%97%A0%E7%8E%AF%E4%BE%9D%E8%B5%96%E5%8E%9F%E5%88%99"><span class="toc-text">5.5. The Acyclic Dependencies Principle (ADP) 无环依赖原则</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-5-1-Dependencies-are-a-DAG"><span class="toc-text">5.5.1. Dependencies are a DAG</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-5-2-%E4%BE%9D%E8%B5%96%E5%BE%AA%E7%8E%AF%E6%89%93%E7%A0%B4%E5%BE%AA%E7%8E%AF%EF%BC%9A%E7%AC%AC%E4%B8%80%E7%A7%8D%E6%96%B9%E5%BC%8F%EF%BC%9A"><span class="toc-text">5.5.2. 依赖循环打破循环：第一种方式：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-5-3-%E4%BE%9D%E8%B5%96%E5%BE%AA%E7%8E%AF%E6%89%93%E7%A0%B4%E5%BE%AA%E7%8E%AF%EF%BC%9A%E7%AC%AC%E4%BA%8C%E7%A7%8D%E6%96%B9%E5%BC%8F%EF%BC%9A"><span class="toc-text">5.5.3. 依赖循环打破循环：第二种方式：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-5-4-%E6%97%A0%E7%8E%AF%E4%BE%9D%E8%B5%96%E5%8E%9F%E5%88%99%E7%9A%84%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF"><span class="toc-text">5.5.4. 无环依赖原则的应用场景</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-6-Stable-Dependencies-Principle-SDP-%E7%A8%B3%E5%AE%9A%E4%BE%9D%E8%B5%96%E5%8E%9F%E5%88%99"><span class="toc-text">5.6. Stable Dependencies Principle (SDP) 稳定依赖原则</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-6-1-example"><span class="toc-text">5.6.1. example</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-6-2-%E5%8C%85%E7%9A%84%E7%A8%B3%E5%AE%9A%E6%80%A7%E5%BA%A6%E9%87%8F"><span class="toc-text">5.6.2. 包的稳定性度量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-7-Stable-Abstractions-Principle-SAP-%E7%A8%B3%E5%AE%9A%E6%8A%BD%E8%B1%A1%E5%8E%9F%E5%88%99"><span class="toc-text">5.7. Stable Abstractions Principle (SAP) 稳定抽象原则</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-7-1-%E6%8A%BD%E8%B1%A1%E6%80%A7%E5%BA%A6%E9%87%8F"><span class="toc-text">5.7.1. 抽象性度量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-7-2-%E4%BE%8B%E5%AD%90"><span class="toc-text">5.7.2. 例子</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-8-%E5%8C%85%E8%AE%BE%E8%AE%A1%E7%9A%84%E8%BF%87%E7%A8%8B"><span class="toc-text">5.8. 包设计的过程</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">6. 第四步:依赖逻辑设计进行软件体系结构(实现)设计；</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#6-1-%E5%88%9D%E5%A7%8B%E7%89%A9%E7%90%86%E5%8C%85"><span class="toc-text">6.1. 初始物理包</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-2-%E7%BB%86%E8%8A%82%E8%80%83%E8%99%91-%E9%87%8D%E8%A6%81"><span class="toc-text">6.2. 细节考虑(重要)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%EF%BC%9A4-1-view"><span class="toc-text">补充：4+1 view</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-3-%E8%BF%9E%E9%94%81%E8%B6%85%E5%B8%82%E7%AE%A1%E7%90%86%E7%B3%BB%E7%BB%9F%E5%BC%80%E5%8F%91%E5%8C%85%E5%9B%BE"><span class="toc-text">6.3. 连锁超市管理系统开发包图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-4-%E8%BF%9B%E7%A8%8B%E5%9B%BE"><span class="toc-text">6.4. 进程图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-5-%E9%83%A8%E7%BD%B2%E5%9B%BE"><span class="toc-text">6.5. 部署图</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">7. 第五步:完善体系结构设计</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#7-1-%E5%A2%9E%E5%8A%A0%E5%90%AF%E5%8A%A8%E6%A8%A1%E5%9D%97%E5%92%8C%E7%BD%91%E7%BB%9C%E6%A8%A1%E5%9D%97%EF%BC%88%E5%AE%8C%E5%96%84%EF%BC%89"><span class="toc-text">7.1. 增加启动模块和网络模块（完善）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-2-%E7%BB%86%E5%8C%96salesbl%E6%A8%A1%E5%9D%97"><span class="toc-text">7.2. 细化salesbl模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-3-%E7%BB%86%E5%8C%96%E6%95%B0%E6%8D%AE%E5%AE%9A%E4%B9%89"><span class="toc-text">7.3. 细化数据定义</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3-1-Java-%E5%AE%9E%E4%BD%93"><span class="toc-text">7.3.1. Java 实体</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3-2-POJO-Plain-Old-Java-Objects-Simple-Java-Entities"><span class="toc-text">7.3.2. POJO(Plain Old Java Objects)&#x3D; Simple Java Entities</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3-3-Value-Objects-%E9%80%BB%E8%BE%91%E5%B1%82%E5%90%91%E5%B1%95%E7%A4%BA%E5%B1%82%E4%BC%A0%E9%80%92%E6%95%B0%E6%8D%AE"><span class="toc-text">7.3.3. Value Objects(逻辑层向展示层传递数据)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-3-4-%E5%9B%BE%E4%B9%A6%E5%9C%B0%E5%9D%80%E4%B8%9A%E5%8A%A1%E5%AE%9E%E4%BD%93"><span class="toc-text">7.3.4. 图书地址业务实体</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-4-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%B7%B5"><span class="toc-text">7.4. 项目实践</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7-5-%E6%8C%81%E4%B9%85%E5%8C%96%E5%AF%B9%E8%B1%A1-UserPO%E7%9A%84%E7%BB%86%E5%8C%96"><span class="toc-text">7.5. 持久化对象 UserPO的细化</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">8. 第六步:添加构件接口</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#8-1-%E6%9E%84%E4%BB%B6%E5%88%9D%E6%AD%A5%E8%AE%BE%E8%AE%A1"><span class="toc-text">8.1. 构件初步设计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-2-%E7%A1%AE%E5%AE%9A%E6%A8%A1%E5%9D%97%E5%AF%B9%E5%A4%96%E6%8E%A5%E5%8F%A3"><span class="toc-text">8.2. 确定模块对外接口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-3-%E7%BC%96%E5%86%99%E6%8E%A5%E5%8F%A3%E8%A7%84%E8%8C%83"><span class="toc-text">8.3. 编写接口规范</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-4-%E6%8E%A5%E5%8F%A3%E6%80%8E%E4%B9%88%E5%AE%9A%EF%BC%88%E5%BF%85%E8%80%83%E6%A0%B9%E6%8D%AE%E9%9C%80%E6%B1%82%E5%86%99%E6%8E%A5%E5%8F%A3%EF%BC%89"><span class="toc-text">8.4. 接口怎么定（必考根据需求写接口）</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">9. 体系结构的原型构建（以上均为设计）</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#9-1-%E5%8C%85%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="toc-text">9.1. 包的创建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-2-%E9%87%8D%E8%A6%81%E6%96%87%E4%BB%B6%E7%9A%84%E5%88%9B%E5%BB%BA"><span class="toc-text">9.2. 重要文件的创建</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#9-2-1-%E6%96%87%E4%BB%B6%E5%88%97%E8%A1%A8"><span class="toc-text">9.2.1. 文件列表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-3-%E5%AE%9A%E4%B9%89%E6%9E%84%E4%BB%B6%E4%B9%8B%E9%97%B4%E7%9A%84%E6%8E%A5%E5%8F%A3"><span class="toc-text">9.3. 定义构件之间的接口</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-4-%E5%85%B3%E9%94%AE%E9%9C%80%E6%B1%82%E7%9A%84%E5%AE%9E%E7%8E%B0"><span class="toc-text">9.4. 关键需求的实现</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">10. 体系结构集成与测试</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#10-1-%E9%9B%86%E6%88%90%E7%9A%84%E7%AD%96%E7%95%A5"><span class="toc-text">10.1. 集成的策略</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#10-1-1-%E5%A4%A7%E7%88%86%E7%82%B8%E9%9B%86%E6%88%90"><span class="toc-text">10.1.1. 大爆炸集成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-1-2-%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E9%9B%86%E6%88%90"><span class="toc-text">10.1.2. 自顶向下集成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-1-3-%E8%87%AA%E5%BA%95%E5%90%91%E4%B8%8A%E9%9B%86%E6%88%90"><span class="toc-text">10.1.3. 自底向上集成</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-1-4-%E6%8C%81%E7%BB%AD%E9%9B%86%E6%88%90"><span class="toc-text">10.1.4. 持续集成</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-2-%E4%BE%9D%E6%8D%AE%E6%A8%A1%E5%9D%97%E6%8E%A5%E5%8F%A3%E5%BB%BA%E7%AB%8B%E6%A1%A9%E7%A8%8B%E5%BA%8FStub"><span class="toc-text">10.2. 依据模块接口建立桩程序Stub</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-3-%E9%9B%86%E6%88%90%E4%B8%8E%E6%9E%84%E5%BB%BA"><span class="toc-text">10.3. 集成与构建</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-4-%E9%A1%B9%E7%9B%AE%E5%AE%9E%E8%B7%B5"><span class="toc-text">10.4. 项目实践</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">11. 体系结构文档化</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#11-1-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1%E6%96%87%E6%A1%A3%E6%A8%A1%E7%89%88-IEEE1471-2000"><span class="toc-text">11.1. 体系结构设计文档模版 IEEE1471-2000</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">12. 体系结构评审</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#12-1-%E8%AF%84%E5%AE%A1%E7%9A%84%E8%A7%92%E5%BA%A6"><span class="toc-text">12.1. 评审的角度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-2-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E8%AF%84%E5%AE%A1%E7%9A%84%E6%96%B9%E6%B3%95"><span class="toc-text">12.2. 体系结构评审的方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12-3-%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1%E6%96%87%E6%A1%A3%E7%9A%84Checklist"><span class="toc-text">12.3. 软件体系结构设计文档的Checklist</span></a></li></ol></div><div class="widget-footer">
 
 <a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12c0-4.714 0-7.071 1.464-8.536C4.93 2 7.286 2 12 2c4.714 0 7.071 0 8.535 1.464C22 4.93 22 7.286 22 12c0 4.714 0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12Z"/><path stroke-linecap="round" stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M10.46 1.25h3.08c1.603 0 2.86 0 3.864.095c1.023.098 1.861.3 2.6.752a5.75 5.75 0 0 1 1.899 1.899c.452.738.654 1.577.752 2.6c.095 1.004.095 2.261.095 3.865v1.067c0 1.141 0 2.036-.05 2.759c-.05.735-.153 1.347-.388 1.913a5.75 5.75 0 0 1-3.112 3.112c-.805.334-1.721.408-2.977.43a10.81 10.81 0 0 0-.929.036c-.198.022-.275.054-.32.08c-.047.028-.112.078-.224.232c-.121.166-.258.396-.476.764l-.542.916c-.773 1.307-2.69 1.307-3.464 0l-.542-.916a10.605 10.605 0 0 0-.476-.764c-.112-.154-.177-.204-.224-.232c-.045-.026-.122-.058-.32-.08c-.212-.023-.49-.03-.93-.037c-1.255-.021-2.171-.095-2.976-.429A5.75 5.75 0 0 1 1.688 16.2c-.235-.566-.338-1.178-.389-1.913c-.049-.723-.049-1.618-.049-2.76v-1.066c0-1.604 0-2.86.095-3.865c.098-1.023.3-1.862.752-2.6a5.75 5.75 0 0 1 1.899-1.899c.738-.452 1.577-.654 2.6-.752C7.6 1.25 8.857 1.25 10.461 1.25M6.739 2.839c-.914.087-1.495.253-1.959.537A4.25 4.25 0 0 0 3.376 4.78c-.284.464-.45 1.045-.537 1.96c-.088.924-.089 2.11-.089 3.761v1c0 1.175 0 2.019.046 2.685c.045.659.131 1.089.278 1.441a4.25 4.25 0 0 0 2.3 2.3c.515.214 1.173.294 2.429.316h.031c.398.007.747.013 1.037.045c.311.035.616.104.909.274c.29.17.5.395.682.645c.169.232.342.525.538.856l.559.944a.52.52 0 0 0 .882 0l.559-.944c.196-.331.37-.624.538-.856c.182-.25.392-.476.682-.645c.293-.17.598-.24.909-.274c.29-.032.639-.038 1.037-.045h.032c1.255-.022 1.913-.102 2.428-.316a4.25 4.25 0 0 0 2.3-2.3c.147-.352.233-.782.278-1.441c.046-.666.046-1.51.046-2.685v-1c0-1.651 0-2.837-.089-3.762c-.087-.914-.253-1.495-.537-1.959a4.25 4.25 0 0 0-1.403-1.403c-.464-.284-1.045-.45-1.96-.537c-.924-.088-2.11-.089-3.761-.089h-3c-1.651 0-2.837 0-3.762.089" clip-rule="evenodd"/><path fill="currentColor" d="M9 11a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0"/></svg><span>参与讨论</span></a></div></widget>
 </div></aside><div class='float-panel blur'>

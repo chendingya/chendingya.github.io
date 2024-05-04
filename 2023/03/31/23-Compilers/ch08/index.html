@@ -20,16 +20,16 @@
   <title>ch08-parser-allstar - Asimov's Blog</title>
 
   
-    <meta name="description" content="ch08-parser-allstar ANTLR 4 自动将类似 expr 的左递归规则重写成非左递归形式  ANTLR 4 提供优秀的错误报告功能和复杂的错误恢复机制  ANTLR 4 使用了一种名为 Adaptive LL(∗) 的新技术 ANTLR 4 几乎能处理任何文法 (二义性文法✓ 间接左递归✗)  ANTLR 4 如何处理直接左递归与优先级的写在前面就是优先级 antlr4 LRE">
+    <meta name="description" content="ch08-parser-allstar  ANTLR 4 自动将类似 expr 的左递归规则重写成非左递归形式 ANTLR 4 提供优秀的错误报告功能和复杂的错误恢复机制 ANTLR 4 使用了一种名为 Adaptive LL(∗) 的新技术 ANTLR 4 几乎能处理任何文法 (二义性文法✓ 间接左递归✗)  ANTLR 4 如何处理直接左递归与优先级的 写在前面就是优先级 antlr4 LRE">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ch08-parser-allstar">
 <meta property="og:url" content="https://chendingya.github.io/2023/03/31/23-Compilers/ch08/index.html">
 <meta property="og:site_name" content="Asimov&#39;s Blog">
-<meta property="og:description" content="ch08-parser-allstar ANTLR 4 自动将类似 expr 的左递归规则重写成非左递归形式  ANTLR 4 提供优秀的错误报告功能和复杂的错误恢复机制  ANTLR 4 使用了一种名为 Adaptive LL(∗) 的新技术 ANTLR 4 几乎能处理任何文法 (二义性文法✓ 间接左递归✗)  ANTLR 4 如何处理直接左递归与优先级的写在前面就是优先级 antlr4 LRE">
+<meta property="og:description" content="ch08-parser-allstar  ANTLR 4 自动将类似 expr 的左递归规则重写成非左递归形式 ANTLR 4 提供优秀的错误报告功能和复杂的错误恢复机制 ANTLR 4 使用了一种名为 Adaptive LL(∗) 的新技术 ANTLR 4 几乎能处理任何文法 (二义性文法✓ 间接左递归✗)  ANTLR 4 如何处理直接左递归与优先级的 写在前面就是优先级 antlr4 LRE">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://chendingya.github.io/ch08/image-20230412194105648.png">
-<meta property="og:image" content="https://chendingya.github.io/ch08/image-20230412194122240.png">
-<meta property="og:image" content="https://chendingya.github.io/ch08/image-20230412212337814.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/31/23-Compilers/ch08/ch08/image-20230412194105648.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/31/23-Compilers/ch08/ch08/image-20230412194122240.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/31/23-Compilers/ch08/ch08/image-20230412212337814.png">
 <meta property="og:image" content="https://chendingya.github.io/ch08/image-20230412213204400.png">
 <meta property="og:image" content="https://chendingya.github.io/ch08/image-20230412213348701.png">
 <meta property="og:image" content="https://chendingya.github.io/ch08/image-20230413133253765.png">
@@ -58,7 +58,7 @@
 <meta property="article:author" content="Asimov">
 <meta property="article:tag" content="编译原理">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://chendingya.github.io/ch08/image-20230412194105648.png">
+<meta name="twitter:image" content="https://chendingya.github.io/2023/03/31/23-Compilers/ch08/ch08/image-20230412194105648.png">
   
   
   
@@ -91,7 +91,7 @@
 <div class="widgets">
 
 
-<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2024/05/01/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%841/"><span class="title">系统架构1</span></a><a class="item title" href="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/"><span class="title">软件测试-期末复习</span></a><a class="item title" href="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/"><span class="title">机器学习-期末复习</span></a><a class="item title" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/"><span class="title">服务端-ch17-k8s使用</span></a><a class="item title" href="/2023/12/30/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch16-%E5%AE%B9%E5%99%A8%E9%95%9C%E5%83%8F%E6%9E%84%E5%BB%BA%E4%B8%8E%E7%BC%96%E6%8E%92/"><span class="title">服务端-ch16-容器镜像构建与编排</span></a><a class="item title" href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/"><span class="title">服务端-ch15-Docker</span></a><a class="item title" href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/"><span class="title">服务端-ch14-Spring WebFlux</span></a><a class="item title" href="/2023/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch13-%E5%8F%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"><span class="title">服务端-ch13-反应式编程基础</span></a><a class="item title" href="/2023/11/23/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch12-Spring%20Integration/"><span class="title">服务端-ch12-Spring Integration</span></a><a class="item title" href="/2023/11/09/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch11-%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6(ActiveMQ%E3%80%81RabbitMQ)/"><span class="title">服务端-ch11-消息中间件(ActiveMQ、RabbitMQ)</span></a></div></widget>
+<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2024/05/02/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%842/"><span class="title">系统架构2-质量属性Quality Attributes</span></a><a class="item title" href="/2024/05/01/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%841/"><span class="title">系统架构1-Intro</span></a><a class="item title" href="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/"><span class="title">软件测试-期末复习</span></a><a class="item title" href="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/"><span class="title">机器学习-期末复习</span></a><a class="item title" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/"><span class="title">服务端-ch17-k8s使用</span></a><a class="item title" href="/2023/12/30/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch16-%E5%AE%B9%E5%99%A8%E9%95%9C%E5%83%8F%E6%9E%84%E5%BB%BA%E4%B8%8E%E7%BC%96%E6%8E%92/"><span class="title">服务端-ch16-容器镜像构建与编排</span></a><a class="item title" href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/"><span class="title">服务端-ch15-Docker</span></a><a class="item title" href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/"><span class="title">服务端-ch14-Spring WebFlux</span></a><a class="item title" href="/2023/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch13-%E5%8F%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"><span class="title">服务端-ch13-反应式编程基础</span></a><a class="item title" href="/2023/11/23/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch12-Spring%20Integration/"><span class="title">服务端-ch12-Spring Integration</span></a></div></widget>
 </div>
 <footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/chendingya?tab=repositories" target="_blank" rel="external nofollow noopener noreferrer"><img no-lazy src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" / onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a></div></footer>
 </div></aside><div class="l_main" id="main">
@@ -115,36 +115,40 @@
     </div>
     
   </div>
-  </div><article class="md-text content"><h1 id="ch08-parser-allstar"><a href="#ch08-parser-allstar" class="headerlink" title="ch08-parser-allstar"></a>ch08-parser-allstar</h1><ul>
-<li>ANTLR 4 自动将类似 expr 的<strong>左递归规则重写成非左递归形式</strong> </li>
-<li>ANTLR 4 提供<strong>优秀的错误报告功能</strong>和<strong>复杂的错误恢复机制</strong> </li>
+  </div><article class="md-text content"><h1>ch08-parser-allstar</h1>
+<ul>
+<li>ANTLR 4 自动将类似 expr 的<strong>左递归规则重写成非左递归形式</strong></li>
+<li>ANTLR 4 提供<strong>优秀的错误报告功能</strong>和<strong>复杂的错误恢复机制</strong></li>
 <li>ANTLR 4 使用了一种名为 <strong>Adaptive LL(∗)</strong> 的新技术</li>
 <li>ANTLR 4 <strong>几乎能处理任何文法</strong> (<strong>二义性文法✓ 间接左递归✗</strong>)</li>
 </ul>
-<h2 id="ANTLR-4-如何处理直接左递归与优先级的"><a href="#ANTLR-4-如何处理直接左递归与优先级的" class="headerlink" title="ANTLR 4 如何处理直接左递归与优先级的"></a>ANTLR 4 如何处理直接左递归与优先级的</h2><p>写在前面就是优先级</p>
+<h2 id="ANTLR-4-如何处理直接左递归与优先级的">ANTLR 4 如何处理直接左递归与优先级的</h2>
+<p>写在前面就是优先级</p>
 <p>antlr4 LRExpr -Xlog   生成(.log)文件，即可查看直接左递归文法修改后的样子</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/ch08/image-20230412194105648.png" alt="image-20230412194105648"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="ch08/image-20230412194105648.png" alt="image-20230412194105648"></p>
 <p>简化后：把递归改成循环</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/ch08/image-20230412194122240.png" alt="image-20230412194122240"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="ch08/image-20230412194122240.png" alt="image-20230412194122240"></p>
 <p>4、3、5都是优先级</p>
 <p>初始的优先级是倒着从下往上ID: 1、int: 2、expr * ：3、expr +: 4</p>
 <p>每match一次就是往下走一层，优先级就要高</p>
 <p>如果我想要展开加法，优先级就得大于3</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/ch08/image-20230412212337814.png" alt="image-20230412212337814"></p>
-<h3 id="优先级上升算法（期末考试要考，画语法树）"><a href="#优先级上升算法（期末考试要考，画语法树）" class="headerlink" title="优先级上升算法（期末考试要考，画语法树）"></a>优先级上升算法（期末考试要考，画语法树）</h3><p>一旦进入加法，优先级升为4，因为乘法优先级比加法高，希望乘法的展开在加法后面，乘法更加靠近叶子、更深，所以优先级至少要比加法高；同时避免了加法的右结合（例如1 + 2 + 3）</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="ch08/image-20230412212337814.png" alt="image-20230412212337814"></p>
+<h3 id="优先级上升算法（期末考试要考，画语法树）">优先级上升算法（期末考试要考，画语法树）</h3>
+<p>一旦进入加法，优先级升为4，因为乘法优先级比加法高，希望乘法的展开在加法后面，乘法更加靠近叶子、更深，所以优先级至少要比加法高；同时避免了加法的右结合（例如1 + 2 + 3）</p>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/ch08/image-20230412213204400.png" alt="image-20230412213204400"></p>
 <p>当递归指针直到2后面的+，无法展开，所以递归结束，返回到E[0]（E[0]处在while循环，因为发生调用了所以优先处理E[4]），然后匹配+，然后递归调用E[4]，E[4]匹配3，结束返回，结束E[0]循环</p>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/ch08/image-20230412213348701.png" alt="image-20230412213348701"></p>
 <p>实现了左结合，并且优先级上升</p>
 <p><strong>根本问题: 究竟是在 expr 的当前调用中匹配下一个运算符, 还是让 expr 的调用者匹配下一个运算符。</strong></p>
-<h4 id="例子："><a href="#例子：" class="headerlink" title="例子："></a>例子：</h4><p>例子1：</p>
+<h4 id="例子：">例子：</h4>
+<p>例子1：</p>
 <p>1 + 2 * 3</p>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/ch08/image-20230413133253765.png" alt="image-20230413133253765"></p>
 <p>1 * 2 + 3</p>
 <p>但是不是所有左递归优先级都是上升</p>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/ch08/image-20230413133519855.png" alt="image-20230413133519855"></p>
 <ul>
-<li>前置运算符：右结合：  -(-(-x))  </li>
+<li>前置运算符：右结合：  -(-(-x))</li>
 <li>后置运算符：左结合：( ( ( x!)! )! )</li>
 <li><strong>左结合的含义：1 + 2 + 3中 1 + 2 要先展开：调用的优先级参数要上升</strong></li>
 <li><strong>右结合：调用的优先级参数要不变</strong></li>
@@ -153,8 +157,9 @@
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/ch08/image-20230413133608565.png" alt="image-20230413133608565"></p>
 <p>例子2： -a!!</p>
 <ul>
-<li>优先级：<ul>
-<li>- : 4 ;  </li>
+<li>优先级：
+<ul>
+<li>- : 4 ;</li>
 <li>! : 3 ;</li>
 </ul>
 </li>
@@ -172,25 +177,31 @@
 <p>^是右结合，所以展开时调用优先级不变</p>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/ch08/image-20230413134959352.png" alt="image-20230413134959352"></p>
 <ul>
-<li><p>For left-associative operators, the right operand gets one more precedence level than the operator itself</p>
+<li>
+<p>For left-associative operators, the right operand gets one more precedence level than the operator itself</p>
 </li>
-<li><p>For right-associative operators, the right operand gets the same precedence level as the current operand.</p>
+<li>
+<p>For right-associative operators, the right operand gets the same precedence level as the current operand.</p>
 </li>
 </ul>
-<h2 id="ANTLR-4-如何进行错误报告与恢复的"><a href="#ANTLR-4-如何进行错误报告与恢复的" class="headerlink" title="ANTLR 4 如何进行错误报告与恢复的"></a>ANTLR 4 如何进行错误报告与恢复的</h2><h3 id="报错"><a href="#报错" class="headerlink" title="报错"></a>报错</h3><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/ch08/image-20230413135128393.png" alt="image-20230413135128393"></p>
+<h2 id="ANTLR-4-如何进行错误报告与恢复的">ANTLR 4 如何进行错误报告与恢复的</h2>
+<h3 id="报错">报错</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/ch08/image-20230413135128393.png" alt="image-20230413135128393"></p>
 <ul>
 <li>LexerNoViableAltException是词法错误：识别到了一个不在词法规约中的字符</li>
 </ul>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/ch08/image-20230419135522732.png" alt="image-20230419135522732"></p>
 <ul>
-<li>NoViableAltException是文法错误：要对某个非终结符展开的时候，如果有多个备选分支，但是分析后都不能用<ul>
+<li>NoViableAltException是文法错误：要对某个非终结符展开的时候，如果有多个备选分支，但是分析后都不能用
+<ul>
 <li>输入流中的当前词法单元与当前规则所期望的词法单元不匹配</li>
 </ul>
 </li>
 </ul>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/ch08/image-20230419135549559.png" alt="image-20230419135549559"></p>
 <ul>
-<li>InputMismatchException是文法错误：选择了某个备选分支，开始分析时，期望是t这个词法单元，但是指针指向的是a，t !&#x3D; a，想匹配的词法单元不是我想要的<ul>
+<li>InputMismatchException是文法错误：选择了某个备选分支，开始分析时，期望是t这个词法单元，但是指针指向的是a，t != a，想匹配的词法单元不是我想要的
+<ul>
 <li>剩余输入不符合当前规则的任何一个备选分支</li>
 </ul>
 </li>
@@ -199,8 +210,12 @@
 <p>《ANTLR 4 权威指南》第 9.2 节: 修改和转发 ANTLR 的错误消息</p>
 <p>如果想要更加详细的信息：覆写接口方法</p>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/ch08/image-20230421131629488.png" alt="image-20230421131629488"></p>
-<h3 id="恢复"><a href="#恢复" class="headerlink" title="恢复"></a>恢复</h3><h4 id="恐慌-应急-Panic-模式"><a href="#恐慌-应急-Panic-模式" class="headerlink" title="恐慌&#x2F;应急 (Panic) 模式:"></a>恐慌&#x2F;应急 (Panic) 模式:</h4><p>假装成功、调整状态、继续进行</p>
-<h4 id="四项基本原则"><a href="#四项基本原则" class="headerlink" title="四项基本原则:"></a>四项基本原则:</h4><h5 id="1-特殊情况-特殊处理"><a href="#1-特殊情况-特殊处理" class="headerlink" title="(1) 特殊情况, 特殊处理"></a>(1) 特殊情况, 特殊处理</h5><p>如果下一个词法单元符合预期, 则采用 <strong>“单词法符号移除 (single-token deletion)”</strong> 或 <strong>“单词法符号补全 (single-token insertion)” 策略”</strong></p>
+<h3 id="恢复">恢复</h3>
+<h4 id="恐慌-应急-Panic-模式">恐慌/应急 (Panic) 模式:</h4>
+<p>假装成功、调整状态、继续进行</p>
+<h4 id="四项基本原则">四项基本原则:</h4>
+<h5 id="1-特殊情况-特殊处理">(1) 特殊情况, 特殊处理</h5>
+<p>如果下一个词法单元符合预期, 则采用 <strong>“单词法符号移除 (single-token deletion)”</strong> 或 <strong>“单词法符号补全 (single-token insertion)” 策略”</strong></p>
 <ul>
 <li>单词法符号移除</li>
 </ul>
@@ -213,56 +228,62 @@
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/ch08/image-20230419135849798.png" alt="image-20230419135849798"></p>
 <p>符号补全：缺一个类名，补全</p>
 <p><strong>单词法：只处理一个单词的情况</strong></p>
-<h5 id="2-一般情况-统一处理"><a href="#2-一般情况-统一处理" class="headerlink" title="(2) 一般情况, 统一处理"></a>(2) 一般情况, 统一处理</h5><p>采用 <strong>“同步-返回 (sync-and-return)”</strong> 策略, 使用 <strong>“重新同步集合 (resynchronization set)”</strong> 从当前规则中恢复</p>
+<h5 id="2-一般情况-统一处理">(2) 一般情况, 统一处理</h5>
+<p>采用 <strong>“同步-返回 (sync-and-return)”</strong> 策略, 使用 <strong>“重新同步集合 (resynchronization set)”</strong> 从当前规则中恢复</p>
 <p>例子：</p>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/ch08/image-20230419153244753.png" alt="image-20230419153244753"></p>
-<p>Following({expr, atom}) &#x3D; { ˆ , ]} </p>
+<p>Following({expr, atom}) = { ˆ , ]}</p>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/ch08/image-20230419153252803.png" alt="image-20230419153252803"></p>
-<p>Following({expr}) &#x3D; {]}</p>
+<p>Following({expr}) = {]}</p>
 <p>输入为一对中括号[]：</p>
 <ul>
 <li>ANTLR4能识别，并且补全中间缺少的应该有的内容</li>
 <li>正常匹配expr和atom：因为没有别的可选项</li>
 <li>int与]不匹配，持续往后扫描，<strong>抛弃一些符号，直到找到一个想要的词法单元</strong>：<strong>即following({expr, atom})集合</strong>，要么是^要么是]，找到了就表明可以恢复</li>
 <li>这个例子没有抛弃任何符号</li>
-<li>从atom恢复到expr这一层，下面期望^，但指向的符号是]，所以<strong>扔一些词法单元，直到找到following({expr})&#x3D;&#x3D; {]}</strong></li>
+<li>从atom恢复到expr这一层，下面期望^，但指向的符号是]，所以<strong>扔一些词法单元，直到找到following({expr})== {]}</strong></li>
 <li>这一层也没有抛弃任何词法单元</li>
 <li>从expr恢复到group，group需要]，匹配上了，完成恢复过程</li>
 <li>恢复：当前符号不是我想要的，哪些符号是我想要的：假设能够匹配成功atom，期望一个幂运算的符号^，假设能够匹配成功expr，期望一个]或)（ 但是‘)’是不可能的，因为前面已经匹配成功‘]’，已经选定了第一条规则 ），这时候正好下一个字符是]，于是匹配掉了，后面的内容就可以正常匹配了</li>
 <li><strong>恢复是一层一层完成的</strong></li>
-<li>蚂蚁蚂蚁的恢复解释：丢弃词法单元直到碰到当前 Following 集合中的某个词法单元，然后从当前规则中恢复，也就是返回上一层，继续分析。比如，在 <code>【】</code> 例子中，atom 期望 INT&#x2F;ID，与 ] 不匹配，则不断丢弃输入中的词法单元，直到遇到 ^ 或者 ]。对于这个例子，恰巧当前词法单元就是 ]，所以并没有丢弃任何词法单元，就能从 atom 中恢复，返回到 expr 层。expr 期望看到 ^，与 ] 也不匹配，则不断丢弃词法单元直到遇到 ]。这里同样也没有丢弃任何词法单元，就能从 expr 中恢复，返回到 group 层。group 期望看到 ]，与当前词法单元匹配，成功恢复。</li>
+<li>蚂蚁蚂蚁的恢复解释：丢弃词法单元直到碰到当前 Following 集合中的某个词法单元，然后从当前规则中恢复，也就是返回上一层，继续分析。比如，在 <code>【】</code> 例子中，atom 期望 INT/ID，与 ] 不匹配，则不断丢弃输入中的词法单元，直到遇到 ^ 或者 ]。对于这个例子，恰巧当前词法单元就是 ]，所以并没有丢弃任何词法单元，就能从 atom 中恢复，返回到 expr 层。expr 期望看到 ^，与 ] 也不匹配，则不断丢弃词法单元直到遇到 ]。这里同样也没有丢弃任何词法单元，就能从 expr 中恢复，返回到 group 层。group 期望看到 ]，与当前词法单元匹配，成功恢复。</li>
 </ul>
 <p>Follow (静态) 集合与 Following (动态) 集合的区别：</p>
 <ul>
 <li>这是一个正在进行时的集合</li>
 <li>就当前来看，一定是选择了某个备选分支才到现在，所以是动态的概念</li>
 </ul>
-<h5 id="3-统一处理-精细控制"><a href="#3-统一处理-精细控制" class="headerlink" title="(3) 统一处理, 精细控制"></a>(3) 统一处理, 精细控制</h5><p>如何从子规则中优雅地恢复出来?</p>
+<h5 id="3-统一处理-精细控制">(3) 统一处理, 精细控制</h5>
+<p>如何从子规则中优雅地恢复出来?</p>
 <p>如果循环出错：跳过当前的（即continue），但是继续循环</p>
-<p>Class-Subrule-Start.txt <strong>(“单词法符号移除</strong>”) </p>
-<p>Class-Subrule-Loop.txt (<strong>“另一次 member 迭代”</strong>) </p>
+<p>Class-Subrule-Start.txt <strong>(“单词法符号移除</strong>”)</p>
+<p>Class-Subrule-Loop.txt (<strong>“另一次 member 迭代”</strong>)</p>
 <p>Class-Subrule-End.txt (<strong>“退出当前 classDef 规则”</strong>)</p>
 <p>具体实现不讲，可以自行阅读代码</p>
-<h5 id="4-自定义错误处理策略"><a href="#4-自定义错误处理策略" class="headerlink" title="(4) 自定义错误处理策略"></a>(4) 自定义错误处理策略</h5><ul>
-<li>比如, (已知语法正确) 关闭默认错误处理功能, 提高运行效率  </li>
+<h5 id="4-自定义错误处理策略">(4) 自定义错误处理策略</h5>
+<ul>
+<li>比如, (已知语法正确) 关闭默认错误处理功能, 提高运行效率</li>
 <li>比如, (出错代价太大) 在遇到第一个语法错误时, 就停止分析</li>
 </ul>
 <p>第 9 章: 错误报告与恢复：有点乱</p>
-<h3 id="ALL-文法"><a href="#ALL-文法" class="headerlink" title="ALL(*)文法"></a>ALL(*)文法</h3><p>例子1：</p>
+<h3 id="ALL-文法">ALL(*)文法</h3>
+<p>例子1：</p>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/ch08/image-20230421182649302.png" alt="image-20230421182649302"></p>
 <p>这不是 LL(1) 文法，也不是 LL(k) 文法 (∀k ≥ 1)</p>
 <p>对任意可能输入，这是一个LL(*)文法，因为没有办法通过向前看一个固定数量（常数）的字符来确定选用哪个展开式，即LL(K)</p>
 <p>但是ANTLR4能解决，因为和输入有关，是动态的视角，只根据当前的字符串</p>
 <p>bc或者bd选择哪一个生成式：</p>
 <p>bc选第一条，因为c只能由第一条产生</p>
-<h3 id="文法用图示表示：增强迁移网络ATN"><a href="#文法用图示表示：增强迁移网络ATN" class="headerlink" title="文法用图示表示：增强迁移网络ATN"></a>文法用图示表示：增强迁移网络ATN</h3><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/ch08/image-20230421184118231.png" alt="image-20230421184118231"></p>
+<h3 id="文法用图示表示：增强迁移网络ATN">文法用图示表示：增强迁移网络ATN</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/ch08/image-20230421184118231.png" alt="image-20230421184118231"></p>
 <ul>
 <li>起始状态：Ps</li>
 <li>接受状态：P’s</li>
 <li>如果A和c都能匹配，说明第一条备选分支能被选择</li>
 <li><strong>因为A不是终结符，所以A也有ATN</strong></li>
 <li><strong>Incrementally and dynamically</strong> build up a <strong>lookahead DFA</strong> that <strong>map lookahead phrases to predicated productions</strong>.</li>
-<li>ANTLR4识别文本的时候，是在增量式的、动态式的构建一个DFA，叫向前看DFA<ul>
+<li>ANTLR4识别文本的时候，是在增量式的、动态式的构建一个DFA，叫向前看DFA
+<ul>
 <li>为每个非终结符都构建一个向前看DFA</li>
 </ul>
 </li>
@@ -271,28 +292,32 @@
 <p>状态转移是由输入字符驱动的</p>
 <p>向前看DFA的<strong>作用</strong>，把当前输入的前缀（够判断使用哪一条展开式的前缀）映射到对应的备选分支上，如果前两个字符为bc，就选第一条，前两个字符为bd，就选第二条</p>
 <p>构建完DFA后，就跟LL(1)一样了</p>
-<h4 id="向前看DFA核心思想"><a href="#向前看DFA核心思想" class="headerlink" title="向前看DFA核心思想"></a>向前看DFA核心思想</h4><p>▶ Launch subparsers at a decision point, one per alternative productions. </p>
-<p>▶ These subparsers run in pseudo-parallel to explore all possible paths. </p>
-<p>▶ Subparsers die off as their paths fail to match the remaining input. </p>
-<p>▶ Ambiguity: Multiple subparsers coalesce together or reach EOF. </p>
+<h4 id="向前看DFA核心思想">向前看DFA核心思想</h4>
+<p>▶ Launch subparsers at a decision point, one per alternative productions.</p>
+<p>▶ These subparsers run in pseudo-parallel to explore all possible paths.</p>
+<p>▶ Subparsers die off as their paths fail to match the remaining input.</p>
+<p>▶ Ambiguity: Multiple subparsers coalesce together or reach EOF.</p>
 <p>▶ Resolution: The first production associated with a surviving subparser.</p>
 <ul>
 <li>多个分析器同时探测多个备选分支</li>
 <li>同步：输入1个词法，各个分析器调整自己的状态，循环</li>
 <li>死亡：如果探测器期望的词法单元和当前的词法单元不匹配，分析不下去了，分支就die了</li>
-<li>有歧义：<ul>
+<li>有歧义：
+<ul>
 <li>如果有多条分析器在分支上都走到了输入被消耗完的情况，意味着，根据当前的输入无法决定使用哪个备选分支，即<strong>有歧义</strong></li>
 <li><strong>有歧义</strong>的另一种情况：如果多条分支在分析某个input的时候，走到了同一个状态，接下来路径也必定一样，意味着当前输入也无法确定到底是哪个</li>
 </ul>
 </li>
 <li>正常的情况：有且仅有一条路径成功活到某个节点，即选择这个分支</li>
 </ul>
-<h4 id="例子讲解"><a href="#例子讲解" class="headerlink" title="例子讲解"></a>例子讲解</h4><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/ch08/image-20230421195857108.png" alt="image-20230421195857108"></p>
+<h4 id="例子讲解">例子讲解</h4>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/ch08/image-20230421195857108.png" alt="image-20230421195857108"></p>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/ch08/image-20230421184717974.png" alt="image-20230421184717974"></p>
 <p>以bc和bd为输入</p>
 <p>展开S非终结符</p>
 <ul>
-<li>D0：三元组：第一个分量是所处状态的符号，第二个分量表示正在探索第几条分支<ul>
+<li>D0：三元组：第一个分量是所处状态的符号，第二个分量表示正在探索第几条分支
+<ul>
 <li>一些状态是等价的、无法区分的：A是非终结符，展开S，等价于展开A：S可能生成哪些橘子取决于A能展开成哪些词法单元，S依赖于A，所以ps和Pa无法分开，因为Pa和Pa.1和Pa.2无法分开，所以这四个状态相同</li>
 <li>p1和p3和null：p1：A的递归调用结束后返回的指针</li>
 </ul>
@@ -323,14 +348,15 @@
 
 
 
-<footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">Asimov</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.28.1">Stellar 1.28.1</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">Asimov</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.28.1">Stellar 1.28.1</a> 主题创建。<br>
+本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
 </div></footer>
 <div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
 <div class="widgets">
 
 
 
-<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ch08-parser-allstar"><span class="toc-text">ch08-parser-allstar</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ANTLR-4-%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86%E7%9B%B4%E6%8E%A5%E5%B7%A6%E9%80%92%E5%BD%92%E4%B8%8E%E4%BC%98%E5%85%88%E7%BA%A7%E7%9A%84"><span class="toc-text">ANTLR 4 如何处理直接左递归与优先级的</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%98%E5%85%88%E7%BA%A7%E4%B8%8A%E5%8D%87%E7%AE%97%E6%B3%95%EF%BC%88%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%E8%A6%81%E8%80%83%EF%BC%8C%E7%94%BB%E8%AF%AD%E6%B3%95%E6%A0%91%EF%BC%89"><span class="toc-text">优先级上升算法（期末考试要考，画语法树）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90%EF%BC%9A"><span class="toc-text">例子：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ANTLR-4-%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E9%94%99%E8%AF%AF%E6%8A%A5%E5%91%8A%E4%B8%8E%E6%81%A2%E5%A4%8D%E7%9A%84"><span class="toc-text">ANTLR 4 如何进行错误报告与恢复的</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%A5%E9%94%99"><span class="toc-text">报错</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%81%A2%E5%A4%8D"><span class="toc-text">恢复</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%81%90%E6%85%8C-%E5%BA%94%E6%80%A5-Panic-%E6%A8%A1%E5%BC%8F"><span class="toc-text">恐慌&#x2F;应急 (Panic) 模式:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%9B%E9%A1%B9%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99"><span class="toc-text">四项基本原则:</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E7%89%B9%E6%AE%8A%E6%83%85%E5%86%B5-%E7%89%B9%E6%AE%8A%E5%A4%84%E7%90%86"><span class="toc-text">(1) 特殊情况, 特殊处理</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E4%B8%80%E8%88%AC%E6%83%85%E5%86%B5-%E7%BB%9F%E4%B8%80%E5%A4%84%E7%90%86"><span class="toc-text">(2) 一般情况, 统一处理</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E7%BB%9F%E4%B8%80%E5%A4%84%E7%90%86-%E7%B2%BE%E7%BB%86%E6%8E%A7%E5%88%B6"><span class="toc-text">(3) 统一处理, 精细控制</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-%E8%87%AA%E5%AE%9A%E4%B9%89%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E7%AD%96%E7%95%A5"><span class="toc-text">(4) 自定义错误处理策略</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ALL-%E6%96%87%E6%B3%95"><span class="toc-text">ALL(*)文法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E6%B3%95%E7%94%A8%E5%9B%BE%E7%A4%BA%E8%A1%A8%E7%A4%BA%EF%BC%9A%E5%A2%9E%E5%BC%BA%E8%BF%81%E7%A7%BB%E7%BD%91%E7%BB%9CATN"><span class="toc-text">文法用图示表示：增强迁移网络ATN</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%91%E5%89%8D%E7%9C%8BDFA%E6%A0%B8%E5%BF%83%E6%80%9D%E6%83%B3"><span class="toc-text">向前看DFA核心思想</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90%E8%AE%B2%E8%A7%A3"><span class="toc-text">例子讲解</span></a></li></ol></li></ol></li></ol></li></ol></div><div class="widget-footer">
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">ch08-parser-allstar</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#ANTLR-4-%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86%E7%9B%B4%E6%8E%A5%E5%B7%A6%E9%80%92%E5%BD%92%E4%B8%8E%E4%BC%98%E5%85%88%E7%BA%A7%E7%9A%84"><span class="toc-text">ANTLR 4 如何处理直接左递归与优先级的</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%98%E5%85%88%E7%BA%A7%E4%B8%8A%E5%8D%87%E7%AE%97%E6%B3%95%EF%BC%88%E6%9C%9F%E6%9C%AB%E8%80%83%E8%AF%95%E8%A6%81%E8%80%83%EF%BC%8C%E7%94%BB%E8%AF%AD%E6%B3%95%E6%A0%91%EF%BC%89"><span class="toc-text">优先级上升算法（期末考试要考，画语法树）</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90%EF%BC%9A"><span class="toc-text">例子：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ANTLR-4-%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E9%94%99%E8%AF%AF%E6%8A%A5%E5%91%8A%E4%B8%8E%E6%81%A2%E5%A4%8D%E7%9A%84"><span class="toc-text">ANTLR 4 如何进行错误报告与恢复的</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%A5%E9%94%99"><span class="toc-text">报错</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%81%A2%E5%A4%8D"><span class="toc-text">恢复</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%81%90%E6%85%8C-%E5%BA%94%E6%80%A5-Panic-%E6%A8%A1%E5%BC%8F"><span class="toc-text">恐慌&#x2F;应急 (Panic) 模式:</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%9B%E9%A1%B9%E5%9F%BA%E6%9C%AC%E5%8E%9F%E5%88%99"><span class="toc-text">四项基本原则:</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-%E7%89%B9%E6%AE%8A%E6%83%85%E5%86%B5-%E7%89%B9%E6%AE%8A%E5%A4%84%E7%90%86"><span class="toc-text">(1) 特殊情况, 特殊处理</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-%E4%B8%80%E8%88%AC%E6%83%85%E5%86%B5-%E7%BB%9F%E4%B8%80%E5%A4%84%E7%90%86"><span class="toc-text">(2) 一般情况, 统一处理</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#3-%E7%BB%9F%E4%B8%80%E5%A4%84%E7%90%86-%E7%B2%BE%E7%BB%86%E6%8E%A7%E5%88%B6"><span class="toc-text">(3) 统一处理, 精细控制</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-%E8%87%AA%E5%AE%9A%E4%B9%89%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86%E7%AD%96%E7%95%A5"><span class="toc-text">(4) 自定义错误处理策略</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ALL-%E6%96%87%E6%B3%95"><span class="toc-text">ALL(*)文法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%87%E6%B3%95%E7%94%A8%E5%9B%BE%E7%A4%BA%E8%A1%A8%E7%A4%BA%EF%BC%9A%E5%A2%9E%E5%BC%BA%E8%BF%81%E7%A7%BB%E7%BD%91%E7%BB%9CATN"><span class="toc-text">文法用图示表示：增强迁移网络ATN</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%91%E5%89%8D%E7%9C%8BDFA%E6%A0%B8%E5%BF%83%E6%80%9D%E6%83%B3"><span class="toc-text">向前看DFA核心思想</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90%E8%AE%B2%E8%A7%A3"><span class="toc-text">例子讲解</span></a></li></ol></li></ol></li></ol></li></ol></div><div class="widget-footer">
 
 <a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12c0-4.714 0-7.071 1.464-8.536C4.93 2 7.286 2 12 2c4.714 0 7.071 0 8.535 1.464C22 4.93 22 7.286 22 12c0 4.714 0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12Z"/><path stroke-linecap="round" stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M10.46 1.25h3.08c1.603 0 2.86 0 3.864.095c1.023.098 1.861.3 2.6.752a5.75 5.75 0 0 1 1.899 1.899c.452.738.654 1.577.752 2.6c.095 1.004.095 2.261.095 3.865v1.067c0 1.141 0 2.036-.05 2.759c-.05.735-.153 1.347-.388 1.913a5.75 5.75 0 0 1-3.112 3.112c-.805.334-1.721.408-2.977.43a10.81 10.81 0 0 0-.929.036c-.198.022-.275.054-.32.08c-.047.028-.112.078-.224.232c-.121.166-.258.396-.476.764l-.542.916c-.773 1.307-2.69 1.307-3.464 0l-.542-.916a10.605 10.605 0 0 0-.476-.764c-.112-.154-.177-.204-.224-.232c-.045-.026-.122-.058-.32-.08c-.212-.023-.49-.03-.93-.037c-1.255-.021-2.171-.095-2.976-.429A5.75 5.75 0 0 1 1.688 16.2c-.235-.566-.338-1.178-.389-1.913c-.049-.723-.049-1.618-.049-2.76v-1.066c0-1.604 0-2.86.095-3.865c.098-1.023.3-1.862.752-2.6a5.75 5.75 0 0 1 1.899-1.899c.738-.452 1.577-.654 2.6-.752C7.6 1.25 8.857 1.25 10.461 1.25M6.739 2.839c-.914.087-1.495.253-1.959.537A4.25 4.25 0 0 0 3.376 4.78c-.284.464-.45 1.045-.537 1.96c-.088.924-.089 2.11-.089 3.761v1c0 1.175 0 2.019.046 2.685c.045.659.131 1.089.278 1.441a4.25 4.25 0 0 0 2.3 2.3c.515.214 1.173.294 2.429.316h.031c.398.007.747.013 1.037.045c.311.035.616.104.909.274c.29.17.5.395.682.645c.169.232.342.525.538.856l.559.944a.52.52 0 0 0 .882 0l.559-.944c.196-.331.37-.624.538-.856c.182-.25.392-.476.682-.645c.293-.17.598-.24.909-.274c.29-.032.639-.038 1.037-.045h.032c1.255-.022 1.913-.102 2.428-.316a4.25 4.25 0 0 0 2.3-2.3c.147-.352.233-.782.278-1.441c.046-.666.046-1.51.046-2.685v-1c0-1.651 0-2.837-.089-3.762c-.087-.914-.253-1.495-.537-1.959a4.25 4.25 0 0 0-1.403-1.403c-.464-.284-1.045-.45-1.96-.537c-.924-.088-2.11-.089-3.761-.089h-3c-1.651 0-2.837 0-3.762.089" clip-rule="evenodd"/><path fill="currentColor" d="M9 11a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0"/></svg><span>参与讨论</span></a></div></widget>
 </div></aside><div class='float-panel blur'>

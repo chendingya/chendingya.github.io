@@ -20,32 +20,32 @@
   <title>SE-II-ch16-设计模式 - Asimov's Blog</title>
 
   
-    <meta name="description" content="16-设计模式   1. 可修改性及其基本实现机制 1.1. 如何实现可修改性？ 重要 1.2. 如何将接口与实现的分离 – Java视角 1.3. 实现接口(interface) 1.4. 类图中的标志物的含义 1.5. 类图与依赖关系 1.6. 继承 1.7. 类图与依赖关系 1.8. 实现的可修改性 1.8.1. 扩展   1.9. 实现的可扩展性 1.10. 实现的灵活性 1.11. 继承">
+    <meta name="description" content="16-设计模式   1. 可修改性及其基本实现机制  1.1. 如何实现可修改性？ 重要 1.2. 如何将接口与实现的分离 – Java视角 1.3. 实现接口(interface) 1.4. 类图中的标志物的含义 1.5. 类图与依赖关系 1.6. 继承 1.7. 类图与依赖关系 1.8. 实现的可修改性  1.8.1. 扩展   1.9. 实现的可扩展性 1.10. 实现的灵活性 1.11.">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SE-II-ch16-设计模式">
 <meta property="og:url" content="https://chendingya.github.io/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/16-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/index.html">
 <meta property="og:site_name" content="Asimov&#39;s Blog">
-<meta property="og:description" content="16-设计模式   1. 可修改性及其基本实现机制 1.1. 如何实现可修改性？ 重要 1.2. 如何将接口与实现的分离 – Java视角 1.3. 实现接口(interface) 1.4. 类图中的标志物的含义 1.5. 类图与依赖关系 1.6. 继承 1.7. 类图与依赖关系 1.8. 实现的可修改性 1.8.1. 扩展   1.9. 实现的可扩展性 1.10. 实现的灵活性 1.11. 继承">
+<meta property="og:description" content="16-设计模式   1. 可修改性及其基本实现机制  1.1. 如何实现可修改性？ 重要 1.2. 如何将接口与实现的分离 – Java视角 1.3. 实现接口(interface) 1.4. 类图中的标志物的含义 1.5. 类图与依赖关系 1.6. 继承 1.7. 类图与依赖关系 1.8. 实现的可修改性  1.8.1. 扩展   1.9. 实现的可扩展性 1.10. 实现的灵活性 1.11.">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="c:\Users\wbl\AppData\Roaming\Typora\typora-user-images\image-20220619093044579.png">
+<meta property="og:image" content="c:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220619093044579.png">
 <meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt16/1.png">
 <meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt16/2.png">
 <meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt16/3.png">
 <meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt16/4.png">
 <meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt16/5.png">
 <meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt16/7.png">
-<meta property="og:image" content="c:\Users\wbl\AppData\Roaming\Typora\typora-user-images\image-20220523151109269.png">
-<meta property="og:image" content="c:\Users\wbl\AppData\Roaming\Typora\typora-user-images\image-20220523155305878.png">
-<meta property="og:image" content="c:\Users\wbl\AppData\Roaming\Typora\typora-user-images\image-20220523155323993.png">
-<meta property="og:image" content="c:\Users\wbl\AppData\Roaming\Typora\typora-user-images\image-20220619100247892.png">
-<meta property="og:image" content="c:\Users\wbl\AppData\Roaming\Typora\typora-user-images\image-20220523164747159.png">
-<meta property="og:image" content="c:\Users\wbl\AppData\Roaming\Typora\typora-user-images\image-20220523170743369.png">
+<meta property="og:image" content="c:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220523151109269.png">
+<meta property="og:image" content="c:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220523155305878.png">
+<meta property="og:image" content="c:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220523155323993.png">
+<meta property="og:image" content="c:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220619100247892.png">
+<meta property="og:image" content="c:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220523164747159.png">
+<meta property="og:image" content="c:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220523170743369.png">
 <meta property="article:published_time" content="2022-06-18T08:02:34.000Z">
 <meta property="article:modified_time" content="2023-09-17T07:52:34.980Z">
 <meta property="article:author" content="Asimov">
 <meta property="article:tag" content="软件工程与计算II">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="c:\Users\wbl\AppData\Roaming\Typora\typora-user-images\image-20220619093044579.png">
+<meta name="twitter:image" content="c:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220619093044579.png">
   
   
   
@@ -78,7 +78,7 @@
 <div class="widgets">
 
 
-<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2024/05/01/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%841/"><span class="title">系统架构1</span></a><a class="item title" href="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/"><span class="title">软件测试-期末复习</span></a><a class="item title" href="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/"><span class="title">机器学习-期末复习</span></a><a class="item title" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/"><span class="title">服务端-ch17-k8s使用</span></a><a class="item title" href="/2023/12/30/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch16-%E5%AE%B9%E5%99%A8%E9%95%9C%E5%83%8F%E6%9E%84%E5%BB%BA%E4%B8%8E%E7%BC%96%E6%8E%92/"><span class="title">服务端-ch16-容器镜像构建与编排</span></a><a class="item title" href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/"><span class="title">服务端-ch15-Docker</span></a><a class="item title" href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/"><span class="title">服务端-ch14-Spring WebFlux</span></a><a class="item title" href="/2023/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch13-%E5%8F%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"><span class="title">服务端-ch13-反应式编程基础</span></a><a class="item title" href="/2023/11/23/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch12-Spring%20Integration/"><span class="title">服务端-ch12-Spring Integration</span></a><a class="item title" href="/2023/11/09/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch11-%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6(ActiveMQ%E3%80%81RabbitMQ)/"><span class="title">服务端-ch11-消息中间件(ActiveMQ、RabbitMQ)</span></a></div></widget>
+<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2024/05/02/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%842/"><span class="title">系统架构2-质量属性Quality Attributes</span></a><a class="item title" href="/2024/05/01/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%841/"><span class="title">系统架构1-Intro</span></a><a class="item title" href="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/"><span class="title">软件测试-期末复习</span></a><a class="item title" href="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/"><span class="title">机器学习-期末复习</span></a><a class="item title" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/"><span class="title">服务端-ch17-k8s使用</span></a><a class="item title" href="/2023/12/30/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch16-%E5%AE%B9%E5%99%A8%E9%95%9C%E5%83%8F%E6%9E%84%E5%BB%BA%E4%B8%8E%E7%BC%96%E6%8E%92/"><span class="title">服务端-ch16-容器镜像构建与编排</span></a><a class="item title" href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/"><span class="title">服务端-ch15-Docker</span></a><a class="item title" href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/"><span class="title">服务端-ch14-Spring WebFlux</span></a><a class="item title" href="/2023/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch13-%E5%8F%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"><span class="title">服务端-ch13-反应式编程基础</span></a><a class="item title" href="/2023/11/23/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch12-Spring%20Integration/"><span class="title">服务端-ch12-Spring Integration</span></a></div></widget>
 </div>
 <footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/chendingya?tab=repositories" target="_blank" rel="external nofollow noopener noreferrer"><img no-lazy src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" / onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a></div></footer>
 </div></aside><div class="l_main" id="main">
@@ -102,10 +102,11 @@
     </div>
     
   </div>
-  </div><article class="md-text content"><h2 id="16-设计模式"><a href="#16-设计模式" class="headerlink" title="16-设计模式"></a>16-设计模式</h2><!-- TOC -->
-
+  </div><article class="md-text content"><h2 id="16-设计模式">16-设计模式</h2>
+<!-- TOC -->
 <ul>
-<li><a href="#1-%E5%8F%AF%E4%BF%AE%E6%94%B9%E6%80%A7%E5%8F%8A%E5%85%B6%E5%9F%BA%E6%9C%AC%E5%AE%9E%E7%8E%B0%E6%9C%BA%E5%88%B6">1. 可修改性及其基本实现机制</a><ul>
+<li><a href="#1-%E5%8F%AF%E4%BF%AE%E6%94%B9%E6%80%A7%E5%8F%8A%E5%85%B6%E5%9F%BA%E6%9C%AC%E5%AE%9E%E7%8E%B0%E6%9C%BA%E5%88%B6">1. 可修改性及其基本实现机制</a>
+<ul>
 <li><a href="#11-%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%8F%AF%E4%BF%AE%E6%94%B9%E6%80%A7-%E9%87%8D%E8%A6%81">1.1. 如何实现可修改性？ 重要</a></li>
 <li><a href="#12-%E5%A6%82%E4%BD%95%E5%B0%86%E6%8E%A5%E5%8F%A3%E4%B8%8E%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%88%86%E7%A6%BB----java%E8%A7%86%E8%A7%92">1.2. 如何将接口与实现的分离 – Java视角</a></li>
 <li><a href="#13-%E5%AE%9E%E7%8E%B0%E6%8E%A5%E5%8F%A3interface">1.3. 实现接口(interface)</a></li>
@@ -113,7 +114,8 @@
 <li><a href="#15-%E7%B1%BB%E5%9B%BE%E4%B8%8E%E4%BE%9D%E8%B5%96%E5%85%B3%E7%B3%BB">1.5. 类图与依赖关系</a></li>
 <li><a href="#16-%E7%BB%A7%E6%89%BF">1.6. 继承</a></li>
 <li><a href="#17-%E7%B1%BB%E5%9B%BE%E4%B8%8E%E4%BE%9D%E8%B5%96%E5%85%B3%E7%B3%BB">1.7. 类图与依赖关系</a></li>
-<li><a href="#18-%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%8F%AF%E4%BF%AE%E6%94%B9%E6%80%A7">1.8. 实现的可修改性</a><ul>
+<li><a href="#18-%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%8F%AF%E4%BF%AE%E6%94%B9%E6%80%A7">1.8. 实现的可修改性</a>
+<ul>
 <li><a href="#181-%E6%89%A9%E5%B1%95">1.8.1. 扩展</a></li>
 </ul>
 </li>
@@ -121,13 +123,15 @@
 <li><a href="#110-%E5%AE%9E%E7%8E%B0%E7%9A%84%E7%81%B5%E6%B4%BB%E6%80%A7">1.10. 实现的灵活性</a></li>
 <li><a href="#111-%E7%BB%A7%E6%89%BF%E7%9A%84%E4%BC%98%E7%82%B9">1.11. 继承的优点</a></li>
 <li><a href="#112-%E7%BB%A7%E6%89%BF%E7%9A%84%E7%BC%BA%E7%82%B9">1.12. 继承的缺点</a></li>
-<li><a href="#113-%E7%BB%84%E5%90%88">1.13. 组合</a><ul>
+<li><a href="#113-%E7%BB%84%E5%90%88">1.13. 组合</a>
+<ul>
 <li><a href="#1131-%E7%BB%84%E5%90%88%E7%9A%84%E4%BC%98%E7%82%B9">1.13.1. 组合的优点</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#2-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">2. 设计模式</a><ul>
+<li><a href="#2-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">2. 设计模式</a>
+<ul>
 <li><a href="#21-why%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">2.1. Why？为什么使用设计模式</a></li>
 <li><a href="#22-%E4%BB%80%E4%B9%88%E6%98%AF%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">2.2. 什么是设计模式</a></li>
 <li><a href="#23-%E6%A8%A1%E5%BC%8F">2.3. 模式</a></li>
@@ -139,40 +143,47 @@
 <li><a href="#5-%E9%A2%98%E7%9B%AE">5. 题目</a></li>
 </ul>
 <!-- /TOC -->
-
 <p>设计模式是设计经验的总结。</p>
-<p>本章只是介绍《设计模式》中最为简单、常用的几种设计模式，它们都是用来<strong>提高系统可修改性的。</strong> </p>
-<h1 id="1-可修改性及其基本实现机制"><a href="#1-可修改性及其基本实现机制" class="headerlink" title="1. 可修改性及其基本实现机制"></a>1. 可修改性及其基本实现机制</h1><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="C:\Users\wbl\AppData\Roaming\Typora\typora-user-images\image-20220619093044579.png" alt="image-20220619093044579"></p>
+<p>本章只是介绍《设计模式》中最为简单、常用的几种设计模式，它们都是用来<strong>提高系统可修改性的。</strong></p>
+<h1>1. 可修改性及其基本实现机制</h1>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="C:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220619093044579.png" alt="image-20220619093044579"></p>
 <ol>
-<li>实现的<strong>可修改性</strong>:涉及到大的场景的修改<ol>
+<li>实现的<strong>可修改性</strong>:涉及到大的场景的修改
+<ol>
 <li>对已有实现的修改</li>
 <li>使用接口与实现分离即可实现可修改性，对实现作修改，不影响client类</li>
 </ol>
 </li>
-<li>实现的<strong>可扩展性</strong>(DIP &amp; OCP)<ol>
+<li>实现的<strong>可扩展性</strong>(DIP &amp; OCP)
+<ol>
 <li>对新的实现的扩展</li>
 <li>使用接口与实现分离即可实现可拓展性，增加一个新的类即可</li>
 </ol>
 </li>
-<li>实现的<strong>灵活性</strong><ol>
+<li>实现的<strong>灵活性</strong>
+<ol>
 <li>对实现的动态配置</li>
 <li>多态，根据对象的实际类型调用方法</li>
 </ol>
 </li>
 </ol>
-<h2 id="1-1-如何实现可修改性？-重要"><a href="#1-1-如何实现可修改性？-重要" class="headerlink" title="1.1. 如何实现可修改性？ 重要"></a>1.1. 如何实现可修改性？ 重要</h2><ol>
+<h2 id="1-1-如何实现可修改性？-重要">1.1. 如何实现可修改性？ 重要</h2>
+<ol>
 <li>接口与实现的分离</li>
 </ol>
-<h2 id="1-2-如何将接口与实现的分离-–-Java视角"><a href="#1-2-如何将接口与实现的分离-–-Java视角" class="headerlink" title="1.2. 如何将接口与实现的分离 – Java视角"></a>1.2. 如何将接口与实现的分离 – Java视角</h2><ol>
+<h2 id="1-2-如何将接口与实现的分离-–-Java视角">1.2. 如何将接口与实现的分离 – Java视角</h2>
+<ol>
 <li>通过接口与实现该接口的类，将接口与实现相分离</li>
-<li>通过子类继承父类&#x2F;抽象类，将父类的接口与子类的实现相分离:通过继承的方式，<strong>在一定程度上实现了接口与实现的分离</strong>，但是也使得子类继承了父类的实现，当然可以更好地<strong>重用代码</strong>，但<strong>使得灵活性略有下降【父类接口改变，子类一定会变】。</strong></li>
+<li>通过子类继承父类/抽象类，将父类的接口与子类的实现相分离:通过继承的方式，<strong>在一定程度上实现了接口与实现的分离</strong>，但是也使得子类继承了父类的实现，当然可以更好地<strong>重用代码</strong>，但<strong>使得灵活性略有下降【父类接口改变，子类一定会变】。</strong></li>
 </ol>
-<h2 id="1-3-实现接口-interface"><a href="#1-3-实现接口-interface" class="headerlink" title="1.3. 实现接口(interface)"></a>1.3. 实现接口(interface)</h2><ol>
+<h2 id="1-3-实现接口-interface">1.3. 实现接口(interface)</h2>
+<ol>
 <li>interface:定义了规约</li>
 <li>实现class:实现了规约</li>
 </ol>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt16/1.png"></p>
-<h2 id="1-4-类图中的标志物的含义"><a href="#1-4-类图中的标志物的含义" class="headerlink" title="1.4. 类图中的标志物的含义"></a>1.4. 类图中的标志物的含义</h2><ol>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt16/1.png" alt=""></p>
+<h2 id="1-4-类图中的标志物的含义">1.4. 类图中的标志物的含义</h2>
+<ol>
 <li>虚线箭头:依赖</li>
 <li>实线箭头:关联(两侧写数量)</li>
 <li>空菱形在一侧的实线箭头:聚合</li>
@@ -180,45 +191,58 @@
 <li>空心实线箭头:泛化(extends)</li>
 <li>空心虚线箭头:实现(implements)</li>
 </ol>
-<h2 id="1-5-类图与依赖关系"><a href="#1-5-类图与依赖关系" class="headerlink" title="1.5. 类图与依赖关系"></a>1.5. 类图与依赖关系</h2><ol>
+<h2 id="1-5-类图与依赖关系">1.5. 类图与依赖关系</h2>
+<ol>
 <li>Client、Interface_A、Class_A1之间是什么关系？</li>
 <li>Client和Class_A1是否存在依赖关系？</li>
 </ol>
-<h2 id="1-6-继承"><a href="#1-6-继承" class="headerlink" title="1.6. 继承"></a>1.6. 继承</h2><ol>
+<h2 id="1-6-继承">1.6. 继承</h2>
+<ol>
 <li>父类定义了规约(contract)</li>
 <li>子类实现了规约(contract)</li>
 </ol>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt16/2.png"></p>
-<h2 id="1-7-类图与依赖关系"><a href="#1-7-类图与依赖关系" class="headerlink" title="1.7. 类图与依赖关系"></a>1.7. 类图与依赖关系</h2><ol>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt16/2.png" alt=""></p>
+<h2 id="1-7-类图与依赖关系">1.7. 类图与依赖关系</h2>
+<ol>
 <li>Client、Super_A、Sub_A1之间是什么关系？</li>
 <li>Client和Sub_A1是否存在依赖关系？<strong>不</strong></li>
 </ol>
-<h2 id="1-8-实现的可修改性"><a href="#1-8-实现的可修改性" class="headerlink" title="1.8. 实现的可修改性"></a>1.8. 实现的可修改性</h2><ol>
+<h2 id="1-8-实现的可修改性">1.8. 实现的可修改性</h2>
+<ol>
 <li>对于实现的可修改性，无论是Class_A1还是Sub_A1的method_A方法的实现的修改都和Client中的调用代码没有任何耦合性。</li>
 </ol>
-<h3 id="1-8-1-扩展"><a href="#1-8-1-扩展" class="headerlink" title="1.8.1. 扩展"></a>1.8.1. 扩展</h3><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt16/3.png"></p>
-<h2 id="1-9-实现的可扩展性"><a href="#1-9-实现的可扩展性" class="headerlink" title="1.9. 实现的可扩展性"></a>1.9. 实现的可扩展性</h2><ol>
+<h3 id="1-8-1-扩展">1.8.1. 扩展</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt16/3.png" alt=""></p>
+<h2 id="1-9-实现的可扩展性">1.9. 实现的可扩展性</h2>
+<ol>
 <li>对于实现的可扩展性，我们可以通过 Class_A2还是Sub_A2的创建来实现。</li>
 </ol>
-<h2 id="1-10-实现的灵活性"><a href="#1-10-实现的灵活性" class="headerlink" title="1.10. 实现的灵活性"></a>1.10. 实现的灵活性</h2><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt16/4.png"></p>
-<h2 id="1-11-继承的优点"><a href="#1-11-继承的优点" class="headerlink" title="1.11. 继承的优点"></a>1.11. 继承的优点</h2><ol>
+<h2 id="1-10-实现的灵活性">1.10. 实现的灵活性</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt16/4.png" alt=""></p>
+<h2 id="1-11-继承的优点">1.11. 继承的优点</h2>
+<ol>
 <li>虽然继承也能很好的完成接口与实现的分离，但是继承还有他独有的特征。</li>
 <li>子类不但继承了父类的接口还继承了父类的实现，这可以<strong>更好的进行代码的重用</strong>。</li>
 </ol>
-<h2 id="1-12-继承的缺点"><a href="#1-12-继承的缺点" class="headerlink" title="1.12. 继承的缺点"></a>1.12. 继承的缺点</h2><ol>
+<h2 id="1-12-继承的缺点">1.12. 继承的缺点</h2>
+<ol>
 <li>继承的父类与所有子类存在共有接口的耦合性。当父类接口发生改变的时候，子类的接口就一定会更改，这样就会影响到 Client代码。</li>
 <li>而且当子类创建对象的时候，就决定了其实现的选择，没法再动态的修改。<strong>即只能单继承，不能多继承，而接口可以多实现</strong></li>
 </ol>
-<h2 id="1-13-组合"><a href="#1-13-组合" class="headerlink" title="1.13. 组合"></a>1.13. 组合</h2><ol>
+<h2 id="1-13-组合">1.13. 组合</h2>
+<ol>
 <li>而利用接口的组成关系，却能在实现接口和实现的前提下，体现更好的灵活性。前端类和后端类是组合关系。前端类重用了后端类的代码。</li>
 <li>考虑到软件工程中的人的重要性。</li>
 </ol>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt16/5.png"></p>
-<h3 id="1-13-1-组合的优点"><a href="#1-13-1-组合的优点" class="headerlink" title="1.13.1. 组合的优点"></a>1.13.1. 组合的优点</h3><ol>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt16/5.png" alt=""></p>
+<h3 id="1-13-1-组合的优点">1.13.1. 组合的优点</h3>
+<ol>
 <li>前端和后端在接口上不存在耦合性。当后端接口发生改变的时候，只要在 frontend 里面修改即可，并不会直接影响到Client代码。</li>
 <li>后端类的实现亦可以动态创建、动态配置、动态销毁，非常灵活。</li>
 </ol>
-<h1 id="2-设计模式"><a href="#2-设计模式" class="headerlink" title="2. 设计模式"></a>2. 设计模式</h1><h2 id="2-1-Why？为什么使用设计模式"><a href="#2-1-Why？为什么使用设计模式" class="headerlink" title="2.1. Why？为什么使用设计模式"></a>2.1. Why？为什么使用设计模式</h2><ol>
+<h1>2. 设计模式</h1>
+<h2 id="2-1-Why？为什么使用设计模式">2.1. Why？为什么使用设计模式</h2>
+<ol>
 <li>设计OO软件非常困难</li>
 <li>设计可重用的OO软件-难度更大</li>
 <li>经验丰富的OO设计师可以做出出色的设计</li>
@@ -228,9 +252,11 @@
 <li>复用的解决方案</li>
 <li>这些模式使面向对象的设计更加灵活，优雅并且最终可重用。</li>
 </ol>
-<h2 id="2-2-什么是设计模式"><a href="#2-2-什么是设计模式" class="headerlink" title="2.2. 什么是设计模式"></a>2.2. 什么是设计模式</h2><ol>
+<h2 id="2-2-什么是设计模式">2.2. 什么是设计模式</h2>
+<ol>
 <li>设计模式:抽象一个重复的设计结构</li>
-<li>包含类和&#x2F;或对象<ol>
+<li>包含类和/或对象
+<ol>
 <li>依赖</li>
 <li>结构</li>
 <li>互动，或</li>
@@ -239,40 +265,47 @@
 </li>
 <li>提炼设计经验</li>
 </ol>
-<h2 id="2-3-模式"><a href="#2-3-模式" class="headerlink" title="2.3. 模式"></a>2.3. 模式</h2><ol>
+<h2 id="2-3-模式">2.3. 模式</h2>
+<ol>
 <li>典型问题</li>
 <li>设计分析</li>
 <li>解决方案</li>
 <li>案例</li>
 </ol>
-<h2 id="2-4-解决方案"><a href="#2-4-解决方案" class="headerlink" title="2.4. 解决方案"></a>2.4. 解决方案</h2><ol>
+<h2 id="2-4-解决方案">2.4. 解决方案</h2>
+<ol>
 <li>参与者与协作：描述了设计中涉及的各个类的组成成分，他们之间的相互关系及各自的职责和协作方式。</li>
 <li>应用场景：描述了应该何时使用模式。它解释了设计模式所要解决的问题，以及解决这个问题时所面临的特点的环境、限制条件、场景等。这也是我们在应用某种模式之前，需要仔细去体察的。</li>
 <li>使用注意点：因为模式只是一个模板，他可以应用与多种不同场合，所以解决方案并不描述一个具体的实现，而是提供解决方案的一个抽象模型。要根据具体情况来具体实现</li>
 </ol>
-<h1 id="3-设计模式和策略配对"><a href="#3-设计模式和策略配对" class="headerlink" title="3. 设计模式和策略配对"></a>3. 设计模式和策略配对</h1><p>:star:<strong>详见书本 p265</strong></p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt16/7.png"></p>
+<h1>3. 设计模式和策略配对</h1>
+<p>:star:<strong>详见书本 p265</strong></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt16/7.png" alt=""></p>
 <p>各个设计模式使用的设计原则：</p>
 <ol>
-<li><p>策略模式:【<strong>强调行为的不同</strong>】</p>
+<li>
+<p>策略模式:【<strong>强调行为的不同</strong>】</p>
 <ol>
 <li>减少耦合：减少策略的使用类和策略的实现类直接的耦合</li>
 <li>依赖倒置：策略的使用类依赖的是策略的接口，而非策略的实现类。</li>
 </ol>
 </li>
-<li><p>抽象工厂模式:【<strong>强调对象的创建</strong>】</p>
+<li>
+<p>抽象工厂模式:【<strong>强调对象的创建</strong>】</p>
 <ol>
 <li>职责抽象：抽象对于对象创建的职责</li>
 <li>接口重用：提供对于对象创建的接口</li>
 </ol>
 </li>
-<li><p>单件模式:</p>
+<li>
+<p>单件模式:</p>
 <ol>
 <li>职责抽象：隐藏单件创建的实现</li>
 <li>信息隐藏</li>
 </ol>
 </li>
-<li><p>迭代器模式:【<strong>偏向于完成遍历集合这个业务</strong>】</p>
+<li>
+<p>迭代器模式:【<strong>偏向于完成遍历集合这个业务</strong>】</p>
 <p><strong>其实是个工厂模式</strong>，用于创建 iterator，但使用得太多了，因此单独分出来作为一个模式</p>
 <ol>
 <li>减少耦合：减少<strong>遍历的使用类</strong>和<strong>遍历的实现类</strong>直接的耦合</li>
@@ -280,33 +313,41 @@
 </ol>
 </li>
 </ol>
-<h1 id="4-设计模式重点掌握类图-重要"><a href="#4-设计模式重点掌握类图-重要" class="headerlink" title="4. 设计模式重点掌握类图 重要"></a>4. 设计模式重点掌握类图 重要</h1><ol>
-<li><p>策略模式：组合的方式，如果是继承也可以，但不易维护</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="C:\Users\wbl\AppData\Roaming\Typora\typora-user-images\image-20220523151109269.png" alt="image-20220523151109269"></p>
-</li>
-<li><p>抽象工厂模式</p>
+<h1>4. 设计模式重点掌握类图 重要</h1>
 <ol>
-<li><p>工厂模式</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="C:\Users\wbl\AppData\Roaming\Typora\typora-user-images\image-20220523155305878.png" alt="image-20220523155305878"></p>
+<li>
+<p>策略模式：组合的方式，如果是继承也可以，但不易维护</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="C:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220523151109269.png" alt="image-20220523151109269"></p>
 </li>
-<li><p>抽象工厂模式【相比于工厂模式多了一层抽象，注意这里的ConcreteFactory1和2都可以创建产品A和B】</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="C:\Users\wbl\AppData\Roaming\Typora\typora-user-images\image-20220523155323993.png" alt="image-20220523155323993"></p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="C:\Users\wbl\AppData\Roaming\Typora\typora-user-images\image-20220619100247892.png" alt="image-20220619100247892"></p>
-</li>
-</ol>
-</li>
-<li><p>单件模式</p>
+<li>
+<p>抽象工厂模式</p>
 <ol>
-<li><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="C:\Users\wbl\AppData\Roaming\Typora\typora-user-images\image-20220523164747159.png" alt="image-20220523164747159"></li>
+<li>
+<p>工厂模式</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="C:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220523155305878.png" alt="image-20220523155305878"></p>
+</li>
+<li>
+<p>抽象工厂模式【相比于工厂模式多了一层抽象，注意这里的ConcreteFactory1和2都可以创建产品A和B】</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="C:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220523155323993.png" alt="image-20220523155323993"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="C:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220619100247892.png" alt="image-20220619100247892"></p>
+</li>
 </ol>
 </li>
-<li><p>迭代器模式</p>
+<li>
+<p>单件模式</p>
 <ol>
-<li><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="C:\Users\wbl\AppData\Roaming\Typora\typora-user-images\image-20220523170743369.png" alt="image-20220523170743369"></li>
+<li><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="C:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220523164747159.png" alt="image-20220523164747159"></li>
+</ol>
+</li>
+<li>
+<p>迭代器模式</p>
+<ol>
+<li><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="C:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220523170743369.png" alt="image-20220523170743369"></li>
 </ol>
 </li>
 </ol>
-<h1 id="5-题目"><a href="#5-题目" class="headerlink" title="5. 题目"></a>5. 题目</h1><ol>
+<h1>5. 题目</h1>
+<ol>
 <li>给定场景，利用设计模式写出代码</li>
 <li>给出代码，利用设计模式重写</li>
 <li>设计模式内容具体查看</li>
@@ -320,21 +361,22 @@
     </section>
     </div>
 </article>
-<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/14-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%A8%A1%E5%9D%97%E5%8C%96/">SE-II-ch14-面向对象的模块化</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/17-%E8%BD%AF%E4%BB%B6%E6%9E%84%E9%80%A0/">SE-II-ch17-软件构造</a></div></section></div>
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/15-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E4%BF%A1%E6%81%AF%E9%9A%90%E8%97%8F/">SE-II-ch15-面向对象的信息隐藏</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/17-%E8%BD%AF%E4%BB%B6%E6%9E%84%E9%80%A0/">SE-II-ch17-软件构造</a></div></section></div>
 
 
 
 
 
 
-<footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">Asimov</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.28.1">Stellar 1.28.1</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">Asimov</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.28.1">Stellar 1.28.1</a> 主题创建。<br>
+本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
 </div></footer>
 <div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
 <div class="widgets">
 
 
 
-<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#16-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"><span class="toc-text">16-设计模式</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E5%8F%AF%E4%BF%AE%E6%94%B9%E6%80%A7%E5%8F%8A%E5%85%B6%E5%9F%BA%E6%9C%AC%E5%AE%9E%E7%8E%B0%E6%9C%BA%E5%88%B6"><span class="toc-text">1. 可修改性及其基本实现机制</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%8F%AF%E4%BF%AE%E6%94%B9%E6%80%A7%EF%BC%9F-%E9%87%8D%E8%A6%81"><span class="toc-text">1.1. 如何实现可修改性？ 重要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-%E5%A6%82%E4%BD%95%E5%B0%86%E6%8E%A5%E5%8F%A3%E4%B8%8E%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%88%86%E7%A6%BB-%E2%80%93-Java%E8%A7%86%E8%A7%92"><span class="toc-text">1.2. 如何将接口与实现的分离 – Java视角</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-%E5%AE%9E%E7%8E%B0%E6%8E%A5%E5%8F%A3-interface"><span class="toc-text">1.3. 实现接口(interface)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-%E7%B1%BB%E5%9B%BE%E4%B8%AD%E7%9A%84%E6%A0%87%E5%BF%97%E7%89%A9%E7%9A%84%E5%90%AB%E4%B9%89"><span class="toc-text">1.4. 类图中的标志物的含义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-5-%E7%B1%BB%E5%9B%BE%E4%B8%8E%E4%BE%9D%E8%B5%96%E5%85%B3%E7%B3%BB"><span class="toc-text">1.5. 类图与依赖关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-6-%E7%BB%A7%E6%89%BF"><span class="toc-text">1.6. 继承</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-7-%E7%B1%BB%E5%9B%BE%E4%B8%8E%E4%BE%9D%E8%B5%96%E5%85%B3%E7%B3%BB"><span class="toc-text">1.7. 类图与依赖关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-8-%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%8F%AF%E4%BF%AE%E6%94%B9%E6%80%A7"><span class="toc-text">1.8. 实现的可修改性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-8-1-%E6%89%A9%E5%B1%95"><span class="toc-text">1.8.1. 扩展</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-9-%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%8F%AF%E6%89%A9%E5%B1%95%E6%80%A7"><span class="toc-text">1.9. 实现的可扩展性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-10-%E5%AE%9E%E7%8E%B0%E7%9A%84%E7%81%B5%E6%B4%BB%E6%80%A7"><span class="toc-text">1.10. 实现的灵活性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-11-%E7%BB%A7%E6%89%BF%E7%9A%84%E4%BC%98%E7%82%B9"><span class="toc-text">1.11. 继承的优点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-12-%E7%BB%A7%E6%89%BF%E7%9A%84%E7%BC%BA%E7%82%B9"><span class="toc-text">1.12. 继承的缺点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-13-%E7%BB%84%E5%90%88"><span class="toc-text">1.13. 组合</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-13-1-%E7%BB%84%E5%90%88%E7%9A%84%E4%BC%98%E7%82%B9"><span class="toc-text">1.13.1. 组合的优点</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"><span class="toc-text">2. 设计模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-Why%EF%BC%9F%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"><span class="toc-text">2.1. Why？为什么使用设计模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%E4%BB%80%E4%B9%88%E6%98%AF%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"><span class="toc-text">2.2. 什么是设计模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-%E6%A8%A1%E5%BC%8F"><span class="toc-text">2.3. 模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-text">2.4. 解决方案</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%92%8C%E7%AD%96%E7%95%A5%E9%85%8D%E5%AF%B9"><span class="toc-text">3. 设计模式和策略配对</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E9%87%8D%E7%82%B9%E6%8E%8C%E6%8F%A1%E7%B1%BB%E5%9B%BE-%E9%87%8D%E8%A6%81"><span class="toc-text">4. 设计模式重点掌握类图 重要</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-%E9%A2%98%E7%9B%AE"><span class="toc-text">5. 题目</span></a></div><div class="widget-footer">
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#16-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"><span class="toc-text">16-设计模式</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">1. 可修改性及其基本实现机制</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-1-%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%8F%AF%E4%BF%AE%E6%94%B9%E6%80%A7%EF%BC%9F-%E9%87%8D%E8%A6%81"><span class="toc-text">1.1. 如何实现可修改性？ 重要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-2-%E5%A6%82%E4%BD%95%E5%B0%86%E6%8E%A5%E5%8F%A3%E4%B8%8E%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%88%86%E7%A6%BB-%E2%80%93-Java%E8%A7%86%E8%A7%92"><span class="toc-text">1.2. 如何将接口与实现的分离 – Java视角</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-3-%E5%AE%9E%E7%8E%B0%E6%8E%A5%E5%8F%A3-interface"><span class="toc-text">1.3. 实现接口(interface)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-%E7%B1%BB%E5%9B%BE%E4%B8%AD%E7%9A%84%E6%A0%87%E5%BF%97%E7%89%A9%E7%9A%84%E5%90%AB%E4%B9%89"><span class="toc-text">1.4. 类图中的标志物的含义</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-5-%E7%B1%BB%E5%9B%BE%E4%B8%8E%E4%BE%9D%E8%B5%96%E5%85%B3%E7%B3%BB"><span class="toc-text">1.5. 类图与依赖关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-6-%E7%BB%A7%E6%89%BF"><span class="toc-text">1.6. 继承</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-7-%E7%B1%BB%E5%9B%BE%E4%B8%8E%E4%BE%9D%E8%B5%96%E5%85%B3%E7%B3%BB"><span class="toc-text">1.7. 类图与依赖关系</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-8-%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%8F%AF%E4%BF%AE%E6%94%B9%E6%80%A7"><span class="toc-text">1.8. 实现的可修改性</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-8-1-%E6%89%A9%E5%B1%95"><span class="toc-text">1.8.1. 扩展</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-9-%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%8F%AF%E6%89%A9%E5%B1%95%E6%80%A7"><span class="toc-text">1.9. 实现的可扩展性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-10-%E5%AE%9E%E7%8E%B0%E7%9A%84%E7%81%B5%E6%B4%BB%E6%80%A7"><span class="toc-text">1.10. 实现的灵活性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-11-%E7%BB%A7%E6%89%BF%E7%9A%84%E4%BC%98%E7%82%B9"><span class="toc-text">1.11. 继承的优点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-12-%E7%BB%A7%E6%89%BF%E7%9A%84%E7%BC%BA%E7%82%B9"><span class="toc-text">1.12. 继承的缺点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-13-%E7%BB%84%E5%90%88"><span class="toc-text">1.13. 组合</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-13-1-%E7%BB%84%E5%90%88%E7%9A%84%E4%BC%98%E7%82%B9"><span class="toc-text">1.13.1. 组合的优点</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">2. 设计模式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#2-1-Why%EF%BC%9F%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"><span class="toc-text">2.1. Why？为什么使用设计模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-2-%E4%BB%80%E4%B9%88%E6%98%AF%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F"><span class="toc-text">2.2. 什么是设计模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-3-%E6%A8%A1%E5%BC%8F"><span class="toc-text">2.3. 模式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-4-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88"><span class="toc-text">2.4. 解决方案</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">3. 设计模式和策略配对</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">4. 设计模式重点掌握类图 重要</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">5. 题目</span></a></div><div class="widget-footer">
 
 <a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12c0-4.714 0-7.071 1.464-8.536C4.93 2 7.286 2 12 2c4.714 0 7.071 0 8.535 1.464C22 4.93 22 7.286 22 12c0 4.714 0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12Z"/><path stroke-linecap="round" stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M10.46 1.25h3.08c1.603 0 2.86 0 3.864.095c1.023.098 1.861.3 2.6.752a5.75 5.75 0 0 1 1.899 1.899c.452.738.654 1.577.752 2.6c.095 1.004.095 2.261.095 3.865v1.067c0 1.141 0 2.036-.05 2.759c-.05.735-.153 1.347-.388 1.913a5.75 5.75 0 0 1-3.112 3.112c-.805.334-1.721.408-2.977.43a10.81 10.81 0 0 0-.929.036c-.198.022-.275.054-.32.08c-.047.028-.112.078-.224.232c-.121.166-.258.396-.476.764l-.542.916c-.773 1.307-2.69 1.307-3.464 0l-.542-.916a10.605 10.605 0 0 0-.476-.764c-.112-.154-.177-.204-.224-.232c-.045-.026-.122-.058-.32-.08c-.212-.023-.49-.03-.93-.037c-1.255-.021-2.171-.095-2.976-.429A5.75 5.75 0 0 1 1.688 16.2c-.235-.566-.338-1.178-.389-1.913c-.049-.723-.049-1.618-.049-2.76v-1.066c0-1.604 0-2.86.095-3.865c.098-1.023.3-1.862.752-2.6a5.75 5.75 0 0 1 1.899-1.899c.738-.452 1.577-.654 2.6-.752C7.6 1.25 8.857 1.25 10.461 1.25M6.739 2.839c-.914.087-1.495.253-1.959.537A4.25 4.25 0 0 0 3.376 4.78c-.284.464-.45 1.045-.537 1.96c-.088.924-.089 2.11-.089 3.761v1c0 1.175 0 2.019.046 2.685c.045.659.131 1.089.278 1.441a4.25 4.25 0 0 0 2.3 2.3c.515.214 1.173.294 2.429.316h.031c.398.007.747.013 1.037.045c.311.035.616.104.909.274c.29.17.5.395.682.645c.169.232.342.525.538.856l.559.944a.52.52 0 0 0 .882 0l.559-.944c.196-.331.37-.624.538-.856c.182-.25.392-.476.682-.645c.293-.17.598-.24.909-.274c.29-.032.639-.038 1.037-.045h.032c1.255-.022 1.913-.102 2.428-.316a4.25 4.25 0 0 0 2.3-2.3c.147-.352.233-.782.278-1.441c.046-.666.046-1.51.046-2.685v-1c0-1.651 0-2.837-.089-3.762c-.087-.914-.253-1.495-.537-1.959a4.25 4.25 0 0 0-1.403-1.403c-.464-.284-1.045-.45-1.96-.537c-.924-.088-2.11-.089-3.761-.089h-3c-1.651 0-2.837 0-3.762.089" clip-rule="evenodd"/><path fill="currentColor" d="M9 11a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0"/></svg><span>参与讨论</span></a></div></widget>
 </div></aside><div class='float-panel blur'>

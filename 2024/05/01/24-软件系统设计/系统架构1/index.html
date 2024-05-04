@@ -17,27 +17,34 @@
   <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f9fafb">
   <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
   
-  <title>系统架构1 - Asimov's Blog</title>
+  <title>系统架构1-Intro - Asimov's Blog</title>
 
   
-    <meta name="description" content="ch01什么软件体系结构？  定义：“程序的软件架构或计算系统是系统，包括软件元素，这些元素的外部可见属性，以及“软件工程”(软件工程) 定义2：“系统，体现在其组成部分中，它们之间的关系对彼此和环境，以及原则管理其设计和发展“[EEE 1471-2000]建筑描述推荐实施规程软件密集型系统">
+    <meta name="description" content="ch01-intro 理解软件工程  Software 和 Engineering Software 和 Hardware  软件是不可见的：软件是虚拟的，而硬件是实体的。 软件制作出来就是为了被修改和改变的(软件的演化是他的本质属性)   Science vs. Engineering：科学的研究是研究这个世界既有的部分，而工程是研究的是人类创造新的世界(是不是因为人才产生的)，下面的图是很重要">
 <meta property="og:type" content="article">
-<meta property="og:title" content="系统架构1">
+<meta property="og:title" content="系统架构1-Intro">
 <meta property="og:url" content="https://chendingya.github.io/2024/05/01/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%841/index.html">
 <meta property="og:site_name" content="Asimov&#39;s Blog">
-<meta property="og:description" content="ch01什么软件体系结构？  定义：“程序的软件架构或计算系统是系统，包括软件元素，这些元素的外部可见属性，以及“软件工程”(软件工程) 定义2：“系统，体现在其组成部分中，它们之间的关系对彼此和环境，以及原则管理其设计和发展“[EEE 1471-2000]建筑描述推荐实施规程软件密集型系统">
+<meta property="og:description" content="ch01-intro 理解软件工程  Software 和 Engineering Software 和 Hardware  软件是不可见的：软件是虚拟的，而硬件是实体的。 软件制作出来就是为了被修改和改变的(软件的演化是他的本质属性)   Science vs. Engineering：科学的研究是研究这个世界既有的部分，而工程是研究的是人类创造新的世界(是不是因为人才产生的)，下面的图是很重要">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://raw.githubusercontent.com/chendingya/PicGo/main/202405012133258.jpg">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2021-Software-System-Design/img/lec12/1.png">
+<meta property="og:image" content="https://raw.githubusercontent.com/chendingya/PicGo/main/typora202405021133882.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2021-Software-System-Design/img/lec12/2.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2021-Software-System-Design/img/lec12/3.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2021-Software-System-Design/img/lec12/4.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2021-Software-System-Design/img/lec12/5.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2021-Software-System-Design/img/lec12/6.png">
+<meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2021-Software-System-Design/img/lec12/7.png">
 <meta property="article:published_time" content="2024-05-01T02:10:44.000Z">
-<meta property="article:modified_time" content="2024-05-02T02:40:45.974Z">
+<meta property="article:modified_time" content="2024-05-02T07:29:38.562Z">
 <meta property="article:author" content="Asimov">
-<meta property="article:tag" content="软件系统设计">
+<meta property="article:tag" content="系统架构">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/chendingya/PicGo/main/202405012133258.jpg">
+<meta name="twitter:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2021-Software-System-Design/img/lec12/1.png">
   
   
   
-  <meta name="keywords" content="软件系统设计">
+  <meta name="keywords" content="系统架构">
 
   <!-- feed -->
   
@@ -66,7 +73,7 @@
 <div class="widgets">
 
 
-<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2024/05/01/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%841/"><span class="title">系统架构1</span></a><a class="item title" href="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/"><span class="title">软件测试-期末复习</span></a><a class="item title" href="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/"><span class="title">机器学习-期末复习</span></a><a class="item title" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/"><span class="title">服务端-ch17-k8s使用</span></a><a class="item title" href="/2023/12/30/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch16-%E5%AE%B9%E5%99%A8%E9%95%9C%E5%83%8F%E6%9E%84%E5%BB%BA%E4%B8%8E%E7%BC%96%E6%8E%92/"><span class="title">服务端-ch16-容器镜像构建与编排</span></a><a class="item title" href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/"><span class="title">服务端-ch15-Docker</span></a><a class="item title" href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/"><span class="title">服务端-ch14-Spring WebFlux</span></a><a class="item title" href="/2023/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch13-%E5%8F%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"><span class="title">服务端-ch13-反应式编程基础</span></a><a class="item title" href="/2023/11/23/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch12-Spring%20Integration/"><span class="title">服务端-ch12-Spring Integration</span></a><a class="item title" href="/2023/11/09/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch11-%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6(ActiveMQ%E3%80%81RabbitMQ)/"><span class="title">服务端-ch11-消息中间件(ActiveMQ、RabbitMQ)</span></a></div></widget>
+<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2024/05/02/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%842/"><span class="title">系统架构2-质量属性Quality Attributes</span></a><a class="item title" href="/2024/05/01/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%841/"><span class="title">系统架构1-Intro</span></a><a class="item title" href="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/"><span class="title">软件测试-期末复习</span></a><a class="item title" href="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/"><span class="title">机器学习-期末复习</span></a><a class="item title" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/"><span class="title">服务端-ch17-k8s使用</span></a><a class="item title" href="/2023/12/30/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch16-%E5%AE%B9%E5%99%A8%E9%95%9C%E5%83%8F%E6%9E%84%E5%BB%BA%E4%B8%8E%E7%BC%96%E6%8E%92/"><span class="title">服务端-ch16-容器镜像构建与编排</span></a><a class="item title" href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/"><span class="title">服务端-ch15-Docker</span></a><a class="item title" href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/"><span class="title">服务端-ch14-Spring WebFlux</span></a><a class="item title" href="/2023/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch13-%E5%8F%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"><span class="title">服务端-ch13-反应式编程基础</span></a><a class="item title" href="/2023/11/23/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch12-Spring%20Integration/"><span class="title">服务端-ch12-Spring Integration</span></a></div></widget>
 </div>
 <footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/chendingya?tab=repositories" target="_blank" rel="external nofollow noopener noreferrer"><img no-lazy src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" / onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a></div></footer>
 </div></aside><div class="l_main" id="main">
@@ -79,24 +86,369 @@
   <div class="content">
     <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
 <span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/">软件系统设计</a></div>
-<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2024-05-01T02:10:44.000Z">2024-05-01</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2024-05-02T02:40:45.974Z">2024-05-02</time></span></div></div></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2024-05-01T02:10:44.000Z">2024-05-01</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2024-05-02T07:29:38.562Z">2024-05-02</time></span></div></div></div>
     
     <div class="bottom only-title">
       
       <div class="text-area">
-        <h1 class="text title"><span>系统架构1</span></h1>
+        <h1 class="text title"><span>系统架构1-Intro</span></h1>
         
       </div>
     </div>
     
   </div>
-  </div><article class="md-text content"><h1 id="ch01"><a href="#ch01" class="headerlink" title="ch01"></a>ch01</h1><p>什么软件体系结构？</p>
-<ul>
-<li><p>定义：“程序的软件架构或计算系统是系统，包括软件元素，<br>这些元素的外部可见属性，以及<br>“软件工程”(软件工程)</p>
-<p>定义2：“<br>系统，体现在其组成部分中，它们之间的关系<br>对彼此和环境，以及原则<br>管理其设计和发展“[EEE 1471-2000]<br>建筑描述推荐实施规程<br>软件密集型系统</p>
+  </div><article class="md-text content"><h1>ch01-intro</h1>
+<h2 id="理解软件工程">理解软件工程</h2>
+<ol>
+<li>Software 和 Engineering</li>
+<li>Software 和 Hardware
+<ol>
+<li>软件是不可见的：软件是虚拟的，而硬件是实体的。</li>
+<li>软件制作出来就是为了被修改和改变的(软件的演化是他的本质属性)</li>
+</ol>
 </li>
+<li>Science vs. Engineering：科学的研究是研究这个世界既有的部分，而工程是研究的是人类创造新的世界(是不是因为人才产生的)，下面的图是很重要的。</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://spricoder.oss-cn-shanghai.aliyuncs.com/2021-Software-System-Design/img/lec12/1.png"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2021-Software-System-Design/img/lec12/1.png" alt="img"></a></p>
+<h2 id="什么软件体系结构？">什么软件体系结构？</h2>
+<ul>
+<li>定义：“程序的软件架构或计算系统是系统，包括软件元素，这些元素的外部可见属性，以及其关系</li>
+<li>定义2：一个系统的基本组织，体现在其组成部分、它们彼此之间的关系和环境以及支配其设计和演变的原则中<br>
+[EEE 1471-2000]<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://raw.githubusercontent.com/chendingya/PicGo/main/typora202405021133882.png" alt="image-20240502113350448"></li>
 </ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://raw.githubusercontent.com/chendingya/PicGo/main/202405012133258.jpg"></p>
+<h2 id="架构和设计-Architecture-vs-Design">架构和设计 Architecture vs. Design</h2>
+<ol>
+<li>体系结构是关于软件设计 It’s about software design
+<ol>
+<li>所有的体系结构都是软件设计，但不是所有的软件设计都是体系结构
+<ol>
+<li>All architecture is software design, but not all design is software architecture</li>
+</ol>
+</li>
+<li>体系结构是设计过程的一个过程
+<ol>
+<li>“Architecting” is part of the design process</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>其他观点 Other views
+<ol>
+<li>体系结构是更高层的设计 High-level designs</li>
+<li>体系结构是设计决策的组合 A set of design decisions</li>
+<li>体系结构是根据不同项目而不同的 Locality</li>
+</ol>
+</li>
+<li>系统的结构或组织 Structure/Organization of the system
+<ol>
+<li><strong>元素(Elements)：部件(Components)和连接件(Connectors)</strong> Elements: components &amp; connectors</li>
+<li><strong>关系：静态(static)和动态(dynamic)的关系</strong> Relationships: static &amp; dynamic relationships</li>
+</ol>
+</li>
+<li>属性：元素，元素组和整个系统 Properties: elements, groups of elements &amp; overall system</li>
+</ol>
+<h2 id="体系结构-vs-结构-Architecture-vs-Structure">体系结构 vs 结构 Architecture vs. Structure</h2>
+<ol>
+<li>体系结构将系统分解成部件/模块/子系统，降低每一部分的复杂度 Decomposition of system into components/modules/subsystems</li>
+<li>体系结构定义 Architecture defines
+<ol>
+<li>部件接口：部件可以做什么？Component interfaces: What a component can do?</li>
+<li>部件交流和依赖：部件可以怎么沟通交流？Component communications and dependencies:How components communicate?</li>
+<li>部件职责：当我们询问它时，部件需要精确的知道自己将要做什么？Component responsibilities:Precisely what a component will do when you ask it?</li>
+</ol>
+</li>
+</ol>
+<h3 id="结构和体系结构-Structure-and-Architecture">结构和体系结构 Structure and Architecture</h3>
+<table>
+<thead>
+<tr>
+<th><a target="_blank" rel="noopener" href="https://spricoder.oss-cn-shanghai.aliyuncs.com/2021-Software-System-Design/img/lec12/2.png"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2021-Software-System-Design/img/lec12/2.png" alt="img"></a></th>
+<th><a target="_blank" rel="noopener" href="https://spricoder.oss-cn-shanghai.aliyuncs.com/2021-Software-System-Design/img/lec12/3.png"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2021-Software-System-Design/img/lec12/3.png" alt="img"></a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>左图是对于结构的描述</td>
+<td>右图是对于体系结构的描述</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>图中左侧的设计：第三方的模块与其他的四个模块直接耦合</li>
+<li>图中右侧的设计：我们加入了AL模块来屏蔽了变化</li>
+</ol>
+<h3 id="体系结构确定通信-Architecture-Specifies-Communication">体系结构确定通信 Architecture Specifies Communication</h3>
+<ol>
+<li>
+<p>通信需要 Communication involves:</p>
+<ol>
+<li>
+<p>数据</p>
+<p>通过机器传递，比如 Data passing mechanisms, for example:</p>
+<ol>
+<li><strong>函数调用 Function call</strong></li>
+<li><strong>远程方法调用 Remote method invocation</strong></li>
+<li><strong>异步信息 Asynchronous message</strong></li>
+</ol>
+</li>
+<li>
+<p>控制</p>
+<p><strong>流 Control flow</strong></p>
+<ol>
+<li>组件间的信息流来满足需要的功能 Flow of messages between components to achieve required functionality</li>
+<li><strong>序列化的 Sequential</strong></li>
+<li><strong>并发/并行 Concurrent/parallel</strong></li>
+<li><strong>同步 Synchronization</strong></li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="体系结构强调非功能性需求-NFA-Architecture-Address-NFRS">体系结构强调非功能性需求(NFA) Architecture Address NFRS</h3>
+<ol>
+<li><strong>非功能性需求(Non-functional requirements)定义了系统运行的有多好</strong> Non-functional requirements (NFRs) define &quot;how well a system works?</li>
+<li>当然也需要考虑功能性需求。</li>
+<li><strong>非功能性需求很少在功能性需求中很少被发现</strong> NFRs rarely captured in functional requirements
+<ol>
+<li><strong>又名体系结构需求</strong> Aka. architecture requirements</li>
+<li>必须通过体系结构引出 Must be elicited by architect</li>
+</ol>
+</li>
+<li><strong>非功能性需求 NFRs include</strong>
+<ol>
+<li><strong>技术约束 Technical constraints</strong></li>
+<li><strong>商业约束 Business constraints</strong></li>
+<li><strong>质量属性 Quality attrilbutes</strong></li>
+</ol>
+</li>
+<li>讨论：质量属性列表 Discussion: A list of quality attributes?</li>
+</ol>
+<h3 id="软件质量属性">软件质量属性</h3>
+<p>常见的软件质量属性有多种，例如</p>
+<ol>
+<li>性能（Performance）</li>
+<li>可用性（Availability）</li>
+<li>可靠性（Reliability）</li>
+<li>健壮性（Robustness）</li>
+<li>安全性（Security）</li>
+<li>可修改性（Modification）</li>
+<li>可变性（Changeability）</li>
+<li>易用性（Usability）</li>
+<li>可测试性（Testability）</li>
+<li>功能性（Functionality）</li>
+<li>互操作性（Inter-operation）等。</li>
+</ol>
+<h4 id="具体含义是：">具体含义是：</h4>
+<p>（1）性能（Performance）是指系统的响应能力，即要经过多长时间才能对某个事件做出响应，或者在某段时间内系统所能处理事件的个数。</p>
+<p>（2）可用性（Availability）是系统能够正常运行的时间比例。</p>
+<p>（3）可靠性（Reliability）是指软件系统在应用或错误面前，在意外或错误使用的情况下维持软件系统功能特性的基本能力。</p>
+<p>（4）健壮性（Robustness）是指在处理或环境中，系统能够承受压力或变更的能力。</p>
+<p>（5）安全性（Security）是指系统向合法用户提供服务的同时能够阻止非授权用户使用的企图或拒绝服务的能力。</p>
+<p>（6）可修改性（Modification）是指能够快速地以较高的性能价格比对系统进行变更的能力。</p>
+<p>（7）可变性（Changeability）是指体系结构经扩充或变更成为新体系结构的能力。</p>
+<p>（8）易用性（Usability）是衡量用户使用一个软件产品完成指定任务的难易程度。</p>
+<p>（9）可测试性（Testability）是指软件发现故障并隔离、定位其故障的能力特性，以及在一定的时间和成本前提下，进行测试设计、测试执行的能力。</p>
+<p>（10）功能性（Functionality）是系统所能完成所期望工作的能力。</p>
+<p>（11）互操作性（Inter-operation）是指系统与外界或系统与系统之间的相互作用能力。</p>
+<h2 id="设计是一种抽象-Design-is-an-Abstraction">设计是一种抽象 Design is an Abstraction</h2>
+<ol>
+<li>体系结构提供了设计的更高层抽象视角 Architecture provides an higher level abstract view of a design
+<ol>
+<li>隐藏设计的复杂性和实现 Hides complexity and implementation of design</li>
+<li>可能是或者可能不是体系结构元素和软件元素之间的直接映射 May or may not be a direct mapping between architecture elements and sottware elements</li>
+</ol>
+</li>
+<li>黑盒设计 和 白盒设计 Blackbox design and Whitebox design
+<ol>
+<li>是对系统结构和交互的非正式描述Informal depiction of system’s structure and interactions.</li>
+<li>描述在体系结构中内嵌的设计哲学Portray the design philosophies embodied in the<br>
+architecture</li>
+</ol>
+</li>
+<li>讨论：为什么在设计中使用抽象？Discussion: Why abstraction in design?</li>
+</ol>
+<h2 id="体系结构视图-Architecture-Views">体系结构视图 Architecture Views</h2>
+<ol>
+<li>体系结构视图主要是为了应对软件不可见的问题，屏蔽其他没有影响的部分，将关注点进行分离</li>
+<li>软件体系结构代表了一个复杂的设计制品 A software architecture represents a complex design artifact</li>
+<li>很多体系结构的可能视图：类比建筑-平面图，外部设计，电力设计，水暖，空气调节 Many possible ‘views’ of the architecture:Analogy with buildings-floor plan, external, electrical, plumbing, air-conditioning</li>
+</ol>
+<h1>如何创建一个设计 How to Develop a Design?</h1>
+<ol>
+<li>广义的<strong>设计策略</strong> Generic Design Strategies:
+<ol>
+<li><strong>分解 Decomposition</strong></li>
+<li><strong>抽象 Abstraction</strong></li>
+<li><strong>逐步的：分而治之 Stepwise:Divid and Conquer</strong></li>
+<li><strong>生成和测试 Generate and Test</strong></li>
+<li><strong>迭代：渐进式细化 Iteration: Incremental Refinement</strong></li>
+<li><strong>重用元素 Reuseable elements</strong></li>
+</ol>
+</li>
+</ol>
+<h2 id="K-Kruchen的4-1视图模型-P-Krutchen’s-4-1-View-Model">K.Kruchen的4+1视图模型 P.Krutchen’s 4+1 View Model</h2>
+<ol>
+<li>逻辑视图：描述了体系结构中在<strong>体系结构上明显重要的元素以及他们之间的关系</strong>Logical view: describes architecturally significant elements of the architecture and the relationships between them</li>
+<li>过程视图：描述了<strong>体系结构中的并发和交流元素</strong> Process view: describes the concurrency and communications elements of an architecture.</li>
+<li>物理视图：描述了<strong>主要过程和部件是如何映射到应用硬件上的</strong> Physical view: depicts how the major processes and components are mapped on to the applications hardware.</li>
+<li>发展视图：描述了<strong>软件部件是如何在软件内部组织的，比如配置管理工具</strong>Development view: captures the internal organization of the software components as held in e.g./ a configuration management tool.</li>
+<li>使用体系结构的情况：描述了体系结构的需求，关系到了超过一个常规的视图Architecture use cases: capture the requirements for the architecture; related to more than one particular view</li>
+<li>四个视图在某一个场景下进行描述</li>
+</ol>
+<h2 id="体系结构和软件体系结构-Architect-Software-Architect">体系结构和软件体系结构 Architect &amp; Software Architect</h2>
+<blockquote>
+<p>体系结构设计了满足人类需求的结构 Architects design structures to meet human needs. - James Fitch, 1972</p>
+</blockquote>
+<ol>
+<li>体系结构的作用仍然保持着一致 The role of the architect remains the same
+<ol>
+<li>倾听用户，理解整体的需求 Listening to clients, understanding the totality of needs</li>
+<li>仔细检查灵活性 Scrutinizing feasibilities</li>
+<li>形成一个实际的结构版本，创建一个蓝图 Forming a practical vision of a structure and creating a blueprint</li>
+<li>监督构建过程，保证是符合规范的 Overseeing construction and ensuring compliance to the plan</li>
+<li>引导在暴风雨式的设计变更、危机和歧义性中的版本 Guiding the vision through the tempest of design changes, crises and ambiguities</li>
+</ol>
+</li>
+<li>软件体系结构则是监督软件的构建过程：开发人员、工程师和设计者 Software architects oversee software construction professionals Programmers, Engineers, Designers</li>
+<li>有名的软件体系结构
+<ol>
+<li>Bill Gates: Chief Software Architect of Microsoft</li>
+<li>Tim Bernrs-Lee: Inventor and Chief Architect of World Wide Web</li>
+<li>Roy Fielding: Representational State Transfer (REST)</li>
+</ol>
+</li>
+</ol>
+<h2 id="软件体系结构在做什么-What-Does-a-Software-Architect-Do">软件体系结构在做什么 What Does a Software Architect Do?</h2>
+<ol>
+<li>联络人 Liaison
+<ol>
+<li>在客户、技术团队和商业/需求分析师之间 Among clients, technical team and business/requirements analysts</li>
+<li>包含管理和市场分析 With management or marketing</li>
+</ol>
+</li>
+<li>软件工程：软件工程的最佳实践 Software Engineering:Software engineering best practices</li>
+<li>技术知识：深入理解技术领域 Technology Knowledge:Deep understanding of technology domain</li>
+<li>风险管理：Risk Management
+<ol>
+<li>与设计、技术决策相关的风险 Risks associated with the design, technology choices</li>
+<li>更多？More?</li>
+</ol>
+</li>
+</ol>
+<h2 id="总体设计模型-A-General-Design-Model">总体设计模型 A General Design Model</h2>
+<p><a target="_blank" rel="noopener" href="https://spricoder.oss-cn-shanghai.aliyuncs.com/2021-Software-System-Design/img/lec12/4.png"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2021-Software-System-Design/img/lec12/4.png" alt="img"></a></p>
+<p>开发和设计是在做减法</p>
+<h2 id="软件设计过程-Software-Design-Process">软件设计过程 Software Design Process</h2>
+<p><a target="_blank" rel="noopener" href="https://spricoder.oss-cn-shanghai.aliyuncs.com/2021-Software-System-Design/img/lec12/5.png"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2021-Software-System-Design/img/lec12/5.png" alt="img"></a></p>
+<blockquote>
+<p>感觉这两张图还蛮重要的，是少有的人话</p>
+</blockquote>
+<h2 id="体系结构活动-Architecture-Activities">体系结构活动 Architecture Activities</h2>
+<ol>
+<li>创建系统的商业案例 Creating the business casenfor the System</li>
+<li>理解需求 Understanding the requirements</li>
+<li>创建和选择体系结构 Creating and selecting architecture</li>
+<li>沟通体系结构(涉众，包括开发商) Communicating the architecture (stakeholders including developers)</li>
+<li>分析或评估体系结构 Analysing or evaluating the architecture
+<ol>
+<li>整体的方法论 Overall methodologies</li>
+<li>具体技术的质量 Quality specific techniques</li>
+</ol>
+</li>
+<li>实现体系结构Implementing the architecture</li>
+<li>保证和体系结构的一致性Ensuring contormance to an architecture</li>
+</ol>
+<h2 id="软件体系结构过程-Software-Architecture-Process">软件体系结构过程 Software Architecture Process</h2>
+<p><a target="_blank" rel="noopener" href="https://spricoder.oss-cn-shanghai.aliyuncs.com/2021-Software-System-Design/img/lec12/6.png"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2021-Software-System-Design/img/lec12/6.png" alt="img"></a></p>
+<h2 id="体系结构生命周期-Architecture-Lifecycle">体系结构生命周期 Architecture Lifecycle</h2>
+<p><a target="_blank" rel="noopener" href="https://spricoder.oss-cn-shanghai.aliyuncs.com/2021-Software-System-Design/img/lec12/7.png"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2021-Software-System-Design/img/lec12/7.png" alt="img"></a></p>
+<h2 id="软件体系结构和体系结构知识领域-Software-Design-Architecture-Knowledge-Areas">软件体系结构和体系结构知识领域 Software Design &amp; Architecture Knowledge Areas</h2>
+<ol>
+<li><strong>软件设计基本原理</strong> Software Design Basic Concepts
+<ol>
+<li>==整体设计原理== General design concepts</li>
+<li>上下文：软件发展生命周期-需求、设计、编码和测试 Context: software development life cycle - requirements, design, construction and testing</li>
+<li>设计过程：决策、活动、可运行产品 Design process(role, activity, work product)</li>
+<li>软件设计的使能技术 Enabling techniques for software design</li>
+</ol>
+</li>
+<li>==核心问题(技术)：一致性、事件控制和处理、分发、异常处理、交互系统、持久化== Key Issues (technical): concurrency, control and handling of events, distribution, exception handling, interactive systems, persistence</li>
+<li>软件结构和体系结构 Software Structure and Architecture
+<ol>
+<li>体系结构结构和视点 Architecture Structures and viewpoints</li>
+<li>体系结构风格和模式(宏观体系结构) Architectural styles and patterns (macro-architecture)</li>
+<li>设计模式(微观体系结构) Design patterns (micro-architecture)</li>
+</ol>
+</li>
+<li>软件设计方法Software Design Methods
+<ol>
+<li>体系结构方法，比如==属性驱动的设计== Architecture Methods (e .g., Attribute- Driven Design)</li>
+<li>设计方法，比如==动态系统发展方法== Design Methods (e.g., Dynamic System Development Method)</li>
+</ol>
+</li>
+<li>软件设计的==质量分析和评估== Software Design Quality Analysis and Evaluation
+<ol>
+<li>==质量属性== Quality attributes</li>
+<li>==质量分析和评估方法、技术和工具== Quality analysis and evaluation methods, techniques and tools
+<ol>
+<li>设计回顾：比如SEI的体系结构权衡分析方法 Design reviews (e.g. SEI’s Architecture Trade-off Analysis Method)</li>
+<li>静态分析和动态分析 Static analysis and dynamic analysis</li>
+<li>模拟和原型 Simulation and prototyping</li>
+</ol>
+</li>
+<li>==度量== Measures:
+<ol>
+<li>矩阵：体系结构级别 Metrics: Architecture level</li>
+<li>技术特有度量指标 Technique specific measures</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>设计建模和展示 Design Modeling and Representation
+<ol>
+<li>体系结构和设计符号(体系结构描述语言，Architecture Description Languages，ADL)Architecture and Design Notations (Architecture Description Languages(ADL))</li>
+<li>UML Unified Modelling Language (UML)</li>
+<li>设计文档(意见或其他) Design Documentation (Views &amp; Beyond)</li>
+<li>其他：在活动、关注点和领域上的不同，比如ACME，Rapide。 Others: differ in ability, focus and domain (e.g. ACME, Rapide)</li>
+</ol>
+</li>
+</ol>
+<h1>讨论</h1>
+<ol>
+<li>科学和工程有什么不同？What is Difference between Science and Engineering?
+<ol>
+<li>科学的研究是研究这个世界既有的部分</li>
+<li>工程是研究的是人类创造新的世界(是不是因为人才产生的)</li>
+</ol>
+</li>
+<li>软件和硬件有什么不同？What is Difference between ‘Software’ and ‘Hardware’?
+<ol>
+<li>软件是不可见的：软件是虚拟的，而硬件是实体的。</li>
+<li>软件制作出来就是为了被修改和改变的(软件的演化是他的本质属性)</li>
+</ol>
+</li>
+<li>体系结构和设计有什么不同？What is Difference between Architecture and Design?
+<ol>
+<li>所有的体系结构都是软件设计，但是不是所有的软件设计都是体系结构</li>
+<li>体系结构是设计过程的一个过程。</li>
+<li>其他观点
+<ol>
+<li>体系结构是更高层的设计，是为了修改的</li>
+<li>体系结构是设计决策的组合</li>
+</ol>
+</li>
+</ol>
+</li>
+<li>体系结构和结构有什么不同？What is Difference between Architecture and Structure?
+<ol>
+<li>==体系结构定义了组件(Component)的接口，Component之间如何交流以及如何相互依赖，Component的职责==。</li>
+<li>==体系结构提供了设计的更高层抽象视角，隐藏设计的复杂性和实现，更强调非功能性需求==。</li>
+<li>【标准】==架构是包括结构信息的，因为结构是一种静态的、逻辑的、是关于系统如何构成。但是架构除了包含结构，还会增加组件的相互之间的关系接口，还会定义一些动态的行为(一个组件可能和谁进行交互)==</li>
+</ol>
+</li>
+</ol>
+<hr>
+<p><a target="_blank" rel="noopener" href="https://spricoder.github.io/2021/07/15/2021-Software-System-Design/2021-Software-System-Design-Lec12-Introduction/">本文翻译引用</a></p>
 
 <div class="article-footer fs14">
     <section id="license">
@@ -113,14 +465,15 @@
 
 
 
-<footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">Asimov</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.28.1">Stellar 1.28.1</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">Asimov</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.28.1">Stellar 1.28.1</a> 主题创建。<br>
+本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
 </div></footer>
 <div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
 <div class="widgets">
 
 
 
-<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ch01"><span class="toc-text">ch01</span></a></li></ol></div><div class="widget-footer">
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">ch01-intro</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%90%86%E8%A7%A3%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B"><span class="toc-text">理解软件工程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%EF%BC%9F"><span class="toc-text">什么软件体系结构？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%B6%E6%9E%84%E5%92%8C%E8%AE%BE%E8%AE%A1-Architecture-vs-Design"><span class="toc-text">架构和设计 Architecture vs. Design</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84-vs-%E7%BB%93%E6%9E%84-Architecture-vs-Structure"><span class="toc-text">体系结构 vs 结构 Architecture vs. Structure</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E6%9E%84%E5%92%8C%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84-Structure-and-Architecture"><span class="toc-text">结构和体系结构 Structure and Architecture</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E7%A1%AE%E5%AE%9A%E9%80%9A%E4%BF%A1-Architecture-Specifies-Communication"><span class="toc-text">体系结构确定通信 Architecture Specifies Communication</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E5%BC%BA%E8%B0%83%E9%9D%9E%E5%8A%9F%E8%83%BD%E6%80%A7%E9%9C%80%E6%B1%82-NFA-Architecture-Address-NFRS"><span class="toc-text">体系结构强调非功能性需求(NFA) Architecture Address NFRS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F%E5%B1%9E%E6%80%A7"><span class="toc-text">软件质量属性</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%85%B7%E4%BD%93%E5%90%AB%E4%B9%89%E6%98%AF%EF%BC%9A"><span class="toc-text">具体含义是：</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%BE%E8%AE%A1%E6%98%AF%E4%B8%80%E7%A7%8D%E6%8A%BD%E8%B1%A1-Design-is-an-Abstraction"><span class="toc-text">设计是一种抽象 Design is an Abstraction</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E8%A7%86%E5%9B%BE-Architecture-Views"><span class="toc-text">体系结构视图 Architecture Views</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">如何创建一个设计 How to Develop a Design?</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#K-Kruchen%E7%9A%844-1%E8%A7%86%E5%9B%BE%E6%A8%A1%E5%9E%8B-P-Krutchen%E2%80%99s-4-1-View-Model"><span class="toc-text">K.Kruchen的4+1视图模型 P.Krutchen’s 4+1 View Model</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E5%92%8C%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84-Architect-Software-Architect"><span class="toc-text">体系结构和软件体系结构 Architect &amp; Software Architect</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E5%9C%A8%E5%81%9A%E4%BB%80%E4%B9%88-What-Does-a-Software-Architect-Do"><span class="toc-text">软件体系结构在做什么 What Does a Software Architect Do?</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%BB%E4%BD%93%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%9E%8B-A-General-Design-Model"><span class="toc-text">总体设计模型 A General Design Model</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E8%BF%87%E7%A8%8B-Software-Design-Process"><span class="toc-text">软件设计过程 Software Design Process</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E6%B4%BB%E5%8A%A8-Architecture-Activities"><span class="toc-text">体系结构活动 Architecture Activities</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E8%BF%87%E7%A8%8B-Software-Architecture-Process"><span class="toc-text">软件体系结构过程 Software Architecture Process</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F-Architecture-Lifecycle"><span class="toc-text">体系结构生命周期 Architecture Lifecycle</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E5%92%8C%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E7%9F%A5%E8%AF%86%E9%A2%86%E5%9F%9F-Software-Design-Architecture-Knowledge-Areas"><span class="toc-text">软件体系结构和体系结构知识领域 Software Design &amp; Architecture Knowledge Areas</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">讨论</span></a></li></ol></div><div class="widget-footer">
 
 <a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12c0-4.714 0-7.071 1.464-8.536C4.93 2 7.286 2 12 2c4.714 0 7.071 0 8.535 1.464C22 4.93 22 7.286 22 12c0 4.714 0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12Z"/><path stroke-linecap="round" stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M10.46 1.25h3.08c1.603 0 2.86 0 3.864.095c1.023.098 1.861.3 2.6.752a5.75 5.75 0 0 1 1.899 1.899c.452.738.654 1.577.752 2.6c.095 1.004.095 2.261.095 3.865v1.067c0 1.141 0 2.036-.05 2.759c-.05.735-.153 1.347-.388 1.913a5.75 5.75 0 0 1-3.112 3.112c-.805.334-1.721.408-2.977.43a10.81 10.81 0 0 0-.929.036c-.198.022-.275.054-.32.08c-.047.028-.112.078-.224.232c-.121.166-.258.396-.476.764l-.542.916c-.773 1.307-2.69 1.307-3.464 0l-.542-.916a10.605 10.605 0 0 0-.476-.764c-.112-.154-.177-.204-.224-.232c-.045-.026-.122-.058-.32-.08c-.212-.023-.49-.03-.93-.037c-1.255-.021-2.171-.095-2.976-.429A5.75 5.75 0 0 1 1.688 16.2c-.235-.566-.338-1.178-.389-1.913c-.049-.723-.049-1.618-.049-2.76v-1.066c0-1.604 0-2.86.095-3.865c.098-1.023.3-1.862.752-2.6a5.75 5.75 0 0 1 1.899-1.899c.738-.452 1.577-.654 2.6-.752C7.6 1.25 8.857 1.25 10.461 1.25M6.739 2.839c-.914.087-1.495.253-1.959.537A4.25 4.25 0 0 0 3.376 4.78c-.284.464-.45 1.045-.537 1.96c-.088.924-.089 2.11-.089 3.761v1c0 1.175 0 2.019.046 2.685c.045.659.131 1.089.278 1.441a4.25 4.25 0 0 0 2.3 2.3c.515.214 1.173.294 2.429.316h.031c.398.007.747.013 1.037.045c.311.035.616.104.909.274c.29.17.5.395.682.645c.169.232.342.525.538.856l.559.944a.52.52 0 0 0 .882 0l.559-.944c.196-.331.37-.624.538-.856c.182-.25.392-.476.682-.645c.293-.17.598-.24.909-.274c.29-.032.639-.038 1.037-.045h.032c1.255-.022 1.913-.102 2.428-.316a4.25 4.25 0 0 0 2.3-2.3c.147-.352.233-.782.278-1.441c.046-.666.046-1.51.046-2.685v-1c0-1.651 0-2.837-.089-3.762c-.087-.914-.253-1.495-.537-1.959a4.25 4.25 0 0 0-1.403-1.403c-.464-.284-1.045-.45-1.96-.537c-.924-.088-2.11-.089-3.761-.089h-3c-1.651 0-2.837 0-3.762.089" clip-rule="evenodd"/><path fill="currentColor" d="M9 11a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0"/></svg><span>参与讨论</span></a></div></widget>
 </div></aside><div class='float-panel blur'>

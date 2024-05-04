@@ -20,37 +20,37 @@
   <title>ch07- LL(1) 语法分析器 - Asimov's Blog</title>
 
   
-    <meta name="description" content="ch07 LL(1) 语法分析器 构建语法分析树: 自顶向下 vs. 自底向上 只考虑无二义性的文法 这意味着, 每个句子对应唯一的一棵语法分析树 自顶向下的、 递归下降的、 基于预测分析表的、 适用于LL(1) 文法的、 LL(1) 语法分析器 自顶向下构建语法分析树 根节点是文法的起始符号 S  每个中间节点表示对某个非终结符应用某个产生式进行推导 (Q : 选择哪个非终结符, 以及选择哪个产">
+    <meta name="description" content="ch07 LL(1) 语法分析器 构建语法分析树: 自顶向下 vs. 自底向上 只考虑无二义性的文法 这意味着, 每个句子对应唯一的一棵语法分析树 自顶向下的、 递归下降的、 基于预测分析表的、 适用于LL(1) 文法的、 LL(1) 语法分析器 自顶向下构建语法分析树  根节点是文法的起始符号 S 每个中间节点表示对某个非终结符应用某个产生式进行推导 (Q : 选择哪个非终结符, 以及选择哪个产">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ch07- LL(1) 语法分析器">
 <meta property="og:url" content="https://chendingya.github.io/2023/03/30/23-Compilers/ch07/index.html">
 <meta property="og:site_name" content="Asimov&#39;s Blog">
-<meta property="og:description" content="ch07 LL(1) 语法分析器 构建语法分析树: 自顶向下 vs. 自底向上 只考虑无二义性的文法 这意味着, 每个句子对应唯一的一棵语法分析树 自顶向下的、 递归下降的、 基于预测分析表的、 适用于LL(1) 文法的、 LL(1) 语法分析器 自顶向下构建语法分析树 根节点是文法的起始符号 S  每个中间节点表示对某个非终结符应用某个产生式进行推导 (Q : 选择哪个非终结符, 以及选择哪个产">
+<meta property="og:description" content="ch07 LL(1) 语法分析器 构建语法分析树: 自顶向下 vs. 自底向上 只考虑无二义性的文法 这意味着, 每个句子对应唯一的一棵语法分析树 自顶向下的、 递归下降的、 基于预测分析表的、 适用于LL(1) 文法的、 LL(1) 语法分析器 自顶向下构建语法分析树  根节点是文法的起始符号 S 每个中间节点表示对某个非终结符应用某个产生式进行推导 (Q : 选择哪个非终结符, 以及选择哪个产">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://chendingya.github.io/ch07/image-20230407130558399.png">
-<meta property="og:image" content="https://chendingya.github.io/ch07/image-20230407131743295.png">
-<meta property="og:image" content="https://chendingya.github.io/ch07/image-20230407131921718.png">
-<meta property="og:image" content="https://chendingya.github.io/ch07/image-20230407173718296.png">
-<meta property="og:image" content="https://chendingya.github.io/ch07/image-20230407182730941.png">
-<meta property="og:image" content="https://chendingya.github.io/ch07/image-20230407190235069.png">
-<meta property="og:image" content="https://chendingya.github.io/ch07/image-20230407190325780.png">
-<meta property="og:image" content="https://chendingya.github.io/ch07/image-20230407191229025.png">
-<meta property="og:image" content="https://chendingya.github.io/ch07/image-20230407200206884.png">
-<meta property="og:image" content="https://chendingya.github.io/ch07/image-20230407200810018.png">
-<meta property="og:image" content="https://chendingya.github.io/ch07/image-20230407200908885.png">
-<meta property="og:image" content="https://chendingya.github.io/ch07/image-20230407200929058.png">
-<meta property="og:image" content="https://chendingya.github.io/ch07/image-20230407201805026.png">
-<meta property="og:image" content="https://chendingya.github.io/ch07/image-20230412111153214.png">
-<meta property="og:image" content="https://chendingya.github.io/ch07/image-20230412111233114.png">
-<meta property="og:image" content="https://chendingya.github.io/ch07/image-20230412170532841.png">
-<meta property="og:image" content="https://chendingya.github.io/ch07/image-20230412170913024.png">
-<meta property="og:image" content="https://chendingya.github.io/ch07/image-20230412171009946.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/30/23-Compilers/ch07/ch07/image-20230407130558399.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/30/23-Compilers/ch07/ch07/image-20230407131743295.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/30/23-Compilers/ch07/ch07/image-20230407131921718.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/30/23-Compilers/ch07/ch07/image-20230407173718296.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/30/23-Compilers/ch07/ch07/image-20230407182730941.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/30/23-Compilers/ch07/ch07/image-20230407190235069.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/30/23-Compilers/ch07/ch07/image-20230407190325780.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/30/23-Compilers/ch07/ch07/image-20230407191229025.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/30/23-Compilers/ch07/ch07/image-20230407200206884.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/30/23-Compilers/ch07/ch07/image-20230407200810018.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/30/23-Compilers/ch07/ch07/image-20230407200908885.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/30/23-Compilers/ch07/ch07/image-20230407200929058.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/30/23-Compilers/ch07/ch07/image-20230407201805026.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/30/23-Compilers/ch07/ch07/image-20230412111153214.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/30/23-Compilers/ch07/ch07/image-20230412111233114.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/30/23-Compilers/ch07/ch07/image-20230412170532841.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/30/23-Compilers/ch07/ch07/image-20230412170913024.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/30/23-Compilers/ch07/ch07/image-20230412171009946.png">
 <meta property="article:published_time" content="2023-03-30T02:02:34.000Z">
 <meta property="article:modified_time" content="2023-09-14T10:47:32.697Z">
 <meta property="article:author" content="Asimov">
 <meta property="article:tag" content="编译原理">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://chendingya.github.io/ch07/image-20230407130558399.png">
+<meta name="twitter:image" content="https://chendingya.github.io/2023/03/30/23-Compilers/ch07/ch07/image-20230407130558399.png">
   
   
   
@@ -83,7 +83,7 @@
 <div class="widgets">
 
 
-<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2024/05/01/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%841/"><span class="title">系统架构1</span></a><a class="item title" href="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/"><span class="title">软件测试-期末复习</span></a><a class="item title" href="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/"><span class="title">机器学习-期末复习</span></a><a class="item title" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/"><span class="title">服务端-ch17-k8s使用</span></a><a class="item title" href="/2023/12/30/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch16-%E5%AE%B9%E5%99%A8%E9%95%9C%E5%83%8F%E6%9E%84%E5%BB%BA%E4%B8%8E%E7%BC%96%E6%8E%92/"><span class="title">服务端-ch16-容器镜像构建与编排</span></a><a class="item title" href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/"><span class="title">服务端-ch15-Docker</span></a><a class="item title" href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/"><span class="title">服务端-ch14-Spring WebFlux</span></a><a class="item title" href="/2023/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch13-%E5%8F%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"><span class="title">服务端-ch13-反应式编程基础</span></a><a class="item title" href="/2023/11/23/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch12-Spring%20Integration/"><span class="title">服务端-ch12-Spring Integration</span></a><a class="item title" href="/2023/11/09/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch11-%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6(ActiveMQ%E3%80%81RabbitMQ)/"><span class="title">服务端-ch11-消息中间件(ActiveMQ、RabbitMQ)</span></a></div></widget>
+<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2024/05/02/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%842/"><span class="title">系统架构2-质量属性Quality Attributes</span></a><a class="item title" href="/2024/05/01/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%841/"><span class="title">系统架构1-Intro</span></a><a class="item title" href="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/"><span class="title">软件测试-期末复习</span></a><a class="item title" href="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/"><span class="title">机器学习-期末复习</span></a><a class="item title" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/"><span class="title">服务端-ch17-k8s使用</span></a><a class="item title" href="/2023/12/30/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch16-%E5%AE%B9%E5%99%A8%E9%95%9C%E5%83%8F%E6%9E%84%E5%BB%BA%E4%B8%8E%E7%BC%96%E6%8E%92/"><span class="title">服务端-ch16-容器镜像构建与编排</span></a><a class="item title" href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/"><span class="title">服务端-ch15-Docker</span></a><a class="item title" href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/"><span class="title">服务端-ch14-Spring WebFlux</span></a><a class="item title" href="/2023/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch13-%E5%8F%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"><span class="title">服务端-ch13-反应式编程基础</span></a><a class="item title" href="/2023/11/23/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch12-Spring%20Integration/"><span class="title">服务端-ch12-Spring Integration</span></a></div></widget>
 </div>
 <footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/chendingya?tab=repositories" target="_blank" rel="external nofollow noopener noreferrer"><img no-lazy src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" / onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a></div></footer>
 </div></aside><div class="l_main" id="main">
@@ -107,173 +107,219 @@
     </div>
     
   </div>
-  </div><article class="md-text content"><h1 id="ch07"><a href="#ch07" class="headerlink" title="ch07"></a>ch07</h1><p> LL(1) 语法分析器</p>
+  </div><article class="md-text content"><h1>ch07</h1>
+<p>LL(1) 语法分析器</p>
 <p>构建语法分析树: 自顶向下 vs. 自底向上</p>
 <p>只考虑无二义性的文法 这意味着, 每个句子对应唯一的一棵语法分析树</p>
 <p>自顶向下的、 递归下降的、 基于预测分析表的、 适用于LL(1) 文法的、 LL(1) 语法分析器</p>
-<h2 id="自顶向下构建语法分析树"><a href="#自顶向下构建语法分析树" class="headerlink" title="自顶向下构建语法分析树"></a>自顶向下构建语法分析树</h2><ul>
-<li>根节点是文法的起始符号 S </li>
-<li>每个中间节点表示对某个非终结符应用某个产生式进行推导 (Q : 选择哪个非终结符, 以及选择哪个产生式) </li>
+<h2 id="自顶向下构建语法分析树">自顶向下构建语法分析树</h2>
+<ul>
+<li>根节点是文法的起始符号 S</li>
+<li>每个中间节点表示对某个非终结符应用某个产生式进行推导 (Q : 选择哪个非终结符, 以及选择哪个产生式)</li>
 <li>在推导的每一步, L<strong>L</strong>(1) 总是选择最左边的非终结符进行展开</li>
 <li><strong>L</strong>L(1): 从左向右读入词法单元</li>
 <li>叶节点是词法单元流 w$ 仅包含终结符号与特殊的文件结束符 $ (EOF)</li>
 </ul>
-<h3 id="递归下降"><a href="#递归下降" class="headerlink" title="递归下降"></a>递归下降</h3><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/./ch07/image-20230407130558399.png" alt="image-20230407130558399"></p>
+<h3 id="递归下降">递归下降</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="./ch07/image-20230407130558399.png" alt="image-20230407130558399"></p>
 <p>递归下降是LL(1)语法分析器常用的实现方式</p>
 <p>为每个非终结符写一个递归函数 内部按需调用其它非终结符对应的递归函数, 下降一层</p>
 <p>为了实现额外的任务，可以加参数和返回值</p>
-<h4 id="实现过程"><a href="#实现过程" class="headerlink" title="实现过程"></a>实现过程</h4><ul>
+<h4 id="实现过程">实现过程</h4>
+<ul>
 <li>先选择一个A的产生式，1-k</li>
-<li>for循环处理每个X<del>1</del> ~ X <del>k</del></li>
+<li>for循环处理每个X~1~ ~ X ~k~</li>
 <li>X为非终结符，调用X对应的递归函数</li>
-<li>X为终结符<ul>
-<li>X<del>i</del>&#x3D;a 匹配上当前的词法单元</li>
-<li>X<del>i</del>！&#x3D;a 出现错误</li>
+<li>X为终结符
+<ul>
+<li>X~i~=a 匹配上当前的词法单元</li>
+<li>X~i~！=a 出现错误</li>
 </ul>
 </li>
 </ul>
-<h3 id="优缺点"><a href="#优缺点" class="headerlink" title="优缺点"></a>优缺点</h3><h4 id="优点"><a href="#优点" class="headerlink" title="优点"></a>优点</h4><p>算法简单</p>
-<h4 id="缺点"><a href="#缺点" class="headerlink" title="缺点"></a>缺点</h4><p>能处理文法（上下文无关文法）的种类很少</p>
+<h3 id="优缺点">优缺点</h3>
+<h4 id="优点">优点</h4>
+<p>算法简单</p>
+<h4 id="缺点">缺点</h4>
+<p>能处理文法（上下文无关文法）的种类很少</p>
 <p>如果不能处理，改造文法复杂</p>
-<h3 id="演示递归下降过程"><a href="#演示递归下降过程" class="headerlink" title="演示递归下降过程"></a>演示递归下降过程</h3><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/./ch07/image-20230407131743295.png" alt="image-20230407131743295"></p>
+<h3 id="演示递归下降过程">演示递归下降过程</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="./ch07/image-20230407131743295.png" alt="image-20230407131743295"></p>
 <p>每次都选择语法分析树最左边的非终结符进行展开</p>
-<h4 id="同样是展开非终结符-S-为什么前两次选择了-S-→-S-F-而第三次选择了-S-→-F"><a href="#同样是展开非终结符-S-为什么前两次选择了-S-→-S-F-而第三次选择了-S-→-F" class="headerlink" title="同样是展开非终结符 S, 为什么前两次选择了 S → (S + F), 而第三次选择了 S → F?"></a>同样是展开非终结符 S, 为什么前两次选择了 S → (S + F), 而第三次选择了 S → F?</h4><p>因为它们面对的当前词法单元不同</p>
-<h4 id="使用-预测分析表-确定产生式"><a href="#使用-预测分析表-确定产生式" class="headerlink" title="使用&#x3D;&#x3D;预测分析表&#x3D;&#x3D;确定产生式"></a>使用&#x3D;&#x3D;预测分析表&#x3D;&#x3D;确定产生式</h4><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/./ch07/image-20230407131921718.png" alt="image-20230407131921718"></p>
+<h4 id="同样是展开非终结符-S-为什么前两次选择了-S-→-S-F-而第三次选择了-S-→-F">同样是展开非终结符 S, 为什么前两次选择了 S → (S + F), 而第三次选择了 S → F?</h4>
+<p>因为它们面对的当前词法单元不同</p>
+<h4 id="使用-预测分析表-确定产生式">使用==预测分析表==确定产生式</h4>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="./ch07/image-20230407131921718.png" alt="image-20230407131921718"></p>
 <p>指明了每个<strong>非终结符</strong>在面对不同的<strong>词法单元或文件结束符</strong>时, 该选择哪个<strong>产生式</strong> (按编号进行索引) 或者<strong>报错</strong> (空单元格)</p>
 <ul>
 <li>只有第二条会产生小括号，如果读入字符是（，就只能选第二条</li>
 <li>第三次是F，面对的读入字符是a，所以只会选择3</li>
 </ul>
-<h3 id="LL-1-文法Definition-："><a href="#LL-1-文法Definition-：" class="headerlink" title="LL(1) 文法Definition ："></a>LL(1) 文法Definition ：</h3><p>如果文法 G 的预测分析表是无冲突的, 则 G 是 LL(1) 文法。</p>
+<h3 id="LL-1-文法Definition-：">LL(1) 文法Definition ：</h3>
+<p>如果文法 G 的预测分析表是无冲突的, 则 G 是 LL(1) 文法。</p>
 <p>无冲突: 每个单元格里只有一个产生式 (编号)</p>
 <p>对于当前选择的<strong>非终结符</strong>, 仅根据输入中<strong>当前的词法单元</strong> (LL(1)) 即可确定需要使用哪条<strong>产生式</strong></p>
-<h3 id="递归下降的、预测分析实现方法"><a href="#递归下降的、预测分析实现方法" class="headerlink" title="递归下降的、预测分析实现方法"></a>递归下降的、预测分析实现方法</h3><h4 id="框架："><a href="#框架：" class="headerlink" title="框架："></a>框架：</h4><p>假定<strong>预测分析表</strong>已经被构建出来了</p>
+<h3 id="递归下降的、预测分析实现方法">递归下降的、预测分析实现方法</h3>
+<h4 id="框架：">框架：</h4>
+<p>假定<strong>预测分析表</strong>已经被构建出来了</p>
 <figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">procedure <span class="title function_">match</span><span class="params">(t)</span></span><br><span class="line"> <span class="keyword">if</span> token = t then</span><br><span class="line"> token ← next-token()</span><br><span class="line"> <span class="keyword">else</span></span><br><span class="line"> error(token, t)</span><br><span class="line">     </span><br><span class="line">procedure S()</span><br><span class="line"> <span class="keyword">if</span> token = ‘(’ then</span><br><span class="line"> match(‘(’)</span><br><span class="line"> S()</span><br><span class="line"> match(‘+’)</span><br><span class="line"> F()</span><br><span class="line"> match(‘)’)</span><br><span class="line"> <span class="keyword">else</span> <span class="keyword">if</span> token = ‘a’ then</span><br><span class="line"> F()</span><br><span class="line"> <span class="keyword">else</span></span><br><span class="line"> error(token, &#123;‘(’, ‘a’&#125;)</span><br><span class="line"></span><br><span class="line">procedure F()</span><br><span class="line"> <span class="keyword">if</span> token = ‘a’ then</span><br><span class="line"> match(‘a’)</span><br><span class="line"> <span class="keyword">else</span></span><br><span class="line"> error(token, &#123;‘a’&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-
-<h3 id="计算给定文法-G-的预测分析表"><a href="#计算给定文法-G-的预测分析表" class="headerlink" title="计算给定文法 G 的预测分析表"></a>计算给定文法 G 的预测分析表</h3><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/./ch07/image-20230407173718296.png" alt="image-20230407173718296"></p>
+<h3 id="计算给定文法-G-的预测分析表">计算给定文法 G 的预测分析表</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="./ch07/image-20230407173718296.png" alt="image-20230407173718296"></p>
 <ul>
 <li>选择decl展开因为只有这样才能在后面产生int</li>
 <li>选择func_call是因为只有这样才能产生ID这个终结符</li>
 </ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/./ch07/image-20230407182730941.png" alt="image-20230407182730941"></p>
-<h4 id="什么时候选择非终结符的ε产生式"><a href="#什么时候选择非终结符的ε产生式" class="headerlink" title="什么时候选择非终结符的ε产生式"></a>什么时候选择非终结符的ε产生式</h4><p>只有在这个非终结符的后面的这个终结符可能是我想要的终结符的情况下，才可以选择将其变无</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="./ch07/image-20230407182730941.png" alt="image-20230407182730941"></p>
+<h4 id="什么时候选择非终结符的ε产生式">什么时候选择非终结符的ε产生式</h4>
+<p>只有在这个非终结符的后面的这个终结符可能是我想要的终结符的情况下，才可以选择将其变无</p>
 <p>如果有一个终结符，而且这个终结符有一个产生式，变成ε，或者经过很多步推导可以生成ε，后面的非终结符使我们接下来要匹配的终结符，接下来要匹配的终结符最好就是当前指针要指向的终结符</p>
 <p>要看这个非终结符有哪些终结符跟在后面</p>
-<h4 id="First-α-集合-Definition"><a href="#First-α-集合-Definition" class="headerlink" title="First(α) 集合 Definition"></a>First(α) 集合 Definition</h4><p><strong>First(α) 是可从 α 推导得到的句型的&#x3D;&#x3D;首终结符号&#x3D;&#x3D;的集合</strong></p>
-<p>对于任意的 (产生式的右部) α ∈ (N ∪ T) ∗ : </p>
-<p>First(α) &#x3D; { t ∈ T ∪ {ϵ} | α ∗&#x3D;⇒ tβ ∨ α ∗&#x3D;⇒ ϵ } .  （*&#x3D;&#x3D;&gt;指经过任意步推导）β是任意非终结符和终结符的集合，可能为空</p>
+<h4 id="First-α-集合-Definition">First(α) 集合 Definition</h4>
+<p><strong>First(α) 是可从 α 推导得到的句型的==首终结符号==的集合</strong></p>
+<p>对于任意的 (产生式的右部) α ∈ (N ∪ T) ∗ :</p>
+<p>First(α) = { t ∈ T ∪ {ϵ} | α ∗=⇒ tβ ∨ α ∗=⇒ ϵ } .  （*==&gt;指经过任意步推导）β是任意非终结符和终结符的集合，可能为空</p>
 <p>考虑非终结符 A 的所有产生式 A → α1, A → α2, . . . , A → αm, 如果它们<strong>对应的 First(αi) 集合互不相交</strong>, 则只需查看当前输入词法单元, 即可确定选择哪个产生式 (<strong>或报错</strong>)</p>
 <p>例：</p>
-<p>First(prog) &#x3D; {‘int’, ID}</p>
+<p>First(prog) = {‘int’, ID}</p>
 <p><strong>First是想知道，如果选择了某种特定的展开方式，会产生哪些首终结符，有没有可能是指针指向的字符</strong></p>
-<h4 id="Follow-A-集合-Definition"><a href="#Follow-A-集合-Definition" class="headerlink" title="Follow(A) 集合 Definition"></a>Follow(A) 集合 Definition</h4><p><strong>Follow(A) 是可能在某些句型中紧跟在 A 右边的终结符的集合</strong></p>
-<p>对于任意的 (产生式的左部) 非终结符 A ∈ N : </p>
-<p>​	Follow(A) &#x3D; { t ∈ T ∪ {$} | ∃s. S ∗&#x3D;⇒ s ≜ βAtγ } .</p>
+<h4 id="Follow-A-集合-Definition">Follow(A) 集合 Definition</h4>
+<p><strong>Follow(A) 是可能在某些句型中紧跟在 A 右边的终结符的集合</strong></p>
+<p>对于任意的 (产生式的左部) 非终结符 A ∈ N :</p>
+<p>​	Follow(A) = { t ∈ T ∪ {$} | ∃s. S ∗=⇒ s ≜ βAtγ } .</p>
 <p>β和γ是任意非终结符和终结符的集合，可能为空</p>
 <p>如果退出来A这个非终结符，而且后面是终结符，t ∈ Follow(A)， t有可能是$（s是开始符号，而$是输入右端的结束标记）</p>
-<p>考虑产生式 A → α, <strong>如果从 α 可能推导出空串 (α ∗&#x3D;⇒ ϵ), 则只有当当前词法单元 t ∈ Follow(A), 才可以选择该产生式</strong>(意味着A会消失)</p>
-<h4 id="计算算法"><a href="#计算算法" class="headerlink" title="计算算法"></a>计算算法</h4><h5 id="先计算每个符号-X-的-First-X-集合"><a href="#先计算每个符号-X-的-First-X-集合" class="headerlink" title="先计算每个符号 X 的 First(X) 集合"></a>先计算每个符号 X 的 First(X) 集合</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">procedure <span class="title function_">first</span><span class="params">(X)</span></span><br><span class="line"> <span class="keyword">if</span> X ∈ T then ▷ 规则 1: X 是终结符</span><br><span class="line"> 	<span class="title function_">First</span><span class="params">(X)</span> = X</span><br><span class="line"> <span class="keyword">for</span> X → Y1Y2 . . . Yk <span class="keyword">do</span> ▷ 规则 <span class="number">2</span>: X 是非终结符</span><br><span class="line">     <span class="comment">//Y的首终结符包含于X的首终结符</span></span><br><span class="line">     <span class="comment">//Y如果变成ε不代表X也会变成ε</span></span><br><span class="line"> 	First(X) ← First(X) ∪ &#123;First(Y1) \ &#123;ϵ&#125;&#125;  </span><br><span class="line"> 	<span class="keyword">for</span> i ← <span class="number">2</span> to k <span class="keyword">do</span></span><br><span class="line">        <span class="comment">//看ε能不能由Y1推出来</span></span><br><span class="line"> 		<span class="keyword">if</span> ϵ ∈ L(Y1 . . . Yi−<span class="number">1</span>) then</span><br><span class="line"> 			<span class="title function_">First</span><span class="params">(X)</span> ← <span class="title function_">First</span><span class="params">(X)</span> ∪ &#123;First(Yi) \ &#123;ϵ&#125;&#125;</span><br><span class="line">	<span class="comment">//看完1~k</span></span><br><span class="line">	<span class="comment">//L(Y1 . . . Yk)表示Y1~Yk都能退出ε</span></span><br><span class="line"> 	<span class="keyword">if</span> ϵ ∈ L(Y1 . . . Yk) then ▷ 规则 <span class="number">3</span>: X 可推导出空串</span><br><span class="line"> 		First(X) ← First(X) ∪ &#123;ϵ&#125;</span><br></pre></td></tr></table></figure>
-
+<p>考虑产生式 A → α, <strong>如果从 α 可能推导出空串 (α ∗=⇒ ϵ), 则只有当当前词法单元 t ∈ Follow(A), 才可以选择该产生式</strong>(意味着A会消失)</p>
+<h4 id="计算算法">计算算法</h4>
+<h5 id="先计算每个符号-X-的-First-X-集合">先计算每个符号 X 的 First(X) 集合</h5>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">procedure <span class="title function_">first</span><span class="params">(X)</span></span><br><span class="line"> <span class="keyword">if</span> X ∈ T then ▷ 规则 1: X 是终结符</span><br><span class="line"> 	<span class="title function_">First</span><span class="params">(X)</span> = X</span><br><span class="line"> <span class="keyword">for</span> X → Y1Y2 . . . Yk <span class="keyword">do</span> ▷ 规则 <span class="number">2</span>: X 是非终结符</span><br><span class="line">     <span class="comment">//Y的首终结符包含于X的首终结符</span></span><br><span class="line">     <span class="comment">//Y如果变成ε不代表X也会变成ε</span></span><br><span class="line"> 	First(X) ← First(X) ∪ &#123;First(Y1) \ &#123;ϵ&#125;&#125;  </span><br><span class="line"> 	<span class="keyword">for</span> i ← <span class="number">2</span> to k <span class="keyword">do</span></span><br><span class="line">        <span class="comment">//看ε能不能由Y1推出来</span></span><br><span class="line"> 		<span class="keyword">if</span> ϵ ∈ L(Y1 . . . Yi−<span class="number">1</span>) then</span><br><span class="line"> 			<span class="title function_">First</span><span class="params">(X)</span> ← <span class="title function_">First</span><span class="params">(X)</span> ∪ &#123;First(Yi) \ &#123;ϵ&#125;&#125;</span><br><span class="line">	<span class="comment">//看完1~k</span></span><br><span class="line">	<span class="comment">//L(Y1 . . . Yk)表示Y1~Yk都能退出ε</span></span><br><span class="line"> 	<span class="keyword">if</span> ϵ ∈ L(Y1 . . . Yk) then ▷ 规则 <span class="number">3</span>: X 可推导出空串</span><br><span class="line"> 		First(X) ← First(X) ∪ &#123;ϵ&#125;</span><br></pre></td></tr></table></figure>
 <p>不断应用上面的规则, 直到每个 First(X) 都不再变化 <strong>(不动点!!!)</strong></p>
-<h5 id="再计算每个符号串-α-的-First-α"><a href="#再计算每个符号串-α-的-First-α" class="headerlink" title="再计算每个符号串 α 的 First(α)"></a>再计算每个符号串 α 的 First(α)</h5><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/./ch07/image-20230407190235069.png" alt="image-20230407190235069"></p>
-<h5 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h5><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/./ch07/image-20230407190325780.png" alt="image-20230407190325780"></p>
-<h5 id="为每个非终结符-X-计算-Follow-X-集合"><a href="#为每个非终结符-X-计算-Follow-X-集合" class="headerlink" title="为每个非终结符 X 计算 Follow(X) 集合"></a>为每个非终结符 X 计算 Follow(X) 集合</h5><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">procedure <span class="title function_">follow</span><span class="params">(X)</span></span><br><span class="line">	<span class="keyword">for</span> X 是开始符号 <span class="keyword">do</span> ▷ 规则 1: X 是开始符号</span><br><span class="line">		<span class="title function_">Follow</span><span class="params">(X)</span> ← <span class="title function_">Follow</span><span class="params">(X)</span> ∪ &#123;$&#125;</span><br><span class="line">	<span class="keyword">for</span> A → αX <span class="keyword">do</span> ▷ 规则 <span class="number">2</span>: X 是某产生式右部的最后一个符号</span><br><span class="line">       <span class="comment">//所有能跟在A后的终结符都可能跟在S后面</span></span><br><span class="line">		Follow(X) ← Follow(X) ∪ Follow(A)</span><br><span class="line">	<span class="keyword">for</span> A → αXβ <span class="keyword">do</span> ▷ 规则 <span class="number">3</span>: X 是某产生式右部中间的一个符号、</span><br><span class="line">       <span class="comment">//X是某个产生式中间的符号</span></span><br><span class="line">       <span class="comment">//β能推出来的终结符一定能跟在X后面</span></span><br><span class="line">       <span class="comment">//ε不一定在X后面</span></span><br><span class="line">		Follow(X) ← Follow(X) ∪ (First(β) \ &#123;ϵ&#125;)</span><br><span class="line">		<span class="keyword">if</span> ϵ ∈ First(β) then</span><br><span class="line">		 <span class="title function_">Follow</span><span class="params">(X)</span> ← <span class="title function_">Follow</span><span class="params">(X)</span> ∪ <span class="title function_">Follow</span><span class="params">(A)</span></span><br></pre></td></tr></table></figure>
-
+<h5 id="再计算每个符号串-α-的-First-α">再计算每个符号串 α 的 First(α)</h5>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="./ch07/image-20230407190235069.png" alt="image-20230407190235069"></p>
+<h5 id="例子">例子</h5>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="./ch07/image-20230407190325780.png" alt="image-20230407190325780"></p>
+<h5 id="为每个非终结符-X-计算-Follow-X-集合">为每个非终结符 X 计算 Follow(X) 集合</h5>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">procedure <span class="title function_">follow</span><span class="params">(X)</span></span><br><span class="line">	<span class="keyword">for</span> X 是开始符号 <span class="keyword">do</span> ▷ 规则 1: X 是开始符号</span><br><span class="line">		<span class="title function_">Follow</span><span class="params">(X)</span> ← <span class="title function_">Follow</span><span class="params">(X)</span> ∪ &#123;$&#125;</span><br><span class="line">	<span class="keyword">for</span> A → αX <span class="keyword">do</span> ▷ 规则 <span class="number">2</span>: X 是某产生式右部的最后一个符号</span><br><span class="line">       <span class="comment">//所有能跟在A后的终结符都可能跟在S后面</span></span><br><span class="line">		Follow(X) ← Follow(X) ∪ Follow(A)</span><br><span class="line">	<span class="keyword">for</span> A → αXβ <span class="keyword">do</span> ▷ 规则 <span class="number">3</span>: X 是某产生式右部中间的一个符号、</span><br><span class="line">       <span class="comment">//X是某个产生式中间的符号</span></span><br><span class="line">       <span class="comment">//β能推出来的终结符一定能跟在X后面</span></span><br><span class="line">       <span class="comment">//ε不一定在X后面</span></span><br><span class="line">		Follow(X) ← Follow(X) ∪ (First(β) \ &#123;ϵ&#125;)</span><br><span class="line">		<span class="keyword">if</span> ϵ ∈ First(β) then</span><br><span class="line">		 <span class="title function_">Follow</span><span class="params">(X)</span> ← <span class="title function_">Follow</span><span class="params">(X)</span> ∪ <span class="title function_">Follow</span><span class="params">(A)</span></span><br></pre></td></tr></table></figure>
 <p>不断应用上面的规则, 直到每个 Follow(X) 都不再变化 <strong>(不动点!!!)</strong></p>
-<h5 id="例子-1"><a href="#例子-1" class="headerlink" title="例子"></a>例子</h5><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/./ch07/image-20230407191229025.png" alt="image-20230407191229025"></p>
+<h5 id="例子-2">例子</h5>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="./ch07/image-20230407191229025.png" alt="image-20230407191229025"></p>
 <p>FL(X)先看F(Y)，再看F(Z)，再看ε是否属于F(XYZ)</p>
 <p>FL(X)⊆FL(Y)  F(Z)⊆FL(Y)，再看Z能不能产生ε，不能，FL(Y)结束</p>
-<p>FL(Z)⊆FL(Z) FL(Z)&#x3D;∅</p>
-<h3 id="根据First-与-Follow-集合计算给定文法-G-的预测分析表"><a href="#根据First-与-Follow-集合计算给定文法-G-的预测分析表" class="headerlink" title="根据First 与 Follow 集合计算给定文法 G 的预测分析表"></a>根据First 与 Follow 集合计算给定文法 G 的预测分析表</h3><p>对应每条产生式 A → α 与终结符 t, 如果 </p>
+<p>FL(Z)⊆FL(Z) FL(Z)=∅</p>
+<h3 id="根据First-与-Follow-集合计算给定文法-G-的预测分析表">根据First 与 Follow 集合计算给定文法 G 的预测分析表</h3>
+<p>对应每条产生式 A → α 与终结符 t, 如果</p>
 <ul>
-<li><p>t ∈ First(α)  </p>
+<li>
+<p>t ∈ First(α)</p>
 </li>
-<li><p>α ∗&#x3D;⇒ ϵ ∧ t ∈ Follow(A)  &#x2F;&#x2F;α被变为ε消掉</p>
+<li>
+<p>α ∗=⇒ ϵ ∧ t ∈ Follow(A)  //α被变为ε消掉</p>
 </li>
 </ul>
 <p>则在表格 [A,t] 中填入 A → α (编号)。</p>
-<h5 id="例子-2"><a href="#例子-2" class="headerlink" title="例子"></a>例子</h5><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/./ch07/image-20230407200206884.png" alt="image-20230407200206884"></p>
+<h5 id="例子-3">例子</h5>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="./ch07/image-20230407200206884.png" alt="image-20230407200206884"></p>
 <p>(Y,3)出现冲突，该文法不是LL(1)文法</p>
-<h3 id="LL-1-文法-Definition"><a href="#LL-1-文法-Definition" class="headerlink" title="LL(1) 文法 Definition"></a>LL(1) 文法 Definition</h3><p>如果文法 G 的&#x3D;&#x3D;预测分析表&#x3D;&#x3D;是无冲突的, 则 G 是 LL(1) 文法。</p>
-<h3 id="LL-1-文法不能够处理的"><a href="#LL-1-文法不能够处理的" class="headerlink" title="LL(1) 文法不能够处理的"></a>LL(1) 文法不能够处理的</h3><p>当前要展开A，看到t这个词法单元，可以选择一个没有冲突的、唯一的产生式，但不意味着接着走下去不会出错</p>
+<h3 id="LL-1-文法-Definition">LL(1) 文法 Definition</h3>
+<p>如果文法 G 的==预测分析表==是无冲突的, 则 G 是 LL(1) 文法。</p>
+<h3 id="LL-1-文法不能够处理的">LL(1) 文法不能够处理的</h3>
+<p>当前要展开A，看到t这个词法单元，可以选择一个没有冲突的、唯一的产生式，但不意味着接着走下去不会出错</p>
 <ul>
-<li><p>t ∈ First(α) (1)</p>
+<li>
+<p>t ∈ First(α) (1)</p>
 </li>
-<li><p>ϵ ∈ First(α) ∧ t ∈ Follow(A) (2)</p>
+<li>
+<p>ϵ ∈ First(α) ∧ t ∈ Follow(A) (2)</p>
 </li>
 </ul>
 <p>当下的选择未必正确, 但 “你别无选择”。</p>
-<h3 id="总结LL-1-语法分析器"><a href="#总结LL-1-语法分析器" class="headerlink" title="总结LL(1) 语法分析器"></a>总结LL(1) 语法分析器</h3><ul>
-<li><p>L : 从左向右 (left-to-right) 扫描输入 </p>
+<h3 id="总结LL-1-语法分析器">总结LL(1) 语法分析器</h3>
+<ul>
+<li>
+<p>L : 从左向右 (left-to-right) 扫描输入</p>
 </li>
-<li><p>L : 构建最左 (leftmost) 推导 </p>
+<li>
+<p>L : 构建最左 (leftmost) 推导</p>
 </li>
-<li><p>1 : 只需向前看一个输入符号便可确定使用哪条产生式</p>
+<li>
+<p>1 : 只需向前看一个输入符号便可确定使用哪条产生式</p>
 </li>
 </ul>
-<h3 id="LL-0"><a href="#LL-0" class="headerlink" title="LL(0)"></a>LL(0)</h3><p>输入什么都不看，闭着眼的语法分析器:</p>
+<h3 id="LL-0">LL(0)</h3>
+<p>输入什么都不看，闭着眼的语法分析器:</p>
 <p>只包含一个字符串的文法</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/ch07/image-20230407200810018.png" alt="image-20230407200810018"></p>
-<h3 id="非递归的预测分析算法（非重点，现在一般写递归的，模块性强）"><a href="#非递归的预测分析算法（非重点，现在一般写递归的，模块性强）" class="headerlink" title="非递归的预测分析算法（非重点，现在一般写递归的，模块性强）"></a>非递归的预测分析算法（非重点，现在一般写递归的，模块性强）</h3><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/ch07/image-20230407200908885.png" alt="image-20230407200908885"></p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/ch07/image-20230407200929058.png" alt="image-20230407200929058"></p>
-<h3 id="不是LL-1-文法的改造文法办法"><a href="#不是LL-1-文法的改造文法办法" class="headerlink" title="不是LL(1)文法的改造文法办法"></a>不是LL(1)文法的改造文法办法</h3><ul>
-<li><strong>消除左递归</strong> </li>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="ch07/image-20230407200810018.png" alt="image-20230407200810018"></p>
+<h3 id="非递归的预测分析算法（非重点，现在一般写递归的，模块性强）">非递归的预测分析算法（非重点，现在一般写递归的，模块性强）</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="ch07/image-20230407200908885.png" alt="image-20230407200908885"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="ch07/image-20230407200929058.png" alt="image-20230407200929058"></p>
+<h3 id="不是LL-1-文法的改造文法办法">不是LL(1)文法的改造文法办法</h3>
+<ul>
+<li><strong>消除左递归</strong></li>
 <li><strong>提取左公因子</strong></li>
 </ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/ch07/image-20230407201805026.png" alt="image-20230407201805026"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="ch07/image-20230407201805026.png" alt="image-20230407201805026"></p>
 <p>左递归改完是左递归</p>
 <p>E 在不消耗任何词法单元的情况下, 直接递归调用 E, 造成死循环</p>
 <p>解决方案：</p>
 <p>左递归改为右递归</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/ch07/image-20230412111153214.png" alt="image-20230412111153214"></p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/ch07/image-20230412111233114.png" alt="image-20230412111233114"></p>
-<h3 id="直接左递归-Direct-Left-Recursion-消除左递归"><a href="#直接左递归-Direct-Left-Recursion-消除左递归" class="headerlink" title="直接左递归 (Direct Left Recursion)消除左递归"></a>直接左递归 (Direct Left Recursion)消除左递归</h3><h4 id="例子："><a href="#例子：" class="headerlink" title="例子："></a>例子：</h4><ul>
-<li><p>A → Aα | β</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="ch07/image-20230412111153214.png" alt="image-20230412111153214"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="ch07/image-20230412111233114.png" alt="image-20230412111233114"></p>
+<h3 id="直接左递归-Direct-Left-Recursion-消除左递归">直接左递归 (Direct Left Recursion)消除左递归</h3>
+<h4 id="例子：">例子：</h4>
+<ul>
+<li>
+<p>A → Aα | β</p>
 </li>
-<li><p>A → βA′</p>
+<li>
+<p>A → βA′</p>
 <p>A ′ → αA′ | ϵ</p>
 </li>
 </ul>
-<h4 id="范式"><a href="#范式" class="headerlink" title="范式"></a>范式</h4><ul>
+<h4 id="范式">范式</h4>
+<ul>
 <li>A → Aα1 | Aα2 | . . . Aαm | β1 | β2 | . . . βn</li>
 <li>其中, βi 都不以 A 开头</li>
 </ul>
 <p>改为：</p>
 <ul>
-<li><p>A → β1A ′ | β2A ′ | · · · | βnA′ </p>
+<li>
+<p>A → β1A ′ | β2A ′ | · · · | βnA′</p>
 <p>A ′ → α1A ′ | α2A ′ | · · · | αmA ′ | ϵ</p>
 </li>
 </ul>
-<h3 id="间接左递归-Indirect-Left-Recursion-消除左递归"><a href="#间接左递归-Indirect-Left-Recursion-消除左递归" class="headerlink" title="间接左递归 (Indirect Left Recursion)消除左递归"></a>间接左递归 (Indirect Left Recursion)消除左递归</h3><p>单看每一条产生式都没有左递归</p>
+<h3 id="间接左递归-Indirect-Left-Recursion-消除左递归">间接左递归 (Indirect Left Recursion)消除左递归</h3>
+<p>单看每一条产生式都没有左递归</p>
 <ul>
-<li><p>S → Ac | c </p>
-<p>A → Bb | b </p>
+<li>
+<p>S → Ac | c</p>
+<p>A → Bb | b</p>
 <p>B → Sa | a</p>
 <ul>
-<li>S &#x3D;⇒ Ac &#x3D;⇒ Bbc &#x3D;⇒ Sabc：构成了左递归</li>
+<li>S =⇒ Ac =⇒ Bbc =⇒ Sabc：构成了左递归</li>
 </ul>
 </li>
 </ul>
 <p>改间接左递归比较麻烦，绕了一圈回到自己，消除需要满足这样的性质：</p>
 <p>如果对满足这样条件的产生式：</p>
-<p>A<del>i</del> → A<del>j</del>α &#x3D;⇒ i &lt; j</p>
+<p>A~i~ → A~j~α =⇒ i &lt; j</p>
 <p>即：如果右部第一个为非终结符，则要求i &lt; j</p>
 <p>即：每推一步，产生出来的非终结符的编号越来越大，所以不可能绕回自己，不可能产生左递归</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/ch07/image-20230412170532841.png" alt="image-20230412170532841"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="ch07/image-20230412170532841.png" alt="image-20230412170532841"></p>
 <ul>
 <li>产生直接左递归：可以按照之前的方式处理了</li>
-<li>算法要求: <ul>
-<li>文法中不存在环 (形如 A ∗&#x3D;⇒ A 的推导) </li>
+<li>算法要求:
+<ul>
+<li>文法中不存在环 (形如 A ∗=⇒ A 的推导)</li>
 <li>文法中不存在 ϵ 产生式 (形如 A → ϵ 的产生式)</li>
 </ul>
 </li>
 </ul>
 <p>间接左递归的处理在工程上不是必须的：很多实用的文法不会有间接左递归，为了少量的文法在工程上实现一个理论可行的东西是不明智的</p>
-<h3 id="提取左公因子-Left-Factoring"><a href="#提取左公因子-Left-Factoring" class="headerlink" title="提取左公因子 (Left-Factoring)"></a>提取左公因子 (Left-Factoring)</h3><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/ch07/image-20230412170913024.png" alt="image-20230412170913024"></p>
+<h3 id="提取左公因子-Left-Factoring">提取左公因子 (Left-Factoring)</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="ch07/image-20230412170913024.png" alt="image-20230412170913024"></p>
 <p><strong>ANTLR 4 可以处理有左公因子的文法，不需要自己提取</strong></p>
 <p>提取公共部分’int’ ID</p>
 <p>如果提取完是空就空着</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/ch07/image-20230412171009946.png" alt="image-20230412171009946"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="ch07/image-20230412171009946.png" alt="image-20230412171009946"></p>
 <p>很明显, <strong>提取左公因子无助于消除文法二义性</strong></p>
 
 <div class="article-footer fs14">
@@ -291,14 +337,15 @@
 
 
 
-<footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">Asimov</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.28.1">Stellar 1.28.1</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">Asimov</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.28.1">Stellar 1.28.1</a> 主题创建。<br>
+本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
 </div></footer>
 <div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
 <div class="widgets">
 
 
 
-<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#ch07"><span class="toc-text">ch07</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E6%9E%84%E5%BB%BA%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E6%A0%91"><span class="toc-text">自顶向下构建语法分析树</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%92%E5%BD%92%E4%B8%8B%E9%99%8D"><span class="toc-text">递归下降</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E8%BF%87%E7%A8%8B"><span class="toc-text">实现过程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="toc-text">优缺点</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%98%E7%82%B9"><span class="toc-text">优点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%BA%E7%82%B9"><span class="toc-text">缺点</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BC%94%E7%A4%BA%E9%80%92%E5%BD%92%E4%B8%8B%E9%99%8D%E8%BF%87%E7%A8%8B"><span class="toc-text">演示递归下降过程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%8C%E6%A0%B7%E6%98%AF%E5%B1%95%E5%BC%80%E9%9D%9E%E7%BB%88%E7%BB%93%E7%AC%A6-S-%E4%B8%BA%E4%BB%80%E4%B9%88%E5%89%8D%E4%B8%A4%E6%AC%A1%E9%80%89%E6%8B%A9%E4%BA%86-S-%E2%86%92-S-F-%E8%80%8C%E7%AC%AC%E4%B8%89%E6%AC%A1%E9%80%89%E6%8B%A9%E4%BA%86-S-%E2%86%92-F"><span class="toc-text">同样是展开非终结符 S, 为什么前两次选择了 S → (S + F), 而第三次选择了 S → F?</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-%E9%A2%84%E6%B5%8B%E5%88%86%E6%9E%90%E8%A1%A8-%E7%A1%AE%E5%AE%9A%E4%BA%A7%E7%94%9F%E5%BC%8F"><span class="toc-text">使用&#x3D;&#x3D;预测分析表&#x3D;&#x3D;确定产生式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LL-1-%E6%96%87%E6%B3%95Definition-%EF%BC%9A"><span class="toc-text">LL(1) 文法Definition ：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%92%E5%BD%92%E4%B8%8B%E9%99%8D%E7%9A%84%E3%80%81%E9%A2%84%E6%B5%8B%E5%88%86%E6%9E%90%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="toc-text">递归下降的、预测分析实现方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A1%86%E6%9E%B6%EF%BC%9A"><span class="toc-text">框架：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E7%BB%99%E5%AE%9A%E6%96%87%E6%B3%95-G-%E7%9A%84%E9%A2%84%E6%B5%8B%E5%88%86%E6%9E%90%E8%A1%A8"><span class="toc-text">计算给定文法 G 的预测分析表</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E9%80%89%E6%8B%A9%E9%9D%9E%E7%BB%88%E7%BB%93%E7%AC%A6%E7%9A%84%CE%B5%E4%BA%A7%E7%94%9F%E5%BC%8F"><span class="toc-text">什么时候选择非终结符的ε产生式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#First-%CE%B1-%E9%9B%86%E5%90%88-Definition"><span class="toc-text">First(α) 集合 Definition</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Follow-A-%E9%9B%86%E5%90%88-Definition"><span class="toc-text">Follow(A) 集合 Definition</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E7%AE%97%E6%B3%95"><span class="toc-text">计算算法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%85%88%E8%AE%A1%E7%AE%97%E6%AF%8F%E4%B8%AA%E7%AC%A6%E5%8F%B7-X-%E7%9A%84-First-X-%E9%9B%86%E5%90%88"><span class="toc-text">先计算每个符号 X 的 First(X) 集合</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%86%8D%E8%AE%A1%E7%AE%97%E6%AF%8F%E4%B8%AA%E7%AC%A6%E5%8F%B7%E4%B8%B2-%CE%B1-%E7%9A%84-First-%CE%B1"><span class="toc-text">再计算每个符号串 α 的 First(α)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90"><span class="toc-text">例子</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%BA%E6%AF%8F%E4%B8%AA%E9%9D%9E%E7%BB%88%E7%BB%93%E7%AC%A6-X-%E8%AE%A1%E7%AE%97-Follow-X-%E9%9B%86%E5%90%88"><span class="toc-text">为每个非终结符 X 计算 Follow(X) 集合</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90-1"><span class="toc-text">例子</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B9%E6%8D%AEFirst-%E4%B8%8E-Follow-%E9%9B%86%E5%90%88%E8%AE%A1%E7%AE%97%E7%BB%99%E5%AE%9A%E6%96%87%E6%B3%95-G-%E7%9A%84%E9%A2%84%E6%B5%8B%E5%88%86%E6%9E%90%E8%A1%A8"><span class="toc-text">根据First 与 Follow 集合计算给定文法 G 的预测分析表</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90-2"><span class="toc-text">例子</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LL-1-%E6%96%87%E6%B3%95-Definition"><span class="toc-text">LL(1) 文法 Definition</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LL-1-%E6%96%87%E6%B3%95%E4%B8%8D%E8%83%BD%E5%A4%9F%E5%A4%84%E7%90%86%E7%9A%84"><span class="toc-text">LL(1) 文法不能够处理的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93LL-1-%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8"><span class="toc-text">总结LL(1) 语法分析器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LL-0"><span class="toc-text">LL(0)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%9E%E9%80%92%E5%BD%92%E7%9A%84%E9%A2%84%E6%B5%8B%E5%88%86%E6%9E%90%E7%AE%97%E6%B3%95%EF%BC%88%E9%9D%9E%E9%87%8D%E7%82%B9%EF%BC%8C%E7%8E%B0%E5%9C%A8%E4%B8%80%E8%88%AC%E5%86%99%E9%80%92%E5%BD%92%E7%9A%84%EF%BC%8C%E6%A8%A1%E5%9D%97%E6%80%A7%E5%BC%BA%EF%BC%89"><span class="toc-text">非递归的预测分析算法（非重点，现在一般写递归的，模块性强）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8D%E6%98%AFLL-1-%E6%96%87%E6%B3%95%E7%9A%84%E6%94%B9%E9%80%A0%E6%96%87%E6%B3%95%E5%8A%9E%E6%B3%95"><span class="toc-text">不是LL(1)文法的改造文法办法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%B4%E6%8E%A5%E5%B7%A6%E9%80%92%E5%BD%92-Direct-Left-Recursion-%E6%B6%88%E9%99%A4%E5%B7%A6%E9%80%92%E5%BD%92"><span class="toc-text">直接左递归 (Direct Left Recursion)消除左递归</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90%EF%BC%9A"><span class="toc-text">例子：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8C%83%E5%BC%8F"><span class="toc-text">范式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%B4%E6%8E%A5%E5%B7%A6%E9%80%92%E5%BD%92-Indirect-Left-Recursion-%E6%B6%88%E9%99%A4%E5%B7%A6%E9%80%92%E5%BD%92"><span class="toc-text">间接左递归 (Indirect Left Recursion)消除左递归</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%90%E5%8F%96%E5%B7%A6%E5%85%AC%E5%9B%A0%E5%AD%90-Left-Factoring"><span class="toc-text">提取左公因子 (Left-Factoring)</span></a></li></ol></li></ol></li></ol></div><div class="widget-footer">
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">ch07</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E6%9E%84%E5%BB%BA%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E6%A0%91"><span class="toc-text">自顶向下构建语法分析树</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%92%E5%BD%92%E4%B8%8B%E9%99%8D"><span class="toc-text">递归下降</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E8%BF%87%E7%A8%8B"><span class="toc-text">实现过程</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%98%E7%BC%BA%E7%82%B9"><span class="toc-text">优缺点</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%98%E7%82%B9"><span class="toc-text">优点</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BC%BA%E7%82%B9"><span class="toc-text">缺点</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BC%94%E7%A4%BA%E9%80%92%E5%BD%92%E4%B8%8B%E9%99%8D%E8%BF%87%E7%A8%8B"><span class="toc-text">演示递归下降过程</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%90%8C%E6%A0%B7%E6%98%AF%E5%B1%95%E5%BC%80%E9%9D%9E%E7%BB%88%E7%BB%93%E7%AC%A6-S-%E4%B8%BA%E4%BB%80%E4%B9%88%E5%89%8D%E4%B8%A4%E6%AC%A1%E9%80%89%E6%8B%A9%E4%BA%86-S-%E2%86%92-S-F-%E8%80%8C%E7%AC%AC%E4%B8%89%E6%AC%A1%E9%80%89%E6%8B%A9%E4%BA%86-S-%E2%86%92-F"><span class="toc-text">同样是展开非终结符 S, 为什么前两次选择了 S → (S + F), 而第三次选择了 S → F?</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8-%E9%A2%84%E6%B5%8B%E5%88%86%E6%9E%90%E8%A1%A8-%E7%A1%AE%E5%AE%9A%E4%BA%A7%E7%94%9F%E5%BC%8F"><span class="toc-text">使用&#x3D;&#x3D;预测分析表&#x3D;&#x3D;确定产生式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LL-1-%E6%96%87%E6%B3%95Definition-%EF%BC%9A"><span class="toc-text">LL(1) 文法Definition ：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%80%92%E5%BD%92%E4%B8%8B%E9%99%8D%E7%9A%84%E3%80%81%E9%A2%84%E6%B5%8B%E5%88%86%E6%9E%90%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95"><span class="toc-text">递归下降的、预测分析实现方法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A1%86%E6%9E%B6%EF%BC%9A"><span class="toc-text">框架：</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E7%BB%99%E5%AE%9A%E6%96%87%E6%B3%95-G-%E7%9A%84%E9%A2%84%E6%B5%8B%E5%88%86%E6%9E%90%E8%A1%A8"><span class="toc-text">计算给定文法 G 的预测分析表</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E9%80%89%E6%8B%A9%E9%9D%9E%E7%BB%88%E7%BB%93%E7%AC%A6%E7%9A%84%CE%B5%E4%BA%A7%E7%94%9F%E5%BC%8F"><span class="toc-text">什么时候选择非终结符的ε产生式</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#First-%CE%B1-%E9%9B%86%E5%90%88-Definition"><span class="toc-text">First(α) 集合 Definition</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Follow-A-%E9%9B%86%E5%90%88-Definition"><span class="toc-text">Follow(A) 集合 Definition</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E7%AE%97%E6%B3%95"><span class="toc-text">计算算法</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%85%88%E8%AE%A1%E7%AE%97%E6%AF%8F%E4%B8%AA%E7%AC%A6%E5%8F%B7-X-%E7%9A%84-First-X-%E9%9B%86%E5%90%88"><span class="toc-text">先计算每个符号 X 的 First(X) 集合</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%86%8D%E8%AE%A1%E7%AE%97%E6%AF%8F%E4%B8%AA%E7%AC%A6%E5%8F%B7%E4%B8%B2-%CE%B1-%E7%9A%84-First-%CE%B1"><span class="toc-text">再计算每个符号串 α 的 First(α)</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90"><span class="toc-text">例子</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%B8%BA%E6%AF%8F%E4%B8%AA%E9%9D%9E%E7%BB%88%E7%BB%93%E7%AC%A6-X-%E8%AE%A1%E7%AE%97-Follow-X-%E9%9B%86%E5%90%88"><span class="toc-text">为每个非终结符 X 计算 Follow(X) 集合</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90-2"><span class="toc-text">例子</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B9%E6%8D%AEFirst-%E4%B8%8E-Follow-%E9%9B%86%E5%90%88%E8%AE%A1%E7%AE%97%E7%BB%99%E5%AE%9A%E6%96%87%E6%B3%95-G-%E7%9A%84%E9%A2%84%E6%B5%8B%E5%88%86%E6%9E%90%E8%A1%A8"><span class="toc-text">根据First 与 Follow 集合计算给定文法 G 的预测分析表</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90-3"><span class="toc-text">例子</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LL-1-%E6%96%87%E6%B3%95-Definition"><span class="toc-text">LL(1) 文法 Definition</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LL-1-%E6%96%87%E6%B3%95%E4%B8%8D%E8%83%BD%E5%A4%9F%E5%A4%84%E7%90%86%E7%9A%84"><span class="toc-text">LL(1) 文法不能够处理的</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93LL-1-%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8"><span class="toc-text">总结LL(1) 语法分析器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LL-0"><span class="toc-text">LL(0)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%9D%9E%E9%80%92%E5%BD%92%E7%9A%84%E9%A2%84%E6%B5%8B%E5%88%86%E6%9E%90%E7%AE%97%E6%B3%95%EF%BC%88%E9%9D%9E%E9%87%8D%E7%82%B9%EF%BC%8C%E7%8E%B0%E5%9C%A8%E4%B8%80%E8%88%AC%E5%86%99%E9%80%92%E5%BD%92%E7%9A%84%EF%BC%8C%E6%A8%A1%E5%9D%97%E6%80%A7%E5%BC%BA%EF%BC%89"><span class="toc-text">非递归的预测分析算法（非重点，现在一般写递归的，模块性强）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8D%E6%98%AFLL-1-%E6%96%87%E6%B3%95%E7%9A%84%E6%94%B9%E9%80%A0%E6%96%87%E6%B3%95%E5%8A%9E%E6%B3%95"><span class="toc-text">不是LL(1)文法的改造文法办法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%9B%B4%E6%8E%A5%E5%B7%A6%E9%80%92%E5%BD%92-Direct-Left-Recursion-%E6%B6%88%E9%99%A4%E5%B7%A6%E9%80%92%E5%BD%92"><span class="toc-text">直接左递归 (Direct Left Recursion)消除左递归</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90%EF%BC%9A"><span class="toc-text">例子：</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%8C%83%E5%BC%8F"><span class="toc-text">范式</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%B4%E6%8E%A5%E5%B7%A6%E9%80%92%E5%BD%92-Indirect-Left-Recursion-%E6%B6%88%E9%99%A4%E5%B7%A6%E9%80%92%E5%BD%92"><span class="toc-text">间接左递归 (Indirect Left Recursion)消除左递归</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%90%E5%8F%96%E5%B7%A6%E5%85%AC%E5%9B%A0%E5%AD%90-Left-Factoring"><span class="toc-text">提取左公因子 (Left-Factoring)</span></a></li></ol></li></ol></li></ol></div><div class="widget-footer">
 
 <a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12c0-4.714 0-7.071 1.464-8.536C4.93 2 7.286 2 12 2c4.714 0 7.071 0 8.535 1.464C22 4.93 22 7.286 22 12c0 4.714 0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12Z"/><path stroke-linecap="round" stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M10.46 1.25h3.08c1.603 0 2.86 0 3.864.095c1.023.098 1.861.3 2.6.752a5.75 5.75 0 0 1 1.899 1.899c.452.738.654 1.577.752 2.6c.095 1.004.095 2.261.095 3.865v1.067c0 1.141 0 2.036-.05 2.759c-.05.735-.153 1.347-.388 1.913a5.75 5.75 0 0 1-3.112 3.112c-.805.334-1.721.408-2.977.43a10.81 10.81 0 0 0-.929.036c-.198.022-.275.054-.32.08c-.047.028-.112.078-.224.232c-.121.166-.258.396-.476.764l-.542.916c-.773 1.307-2.69 1.307-3.464 0l-.542-.916a10.605 10.605 0 0 0-.476-.764c-.112-.154-.177-.204-.224-.232c-.045-.026-.122-.058-.32-.08c-.212-.023-.49-.03-.93-.037c-1.255-.021-2.171-.095-2.976-.429A5.75 5.75 0 0 1 1.688 16.2c-.235-.566-.338-1.178-.389-1.913c-.049-.723-.049-1.618-.049-2.76v-1.066c0-1.604 0-2.86.095-3.865c.098-1.023.3-1.862.752-2.6a5.75 5.75 0 0 1 1.899-1.899c.738-.452 1.577-.654 2.6-.752C7.6 1.25 8.857 1.25 10.461 1.25M6.739 2.839c-.914.087-1.495.253-1.959.537A4.25 4.25 0 0 0 3.376 4.78c-.284.464-.45 1.045-.537 1.96c-.088.924-.089 2.11-.089 3.761v1c0 1.175 0 2.019.046 2.685c.045.659.131 1.089.278 1.441a4.25 4.25 0 0 0 2.3 2.3c.515.214 1.173.294 2.429.316h.031c.398.007.747.013 1.037.045c.311.035.616.104.909.274c.29.17.5.395.682.645c.169.232.342.525.538.856l.559.944a.52.52 0 0 0 .882 0l.559-.944c.196-.331.37-.624.538-.856c.182-.25.392-.476.682-.645c.293-.17.598-.24.909-.274c.29-.032.639-.038 1.037-.045h.032c1.255-.022 1.913-.102 2.428-.316a4.25 4.25 0 0 0 2.3-2.3c.147-.352.233-.782.278-1.441c.046-.666.046-1.51.046-2.685v-1c0-1.651 0-2.837-.089-3.762c-.087-.914-.253-1.495-.537-1.959a4.25 4.25 0 0 0-1.403-1.403c-.464-.284-1.045-.45-1.96-.537c-.924-.088-2.11-.089-3.761-.089h-3c-1.651 0-2.837 0-3.762.089" clip-rule="evenodd"/><path fill="currentColor" d="M9 11a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0"/></svg><span>参与讨论</span></a></div></widget>
 </div></aside><div class='float-panel blur'>

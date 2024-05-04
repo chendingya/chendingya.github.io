@@ -20,54 +20,54 @@
   <title>机器学习-期末复习 - Asimov's Blog</title>
 
   
-    <meta name="description" content="基本概念 分类 回归 维数灾难 随着输入维数的增加，需要更多的数据 欠拟合 过拟合 …  评价指标距离度量函数计算度量生成式&#x2F;判别式模型svm 逻辑回归 决策树就是判别式模型 不关心具体的样本的特点，而只在意差别 贝叶斯 隐马尔科夫就是生成式模型，先学习特点，再进行比较   KNN👍无监督学习 KNN思想计算所有训练样本和测试样本的距离，降序排列，选择k个相近的，如果是分类问题就投票最">
+    <meta name="description" content="基本概念  分类 回归 维数灾难 随着输入维数的增加，需要更多的数据 欠拟合 过拟合 …  评价指标 距离度量函数 计算度量 生成式&#x2F;判别式模型 svm 逻辑回归 决策树就是判别式模型 不关心具体的样本的特点，而只在意差别 贝叶斯 隐马尔科夫就是生成式模型，先学习特点，再进行比较   KNN👍 无监督学习 KNN思想 计算所有训练样本和测试样本的距离，降序排列，选择k个相近的，如果是分类问题就投">
 <meta property="og:type" content="article">
 <meta property="og:title" content="机器学习-期末复习">
 <meta property="og:url" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/index.html">
 <meta property="og:site_name" content="Asimov&#39;s Blog">
-<meta property="og:description" content="基本概念 分类 回归 维数灾难 随着输入维数的增加，需要更多的数据 欠拟合 过拟合 …  评价指标距离度量函数计算度量生成式&#x2F;判别式模型svm 逻辑回归 决策树就是判别式模型 不关心具体的样本的特点，而只在意差别 贝叶斯 隐马尔科夫就是生成式模型，先学习特点，再进行比较   KNN👍无监督学习 KNN思想计算所有训练样本和测试样本的距离，降序排列，选择k个相近的，如果是分类问题就投票最">
+<meta property="og:description" content="基本概念  分类 回归 维数灾难 随着输入维数的增加，需要更多的数据 欠拟合 过拟合 …  评价指标 距离度量函数 计算度量 生成式&#x2F;判别式模型 svm 逻辑回归 决策树就是判别式模型 不关心具体的样本的特点，而只在意差别 贝叶斯 隐马尔科夫就是生成式模型，先学习特点，再进行比较   KNN👍 无监督学习 KNN思想 计算所有训练样本和测试样本的距离，降序排列，选择k个相近的，如果是分类问题就投">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://chendingya.github.io/%E5%A4%8D%E4%B9%A0/output%20(1).png">
-<meta property="og:image" content="https://chendingya.github.io/%E5%A4%8D%E4%B9%A0/image-20240103194024908.png">
-<meta property="og:image" content="https://chendingya.github.io/%E5%A4%8D%E4%B9%A0/image-20231231221026702.png">
-<meta property="og:image" content="https://chendingya.github.io/%E5%A4%8D%E4%B9%A0/image-20231231215557316.png">
-<meta property="og:image" content="https://chendingya.github.io/%E5%A4%8D%E4%B9%A0/output.png">
-<meta property="og:image" content="https://chendingya.github.io/%E5%A4%8D%E4%B9%A0/image-20231231215741195.png">
-<meta property="og:image" content="https://chendingya.github.io/%E5%A4%8D%E4%B9%A0/image-20231231215912833.png">
-<meta property="og:image" content="https://chendingya.github.io/%E5%A4%8D%E4%B9%A0/image-20231231220256600.png">
-<meta property="og:image" content="https://chendingya.github.io/%E5%A4%8D%E4%B9%A0/image-20231231221425980.png">
-<meta property="og:image" content="https://chendingya.github.io/%E5%A4%8D%E4%B9%A0/image-20231231221449293.png">
-<meta property="og:image" content="https://chendingya.github.io/%E5%A4%8D%E4%B9%A0/image-20231231221517705.png">
-<meta property="og:image" content="https://chendingya.github.io/%E5%A4%8D%E4%B9%A0/image-20231231221530087.png">
-<meta property="og:image" content="https://chendingya.github.io/%E5%A4%8D%E4%B9%A0/image-20240102170619735.png">
-<meta property="og:image" content="https://chendingya.github.io/%E5%A4%8D%E4%B9%A0/image-20240102170630844.png">
-<meta property="og:image" content="https://chendingya.github.io/%E5%A4%8D%E4%B9%A0/image-20240102170655898.png">
-<meta property="og:image" content="https://chendingya.github.io/%E5%A4%8D%E4%B9%A0/image-20240102175743098.png">
-<meta property="og:image" content="https://chendingya.github.io/%E5%A4%8D%E4%B9%A0/image-20240102170758340.png">
-<meta property="og:image" content="https://chendingya.github.io/%E5%A4%8D%E4%B9%A0/image-20240102191401786.png">
-<meta property="og:image" content="https://chendingya.github.io/%E5%A4%8D%E4%B9%A0/image-20240102185427868.png">
-<meta property="og:image" content="https://chendingya.github.io/%E5%A4%8D%E4%B9%A0/image-20240102185112582.png">
-<meta property="og:image" content="https://chendingya.github.io/%E5%A4%8D%E4%B9%A0/image-20240102194707308.png">
-<meta property="og:image" content="https://chendingya.github.io/%E5%A4%8D%E4%B9%A0/image-20240102195519802.png">
-<meta property="og:image" content="https://chendingya.github.io/%E5%A4%8D%E4%B9%A0/image-20240103194109389.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/output%20(1).png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240103194024908.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20231231221026702.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20231231215557316.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/output.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20231231215741195.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20231231215912833.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20231231220256600.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20231231221425980.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20231231221449293.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20231231221517705.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20231231221530087.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240102170619735.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240102170630844.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240102170655898.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240102175743098.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240102170758340.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240102191401786.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240102185427868.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240102185112582.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240102194707308.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240102195519802.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240103194109389.png">
 <meta property="og:image" content="https://chillcharlie-img.oss-cn-hangzhou.aliyuncs.com/image%2F2023%2F10%2F31%2Fc8b73d3ef4d015deee061644405f9d3c_20231031191039.png">
-<meta property="og:image" content="https://chendingya.github.io/%E5%A4%8D%E4%B9%A0/image-20240103194325785.png">
-<meta property="og:image" content="https://chendingya.github.io/%E5%A4%8D%E4%B9%A0/image-20240103195109290.png">
-<meta property="og:image" content="https://chendingya.github.io/%E5%A4%8D%E4%B9%A0/image-20240103201933670.png">
-<meta property="og:image" content="https://chendingya.github.io/%E5%A4%8D%E4%B9%A0/image-20240103203628136.png">
-<meta property="og:image" content="https://chendingya.github.io/%E5%A4%8D%E4%B9%A0/image-20240103204121077.png">
-<meta property="og:image" content="https://chendingya.github.io/%E5%A4%8D%E4%B9%A0/image-20240103204411794.png">
-<meta property="og:image" content="https://chendingya.github.io/%E5%A4%8D%E4%B9%A0/image-20240103214122668.png">
-<meta property="og:image" content="https://chendingya.github.io/%E5%A4%8D%E4%B9%A0/image-20240105093344393.png">
-<meta property="og:image" content="https://chendingya.github.io/%E5%A4%8D%E4%B9%A0/image-20240105093435057.png">
-<meta property="og:image" content="https://chendingya.github.io/%E5%A4%8D%E4%B9%A0/f3b36683-20d6-424e-b774-49163d1905bc.png">
-<meta property="og:image" content="https://chendingya.github.io/%E5%A4%8D%E4%B9%A0/image-20240103214518185.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240103194325785.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240103195109290.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240103201933670.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240103203628136.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240103204121077.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240103204411794.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240103214122668.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240105093344393.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240105093435057.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/f3b36683-20d6-424e-b774-49163d1905bc.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240103214518185.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20210106110219329.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTkyOTUyNA==,size_16,color_FFFFFF,t_70#pic_center">
-<meta property="og:image" content="https://chendingya.github.io/%E5%A4%8D%E4%B9%A0/image-20240104201106524.png">
-<meta property="og:image" content="https://chendingya.github.io/%E5%A4%8D%E4%B9%A0/image-20240104201111299.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240104201106524.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240104201111299.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/9e015fa8100a4bcf9c92b58e4d7ec21c.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAdm9uICBOZXVtYW5u,size_20,color_FFFFFF,t_70,g_se,x_16">
-<meta property="og:image" content="https://chendingya.github.io/%E5%A4%8D%E4%B9%A0/image-20240103221144241.png">
-<meta property="og:image" content="https://chendingya.github.io/%E5%A4%8D%E4%B9%A0/image-20240103221153946.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240103221144241.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240103221153946.png">
 <meta property="og:image" content="https://pic1.zhimg.com/80/v2-4c3b00f07cce0c7dccf2e4ba5e167e30_720w.webp">
 <meta property="og:image" content="https://pic2.zhimg.com/80/v2-229a2c9828a26d594dc854b659cfc8a5_720w.webp">
 <meta property="og:image" content="https://pic3.zhimg.com/80/v2-821048bfaee14d8c03cc5044e04fe336_720w.webp">
@@ -75,24 +75,24 @@
 <meta property="og:image" content="https://pic4.zhimg.com/80/v2-6b81b4032ecb28ece404e344c173481b_720w.webp">
 <meta property="og:image" content="https://pic1.zhimg.com/80/v2-08fc41b67409cb6c61ecb6af72bcea30_720w.webp">
 <meta property="og:image" content="https://pic3.zhimg.com/80/v2-96a40f41090b4bb5e7ebbf0a0e186d9a_720w.webp">
-<meta property="og:image" content="https://chendingya.github.io/%E5%A4%8D%E4%B9%A0/image-20240103222047615.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240103222047615.png">
 <meta property="og:image" content="https://pic1.zhimg.com/80/v2-af58e27acdf63325dda676ac5fc03b3c_720w.webp">
-<meta property="og:image" content="https://chendingya.github.io/%E5%A4%8D%E4%B9%A0/image-20240104205849529.png">
-<meta property="og:image" content="https://chendingya.github.io/%E5%A4%8D%E4%B9%A0/image-20240104211239177.png">
-<meta property="og:image" content="https://chendingya.github.io/%E5%A4%8D%E4%B9%A0/image-20240104211317829.png">
-<meta property="og:image" content="https://chendingya.github.io/%E5%A4%8D%E4%B9%A0/image-20240104211514332.png">
-<meta property="og:image" content="https://chendingya.github.io/%E5%A4%8D%E4%B9%A0/image-20240104212411083.png">
-<meta property="og:image" content="https://chendingya.github.io/%E5%A4%8D%E4%B9%A0/image-20240104212357878.png">
-<meta property="og:image" content="https://chendingya.github.io/%E5%A4%8D%E4%B9%A0/image-20240104214407021.png">
-<meta property="og:image" content="https://chendingya.github.io/%E5%A4%8D%E4%B9%A0/image-20240104214356276.png">
-<meta property="og:image" content="https://chendingya.github.io/%E5%A4%8D%E4%B9%A0/image-20240104214450119.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240104205849529.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240104211239177.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240104211317829.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240104211514332.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240104212411083.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240104212357878.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240104214407021.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240104214356276.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240104214450119.png">
 <meta property="article:published_time" content="2024-01-02T10:32:34.000Z">
 <meta property="article:modified_time" content="2024-01-05T06:21:10.172Z">
 <meta property="article:author" content="Asimov">
 <meta property="article:tag" content="机器学习">
 <meta property="article:tag" content="期末复习">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://chendingya.github.io/%E5%A4%8D%E4%B9%A0/output%20(1).png">
+<meta name="twitter:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/output%20(1).png">
   
   
   
@@ -125,7 +125,7 @@
 <div class="widgets">
 
 
-<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2024/05/01/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%841/"><span class="title">系统架构1</span></a><a class="item title" href="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/"><span class="title">软件测试-期末复习</span></a><a class="item title" href="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/"><span class="title">机器学习-期末复习</span></a><a class="item title" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/"><span class="title">服务端-ch17-k8s使用</span></a><a class="item title" href="/2023/12/30/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch16-%E5%AE%B9%E5%99%A8%E9%95%9C%E5%83%8F%E6%9E%84%E5%BB%BA%E4%B8%8E%E7%BC%96%E6%8E%92/"><span class="title">服务端-ch16-容器镜像构建与编排</span></a><a class="item title" href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/"><span class="title">服务端-ch15-Docker</span></a><a class="item title" href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/"><span class="title">服务端-ch14-Spring WebFlux</span></a><a class="item title" href="/2023/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch13-%E5%8F%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"><span class="title">服务端-ch13-反应式编程基础</span></a><a class="item title" href="/2023/11/23/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch12-Spring%20Integration/"><span class="title">服务端-ch12-Spring Integration</span></a><a class="item title" href="/2023/11/09/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch11-%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6(ActiveMQ%E3%80%81RabbitMQ)/"><span class="title">服务端-ch11-消息中间件(ActiveMQ、RabbitMQ)</span></a></div></widget>
+<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2024/05/02/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%842/"><span class="title">系统架构2-质量属性Quality Attributes</span></a><a class="item title" href="/2024/05/01/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%841/"><span class="title">系统架构1-Intro</span></a><a class="item title" href="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/"><span class="title">软件测试-期末复习</span></a><a class="item title" href="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/"><span class="title">机器学习-期末复习</span></a><a class="item title" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/"><span class="title">服务端-ch17-k8s使用</span></a><a class="item title" href="/2023/12/30/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch16-%E5%AE%B9%E5%99%A8%E9%95%9C%E5%83%8F%E6%9E%84%E5%BB%BA%E4%B8%8E%E7%BC%96%E6%8E%92/"><span class="title">服务端-ch16-容器镜像构建与编排</span></a><a class="item title" href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/"><span class="title">服务端-ch15-Docker</span></a><a class="item title" href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/"><span class="title">服务端-ch14-Spring WebFlux</span></a><a class="item title" href="/2023/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch13-%E5%8F%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"><span class="title">服务端-ch13-反应式编程基础</span></a><a class="item title" href="/2023/11/23/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch12-Spring%20Integration/"><span class="title">服务端-ch12-Spring Integration</span></a></div></widget>
 </div>
 <footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/chendingya?tab=repositories" target="_blank" rel="external nofollow noopener noreferrer"><img no-lazy src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" / onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a></div></footer>
 </div></aside><div class="l_main" id="main">
@@ -149,7 +149,8 @@
     </div>
     
   </div>
-  </div><article class="md-text content"><h1 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h1><ul>
+  </div><article class="md-text content"><h1>基本概念</h1>
+<ul>
 <li>分类</li>
 <li>回归</li>
 <li>维数灾难 随着输入维数的增加，需要更多的数据</li>
@@ -157,53 +158,80 @@
 <li>过拟合</li>
 <li>…</li>
 </ul>
-<h2 id="评价指标"><a href="#评价指标" class="headerlink" title="评价指标"></a>评价指标</h2><h2 id="距离度量函数"><a href="#距离度量函数" class="headerlink" title="距离度量函数"></a>距离度量函数</h2><h2 id="计算度量"><a href="#计算度量" class="headerlink" title="计算度量"></a>计算度量</h2><h2 id="生成式-判别式模型"><a href="#生成式-判别式模型" class="headerlink" title="生成式&#x2F;判别式模型"></a>生成式&#x2F;判别式模型</h2><p>svm 逻辑回归 决策树就是判别式模型 不关心具体的样本的特点，而只在意差别</p>
+<h2 id="评价指标">评价指标</h2>
+<h2 id="距离度量函数">距离度量函数</h2>
+<h2 id="计算度量">计算度量</h2>
+<h2 id="生成式-判别式模型">生成式/判别式模型</h2>
+<p>svm 逻辑回归 决策树就是判别式模型 不关心具体的样本的特点，而只在意差别</p>
 <p>贝叶斯 隐马尔科夫就是生成式模型，先学习特点，再进行比较</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/./%E5%A4%8D%E4%B9%A0/output%20(1).png"></p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E5%A4%8D%E4%B9%A0/image-20240103194024908.png" alt="image-20240103194024908"></p>
-<h1 id="KNN👍"><a href="#KNN👍" class="headerlink" title="KNN👍"></a>KNN👍</h1><p>无监督学习</p>
-<h2 id="KNN思想"><a href="#KNN思想" class="headerlink" title="KNN思想"></a>KNN思想</h2><p>计算所有训练样本和测试样本的距离，降序排列，选择k个相近的，如果是分类问题就投票最多，如果是回归问题就算平均</p>
-<h2 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h2><p>一般k是奇数，k越小对噪声越敏感，模型复杂容易过拟合，k越大对噪声不敏感，但是模型简单，容易欠拟合。</p>
-<h2 id="算法流程"><a href="#算法流程" class="headerlink" title="算法流程"></a>算法流程</h2><p>(k-Nearest Neighbor Regression)</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="./%E5%A4%8D%E4%B9%A0/output%20(1).png" alt=""></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240103194024908.png" alt="image-20240103194024908"></p>
+<h1>KNN👍</h1>
+<p>无监督学习</p>
+<h2 id="KNN思想">KNN思想</h2>
+<p>计算所有训练样本和测试样本的距离，降序排列，选择k个相近的，如果是分类问题就投票最多，如果是回归问题就算平均</p>
+<h2 id="概念">概念</h2>
+<p>一般k是奇数，k越小对噪声越敏感，模型复杂容易过拟合，k越大对噪声不敏感，但是模型简单，容易欠拟合。</p>
+<h2 id="算法流程">算法流程</h2>
+<p>(k-Nearest Neighbor Regression)</p>
 <ul>
 <li>计算测试样本x和Dtrain中所有训练样本xi之间的距离d(,xi)</li>
 <li>对所有距离值 (相似度值) 进行进行升序(降序) 排列</li>
-<li>选择K个最近(距离最小&#x2F;相似度最大) 的训练样本</li>
+<li>选择K个最近(距离最小/相似度最大) 的训练样本</li>
 <li>将距离值的倒数作为权重，然后将K个近邻的标签值加权平均作为x的预测值</li>
 </ul>
-<h2 id="降低计算复杂度，大概看一下"><a href="#降低计算复杂度，大概看一下" class="headerlink" title="降低计算复杂度，大概看一下"></a>降低计算复杂度，大概看一下</h2><p>优点在于对异常值不敏感，精度高，没有数据输入假定 </p>
+<h2 id="降低计算复杂度，大概看一下">降低计算复杂度，大概看一下</h2>
+<p>优点在于对异常值不敏感，精度高，没有数据输入假定</p>
 <p>缺点在于时间复杂度高，空间复杂度高</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E5%A4%8D%E4%B9%A0/image-20231231221026702.png" alt="image-20231231221026702"></p>
-<h1 id="聚类👍"><a href="#聚类👍" class="headerlink" title="聚类👍"></a>聚类👍</h1><p><strong>无监督学习</strong></p>
-<h2 id="聚类概念"><a href="#聚类概念" class="headerlink" title="聚类概念"></a>聚类概念</h2><p>将整个数据集中每个样本的特征向量看成是分布在特征空间中的一些点，点与点之间的距离即可作为相似性度量依据。<br>聚类分析是根据不同样本之间的差异，根据距离函数的规律(大小) 进行分类 (聚类) 的。</p>
-<h2 id="聚类准则：聚类好坏判断，"><a href="#聚类准则：聚类好坏判断，" class="headerlink" title="聚类准则：聚类好坏判断，"></a>聚类准则：聚类好坏判断，</h2><ul>
-<li>聚类（簇）内部⾼相似性 </li>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20231231221026702.png" alt="image-20231231221026702"></p>
+<h1>聚类👍</h1>
+<p><strong>无监督学习</strong></p>
+<h2 id="聚类概念">聚类概念</h2>
+<p>将整个数据集中每个样本的特征向量看成是分布在特征空间中的一些点，点与点之间的距离即可作为相似性度量依据。<br>
+聚类分析是根据不同样本之间的差异，根据距离函数的规律(大小) 进行分类 (聚类) 的。</p>
+<h2 id="聚类准则：聚类好坏判断，">聚类准则：聚类好坏判断，</h2>
+<ul>
+<li>聚类（簇）内部⾼相似性</li>
 <li>聚类（簇）之间低相似性</li>
 </ul>
-<h2 id="度量"><a href="#度量" class="headerlink" title="度量"></a>度量</h2><ul>
-<li><p>距离度量：度量同类样本间的相似性和不同类样本间的差异性</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E5%A4%8D%E4%B9%A0/image-20231231215557316.png"></p>
+<h2 id="度量">度量</h2>
+<ul>
+<li>
+<p>距离度量：度量同类样本间的相似性和不同类样本间的差异性</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20231231215557316.png" alt=""></p>
 </li>
 </ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E5%A4%8D%E4%B9%A0/output.png"></p>
-<h2 id="三类聚类方法"><a href="#三类聚类方法" class="headerlink" title="三类聚类方法"></a>三类聚类方法</h2><ul>
-<li>基于试探的聚类搜索算法<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E5%A4%8D%E4%B9%A0/image-20231231215741195.png"></li>
-<li>系统聚类法：将数据样本按距离准则逐步分类，类别由多<br>到少，直到获得合适的分类要求为止<ul>
-<li><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E5%A4%8D%E4%B9%A0/image-20231231215912833.png"></li>
-<li>主要的距离计算准则:<br>最短距离法 (两个集合所有距离最小值<br>最长距离法 (两个集合所有距离最大值)<br>类平均距离法 (两个集合所有距离平均值</li>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/output.png" alt=""></p>
+<h2 id="三类聚类方法">三类聚类方法</h2>
+<ul>
+<li>基于试探的聚类搜索算法<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20231231215741195.png" alt=""></li>
+<li>系统聚类法：将数据样本按距离准则逐步分类，类别由多<br>
+到少，直到获得合适的分类要求为止
+<ul>
+<li><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20231231215912833.png" alt=""></li>
+<li>主要的距离计算准则:<br>
+最短距离法 (两个集合所有距离最小值<br>
+最长距离法 (两个集合所有距离最大值)<br>
+类平均距离法 (两个集合所有距离平均值</li>
 </ul>
 </li>
 <li>动态聚类法： kmeans isodata算法 迭代自组织数据分析算法)</li>
 </ul>
-<h2 id="k-means"><a href="#k-means" class="headerlink" title="k-means"></a><strong>k-means</strong></h2><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E5%A4%8D%E4%B9%A0/image-20231231220256600.png"></p>
-<h2 id="评价指标-1"><a href="#评价指标-1" class="headerlink" title="评价指标"></a>评价指标</h2><p>在实际应用中，需要试探不同的K值和选择不同的聚类中心的起始值。<br>如果数据样本可以形成若干个相距较远的孤立的区域分布，一般都能得到较好的收敛效果。<br>K-means算法比较适合于分类数目已知的情况。</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E5%A4%8D%E4%B9%A0/image-20231231221425980.png" alt="image-20231231221425980"></p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E5%A4%8D%E4%B9%A0/image-20231231221449293.png" alt="image-20231231221449293"></p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E5%A4%8D%E4%B9%A0/image-20231231221517705.png" alt="image-20231231221517705"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E5%A4%8D%E4%B9%A0/image-20231231221530087.png" alt="image-20231231221530087"></p>
-<h1 id="决策树"><a href="#决策树" class="headerlink" title="决策树"></a>决策树</h1><p><strong>监督学习</strong></p>
-<h2 id="概念-1"><a href="#概念-1" class="headerlink" title="概念"></a>概念</h2><p>实例集合X: 上例中用六个属性表示</p>
+<h2 id="k-means"><strong>k-means</strong></h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20231231220256600.png" alt=""></p>
+<h2 id="评价指标-2">评价指标</h2>
+<p>在实际应用中，需要试探不同的K值和选择不同的聚类中心的起始值。<br>
+如果数据样本可以形成若干个相距较远的孤立的区域分布，一般都能得到较好的收敛效果。<br>
+K-means算法比较适合于分类数目已知的情况。</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20231231221425980.png" alt="image-20231231221425980"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20231231221449293.png" alt="image-20231231221449293"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20231231221517705.png" alt="image-20231231221517705"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20231231221530087.png" alt="image-20231231221530087"></p>
+<h1>决策树</h1>
+<p><strong>监督学习</strong></p>
+<h2 id="概念-2">概念</h2>
+<p>实例集合X: 上例中用六个属性表示</p>
 <p>目标概念c: 定义在实例集上的布尔函数 c:X-&gt;{0,1}</p>
-<p>训练样例:正例(c(x)&#x3D;1)，反例(c(x)&#x3D;0)</p>
+<p>训练样例:正例(c(x)=1)，反例(c(x)=0)</p>
 <p>假设集H:每个假设h表示X上定义的布尔函数h:X&gt;10,1</p>
 <p>搜索(泛化)的操作</p>
 <ul>
@@ -218,26 +246,37 @@
 <li>正例用于S泛化，搜索S集合</li>
 <li>反例用于G特化，缩小G集合</li>
 </ul>
-<h2 id="决策树-1"><a href="#决策树-1" class="headerlink" title="决策树"></a>决策树</h2><p>实例:“属性-值”对表示，应用最广的归纳推理算法之一</p>
+<h2 id="决策树">决策树</h2>
+<p>实例:“属性-值”对表示，应用最广的归纳推理算法之一</p>
 <p>目标函数具有离散的输出值</p>
 <p>很好的健壮性(样例可以包含错误，也可以处理缺少属性值的实例)</p>
 <p>能够学习析取表达式</p>
 <p><strong>决策树</strong>是一个预测模型；他代表的是对象属性与对象值之间的一种映射关系。树中每个节点表示某个对象，而每个分叉路径则代表某个可能的属性值，而每个叶节点则对应从根节点到该叶节点所经历的路径所表示的对象的值。决策树仅有单一输出，</p>
-<h3 id="构造"><a href="#构造" class="headerlink" title="构造"></a>构造</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/dang_wang/article/details/21646083">机器学习之决策树，ID3算法_用于学习布尔函数的id3算法-CSDN博客</a></p>
-<h4 id="问题设置"><a href="#问题设置" class="headerlink" title="问题设置"></a>问题设置</h4><p>可能的实例集X<br>未知的目标函数f:X&gt;Y<br>假设函数集 H&#x3D;{h|h:X&gt;Y}</p>
-<h4 id="输入"><a href="#输入" class="headerlink" title="输入"></a>输入</h4><p>未知目标函数f的训练实例{&lt;xi，yi&gt;}</p>
-<h4 id="输出"><a href="#输出" class="headerlink" title="输出"></a>输出</h4><p>最佳近似f的假设h∈H</p>
-<h4 id="ID3算法：用于学习布尔函数的ID3算法"><a href="#ID3算法：用于学习布尔函数的ID3算法" class="headerlink" title="ID3算法：用于学习布尔函数的ID3算法"></a>ID3算法：用于学习布尔函数的ID3算法</h4><ol>
+<h3 id="构造">构造</h3>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/dang_wang/article/details/21646083">机器学习之决策树，ID3算法_用于学习布尔函数的id3算法-CSDN博客</a></p>
+<h4 id="问题设置">问题设置</h4>
+<p>可能的实例集X<br>
+未知的目标函数f:X&gt;Y<br>
+假设函数集 H={h|h:X&gt;Y}</p>
+<h4 id="输入">输入</h4>
+<p>未知目标函数f的训练实例{&lt;xi，yi&gt;}</p>
+<h4 id="输出">输出</h4>
+<p>最佳近似f的假设h∈H</p>
+<h4 id="ID3算法：用于学习布尔函数的ID3算法">ID3算法：用于学习布尔函数的ID3算法</h4>
+<ol>
 <li>创建树的Root结点</li>
-<li>如果所有Examples的目标属性均为“正”那么返回label&#x3D;“+”的单结点树Root</li>
-<li>如果所有Examples的目标属性均为“反那么返回label&#x3D;“_”的单结点树Root</li>
+<li>如果所有Examples的目标属性均为“正”那么返回label=“+”的单结点树Root</li>
+<li>如果所有Examples的目标属性均为“反那么返回label=“_”的单结点树Root</li>
 <li>如果Attributes为“空”，那么返回单结点树Root，label设置为Examples中最普遍的目标属性值5.</li>
-<li>否则<ul>
+<li>否则
+<ul>
 <li>A&lt;-Attributes中分类Examples能力最好的属性</li>
 <li>Root的决策属性&lt;- A</li>
-<li>对于A的每个可能值vi<ul>
+<li>对于A的每个可能值vi
+<ul>
 <li>令$Examples_vi$为Examples中满足A属性值为$V_i$的子集</li>
-<li><strong>特殊情况</strong>：如果$Examples_vi$为空<ul>
+<li><strong>特殊情况</strong>：如果$Examples_vi$为空
+<ul>
 <li>在这个分支下加一个叶子结点，结点的label设置为Examples中最普遍的目标属性值</li>
 </ul>
 </li>
@@ -248,61 +287,76 @@
 </li>
 <li>结束，返回树Root</li>
 </ol>
-<h3 id="例子👍"><a href="#例子👍" class="headerlink" title="例子👍"></a>例子👍</h3><p>比如有类别A 类别B 类别C， 第一个属性是年龄第二个属性是工作，结果是是否可以贷款</p>
+<h3 id="例子👍">例子👍</h3>
+<p>比如有类别A 类别B 类别C， 第一个属性是年龄第二个属性是工作，结果是是否可以贷款</p>
 <p>ID3要考虑的是选用年龄还是选用工作作为分类标准</p>
 <p>计算的方式就是通过信息增益率</p>
 <p><strong>信息增益率的算法就是说用总体的熵减去用一个标准分类后子树的熵的和，越大越好</strong></p>
 <p>熵的计算方式是假设一共八个人，三个人可以贷款，五个人不可以贷款</p>
-<p>那么就是$-3&#x2F;8<em>log(3&#x2F;8)+-5&#x2F;8</em>log(3&#x2F;8)$</p>
+<p>那么就是$-3/8<em>log(3/8)±5/8</em>log(3/8)$</p>
 <p>那么我们现在假设年龄有两种一个是老年，一个是年轻</p>
 <p>我们就需要去看，老年里面有多少个可以贷款，有多少个不可以贷款。</p>
 <p>假设四个老人，2个可以贷款，2个不可以贷款</p>
-<p>计算方式就是$-1&#x2F;2<em>log(1&#x2F;2)+-1&#x2F;2</em>log(1&#x2F;2)$，同理可知年轻人的就是$-1&#x2F;4<em>log(1&#x2F;4)+-3&#x2F;4</em>log(3&#x2F;4)$</p>
-<p>我们认为上面一个h1,另外一个h2，总体的是h。那么计算信息增益就是$h-(1&#x2F;2<em>h1+1&#x2F;2</em>h2)$。然后再计算一个如果用工作作为衡量标准会怎么认为，比较一下大小就好了</p>
+<p>计算方式就是$-1/2<em>log(1/2)±1/2</em>log(1/2)$，同理可知年轻人的就是$-1/4<em>log(1/4)±3/4</em>log(3/4)$</p>
+<p>我们认为上面一个h1,另外一个h2，总体的是h。那么计算信息增益就是$h-(1/2<em>h1+1/2</em>h2)$。然后再计算一个如果用工作作为衡量标准会怎么认为，比较一下大小就好了</p>
 <p>越大越好</p>
-<h3 id="构造时如何选择节点和最佳属性"><a href="#构造时如何选择节点和最佳属性" class="headerlink" title="构造时如何选择节点和最佳属性"></a>构造时如何选择节点和最佳属性</h3><ul>
-<li><p>熵：刻画了样例集的纯度(purity)</p>
+<h3 id="构造时如何选择节点和最佳属性">构造时如何选择节点和最佳属性</h3>
 <ul>
-<li><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E5%A4%8D%E4%B9%A0/image-20240102170619735.png" alt="image-20240102170619735"></li>
-<li><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E5%A4%8D%E4%B9%A0/image-20240102170630844.png" alt="image-20240102170630844"></li>
-<li><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E5%A4%8D%E4%B9%A0/image-20240102170655898.png" alt="image-20240102170655898"></li>
+<li>
+<p>熵：刻画了样例集的纯度(purity)</p>
+<ul>
+<li><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240102170619735.png" alt="image-20240102170619735"></li>
+<li><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240102170630844.png" alt="image-20240102170630844"></li>
+<li><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240102170655898.png" alt="image-20240102170655898"></li>
 </ul>
 </li>
-<li><p>信息增益：在划分数据集之前之后信息发生的变化，计算每个特征值划分数据集获得的信息增益，获得信息增益最高的特征就是最好的选择。</p>
-<p>定义属性A对数据集D的信息增益为infoGain(D|A)，它等于D本身的熵，减去 给定A的条件下D的条件熵，即：<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E5%A4%8D%E4%B9%A0/image-20240102175743098.png" alt="image-20240102175743098"></p>
+<li>
+<p>信息增益：在划分数据集之前之后信息发生的变化，计算每个特征值划分数据集获得的信息增益，获得信息增益最高的特征就是最好的选择。</p>
+<p>定义属性A对数据集D的信息增益为infoGain(D|A)，它等于D本身的熵，减去 给定A的条件下D的条件熵，即：<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240102175743098.png" alt="image-20240102175743098"></p>
 </li>
-<li><ul>
-<li><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E5%A4%8D%E4%B9%A0/image-20240102170758340.png" alt="image-20240102170758340"></li>
+<li>
+<ul>
+<li><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240102170758340.png" alt="image-20240102170758340"></li>
 </ul>
 </li>
 </ul>
-<h3 id="C4-5：信息增益比"><a href="#C4-5：信息增益比" class="headerlink" title="C4.5：信息增益比"></a>C4.5：信息增益比</h3><p>信息增益比: 信息增益&#x2F;该属性的熵</p>
+<h3 id="C4-5：信息增益比">C4.5：信息增益比</h3>
+<p>信息增益比: 信息增益/该属性的熵</p>
 <p>信息增益准则对可取值数目较多的属性有所偏好</p>
-<h3 id="CART-Gini指数"><a href="#CART-Gini指数" class="headerlink" title="CART: Gini指数"></a>CART: Gini指数</h3><p>Gini指数: 模型的纯度，越小越好，越小纯度越高</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E5%A4%8D%E4%B9%A0/image-20240102191401786.png" alt="image-20240102191401786"></p>
-<h1 id="集成学习"><a href="#集成学习" class="headerlink" title="集成学习"></a>集成学习</h1><p>监督学习</p>
+<h3 id="CART-Gini指数">CART: Gini指数</h3>
+<p>Gini指数: 模型的纯度，越小越好，越小纯度越高</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240102191401786.png" alt="image-20240102191401786"></p>
+<h1>集成学习</h1>
+<p>监督学习</p>
 <p>集成学习的原理，怎么不同的弱分类器结合成强分类器</p>
-<h2 id="特点-分类"><a href="#特点-分类" class="headerlink" title="特点(分类)"></a>特点(分类)</h2><ul>
+<h2 id="特点-分类">特点(分类)</h2>
+<ul>
 <li>多个分类器集成在一起，以提高分类准确率</li>
 <li>由训练数据构建基分类器，然后根据预测结果进行投票</li>
 <li>集成学习本身不是一种分类器，而是分类器结合方法</li>
 <li>通常集成分类器性能会好于单个分类器</li>
 </ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E5%A4%8D%E4%B9%A0/image-20240102185427868.png" alt="image-20240102185427868"></p>
-<h2 id="Bias-Variance-tradeoff"><a href="#Bias-Variance-tradeoff" class="headerlink" title="Bias-Variance tradeoff"></a>Bias-Variance tradeoff</h2><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E5%A4%8D%E4%B9%A0/image-20240102185112582.png" alt="image-20240102185112582"></p>
-<h2 id="结合策略"><a href="#结合策略" class="headerlink" title="结合策略"></a>结合策略</h2><h3 id="平均法-回归问题）"><a href="#平均法-回归问题）" class="headerlink" title="平均法(回归问题）"></a>平均法(回归问题）</h3><ul>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240102185427868.png" alt="image-20240102185427868"></p>
+<h2 id="Bias-Variance-tradeoff">Bias-Variance tradeoff</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240102185112582.png" alt="image-20240102185112582"></p>
+<h2 id="结合策略">结合策略</h2>
+<h3 id="平均法-回归问题）">平均法(回归问题）</h3>
+<ul>
 <li>简单平均</li>
 <li>加权平均</li>
 </ul>
-<h3 id="投票法-分类问题）"><a href="#投票法-分类问题）" class="headerlink" title="投票法(分类问题）"></a>投票法(分类问题）</h3><ul>
+<h3 id="投票法-分类问题）">投票法(分类问题）</h3>
+<ul>
 <li>绝对多数</li>
 <li>相对多数</li>
 <li>加权投票</li>
 </ul>
-<h2 id="Bagging"><a href="#Bagging" class="headerlink" title="Bagging"></a>Bagging</h2><p>有放回采样方法。统计上的目的是得到统计量分布以及置信区间</p>
+<h2 id="Bagging">Bagging</h2>
+<p>有放回采样方法。统计上的目的是得到统计量分布以及置信区间</p>
 <p>并行式集成学习，降低分类器方差，改善泛化</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E5%A4%8D%E4%B9%A0/image-20240102194707308.png" alt="image-20240102194707308"></p>
-<h3 id="代表性算法-随机森林"><a href="#代表性算法-随机森林" class="headerlink" title="代表性算法:随机森林"></a>代表性算法:随机森林</h3><ul>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240102194707308.png" alt="image-20240102194707308"></p>
+<h3 id="代表性算法-随机森林">代表性算法:随机森林</h3>
+<ul>
 <li>用N来表示训练用例 (本) 的个数，M表示特征数目;</li>
 <li>输入特征数目m，用于确定决策树上一个结点的决策结果;其中m应远小于M。</li>
 <li>从N个训练用例(样本)中以<strong>有放回抽样</strong>的方式，取样N次，形成一个训练集(即bagging取样)，并用未抽到的用例(样本)作预测，评估其误差</li>
@@ -310,8 +364,9 @@
 <li>每棵树都会完整成长而不会剪枝，这有可能在建完一棵正常树状分类器后会被采用。</li>
 <li>以上过程做充分多次，以产生足够多的随机树</li>
 </ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E5%A4%8D%E4%B9%A0/image-20240102195519802.png" alt="image-20240102195519802"></p>
-<h2 id="Boosting"><a href="#Boosting" class="headerlink" title="Boosting"></a>Boosting</h2><ul>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240102195519802.png" alt="image-20240102195519802"></p>
+<h2 id="Boosting">Boosting</h2>
+<ul>
 <li>强可学习 (strongly learnable) :在PAC框架中，一个概念 (类)，如果存在一个多项式的学习算法能够学习它，并且正确率很高，那么就称这个概念是强可学习的:</li>
 <li>弱可学习 (weakly learnable) :在PAC框架中，一个概念 (类) ，如果存在一个多项式的学习算法能够学习它，学习的正确率仅比随机猜测略好，那么就称这个概念是弱可学习的</li>
 </ul>
@@ -321,82 +376,107 @@
 <li>一个概念是强可学习的充分必要条件是这个概念是弱可学习的</li>
 <li>可通过提升方法(Boosting)将弱学习器转为强学习器</li>
 </ul>
-<h3 id="代表性算法-Adaptive-Boost"><a href="#代表性算法-Adaptive-Boost" class="headerlink" title="代表性算法: Adaptive Boost"></a>代表性算法: Adaptive Boost</h3><p>思想: 从弱学习算法出发，通过改变训练数据的概率分布 (权值<br>分布)，反复学习，得到一系列弱分类器，然后进行组合，构成<br>一个强分类器。</p>
-<h2 id="Boosting提升树"><a href="#Boosting提升树" class="headerlink" title="Boosting提升树"></a>Boosting提升树</h2><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/84139957">深入理解提升树（Boosting tree）算法 - 知乎 (zhihu.com)</a>直接看计算</p>
-<h1 id="概率学习"><a href="#概率学习" class="headerlink" title="概率学习"></a>概率学习</h1><ul>
+<h3 id="代表性算法-Adaptive-Boost">代表性算法: Adaptive Boost</h3>
+<p>思想: 从弱学习算法出发，通过改变训练数据的概率分布 (权值<br>
+分布)，反复学习，得到一系列弱分类器，然后进行组合，构成<br>
+一个强分类器。</p>
+<h2 id="Boosting提升树">Boosting提升树</h2>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/84139957">深入理解提升树（Boosting tree）算法 - 知乎 (zhihu.com)</a>直接看计算</p>
+<h1>概率学习</h1>
+<ul>
 <li>高斯混合模型</li>
-<li>基本概念<ul>
+<li>基本概念
+<ul>
 <li>带约束的数学优化问题</li>
 <li>不带约束的最小二乘优化问题</li>
 </ul>
 </li>
 </ul>
-<p>最大似然估计，期望最大化<br>理论推导不要求</p>
-<h1 id="SVM"><a href="#SVM" class="headerlink" title="SVM"></a>SVM</h1><p>监督学习</p>
+<p>最大似然估计，期望最大化<br>
+理论推导不要求</p>
+<h1>SVM</h1>
+<p>监督学习</p>
 <p>支持向量机support vector machine</p>
-<p>传统机器学习里最代表性的算法<br>不会考推导</p>
+<p>传统机器学习里最代表性的算法<br>
+不会考推导</p>
 <p>除了二分类、线性，非线性也需要了解</p>
-<h2 id="二分类"><a href="#二分类" class="headerlink" title="二分类"></a>二分类</h2><p>二分类问题可以看作是在特征空间上对类别进行划分的任务</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E5%A4%8D%E4%B9%A0/image-20240103194109389.png" alt="image-20240103194109389"></p>
+<h2 id="二分类">二分类</h2>
+<p>二分类问题可以看作是在特征空间上对类别进行划分的任务</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240103194109389.png" alt="image-20240103194109389"></p>
 <p>正中间的: 鲁棒性最好，泛化能力最强</p>
-<h3 id="间隔与支持向量"><a href="#间隔与支持向量" class="headerlink" title="间隔与支持向量"></a>间隔与支持向量</h3><ul>
+<h3 id="间隔与支持向量">间隔与支持向量</h3>
+<ul>
 <li>一个点(样例)对应的<code>“间隔”margin</code>是其到分界<strong>超平面</strong>的<strong>垂直距离</strong></li>
 <li>SVM最大化(所有训练本的) 最小间隔margin</li>
 <li><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://chillcharlie-img.oss-cn-hangzhou.aliyuncs.com/image%2F2023%2F10%2F31%2Fc8b73d3ef4d015deee061644405f9d3c_20231031191039.png" alt="image.png"></li>
-<li><strong>具有最小间隔的点称为支持向量(support vectors)</strong><ul>
+<li><strong>具有最小间隔的点称为支持向量(support vectors)</strong>
+<ul>
 <li>所以叫支持向量机support vector machine</li>
 </ul>
 </li>
 </ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E5%A4%8D%E4%B9%A0/image-20240103194325785.png" alt="image-20240103194325785"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240103194325785.png" alt="image-20240103194325785"></p>
 <ul>
-<li>如何分类<ul>
+<li>如何分类
+<ul>
 <li>$f(x)&gt;0$分为正类,$f(x)&lt;0$分为负类</li>
 </ul>
 </li>
-<li>对于任何一个样例,如何判断预测对错? ($y_i&#x3D;-1,1$)<ul>
+<li>对于任何一个样例,如何判断预测对错? ($y_i=-1,1$)
+<ul>
 <li>$y_if(x_i)&gt;0$分类正确,$y_if(x_i)&lt;0$分类错误</li>
-<li>如果<strong>我们假设能完全分开</strong>,并且$|y_i|&#x3D;1$,那么$y_if(x_i)&#x3D;|f(x_i)|$</li>
+<li>如果<strong>我们假设能完全分开</strong>,并且$|y_i|=1$,那么$y_if(x_i)=|f(x_i)|$</li>
 </ul>
 </li>
 </ul>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><ul>
+<h3 id="总结">总结</h3>
+<ul>
 <li>分类器是一个分离超平面（separating hyperplane）</li>
 <li>最重要的训练样本是“支持向量”，它们定义了超平面，而其他训练样本被忽略了。二次优化算法可以识别哪些样本是具有非零朗格朗日乘子a;的支持向量</li>
 <li>对偶问题中，训练样本只以内积形式出现</li>
 </ul>
-<h2 id="非线性支持向量机"><a href="#非线性支持向量机" class="headerlink" title="非线性支持向量机"></a>非线性支持向量机</h2><p>把数据映射到高纬空间里</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E5%A4%8D%E4%B9%A0/image-20240103195109290.png" alt="image-20240103195109290"></p>
+<h2 id="非线性支持向量机">非线性支持向量机</h2>
+<p>把数据映射到高纬空间里</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240103195109290.png" alt="image-20240103195109290"></p>
 <p><strong>矩阵 K 是对称半正定的，满足Mercer定理，所以这个函数是核函数</strong></p>
 <p><strong>根据Mercer定理，任何半正定的函数都可以作为核函数。</strong></p>
 <p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/30009055">机器学习笔记029 | 核函数 - 知乎 (zhihu.com)</a></p>
-<h1 id="神经元"><a href="#神经元" class="headerlink" title="神经元"></a>神经元</h1><h2 id="MP神经元基本结构"><a href="#MP神经元基本结构" class="headerlink" title="MP神经元基本结构"></a>MP神经元基本结构</h2><ul>
-<li>输入X &#x3D; [x1,X2, x3, …]</li>
-<li>权值W &#x3D;[W1, W2, W3,…]</li>
-<li>激活函数f(net) &#x3D; f(Σ(wi * xi))</li>
+<h1>神经元</h1>
+<h2 id="MP神经元基本结构">MP神经元基本结构</h2>
+<ul>
+<li>输入X = [x1,X2, x3, …]</li>
+<li>权值W =[W1, W2, W3,…]</li>
+<li>激活函数f(net) = f(Σ(wi * xi))</li>
 <li>偏置单元 (bias unit) x0，其对应权值为wo</li>
 </ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E5%A4%8D%E4%B9%A0/image-20240103201933670.png" alt="image-20240103201933670"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240103201933670.png" alt="image-20240103201933670"></p>
 <ul>
 <li>一组输入加权w;相当于突触</li>
 <li>一个加法器把输入信号相加(与收集电荷的细胞膜等价)</li>
 <li>一个激活函数(最初是一个闻值函数) 决定细胞对于当前的输入是否激活 (“放电”)</li>
 </ul>
-<h2 id="感知机"><a href="#感知机" class="headerlink" title="感知机"></a>感知机</h2><p>最简单形式的前馈式人工神经网络，一种二元线性分类器，使用特征向量作为输入，把矩阵上的输入x(实数值向量) 映射到输出值f(x)上(一个二元的值)</p>
-<h3 id="结构"><a href="#结构" class="headerlink" title="结构"></a>结构</h3><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E5%A4%8D%E4%B9%A0/image-20240103203628136.png" alt="image-20240103203628136"></p>
-<h3 id="感知机的学习算法"><a href="#感知机的学习算法" class="headerlink" title="感知机的学习算法"></a>感知机的学习算法</h3><ol>
+<h2 id="感知机">感知机</h2>
+<p>最简单形式的前馈式人工神经网络，一种二元线性分类器，使用特征向量作为输入，把矩阵上的输入x(实数值向量) 映射到输出值f(x)上(一个二元的值)</p>
+<h3 id="结构">结构</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240103203628136.png" alt="image-20240103203628136"></p>
+<h3 id="感知机的学习算法">感知机的学习算法</h3>
+<ol>
 <li>权值初始化</li>
 <li>输入样本对</li>
 <li>计算输出</li>
 <li>根据感知机学习规则调整权重</li>
-<li>返回步骤2，输入下一对样本，直至对所有样本的实<br>际输出与期望输出相等</li>
+<li>返回步骤2，输入下一对样本，直至对所有样本的实<br>
+际输出与期望输出相等</li>
 </ol>
-<h4 id="调整权重的算法"><a href="#调整权重的算法" class="headerlink" title="调整权重的算法"></a>调整权重的算法</h4><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E5%A4%8D%E4%B9%A0/image-20240103204121077.png" alt="image-20240103204121077"></p>
-<h4 id="计算实例"><a href="#计算实例" class="headerlink" title="计算实例"></a>计算实例</h4><p>xo是偏置单元，通常取1</p>
+<h4 id="调整权重的算法">调整权重的算法</h4>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240103204121077.png" alt="image-20240103204121077"></p>
+<h4 id="计算实例">计算实例</h4>
+<p>xo是偏置单元，通常取1</p>
 <p><strong>大$X_i$代表的是$[x_0, x_1, x_2]$</strong></p>
 <p><strong>大$W_i$代表的是$[w_0, w_1, w_2]$</strong></p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E5%A4%8D%E4%B9%A0/image-20240103204411794.png"></p>
-<h3 id="不足"><a href="#不足" class="headerlink" title="不足"></a>不足</h3><p>感知机学习一定可以收敛吗?</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240103204411794.png" alt=""></p>
+<h3 id="不足">不足</h3>
+<p>感知机学习一定可以收敛吗?</p>
 <ul>
 <li>前提是训练样例必须是线性可分的! !</li>
 </ul>
@@ -405,27 +485,39 @@
 <li>只能去找一个学习方法，去收敛到目标概念的最佳近似</li>
 </ul>
 <p>感知机学习方法只适用在单层网络!</p>
-<h1 id="神经网络"><a href="#神经网络" class="headerlink" title="神经网络"></a>神经网络</h1><p>神经网络需要深入掌握</p>
+<h1>神经网络</h1>
+<p>神经网络需要深入掌握</p>
 <p>输入，隐藏层，输出层</p>
 <p><strong>前向，反向传播计算</strong></p>
-<h2 id="误差的反向传播"><a href="#误差的反向传播" class="headerlink" title="误差的反向传播"></a>误差的反向传播</h2><h3 id="误差定义"><a href="#误差定义" class="headerlink" title="误差定义"></a>误差定义</h3><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E5%A4%8D%E4%B9%A0/image-20240103214122668.png" alt="image-20240103214122668"></p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E5%A4%8D%E4%B9%A0/image-20240105093344393.png" alt="image-20240105093344393"></p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E5%A4%8D%E4%B9%A0/image-20240105093435057.png" alt="image-20240105093435057"></p>
-<h3 id="delta规则"><a href="#delta规则" class="headerlink" title="delta规则"></a>delta规则</h3><p>学习常数c对delta规则的性能有很重要的影响，c决定了在一<br>步学习过程中权值变化的快慢</p>
+<h2 id="误差的反向传播">误差的反向传播</h2>
+<h3 id="误差定义">误差定义</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240103214122668.png" alt="image-20240103214122668"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240105093344393.png" alt="image-20240105093344393"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240105093435057.png" alt="image-20240105093435057"></p>
+<h3 id="delta规则">delta规则</h3>
+<p>学习常数c对delta规则的性能有很重要的影响，c决定了在一<br>
+步学习过程中权值变化的快慢</p>
 <ul>
 <li>c越大，权值朝最优值移动的速度越快。</li>
 <li>然而，c过大会越过最优值或在最优值附近震荡</li>
 </ul>
-<h3 id="反向传播算法"><a href="#反向传播算法" class="headerlink" title="反向传播算法"></a>反向传播算法</h3><ul>
+<h3 id="反向传播算法">反向传播算法</h3>
+<ul>
 <li>前向阶段: 网络突触的权值固定，输入信号在网络中正向一层一层传播，直到到达输出端，获得网络的输出</li>
 <li>反向阶段: 通过比较网络的输出与期望输出，产生一个误差信号。误差信号通过网络反向一层一层传播，在传播过程中对网络突触的权值进行修正</li>
 </ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E5%A4%8D%E4%B9%A0/f3b36683-20d6-424e-b774-49163d1905bc.png" alt="f3b36683-20d6-424e-b774-49163d1905bc"></p>
-<h2 id="BP神经网络"><a href="#BP神经网络" class="headerlink" title="BP神经网络"></a>BP神经网络</h2><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E5%A4%8D%E4%B9%A0/image-20240103214518185.png" alt="image-20240103214518185"></p>
-<h2 id="激活函数"><a href="#激活函数" class="headerlink" title="激活函数"></a>激活函数</h2><h3 id="ReLU"><a href="#ReLU" class="headerlink" title="ReLU"></a>ReLU</h3><p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_41929524/article/details/112253138">深入理解ReLU函数（ReLU函数的可解释性）-CSDN博客</a></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/f3b36683-20d6-424e-b774-49163d1905bc.png" alt="f3b36683-20d6-424e-b774-49163d1905bc"></p>
+<h2 id="BP神经网络">BP神经网络</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240103214518185.png" alt="image-20240103214518185"></p>
+<h2 id="激活函数">激活函数</h2>
+<h3 id="ReLU">ReLU</h3>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_41929524/article/details/112253138">深入理解ReLU函数（ReLU函数的可解释性）-CSDN博客</a></p>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://img-blog.csdnimg.cn/20210106110219329.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTkyOTUyNA==,size_16,color_FFFFFF,t_70#pic_center" alt="img"></p>
-<h3 id="Sigmoid"><a href="#Sigmoid" class="headerlink" title="Sigmoid"></a>Sigmoid</h3><p>Sigmoid函数是一个在生物学中常见的S型函数，也称为S型生长曲线。在深度学习中，由于其单增以及反函数单增等性质，Sigmoid函数常被用作神经网络的激活函数，将变量映射到[ 0 , 1 ]之间。<br><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E5%A4%8D%E4%B9%A0/image-20240104201106524.png" alt="image-20240104201106524"></p>
-<p>Sigmoid函数的导数可以用其自身表示：<br><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E5%A4%8D%E4%B9%A0/image-20240104201111299.png" alt="image-20240104201111299"></p>
+<h3 id="Sigmoid">Sigmoid</h3>
+<p>Sigmoid函数是一个在生物学中常见的S型函数，也称为S型生长曲线。在深度学习中，由于其单增以及反函数单增等性质，Sigmoid函数常被用作神经网络的激活函数，将变量映射到[ 0 , 1 ]之间。<br>
+<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240104201106524.png" alt="image-20240104201106524"></p>
+<p>Sigmoid函数的导数可以用其自身表示：<br>
+<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240104201111299.png" alt="image-20240104201111299"></p>
 <p>Sigmoid函数的特性与优缺点：</p>
 <p>Sigmoid函数的输出范围是0到1。由于输出值限定在0到1，因此它对<strong>每个神经元的输出进行了归一化。</strong></p>
 <p>用于将预测概率作为输出的模型。由于概率的取值范围是0到1，因此Sigmoid函数非常合适</p>
@@ -437,51 +529,58 @@
 <p>Sigmoid函数及其导数的图像：</p>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://img-blog.csdnimg.cn/9e015fa8100a4bcf9c92b58e4d7ec21c.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAdm9uICBOZXVtYW5u,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Sigmoid函数及其导数的图像"></p>
 <p>原文链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/hy592070616/article/details/120617176">https://blog.csdn.net/hy592070616/article/details/120617176</a></p>
-<h2 id="计算实例-1"><a href="#计算实例-1" class="headerlink" title="计算实例"></a>计算实例</h2><p>&#x3D;&#x3D;<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/40378224">Back Propagation（梯度反向传播）实例讲解 - 知乎 (zhihu.com)</a>&#x3D;&#x3D;</p>
-<p>&#x3D;&#x3D;这篇文章讲的很清楚&#x3D;&#x3D;</p>
-<h1 id="卷积神经网络"><a href="#卷积神经网络" class="headerlink" title="卷积神经网络"></a>卷积神经网络</h1><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/156926543">机器学习算法之——卷积神经网络(CNN)原理讲解 - 知乎 (zhihu.com)</a></p>
+<h2 id="计算实例-2">计算实例</h2>
+<p>==<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/40378224">Back Propagation（梯度反向传播）实例讲解 - 知乎 (zhihu.com)</a>==</p>
+<p>==这篇文章讲的很清楚==</p>
+<h1>卷积神经网络</h1>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/156926543">机器学习算法之——卷积神经网络(CNN)原理讲解 - 知乎 (zhihu.com)</a></p>
 <p>Convolutional Neural Networks</p>
 <p>近现代的<strong>卷积</strong></p>
 <p>核心概念，关键模块</p>
 <p>一个卷积神经网络主要由以下5层组成：</p>
 <ul>
-<li>数据输入层&#x2F; Input layer</li>
-<li>卷积计算层&#x2F; CONV layer</li>
-<li>ReLU激励层 &#x2F; ReLU layer</li>
-<li>池化层 &#x2F; Pooling layer</li>
-<li>全连接层 &#x2F; FC layer</li>
+<li>数据输入层/ Input layer</li>
+<li>卷积计算层/ CONV layer</li>
+<li>ReLU激励层 / ReLU layer</li>
+<li>池化层 / Pooling layer</li>
+<li>全连接层 / FC layer</li>
 </ul>
-<h2 id="卷积Convolution"><a href="#卷积Convolution" class="headerlink" title="卷积Convolution"></a>卷积Convolution</h2><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E5%A4%8D%E4%B9%A0/image-20240103221144241.png" alt="image-20240103221144241"></p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E5%A4%8D%E4%B9%A0/image-20240103221153946.png" alt="image-20240103221153946"></p>
-<h2 id="数据预处理"><a href="#数据预处理" class="headerlink" title="数据预处理"></a>数据预处理</h2><p>该层要做的处理主要是对原始图像数据进行预处理，其中包括：</p>
+<h2 id="卷积Convolution">卷积Convolution</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240103221144241.png" alt="image-20240103221144241"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240103221153946.png" alt="image-20240103221153946"></p>
+<h2 id="数据预处理">数据预处理</h2>
+<p>该层要做的处理主要是对原始图像数据进行预处理，其中包括：</p>
 <ul>
 <li><strong>去均值</strong>：把输入数据各个维度都中心化为0，如下图所示，其目的就是把样本的中心拉回到坐标系原点上。</li>
 <li><strong>归一化</strong>：幅度归一化到同样的范围，如下所示，即减少各维度数据取值范围的差异而带来的干扰，比如，我们有两个维度的特征A和B，A范围是0到10，而B范围是0到10000，如果直接使用这两个特征是有问题的，好的做法就是归一化，即A和B的数据都变为0到1的范围。</li>
-<li><strong>PCA&#x2F;白化</strong>：用PCA降维；白化是对数据各个特征轴上的幅度归一化</li>
+<li><strong>PCA/白化</strong>：用PCA降维；白化是对数据各个特征轴上的幅度归一化</li>
 </ul>
 <p>去均值与归一化效果图：</p>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://pic1.zhimg.com/80/v2-4c3b00f07cce0c7dccf2e4ba5e167e30_720w.webp" alt="img"></p>
 <p>去相关与白化效果图：</p>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://pic2.zhimg.com/80/v2-229a2c9828a26d594dc854b659cfc8a5_720w.webp" alt="img"></p>
-<h2 id="卷积层"><a href="#卷积层" class="headerlink" title="卷积层"></a>卷积层</h2><p>有两个关键操作：</p>
+<h2 id="卷积层">卷积层</h2>
+<p>有两个关键操作：</p>
 <ul>
 <li><strong>局部关联</strong>。每个神经元看做一个<strong>滤波器(filter)</strong></li>
 <li><strong>窗口(receptive field)滑动</strong>， filter对局部数据计算</li>
 </ul>
 <p>先介绍卷积层遇到的几个名词：</p>
 <ul>
-<li><strong>深度&#x2F;depth</strong>（解释见下图）</li>
-<li><strong>步幅&#x2F;stride</strong> （窗口一次滑动的长度）</li>
-<li><strong>填充值&#x2F;zero-padding</strong></li>
+<li><strong>深度/depth</strong>（解释见下图）</li>
+<li><strong>步幅/stride</strong> （窗口一次滑动的长度）</li>
+<li><strong>填充值/zero-padding</strong></li>
 </ul>
-<h3 id="步幅"><a href="#步幅" class="headerlink" title="步幅"></a>步幅</h3><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://pic3.zhimg.com/80/v2-821048bfaee14d8c03cc5044e04fe336_720w.webp" alt="img"></p>
+<h3 id="步幅">步幅</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://pic3.zhimg.com/80/v2-821048bfaee14d8c03cc5044e04fe336_720w.webp" alt="img"></p>
 <p>步幅控制着过滤器围绕输入内容进行卷积计算的方式。在第一部分我们举的例子中，过滤器通过每次移动一个单元的方式对输入内容进行卷积。过滤器移动的距离就是步幅。</p>
 <p>让我们看一个例子。想象一个 7 x 7 的输入图像，一个 3 x 3 过滤器（简单起见不考虑第三个维度），步幅为 1。这是一种惯常的情况。</p>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://pic4.zhimg.com/80/v2-485011463ab17396223ce79ceba0030f_720w.webp" alt="img"></p>
 <p>如果步幅增加到 2，输出内容会怎么样。</p>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://pic4.zhimg.com/80/v2-6b81b4032ecb28ece404e344c173481b_720w.webp" alt="img"></p>
 <p>正常情况下，程序员如果想让接受域重叠得更少并且想要更小的空间维度（spatial dimensions）时，他们会增加步幅。</p>
-<h3 id="填充值"><a href="#填充值" class="headerlink" title="填充值"></a>填充值</h3><p>当你把 5 x 5 x 3 的过滤器用在 32 x 32 x 3 的输入上时，会发生什么？输出的大小会是 28 x 28 x 3。</p>
+<h3 id="填充值">填充值</h3>
+<p>当你把 5 x 5 x 3 的过滤器用在 32 x 32 x 3 的输入上时，会发生什么？输出的大小会是 28 x 28 x 3。</p>
 <p>注意，这里空间维度减小了。</p>
 <p>如果我们继续用卷积层，尺寸减小的速度就会超过我们的期望。在网络的早期层中，我们想要尽可能多地保留原始输入内容的信息，这样我们就能提取出那些低层的特征。</p>
 <p>比如说我们想要应用同样的卷积层，但又想让输出量维持为 32 x 32 x 3 。为做到这点，我们可以对这个层应用大小为 2 的零填充（zero padding）。零填充在输入内容的边界周围补充零。如果我们用两个零填充，就会得到一个 36 x 36 x 3 的输入卷。</p>
@@ -489,82 +588,116 @@
 <p>如果你的步幅为 1，而且把零填充设置为</p>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://pic3.zhimg.com/80/v2-96a40f41090b4bb5e7ebbf0a0e186d9a_720w.webp" alt="img"></p>
 <p>K 是过滤器尺寸，那么输入和输出内容就总能保持一致的空间维度。</p>
-<h3 id="卷积的计算"><a href="#卷积的计算" class="headerlink" title="卷积的计算"></a>卷积的计算</h3><p>注意，下面蓝色矩阵周围有一圈灰色的框，那些就是上面所说到的填充值）</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E5%A4%8D%E4%B9%A0/image-20240103222047615.png" alt="image-20240103222047615"></p>
+<h3 id="卷积的计算">卷积的计算</h3>
+<p>注意，下面蓝色矩阵周围有一圈灰色的框，那些就是上面所说到的填充值）</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240103222047615.png" alt="image-20240103222047615"></p>
 <p>这里的蓝色矩阵就是输入的图像，粉色矩阵就是卷积层的神经元，这里表示了有两个神经元（w0,w1）。绿色矩阵就是经过卷积运算后的输出矩阵，这里的步长设置为2。</p>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://pic1.zhimg.com/80/v2-af58e27acdf63325dda676ac5fc03b3c_720w.webp" alt="img"></p>
-<h1 id="演化学习"><a href="#演化学习" class="headerlink" title="演化学习"></a>演化学习</h1><h2 id="遗传算法-genetic-algorithms"><a href="#遗传算法-genetic-algorithms" class="headerlink" title="遗传算法(genetic algorithms)"></a>遗传算法(genetic algorithms)</h2><h3 id="遗传算法GA"><a href="#遗传算法GA" class="headerlink" title="遗传算法GA"></a>遗传算法GA</h3><p>受生物进化启发的学习算法</p>
+<h1>演化学习</h1>
+<h2 id="遗传算法-genetic-algorithms">遗传算法(genetic algorithms)</h2>
+<h3 id="遗传算法GA">遗传算法GA</h3>
+<p>受生物进化启发的学习算法</p>
 <p>假设搜索:一般假设模型到特殊假设模型? 简单假设模型到复杂假设模型?</p>
 <p><strong>通过对当前最好的假设模型重组来产生后续假设模型</strong></p>
 <p>生成并测试(generate-and-test)的柱状搜索(beam-search)</p>
 <p>假设的各个部分相互作用，每一部分对总体的影响难以建模</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E5%A4%8D%E4%B9%A0/image-20240104205849529.png" alt="image-20240104205849529"></p>
-<h3 id="种群"><a href="#种群" class="headerlink" title="种群"></a>种群</h3><p>一组染色体及其所计算的适应度</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240104205849529.png" alt="image-20240104205849529"></p>
+<h3 id="种群">种群</h3>
+<p>一组染色体及其所计算的适应度</p>
 <p>GA工作在每一代的种群上。第0代种群中的染色体随机生成</p>
-<h3 id="产生后代-选择父母"><a href="#产生后代-选择父母" class="headerlink" title="产生后代:选择父母"></a>产生后代:选择父母</h3><h4 id="基于适应度函数的选择"><a href="#基于适应度函数的选择" class="headerlink" title="基于适应度函数的选择"></a>基于适应度函数的选择</h4><ul>
-<li>锦标赛选择 (tournament selection)<ul>
+<h3 id="产生后代-选择父母">产生后代:选择父母</h3>
+<h4 id="基于适应度函数的选择">基于适应度函数的选择</h4>
+<ul>
+<li>锦标赛选择 (tournament selection)
+<ul>
 <li>每次从种群中取出一定(N数量个体(放回抽样)，然后选择其中最好的一个(M)进入子代种群</li>
 <li>重复该操作，直到新的种群规模达到原来的种群规模</li>
 </ul>
 </li>
-<li>截断选择(Truncation selection<ul>
+<li>截断选择(Truncation selection
+<ul>
 <li>根据适应度排序,前f个染色体进入下一代种群</li>
 <li>对染色体进行复制，填充至种群规模达到原来的种群规模</li>
 </ul>
 </li>
 <li>选择的作用:优胜劣汰，适者生存</li>
 </ul>
-<h3 id="遗传算子-GA-operator"><a href="#遗传算子-GA-operator" class="headerlink" title="遗传算子(GA operator)"></a>遗传算子(GA operator)</h3><p>对从当前群体中选择的染色体进行重组，以产生后代</p>
-<h4 id="交叉-Crossover"><a href="#交叉-Crossover" class="headerlink" title="交叉(Crossover)"></a>交叉(Crossover)</h4><p>选择两个候选个体，分解每一个个体，然后交换分量形成<br>两个新的候选个体</p>
+<h3 id="遗传算子-GA-operator">遗传算子(GA operator)</h3>
+<p>对从当前群体中选择的染色体进行重组，以产生后代</p>
+<h4 id="交叉-Crossover">交叉(Crossover)</h4>
+<p>选择两个候选个体，分解每一个个体，然后交换分量形成<br>
+两个新的候选个体</p>
 <ul>
 <li>单点交叉</li>
 <li>两点交叉</li>
 <li>均匀交叉</li>
 </ul>
-<h4 id="变异-Mutation"><a href="#变异-Mutation" class="headerlink" title="变异(Mutation)"></a>变异(Mutation)</h4><p>选择一个候选个体，随机的选择一位，然后取反</p>
-<p>常以小概率<strong>p ~ 1&#x2F;L(L是染色体长度)</strong> 发生变异</p>
-<h3 id="演化"><a href="#演化" class="headerlink" title="演化"></a>演化</h3><h4 id="简易方案"><a href="#简易方案" class="headerlink" title="简易方案"></a>简易方案</h4><p>后代染色体直接替代父代染色体(与自然吻合)</p>
+<h4 id="变异-Mutation">变异(Mutation)</h4>
+<p>选择一个候选个体，随机的选择一位，然后取反</p>
+<p>常以小概率<strong>p ~ 1/L(L是染色体长度)</strong> 发生变异</p>
+<h3 id="演化">演化</h3>
+<h4 id="简易方案">简易方案</h4>
+<p>后代染色体直接替代父代染色体(与自然吻合)</p>
 <p>易丢失优秀解</p>
-<h4 id="精英法-Elitism"><a href="#精英法-Elitism" class="headerlink" title="精英法(Elitism)"></a>精英法(Elitism)</h4><p>每一代保留上一代最优的染色体，丢弃掉最差个体<br>往往与选择算子混用</p>
-<h4 id="锦标赛法-Tournaments"><a href="#锦标赛法-Tournaments" class="headerlink" title="锦标赛法(Tournaments)"></a>锦标赛法(Tournaments)</h4><p>让父母染色体与后代染色体参与竞争，胜者放入下一代种群</p>
-<h4 id="小生境法-Niching）"><a href="#小生境法-Niching）" class="headerlink" title="小生境法(Niching）"></a>小生境法(Niching）</h4><p>小生境的作用</p>
+<h4 id="精英法-Elitism">精英法(Elitism)</h4>
+<p>每一代保留上一代最优的染色体，丢弃掉最差个体<br>
+往往与选择算子混用</p>
+<h4 id="锦标赛法-Tournaments">锦标赛法(Tournaments)</h4>
+<p>让父母染色体与后代染色体参与竞争，胜者放入下一代种群</p>
+<h4 id="小生境法-Niching）">小生境法(Niching）</h4>
+<p>小生境的作用</p>
 <p>门当户对，并行演化</p>
 <ul>
 <li>将每一代个体划分为若干类</li>
 <li>每个类中选出若干适应度较大的个体作为一个类的优秀代表组成一个群</li>
 <li>再在种群中，以及不同种群中之间，杂交，变异产生新一代个体群</li>
 </ul>
-<h5 id="小生境中的选择机制"><a href="#小生境中的选择机制" class="headerlink" title="小生境中的选择机制"></a>小生境中的选择机制</h5><ul>
+<h5 id="小生境中的选择机制">小生境中的选择机制</h5>
+<ul>
 <li>预选择机制:只用高适应度子代替换父代</li>
 <li>排挤机制:预定义原型。所产生的子代要保持和原型的模式不一致，模式相似的个体被替换</li>
 <li>共享机制:计算适应度和模式的关联关系，然后共享这种模式</li>
 </ul>
-<h1 id="维度约简-降维算法"><a href="#维度约简-降维算法" class="headerlink" title="维度约简 降维算法"></a>维度约简 降维算法</h1><h2 id="线性判别分析-LDA"><a href="#线性判别分析-LDA" class="headerlink" title="线性判别分析 LDA"></a>线性判别分析 LDA</h2><p>有监督的特征降维方法:Linear Discriminant Analysis</p>
+<h1>维度约简 降维算法</h1>
+<h2 id="线性判别分析-LDA">线性判别分析 LDA</h2>
+<p>有监督的特征降维方法:Linear Discriminant Analysis</p>
 <p>给定标注了类别的高维数据集，投影到低维的超平面，使得样本点的按类别尽最大可能区分开</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E5%A4%8D%E4%B9%A0/image-20240104211239177.png" alt="image-20240104211239177"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240104211239177.png" alt="image-20240104211239177"></p>
 <p>类别内的点距离越近越好,类别间的点越远越好</p>
-<h3 id="算法流程-1"><a href="#算法流程-1" class="headerlink" title="算法流程"></a>算法流程</h3><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E5%A4%8D%E4%B9%A0/image-20240104211317829.png" alt="image-20240104211317829"></p>
-<h3 id="主成分分析-PCA"><a href="#主成分分析-PCA" class="headerlink" title="主成分分析 PCA"></a>主成分分析 PCA</h3><p>无监督的特征降维方法:Principal Components Analysis</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E5%A4%8D%E4%B9%A0/image-20240104211514332.png" alt="image-20240104211514332"></p>
-<h3 id="独立成分分析-ICA"><a href="#独立成分分析-ICA" class="headerlink" title="独立成分分析 ICA"></a>独立成分分析 ICA</h3><h1 id="强化学习"><a href="#强化学习" class="headerlink" title="强化学习"></a>强化学习</h1><p>一定会出现</p>
-<p><strong>MDP</strong><br>动态规划</p>
-<p>探索<br>值函数、奖赏、测略</p>
+<h3 id="算法流程-2">算法流程</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240104211317829.png" alt="image-20240104211317829"></p>
+<h3 id="主成分分析-PCA">主成分分析 PCA</h3>
+<p>无监督的特征降维方法:Principal Components Analysis</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240104211514332.png" alt="image-20240104211514332"></p>
+<h3 id="独立成分分析-ICA">独立成分分析 ICA</h3>
+<h1>强化学习</h1>
+<p>一定会出现</p>
+<p><strong>MDP</strong><br>
+动态规划</p>
+<p>探索<br>
+值函数、奖赏、测略</p>
 <p>基于模型，不基于模型</p>
-<p>Morte Carle方法<br>时间差分</p>
-<p>Bootsraps<br>Sampling</p>
-<p>Q-learning<br>TD</p>
+<p>Morte Carle方法<br>
+时间差分</p>
+<p>Bootsraps<br>
+Sampling</p>
+<p>Q-learning<br>
+TD</p>
 <p>epsiode的概念</p>
-<h2 id="MDP模型"><a href="#MDP模型" class="headerlink" title="MDP模型"></a>MDP模型</h2><p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E5%A4%8D%E4%B9%A0/image-20240104212411083.png" alt="image-20240104212411083"></p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E5%A4%8D%E4%B9%A0/image-20240104212357878.png" alt="image-20240104212357878"></p>
-<h3 id="MDP模型-动作选择"><a href="#MDP模型-动作选择" class="headerlink" title="MDP模型-动作选择"></a>MDP模型-动作选择</h3><p>目标：最大化期望奖赏(单状态下)</p>
+<h2 id="MDP模型">MDP模型</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240104212411083.png" alt="image-20240104212411083"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240104212357878.png" alt="image-20240104212357878"></p>
+<h3 id="MDP模型-动作选择">MDP模型-动作选择</h3>
+<p>目标：最大化期望奖赏(单状态下)</p>
 <p>策略 单状态学习问题 状态到动作的映射(: S&gt;A)</p>
 <p>给定模型:采用贪心动作 Greedy action)</p>
 <p>通常返回函数是即时奖赏值的线性组合</p>
-<h2 id="动态规划"><a href="#动态规划" class="headerlink" title="动态规划"></a>动态规划</h2><p>给定一个完全已知的MDP模型</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E5%A4%8D%E4%B9%A0/image-20240104214407021.png" alt="image-20240104214407021"></p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E5%A4%8D%E4%B9%A0/image-20240104214356276.png" alt="image-20240104214356276"></p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/%E5%A4%8D%E4%B9%A0/image-20240104214450119.png" alt="image-20240104214450119"></p>
-<p>V(s) &#x3D; r + η * (ΣΠV(s’))</p>
+<h2 id="动态规划">动态规划</h2>
+<p>给定一个完全已知的MDP模型</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240104214407021.png" alt="image-20240104214407021"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240104214356276.png" alt="image-20240104214356276"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240104214450119.png" alt="image-20240104214450119"></p>
+<p>V(s) = r + η * (ΣΠV(s’))</p>
 <p>跳到他们身上的概率*他们的V</p>
 <p>你都列出来以后，解这个矩阵就可以了</p>
 <p>你所有的V都算出来了 要求一个最优控制 那你只需要把Q都求出来就可以了</p>
@@ -585,14 +718,15 @@
 
 
 
-<footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">Asimov</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.28.1">Stellar 1.28.1</a> 主题创建。<br>本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+<footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">Asimov</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.28.1">Stellar 1.28.1</a> 主题创建。<br>
+本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
 </div></footer>
 <div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
 <div class="widgets">
 
 
 
-<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5"><span class="toc-text">基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87"><span class="toc-text">评价指标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%9D%E7%A6%BB%E5%BA%A6%E9%87%8F%E5%87%BD%E6%95%B0"><span class="toc-text">距离度量函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E5%BA%A6%E9%87%8F"><span class="toc-text">计算度量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E5%BC%8F-%E5%88%A4%E5%88%AB%E5%BC%8F%E6%A8%A1%E5%9E%8B"><span class="toc-text">生成式&#x2F;判别式模型</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#KNN%F0%9F%91%8D"><span class="toc-text">KNN👍</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#KNN%E6%80%9D%E6%83%B3"><span class="toc-text">KNN思想</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E6%B5%81%E7%A8%8B"><span class="toc-text">算法流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%99%8D%E4%BD%8E%E8%AE%A1%E7%AE%97%E5%A4%8D%E6%9D%82%E5%BA%A6%EF%BC%8C%E5%A4%A7%E6%A6%82%E7%9C%8B%E4%B8%80%E4%B8%8B"><span class="toc-text">降低计算复杂度，大概看一下</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%81%9A%E7%B1%BB%F0%9F%91%8D"><span class="toc-text">聚类👍</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%81%9A%E7%B1%BB%E6%A6%82%E5%BF%B5"><span class="toc-text">聚类概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%81%9A%E7%B1%BB%E5%87%86%E5%88%99%EF%BC%9A%E8%81%9A%E7%B1%BB%E5%A5%BD%E5%9D%8F%E5%88%A4%E6%96%AD%EF%BC%8C"><span class="toc-text">聚类准则：聚类好坏判断，</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%A6%E9%87%8F"><span class="toc-text">度量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E7%B1%BB%E8%81%9A%E7%B1%BB%E6%96%B9%E6%B3%95"><span class="toc-text">三类聚类方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#k-means"><span class="toc-text">k-means</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87-1"><span class="toc-text">评价指标</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%86%B3%E7%AD%96%E6%A0%91"><span class="toc-text">决策树</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5-1"><span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%B3%E7%AD%96%E6%A0%91-1"><span class="toc-text">决策树</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%84%E9%80%A0"><span class="toc-text">构造</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E8%AE%BE%E7%BD%AE"><span class="toc-text">问题设置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BE%93%E5%85%A5"><span class="toc-text">输入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BE%93%E5%87%BA"><span class="toc-text">输出</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ID3%E7%AE%97%E6%B3%95%EF%BC%9A%E7%94%A8%E4%BA%8E%E5%AD%A6%E4%B9%A0%E5%B8%83%E5%B0%94%E5%87%BD%E6%95%B0%E7%9A%84ID3%E7%AE%97%E6%B3%95"><span class="toc-text">ID3算法：用于学习布尔函数的ID3算法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90%F0%9F%91%8D"><span class="toc-text">例子👍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%84%E9%80%A0%E6%97%B6%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%E8%8A%82%E7%82%B9%E5%92%8C%E6%9C%80%E4%BD%B3%E5%B1%9E%E6%80%A7"><span class="toc-text">构造时如何选择节点和最佳属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C4-5%EF%BC%9A%E4%BF%A1%E6%81%AF%E5%A2%9E%E7%9B%8A%E6%AF%94"><span class="toc-text">C4.5：信息增益比</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CART-Gini%E6%8C%87%E6%95%B0"><span class="toc-text">CART: Gini指数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0"><span class="toc-text">集成学习</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%B9%E7%82%B9-%E5%88%86%E7%B1%BB"><span class="toc-text">特点(分类)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bias-Variance-tradeoff"><span class="toc-text">Bias-Variance tradeoff</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E5%90%88%E7%AD%96%E7%95%A5"><span class="toc-text">结合策略</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B3%E5%9D%87%E6%B3%95-%E5%9B%9E%E5%BD%92%E9%97%AE%E9%A2%98%EF%BC%89"><span class="toc-text">平均法(回归问题）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%95%E7%A5%A8%E6%B3%95-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98%EF%BC%89"><span class="toc-text">投票法(分类问题）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bagging"><span class="toc-text">Bagging</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E8%A1%A8%E6%80%A7%E7%AE%97%E6%B3%95-%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97"><span class="toc-text">代表性算法:随机森林</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Boosting"><span class="toc-text">Boosting</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E8%A1%A8%E6%80%A7%E7%AE%97%E6%B3%95-Adaptive-Boost"><span class="toc-text">代表性算法: Adaptive Boost</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Boosting%E6%8F%90%E5%8D%87%E6%A0%91"><span class="toc-text">Boosting提升树</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%A6%82%E7%8E%87%E5%AD%A6%E4%B9%A0"><span class="toc-text">概率学习</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SVM"><span class="toc-text">SVM</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E5%88%86%E7%B1%BB"><span class="toc-text">二分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%B4%E9%9A%94%E4%B8%8E%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F"><span class="toc-text">间隔与支持向量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%9E%E7%BA%BF%E6%80%A7%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA"><span class="toc-text">非线性支持向量机</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A5%9E%E7%BB%8F%E5%85%83"><span class="toc-text">神经元</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#MP%E7%A5%9E%E7%BB%8F%E5%85%83%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84"><span class="toc-text">MP神经元基本结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%84%9F%E7%9F%A5%E6%9C%BA"><span class="toc-text">感知机</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E6%9E%84"><span class="toc-text">结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%84%9F%E7%9F%A5%E6%9C%BA%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95"><span class="toc-text">感知机的学习算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B0%83%E6%95%B4%E6%9D%83%E9%87%8D%E7%9A%84%E7%AE%97%E6%B3%95"><span class="toc-text">调整权重的算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E5%AE%9E%E4%BE%8B"><span class="toc-text">计算实例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8D%E8%B6%B3"><span class="toc-text">不足</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="toc-text">神经网络</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%AF%E5%B7%AE%E7%9A%84%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD"><span class="toc-text">误差的反向传播</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%AF%E5%B7%AE%E5%AE%9A%E4%B9%89"><span class="toc-text">误差定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#delta%E8%A7%84%E5%88%99"><span class="toc-text">delta规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD%E7%AE%97%E6%B3%95"><span class="toc-text">反向传播算法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BP%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="toc-text">BP神经网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0"><span class="toc-text">激活函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ReLU"><span class="toc-text">ReLU</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sigmoid"><span class="toc-text">Sigmoid</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E5%AE%9E%E4%BE%8B-1"><span class="toc-text">计算实例</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="toc-text">卷积神经网络</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%B7%E7%A7%AFConvolution"><span class="toc-text">卷积Convolution</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86"><span class="toc-text">数据预处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%B7%E7%A7%AF%E5%B1%82"><span class="toc-text">卷积层</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A5%E5%B9%85"><span class="toc-text">步幅</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A1%AB%E5%85%85%E5%80%BC"><span class="toc-text">填充值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%B7%E7%A7%AF%E7%9A%84%E8%AE%A1%E7%AE%97"><span class="toc-text">卷积的计算</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%BC%94%E5%8C%96%E5%AD%A6%E4%B9%A0"><span class="toc-text">演化学习</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95-genetic-algorithms"><span class="toc-text">遗传算法(genetic algorithms)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95GA"><span class="toc-text">遗传算法GA</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A7%8D%E7%BE%A4"><span class="toc-text">种群</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%A7%E7%94%9F%E5%90%8E%E4%BB%A3-%E9%80%89%E6%8B%A9%E7%88%B6%E6%AF%8D"><span class="toc-text">产生后代:选择父母</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E9%80%82%E5%BA%94%E5%BA%A6%E5%87%BD%E6%95%B0%E7%9A%84%E9%80%89%E6%8B%A9"><span class="toc-text">基于适应度函数的选择</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%81%97%E4%BC%A0%E7%AE%97%E5%AD%90-GA-operator"><span class="toc-text">遗传算子(GA operator)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%A4%E5%8F%89-Crossover"><span class="toc-text">交叉(Crossover)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%98%E5%BC%82-Mutation"><span class="toc-text">变异(Mutation)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BC%94%E5%8C%96"><span class="toc-text">演化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%80%E6%98%93%E6%96%B9%E6%A1%88"><span class="toc-text">简易方案</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B2%BE%E8%8B%B1%E6%B3%95-Elitism"><span class="toc-text">精英法(Elitism)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%94%A6%E6%A0%87%E8%B5%9B%E6%B3%95-Tournaments"><span class="toc-text">锦标赛法(Tournaments)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B0%8F%E7%94%9F%E5%A2%83%E6%B3%95-Niching%EF%BC%89"><span class="toc-text">小生境法(Niching）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%B0%8F%E7%94%9F%E5%A2%83%E4%B8%AD%E7%9A%84%E9%80%89%E6%8B%A9%E6%9C%BA%E5%88%B6"><span class="toc-text">小生境中的选择机制</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%B4%E5%BA%A6%E7%BA%A6%E7%AE%80-%E9%99%8D%E7%BB%B4%E7%AE%97%E6%B3%95"><span class="toc-text">维度约简 降维算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E5%88%A4%E5%88%AB%E5%88%86%E6%9E%90-LDA"><span class="toc-text">线性判别分析 LDA</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E6%B5%81%E7%A8%8B-1"><span class="toc-text">算法流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90-PCA"><span class="toc-text">主成分分析 PCA</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8B%AC%E7%AB%8B%E6%88%90%E5%88%86%E5%88%86%E6%9E%90-ICA"><span class="toc-text">独立成分分析 ICA</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0"><span class="toc-text">强化学习</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#MDP%E6%A8%A1%E5%9E%8B"><span class="toc-text">MDP模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#MDP%E6%A8%A1%E5%9E%8B-%E5%8A%A8%E4%BD%9C%E9%80%89%E6%8B%A9"><span class="toc-text">MDP模型-动作选择</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92"><span class="toc-text">动态规划</span></a></li></ol></li></ol></div><div class="widget-footer">
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">基本概念</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87"><span class="toc-text">评价指标</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%9D%E7%A6%BB%E5%BA%A6%E9%87%8F%E5%87%BD%E6%95%B0"><span class="toc-text">距离度量函数</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E5%BA%A6%E9%87%8F"><span class="toc-text">计算度量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%9F%E6%88%90%E5%BC%8F-%E5%88%A4%E5%88%AB%E5%BC%8F%E6%A8%A1%E5%9E%8B"><span class="toc-text">生成式&#x2F;判别式模型</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">KNN👍</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#KNN%E6%80%9D%E6%83%B3"><span class="toc-text">KNN思想</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5"><span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E6%B5%81%E7%A8%8B"><span class="toc-text">算法流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%99%8D%E4%BD%8E%E8%AE%A1%E7%AE%97%E5%A4%8D%E6%9D%82%E5%BA%A6%EF%BC%8C%E5%A4%A7%E6%A6%82%E7%9C%8B%E4%B8%80%E4%B8%8B"><span class="toc-text">降低计算复杂度，大概看一下</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">聚类👍</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%81%9A%E7%B1%BB%E6%A6%82%E5%BF%B5"><span class="toc-text">聚类概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%81%9A%E7%B1%BB%E5%87%86%E5%88%99%EF%BC%9A%E8%81%9A%E7%B1%BB%E5%A5%BD%E5%9D%8F%E5%88%A4%E6%96%AD%EF%BC%8C"><span class="toc-text">聚类准则：聚类好坏判断，</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BA%A6%E9%87%8F"><span class="toc-text">度量</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E7%B1%BB%E8%81%9A%E7%B1%BB%E6%96%B9%E6%B3%95"><span class="toc-text">三类聚类方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#k-means"><span class="toc-text">k-means</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87-2"><span class="toc-text">评价指标</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">决策树</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A6%82%E5%BF%B5-2"><span class="toc-text">概念</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%86%B3%E7%AD%96%E6%A0%91"><span class="toc-text">决策树</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%84%E9%80%A0"><span class="toc-text">构造</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%E8%AE%BE%E7%BD%AE"><span class="toc-text">问题设置</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BE%93%E5%85%A5"><span class="toc-text">输入</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%BE%93%E5%87%BA"><span class="toc-text">输出</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#ID3%E7%AE%97%E6%B3%95%EF%BC%9A%E7%94%A8%E4%BA%8E%E5%AD%A6%E4%B9%A0%E5%B8%83%E5%B0%94%E5%87%BD%E6%95%B0%E7%9A%84ID3%E7%AE%97%E6%B3%95"><span class="toc-text">ID3算法：用于学习布尔函数的ID3算法</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BE%8B%E5%AD%90%F0%9F%91%8D"><span class="toc-text">例子👍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%84%E9%80%A0%E6%97%B6%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%E8%8A%82%E7%82%B9%E5%92%8C%E6%9C%80%E4%BD%B3%E5%B1%9E%E6%80%A7"><span class="toc-text">构造时如何选择节点和最佳属性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#C4-5%EF%BC%9A%E4%BF%A1%E6%81%AF%E5%A2%9E%E7%9B%8A%E6%AF%94"><span class="toc-text">C4.5：信息增益比</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#CART-Gini%E6%8C%87%E6%95%B0"><span class="toc-text">CART: Gini指数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">集成学习</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%89%B9%E7%82%B9-%E5%88%86%E7%B1%BB"><span class="toc-text">特点(分类)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bias-Variance-tradeoff"><span class="toc-text">Bias-Variance tradeoff</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E5%90%88%E7%AD%96%E7%95%A5"><span class="toc-text">结合策略</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B9%B3%E5%9D%87%E6%B3%95-%E5%9B%9E%E5%BD%92%E9%97%AE%E9%A2%98%EF%BC%89"><span class="toc-text">平均法(回归问题）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%95%E7%A5%A8%E6%B3%95-%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98%EF%BC%89"><span class="toc-text">投票法(分类问题）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bagging"><span class="toc-text">Bagging</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E8%A1%A8%E6%80%A7%E7%AE%97%E6%B3%95-%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97"><span class="toc-text">代表性算法:随机森林</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Boosting"><span class="toc-text">Boosting</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E8%A1%A8%E6%80%A7%E7%AE%97%E6%B3%95-Adaptive-Boost"><span class="toc-text">代表性算法: Adaptive Boost</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Boosting%E6%8F%90%E5%8D%87%E6%A0%91"><span class="toc-text">Boosting提升树</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">概率学习</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">SVM</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E5%88%86%E7%B1%BB"><span class="toc-text">二分类</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%97%B4%E9%9A%94%E4%B8%8E%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F"><span class="toc-text">间隔与支持向量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%80%BB%E7%BB%93"><span class="toc-text">总结</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9D%9E%E7%BA%BF%E6%80%A7%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA"><span class="toc-text">非线性支持向量机</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">神经元</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#MP%E7%A5%9E%E7%BB%8F%E5%85%83%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84"><span class="toc-text">MP神经元基本结构</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%84%9F%E7%9F%A5%E6%9C%BA"><span class="toc-text">感知机</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E6%9E%84"><span class="toc-text">结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%84%9F%E7%9F%A5%E6%9C%BA%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95"><span class="toc-text">感知机的学习算法</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%B0%83%E6%95%B4%E6%9D%83%E9%87%8D%E7%9A%84%E7%AE%97%E6%B3%95"><span class="toc-text">调整权重的算法</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E5%AE%9E%E4%BE%8B"><span class="toc-text">计算实例</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%8D%E8%B6%B3"><span class="toc-text">不足</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">神经网络</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AF%AF%E5%B7%AE%E7%9A%84%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD"><span class="toc-text">误差的反向传播</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AF%AF%E5%B7%AE%E5%AE%9A%E4%B9%89"><span class="toc-text">误差定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#delta%E8%A7%84%E5%88%99"><span class="toc-text">delta规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD%E7%AE%97%E6%B3%95"><span class="toc-text">反向传播算法</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#BP%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C"><span class="toc-text">BP神经网络</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0"><span class="toc-text">激活函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ReLU"><span class="toc-text">ReLU</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Sigmoid"><span class="toc-text">Sigmoid</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E5%AE%9E%E4%BE%8B-2"><span class="toc-text">计算实例</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">卷积神经网络</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%B7%E7%A7%AFConvolution"><span class="toc-text">卷积Convolution</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86"><span class="toc-text">数据预处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%B7%E7%A7%AF%E5%B1%82"><span class="toc-text">卷积层</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A5%E5%B9%85"><span class="toc-text">步幅</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A1%AB%E5%85%85%E5%80%BC"><span class="toc-text">填充值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%B7%E7%A7%AF%E7%9A%84%E8%AE%A1%E7%AE%97"><span class="toc-text">卷积的计算</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">演化学习</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95-genetic-algorithms"><span class="toc-text">遗传算法(genetic algorithms)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95GA"><span class="toc-text">遗传算法GA</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%A7%8D%E7%BE%A4"><span class="toc-text">种群</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%A7%E7%94%9F%E5%90%8E%E4%BB%A3-%E9%80%89%E6%8B%A9%E7%88%B6%E6%AF%8D"><span class="toc-text">产生后代:选择父母</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9F%BA%E4%BA%8E%E9%80%82%E5%BA%94%E5%BA%A6%E5%87%BD%E6%95%B0%E7%9A%84%E9%80%89%E6%8B%A9"><span class="toc-text">基于适应度函数的选择</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%81%97%E4%BC%A0%E7%AE%97%E5%AD%90-GA-operator"><span class="toc-text">遗传算子(GA operator)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%A4%E5%8F%89-Crossover"><span class="toc-text">交叉(Crossover)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%98%E5%BC%82-Mutation"><span class="toc-text">变异(Mutation)</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%BC%94%E5%8C%96"><span class="toc-text">演化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%AE%80%E6%98%93%E6%96%B9%E6%A1%88"><span class="toc-text">简易方案</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%B2%BE%E8%8B%B1%E6%B3%95-Elitism"><span class="toc-text">精英法(Elitism)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%94%A6%E6%A0%87%E8%B5%9B%E6%B3%95-Tournaments"><span class="toc-text">锦标赛法(Tournaments)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%B0%8F%E7%94%9F%E5%A2%83%E6%B3%95-Niching%EF%BC%89"><span class="toc-text">小生境法(Niching）</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#%E5%B0%8F%E7%94%9F%E5%A2%83%E4%B8%AD%E7%9A%84%E9%80%89%E6%8B%A9%E6%9C%BA%E5%88%B6"><span class="toc-text">小生境中的选择机制</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">维度约简 降维算法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E5%88%A4%E5%88%AB%E5%88%86%E6%9E%90-LDA"><span class="toc-text">线性判别分析 LDA</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E6%B5%81%E7%A8%8B-2"><span class="toc-text">算法流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90-PCA"><span class="toc-text">主成分分析 PCA</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%8B%AC%E7%AB%8B%E6%88%90%E5%88%86%E5%88%86%E6%9E%90-ICA"><span class="toc-text">独立成分分析 ICA</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">强化学习</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#MDP%E6%A8%A1%E5%9E%8B"><span class="toc-text">MDP模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#MDP%E6%A8%A1%E5%9E%8B-%E5%8A%A8%E4%BD%9C%E9%80%89%E6%8B%A9"><span class="toc-text">MDP模型-动作选择</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92"><span class="toc-text">动态规划</span></a></li></ol></li></ol></div><div class="widget-footer">
 
 <a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12c0-4.714 0-7.071 1.464-8.536C4.93 2 7.286 2 12 2c4.714 0 7.071 0 8.535 1.464C22 4.93 22 7.286 22 12c0 4.714 0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12Z"/><path stroke-linecap="round" stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M10.46 1.25h3.08c1.603 0 2.86 0 3.864.095c1.023.098 1.861.3 2.6.752a5.75 5.75 0 0 1 1.899 1.899c.452.738.654 1.577.752 2.6c.095 1.004.095 2.261.095 3.865v1.067c0 1.141 0 2.036-.05 2.759c-.05.735-.153 1.347-.388 1.913a5.75 5.75 0 0 1-3.112 3.112c-.805.334-1.721.408-2.977.43a10.81 10.81 0 0 0-.929.036c-.198.022-.275.054-.32.08c-.047.028-.112.078-.224.232c-.121.166-.258.396-.476.764l-.542.916c-.773 1.307-2.69 1.307-3.464 0l-.542-.916a10.605 10.605 0 0 0-.476-.764c-.112-.154-.177-.204-.224-.232c-.045-.026-.122-.058-.32-.08c-.212-.023-.49-.03-.93-.037c-1.255-.021-2.171-.095-2.976-.429A5.75 5.75 0 0 1 1.688 16.2c-.235-.566-.338-1.178-.389-1.913c-.049-.723-.049-1.618-.049-2.76v-1.066c0-1.604 0-2.86.095-3.865c.098-1.023.3-1.862.752-2.6a5.75 5.75 0 0 1 1.899-1.899c.738-.452 1.577-.654 2.6-.752C7.6 1.25 8.857 1.25 10.461 1.25M6.739 2.839c-.914.087-1.495.253-1.959.537A4.25 4.25 0 0 0 3.376 4.78c-.284.464-.45 1.045-.537 1.96c-.088.924-.089 2.11-.089 3.761v1c0 1.175 0 2.019.046 2.685c.045.659.131 1.089.278 1.441a4.25 4.25 0 0 0 2.3 2.3c.515.214 1.173.294 2.429.316h.031c.398.007.747.013 1.037.045c.311.035.616.104.909.274c.29.17.5.395.682.645c.169.232.342.525.538.856l.559.944a.52.52 0 0 0 .882 0l.559-.944c.196-.331.37-.624.538-.856c.182-.25.392-.476.682-.645c.293-.17.598-.24.909-.274c.29-.032.639-.038 1.037-.045h.032c1.255-.022 1.913-.102 2.428-.316a4.25 4.25 0 0 0 2.3-2.3c.147-.352.233-.782.278-1.441c.046-.666.046-1.51.046-2.685v-1c0-1.651 0-2.837-.089-3.762c-.087-.914-.253-1.495-.537-1.959a4.25 4.25 0 0 0-1.403-1.403c-.464-.284-1.045-.45-1.96-.537c-.924-.088-2.11-.089-3.761-.089h-3c-1.651 0-2.837 0-3.762.089" clip-rule="evenodd"/><path fill="currentColor" d="M9 11a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0"/></svg><span>参与讨论</span></a></div></widget>
 </div></aside><div class='float-panel blur'>
