@@ -20,18 +20,18 @@
   <title>服务端-ch15-Docker - Asimov's Blog</title>
 
   
-    <meta name="description" content="ch15-Docker 本篇大量参考 14-docker - Charlie’s Blog (chillcharlie357.github.io) 容器与虚机  什么是容器? 容器是另外一种轻量级的虚拟化，容器是共用主 机内核，利用内核的虚拟化技术隔离出一个独立 的运行环境，拥有独立的一个文件系统，网络空间，进程空间视图等  Docker 的 3部分  Docker daemon就是Docker">
+    <meta name="description" content="ch15-Docker &#x672C;&#x7BC7;&#x5927;&#x91CF;&#x53C2;&#x8003; 14-docker - Charlie&#x2019;s Blog (chillcharlie357.github.io) &#x5BB9;&#x5668;&#x4E0E;&#x865A;&#x673A;  &#x4EC0;&#x4E48;&#x662F;&#x5BB9;&amp;#x">
 <meta property="og:type" content="article">
 <meta property="og:title" content="服务端-ch15-Docker">
 <meta property="og:url" content="https://chendingya.github.io/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/index.html">
 <meta property="og:site_name" content="Asimov&#39;s Blog">
-<meta property="og:description" content="ch15-Docker 本篇大量参考 14-docker - Charlie’s Blog (chillcharlie357.github.io) 容器与虚机  什么是容器? 容器是另外一种轻量级的虚拟化，容器是共用主 机内核，利用内核的虚拟化技术隔离出一个独立 的运行环境，拥有独立的一个文件系统，网络空间，进程空间视图等  Docker 的 3部分  Docker daemon就是Docker">
+<meta property="og:description" content="ch15-Docker &#x672C;&#x7BC7;&#x5927;&#x91CF;&#x53C2;&#x8003; 14-docker - Charlie&#x2019;s Blog (chillcharlie357.github.io) &#x5BB9;&#x5668;&#x4E0E;&#x865A;&#x673A;  &#x4EC0;&#x4E48;&#x662F;&#x5BB9;&amp;#x">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://chendingya.github.io/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/ch15-docker/image-20231217121508258.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/ch15-docker/image-20231217121634801.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/image-20231217121508258.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/image-20231217121634801.png">
 <meta property="og:image" content="https://chillcharlie-img.oss-cn-hangzhou.aliyuncs.com/image%2F2023%2F12%2F14%2F18-48-51-551a7d3c33dd450f7f8dc60d1a6ae29c-20231214184848-94a261.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/ch15-docker/image-20231217121540353.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/ch15-docker/image-20231217121610883.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/image-20231217121540353.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/image-20231217121610883.png">
 <meta property="og:image" content="https://chillcharlie-img.oss-cn-hangzhou.aliyuncs.com/image%2F2023%2F12%2F14%2F20-16-50-cef8d6cc91e64be46d5afa44e9e97583-20231214201648-b1c6b2.png">
 <meta property="og:image" content="https://chillcharlie-img.oss-cn-hangzhou.aliyuncs.com/image%2F2023%2F12%2F14%2F20-49-16-0157f9b342cd970ea85a05734fc2b95d-20231214204914-b94d29.png">
 <meta property="og:image" content="https://chillcharlie-img.oss-cn-hangzhou.aliyuncs.com/image%2F2023%2F12%2F14%2F20-47-39-95ea83a90dd44b9bcaeacda307e0cb5c-20231214204737-dcac1b.png">
@@ -41,7 +41,7 @@
 <meta property="article:author" content="Asimov">
 <meta property="article:tag" content="springboot">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://chendingya.github.io/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/ch15-docker/image-20231217121508258.png">
+<meta name="twitter:image" content="https://chendingya.github.io/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/image-20231217121508258.png">
   
   
   
@@ -74,7 +74,7 @@
 <div class="widgets">
 
 
-<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2024/05/02/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%842/"><span class="title">系统架构2-质量属性Quality Attributes</span></a><a class="item title" href="/2024/05/01/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%841/"><span class="title">系统架构1-Intro</span></a><a class="item title" href="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/"><span class="title">软件测试-期末复习</span></a><a class="item title" href="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/"><span class="title">机器学习-期末复习</span></a><a class="item title" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/"><span class="title">服务端-ch17-k8s使用</span></a><a class="item title" href="/2023/12/30/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch16-%E5%AE%B9%E5%99%A8%E9%95%9C%E5%83%8F%E6%9E%84%E5%BB%BA%E4%B8%8E%E7%BC%96%E6%8E%92/"><span class="title">服务端-ch16-容器镜像构建与编排</span></a><a class="item title" href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/"><span class="title">服务端-ch15-Docker</span></a><a class="item title" href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/"><span class="title">服务端-ch14-Spring WebFlux</span></a><a class="item title" href="/2023/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch13-%E5%8F%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"><span class="title">服务端-ch13-反应式编程基础</span></a><a class="item title" href="/2023/11/23/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch12-Spring%20Integration/"><span class="title">服务端-ch12-Spring Integration</span></a></div></widget>
+<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2022/10/25/hello-world/"><span class="title">Hello World</span></a><a class="item title" href="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/"><span class="title">软件测试-期末复习</span></a><a class="item title" href="/2024/05/02/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%842/"><span class="title">系统架构2-质量属性Quality Attributes</span></a><a class="item title" href="/2024/05/01/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%841/"><span class="title">系统架构1-Intro</span></a><a class="item title" href="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/"><span class="title">机器学习-期末复习</span></a><a class="item title" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/"><span class="title">服务端-ch17-k8s使用</span></a><a class="item title" href="/2023/12/30/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch16-%E5%AE%B9%E5%99%A8%E9%95%9C%E5%83%8F%E6%9E%84%E5%BB%BA%E4%B8%8E%E7%BC%96%E6%8E%92/"><span class="title">服务端-ch16-容器镜像构建与编排</span></a><a class="item title" href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/"><span class="title">服务端-ch15-Docker</span></a><a class="item title" href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/"><span class="title">服务端-ch14-Spring WebFlux</span></a><a class="item title" href="/2023/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch13-%E5%8F%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"><span class="title">服务端-ch13-反应式编程基础</span></a></div></widget>
 </div>
 <footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/chendingya?tab=repositories" target="_blank" rel="external nofollow noopener noreferrer"><img no-lazy src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" / onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a></div></footer>
 </div></aside><div class="l_main" id="main">
@@ -99,191 +99,191 @@
     
   </div>
   </div><article class="md-text content"><h1>ch15-Docker</h1>
-<p>本篇大量参考</p>
-<p><a target="_blank" rel="noopener" href="https://chillcharlie357.github.io/posts/33399bea/">14-docker - Charlie’s Blog (chillcharlie357.github.io)</a></p>
-<h2 id="容器与虚机">容器与虚机</h2>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="ch15-docker/image-20231217121508258.png" alt="image-20231217121508258"></p>
-<h3 id="什么是容器">什么是容器?</h3>
-<p>容器是另外一种轻量级的虚拟化，容器是共用主 机内核，利用内核的虚拟化技术隔离出一个独立 的运行环境，拥有独立的一个文件系统，网络空间，进程空间视图等</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="ch15-docker/image-20231217121634801.png" alt="image-20231217121634801"></p>
-<h2 id="Docker-的-3部分">Docker 的 3部分</h2>
+<p>&#x672C;&#x7BC7;&#x5927;&#x91CF;&#x53C2;&#x8003;</p>
+<p><a target="_blank" rel="noopener" href="https://chillcharlie357.github.io/posts/33399bea/">14-docker - Charlie&#x2019;s Blog (chillcharlie357.github.io)</a></p>
+<h2 id="&#x5BB9;&#x5668;&#x4E0E;&#x865A;&#x673A;">&#x5BB9;&#x5668;&#x4E0E;&#x865A;&#x673A;</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/image-20231217121508258.png" alt="image-20231217121508258"></p>
+<h3 id="&#x4EC0;&#x4E48;&#x662F;&#x5BB9;&#x5668;">&#x4EC0;&#x4E48;&#x662F;&#x5BB9;&#x5668;?</h3>
+<p>&#x5BB9;&#x5668;&#x662F;&#x53E6;&#x5916;&#x4E00;&#x79CD;&#x8F7B;&#x91CF;&#x7EA7;&#x7684;&#x865A;&#x62DF;&#x5316;&#xFF0C;&#x5BB9;&#x5668;&#x662F;&#x5171;&#x7528;&#x4E3B; &#x673A;&#x5185;&#x6838;&#xFF0C;&#x5229;&#x7528;&#x5185;&#x6838;&#x7684;&#x865A;&#x62DF;&#x5316;&#x6280;&#x672F;&#x9694;&#x79BB;&#x51FA;&#x4E00;&#x4E2A;&#x72EC;&#x7ACB; &#x7684;&#x8FD0;&#x884C;&#x73AF;&#x5883;&#xFF0C;&#x62E5;&#x6709;&#x72EC;&#x7ACB;&#x7684;&#x4E00;&#x4E2A;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#xFF0C;&#x7F51;&#x7EDC;&#x7A7A;&#x95F4;&#xFF0C;&#x8FDB;&#x7A0B;&#x7A7A;&#x95F4;&#x89C6;&#x56FE;&#x7B49;</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/image-20231217121634801.png" alt="image-20231217121634801"></p>
+<h2 id="Docker-&#x7684;-3&#x90E8;&#x5206;">Docker &#x7684; 3&#x90E8;&#x5206;</h2>
 <ul>
-<li>Docker daemon就是<strong>Docker Engine</strong> ， 一般在宿主主机后台运行</li>
-<li>用户使用<strong>client</strong>通过pipe 、unix socket 或tcp直接跟daemon交互</li>
-<li>Docker index指向Docker <strong>registries</strong> ， 也叫docker仓库，可以用来让你上传和 下载images 。<a target="_blank" rel="noopener" href="http://Hub.docker.com">Hub.docker.com</a> 为 docker官方仓库</li>
-<li>每一部分有哪些部分构成？</li>
+<li>Docker daemon&#x5C31;&#x662F;<strong>Docker Engine</strong> &#xFF0C; &#x4E00;&#x822C;&#x5728;&#x5BBF;&#x4E3B;&#x4E3B;&#x673A;&#x540E;&#x53F0;&#x8FD0;&#x884C;</li>
+<li>&#x7528;&#x6237;&#x4F7F;&#x7528;<strong>client</strong>&#x901A;&#x8FC7;pipe &#x3001;unix socket &#x6216;tcp&#x76F4;&#x63A5;&#x8DDF;daemon&#x4EA4;&#x4E92;</li>
+<li>Docker index&#x6307;&#x5411;Docker <strong>registries</strong> &#xFF0C; &#x4E5F;&#x53EB;docker&#x4ED3;&#x5E93;&#xFF0C;&#x53EF;&#x4EE5;&#x7528;&#x6765;&#x8BA9;&#x4F60;&#x4E0A;&#x4F20;&#x548C; &#x4E0B;&#x8F7D;images &#x3002;<a target="_blank" rel="noopener" href="http://Hub.docker.com">Hub.docker.com</a> &#x4E3A; docker&#x5B98;&#x65B9;&#x4ED3;&#x5E93;</li>
+<li>&#x6BCF;&#x4E00;&#x90E8;&#x5206;&#x6709;&#x54EA;&#x4E9B;&#x90E8;&#x5206;&#x6784;&#x6210;&#xFF1F;</li>
 </ul>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://chillcharlie-img.oss-cn-hangzhou.aliyuncs.com/image%2F2023%2F12%2F14%2F18-48-51-551a7d3c33dd450f7f8dc60d1a6ae29c-20231214184848-94a261.png" alt="image.png"></p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="ch15-docker/image-20231217121540353.png" alt="image-20231217121540353"></p>
-<h2 id="Docker可运行在以下操作系统">Docker可运行在以下操作系统</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/image-20231217121540353.png" alt="image-20231217121540353"></p>
+<h2 id="Docker&#x53EF;&#x8FD0;&#x884C;&#x5728;&#x4EE5;&#x4E0B;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;">Docker&#x53EF;&#x8FD0;&#x884C;&#x5728;&#x4EE5;&#x4E0B;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;</h2>
 <ul>
 <li>Windows</li>
 <li>OS X</li>
 <li>Linux</li>
 </ul>
-<h3 id="Windows下的两类容器">Windows下的两类容器</h3>
+<h3 id="Windows&#x4E0B;&#x7684;&#x4E24;&#x7C7B;&#x5BB9;&#x5668;">Windows&#x4E0B;&#x7684;&#x4E24;&#x7C7B;&#x5BB9;&#x5668;</h3>
 <ul>
 <li>Windows Container</li>
 <li>linux container</li>
 </ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="ch15-docker/image-20231217121610883.png" alt="image-20231217121610883"></p>
-<h1>docker子命令</h1>
-<h2 id="run👍">run👍</h2>
-<p>文件：写时复制，不修改就用底层linux的文件，修改复制一份就放到上一层</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/image-20231217121610883.png" alt="image-20231217121610883"></p>
+<h1>docker&#x5B50;&#x547D;&#x4EE4;</h1>
+<h2 id="run&#x1F44D;">run&#x1F44D;</h2>
+<p>&#x6587;&#x4EF6;&#xFF1A;&#x5199;&#x65F6;&#x590D;&#x5236;&#xFF0C;&#x4E0D;&#x4FEE;&#x6539;&#x5C31;&#x7528;&#x5E95;&#x5C42;linux&#x7684;&#x6587;&#x4EF6;&#xFF0C;&#x4FEE;&#x6539;&#x590D;&#x5236;&#x4E00;&#x4EFD;&#x5C31;&#x653E;&#x5230;&#x4E0A;&#x4E00;&#x5C42;</p>
 <ul>
 <li>
-<p><strong><code>--rm</code>: 退出时删除容器</strong></p>
+<p><strong><code>--rm</code>: &#x9000;&#x51FA;&#x65F6;&#x5220;&#x9664;&#x5BB9;&#x5668;</strong></p>
 </li>
 <li>
-<p><strong><code>--it</code>: 进入命令行终端</strong></p>
+<p><strong><code>--it</code>: &#x8FDB;&#x5165;&#x547D;&#x4EE4;&#x884C;&#x7EC8;&#x7AEF;</strong></p>
 </li>
 <li>
-<p><strong><code>-d</code>: 后台运行容器，并返回容器 ID</strong></p>
+<p><strong><code>-d</code>: &#x540E;&#x53F0;&#x8FD0;&#x884C;&#x5BB9;&#x5668;&#xFF0C;&#x5E76;&#x8FD4;&#x56DE;&#x5BB9;&#x5668; ID</strong></p>
 </li>
 <li>
-<p><code>-i</code>: 交互模式运行容器，通常与 -t 同时使用</p>
+<p><code>-i</code>: &#x4EA4;&#x4E92;&#x6A21;&#x5F0F;&#x8FD0;&#x884C;&#x5BB9;&#x5668;&#xFF0C;&#x901A;&#x5E38;&#x4E0E; -t &#x540C;&#x65F6;&#x4F7F;&#x7528;</p>
 </li>
 <li>
-<p><code>-t</code>: 为容器重新分配一个伪输入终端，通常与 -i 同时使用</p>
+<p><code>-t</code>: &#x4E3A;&#x5BB9;&#x5668;&#x91CD;&#x65B0;&#x5206;&#x914D;&#x4E00;&#x4E2A;&#x4F2A;&#x8F93;&#x5165;&#x7EC8;&#x7AEF;&#xFF0C;&#x901A;&#x5E38;&#x4E0E; -i &#x540C;&#x65F6;&#x4F7F;&#x7528;</p>
 </li>
 <li>
-<p><strong><code>-p</code>: 指定（发布）端口映射</strong></p>
+<p><strong><code>-p</code>: &#x6307;&#x5B9A;&#xFF08;&#x53D1;&#x5E03;&#xFF09;&#x7AEF;&#x53E3;&#x6620;&#x5C04;</strong></p>
 <ul>
-<li><strong>格式为：主机（宿主）端口：容器端口</strong></li>
+<li><strong>&#x683C;&#x5F0F;&#x4E3A;&#xFF1A;&#x4E3B;&#x673A;&#xFF08;&#x5BBF;&#x4E3B;&#xFF09;&#x7AEF;&#x53E3;&#xFF1A;&#x5BB9;&#x5668;&#x7AEF;&#x53E3;</strong></li>
 </ul>
 </li>
 <li>
-<p><code>-P</code>: 随机端口映射，容器内部端口随机映射到主机的高端口</p>
+<p><code>-P</code>: &#x968F;&#x673A;&#x7AEF;&#x53E3;&#x6620;&#x5C04;&#xFF0C;&#x5BB9;&#x5668;&#x5185;&#x90E8;&#x7AEF;&#x53E3;&#x968F;&#x673A;&#x6620;&#x5C04;&#x5230;&#x4E3B;&#x673A;&#x7684;&#x9AD8;&#x7AEF;&#x53E3;</p>
 </li>
 <li>
-<p><strong><code>--name=&quot;nginx-lb&quot;</code>: 为容器指定一个名称</strong></p>
+<p><strong><code>--name=&quot;nginx-lb&quot;</code>: &#x4E3A;&#x5BB9;&#x5668;&#x6307;&#x5B9A;&#x4E00;&#x4E2A;&#x540D;&#x79F0;</strong></p>
 </li>
 <li>
-<p><strong><code>-e username=&quot;ritchie&quot;</code>:设置环境变量</strong></p>
+<p><strong><code>-e username=&quot;ritchie&quot;</code>:&#x8BBE;&#x7F6E;&#x73AF;&#x5883;&#x53D8;&#x91CF;</strong></p>
 <ul>
-<li>可以用环境变量给容器初始化/传入特定参数，在微服务中很常用</li>
-<li>例：给mysql容器传<code>MYSQL_ROOT_PASSWORD</code></li>
+<li>&#x53EF;&#x4EE5;&#x7528;&#x73AF;&#x5883;&#x53D8;&#x91CF;&#x7ED9;&#x5BB9;&#x5668;&#x521D;&#x59CB;&#x5316;/&#x4F20;&#x5165;&#x7279;&#x5B9A;&#x53C2;&#x6570;&#xFF0C;&#x5728;&#x5FAE;&#x670D;&#x52A1;&#x4E2D;&#x5F88;&#x5E38;&#x7528;</li>
+<li>&#x4F8B;&#xFF1A;&#x7ED9;mysql&#x5BB9;&#x5668;&#x4F20;<code>MYSQL_ROOT_PASSWORD</code></li>
 </ul>
 </li>
 <li>
-<p><code>--env-file=c:/templ /tl .txt</code>: 从指定文件读入环境变量</p>
+<p><code>--env-file=c:/templ /tl .txt</code>: &#x4ECE;&#x6307;&#x5B9A;&#x6587;&#x4EF6;&#x8BFB;&#x5165;&#x73AF;&#x5883;&#x53D8;&#x91CF;</p>
 </li>
 <li>
-<p><strong>–expose = 2000-2002: 开放（暴露）一个端口或一组端口，用于指出容器内可能对外暴露的端(不一定映射)</strong></p>
+<p><strong>&#x2013;expose = 2000-2002: &#x5F00;&#x653E;&#xFF08;&#x66B4;&#x9732;&#xFF09;&#x4E00;&#x4E2A;&#x7AEF;&#x53E3;&#x6216;&#x4E00;&#x7EC4;&#x7AEF;&#x53E3;&#xFF0C;&#x7528;&#x4E8E;&#x6307;&#x51FA;&#x5BB9;&#x5668;&#x5185;&#x53EF;&#x80FD;&#x5BF9;&#x5916;&#x66B4;&#x9732;&#x7684;&#x7AEF;(&#x4E0D;&#x4E00;&#x5B9A;&#x6620;&#x5C04;)</strong></p>
 <ul>
-<li>如果加上-P则会建立外部端口映射</li>
+<li>&#x5982;&#x679C;&#x52A0;&#x4E0A;-P&#x5219;&#x4F1A;&#x5EFA;&#x7ACB;&#x5916;&#x90E8;&#x7AEF;&#x53E3;&#x6620;&#x5C04;</li>
 </ul>
 </li>
 <li>
-<p><strong><code>--link &lt;name or id&gt;:alias</code>：链接两个容器，使得他们可以相互通信</strong></p>
+<p><strong><code>--link &lt;name or id&gt;:alias</code>&#xFF1A;&#x94FE;&#x63A5;&#x4E24;&#x4E2A;&#x5BB9;&#x5668;&#xFF0C;&#x4F7F;&#x5F97;&#x4ED6;&#x4EEC;&#x53EF;&#x4EE5;&#x76F8;&#x4E92;&#x901A;&#x4FE1;</strong></p>
 <ul>
-<li>右边可以写在本地属性文件，可以在不修改命令的情况下把远程容器映射到本地容器</li>
+<li>&#x53F3;&#x8FB9;&#x53EF;&#x4EE5;&#x5199;&#x5728;&#x672C;&#x5730;&#x5C5E;&#x6027;&#x6587;&#x4EF6;&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x4E0D;&#x4FEE;&#x6539;&#x547D;&#x4EE4;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x628A;&#x8FDC;&#x7A0B;&#x5BB9;&#x5668;&#x6620;&#x5C04;&#x5230;&#x672C;&#x5730;&#x5BB9;&#x5668;</li>
 </ul>
 </li>
 <li>
-<p><strong><code>-v c:/templ :/data</code>: 绑定一个卷</strong></p>
+<p><strong><code>-v c:/templ :/data</code>: &#x7ED1;&#x5B9A;&#x4E00;&#x4E2A;&#x5377;</strong></p>
 <ul>
-<li>左边时本机路径，右边是容器路径</li>
+<li>&#x5DE6;&#x8FB9;&#x65F6;&#x672C;&#x673A;&#x8DEF;&#x5F84;&#xFF0C;&#x53F3;&#x8FB9;&#x662F;&#x5BB9;&#x5668;&#x8DEF;&#x5F84;</li>
 </ul>
 </li>
 <li>
-<p><code>--rm</code>: 退出时自动删除容器</p>
+<p><code>--rm</code>: &#x9000;&#x51FA;&#x65F6;&#x81EA;&#x52A8;&#x5220;&#x9664;&#x5BB9;&#x5668;</p>
 </li>
 </ul>
-<p>如何在镜像中查看网卡信息和ip地址？</p>
+<p>&#x5982;&#x4F55;&#x5728;&#x955C;&#x50CF;&#x4E2D;&#x67E5;&#x770B;&#x7F51;&#x5361;&#x4FE1;&#x606F;&#x548C;ip&#x5730;&#x5740;&#xFF1F;</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker run --rm -it busybox</span><br><span class="line">cat /etc/hosts</span><br><span class="line">ip a</span><br></pre></td></tr></table></figure>
 <ul>
-<li><code>--link</code>的例子：<code>docker run -d --name node --link selenium_hub:hub selenium/node-chrome-debug</code>。创建并启动名为node的容器，并把该容器和名为selenium_hub的容器链接起来。hub是该容器在link下的别名（alias），通俗易懂的讲，站在node容器的角度，selenium_hub和hub都是1cbbf6f07804容器的名字，并且作为容器的hostname，node用这2个名字中的哪一个都可以访问到1cbbf6f07804容器并与之通信（docker通过DNS自动解析）。</li>
+<li><code>--link</code>&#x7684;&#x4F8B;&#x5B50;&#xFF1A;<code>docker run -d --name node --link selenium_hub:hub selenium/node-chrome-debug</code>&#x3002;&#x521B;&#x5EFA;&#x5E76;&#x542F;&#x52A8;&#x540D;&#x4E3A;node&#x7684;&#x5BB9;&#x5668;&#xFF0C;&#x5E76;&#x628A;&#x8BE5;&#x5BB9;&#x5668;&#x548C;&#x540D;&#x4E3A;selenium_hub&#x7684;&#x5BB9;&#x5668;&#x94FE;&#x63A5;&#x8D77;&#x6765;&#x3002;hub&#x662F;&#x8BE5;&#x5BB9;&#x5668;&#x5728;link&#x4E0B;&#x7684;&#x522B;&#x540D;&#xFF08;alias&#xFF09;&#xFF0C;&#x901A;&#x4FD7;&#x6613;&#x61C2;&#x7684;&#x8BB2;&#xFF0C;&#x7AD9;&#x5728;node&#x5BB9;&#x5668;&#x7684;&#x89D2;&#x5EA6;&#xFF0C;selenium_hub&#x548C;hub&#x90FD;&#x662F;1cbbf6f07804&#x5BB9;&#x5668;&#x7684;&#x540D;&#x5B57;&#xFF0C;&#x5E76;&#x4E14;&#x4F5C;&#x4E3A;&#x5BB9;&#x5668;&#x7684;hostname&#xFF0C;node&#x7528;&#x8FD9;2&#x4E2A;&#x540D;&#x5B57;&#x4E2D;&#x7684;&#x54EA;&#x4E00;&#x4E2A;&#x90FD;&#x53EF;&#x4EE5;&#x8BBF;&#x95EE;&#x5230;1cbbf6f07804&#x5BB9;&#x5668;&#x5E76;&#x4E0E;&#x4E4B;&#x901A;&#x4FE1;&#xFF08;docker&#x901A;&#x8FC7;DNS&#x81EA;&#x52A8;&#x89E3;&#x6790;&#xFF09;&#x3002;</li>
 </ul>
 <h2 id="2-2-inspect">2.2. inspect</h2>
-<p>查看详细信息</p>
-<p><code>docker image</code>和<code>docker container</code>都有<code>inspect</code>子命令</p>
-<h1>镜像分层👍</h1>
+<p>&#x67E5;&#x770B;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;</p>
+<p><code>docker image</code>&#x548C;<code>docker container</code>&#x90FD;&#x6709;<code>inspect</code>&#x5B50;&#x547D;&#x4EE4;</p>
+<h1>&#x955C;&#x50CF;&#x5206;&#x5C42;&#x1F44D;</h1>
 <ul>
 <li>
-<p>写时复制 COW (Copy-On-Write)</p>
+<p>&#x5199;&#x65F6;&#x590D;&#x5236; COW (Copy-On-Write)</p>
 <ul>
-<li>需要修改底层文件时才会复制一份到上层，然后进行修改</li>
+<li>&#x9700;&#x8981;&#x4FEE;&#x6539;&#x5E95;&#x5C42;&#x6587;&#x4EF6;&#x65F6;&#x624D;&#x4F1A;&#x590D;&#x5236;&#x4E00;&#x4EFD;&#x5230;&#x4E0A;&#x5C42;&#xFF0C;&#x7136;&#x540E;&#x8FDB;&#x884C;&#x4FEE;&#x6539;</li>
 </ul>
 </li>
 <li>
-<p>否则一直共享底层文件</p>
+<p>&#x5426;&#x5219;&#x4E00;&#x76F4;&#x5171;&#x4EAB;&#x5E95;&#x5C42;&#x6587;&#x4EF6;</p>
 </li>
 <li>
-<p>docker history &lt;image name&gt; 查看镜像的层</p>
+<p>docker history &lt;image name&gt; &#x67E5;&#x770B;&#x955C;&#x50CF;&#x7684;&#x5C42;</p>
 </li>
 </ul>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://chillcharlie-img.oss-cn-hangzhou.aliyuncs.com/image%2F2023%2F12%2F14%2F20-16-50-cef8d6cc91e64be46d5afa44e9e97583-20231214201648-b1c6b2.png" alt="image.png"></p>
-<h1>数据的存储方式</h1>
+<h1>&#x6570;&#x636E;&#x7684;&#x5B58;&#x50A8;&#x65B9;&#x5F0F;</h1>
 <ol>
-<li>数据卷 Volume：docker自管理</li>
-<li>bind mounts：存储在宿主机的任意位置</li>
-<li>临时文件系统 tmpfs(temporary file system)：存储在宿主机内存中</li>
+<li>&#x6570;&#x636E;&#x5377; Volume&#xFF1A;docker&#x81EA;&#x7BA1;&#x7406;</li>
+<li>bind mounts&#xFF1A;&#x5B58;&#x50A8;&#x5728;&#x5BBF;&#x4E3B;&#x673A;&#x7684;&#x4EFB;&#x610F;&#x4F4D;&#x7F6E;</li>
+<li>&#x4E34;&#x65F6;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF; tmpfs(temporary file system)&#xFF1A;&#x5B58;&#x50A8;&#x5728;&#x5BBF;&#x4E3B;&#x673A;&#x5185;&#x5B58;&#x4E2D;</li>
 </ol>
-<p>docker volume子命令可以管理数据卷</p>
+<p>docker volume&#x5B50;&#x547D;&#x4EE4;&#x53EF;&#x4EE5;&#x7BA1;&#x7406;&#x6570;&#x636E;&#x5377;</p>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://chillcharlie-img.oss-cn-hangzhou.aliyuncs.com/image%2F2023%2F12%2F14%2F20-49-16-0157f9b342cd970ea85a05734fc2b95d-20231214204914-b94d29.png" alt="image.png"></p>
-<h1>导入导出镜像</h1>
+<h1>&#x5BFC;&#x5165;&#x5BFC;&#x51FA;&#x955C;&#x50CF;</h1>
 <ul>
-<li>备份镜像
+<li>&#x5907;&#x4EFD;&#x955C;&#x50CF;
 <ul>
-<li>保存：<strong>docker save -o 文件名.tar 镜像</strong></li>
-<li>导入</li>
+<li>&#x4FDD;&#x5B58;&#xFF1A;<strong>docker save -o &#x6587;&#x4EF6;&#x540D;.tar &#x955C;&#x50CF;</strong></li>
+<li>&#x5BFC;&#x5165;</li>
 </ul>
 </li>
 </ul>
-<h1>dangling镜像</h1>
-<p>dangling镜像：没有tag的镜像<br>
-<strong>查看：<code>docker image ls -f dangling=true</code></strong><br>
-<strong>删除dangling镜像：<code>docker image prune -f</code></strong></p>
+<h1>dangling&#x955C;&#x50CF;</h1>
+<p>dangling&#x955C;&#x50CF;&#xFF1A;&#x6CA1;&#x6709;tag&#x7684;&#x955C;&#x50CF;<br>
+<strong>&#x67E5;&#x770B;&#xFF1A;<code>docker image ls -f dangling=true</code></strong><br>
+<strong>&#x5220;&#x9664;dangling&#x955C;&#x50CF;&#xFF1A;<code>docker image prune -f</code></strong></p>
 <h1>Docker System</h1>
 <ul>
-<li><strong>docker system df</strong> 命令，类似于 Linux上的 df 命令，用于查看 Docker 的磁盘使用情况</li>
-<li>RECLAIMABLE 指可回收的，对 image, 指的是没有被容器使用的镜像</li>
-<li>查看系统日志：<strong>docker system events</strong></li>
+<li><strong>docker system df</strong> &#x547D;&#x4EE4;&#xFF0C;&#x7C7B;&#x4F3C;&#x4E8E; Linux&#x4E0A;&#x7684; df &#x547D;&#x4EE4;&#xFF0C;&#x7528;&#x4E8E;&#x67E5;&#x770B; Docker &#x7684;&#x78C1;&#x76D8;&#x4F7F;&#x7528;&#x60C5;&#x51B5;</li>
+<li>RECLAIMABLE &#x6307;&#x53EF;&#x56DE;&#x6536;&#x7684;&#xFF0C;&#x5BF9; image, &#x6307;&#x7684;&#x662F;&#x6CA1;&#x6709;&#x88AB;&#x5BB9;&#x5668;&#x4F7F;&#x7528;&#x7684;&#x955C;&#x50CF;</li>
+<li>&#x67E5;&#x770B;&#x7CFB;&#x7EDF;&#x65E5;&#x5FD7;&#xFF1A;<strong>docker system events</strong></li>
 </ul>
-<h1>容器网络👍</h1>
-<p>不同Network Driver的区别：<a target="_blank" rel="noopener" href="https://docs.docker.com/network/drivers/">Network drivers overview | Docker Docs </a></p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/212772001">Docker 网络模式详解及容器间网络通信 - 知乎 </a></p>
+<h1>&#x5BB9;&#x5668;&#x7F51;&#x7EDC;&#x1F44D;</h1>
+<p>&#x4E0D;&#x540C;Network Driver&#x7684;&#x533A;&#x522B;&#xFF1A;<a target="_blank" rel="noopener" href="https://docs.docker.com/network/drivers/">Network drivers overview | Docker Docs </a></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/212772001">Docker &#x7F51;&#x7EDC;&#x6A21;&#x5F0F;&#x8BE6;&#x89E3;&#x53CA;&#x5BB9;&#x5668;&#x95F4;&#x7F51;&#x7EDC;&#x901A;&#x4FE1; - &#x77E5;&#x4E4E; </a></p>
 <ul>
 <li>
-<p>none网络， <code>--net=none</code></p>
+<p>none&#x7F51;&#x7EDC;&#xFF0C; <code>--net=none</code></p>
 </li>
 <li>
-<p>host网络，<code>--net=host</code></p>
+<p>host&#x7F51;&#x7EDC;&#xFF0C;<code>--net=host</code></p>
 <ul>
-<li>共享宿主机的网络</li>
-</ul>
-</li>
-<li>
-<p>bridge网络,<code>--net=bridge</code></p>
-<ul>
-<li>例：docker0的linux bridge</li>
+<li>&#x5171;&#x4EAB;&#x5BBF;&#x4E3B;&#x673A;&#x7684;&#x7F51;&#x7EDC;</li>
 </ul>
 </li>
 <li>
-<p>container网络,<code>--net=container:NAME_or_ID</code></p>
+<p>bridge&#x7F51;&#x7EDC;,<code>--net=bridge</code></p>
 <ul>
-<li>新创建的容器共享其他容器的网络</li>
+<li>&#x4F8B;&#xFF1A;docker0&#x7684;linux bridge</li>
 </ul>
 </li>
 <li>
-<p>共享相同的ip地址和端口号，类似k8s的pod</p>
+<p>container&#x7F51;&#x7EDC;,<code>--net=container:NAME_or_ID</code></p>
+<ul>
+<li>&#x65B0;&#x521B;&#x5EFA;&#x7684;&#x5BB9;&#x5668;&#x5171;&#x4EAB;&#x5176;&#x4ED6;&#x5BB9;&#x5668;&#x7684;&#x7F51;&#x7EDC;</li>
+</ul>
 </li>
 <li>
-<p><code>docker run --network=my-net</code>：在同一个network里的多个容器可以相互通信<br>
+<p>&#x5171;&#x4EAB;&#x76F8;&#x540C;&#x7684;ip&#x5730;&#x5740;&#x548C;&#x7AEF;&#x53E3;&#x53F7;&#xFF0C;&#x7C7B;&#x4F3C;k8s&#x7684;pod</p>
+</li>
+<li>
+<p><code>docker run --network=my-net</code>&#xFF1A;&#x5728;&#x540C;&#x4E00;&#x4E2A;network&#x91CC;&#x7684;&#x591A;&#x4E2A;&#x5BB9;&#x5668;&#x53EF;&#x4EE5;&#x76F8;&#x4E92;&#x901A;&#x4FE1;<br>
 <code>docker network connect </code></p>
 </li>
 </ul>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://chillcharlie-img.oss-cn-hangzhou.aliyuncs.com/image%2F2023%2F12%2F14%2F20-47-39-95ea83a90dd44b9bcaeacda307e0cb5c-20231214204737-dcac1b.png" alt="image.png"></p>
-<p>上图中host为宿主机，docker0为网关，docker1和docker2为容器<br>
-host eth0：宿主机网卡</p>
-<h1>Vscode中基于docker容器开发</h1>
-<p>C/C++：底层开发，嵌入式，性能要求高</p>
-<p>Java：</p>
+<p>&#x4E0A;&#x56FE;&#x4E2D;host&#x4E3A;&#x5BBF;&#x4E3B;&#x673A;&#xFF0C;docker0&#x4E3A;&#x7F51;&#x5173;&#xFF0C;docker1&#x548C;docker2&#x4E3A;&#x5BB9;&#x5668;<br>
+host eth0&#xFF1A;&#x5BBF;&#x4E3B;&#x673A;&#x7F51;&#x5361;</p>
+<h1>Vscode&#x4E2D;&#x57FA;&#x4E8E;docker&#x5BB9;&#x5668;&#x5F00;&#x53D1;</h1>
+<p>C/C++&#xFF1A;&#x5E95;&#x5C42;&#x5F00;&#x53D1;&#xFF0C;&#x5D4C;&#x5165;&#x5F0F;&#xFF0C;&#x6027;&#x80FD;&#x8981;&#x6C42;&#x9AD8;</p>
+<p>Java&#xFF1A;</p>
 <p>Python</p>
-<p>JS：前端开发，服务端，基于JS的测试工具</p>
+<p>JS&#xFF1A;&#x524D;&#x7AEF;&#x5F00;&#x53D1;&#xFF0C;&#x670D;&#x52A1;&#x7AEF;&#xFF0C;&#x57FA;&#x4E8E;JS&#x7684;&#x6D4B;&#x8BD5;&#x5DE5;&#x5177;</p>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://chillcharlie-img.oss-cn-hangzhou.aliyuncs.com/image%2F2023%2F12%2F14%2F19-50-53-30b0928d69d9e80c0c19e469f102cdb6-20231214195051-9c2274.png" alt="image.png"></p>
-<p>Gadle：并发构建，性能优于maven</p>
+<p>Gadle&#xFF1A;&#x5E76;&#x53D1;&#x6784;&#x5EFA;&#xFF0C;&#x6027;&#x80FD;&#x4F18;&#x4E8E;maven</p>
 
 <div class="article-footer fs14">
     <section id="license">

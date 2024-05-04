@@ -20,19 +20,19 @@
   <title>SE-II-ch09-软件体系结构基础 - Asimov's Blog</title>
 
   
-    <meta name="description" content="9-软件体系结构基础   1. 软件体系结构  1.1. Until the late 1980 直到1980年底 1.2. 下一阶段:1992 1.3. Importance 重要性 1.4. 软件体系结构的十年 – Philippe Kruchten 1.5. IEEE 1471-2000 1.6. Books 1.7. 软件架构的黄金时代：Mary Shaw   2. 理解软件体系结构  2">
+    <meta name="description" content="9-&#x8F6F;&#x4EF6;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x57FA;&#x7840;   1. &#x8F6F;&#x4EF6;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;  1.1. Until the late 1980 &#x76F4;&#x5230;1980&#x5E74;&#x5E95; 1.2. &#x4E0B;&amp;#x">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SE-II-ch09-软件体系结构基础">
 <meta property="og:url" content="https://chendingya.github.io/2022/06/17/SE-II%E7%AC%94%E8%AE%B0/09-%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/index.html">
 <meta property="og:site_name" content="Asimov&#39;s Blog">
-<meta property="og:description" content="9-软件体系结构基础   1. 软件体系结构  1.1. Until the late 1980 直到1980年底 1.2. 下一阶段:1992 1.3. Importance 重要性 1.4. 软件体系结构的十年 – Philippe Kruchten 1.5. IEEE 1471-2000 1.6. Books 1.7. 软件架构的黄金时代：Mary Shaw   2. 理解软件体系结构  2">
+<meta property="og:description" content="9-&#x8F6F;&#x4EF6;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x57FA;&#x7840;   1. &#x8F6F;&#x4EF6;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;  1.1. Until the late 1980 &#x76F4;&#x5230;1980&#x5E74;&#x5E95; 1.2. &#x4E0B;&amp;#x">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/1.png">
 <meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/2.png">
 <meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/3.png">
 <meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/4.png">
 <meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/10.png">
-<meta property="og:image" content="c:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220402144753905.png">
+<meta property="og:image" content="https://chendingya.github.io/2022/06/17/SE-II%E7%AC%94%E8%AE%B0/09-%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/C:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220402144753905.png">
 <meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/5.png">
 <meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/6.png">
 <meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/7.png">
@@ -48,20 +48,20 @@
 <meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/19.png">
 <meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/12.png">
 <meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/20.png">
-<meta property="og:image" content="c:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220617170423625.png">
+<meta property="og:image" content="https://chendingya.github.io/2022/06/17/SE-II%E7%AC%94%E8%AE%B0/09-%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/C:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220617170423625.png">
 <meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/21.png">
 <meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/22.png">
 <meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/23.png">
 <meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/24.png">
 <meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/25.png">
 <meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/26.png">
-<meta property="og:image" content="c:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220407120352147.png">
-<meta property="og:image" content="c:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220407120405537.png">
-<meta property="og:image" content="c:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220407120416352.png">
-<meta property="og:image" content="c:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220407120505620.png">
-<meta property="og:image" content="c:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220407120513682.png">
-<meta property="og:image" content="c:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220407120122349.png">
-<meta property="og:image" content="c:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220407120129837.png">
+<meta property="og:image" content="https://chendingya.github.io/2022/06/17/SE-II%E7%AC%94%E8%AE%B0/09-%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/C:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220407120352147.png">
+<meta property="og:image" content="https://chendingya.github.io/2022/06/17/SE-II%E7%AC%94%E8%AE%B0/09-%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/C:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220407120405537.png">
+<meta property="og:image" content="https://chendingya.github.io/2022/06/17/SE-II%E7%AC%94%E8%AE%B0/09-%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/C:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220407120416352.png">
+<meta property="og:image" content="https://chendingya.github.io/2022/06/17/SE-II%E7%AC%94%E8%AE%B0/09-%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/C:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220407120505620.png">
+<meta property="og:image" content="https://chendingya.github.io/2022/06/17/SE-II%E7%AC%94%E8%AE%B0/09-%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/C:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220407120513682.png">
+<meta property="og:image" content="https://chendingya.github.io/2022/06/17/SE-II%E7%AC%94%E8%AE%B0/09-%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/C:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220407120122349.png">
+<meta property="og:image" content="https://chendingya.github.io/2022/06/17/SE-II%E7%AC%94%E8%AE%B0/09-%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/C:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220407120129837.png">
 <meta property="article:published_time" content="2022-06-17T08:02:34.000Z">
 <meta property="article:modified_time" content="2023-09-17T07:47:43.912Z">
 <meta property="article:author" content="Asimov">
@@ -100,7 +100,7 @@
 <div class="widgets">
 
 
-<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2024/05/02/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%842/"><span class="title">系统架构2-质量属性Quality Attributes</span></a><a class="item title" href="/2024/05/01/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%841/"><span class="title">系统架构1-Intro</span></a><a class="item title" href="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/"><span class="title">软件测试-期末复习</span></a><a class="item title" href="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/"><span class="title">机器学习-期末复习</span></a><a class="item title" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/"><span class="title">服务端-ch17-k8s使用</span></a><a class="item title" href="/2023/12/30/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch16-%E5%AE%B9%E5%99%A8%E9%95%9C%E5%83%8F%E6%9E%84%E5%BB%BA%E4%B8%8E%E7%BC%96%E6%8E%92/"><span class="title">服务端-ch16-容器镜像构建与编排</span></a><a class="item title" href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/"><span class="title">服务端-ch15-Docker</span></a><a class="item title" href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/"><span class="title">服务端-ch14-Spring WebFlux</span></a><a class="item title" href="/2023/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch13-%E5%8F%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"><span class="title">服务端-ch13-反应式编程基础</span></a><a class="item title" href="/2023/11/23/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch12-Spring%20Integration/"><span class="title">服务端-ch12-Spring Integration</span></a></div></widget>
+<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2022/10/25/hello-world/"><span class="title">Hello World</span></a><a class="item title" href="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/"><span class="title">软件测试-期末复习</span></a><a class="item title" href="/2024/05/02/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%842/"><span class="title">系统架构2-质量属性Quality Attributes</span></a><a class="item title" href="/2024/05/01/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%841/"><span class="title">系统架构1-Intro</span></a><a class="item title" href="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/"><span class="title">机器学习-期末复习</span></a><a class="item title" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/"><span class="title">服务端-ch17-k8s使用</span></a><a class="item title" href="/2023/12/30/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch16-%E5%AE%B9%E5%99%A8%E9%95%9C%E5%83%8F%E6%9E%84%E5%BB%BA%E4%B8%8E%E7%BC%96%E6%8E%92/"><span class="title">服务端-ch16-容器镜像构建与编排</span></a><a class="item title" href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/"><span class="title">服务端-ch15-Docker</span></a><a class="item title" href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/"><span class="title">服务端-ch14-Spring WebFlux</span></a><a class="item title" href="/2023/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch13-%E5%8F%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"><span class="title">服务端-ch13-反应式编程基础</span></a></div></widget>
 </div>
 <footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/chendingya?tab=repositories" target="_blank" rel="external nofollow noopener noreferrer"><img no-lazy src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" / onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a></div></footer>
 </div></aside><div class="l_main" id="main">
@@ -124,597 +124,597 @@
     </div>
     
   </div>
-  </div><article class="md-text content"><h2 id="9-软件体系结构基础">9-软件体系结构基础</h2>
+  </div><article class="md-text content"><h2 id="9-&#x8F6F;&#x4EF6;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x57FA;&#x7840;">9-&#x8F6F;&#x4EF6;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x57FA;&#x7840;</h2>
 <!-- TOC -->
 <ul>
-<li><a href="#1-%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84">1. 软件体系结构</a>
+<li><a href="#1-%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84">1. &#x8F6F;&#x4EF6;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;</a>
 <ul>
-<li><a href="#11-until-the-late-1980-%E7%9B%B4%E5%88%B01980%E5%B9%B4%E5%BA%95">1.1. Until the late 1980 直到1980年底</a></li>
-<li><a href="#12-%E4%B8%8B%E4%B8%80%E9%98%B6%E6%AE%B51992">1.2. 下一阶段:1992</a></li>
-<li><a href="#13-importance-%E9%87%8D%E8%A6%81%E6%80%A7">1.3. Importance 重要性</a></li>
-<li><a href="#14-%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E7%9A%84%E5%8D%81%E5%B9%B4----philippe-kruchten">1.4. 软件体系结构的十年 – Philippe Kruchten</a></li>
+<li><a href="#11-until-the-late-1980-%E7%9B%B4%E5%88%B01980%E5%B9%B4%E5%BA%95">1.1. Until the late 1980 &#x76F4;&#x5230;1980&#x5E74;&#x5E95;</a></li>
+<li><a href="#12-%E4%B8%8B%E4%B8%80%E9%98%B6%E6%AE%B51992">1.2. &#x4E0B;&#x4E00;&#x9636;&#x6BB5;:1992</a></li>
+<li><a href="#13-importance-%E9%87%8D%E8%A6%81%E6%80%A7">1.3. Importance &#x91CD;&#x8981;&#x6027;</a></li>
+<li><a href="#14-%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E7%9A%84%E5%8D%81%E5%B9%B4----philippe-kruchten">1.4. &#x8F6F;&#x4EF6;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x7684;&#x5341;&#x5E74; &#x2013; Philippe Kruchten</a></li>
 <li><a href="#15-ieee-1471-2000">1.5. IEEE 1471-2000</a></li>
 <li><a href="#16-books">1.6. Books</a></li>
-<li><a href="#17-%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84%E7%9A%84%E9%BB%84%E9%87%91%E6%97%B6%E4%BB%A3mary-shaw">1.7. 软件架构的黄金时代：Mary Shaw</a></li>
+<li><a href="#17-%E8%BD%AF%E4%BB%B6%E6%9E%B6%E6%9E%84%E7%9A%84%E9%BB%84%E9%87%91%E6%97%B6%E4%BB%A3mary-shaw">1.7. &#x8F6F;&#x4EF6;&#x67B6;&#x6784;&#x7684;&#x9EC4;&#x91D1;&#x65F6;&#x4EE3;&#xFF1A;Mary Shaw</a></li>
 </ul>
 </li>
-<li><a href="#2-%E7%90%86%E8%A7%A3%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84">2. 理解软件体系结构</a>
+<li><a href="#2-%E7%90%86%E8%A7%A3%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84">2. &#x7406;&#x89E3;&#x8F6F;&#x4EF6;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;</a>
 <ul>
-<li><a href="#21-%E4%BB%80%E4%B9%88%E6%98%AF%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84">2.1. 什么是软件体系结构</a>
+<li><a href="#21-%E4%BB%80%E4%B9%88%E6%98%AF%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84">2.1. &#x4EC0;&#x4E48;&#x662F;&#x8F6F;&#x4EF6;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;</a>
 <ul>
 <li><a href="#211-kruchten">2.1.1. Kruchten</a></li>
-<li><a href="#212-shaw-%E9%87%8D%E8%A6%81%E5%AE%9A%E4%B9%89">2.1.2. Shaw 重要定义</a></li>
-<li><a href="#213-perry%E5%85%AC%E5%BC%8F%E5%8C%96%E8%A7%92%E5%BA%A6">2.1.3. Perry(公式化角度)</a></li>
-<li><a href="#214-bass%E7%BB%84%E6%88%90%E6%88%90%E5%88%86%E7%AD%89%E8%A7%92%E5%BA%A6">2.1.4. Bass(组成成分等角度)</a></li>
-<li><a href="#215-wiki%E9%9C%80%E6%B1%82%E8%A7%92%E5%BA%A6">2.1.5. Wiki(需求角度)</a></li>
+<li><a href="#212-shaw-%E9%87%8D%E8%A6%81%E5%AE%9A%E4%B9%89">2.1.2. Shaw &#x91CD;&#x8981;&#x5B9A;&#x4E49;</a></li>
+<li><a href="#213-perry%E5%85%AC%E5%BC%8F%E5%8C%96%E8%A7%92%E5%BA%A6">2.1.3. Perry(&#x516C;&#x5F0F;&#x5316;&#x89D2;&#x5EA6;)</a></li>
+<li><a href="#214-bass%E7%BB%84%E6%88%90%E6%88%90%E5%88%86%E7%AD%89%E8%A7%92%E5%BA%A6">2.1.4. Bass(&#x7EC4;&#x6210;&#x6210;&#x5206;&#x7B49;&#x89D2;&#x5EA6;)</a></li>
+<li><a href="#215-wiki%E9%9C%80%E6%B1%82%E8%A7%92%E5%BA%A6">2.1.5. Wiki(&#x9700;&#x6C42;&#x89D2;&#x5EA6;)</a></li>
 </ul>
 </li>
 <li><a href="#22-summary">2.2. Summary</a></li>
-<li><a href="#23-%E5%8C%BA%E5%88%86%E7%89%A9%E7%90%86%E4%B8%8E%E9%80%BB%E8%BE%91">2.3. 区分物理与逻辑</a>
+<li><a href="#23-%E5%8C%BA%E5%88%86%E7%89%A9%E7%90%86%E4%B8%8E%E9%80%BB%E8%BE%91">2.3. &#x533A;&#x5206;&#x7269;&#x7406;&#x4E0E;&#x903B;&#x8F91;</a>
 <ul>
-<li><a href="#231-%E9%80%BB%E8%BE%91-vs-%E7%89%A9%E7%90%86">2.3.1. 逻辑 vs 物理</a></li>
-<li><a href="#232-%E4%BE%8B%E5%AD%90">2.3.2. 例子</a></li>
-<li><a href="#233-%E6%A6%82%E5%BF%B5%E5%BC%8F--%E9%80%BB%E8%BE%91%E5%BC%8F--%E7%89%A9%E7%90%86%E5%BC%8F">2.3.3. 概念式 + 逻辑式 + 物理式</a></li>
-<li><a href="#234-%E6%A8%A1%E5%9D%97">2.3.4. 模块</a></li>
-<li><a href="#235-%E7%89%A9%E7%90%86%E5%AE%9E%E7%8E%B0%E7%9A%84%E8%BD%BD%E4%BD%93">2.3.5. 物理实现的载体</a></li>
-<li><a href="#236-%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA%E6%9C%BA%E5%88%B6">2.3.6. 导入导出机制</a></li>
-<li><a href="#237-%E6%8A%BD%E8%B1%A1vs%E5%AE%9E%E7%8E%B0">2.3.7. 抽象vs实现</a></li>
+<li><a href="#231-%E9%80%BB%E8%BE%91-vs-%E7%89%A9%E7%90%86">2.3.1. &#x903B;&#x8F91; vs &#x7269;&#x7406;</a></li>
+<li><a href="#232-%E4%BE%8B%E5%AD%90">2.3.2. &#x4F8B;&#x5B50;</a></li>
+<li><a href="#233-%E6%A6%82%E5%BF%B5%E5%BC%8F--%E9%80%BB%E8%BE%91%E5%BC%8F--%E7%89%A9%E7%90%86%E5%BC%8F">2.3.3. &#x6982;&#x5FF5;&#x5F0F; + &#x903B;&#x8F91;&#x5F0F; + &#x7269;&#x7406;&#x5F0F;</a></li>
+<li><a href="#234-%E6%A8%A1%E5%9D%97">2.3.4. &#x6A21;&#x5757;</a></li>
+<li><a href="#235-%E7%89%A9%E7%90%86%E5%AE%9E%E7%8E%B0%E7%9A%84%E8%BD%BD%E4%BD%93">2.3.5. &#x7269;&#x7406;&#x5B9E;&#x73B0;&#x7684;&#x8F7D;&#x4F53;</a></li>
+<li><a href="#236-%E5%AF%BC%E5%85%A5%E5%AF%BC%E5%87%BA%E6%9C%BA%E5%88%B6">2.3.6. &#x5BFC;&#x5165;&#x5BFC;&#x51FA;&#x673A;&#x5236;</a></li>
+<li><a href="#237-%E6%8A%BD%E8%B1%A1vs%E5%AE%9E%E7%8E%B0">2.3.7. &#x62BD;&#x8C61;vs&#x5B9E;&#x73B0;</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#3-%E9%AB%98%E5%B1%82%E6%8A%BD%E8%B1%A1%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84--%E9%83%A8%E4%BB%B6--%E8%BF%9E%E6%8E%A5%E4%BB%B6--%E9%85%8D%E7%BD%AE-%E9%87%8D%E8%A6%81">3. 高层抽象(体系结构 = 部件 + 连接件 + 配置) 重要</a>
+<li><a href="#3-%E9%AB%98%E5%B1%82%E6%8A%BD%E8%B1%A1%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84--%E9%83%A8%E4%BB%B6--%E8%BF%9E%E6%8E%A5%E4%BB%B6--%E9%85%8D%E7%BD%AE-%E9%87%8D%E8%A6%81">3. &#x9AD8;&#x5C42;&#x62BD;&#x8C61;(&#x4F53;&#x7CFB;&#x7ED3;&#x6784; = &#x90E8;&#x4EF6; + &#x8FDE;&#x63A5;&#x4EF6; + &#x914D;&#x7F6E;) &#x91CD;&#x8981;</a>
 <ul>
-<li><a href="#31-%E7%90%86%E8%A7%A3%E9%AB%98%E5%B1%82%E6%8A%BD%E8%B1%A1">3.1. 理解高层抽象</a></li>
-<li><a href="#32-%E9%83%A8%E4%BB%B6components">3.2. 部件(Components)</a>
+<li><a href="#31-%E7%90%86%E8%A7%A3%E9%AB%98%E5%B1%82%E6%8A%BD%E8%B1%A1">3.1. &#x7406;&#x89E3;&#x9AD8;&#x5C42;&#x62BD;&#x8C61;</a></li>
+<li><a href="#32-%E9%83%A8%E4%BB%B6components">3.2. &#x90E8;&#x4EF6;(Components)</a>
 <ul>
-<li><a href="#321-%E5%8E%9F%E5%A7%8B%E9%83%A8%E4%BB%B6%E5%92%8C%E5%A4%8D%E5%90%88%E9%83%A8%E4%BB%B6">3.2.1. 原始部件和复合部件</a></li>
-<li><a href="#322-%E5%8E%9F%E5%A7%8B%E9%83%A8%E4%BB%B6%E5%B8%B8%E7%94%A8%E7%9A%84%E8%BD%AF%E4%BB%B6%E5%AE%9E%E7%8E%B0%E6%9C%BA%E5%88%B6">3.2.2. 原始部件常用的软件实现机制</a></li>
+<li><a href="#321-%E5%8E%9F%E5%A7%8B%E9%83%A8%E4%BB%B6%E5%92%8C%E5%A4%8D%E5%90%88%E9%83%A8%E4%BB%B6">3.2.1. &#x539F;&#x59CB;&#x90E8;&#x4EF6;&#x548C;&#x590D;&#x5408;&#x90E8;&#x4EF6;</a></li>
+<li><a href="#322-%E5%8E%9F%E5%A7%8B%E9%83%A8%E4%BB%B6%E5%B8%B8%E7%94%A8%E7%9A%84%E8%BD%AF%E4%BB%B6%E5%AE%9E%E7%8E%B0%E6%9C%BA%E5%88%B6">3.2.2. &#x539F;&#x59CB;&#x90E8;&#x4EF6;&#x5E38;&#x7528;&#x7684;&#x8F6F;&#x4EF6;&#x5B9E;&#x73B0;&#x673A;&#x5236;</a></li>
 </ul>
 </li>
-<li><a href="#33-%E8%BF%9E%E6%8E%A5%E4%BB%B6connectors">3.3. 连接件(Connectors)</a>
+<li><a href="#33-%E8%BF%9E%E6%8E%A5%E4%BB%B6connectors">3.3. &#x8FDE;&#x63A5;&#x4EF6;(Connectors)</a>
 <ul>
-<li><a href="#331-%E5%8E%9F%E5%A7%8B%E8%BF%9E%E6%8E%A5%E4%BB%B6%E5%92%8C%E5%A4%8D%E5%90%88%E8%BF%9E%E6%8E%A5%E4%BB%B6">3.3.1. 原始连接件和复合连接件</a></li>
-<li><a href="#332-%E5%8E%9F%E5%A7%8B%E8%BF%9E%E6%8E%A5%E4%BB%B6%E5%B8%B8%E7%94%A8%E7%9A%84%E8%BD%AF%E4%BB%B6%E5%AE%9E%E7%8E%B0%E6%9C%BA%E5%88%B6">3.3.2. 原始连接件常用的软件实现机制</a></li>
+<li><a href="#331-%E5%8E%9F%E5%A7%8B%E8%BF%9E%E6%8E%A5%E4%BB%B6%E5%92%8C%E5%A4%8D%E5%90%88%E8%BF%9E%E6%8E%A5%E4%BB%B6">3.3.1. &#x539F;&#x59CB;&#x8FDE;&#x63A5;&#x4EF6;&#x548C;&#x590D;&#x5408;&#x8FDE;&#x63A5;&#x4EF6;</a></li>
+<li><a href="#332-%E5%8E%9F%E5%A7%8B%E8%BF%9E%E6%8E%A5%E4%BB%B6%E5%B8%B8%E7%94%A8%E7%9A%84%E8%BD%AF%E4%BB%B6%E5%AE%9E%E7%8E%B0%E6%9C%BA%E5%88%B6">3.3.2. &#x539F;&#x59CB;&#x8FDE;&#x63A5;&#x4EF6;&#x5E38;&#x7528;&#x7684;&#x8F6F;&#x4EF6;&#x5B9E;&#x73B0;&#x673A;&#x5236;</a></li>
 <li><a href="#333-connector-in-acme">3.3.3. Connector in ACME</a></li>
 </ul>
 </li>
-<li><a href="#34-con%EF%AC%81gurations-%E9%85%8D%E7%BD%AE">3.4. Conﬁgurations 配置</a>
+<li><a href="#34-con%EF%AC%81gurations-%E9%85%8D%E7%BD%AE">3.4. Con&#xFB01;gurations &#x914D;&#x7F6E;</a>
 <ul>
-<li><a href="#341-acme%E4%B8%AD%E7%9A%84%E9%85%8D%E7%BD%AE">3.4.1. ACME中的配置</a></li>
+<li><a href="#341-acme%E4%B8%AD%E7%9A%84%E9%85%8D%E7%BD%AE">3.4.1. ACME&#x4E2D;&#x7684;&#x914D;&#x7F6E;</a></li>
 <li><a href="#342-wright">3.4.2. Wright</a></li>
-<li><a href="#343-%E9%85%8D%E7%BD%AE">3.4.3. 配置</a></li>
+<li><a href="#343-%E9%85%8D%E7%BD%AE">3.4.3. &#x914D;&#x7F6E;</a></li>
 </ul>
 </li>
-<li><a href="#35-%E9%AB%98%E7%BA%A7%E6%8A%BD%E8%B1%A1%E7%9A%84%E5%A5%BD%E5%A4%84">3.5. 高级抽象的好处</a></li>
+<li><a href="#35-%E9%AB%98%E7%BA%A7%E6%8A%BD%E8%B1%A1%E7%9A%84%E5%A5%BD%E5%A4%84">3.5. &#x9AD8;&#x7EA7;&#x62BD;&#x8C61;&#x7684;&#x597D;&#x5904;</a></li>
 </ul>
 </li>
-<li><a href="#4-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E9%A3%8E%E6%A0%BC%E5%88%9D%E6%AD%A5">4. 体系结构风格初步</a>
+<li><a href="#4-%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E9%A3%8E%E6%A0%BC%E5%88%9D%E6%AD%A5">4. &#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x98CE;&#x683C;&#x521D;&#x6B65;</a>
 <ul>
-<li><a href="#41-%E4%B8%BB%E7%A8%8B%E5%BA%8F%E5%AD%90%E8%BF%9B%E7%A8%8B%E9%A3%8E%E6%A0%BC">4.1. 主程序子进程风格</a>
+<li><a href="#41-%E4%B8%BB%E7%A8%8B%E5%BA%8F%E5%AD%90%E8%BF%9B%E7%A8%8B%E9%A3%8E%E6%A0%BC">4.1. &#x4E3B;&#x7A0B;&#x5E8F;&#x5B50;&#x8FDB;&#x7A0B;&#x98CE;&#x683C;</a>
 <ul>
-<li><a href="#411-%E8%AE%BE%E8%AE%A1%E5%86%B3%E7%AD%96%E4%B8%8E%E7%BA%A6%E6%9D%9F">4.1.1. 设计决策与约束</a></li>
-<li><a href="#412-%E5%AE%9E%E7%8E%B0">4.1.2. 实现</a></li>
-<li><a href="#413-%E4%B8%BB%E7%A8%8B%E5%BA%8F%E5%AD%90%E7%A8%8B%E5%BA%8F%E9%A3%8E%E6%A0%BC%E7%9A%84%E4%BC%98%E7%82%B9">4.1.3. 主程序/子程序风格的优点</a></li>
-<li><a href="#414-%E4%B8%BB%E7%A8%8B%E5%BA%8F%E5%AD%90%E7%A8%8B%E5%BA%8F%E9%A3%8E%E6%A0%BC%E7%9A%84%E7%BC%BA%E7%82%B9">4.1.4. 主程序/子程序风格的缺点</a></li>
-<li><a href="#415-%E5%BA%94%E7%94%A8">4.1.5. 应用</a></li>
+<li><a href="#411-%E8%AE%BE%E8%AE%A1%E5%86%B3%E7%AD%96%E4%B8%8E%E7%BA%A6%E6%9D%9F">4.1.1. &#x8BBE;&#x8BA1;&#x51B3;&#x7B56;&#x4E0E;&#x7EA6;&#x675F;</a></li>
+<li><a href="#412-%E5%AE%9E%E7%8E%B0">4.1.2. &#x5B9E;&#x73B0;</a></li>
+<li><a href="#413-%E4%B8%BB%E7%A8%8B%E5%BA%8F%E5%AD%90%E7%A8%8B%E5%BA%8F%E9%A3%8E%E6%A0%BC%E7%9A%84%E4%BC%98%E7%82%B9">4.1.3. &#x4E3B;&#x7A0B;&#x5E8F;/&#x5B50;&#x7A0B;&#x5E8F;&#x98CE;&#x683C;&#x7684;&#x4F18;&#x70B9;</a></li>
+<li><a href="#414-%E4%B8%BB%E7%A8%8B%E5%BA%8F%E5%AD%90%E7%A8%8B%E5%BA%8F%E9%A3%8E%E6%A0%BC%E7%9A%84%E7%BC%BA%E7%82%B9">4.1.4. &#x4E3B;&#x7A0B;&#x5E8F;/&#x5B50;&#x7A0B;&#x5E8F;&#x98CE;&#x683C;&#x7684;&#x7F3A;&#x70B9;</a></li>
+<li><a href="#415-%E5%BA%94%E7%94%A8">4.1.5. &#x5E94;&#x7528;</a></li>
 </ul>
 </li>
-<li><a href="#42-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E9%A3%8E%E6%A0%BC">4.2. 面向对象风格</a>
+<li><a href="#42-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E9%A3%8E%E6%A0%BC">4.2. &#x9762;&#x5411;&#x5BF9;&#x8C61;&#x98CE;&#x683C;</a>
 <ul>
-<li><a href="#421-%E8%AE%BE%E8%AE%A1%E5%86%B3%E7%AD%96%E5%8F%8A%E7%BA%A6%E6%9D%9F">4.2.1. 设计决策及约束</a></li>
-<li><a href="#422-%E5%AE%9E%E7%8E%B0">4.2.2. 实现</a></li>
-<li><a href="#423-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%BC%8F%E9%A3%8E%E6%A0%BC%E7%9A%84%E4%BC%98%E7%82%B9">4.2.3. 面向对象式风格的优点</a></li>
-<li><a href="#424-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%BC%8F%E9%A3%8E%E6%A0%BC%E7%9A%84%E7%BC%BA%E7%82%B9">4.2.4. 面向对象式风格的缺点</a></li>
-<li><a href="#425-%E6%95%88%E6%9E%9C">4.2.5. 效果</a></li>
-<li><a href="#426-%E5%BA%94%E7%94%A8">4.2.6. 应用</a></li>
+<li><a href="#421-%E8%AE%BE%E8%AE%A1%E5%86%B3%E7%AD%96%E5%8F%8A%E7%BA%A6%E6%9D%9F">4.2.1. &#x8BBE;&#x8BA1;&#x51B3;&#x7B56;&#x53CA;&#x7EA6;&#x675F;</a></li>
+<li><a href="#422-%E5%AE%9E%E7%8E%B0">4.2.2. &#x5B9E;&#x73B0;</a></li>
+<li><a href="#423-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%BC%8F%E9%A3%8E%E6%A0%BC%E7%9A%84%E4%BC%98%E7%82%B9">4.2.3. &#x9762;&#x5411;&#x5BF9;&#x8C61;&#x5F0F;&#x98CE;&#x683C;&#x7684;&#x4F18;&#x70B9;</a></li>
+<li><a href="#424-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E5%BC%8F%E9%A3%8E%E6%A0%BC%E7%9A%84%E7%BC%BA%E7%82%B9">4.2.4. &#x9762;&#x5411;&#x5BF9;&#x8C61;&#x5F0F;&#x98CE;&#x683C;&#x7684;&#x7F3A;&#x70B9;</a></li>
+<li><a href="#425-%E6%95%88%E6%9E%9C">4.2.5. &#x6548;&#x679C;</a></li>
+<li><a href="#426-%E5%BA%94%E7%94%A8">4.2.6. &#x5E94;&#x7528;</a></li>
 </ul>
 </li>
-<li><a href="#43-%E5%88%86%E5%B1%82%E9%A3%8E%E6%A0%BC">4.3. 分层风格</a>
+<li><a href="#43-%E5%88%86%E5%B1%82%E9%A3%8E%E6%A0%BC">4.3. &#x5206;&#x5C42;&#x98CE;&#x683C;</a>
 <ul>
-<li><a href="#431-%E8%AE%BE%E8%AE%A1%E5%86%B3%E7%AD%96%E4%B8%8E%E7%BA%A6%E6%9D%9F">4.3.1. 设计决策与约束</a></li>
-<li><a href="#432-%E5%AE%9E%E7%8E%B0">4.3.2. 实现</a></li>
-<li><a href="#433-%E4%BC%98%E7%82%B9">4.3.3. 优点</a></li>
-<li><a href="#434-%E7%BC%BA%E7%82%B9">4.3.4. 缺点</a></li>
-<li><a href="#435-%E5%BA%94%E7%94%A8">4.3.5. 应用</a></li>
+<li><a href="#431-%E8%AE%BE%E8%AE%A1%E5%86%B3%E7%AD%96%E4%B8%8E%E7%BA%A6%E6%9D%9F">4.3.1. &#x8BBE;&#x8BA1;&#x51B3;&#x7B56;&#x4E0E;&#x7EA6;&#x675F;</a></li>
+<li><a href="#432-%E5%AE%9E%E7%8E%B0">4.3.2. &#x5B9E;&#x73B0;</a></li>
+<li><a href="#433-%E4%BC%98%E7%82%B9">4.3.3. &#x4F18;&#x70B9;</a></li>
+<li><a href="#434-%E7%BC%BA%E7%82%B9">4.3.4. &#x7F3A;&#x70B9;</a></li>
+<li><a href="#435-%E5%BA%94%E7%94%A8">4.3.5. &#x5E94;&#x7528;</a></li>
 </ul>
 </li>
-<li><a href="#44-model-view-controller-style-mvc%E9%A3%8E%E6%A0%BC">4.4. Model-View-Controller Style MVC风格</a>
+<li><a href="#44-model-view-controller-style-mvc%E9%A3%8E%E6%A0%BC">4.4. Model-View-Controller Style MVC&#x98CE;&#x683C;</a>
 <ul>
-<li><a href="#441-%E8%AE%BE%E8%AE%A1%E5%86%B3%E7%AD%96%E5%92%8C%E7%BA%A6%E6%9D%9F">4.4.1. 设计决策和约束</a></li>
-<li><a href="#442-%E5%AE%9E%E7%8E%B0">4.4.2. 实现</a></li>
-<li><a href="#443-%E6%A8%A1%E5%9E%8B-%E8%A7%86%E5%9B%BE-%E6%8E%A7%E5%88%B6%E9%A3%8E%E6%A0%BC%E7%9A%84%E4%BC%98%E7%82%B9%E6%9C%89">4.4.3. 模型-视图-控制风格的优点有:</a></li>
-<li><a href="#444-%E6%A8%A1%E5%9E%8B-%E8%A7%86%E5%9B%BE-%E6%8E%A7%E5%88%B6%E6%A0%BC%E7%9A%84%E7%BC%BA%E7%82%B9%E6%9C%89">4.4.4. 模型-视图-控制⻛格的缺点有:</a></li>
+<li><a href="#441-%E8%AE%BE%E8%AE%A1%E5%86%B3%E7%AD%96%E5%92%8C%E7%BA%A6%E6%9D%9F">4.4.1. &#x8BBE;&#x8BA1;&#x51B3;&#x7B56;&#x548C;&#x7EA6;&#x675F;</a></li>
+<li><a href="#442-%E5%AE%9E%E7%8E%B0">4.4.2. &#x5B9E;&#x73B0;</a></li>
+<li><a href="#443-%E6%A8%A1%E5%9E%8B-%E8%A7%86%E5%9B%BE-%E6%8E%A7%E5%88%B6%E9%A3%8E%E6%A0%BC%E7%9A%84%E4%BC%98%E7%82%B9%E6%9C%89">4.4.3. &#x6A21;&#x578B;-&#x89C6;&#x56FE;-&#x63A7;&#x5236;&#x98CE;&#x683C;&#x7684;&#x4F18;&#x70B9;&#x6709;:</a></li>
+<li><a href="#444-%E6%A8%A1%E5%9E%8B-%E8%A7%86%E5%9B%BE-%E6%8E%A7%E5%88%B6%E6%A0%BC%E7%9A%84%E7%BC%BA%E7%82%B9%E6%9C%89">4.4.4. &#x6A21;&#x578B;-&#x89C6;&#x56FE;-&#x63A7;&#x5236;&#x2EDB;&#x683C;&#x7684;&#x7F3A;&#x70B9;&#x6709;:</a></li>
 </ul>
 </li>
-<li><a href="#45-%E5%BA%94%E7%94%A8">4.5. 应用</a></li>
-<li><a href="#46-%E5%88%86%E5%B1%82%E5%92%8Cmvc">4.6. 分层和MVC</a></li>
+<li><a href="#45-%E5%BA%94%E7%94%A8">4.5. &#x5E94;&#x7528;</a></li>
+<li><a href="#46-%E5%88%86%E5%B1%82%E5%92%8Cmvc">4.6. &#x5206;&#x5C42;&#x548C;MVC</a></li>
 </ul>
 </li>
-<li><a href="#5-%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F">5. 观察者模式</a>
+<li><a href="#5-%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F">5. &#x89C2;&#x5BDF;&#x8005;&#x6A21;&#x5F0F;</a>
 <ul>
 <li><a href="#51-observable">5.1. Observable</a></li>
 <li><a href="#52-observer">5.2. Observer</a></li>
 </ul>
 </li>
-<li><a href="#6-%E9%A2%98%E7%9B%AE">6. 题目</a></li>
+<li><a href="#6-%E9%A2%98%E7%9B%AE">6. &#x9898;&#x76EE;</a></li>
 </ul>
 <!-- /TOC -->
-<h1>1. 软件体系结构</h1>
+<h1>1. &#x8F6F;&#x4EF6;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;</h1>
 <ol>
-<li><strong>1969年</strong>出现软件体系结构</li>
-<li>历史部分了解即可</li>
+<li><strong>1969&#x5E74;</strong>&#x51FA;&#x73B0;&#x8F6F;&#x4EF6;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;</li>
+<li>&#x5386;&#x53F2;&#x90E8;&#x5206;&#x4E86;&#x89E3;&#x5373;&#x53EF;</li>
 </ol>
-<h2 id="1-1-Until-the-late-1980-直到1980年底">1.1. Until the late 1980 直到1980年底</h2>
+<h2 id="1-1-Until-the-late-1980-&#x76F4;&#x5230;1980&#x5E74;&#x5E95;">1.1. Until the late 1980 &#x76F4;&#x5230;1980&#x5E74;&#x5E95;</h2>
 <ol>
-<li>从那时到1980年代后期，&quot;体系结构&quot;一词的使用主要是指系统体系结构(即计算机系统的物理结构)，或者有时是指给定的一系列计算机指令集的狭义含义。</li>
-<li>有关软件系统组织的主要信息来自1975年的Fred Brooks，1983年的Butler Lampson，1972年至1986年的David Parnas以及1985年的John Mills(其文章着眼于架构的过程和实用性)。</li>
+<li>&#x4ECE;&#x90A3;&#x65F6;&#x5230;1980&#x5E74;&#x4EE3;&#x540E;&#x671F;&#xFF0C;&quot;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&quot;&#x4E00;&#x8BCD;&#x7684;&#x4F7F;&#x7528;&#x4E3B;&#x8981;&#x662F;&#x6307;&#x7CFB;&#x7EDF;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;(&#x5373;&#x8BA1;&#x7B97;&#x673A;&#x7CFB;&#x7EDF;&#x7684;&#x7269;&#x7406;&#x7ED3;&#x6784;)&#xFF0C;&#x6216;&#x8005;&#x6709;&#x65F6;&#x662F;&#x6307;&#x7ED9;&#x5B9A;&#x7684;&#x4E00;&#x7CFB;&#x5217;&#x8BA1;&#x7B97;&#x673A;&#x6307;&#x4EE4;&#x96C6;&#x7684;&#x72ED;&#x4E49;&#x542B;&#x4E49;&#x3002;</li>
+<li>&#x6709;&#x5173;&#x8F6F;&#x4EF6;&#x7CFB;&#x7EDF;&#x7EC4;&#x7EC7;&#x7684;&#x4E3B;&#x8981;&#x4FE1;&#x606F;&#x6765;&#x81EA;1975&#x5E74;&#x7684;Fred Brooks&#xFF0C;1983&#x5E74;&#x7684;Butler Lampson&#xFF0C;1972&#x5E74;&#x81F3;1986&#x5E74;&#x7684;David Parnas&#x4EE5;&#x53CA;1985&#x5E74;&#x7684;John Mills(&#x5176;&#x6587;&#x7AE0;&#x7740;&#x773C;&#x4E8E;&#x67B6;&#x6784;&#x7684;&#x8FC7;&#x7A0B;&#x548C;&#x5B9E;&#x7528;&#x6027;)&#x3002;</li>
 </ol>
-<h2 id="1-2-下一阶段-1992">1.2. 下一阶段:1992</h2>
+<h2 id="1-2-&#x4E0B;&#x4E00;&#x9636;&#x6BB5;-1992">1.2. &#x4E0B;&#x4E00;&#x9636;&#x6BB5;:1992</h2>
 <ol>
-<li>1992年，Dewayne Perry和Alexander Wolf 发表了开创性的文章&quot;<strong>软件体系结构研究基础</strong>&quot;。</li>
-<li>本文介绍了著名的公式&quot; {<strong>元素，形式，基本原理</strong>} =软件体系结构&quot;，此后不久Barry Boehm对其添加了&quot;<strong>约束</strong>&quot;。</li>
-<li>对于许多研究人员而言，公式中的&quot;元素&quot;是组件和连接器。 这些是众多架构描述语言(ADL)的基础，其中包括C2，Rapide，Darwin，Wright，ACME和Unicon，不幸的是，这些语言尚未在业界扎根。</li>
+<li>1992&#x5E74;&#xFF0C;Dewayne Perry&#x548C;Alexander Wolf &#x53D1;&#x8868;&#x4E86;&#x5F00;&#x521B;&#x6027;&#x7684;&#x6587;&#x7AE0;&quot;<strong>&#x8F6F;&#x4EF6;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x7814;&#x7A76;&#x57FA;&#x7840;</strong>&quot;&#x3002;</li>
+<li>&#x672C;&#x6587;&#x4ECB;&#x7ECD;&#x4E86;&#x8457;&#x540D;&#x7684;&#x516C;&#x5F0F;&quot; {<strong>&#x5143;&#x7D20;&#xFF0C;&#x5F62;&#x5F0F;&#xFF0C;&#x57FA;&#x672C;&#x539F;&#x7406;</strong>} =&#x8F6F;&#x4EF6;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&quot;&#xFF0C;&#x6B64;&#x540E;&#x4E0D;&#x4E45;Barry Boehm&#x5BF9;&#x5176;&#x6DFB;&#x52A0;&#x4E86;&quot;<strong>&#x7EA6;&#x675F;</strong>&quot;&#x3002;</li>
+<li>&#x5BF9;&#x4E8E;&#x8BB8;&#x591A;&#x7814;&#x7A76;&#x4EBA;&#x5458;&#x800C;&#x8A00;&#xFF0C;&#x516C;&#x5F0F;&#x4E2D;&#x7684;&quot;&#x5143;&#x7D20;&quot;&#x662F;&#x7EC4;&#x4EF6;&#x548C;&#x8FDE;&#x63A5;&#x5668;&#x3002; &#x8FD9;&#x4E9B;&#x662F;&#x4F17;&#x591A;&#x67B6;&#x6784;&#x63CF;&#x8FF0;&#x8BED;&#x8A00;(ADL)&#x7684;&#x57FA;&#x7840;&#xFF0C;&#x5176;&#x4E2D;&#x5305;&#x62EC;C2&#xFF0C;Rapide&#xFF0C;Darwin&#xFF0C;Wright&#xFF0C;ACME&#x548C;Unicon&#xFF0C;&#x4E0D;&#x5E78;&#x7684;&#x662F;&#xFF0C;&#x8FD9;&#x4E9B;&#x8BED;&#x8A00;&#x5C1A;&#x672A;&#x5728;&#x4E1A;&#x754C;&#x624E;&#x6839;&#x3002;</li>
 </ol>
-<h2 id="1-3-Importance-重要性">1.3. Importance 重要性</h2>
+<h2 id="1-3-Importance-&#x91CD;&#x8981;&#x6027;">1.3. Importance &#x91CD;&#x8981;&#x6027;</h2>
 <ol>
-<li>体系结构是我们现在和将来需要的高度复杂，大规模，高度可互操作的系统的关键&quot; – Rolf Siegers，雷神</li>
-<li>&quot;从根本上说，有以下三个原因：
+<li>&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x662F;&#x6211;&#x4EEC;&#x73B0;&#x5728;&#x548C;&#x5C06;&#x6765;&#x9700;&#x8981;&#x7684;&#x9AD8;&#x5EA6;&#x590D;&#x6742;&#xFF0C;&#x5927;&#x89C4;&#x6A21;&#xFF0C;&#x9AD8;&#x5EA6;&#x53EF;&#x4E92;&#x64CD;&#x4F5C;&#x7684;&#x7CFB;&#x7EDF;&#x7684;&#x5173;&#x952E;&quot; &#x2013; Rolf Siegers&#xFF0C;&#x96F7;&#x795E;</li>
+<li>&quot;&#x4ECE;&#x6839;&#x672C;&#x4E0A;&#x8BF4;&#xFF0C;&#x6709;&#x4EE5;&#x4E0B;&#x4E09;&#x4E2A;&#x539F;&#x56E0;&#xFF1A;
 <ol>
-<li>相互交流</li>
-<li>早期设计决策</li>
-<li>[Clements1996] 系统的可转移抽象</li>
+<li>&#x76F8;&#x4E92;&#x4EA4;&#x6D41;</li>
+<li>&#x65E9;&#x671F;&#x8BBE;&#x8BA1;&#x51B3;&#x7B56;</li>
+<li>[Clements1996] &#x7CFB;&#x7EDF;&#x7684;&#x53EF;&#x8F6C;&#x79FB;&#x62BD;&#x8C61;</li>
 </ol>
 </li>
 </ol>
-<h2 id="1-4-软件体系结构的十年-–-Philippe-Kruchten">1.4. 软件体系结构的十年 – Philippe Kruchten</h2>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/1.png" alt=""></p>
-<p>language是指架构设计语言</p>
+<h2 id="1-4-&#x8F6F;&#x4EF6;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x7684;&#x5341;&#x5E74;-&#x2013;-Philippe-Kruchten">1.4. &#x8F6F;&#x4EF6;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x7684;&#x5341;&#x5E74; &#x2013; Philippe Kruchten</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/1.png" alt></p>
+<p>language&#x662F;&#x6307;&#x67B6;&#x6784;&#x8BBE;&#x8BA1;&#x8BED;&#x8A00;</p>
 <h2 id="1-5-IEEE-1471-2000">1.5. IEEE 1471-2000</h2>
 <ol>
-<li>IEEE关于软件密集型系统的体系结构描述的推荐实践</li>
+<li>IEEE&#x5173;&#x4E8E;&#x8F6F;&#x4EF6;&#x5BC6;&#x96C6;&#x578B;&#x7CFB;&#x7EDF;&#x7684;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x63CF;&#x8FF0;&#x7684;&#x63A8;&#x8350;&#x5B9E;&#x8DF5;</li>
 </ol>
 <h2 id="1-6-Books">1.6. Books</h2>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/2.png" alt=""></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/2.png" alt></p>
 <ol>
-<li>推荐first book</li>
+<li>&#x63A8;&#x8350;first book</li>
 </ol>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/3.png" alt=""></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/3.png" alt></p>
 <ol>
-<li><strong>M.show and D.Garlan的文章必读经典</strong></li>
+<li><strong>M.show and D.Garlan&#x7684;&#x6587;&#x7AE0;&#x5FC5;&#x8BFB;&#x7ECF;&#x5178;</strong></li>
 <li>Kuechen(4+1)</li>
 </ol>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/4.png" alt=""></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/4.png" alt></p>
 <ol>
-<li>架构实战</li>
-<li>软件架构Python实现？印度人写的</li>
-<li>架构之美</li>
+<li>&#x67B6;&#x6784;&#x5B9E;&#x6218;</li>
+<li>&#x8F6F;&#x4EF6;&#x67B6;&#x6784;Python&#x5B9E;&#x73B0;&#xFF1F;&#x5370;&#x5EA6;&#x4EBA;&#x5199;&#x7684;</li>
+<li>&#x67B6;&#x6784;&#x4E4B;&#x7F8E;</li>
 </ol>
-<h2 id="1-7-软件架构的黄金时代：Mary-Shaw">1.7. 软件架构的黄金时代：Mary Shaw</h2>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/10.png" alt=""></p>
-<h1>2. 理解软件体系结构</h1>
-<h2 id="2-1-什么是软件体系结构">2.1. 什么是软件体系结构</h2>
+<h2 id="1-7-&#x8F6F;&#x4EF6;&#x67B6;&#x6784;&#x7684;&#x9EC4;&#x91D1;&#x65F6;&#x4EE3;&#xFF1A;Mary-Shaw">1.7. &#x8F6F;&#x4EF6;&#x67B6;&#x6784;&#x7684;&#x9EC4;&#x91D1;&#x65F6;&#x4EE3;&#xFF1A;Mary Shaw</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/10.png" alt></p>
+<h1>2. &#x7406;&#x89E3;&#x8F6F;&#x4EF6;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;</h1>
+<h2 id="2-1-&#x4EC0;&#x4E48;&#x662F;&#x8F6F;&#x4EF6;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;">2.1. &#x4EC0;&#x4E48;&#x662F;&#x8F6F;&#x4EF6;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;</h2>
 <h3 id="2-1-1-Kruchten">2.1.1. Kruchten</h3>
 <ol>
-<li>软件体系结构：现代系统组件和子系统相互作用形成系统的结构和组织，以及最好在系统级别设计和分析的系统属性。</li>
-<li>(加拿大不列颠哥伦比亚省温哥华的Rational软件公司流程开发总监)：软件体系结构包含有关以下方面的重要决策
+<li>&#x8F6F;&#x4EF6;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#xFF1A;&#x73B0;&#x4EE3;&#x7CFB;&#x7EDF;&#x7EC4;&#x4EF6;&#x548C;&#x5B50;&#x7CFB;&#x7EDF;&#x76F8;&#x4E92;&#x4F5C;&#x7528;&#x5F62;&#x6210;&#x7CFB;&#x7EDF;&#x7684;&#x7ED3;&#x6784;&#x548C;&#x7EC4;&#x7EC7;&#xFF0C;&#x4EE5;&#x53CA;&#x6700;&#x597D;&#x5728;&#x7CFB;&#x7EDF;&#x7EA7;&#x522B;&#x8BBE;&#x8BA1;&#x548C;&#x5206;&#x6790;&#x7684;&#x7CFB;&#x7EDF;&#x5C5E;&#x6027;&#x3002;</li>
+<li>(&#x52A0;&#x62FF;&#x5927;&#x4E0D;&#x5217;&#x98A0;&#x54E5;&#x4F26;&#x6BD4;&#x4E9A;&#x7701;&#x6E29;&#x54E5;&#x534E;&#x7684;Rational&#x8F6F;&#x4EF6;&#x516C;&#x53F8;&#x6D41;&#x7A0B;&#x5F00;&#x53D1;&#x603B;&#x76D1;)&#xFF1A;&#x8F6F;&#x4EF6;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x5305;&#x542B;&#x6709;&#x5173;&#x4EE5;&#x4E0B;&#x65B9;&#x9762;&#x7684;&#x91CD;&#x8981;&#x51B3;&#x7B56;
 <ol>
-<li>软件系统的<strong>组织</strong></li>
-<li>选择组成系统的<strong>结构元素及其接口</strong>，以及-这些元素之间的协作所指定的<strong>行为</strong>，</li>
-<li>将这些元素组成越来越大的<strong>子系统</strong>，</li>
-<li>指导该组织，这些元素及其界面，协作和组成的结构元素及其接口。</li>
+<li>&#x8F6F;&#x4EF6;&#x7CFB;&#x7EDF;&#x7684;<strong>&#x7EC4;&#x7EC7;</strong></li>
+<li>&#x9009;&#x62E9;&#x7EC4;&#x6210;&#x7CFB;&#x7EDF;&#x7684;<strong>&#x7ED3;&#x6784;&#x5143;&#x7D20;&#x53CA;&#x5176;&#x63A5;&#x53E3;</strong>&#xFF0C;&#x4EE5;&#x53CA;-&#x8FD9;&#x4E9B;&#x5143;&#x7D20;&#x4E4B;&#x95F4;&#x7684;&#x534F;&#x4F5C;&#x6240;&#x6307;&#x5B9A;&#x7684;<strong>&#x884C;&#x4E3A;</strong>&#xFF0C;</li>
+<li>&#x5C06;&#x8FD9;&#x4E9B;&#x5143;&#x7D20;&#x7EC4;&#x6210;&#x8D8A;&#x6765;&#x8D8A;&#x5927;&#x7684;<strong>&#x5B50;&#x7CFB;&#x7EDF;</strong>&#xFF0C;</li>
+<li>&#x6307;&#x5BFC;&#x8BE5;&#x7EC4;&#x7EC7;&#xFF0C;&#x8FD9;&#x4E9B;&#x5143;&#x7D20;&#x53CA;&#x5176;&#x754C;&#x9762;&#xFF0C;&#x534F;&#x4F5C;&#x548C;&#x7EC4;&#x6210;&#x7684;&#x7ED3;&#x6784;&#x5143;&#x7D20;&#x53CA;&#x5176;&#x63A5;&#x53E3;&#x3002;</li>
 </ol>
 </li>
-<li>软件体系结构不仅与结构和行为有关，而且与<strong>使用，功能，性能，弹性，重用，可理解性，经济和技术约束以及贸易和美观</strong>有关。 (与G. Booch和R. Reitman一起)引文：Rational Unified Process 5.0，Rational，Cupertino，1998年。 PBK，《理性统一过程—简介》，Addison-Wesley-Longman(1999)。</li>
+<li>&#x8F6F;&#x4EF6;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x4E0D;&#x4EC5;&#x4E0E;&#x7ED3;&#x6784;&#x548C;&#x884C;&#x4E3A;&#x6709;&#x5173;&#xFF0C;&#x800C;&#x4E14;&#x4E0E;<strong>&#x4F7F;&#x7528;&#xFF0C;&#x529F;&#x80FD;&#xFF0C;&#x6027;&#x80FD;&#xFF0C;&#x5F39;&#x6027;&#xFF0C;&#x91CD;&#x7528;&#xFF0C;&#x53EF;&#x7406;&#x89E3;&#x6027;&#xFF0C;&#x7ECF;&#x6D4E;&#x548C;&#x6280;&#x672F;&#x7EA6;&#x675F;&#x4EE5;&#x53CA;&#x8D38;&#x6613;&#x548C;&#x7F8E;&#x89C2;</strong>&#x6709;&#x5173;&#x3002; (&#x4E0E;G. Booch&#x548C;R. Reitman&#x4E00;&#x8D77;)&#x5F15;&#x6587;&#xFF1A;Rational Unified Process 5.0&#xFF0C;Rational&#xFF0C;Cupertino&#xFF0C;1998&#x5E74;&#x3002; PBK&#xFF0C;&#x300A;&#x7406;&#x6027;&#x7EDF;&#x4E00;&#x8FC7;&#x7A0B;&#x2014;&#x7B80;&#x4ECB;&#x300B;&#xFF0C;Addison-Wesley-Longman(1999)&#x3002;</li>
 </ol>
-<h3 id="2-1-2-Shaw-（重要）定义">2.1.2. Shaw （重要）定义</h3>
+<h3 id="2-1-2-Shaw-&#xFF08;&#x91CD;&#x8981;&#xFF09;&#x5B9A;&#x4E49;">2.1.2. Shaw &#xFF08;&#x91CD;&#x8981;&#xFF09;&#x5B9A;&#x4E49;</h3>
 <ol>
-<li>[Shaw1995]将软件体系结构模型定义为:
+<li>[Shaw1995]&#x5C06;&#x8F6F;&#x4EF6;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x6A21;&#x578B;&#x5B9A;&#x4E49;&#x4E3A;:
 <ol>
-<li>软件体系结构={部件(Component),连接件(Connector),配置(Configuration)}
+<li>&#x8F6F;&#x4EF6;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;={&#x90E8;&#x4EF6;(Component),&#x8FDE;&#x63A5;&#x4EF6;(Connector),&#x914D;&#x7F6E;(Configuration)}
 <ol>
-<li><strong>部件</strong>是软件体系结构的基本组成单位之⼀,承载系统的主要功能,包括处理与数据;</li>
-<li><strong>连接件</strong>是软件体系结构的另一个基本组成单位,定义了部件间的交互,是连接的抽象表示;</li>
-<li><strong>配置</strong>是对&quot;形式&quot;的发展,定义了&quot;部件&quot;以及&quot;连接件&quot;之间的关联方式,将它们组织成系统的总体结构。</li>
+<li><strong>&#x90E8;&#x4EF6;</strong>&#x662F;&#x8F6F;&#x4EF6;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x7684;&#x57FA;&#x672C;&#x7EC4;&#x6210;&#x5355;&#x4F4D;&#x4E4B;&#x2F00;,&#x627F;&#x8F7D;&#x7CFB;&#x7EDF;&#x7684;&#x4E3B;&#x8981;&#x529F;&#x80FD;,&#x5305;&#x62EC;&#x5904;&#x7406;&#x4E0E;&#x6570;&#x636E;;</li>
+<li><strong>&#x8FDE;&#x63A5;&#x4EF6;</strong>&#x662F;&#x8F6F;&#x4EF6;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x7684;&#x53E6;&#x4E00;&#x4E2A;&#x57FA;&#x672C;&#x7EC4;&#x6210;&#x5355;&#x4F4D;,&#x5B9A;&#x4E49;&#x4E86;&#x90E8;&#x4EF6;&#x95F4;&#x7684;&#x4EA4;&#x4E92;,&#x662F;&#x8FDE;&#x63A5;&#x7684;&#x62BD;&#x8C61;&#x8868;&#x793A;;</li>
+<li><strong>&#x914D;&#x7F6E;</strong>&#x662F;&#x5BF9;&quot;&#x5F62;&#x5F0F;&quot;&#x7684;&#x53D1;&#x5C55;,&#x5B9A;&#x4E49;&#x4E86;&quot;&#x90E8;&#x4EF6;&quot;&#x4EE5;&#x53CA;&quot;&#x8FDE;&#x63A5;&#x4EF6;&quot;&#x4E4B;&#x95F4;&#x7684;&#x5173;&#x8054;&#x65B9;&#x5F0F;,&#x5C06;&#x5B83;&#x4EEC;&#x7EC4;&#x7EC7;&#x6210;&#x7CFB;&#x7EDF;&#x7684;&#x603B;&#x4F53;&#x7ED3;&#x6784;&#x3002;</li>
 </ol>
 </li>
 </ol>
 </li>
-<li>按照这个模型,[Shaw1996]给出了⼀个简洁的软件体系结构定义:<strong>⼀个软件系统的体系结构规定了系统的计算部件和部件之间的交互。</strong></li>
+<li>&#x6309;&#x7167;&#x8FD9;&#x4E2A;&#x6A21;&#x578B;,[Shaw1996]&#x7ED9;&#x51FA;&#x4E86;&#x2F00;&#x4E2A;&#x7B80;&#x6D01;&#x7684;&#x8F6F;&#x4EF6;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x5B9A;&#x4E49;:<strong>&#x2F00;&#x4E2A;&#x8F6F;&#x4EF6;&#x7CFB;&#x7EDF;&#x7684;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x89C4;&#x5B9A;&#x4E86;&#x7CFB;&#x7EDF;&#x7684;&#x8BA1;&#x7B97;&#x90E8;&#x4EF6;&#x548C;&#x90E8;&#x4EF6;&#x4E4B;&#x95F4;&#x7684;&#x4EA4;&#x4E92;&#x3002;</strong></li>
 </ol>
-<h3 id="2-1-3-Perry-公式化角度">2.1.3. Perry(公式化角度)</h3>
+<h3 id="2-1-3-Perry-&#x516C;&#x5F0F;&#x5316;&#x89D2;&#x5EA6;">2.1.3. Perry(&#x516C;&#x5F0F;&#x5316;&#x89D2;&#x5EA6;)</h3>
 <ol>
-<li>软件构架= {元素，形式，原理} [Perry1992]</li>
-<li>过程 + 数据 + 连接</li>
+<li>&#x8F6F;&#x4EF6;&#x6784;&#x67B6;= {&#x5143;&#x7D20;&#xFF0C;&#x5F62;&#x5F0F;&#xFF0C;&#x539F;&#x7406;} [Perry1992]</li>
+<li>&#x8FC7;&#x7A0B; + &#x6570;&#x636E; + &#x8FDE;&#x63A5;</li>
 </ol>
-<h3 id="2-1-4-Bass-组成成分等角度">2.1.4. Bass(组成成分等角度)</h3>
+<h3 id="2-1-4-Bass-&#x7EC4;&#x6210;&#x6210;&#x5206;&#x7B49;&#x89D2;&#x5EA6;">2.1.4. Bass(&#x7EC4;&#x6210;&#x6210;&#x5206;&#x7B49;&#x89D2;&#x5EA6;)</h3>
 <ol>
-<li>“程序或计算系统的软件体系结构是系统的一个或多个结构，其中包括软件组件，这些组件的外部可见属性以及它们之间的关系。”[Bass1998]</li>
-<li>每个软件都有一个或多个架构结构</li>
+<li>&#x201C;&#x7A0B;&#x5E8F;&#x6216;&#x8BA1;&#x7B97;&#x7CFB;&#x7EDF;&#x7684;&#x8F6F;&#x4EF6;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x662F;&#x7CFB;&#x7EDF;&#x7684;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x7ED3;&#x6784;&#xFF0C;&#x5176;&#x4E2D;&#x5305;&#x62EC;&#x8F6F;&#x4EF6;&#x7EC4;&#x4EF6;&#xFF0C;&#x8FD9;&#x4E9B;&#x7EC4;&#x4EF6;&#x7684;&#x5916;&#x90E8;&#x53EF;&#x89C1;&#x5C5E;&#x6027;&#x4EE5;&#x53CA;&#x5B83;&#x4EEC;&#x4E4B;&#x95F4;&#x7684;&#x5173;&#x7CFB;&#x3002;&#x201D;[Bass1998]</li>
+<li>&#x6BCF;&#x4E2A;&#x8F6F;&#x4EF6;&#x90FD;&#x6709;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x67B6;&#x6784;&#x7ED3;&#x6784;</li>
 </ol>
-<h3 id="2-1-5-Wiki-需求角度-（重要）">2.1.5. Wiki(需求角度)（重要）</h3>
-<p><strong>软件体系结构是非功能性需求的实现，而软件详细设计是功能性需求的实现。</strong></p>
-<h2 id="2-2-Summary-什么是软件体系结构">2.2. Summary-什么是软件体系结构</h2>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="C:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220402144753905.png" alt="image-20220402144753905"></p>
+<h3 id="2-1-5-Wiki-&#x9700;&#x6C42;&#x89D2;&#x5EA6;-&#xFF08;&#x91CD;&#x8981;&#xFF09;">2.1.5. Wiki(&#x9700;&#x6C42;&#x89D2;&#x5EA6;)&#xFF08;&#x91CD;&#x8981;&#xFF09;</h3>
+<p><strong>&#x8F6F;&#x4EF6;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x662F;&#x975E;&#x529F;&#x80FD;&#x6027;&#x9700;&#x6C42;&#x7684;&#x5B9E;&#x73B0;&#xFF0C;&#x800C;&#x8F6F;&#x4EF6;&#x8BE6;&#x7EC6;&#x8BBE;&#x8BA1;&#x662F;&#x529F;&#x80FD;&#x6027;&#x9700;&#x6C42;&#x7684;&#x5B9E;&#x73B0;&#x3002;</strong></p>
+<h2 id="2-2-Summary-&#x4EC0;&#x4E48;&#x662F;&#x8F6F;&#x4EF6;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;">2.2. Summary-&#x4EC0;&#x4E48;&#x662F;&#x8F6F;&#x4EF6;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/06/17/SE-II%E7%AC%94%E8%AE%B0/09-%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/C:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220402144753905.png" alt="image-20220402144753905"></p>
 <ol>
-<li>高层抽象</li>
-<li>利益相关者的关注</li>
-<li>设计决策</li>
+<li>&#x9AD8;&#x5C42;&#x62BD;&#x8C61;</li>
+<li>&#x5229;&#x76CA;&#x76F8;&#x5173;&#x8005;&#x7684;&#x5173;&#x6CE8;</li>
+<li>&#x8BBE;&#x8BA1;&#x51B3;&#x7B56;</li>
 </ol>
-<h2 id="2-3-区分物理与逻辑">2.3. 区分物理与逻辑</h2>
-<h3 id="2-3-1-逻辑-vs-物理">2.3.1. 逻辑 vs 物理</h3>
+<h2 id="2-3-&#x533A;&#x5206;&#x7269;&#x7406;&#x4E0E;&#x903B;&#x8F91;">2.3. &#x533A;&#x5206;&#x7269;&#x7406;&#x4E0E;&#x903B;&#x8F91;</h2>
+<h3 id="2-3-1-&#x903B;&#x8F91;-vs-&#x7269;&#x7406;">2.3.1. &#x903B;&#x8F91; vs &#x7269;&#x7406;</h3>
 <ol>
-<li>高层 vs 低层</li>
-<li>抽象 vs 实践</li>
-<li>逻辑是更加高层的视角</li>
+<li>&#x9AD8;&#x5C42; vs &#x4F4E;&#x5C42;</li>
+<li>&#x62BD;&#x8C61; vs &#x5B9E;&#x8DF5;</li>
+<li>&#x903B;&#x8F91;&#x662F;&#x66F4;&#x52A0;&#x9AD8;&#x5C42;&#x7684;&#x89C6;&#x89D2;</li>
 </ol>
-<h3 id="2-3-2-例子">2.3.2. 例子</h3>
+<h3 id="2-3-2-&#x4F8B;&#x5B50;">2.3.2. &#x4F8B;&#x5B50;</h3>
 <ol>
-<li>从凤凰城到波士顿，从逻辑上讲，从凤凰城到波士顿的消息从逻辑上讲是从一个城市传到另一个城市。</li>
-<li>但是，物理电话线路可能是凤凰城到芝加哥，费城到波士顿。通过Internet，该消息可能会遍历许多其他位置的交换点。</li>
-<li>逻辑驱动器C：-物理驱动器0在Windows PC中，单个物理硬盘驱动器为驱动器0；而物理驱动器为0。 但是，它可以分为几个逻辑驱动器，例如C：D：和E:。</li>
-<li>虚拟化各种虚拟化方法创建用于处理物理硬件的逻辑&quot;抽象层&quot;。 例如，虚拟机使多个操作系统可以在计算机中运行，每个操作系统都通过逻辑层而不是直接物理接触来访问硬件。</li>
-<li>用户通过数据元素名称在逻辑上关联数据； 但是，实际数据字段实际上位于磁盘的扇区中。</li>
-<li>为了找出哪些客户订购了多少特定产品，逻辑视图是客户名称和数量。 它的物理组织可能在客户文件中有客户名称，而在订单文件中有数量(由客户编号交叉引用)。 客户文件的物理顺序可以被索引，而订单文件的顺序可以是顺序的。</li>
+<li>&#x4ECE;&#x51E4;&#x51F0;&#x57CE;&#x5230;&#x6CE2;&#x58EB;&#x987F;&#xFF0C;&#x4ECE;&#x903B;&#x8F91;&#x4E0A;&#x8BB2;&#xFF0C;&#x4ECE;&#x51E4;&#x51F0;&#x57CE;&#x5230;&#x6CE2;&#x58EB;&#x987F;&#x7684;&#x6D88;&#x606F;&#x4ECE;&#x903B;&#x8F91;&#x4E0A;&#x8BB2;&#x662F;&#x4ECE;&#x4E00;&#x4E2A;&#x57CE;&#x5E02;&#x4F20;&#x5230;&#x53E6;&#x4E00;&#x4E2A;&#x57CE;&#x5E02;&#x3002;</li>
+<li>&#x4F46;&#x662F;&#xFF0C;&#x7269;&#x7406;&#x7535;&#x8BDD;&#x7EBF;&#x8DEF;&#x53EF;&#x80FD;&#x662F;&#x51E4;&#x51F0;&#x57CE;&#x5230;&#x829D;&#x52A0;&#x54E5;&#xFF0C;&#x8D39;&#x57CE;&#x5230;&#x6CE2;&#x58EB;&#x987F;&#x3002;&#x901A;&#x8FC7;Internet&#xFF0C;&#x8BE5;&#x6D88;&#x606F;&#x53EF;&#x80FD;&#x4F1A;&#x904D;&#x5386;&#x8BB8;&#x591A;&#x5176;&#x4ED6;&#x4F4D;&#x7F6E;&#x7684;&#x4EA4;&#x6362;&#x70B9;&#x3002;</li>
+<li>&#x903B;&#x8F91;&#x9A71;&#x52A8;&#x5668;C&#xFF1A;-&#x7269;&#x7406;&#x9A71;&#x52A8;&#x5668;0&#x5728;Windows PC&#x4E2D;&#xFF0C;&#x5355;&#x4E2A;&#x7269;&#x7406;&#x786C;&#x76D8;&#x9A71;&#x52A8;&#x5668;&#x4E3A;&#x9A71;&#x52A8;&#x5668;0&#xFF1B;&#x800C;&#x7269;&#x7406;&#x9A71;&#x52A8;&#x5668;&#x4E3A;0&#x3002; &#x4F46;&#x662F;&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x5206;&#x4E3A;&#x51E0;&#x4E2A;&#x903B;&#x8F91;&#x9A71;&#x52A8;&#x5668;&#xFF0C;&#x4F8B;&#x5982;C&#xFF1A;D&#xFF1A;&#x548C;E:&#x3002;</li>
+<li>&#x865A;&#x62DF;&#x5316;&#x5404;&#x79CD;&#x865A;&#x62DF;&#x5316;&#x65B9;&#x6CD5;&#x521B;&#x5EFA;&#x7528;&#x4E8E;&#x5904;&#x7406;&#x7269;&#x7406;&#x786C;&#x4EF6;&#x7684;&#x903B;&#x8F91;&quot;&#x62BD;&#x8C61;&#x5C42;&quot;&#x3002; &#x4F8B;&#x5982;&#xFF0C;&#x865A;&#x62DF;&#x673A;&#x4F7F;&#x591A;&#x4E2A;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x53EF;&#x4EE5;&#x5728;&#x8BA1;&#x7B97;&#x673A;&#x4E2D;&#x8FD0;&#x884C;&#xFF0C;&#x6BCF;&#x4E2A;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x90FD;&#x901A;&#x8FC7;&#x903B;&#x8F91;&#x5C42;&#x800C;&#x4E0D;&#x662F;&#x76F4;&#x63A5;&#x7269;&#x7406;&#x63A5;&#x89E6;&#x6765;&#x8BBF;&#x95EE;&#x786C;&#x4EF6;&#x3002;</li>
+<li>&#x7528;&#x6237;&#x901A;&#x8FC7;&#x6570;&#x636E;&#x5143;&#x7D20;&#x540D;&#x79F0;&#x5728;&#x903B;&#x8F91;&#x4E0A;&#x5173;&#x8054;&#x6570;&#x636E;&#xFF1B; &#x4F46;&#x662F;&#xFF0C;&#x5B9E;&#x9645;&#x6570;&#x636E;&#x5B57;&#x6BB5;&#x5B9E;&#x9645;&#x4E0A;&#x4F4D;&#x4E8E;&#x78C1;&#x76D8;&#x7684;&#x6247;&#x533A;&#x4E2D;&#x3002;</li>
+<li>&#x4E3A;&#x4E86;&#x627E;&#x51FA;&#x54EA;&#x4E9B;&#x5BA2;&#x6237;&#x8BA2;&#x8D2D;&#x4E86;&#x591A;&#x5C11;&#x7279;&#x5B9A;&#x4EA7;&#x54C1;&#xFF0C;&#x903B;&#x8F91;&#x89C6;&#x56FE;&#x662F;&#x5BA2;&#x6237;&#x540D;&#x79F0;&#x548C;&#x6570;&#x91CF;&#x3002; &#x5B83;&#x7684;&#x7269;&#x7406;&#x7EC4;&#x7EC7;&#x53EF;&#x80FD;&#x5728;&#x5BA2;&#x6237;&#x6587;&#x4EF6;&#x4E2D;&#x6709;&#x5BA2;&#x6237;&#x540D;&#x79F0;&#xFF0C;&#x800C;&#x5728;&#x8BA2;&#x5355;&#x6587;&#x4EF6;&#x4E2D;&#x6709;&#x6570;&#x91CF;(&#x7531;&#x5BA2;&#x6237;&#x7F16;&#x53F7;&#x4EA4;&#x53C9;&#x5F15;&#x7528;)&#x3002; &#x5BA2;&#x6237;&#x6587;&#x4EF6;&#x7684;&#x7269;&#x7406;&#x987A;&#x5E8F;&#x53EF;&#x4EE5;&#x88AB;&#x7D22;&#x5F15;&#xFF0C;&#x800C;&#x8BA2;&#x5355;&#x6587;&#x4EF6;&#x7684;&#x987A;&#x5E8F;&#x53EF;&#x4EE5;&#x662F;&#x987A;&#x5E8F;&#x7684;&#x3002;</li>
 </ol>
-<h3 id="2-3-3-概念式-逻辑式-物理式">2.3.3. 概念式 + 逻辑式 + 物理式</h3>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/5.png" alt=""></p>
-<h3 id="2-3-4-模块">2.3.4. 模块</h3>
+<h3 id="2-3-3-&#x6982;&#x5FF5;&#x5F0F;-&#x903B;&#x8F91;&#x5F0F;-&#x7269;&#x7406;&#x5F0F;">2.3.3. &#x6982;&#x5FF5;&#x5F0F; + &#x903B;&#x8F91;&#x5F0F; + &#x7269;&#x7406;&#x5F0F;</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/5.png" alt></p>
+<h3 id="2-3-4-&#x6A21;&#x5757;">2.3.4. &#x6A21;&#x5757;</h3>
 <ol>
-<li>逻辑：⼀个模块调用另⼀个模块</li>
-<li>物理实现
+<li>&#x903B;&#x8F91;&#xFF1A;&#x2F00;&#x4E2A;&#x6A21;&#x5757;&#x8C03;&#x7528;&#x53E6;&#x2F00;&#x4E2A;&#x6A21;&#x5757;</li>
+<li>&#x7269;&#x7406;&#x5B9E;&#x73B0;
 <ol>
-<li>基本：接口调用</li>
-<li>需要传递数据对象怎么办？</li>
+<li>&#x57FA;&#x672C;&#xFF1A;&#x63A5;&#x53E3;&#x8C03;&#x7528;</li>
+<li>&#x9700;&#x8981;&#x4F20;&#x9012;&#x6570;&#x636E;&#x5BF9;&#x8C61;&#x600E;&#x4E48;&#x529E;&#xFF1F;</li>
 </ol>
 </li>
-<li>逻辑：⼀个模块给另⼀个模块传递数据流</li>
-<li>物理实现：读写共享数据、pipe…</li>
+<li>&#x903B;&#x8F91;&#xFF1A;&#x2F00;&#x4E2A;&#x6A21;&#x5757;&#x7ED9;&#x53E6;&#x2F00;&#x4E2A;&#x6A21;&#x5757;&#x4F20;&#x9012;&#x6570;&#x636E;&#x6D41;</li>
+<li>&#x7269;&#x7406;&#x5B9E;&#x73B0;&#xFF1A;&#x8BFB;&#x5199;&#x5171;&#x4EAB;&#x6570;&#x636E;&#x3001;pipe&#x2026;</li>
 </ol>
-<h3 id="2-3-5-物理实现的载体">2.3.5. 物理实现的载体</h3>
+<h3 id="2-3-5-&#x7269;&#x7406;&#x5B9E;&#x73B0;&#x7684;&#x8F7D;&#x4F53;">2.3.5. &#x7269;&#x7406;&#x5B9E;&#x73B0;&#x7684;&#x8F7D;&#x4F53;</h3>
 <ol>
-<li>低层：基本类型+基本控制结构</li>
-<li>中层：OO编程语言机制
+<li>&#x4F4E;&#x5C42;&#xFF1A;&#x57FA;&#x672C;&#x7C7B;&#x578B;+&#x57FA;&#x672C;&#x63A7;&#x5236;&#x7ED3;&#x6784;</li>
+<li>&#x4E2D;&#x5C42;&#xFF1A;OO&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&#x673A;&#x5236;
 <ol>
-<li>类声明、实例创建与撤销、实例⽣命期管理</li>
-<li>类权限控制机制</li>
-<li>复杂机制：继承…</li>
+<li>&#x7C7B;&#x58F0;&#x660E;&#x3001;&#x5B9E;&#x4F8B;&#x521B;&#x5EFA;&#x4E0E;&#x64A4;&#x9500;&#x3001;&#x5B9E;&#x4F8B;&#x2F63;&#x547D;&#x671F;&#x7BA1;&#x7406;</li>
+<li>&#x7C7B;&#x6743;&#x9650;&#x63A7;&#x5236;&#x673A;&#x5236;</li>
+<li>&#x590D;&#x6742;&#x673A;&#x5236;&#xFF1A;&#x7EE7;&#x627F;&#x2026;</li>
 </ol>
 </li>
-<li>高层：导⼊导出和名称匹配</li>
+<li>&#x9AD8;&#x5C42;&#xFF1A;&#x5BFC;&#x2F0A;&#x5BFC;&#x51FA;&#x548C;&#x540D;&#x79F0;&#x5339;&#x914D;</li>
 </ol>
-<h3 id="2-3-6-导入导出机制">2.3.6. 导入导出机制</h3>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/6.png" alt=""></p>
-<h3 id="2-3-7-抽象vs实现">2.3.7. 抽象vs实现</h3>
+<h3 id="2-3-6-&#x5BFC;&#x5165;&#x5BFC;&#x51FA;&#x673A;&#x5236;">2.3.6. &#x5BFC;&#x5165;&#x5BFC;&#x51FA;&#x673A;&#x5236;</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/6.png" alt></p>
+<h3 id="2-3-7-&#x62BD;&#x8C61;vs&#x5B9E;&#x73B0;">2.3.7. &#x62BD;&#x8C61;vs&#x5B9E;&#x73B0;</h3>
 <ol>
-<li>建筑设计</li>
-<li>函数式组织</li>
-<li>体系结构设计</li>
-<li>软件实施机制</li>
+<li>&#x5EFA;&#x7B51;&#x8BBE;&#x8BA1;</li>
+<li>&#x51FD;&#x6570;&#x5F0F;&#x7EC4;&#x7EC7;</li>
+<li>&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x8BBE;&#x8BA1;</li>
+<li>&#x8F6F;&#x4EF6;&#x5B9E;&#x65BD;&#x673A;&#x5236;</li>
 </ol>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/7.png" alt=""></p>
-<p><strong>（第一个图里面有4个部件和4个连接件）</strong></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/7.png" alt></p>
+<p><strong>&#xFF08;&#x7B2C;&#x4E00;&#x4E2A;&#x56FE;&#x91CC;&#x9762;&#x6709;4&#x4E2A;&#x90E8;&#x4EF6;&#x548C;4&#x4E2A;&#x8FDE;&#x63A5;&#x4EF6;&#xFF09;</strong></p>
 <ol start="5">
-<li>上面的图是流式的处理</li>
+<li>&#x4E0A;&#x9762;&#x7684;&#x56FE;&#x662F;&#x6D41;&#x5F0F;&#x7684;&#x5904;&#x7406;</li>
 </ol>
-<h1>3. 高层抽象(体系结构 = 部件 + 连接件 + 配置) （重要）</h1>
+<h1>3. &#x9AD8;&#x5C42;&#x62BD;&#x8C61;(&#x4F53;&#x7CFB;&#x7ED3;&#x6784; = &#x90E8;&#x4EF6; + &#x8FDE;&#x63A5;&#x4EF6; + &#x914D;&#x7F6E;) &#xFF08;&#x91CD;&#x8981;&#xFF09;</h1>
 <ol>
-<li><strong>组件</strong>是计算和状态的聚合</li>
-<li><strong>连接件</strong>是组件之间的关系的聚合</li>
+<li><strong>&#x7EC4;&#x4EF6;</strong>&#x662F;&#x8BA1;&#x7B97;&#x548C;&#x72B6;&#x6001;&#x7684;&#x805A;&#x5408;</li>
+<li><strong>&#x8FDE;&#x63A5;&#x4EF6;</strong>&#x662F;&#x7EC4;&#x4EF6;&#x4E4B;&#x95F4;&#x7684;&#x5173;&#x7CFB;&#x7684;&#x805A;&#x5408;</li>
 </ol>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/8.png" alt=""></p>
-<h2 id="3-1-理解高层抽象">3.1. 理解高层抽象</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/8.png" alt></p>
+<h2 id="3-1-&#x7406;&#x89E3;&#x9AD8;&#x5C42;&#x62BD;&#x8C61;">3.1. &#x7406;&#x89E3;&#x9AD8;&#x5C42;&#x62BD;&#x8C61;</h2>
 <ol>
-<li><strong>连接件是⼀个与部件平等的单位。</strong></li>
-<li>部件与连接件是⽐类、模块等软件单位更⾼层次的抽象。</li>
+<li><strong>&#x8FDE;&#x63A5;&#x4EF6;&#x662F;&#x2F00;&#x4E2A;&#x4E0E;&#x90E8;&#x4EF6;&#x5E73;&#x7B49;&#x7684;&#x5355;&#x4F4D;&#x3002;</strong></li>
+<li>&#x90E8;&#x4EF6;&#x4E0E;&#x8FDE;&#x63A5;&#x4EF6;&#x662F;&#x2F50;&#x7C7B;&#x3001;&#x6A21;&#x5757;&#x7B49;&#x8F6F;&#x4EF6;&#x5355;&#x4F4D;&#x66F4;&#x2FBC;&#x5C42;&#x6B21;&#x7684;&#x62BD;&#x8C61;&#x3002;</li>
 </ol>
-<h2 id="3-2-部件-Components">3.2. 部件(Components)</h2>
+<h2 id="3-2-&#x90E8;&#x4EF6;-Components">3.2. &#x90E8;&#x4EF6;(Components)</h2>
 <ol>
-<li>封装系统架构中的处理和数据的元素称为软件组件</li>
-<li>件通常提供特定于应用程序的服务</li>
+<li>&#x5C01;&#x88C5;&#x7CFB;&#x7EDF;&#x67B6;&#x6784;&#x4E2D;&#x7684;&#x5904;&#x7406;&#x548C;&#x6570;&#x636E;&#x7684;&#x5143;&#x7D20;&#x79F0;&#x4E3A;&#x8F6F;&#x4EF6;&#x7EC4;&#x4EF6;</li>
+<li>&#x4EF6;&#x901A;&#x5E38;&#x63D0;&#x4F9B;&#x7279;&#x5B9A;&#x4E8E;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x670D;&#x52A1;</li>
 </ol>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/9.png" alt=""></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/9.png" alt></p>
 <ol start="3">
-<li>部件承载系统主要功能，包括处理和数据</li>
+<li>&#x90E8;&#x4EF6;&#x627F;&#x8F7D;&#x7CFB;&#x7EDF;&#x4E3B;&#x8981;&#x529F;&#x80FD;&#xFF0C;&#x5305;&#x62EC;&#x5904;&#x7406;&#x548C;&#x6570;&#x636E;</li>
 </ol>
-<h3 id="3-2-1-原始部件和复合部件">3.2.1. 原始部件和复合部件</h3>
+<h3 id="3-2-1-&#x539F;&#x59CB;&#x90E8;&#x4EF6;&#x548C;&#x590D;&#x5408;&#x90E8;&#x4EF6;">3.2.1. &#x539F;&#x59CB;&#x90E8;&#x4EF6;&#x548C;&#x590D;&#x5408;&#x90E8;&#x4EF6;</h3>
 <ol>
-<li>部件可以分为<strong>原始</strong>(Primitive)和<strong>复合</strong>(Composite)两种类型。</li>
-<li>原始类型的部件可以直接被实现为相应的软件实现机制。</li>
-<li>复合部件则由<strong>更细粒度</strong>的<strong>部件和连接件</strong>组成,复合部件通过局部配置将其内部的部件和连接件连接起来,构成⼀个整体。</li>
+<li>&#x90E8;&#x4EF6;&#x53EF;&#x4EE5;&#x5206;&#x4E3A;<strong>&#x539F;&#x59CB;</strong>(Primitive)&#x548C;<strong>&#x590D;&#x5408;</strong>(Composite)&#x4E24;&#x79CD;&#x7C7B;&#x578B;&#x3002;</li>
+<li>&#x539F;&#x59CB;&#x7C7B;&#x578B;&#x7684;&#x90E8;&#x4EF6;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x88AB;&#x5B9E;&#x73B0;&#x4E3A;&#x76F8;&#x5E94;&#x7684;&#x8F6F;&#x4EF6;&#x5B9E;&#x73B0;&#x673A;&#x5236;&#x3002;</li>
+<li>&#x590D;&#x5408;&#x90E8;&#x4EF6;&#x5219;&#x7531;<strong>&#x66F4;&#x7EC6;&#x7C92;&#x5EA6;</strong>&#x7684;<strong>&#x90E8;&#x4EF6;&#x548C;&#x8FDE;&#x63A5;&#x4EF6;</strong>&#x7EC4;&#x6210;,&#x590D;&#x5408;&#x90E8;&#x4EF6;&#x901A;&#x8FC7;&#x5C40;&#x90E8;&#x914D;&#x7F6E;&#x5C06;&#x5176;&#x5185;&#x90E8;&#x7684;&#x90E8;&#x4EF6;&#x548C;&#x8FDE;&#x63A5;&#x4EF6;&#x8FDE;&#x63A5;&#x8D77;&#x6765;,&#x6784;&#x6210;&#x2F00;&#x4E2A;&#x6574;&#x4F53;&#x3002;</li>
 </ol>
-<h3 id="3-2-2-原始部件常用的软件实现机制">3.2.2. 原始部件常用的软件实现机制</h3>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/11.png" alt=""></p>
-<h2 id="3-3-连接件-Connectors">3.3. 连接件(Connectors)</h2>
+<h3 id="3-2-2-&#x539F;&#x59CB;&#x90E8;&#x4EF6;&#x5E38;&#x7528;&#x7684;&#x8F6F;&#x4EF6;&#x5B9E;&#x73B0;&#x673A;&#x5236;">3.2.2. &#x539F;&#x59CB;&#x90E8;&#x4EF6;&#x5E38;&#x7528;&#x7684;&#x8F6F;&#x4EF6;&#x5B9E;&#x73B0;&#x673A;&#x5236;</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/11.png" alt></p>
+<h2 id="3-3-&#x8FDE;&#x63A5;&#x4EF6;-Connectors">3.3. &#x8FDE;&#x63A5;&#x4EF6;(Connectors)</h2>
 <ol>
-<li>在复杂的系统中，交互可能比单个组件的功能更重要和更具挑战性</li>
+<li>&#x5728;&#x590D;&#x6742;&#x7684;&#x7CFB;&#x7EDF;&#x4E2D;&#xFF0C;&#x4EA4;&#x4E92;&#x53EF;&#x80FD;&#x6BD4;&#x5355;&#x4E2A;&#x7EC4;&#x4EF6;&#x7684;&#x529F;&#x80FD;&#x66F4;&#x91CD;&#x8981;&#x548C;&#x66F4;&#x5177;&#x6311;&#x6218;&#x6027;</li>
 </ol>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/13.png" alt=""></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/13.png" alt></p>
 <ol start="2">
-<li>连接件定义了部件间的交互，是连接的抽象表示</li>
+<li>&#x8FDE;&#x63A5;&#x4EF6;&#x5B9A;&#x4E49;&#x4E86;&#x90E8;&#x4EF6;&#x95F4;&#x7684;&#x4EA4;&#x4E92;&#xFF0C;&#x662F;&#x8FDE;&#x63A5;&#x7684;&#x62BD;&#x8C61;&#x8868;&#x793A;</li>
 </ol>
-<h3 id="3-3-1-原始连接件和复合连接件">3.3.1. 原始连接件和复合连接件</h3>
+<h3 id="3-3-1-&#x539F;&#x59CB;&#x8FDE;&#x63A5;&#x4EF6;&#x548C;&#x590D;&#x5408;&#x8FDE;&#x63A5;&#x4EF6;">3.3.1. &#x539F;&#x59CB;&#x8FDE;&#x63A5;&#x4EF6;&#x548C;&#x590D;&#x5408;&#x8FDE;&#x63A5;&#x4EF6;</h3>
 <ol>
-<li>与部件相似,在实现上连接件也可以分为<strong>原始</strong>(Primitive)和<strong>复合</strong>(Composite)两种类型。原始类型的连接件可以直接被实现为相应的软件实现机制。</li>
-<li>复合连接件则由更细粒度的<strong>部件和连接件</strong>组成,复合连接件通过局部配置将其内部的部件和连接件连接起来,构成⼀个整体。</li>
+<li>&#x4E0E;&#x90E8;&#x4EF6;&#x76F8;&#x4F3C;,&#x5728;&#x5B9E;&#x73B0;&#x4E0A;&#x8FDE;&#x63A5;&#x4EF6;&#x4E5F;&#x53EF;&#x4EE5;&#x5206;&#x4E3A;<strong>&#x539F;&#x59CB;</strong>(Primitive)&#x548C;<strong>&#x590D;&#x5408;</strong>(Composite)&#x4E24;&#x79CD;&#x7C7B;&#x578B;&#x3002;&#x539F;&#x59CB;&#x7C7B;&#x578B;&#x7684;&#x8FDE;&#x63A5;&#x4EF6;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x88AB;&#x5B9E;&#x73B0;&#x4E3A;&#x76F8;&#x5E94;&#x7684;&#x8F6F;&#x4EF6;&#x5B9E;&#x73B0;&#x673A;&#x5236;&#x3002;</li>
+<li>&#x590D;&#x5408;&#x8FDE;&#x63A5;&#x4EF6;&#x5219;&#x7531;&#x66F4;&#x7EC6;&#x7C92;&#x5EA6;&#x7684;<strong>&#x90E8;&#x4EF6;&#x548C;&#x8FDE;&#x63A5;&#x4EF6;</strong>&#x7EC4;&#x6210;,&#x590D;&#x5408;&#x8FDE;&#x63A5;&#x4EF6;&#x901A;&#x8FC7;&#x5C40;&#x90E8;&#x914D;&#x7F6E;&#x5C06;&#x5176;&#x5185;&#x90E8;&#x7684;&#x90E8;&#x4EF6;&#x548C;&#x8FDE;&#x63A5;&#x4EF6;&#x8FDE;&#x63A5;&#x8D77;&#x6765;,&#x6784;&#x6210;&#x2F00;&#x4E2A;&#x6574;&#x4F53;&#x3002;</li>
 </ol>
-<h3 id="3-3-2-原始连接件常用的软件实现机制">3.3.2. 原始连接件常用的软件实现机制</h3>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/14.png" alt=""></p>
+<h3 id="3-3-2-&#x539F;&#x59CB;&#x8FDE;&#x63A5;&#x4EF6;&#x5E38;&#x7528;&#x7684;&#x8F6F;&#x4EF6;&#x5B9E;&#x73B0;&#x673A;&#x5236;">3.3.2. &#x539F;&#x59CB;&#x8FDE;&#x63A5;&#x4EF6;&#x5E38;&#x7528;&#x7684;&#x8F6F;&#x4EF6;&#x5B9E;&#x73B0;&#x673A;&#x5236;</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/14.png" alt></p>
 <h3 id="3-3-3-Connector-in-ACME">3.3.3. Connector in ACME</h3>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/15.png" alt=""></p>
-<h2 id="3-4-Conﬁgurations-配置">3.4. Conﬁgurations 配置</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/15.png" alt></p>
+<h2 id="3-4-Con&#xFB01;gurations-&#x914D;&#x7F6E;">3.4. Con&#xFB01;gurations &#x914D;&#x7F6E;</h2>
 <ol>
-<li>组件和连接器以给定系统体系结构中的特定方式构成，以实现该系统的目标</li>
-<li>为了对软件体系结构进行更严格、准确的描述，人们建立了体系结构描述语言(ADL)，用于描述软件体系结构的形式化模型语言。</li>
+<li>&#x7EC4;&#x4EF6;&#x548C;&#x8FDE;&#x63A5;&#x5668;&#x4EE5;&#x7ED9;&#x5B9A;&#x7CFB;&#x7EDF;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x4E2D;&#x7684;&#x7279;&#x5B9A;&#x65B9;&#x5F0F;&#x6784;&#x6210;&#xFF0C;&#x4EE5;&#x5B9E;&#x73B0;&#x8BE5;&#x7CFB;&#x7EDF;&#x7684;&#x76EE;&#x6807;</li>
+<li>&#x4E3A;&#x4E86;&#x5BF9;&#x8F6F;&#x4EF6;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x8FDB;&#x884C;&#x66F4;&#x4E25;&#x683C;&#x3001;&#x51C6;&#x786E;&#x7684;&#x63CF;&#x8FF0;&#xFF0C;&#x4EBA;&#x4EEC;&#x5EFA;&#x7ACB;&#x4E86;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x63CF;&#x8FF0;&#x8BED;&#x8A00;(ADL)&#xFF0C;&#x7528;&#x4E8E;&#x63CF;&#x8FF0;&#x8F6F;&#x4EF6;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x7684;&#x5F62;&#x5F0F;&#x5316;&#x6A21;&#x578B;&#x8BED;&#x8A00;&#x3002;</li>
 </ol>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/16.png" alt=""></p>
-<h3 id="3-4-1-ACME中的配置">3.4.1. ACME中的配置</h3>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/17.png" alt=""></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/16.png" alt></p>
+<h3 id="3-4-1-ACME&#x4E2D;&#x7684;&#x914D;&#x7F6E;">3.4.1. ACME&#x4E2D;&#x7684;&#x914D;&#x7F6E;</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/17.png" alt></p>
 <h3 id="3-4-2-Wright">3.4.2. Wright</h3>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/18.png" alt=""><br>
-<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/19.png" alt=""></p>
-<h3 id="3-4-3-配置">3.4.3. 配置</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/18.png" alt><br>
+<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/19.png" alt></p>
+<h3 id="3-4-3-&#x914D;&#x7F6E;">3.4.3. &#x914D;&#x7F6E;</h3>
 <ol>
-<li>定义了部件和连接件之间的关联方式，将他们组织成系统的总体结构。</li>
+<li>&#x5B9A;&#x4E49;&#x4E86;&#x90E8;&#x4EF6;&#x548C;&#x8FDE;&#x63A5;&#x4EF6;&#x4E4B;&#x95F4;&#x7684;&#x5173;&#x8054;&#x65B9;&#x5F0F;&#xFF0C;&#x5C06;&#x4ED6;&#x4EEC;&#x7EC4;&#x7EC7;&#x6210;&#x7CFB;&#x7EDF;&#x7684;&#x603B;&#x4F53;&#x7ED3;&#x6784;&#x3002;</li>
 </ol>
-<h2 id="3-5-高级抽象的好处">3.5. 高级抽象的好处</h2>
+<h2 id="3-5-&#x9AD8;&#x7EA7;&#x62BD;&#x8C61;&#x7684;&#x597D;&#x5904;">3.5. &#x9AD8;&#x7EA7;&#x62BD;&#x8C61;&#x7684;&#x597D;&#x5904;</h2>
 <ol>
-<li>直观，便于理解</li>
-<li>验证正确性</li>
-<li>关注度分离，降低复杂度</li>
+<li>&#x76F4;&#x89C2;&#xFF0C;&#x4FBF;&#x4E8E;&#x7406;&#x89E3;</li>
+<li>&#x9A8C;&#x8BC1;&#x6B63;&#x786E;&#x6027;</li>
+<li>&#x5173;&#x6CE8;&#x5EA6;&#x5206;&#x79BB;&#xFF0C;&#x964D;&#x4F4E;&#x590D;&#x6742;&#x5EA6;</li>
 </ol>
-<h1>4. 体系结构风格初步（模块之间的组织形式）</h1>
+<h1>4. &#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x98CE;&#x683C;&#x521D;&#x6B65;&#xFF08;&#x6A21;&#x5757;&#x4E4B;&#x95F4;&#x7684;&#x7EC4;&#x7EC7;&#x5F62;&#x5F0F;&#xFF09;</h1>
 <ol>
-<li>这部分需要重要掌握每一种风格的优点缺点和画图</li>
+<li>&#x8FD9;&#x90E8;&#x5206;&#x9700;&#x8981;&#x91CD;&#x8981;&#x638C;&#x63E1;&#x6BCF;&#x4E00;&#x79CD;&#x98CE;&#x683C;&#x7684;&#x4F18;&#x70B9;&#x7F3A;&#x70B9;&#x548C;&#x753B;&#x56FE;</li>
 </ol>
-<h2 id="4-1-主程序子进程风格-基本不考，后面的风格重要">4.1. 主程序子进程风格(基本不考，后面的风格重要)</h2>
+<h2 id="4-1-&#x4E3B;&#x7A0B;&#x5E8F;&#x5B50;&#x8FDB;&#x7A0B;&#x98CE;&#x683C;-&#x57FA;&#x672C;&#x4E0D;&#x8003;&#xFF0C;&#x540E;&#x9762;&#x7684;&#x98CE;&#x683C;&#x91CD;&#x8981;">4.1. &#x4E3B;&#x7A0B;&#x5E8F;&#x5B50;&#x8FDB;&#x7A0B;&#x98CE;&#x683C;(&#x57FA;&#x672C;&#x4E0D;&#x8003;&#xFF0C;&#x540E;&#x9762;&#x7684;&#x98CE;&#x683C;&#x91CD;&#x8981;)</h2>
 <ol>
-<li>组件：程序、函数和模块</li>
-<li>连接件：在上述三个组件之间相互调用</li>
-<li>图解</li>
+<li>&#x7EC4;&#x4EF6;&#xFF1A;&#x7A0B;&#x5E8F;&#x3001;&#x51FD;&#x6570;&#x548C;&#x6A21;&#x5757;</li>
+<li>&#x8FDE;&#x63A5;&#x4EF6;&#xFF1A;&#x5728;&#x4E0A;&#x8FF0;&#x4E09;&#x4E2A;&#x7EC4;&#x4EF6;&#x4E4B;&#x95F4;&#x76F8;&#x4E92;&#x8C03;&#x7528;</li>
+<li>&#x56FE;&#x89E3;</li>
 </ol>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/12.png" alt=""></p>
-<h3 id="4-1-1-设计决策与约束">4.1.1. 设计决策与约束</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/12.png" alt></p>
+<h3 id="4-1-1-&#x8BBE;&#x8BA1;&#x51B3;&#x7B56;&#x4E0E;&#x7EA6;&#x675F;">4.1.1. &#x8BBE;&#x8BA1;&#x51B3;&#x7B56;&#x4E0E;&#x7EA6;&#x675F;</h3>
 <ol>
-<li>基于声明-使用(程序调用)关系建立连接件,以层次分解的方式建立系统部件, 共同组成层次结构。</li>
-<li>每⼀个上层部件可以&quot;使用&quot;下层部件,但下层部件不能&quot;使用&quot;上层部件,即不允许逆方向调用。(层次性分解，基于定义使用关系)（防止出现循环依赖/调用）</li>
-<li>系统应该是<strong>单线程</strong>执⾏。主程序部件拥有初的执⾏控制权,并在&quot;使用&quot;中将控制权转移给下层子程序。</li>
-<li>子程序只能够通过上层转移来获得控制权,可以在执⾏中将控制权转交给下层的子程序,并在自身执行完成之后必须将控制权还交给上层部件。</li>
-<li>隐含子系统结构。</li>
+<li>&#x57FA;&#x4E8E;&#x58F0;&#x660E;-&#x4F7F;&#x7528;(&#x7A0B;&#x5E8F;&#x8C03;&#x7528;)&#x5173;&#x7CFB;&#x5EFA;&#x7ACB;&#x8FDE;&#x63A5;&#x4EF6;,&#x4EE5;&#x5C42;&#x6B21;&#x5206;&#x89E3;&#x7684;&#x65B9;&#x5F0F;&#x5EFA;&#x7ACB;&#x7CFB;&#x7EDF;&#x90E8;&#x4EF6;, &#x5171;&#x540C;&#x7EC4;&#x6210;&#x5C42;&#x6B21;&#x7ED3;&#x6784;&#x3002;</li>
+<li>&#x6BCF;&#x2F00;&#x4E2A;&#x4E0A;&#x5C42;&#x90E8;&#x4EF6;&#x53EF;&#x4EE5;&quot;&#x4F7F;&#x7528;&quot;&#x4E0B;&#x5C42;&#x90E8;&#x4EF6;,&#x4F46;&#x4E0B;&#x5C42;&#x90E8;&#x4EF6;&#x4E0D;&#x80FD;&quot;&#x4F7F;&#x7528;&quot;&#x4E0A;&#x5C42;&#x90E8;&#x4EF6;,&#x5373;&#x4E0D;&#x5141;&#x8BB8;&#x9006;&#x65B9;&#x5411;&#x8C03;&#x7528;&#x3002;(&#x5C42;&#x6B21;&#x6027;&#x5206;&#x89E3;&#xFF0C;&#x57FA;&#x4E8E;&#x5B9A;&#x4E49;&#x4F7F;&#x7528;&#x5173;&#x7CFB;)&#xFF08;&#x9632;&#x6B62;&#x51FA;&#x73B0;&#x5FAA;&#x73AF;&#x4F9D;&#x8D56;/&#x8C03;&#x7528;&#xFF09;</li>
+<li>&#x7CFB;&#x7EDF;&#x5E94;&#x8BE5;&#x662F;<strong>&#x5355;&#x7EBF;&#x7A0B;</strong>&#x6267;&#x2F8F;&#x3002;&#x4E3B;&#x7A0B;&#x5E8F;&#x90E8;&#x4EF6;&#x62E5;&#x6709;&#x521D;&#x7684;&#x6267;&#x2F8F;&#x63A7;&#x5236;&#x6743;,&#x5E76;&#x5728;&quot;&#x4F7F;&#x7528;&quot;&#x4E2D;&#x5C06;&#x63A7;&#x5236;&#x6743;&#x8F6C;&#x79FB;&#x7ED9;&#x4E0B;&#x5C42;&#x5B50;&#x7A0B;&#x5E8F;&#x3002;</li>
+<li>&#x5B50;&#x7A0B;&#x5E8F;&#x53EA;&#x80FD;&#x591F;&#x901A;&#x8FC7;&#x4E0A;&#x5C42;&#x8F6C;&#x79FB;&#x6765;&#x83B7;&#x5F97;&#x63A7;&#x5236;&#x6743;,&#x53EF;&#x4EE5;&#x5728;&#x6267;&#x2F8F;&#x4E2D;&#x5C06;&#x63A7;&#x5236;&#x6743;&#x8F6C;&#x4EA4;&#x7ED9;&#x4E0B;&#x5C42;&#x7684;&#x5B50;&#x7A0B;&#x5E8F;,&#x5E76;&#x5728;&#x81EA;&#x8EAB;&#x6267;&#x884C;&#x5B8C;&#x6210;&#x4E4B;&#x540E;&#x5FC5;&#x987B;&#x5C06;&#x63A7;&#x5236;&#x6743;&#x8FD8;&#x4EA4;&#x7ED9;&#x4E0A;&#x5C42;&#x90E8;&#x4EF6;&#x3002;</li>
+<li>&#x9690;&#x542B;&#x5B50;&#x7CFB;&#x7EDF;&#x7ED3;&#x6784;&#x3002;</li>
 </ol>
-<h3 id="4-1-2-实现">4.1.2. 实现</h3>
+<h3 id="4-1-2-&#x5B9E;&#x73B0;">4.1.2. &#x5B9E;&#x73B0;</h3>
 <ol>
-<li>主要实现机制:模块实现。</li>
-<li>功能分解</li>
-<li>集中控制</li>
-<li>每个构件⼀个模块实现：主要是<strong>单向依赖</strong></li>
-<li>使⽤utility或tools等基础模块</li>
+<li>&#x4E3B;&#x8981;&#x5B9E;&#x73B0;&#x673A;&#x5236;:&#x6A21;&#x5757;&#x5B9E;&#x73B0;&#x3002;</li>
+<li>&#x529F;&#x80FD;&#x5206;&#x89E3;</li>
+<li>&#x96C6;&#x4E2D;&#x63A7;&#x5236;</li>
+<li>&#x6BCF;&#x4E2A;&#x6784;&#x4EF6;&#x2F00;&#x4E2A;&#x6A21;&#x5757;&#x5B9E;&#x73B0;&#xFF1A;&#x4E3B;&#x8981;&#x662F;<strong>&#x5355;&#x5411;&#x4F9D;&#x8D56;</strong></li>
+<li>&#x4F7F;&#x2F64;utility&#x6216;tools&#x7B49;&#x57FA;&#x7840;&#x6A21;&#x5757;</li>
 </ol>
-<h3 id="4-1-3-主程序-子程序风格的优点">4.1.3. 主程序/子程序风格的优点</h3>
+<h3 id="4-1-3-&#x4E3B;&#x7A0B;&#x5E8F;-&#x5B50;&#x7A0B;&#x5E8F;&#x98CE;&#x683C;&#x7684;&#x4F18;&#x70B9;">4.1.3. &#x4E3B;&#x7A0B;&#x5E8F;/&#x5B50;&#x7A0B;&#x5E8F;&#x98CE;&#x683C;&#x7684;&#x4F18;&#x70B9;</h3>
 <ol>
-<li>流程清晰,易于理解(符合分解和分治的思想)。</li>
-<li>强控制性(容易保证正确性)。</li>
+<li>&#x6D41;&#x7A0B;&#x6E05;&#x6670;,&#x6613;&#x4E8E;&#x7406;&#x89E3;(&#x7B26;&#x5408;&#x5206;&#x89E3;&#x548C;&#x5206;&#x6CBB;&#x7684;&#x601D;&#x60F3;)&#x3002;</li>
+<li>&#x5F3A;&#x63A7;&#x5236;&#x6027;(&#x5BB9;&#x6613;&#x4FDD;&#x8BC1;&#x6B63;&#x786E;&#x6027;)&#x3002;</li>
 </ol>
-<h3 id="4-1-4-主程序-子程序风格的缺点">4.1.4. 主程序/子程序风格的缺点</h3>
+<h3 id="4-1-4-&#x4E3B;&#x7A0B;&#x5E8F;-&#x5B50;&#x7A0B;&#x5E8F;&#x98CE;&#x683C;&#x7684;&#x7F3A;&#x70B9;">4.1.4. &#x4E3B;&#x7A0B;&#x5E8F;/&#x5B50;&#x7A0B;&#x5E8F;&#x98CE;&#x683C;&#x7684;&#x7F3A;&#x70B9;</h3>
 <ol>
-<li>程序调用是⼀种<strong>强耦合</strong>的连接⽅式,⾮常依赖交互⽅的<strong>接口规格</strong>,这会使得系统难以修改和复⽤。</li>
-<li>程序调⽤的连接⽅式限制了各部件之间的数据交互,可能会使得不同部件使⽤隐含的共享数据（<em>即全局变量</em>）交流,产⽣不必要的公共耦合,进⽽破坏它的&quot;正确性&quot;控制能⼒。</li>
+<li>&#x7A0B;&#x5E8F;&#x8C03;&#x7528;&#x662F;&#x2F00;&#x79CD;<strong>&#x5F3A;&#x8026;&#x5408;</strong>&#x7684;&#x8FDE;&#x63A5;&#x2F45;&#x5F0F;,&#x2FAE;&#x5E38;&#x4F9D;&#x8D56;&#x4EA4;&#x4E92;&#x2F45;&#x7684;<strong>&#x63A5;&#x53E3;&#x89C4;&#x683C;</strong>,&#x8FD9;&#x4F1A;&#x4F7F;&#x5F97;&#x7CFB;&#x7EDF;&#x96BE;&#x4EE5;&#x4FEE;&#x6539;&#x548C;&#x590D;&#x2F64;&#x3002;</li>
+<li>&#x7A0B;&#x5E8F;&#x8C03;&#x2F64;&#x7684;&#x8FDE;&#x63A5;&#x2F45;&#x5F0F;&#x9650;&#x5236;&#x4E86;&#x5404;&#x90E8;&#x4EF6;&#x4E4B;&#x95F4;&#x7684;&#x6570;&#x636E;&#x4EA4;&#x4E92;,&#x53EF;&#x80FD;&#x4F1A;&#x4F7F;&#x5F97;&#x4E0D;&#x540C;&#x90E8;&#x4EF6;&#x4F7F;&#x2F64;&#x9690;&#x542B;&#x7684;&#x5171;&#x4EAB;&#x6570;&#x636E;&#xFF08;<em>&#x5373;&#x5168;&#x5C40;&#x53D8;&#x91CF;</em>&#xFF09;&#x4EA4;&#x6D41;,&#x4EA7;&#x2F63;&#x4E0D;&#x5FC5;&#x8981;&#x7684;&#x516C;&#x5171;&#x8026;&#x5408;,&#x8FDB;&#x2F7D;&#x7834;&#x574F;&#x5B83;&#x7684;&quot;&#x6B63;&#x786E;&#x6027;&quot;&#x63A7;&#x5236;&#x80FD;&#x2F12;&#x3002;</li>
 </ol>
-<h3 id="4-1-5-应用">4.1.5. 应用</h3>
+<h3 id="4-1-5-&#x5E94;&#x7528;">4.1.5. &#x5E94;&#x7528;</h3>
 <ol>
-<li>主程序/子程序风格主要⽤于能够将系统功能依层次分解为多个顺序执行步骤的系统。</li>
-<li>[Shaw1996]发现,在很多受到限制的编程语⾔环境下,这些编程语⾔没有模块化⽀持, 系统通常也会使⽤主程序/⼦程序⻛格,这时主程序/子程序风格的实现是程序实现,即主程序和子程序都被实现为单独的程序。</li>
-<li>⼀些使⽤结构化风格(自顶向下或自底向上)建立的软件系统也属于主程序/⼦程序⻛格。</li>
+<li>&#x4E3B;&#x7A0B;&#x5E8F;/&#x5B50;&#x7A0B;&#x5E8F;&#x98CE;&#x683C;&#x4E3B;&#x8981;&#x2F64;&#x4E8E;&#x80FD;&#x591F;&#x5C06;&#x7CFB;&#x7EDF;&#x529F;&#x80FD;&#x4F9D;&#x5C42;&#x6B21;&#x5206;&#x89E3;&#x4E3A;&#x591A;&#x4E2A;&#x987A;&#x5E8F;&#x6267;&#x884C;&#x6B65;&#x9AA4;&#x7684;&#x7CFB;&#x7EDF;&#x3002;</li>
+<li>[Shaw1996]&#x53D1;&#x73B0;,&#x5728;&#x5F88;&#x591A;&#x53D7;&#x5230;&#x9650;&#x5236;&#x7684;&#x7F16;&#x7A0B;&#x8BED;&#x2F94;&#x73AF;&#x5883;&#x4E0B;,&#x8FD9;&#x4E9B;&#x7F16;&#x7A0B;&#x8BED;&#x2F94;&#x6CA1;&#x6709;&#x6A21;&#x5757;&#x5316;&#x2F40;&#x6301;, &#x7CFB;&#x7EDF;&#x901A;&#x5E38;&#x4E5F;&#x4F1A;&#x4F7F;&#x2F64;&#x4E3B;&#x7A0B;&#x5E8F;/&#x2F26;&#x7A0B;&#x5E8F;&#x2EDB;&#x683C;,&#x8FD9;&#x65F6;&#x4E3B;&#x7A0B;&#x5E8F;/&#x5B50;&#x7A0B;&#x5E8F;&#x98CE;&#x683C;&#x7684;&#x5B9E;&#x73B0;&#x662F;&#x7A0B;&#x5E8F;&#x5B9E;&#x73B0;,&#x5373;&#x4E3B;&#x7A0B;&#x5E8F;&#x548C;&#x5B50;&#x7A0B;&#x5E8F;&#x90FD;&#x88AB;&#x5B9E;&#x73B0;&#x4E3A;&#x5355;&#x72EC;&#x7684;&#x7A0B;&#x5E8F;&#x3002;</li>
+<li>&#x2F00;&#x4E9B;&#x4F7F;&#x2F64;&#x7ED3;&#x6784;&#x5316;&#x98CE;&#x683C;(&#x81EA;&#x9876;&#x5411;&#x4E0B;&#x6216;&#x81EA;&#x5E95;&#x5411;&#x4E0A;)&#x5EFA;&#x7ACB;&#x7684;&#x8F6F;&#x4EF6;&#x7CFB;&#x7EDF;&#x4E5F;&#x5C5E;&#x4E8E;&#x4E3B;&#x7A0B;&#x5E8F;/&#x2F26;&#x7A0B;&#x5E8F;&#x2EDB;&#x683C;&#x3002;</li>
 </ol>
-<h2 id="4-2-面向对象风格">4.2. 面向对象风格</h2>
+<h2 id="4-2-&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x98CE;&#x683C;">4.2. &#x9762;&#x5411;&#x5BF9;&#x8C61;&#x98CE;&#x683C;</h2>
 <ol>
-<li>组件：对象或模块(调用方法)</li>
-<li>连接件：函数或者调用</li>
+<li>&#x7EC4;&#x4EF6;&#xFF1A;&#x5BF9;&#x8C61;&#x6216;&#x6A21;&#x5757;(&#x8C03;&#x7528;&#x65B9;&#x6CD5;)</li>
+<li>&#x8FDE;&#x63A5;&#x4EF6;&#xFF1A;&#x51FD;&#x6570;&#x6216;&#x8005;&#x8C03;&#x7528;</li>
 </ol>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/20.png" alt=""></p>
-<h3 id="4-2-1-设计决策及约束">4.2.1. 设计决策及约束</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/20.png" alt></p>
+<h3 id="4-2-1-&#x8BBE;&#x8BA1;&#x51B3;&#x7B56;&#x53CA;&#x7EA6;&#x675F;">4.2.1. &#x8BBE;&#x8BA1;&#x51B3;&#x7B56;&#x53CA;&#x7EA6;&#x675F;</h3>
 <ol>
-<li>依照对数据的使用情况,⽤<strong>信息内聚</strong>的标准,为系统建⽴对象部件。每个对象部件基于内部数据提供对外服务接口,并隐藏内部数据的表示。</li>
-<li>基于⽅法调用(Method Invocation)机制建立连接件,将对象部件连接起来。</li>
-<li>每个对象负责维护其自身数据的⼀致性与完整性,并以此为基础对外提供&quot;正确&quot;的服务。</li>
-<li>每个对象都是⼀个自治单位,不同对象之间是平级的,<strong>没有主次、从属、层次、分解等关系</strong>。</li>
+<li>&#x4F9D;&#x7167;&#x5BF9;&#x6570;&#x636E;&#x7684;&#x4F7F;&#x7528;&#x60C5;&#x51B5;,&#x2F64;<strong>&#x4FE1;&#x606F;&#x5185;&#x805A;</strong>&#x7684;&#x6807;&#x51C6;,&#x4E3A;&#x7CFB;&#x7EDF;&#x5EFA;&#x2F74;&#x5BF9;&#x8C61;&#x90E8;&#x4EF6;&#x3002;&#x6BCF;&#x4E2A;&#x5BF9;&#x8C61;&#x90E8;&#x4EF6;&#x57FA;&#x4E8E;&#x5185;&#x90E8;&#x6570;&#x636E;&#x63D0;&#x4F9B;&#x5BF9;&#x5916;&#x670D;&#x52A1;&#x63A5;&#x53E3;,&#x5E76;&#x9690;&#x85CF;&#x5185;&#x90E8;&#x6570;&#x636E;&#x7684;&#x8868;&#x793A;&#x3002;</li>
+<li>&#x57FA;&#x4E8E;&#x2F45;&#x6CD5;&#x8C03;&#x7528;(Method Invocation)&#x673A;&#x5236;&#x5EFA;&#x7ACB;&#x8FDE;&#x63A5;&#x4EF6;,&#x5C06;&#x5BF9;&#x8C61;&#x90E8;&#x4EF6;&#x8FDE;&#x63A5;&#x8D77;&#x6765;&#x3002;</li>
+<li>&#x6BCF;&#x4E2A;&#x5BF9;&#x8C61;&#x8D1F;&#x8D23;&#x7EF4;&#x62A4;&#x5176;&#x81EA;&#x8EAB;&#x6570;&#x636E;&#x7684;&#x2F00;&#x81F4;&#x6027;&#x4E0E;&#x5B8C;&#x6574;&#x6027;,&#x5E76;&#x4EE5;&#x6B64;&#x4E3A;&#x57FA;&#x7840;&#x5BF9;&#x5916;&#x63D0;&#x4F9B;&quot;&#x6B63;&#x786E;&quot;&#x7684;&#x670D;&#x52A1;&#x3002;</li>
+<li>&#x6BCF;&#x4E2A;&#x5BF9;&#x8C61;&#x90FD;&#x662F;&#x2F00;&#x4E2A;&#x81EA;&#x6CBB;&#x5355;&#x4F4D;,&#x4E0D;&#x540C;&#x5BF9;&#x8C61;&#x4E4B;&#x95F4;&#x662F;&#x5E73;&#x7EA7;&#x7684;,<strong>&#x6CA1;&#x6709;&#x4E3B;&#x6B21;&#x3001;&#x4ECE;&#x5C5E;&#x3001;&#x5C42;&#x6B21;&#x3001;&#x5206;&#x89E3;&#x7B49;&#x5173;&#x7CFB;</strong>&#x3002;</li>
 </ol>
-<h3 id="4-2-2-实现">4.2.2. 实现</h3>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="C:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220617170423625.png" alt="image-20220617170423625"></p>
+<h3 id="4-2-2-&#x5B9E;&#x73B0;">4.2.2. &#x5B9E;&#x73B0;</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/06/17/SE-II%E7%AC%94%E8%AE%B0/09-%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/C:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220617170423625.png" alt="image-20220617170423625"></p>
 <ol>
-<li>主要实现机制:模块实现</li>
-<li>任务分解</li>
-<li>(委托式)分散式控制</li>
-<li>每个构件⼀个模块实现
+<li>&#x4E3B;&#x8981;&#x5B9E;&#x73B0;&#x673A;&#x5236;:&#x6A21;&#x5757;&#x5B9E;&#x73B0;</li>
+<li>&#x4EFB;&#x52A1;&#x5206;&#x89E3;</li>
+<li>(&#x59D4;&#x6258;&#x5F0F;)&#x5206;&#x6563;&#x5F0F;&#x63A7;&#x5236;</li>
+<li>&#x6BCF;&#x4E2A;&#x6784;&#x4EF6;&#x2F00;&#x4E2A;&#x6A21;&#x5757;&#x5B9E;&#x73B0;
 <ol>
-<li>使⽤接⼝将双向依赖转换为单向依赖</li>
-<li>将每个构件分割为多个模块，以保证单向依赖</li>
-<li>每个模块内部可以是基于⾯向对象⽅法，也可以基于结构化</li>
-</ol>
-</li>
-<li>使⽤utility或tools等基础模块</li>
-</ol>
-<h3 id="4-2-3-面向对象式风格的优点">4.2.3. 面向对象式风格的优点</h3>
-<ol>
-<li>内部实现的可修改性(隐藏内部实现)。</li>
-<li>易开发、易理解、易复用的结构组织(契合模块化思想)。</li>
-</ol>
-<h3 id="4-2-4-面向对象式风格的缺点">4.2.4. 面向对象式风格的缺点</h3>
-<ol>
-<li>接口的耦合性(由于方法调用机制，接口的耦合性无法消除)</li>
-<li>标识(Identity)的耦合性(一个对象要和其他对象交互，必须知道标识)</li>
-<li>副作用:难以理解、高耦合性以及数据的不一致视图</li>
-</ol>
-<h3 id="4-2-5-效果">4.2.5. 效果</h3>
-<ol>
-<li>⾯向对象式⻛格借鉴了⾯向对象的思想,也引⼊了⾯向对象的副作⽤,因此更难实现程序的&quot;正确性&quot;。</li>
-<li>例如,如果 A 和 B 都使⽤对象 C,那么 B 对 C 的修改可能会 对 A 产⽣未预期的影响。</li>
-<li>例如，对象的重入(Reentry)问题:如果 A 的⽅法 f()调⽤了 B 的 ⽅法 p(),⽽ p()⼜调⽤了 A 的另⼀⽅法 q(),那么就可能使得 q()失败,因为在 q()开始执⾏时,A 正处于 f()留下的执⾏现场,这个现场可能是<strong>数据不⼀致</strong>的。</li>
-</ol>
-<h3 id="4-2-6-应用">4.2.6. 应用</h3>
-<ol>
-<li>⾯向对象式⻛格适⽤于那些能够基于数据信息分解和组织的软件系统,这些系统:
-<ol>
-<li>主要问题是标识和保护相关的数据信息;</li>
-<li>能够将数据信息和相关操作联系起来,进⾏封装。</li>
+<li>&#x4F7F;&#x2F64;&#x63A5;&#x2F1D;&#x5C06;&#x53CC;&#x5411;&#x4F9D;&#x8D56;&#x8F6C;&#x6362;&#x4E3A;&#x5355;&#x5411;&#x4F9D;&#x8D56;</li>
+<li>&#x5C06;&#x6BCF;&#x4E2A;&#x6784;&#x4EF6;&#x5206;&#x5272;&#x4E3A;&#x591A;&#x4E2A;&#x6A21;&#x5757;&#xFF0C;&#x4EE5;&#x4FDD;&#x8BC1;&#x5355;&#x5411;&#x4F9D;&#x8D56;</li>
+<li>&#x6BCF;&#x4E2A;&#x6A21;&#x5757;&#x5185;&#x90E8;&#x53EF;&#x4EE5;&#x662F;&#x57FA;&#x4E8E;&#x2FAF;&#x5411;&#x5BF9;&#x8C61;&#x2F45;&#x6CD5;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x57FA;&#x4E8E;&#x7ED3;&#x6784;&#x5316;</li>
 </ol>
 </li>
-<li>实践中,基于<strong>抽象数据类型</strong>建⽴的软件系统⼤多属于⾯向对象式⻛格。</li>
+<li>&#x4F7F;&#x2F64;utility&#x6216;tools&#x7B49;&#x57FA;&#x7840;&#x6A21;&#x5757;</li>
 </ol>
-<h2 id="4-3-分层风格">4.3. 分层风格</h2>
+<h3 id="4-2-3-&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x5F0F;&#x98CE;&#x683C;&#x7684;&#x4F18;&#x70B9;">4.2.3. &#x9762;&#x5411;&#x5BF9;&#x8C61;&#x5F0F;&#x98CE;&#x683C;&#x7684;&#x4F18;&#x70B9;</h3>
 <ol>
-<li>组件：通常是过程或对象的集合。</li>
-<li>连接件：通常在受限可见性下进行过程调用或方法调用。</li>
+<li>&#x5185;&#x90E8;&#x5B9E;&#x73B0;&#x7684;&#x53EF;&#x4FEE;&#x6539;&#x6027;(&#x9690;&#x85CF;&#x5185;&#x90E8;&#x5B9E;&#x73B0;)&#x3002;</li>
+<li>&#x6613;&#x5F00;&#x53D1;&#x3001;&#x6613;&#x7406;&#x89E3;&#x3001;&#x6613;&#x590D;&#x7528;&#x7684;&#x7ED3;&#x6784;&#x7EC4;&#x7EC7;(&#x5951;&#x5408;&#x6A21;&#x5757;&#x5316;&#x601D;&#x60F3;)&#x3002;</li>
 </ol>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/21.png" alt=""></p>
-<h3 id="4-3-1-设计决策与约束">4.3.1. 设计决策与约束</h3>
+<h3 id="4-2-4-&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x5F0F;&#x98CE;&#x683C;&#x7684;&#x7F3A;&#x70B9;">4.2.4. &#x9762;&#x5411;&#x5BF9;&#x8C61;&#x5F0F;&#x98CE;&#x683C;&#x7684;&#x7F3A;&#x70B9;</h3>
 <ol>
-<li>从低层到高层,部件的抽象层次逐渐提升。每个下层为邻接上层提供服务, 每个上层将邻接下层作为基础设施使⽤。也就是说,在程序调⽤机制中上层调用下层。</li>
-<li>两个层次之间的连接要遵守特定的交互协议,该交互协议应该是<strong>成熟、稳定和标准化</strong>的。也就是说,只要遵守交互协议,不同部件实例之间是可以互相替换的。</li>
-<li>跨层次的连接是禁⽌的,不允许第 I 层直接调⽤ I+N(N&gt;1)层的服务。(也就是必须逐层进行调用)</li>
-<li>逆向的连接是禁⽌的,不允许第 I 层调⽤第 J(J &lt; I)层的服务。</li>
+<li>&#x63A5;&#x53E3;&#x7684;&#x8026;&#x5408;&#x6027;(&#x7531;&#x4E8E;&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x673A;&#x5236;&#xFF0C;&#x63A5;&#x53E3;&#x7684;&#x8026;&#x5408;&#x6027;&#x65E0;&#x6CD5;&#x6D88;&#x9664;)</li>
+<li>&#x6807;&#x8BC6;(Identity)&#x7684;&#x8026;&#x5408;&#x6027;(&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x8981;&#x548C;&#x5176;&#x4ED6;&#x5BF9;&#x8C61;&#x4EA4;&#x4E92;&#xFF0C;&#x5FC5;&#x987B;&#x77E5;&#x9053;&#x6807;&#x8BC6;)</li>
+<li>&#x526F;&#x4F5C;&#x7528;:&#x96BE;&#x4EE5;&#x7406;&#x89E3;&#x3001;&#x9AD8;&#x8026;&#x5408;&#x6027;&#x4EE5;&#x53CA;&#x6570;&#x636E;&#x7684;&#x4E0D;&#x4E00;&#x81F4;&#x89C6;&#x56FE;</li>
 </ol>
-<h3 id="4-3-2-实现">4.3.2. 实现</h3>
+<h3 id="4-2-5-&#x6548;&#x679C;">4.2.5. &#x6548;&#x679C;</h3>
 <ol>
-<li>关注点分离(每层逐次抽象)</li>
-<li>层间接⼝使用固定协议(固定控制)</li>
-<li>每层⼀或多个模块实现
-<ol>
-<li>单向依赖</li>
-<li>层间数据传递建⽴专门模块</li>
+<li>&#x2FAF;&#x5411;&#x5BF9;&#x8C61;&#x5F0F;&#x2EDB;&#x683C;&#x501F;&#x9274;&#x4E86;&#x2FAF;&#x5411;&#x5BF9;&#x8C61;&#x7684;&#x601D;&#x60F3;,&#x4E5F;&#x5F15;&#x2F0A;&#x4E86;&#x2FAF;&#x5411;&#x5BF9;&#x8C61;&#x7684;&#x526F;&#x4F5C;&#x2F64;,&#x56E0;&#x6B64;&#x66F4;&#x96BE;&#x5B9E;&#x73B0;&#x7A0B;&#x5E8F;&#x7684;&quot;&#x6B63;&#x786E;&#x6027;&quot;&#x3002;</li>
+<li>&#x4F8B;&#x5982;,&#x5982;&#x679C; A &#x548C; B &#x90FD;&#x4F7F;&#x2F64;&#x5BF9;&#x8C61; C,&#x90A3;&#x4E48; B &#x5BF9; C &#x7684;&#x4FEE;&#x6539;&#x53EF;&#x80FD;&#x4F1A; &#x5BF9; A &#x4EA7;&#x2F63;&#x672A;&#x9884;&#x671F;&#x7684;&#x5F71;&#x54CD;&#x3002;</li>
+<li>&#x4F8B;&#x5982;&#xFF0C;&#x5BF9;&#x8C61;&#x7684;&#x91CD;&#x5165;(Reentry)&#x95EE;&#x9898;:&#x5982;&#x679C; A &#x7684;&#x2F45;&#x6CD5; f()&#x8C03;&#x2F64;&#x4E86; B &#x7684; &#x2F45;&#x6CD5; p(),&#x2F7D; p()&#x2F1C;&#x8C03;&#x2F64;&#x4E86; A &#x7684;&#x53E6;&#x2F00;&#x2F45;&#x6CD5; q(),&#x90A3;&#x4E48;&#x5C31;&#x53EF;&#x80FD;&#x4F7F;&#x5F97; q()&#x5931;&#x8D25;,&#x56E0;&#x4E3A;&#x5728; q()&#x5F00;&#x59CB;&#x6267;&#x2F8F;&#x65F6;,A &#x6B63;&#x5904;&#x4E8E; f()&#x7559;&#x4E0B;&#x7684;&#x6267;&#x2F8F;&#x73B0;&#x573A;,&#x8FD9;&#x4E2A;&#x73B0;&#x573A;&#x53EF;&#x80FD;&#x662F;<strong>&#x6570;&#x636E;&#x4E0D;&#x2F00;&#x81F4;</strong>&#x7684;&#x3002;</li>
 </ol>
-</li>
-<li>使⽤utility或tools等基础模块</li>
-</ol>
-<h3 id="4-3-3-优点">4.3.3. 优点</h3>
+<h3 id="4-2-6-&#x5E94;&#x7528;">4.2.6. &#x5E94;&#x7528;</h3>
 <ol>
-<li>设计机制清晰,易于理解(抽象层次分离，隔离复杂度)。</li>
-<li>支持并行开发(层次之间遵守程序稳定的接口)。</li>
-<li>更好的可复用性与内部可修改性(接口的稳定性，不同层次的部件能够互相替代)。</li>
-</ol>
-<h3 id="4-3-4-缺点">4.3.4. 缺点</h3>
+<li>&#x2FAF;&#x5411;&#x5BF9;&#x8C61;&#x5F0F;&#x2EDB;&#x683C;&#x9002;&#x2F64;&#x4E8E;&#x90A3;&#x4E9B;&#x80FD;&#x591F;&#x57FA;&#x4E8E;&#x6570;&#x636E;&#x4FE1;&#x606F;&#x5206;&#x89E3;&#x548C;&#x7EC4;&#x7EC7;&#x7684;&#x8F6F;&#x4EF6;&#x7CFB;&#x7EDF;,&#x8FD9;&#x4E9B;&#x7CFB;&#x7EDF;:
 <ol>
-<li><strong>交互协议难以修改</strong>(可能需要改变所有的层次，接口具有强耦合性)。</li>
-<li>性能损失(禁止跨层调用)。</li>
-<li>难以确定层次数量和粒度。</li>
-</ol>
-<h3 id="4-3-5-应用">4.3.5. 应用</h3>
-<ol>
-<li>分层风格适⽤于具备下列特性的系统:
-<ol>
-<li>主要功能是能够在不同抽象层次上进⾏任务分解的复杂处理;</li>
-<li>能够建⽴不同抽象层次之间的稳定交互协议;</li>
-<li>没有很⾼的<strong>实时性能要求</strong>,能够容忍稍许的延迟;</li>
+<li>&#x4E3B;&#x8981;&#x95EE;&#x9898;&#x662F;&#x6807;&#x8BC6;&#x548C;&#x4FDD;&#x62A4;&#x76F8;&#x5173;&#x7684;&#x6570;&#x636E;&#x4FE1;&#x606F;;</li>
+<li>&#x80FD;&#x591F;&#x5C06;&#x6570;&#x636E;&#x4FE1;&#x606F;&#x548C;&#x76F8;&#x5173;&#x64CD;&#x4F5C;&#x8054;&#x7CFB;&#x8D77;&#x6765;,&#x8FDB;&#x2F8F;&#x5C01;&#x88C5;&#x3002;</li>
 </ol>
 </li>
-<li>此外,那些需要进⾏并⾏开发的软件系统也可能会使⽤分层⻛格,以便于任务分配和⼯作开展。在现有的软件系统中,分层⻛格是⼀种经常被⽤到的体系结构⻛格,像⽹络通信、交互</li>
-<li>系统、硬件控制系统、系统平台等都会使⽤分层⻛格。例如,ISO ⽹络通信模型、TCP/IP 的⽹络通信模型等都使⽤了分层⻛格。</li>
+<li>&#x5B9E;&#x8DF5;&#x4E2D;,&#x57FA;&#x4E8E;<strong>&#x62BD;&#x8C61;&#x6570;&#x636E;&#x7C7B;&#x578B;</strong>&#x5EFA;&#x2F74;&#x7684;&#x8F6F;&#x4EF6;&#x7CFB;&#x7EDF;&#x2F24;&#x591A;&#x5C5E;&#x4E8E;&#x2FAF;&#x5411;&#x5BF9;&#x8C61;&#x5F0F;&#x2EDB;&#x683C;&#x3002;</li>
 </ol>
-<h2 id="4-4-Model-View-Controller-Style-MVC风格">4.4. Model-View-Controller Style MVC风格</h2>
+<h2 id="4-3-&#x5206;&#x5C42;&#x98CE;&#x683C;">4.3. &#x5206;&#x5C42;&#x98CE;&#x683C;</h2>
 <ol>
-<li>子系统模型被设计的不用依赖任何一种视图或者控制子系统</li>
-<li>任何他们状态的修改都会被传播给显示子系统</li>
+<li>&#x7EC4;&#x4EF6;&#xFF1A;&#x901A;&#x5E38;&#x662F;&#x8FC7;&#x7A0B;&#x6216;&#x5BF9;&#x8C61;&#x7684;&#x96C6;&#x5408;&#x3002;</li>
+<li>&#x8FDE;&#x63A5;&#x4EF6;&#xFF1A;&#x901A;&#x5E38;&#x5728;&#x53D7;&#x9650;&#x53EF;&#x89C1;&#x6027;&#x4E0B;&#x8FDB;&#x884C;&#x8FC7;&#x7A0B;&#x8C03;&#x7528;&#x6216;&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x3002;</li>
 </ol>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/22.png" alt=""></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/21.png" alt></p>
+<h3 id="4-3-1-&#x8BBE;&#x8BA1;&#x51B3;&#x7B56;&#x4E0E;&#x7EA6;&#x675F;">4.3.1. &#x8BBE;&#x8BA1;&#x51B3;&#x7B56;&#x4E0E;&#x7EA6;&#x675F;</h3>
 <ol>
-<li>组件
-<ol>
-<li>模型组件负责保持问题域知识和确认视图层的修改</li>
-<li>视图组件负责显示信息给用户并且将用户的行为传递给控制器</li>
-<li>控制器
-<ol>
-<li>修改模型的状态：将用户的行为和模型的更新映射起来</li>
-<li>选择用来反映的视图</li>
+<li>&#x4ECE;&#x4F4E;&#x5C42;&#x5230;&#x9AD8;&#x5C42;,&#x90E8;&#x4EF6;&#x7684;&#x62BD;&#x8C61;&#x5C42;&#x6B21;&#x9010;&#x6E10;&#x63D0;&#x5347;&#x3002;&#x6BCF;&#x4E2A;&#x4E0B;&#x5C42;&#x4E3A;&#x90BB;&#x63A5;&#x4E0A;&#x5C42;&#x63D0;&#x4F9B;&#x670D;&#x52A1;, &#x6BCF;&#x4E2A;&#x4E0A;&#x5C42;&#x5C06;&#x90BB;&#x63A5;&#x4E0B;&#x5C42;&#x4F5C;&#x4E3A;&#x57FA;&#x7840;&#x8BBE;&#x65BD;&#x4F7F;&#x2F64;&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;,&#x5728;&#x7A0B;&#x5E8F;&#x8C03;&#x2F64;&#x673A;&#x5236;&#x4E2D;&#x4E0A;&#x5C42;&#x8C03;&#x7528;&#x4E0B;&#x5C42;&#x3002;</li>
+<li>&#x4E24;&#x4E2A;&#x5C42;&#x6B21;&#x4E4B;&#x95F4;&#x7684;&#x8FDE;&#x63A5;&#x8981;&#x9075;&#x5B88;&#x7279;&#x5B9A;&#x7684;&#x4EA4;&#x4E92;&#x534F;&#x8BAE;,&#x8BE5;&#x4EA4;&#x4E92;&#x534F;&#x8BAE;&#x5E94;&#x8BE5;&#x662F;<strong>&#x6210;&#x719F;&#x3001;&#x7A33;&#x5B9A;&#x548C;&#x6807;&#x51C6;&#x5316;</strong>&#x7684;&#x3002;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;,&#x53EA;&#x8981;&#x9075;&#x5B88;&#x4EA4;&#x4E92;&#x534F;&#x8BAE;,&#x4E0D;&#x540C;&#x90E8;&#x4EF6;&#x5B9E;&#x4F8B;&#x4E4B;&#x95F4;&#x662F;&#x53EF;&#x4EE5;&#x4E92;&#x76F8;&#x66FF;&#x6362;&#x7684;&#x3002;</li>
+<li>&#x8DE8;&#x5C42;&#x6B21;&#x7684;&#x8FDE;&#x63A5;&#x662F;&#x7981;&#x2F4C;&#x7684;,&#x4E0D;&#x5141;&#x8BB8;&#x7B2C; I &#x5C42;&#x76F4;&#x63A5;&#x8C03;&#x2F64; I+N(N&gt;1)&#x5C42;&#x7684;&#x670D;&#x52A1;&#x3002;(&#x4E5F;&#x5C31;&#x662F;&#x5FC5;&#x987B;&#x9010;&#x5C42;&#x8FDB;&#x884C;&#x8C03;&#x7528;)</li>
+<li>&#x9006;&#x5411;&#x7684;&#x8FDE;&#x63A5;&#x662F;&#x7981;&#x2F4C;&#x7684;,&#x4E0D;&#x5141;&#x8BB8;&#x7B2C; I &#x5C42;&#x8C03;&#x2F64;&#x7B2C; J(J &lt; I)&#x5C42;&#x7684;&#x670D;&#x52A1;&#x3002;</li>
 </ol>
-</li>
-</ol>
-</li>
-<li>连接件：方法调用，信息，事件</li>
-</ol>
-<h3 id="4-4-1-设计决策和约束">4.4.1. 设计决策和约束</h3>
+<h3 id="4-3-2-&#x5B9E;&#x73B0;">4.3.2. &#x5B9E;&#x73B0;</h3>
 <ol>
-<li>模型、视图、控制是分别是关于业务逻辑及数据、表现和控制的三种不同内容抽象。</li>
-<li>如果视图需要持续地显示某个数据的状态,那么它⾸先需要在模型中注册对该数据的兴趣。<strong>如果该数据状态发⽣了变更,模型会主动通知视图,然后再由视图查询数据的更新 情况</strong>。</li>
-<li>视图只能使用模型的数据查询服务,只有控制部件可以调⽤可能修改模型状态的程序。</li>
-<li><strong>⽤户⾏为虽然由视图发起,但是必须转交给控制部件处理</strong>。对接收到的⽤户⾏为, 控制部件可能会执⾏两种处理中的⼀种或两种:调⽤模型的服务,执⾏业务逻辑;提供下⼀个业务展现。</li>
-<li>模型部件相对独⽴,既不依赖于视图,也不依赖于控制。虽然模型与视图之间存在⼀个&quot;通知变更&quot;的连接,但该连接的交互协议是⾮常稳定的,可以认为是⾮常弱的依赖。</li>
-</ol>
-<h3 id="4-4-2-实现">4.4.2. 实现</h3>
+<li>&#x5173;&#x6CE8;&#x70B9;&#x5206;&#x79BB;(&#x6BCF;&#x5C42;&#x9010;&#x6B21;&#x62BD;&#x8C61;)</li>
+<li>&#x5C42;&#x95F4;&#x63A5;&#x2F1D;&#x4F7F;&#x7528;&#x56FA;&#x5B9A;&#x534F;&#x8BAE;(&#x56FA;&#x5B9A;&#x63A7;&#x5236;)</li>
+<li>&#x6BCF;&#x5C42;&#x2F00;&#x6216;&#x591A;&#x4E2A;&#x6A21;&#x5757;&#x5B9E;&#x73B0;
 <ol>
-<li>模型-视图-控制⻛格需要为模型、视图和控制的每个部件实例建⽴模块实现,各模块间存在导⼊/导出关系,程序调⽤连接件不需要显式的实现。</li>
-<li>特定技术实现，通常专⽤于WEB
-<ol>
-<li>Model与Controller单向</li>
-<li>Controller与View双向</li>
-<li>Model与View双向</li>
+<li>&#x5355;&#x5411;&#x4F9D;&#x8D56;</li>
+<li>&#x5C42;&#x95F4;&#x6570;&#x636E;&#x4F20;&#x9012;&#x5EFA;&#x2F74;&#x4E13;&#x95E8;&#x6A21;&#x5757;</li>
 </ol>
 </li>
-<li>典型实现
+<li>&#x4F7F;&#x2F64;utility&#x6216;tools&#x7B49;&#x57FA;&#x7840;&#x6A21;&#x5757;</li>
+</ol>
+<h3 id="4-3-3-&#x4F18;&#x70B9;">4.3.3. &#x4F18;&#x70B9;</h3>
 <ol>
-<li>View：JSP，HTML</li>
-<li>Controller：Servlet</li>
-<li>Model：JavaBean</li>
+<li>&#x8BBE;&#x8BA1;&#x673A;&#x5236;&#x6E05;&#x6670;,&#x6613;&#x4E8E;&#x7406;&#x89E3;(&#x62BD;&#x8C61;&#x5C42;&#x6B21;&#x5206;&#x79BB;&#xFF0C;&#x9694;&#x79BB;&#x590D;&#x6742;&#x5EA6;)&#x3002;</li>
+<li>&#x652F;&#x6301;&#x5E76;&#x884C;&#x5F00;&#x53D1;(&#x5C42;&#x6B21;&#x4E4B;&#x95F4;&#x9075;&#x5B88;&#x7A0B;&#x5E8F;&#x7A33;&#x5B9A;&#x7684;&#x63A5;&#x53E3;)&#x3002;</li>
+<li>&#x66F4;&#x597D;&#x7684;&#x53EF;&#x590D;&#x7528;&#x6027;&#x4E0E;&#x5185;&#x90E8;&#x53EF;&#x4FEE;&#x6539;&#x6027;(&#x63A5;&#x53E3;&#x7684;&#x7A33;&#x5B9A;&#x6027;&#xFF0C;&#x4E0D;&#x540C;&#x5C42;&#x6B21;&#x7684;&#x90E8;&#x4EF6;&#x80FD;&#x591F;&#x4E92;&#x76F8;&#x66FF;&#x4EE3;)&#x3002;</li>
+</ol>
+<h3 id="4-3-4-&#x7F3A;&#x70B9;">4.3.4. &#x7F3A;&#x70B9;</h3>
+<ol>
+<li><strong>&#x4EA4;&#x4E92;&#x534F;&#x8BAE;&#x96BE;&#x4EE5;&#x4FEE;&#x6539;</strong>(&#x53EF;&#x80FD;&#x9700;&#x8981;&#x6539;&#x53D8;&#x6240;&#x6709;&#x7684;&#x5C42;&#x6B21;&#xFF0C;&#x63A5;&#x53E3;&#x5177;&#x6709;&#x5F3A;&#x8026;&#x5408;&#x6027;)&#x3002;</li>
+<li>&#x6027;&#x80FD;&#x635F;&#x5931;(&#x7981;&#x6B62;&#x8DE8;&#x5C42;&#x8C03;&#x7528;)&#x3002;</li>
+<li>&#x96BE;&#x4EE5;&#x786E;&#x5B9A;&#x5C42;&#x6B21;&#x6570;&#x91CF;&#x548C;&#x7C92;&#x5EA6;&#x3002;</li>
+</ol>
+<h3 id="4-3-5-&#x5E94;&#x7528;">4.3.5. &#x5E94;&#x7528;</h3>
+<ol>
+<li>&#x5206;&#x5C42;&#x98CE;&#x683C;&#x9002;&#x2F64;&#x4E8E;&#x5177;&#x5907;&#x4E0B;&#x5217;&#x7279;&#x6027;&#x7684;&#x7CFB;&#x7EDF;:
+<ol>
+<li>&#x4E3B;&#x8981;&#x529F;&#x80FD;&#x662F;&#x80FD;&#x591F;&#x5728;&#x4E0D;&#x540C;&#x62BD;&#x8C61;&#x5C42;&#x6B21;&#x4E0A;&#x8FDB;&#x2F8F;&#x4EFB;&#x52A1;&#x5206;&#x89E3;&#x7684;&#x590D;&#x6742;&#x5904;&#x7406;;</li>
+<li>&#x80FD;&#x591F;&#x5EFA;&#x2F74;&#x4E0D;&#x540C;&#x62BD;&#x8C61;&#x5C42;&#x6B21;&#x4E4B;&#x95F4;&#x7684;&#x7A33;&#x5B9A;&#x4EA4;&#x4E92;&#x534F;&#x8BAE;;</li>
+<li>&#x6CA1;&#x6709;&#x5F88;&#x2FBC;&#x7684;<strong>&#x5B9E;&#x65F6;&#x6027;&#x80FD;&#x8981;&#x6C42;</strong>,&#x80FD;&#x591F;&#x5BB9;&#x5FCD;&#x7A0D;&#x8BB8;&#x7684;&#x5EF6;&#x8FDF;;</li>
+</ol>
+</li>
+<li>&#x6B64;&#x5916;,&#x90A3;&#x4E9B;&#x9700;&#x8981;&#x8FDB;&#x2F8F;&#x5E76;&#x2F8F;&#x5F00;&#x53D1;&#x7684;&#x8F6F;&#x4EF6;&#x7CFB;&#x7EDF;&#x4E5F;&#x53EF;&#x80FD;&#x4F1A;&#x4F7F;&#x2F64;&#x5206;&#x5C42;&#x2EDB;&#x683C;,&#x4EE5;&#x4FBF;&#x4E8E;&#x4EFB;&#x52A1;&#x5206;&#x914D;&#x548C;&#x2F2F;&#x4F5C;&#x5F00;&#x5C55;&#x3002;&#x5728;&#x73B0;&#x6709;&#x7684;&#x8F6F;&#x4EF6;&#x7CFB;&#x7EDF;&#x4E2D;,&#x5206;&#x5C42;&#x2EDB;&#x683C;&#x662F;&#x2F00;&#x79CD;&#x7ECF;&#x5E38;&#x88AB;&#x2F64;&#x5230;&#x7684;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x2EDB;&#x683C;,&#x50CF;&#x2F79;&#x7EDC;&#x901A;&#x4FE1;&#x3001;&#x4EA4;&#x4E92;</li>
+<li>&#x7CFB;&#x7EDF;&#x3001;&#x786C;&#x4EF6;&#x63A7;&#x5236;&#x7CFB;&#x7EDF;&#x3001;&#x7CFB;&#x7EDF;&#x5E73;&#x53F0;&#x7B49;&#x90FD;&#x4F1A;&#x4F7F;&#x2F64;&#x5206;&#x5C42;&#x2EDB;&#x683C;&#x3002;&#x4F8B;&#x5982;,ISO &#x2F79;&#x7EDC;&#x901A;&#x4FE1;&#x6A21;&#x578B;&#x3001;TCP/IP &#x7684;&#x2F79;&#x7EDC;&#x901A;&#x4FE1;&#x6A21;&#x578B;&#x7B49;&#x90FD;&#x4F7F;&#x2F64;&#x4E86;&#x5206;&#x5C42;&#x2EDB;&#x683C;&#x3002;</li>
+</ol>
+<h2 id="4-4-Model-View-Controller-Style-MVC&#x98CE;&#x683C;">4.4. Model-View-Controller Style MVC&#x98CE;&#x683C;</h2>
+<ol>
+<li>&#x5B50;&#x7CFB;&#x7EDF;&#x6A21;&#x578B;&#x88AB;&#x8BBE;&#x8BA1;&#x7684;&#x4E0D;&#x7528;&#x4F9D;&#x8D56;&#x4EFB;&#x4F55;&#x4E00;&#x79CD;&#x89C6;&#x56FE;&#x6216;&#x8005;&#x63A7;&#x5236;&#x5B50;&#x7CFB;&#x7EDF;</li>
+<li>&#x4EFB;&#x4F55;&#x4ED6;&#x4EEC;&#x72B6;&#x6001;&#x7684;&#x4FEE;&#x6539;&#x90FD;&#x4F1A;&#x88AB;&#x4F20;&#x64AD;&#x7ED9;&#x663E;&#x793A;&#x5B50;&#x7CFB;&#x7EDF;</li>
+</ol>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/22.png" alt></p>
+<ol>
+<li>&#x7EC4;&#x4EF6;
+<ol>
+<li>&#x6A21;&#x578B;&#x7EC4;&#x4EF6;&#x8D1F;&#x8D23;&#x4FDD;&#x6301;&#x95EE;&#x9898;&#x57DF;&#x77E5;&#x8BC6;&#x548C;&#x786E;&#x8BA4;&#x89C6;&#x56FE;&#x5C42;&#x7684;&#x4FEE;&#x6539;</li>
+<li>&#x89C6;&#x56FE;&#x7EC4;&#x4EF6;&#x8D1F;&#x8D23;&#x663E;&#x793A;&#x4FE1;&#x606F;&#x7ED9;&#x7528;&#x6237;&#x5E76;&#x4E14;&#x5C06;&#x7528;&#x6237;&#x7684;&#x884C;&#x4E3A;&#x4F20;&#x9012;&#x7ED9;&#x63A7;&#x5236;&#x5668;</li>
+<li>&#x63A7;&#x5236;&#x5668;
+<ol>
+<li>&#x4FEE;&#x6539;&#x6A21;&#x578B;&#x7684;&#x72B6;&#x6001;&#xFF1A;&#x5C06;&#x7528;&#x6237;&#x7684;&#x884C;&#x4E3A;&#x548C;&#x6A21;&#x578B;&#x7684;&#x66F4;&#x65B0;&#x6620;&#x5C04;&#x8D77;&#x6765;</li>
+<li>&#x9009;&#x62E9;&#x7528;&#x6765;&#x53CD;&#x6620;&#x7684;&#x89C6;&#x56FE;</li>
 </ol>
 </li>
 </ol>
-<h3 id="4-4-3-模型-视图-控制风格的优点有">4.4.3. 模型-视图-控制风格的优点有:</h3>
+</li>
+<li>&#x8FDE;&#x63A5;&#x4EF6;&#xFF1A;&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#xFF0C;&#x4FE1;&#x606F;&#xFF0C;&#x4E8B;&#x4EF6;</li>
+</ol>
+<h3 id="4-4-1-&#x8BBE;&#x8BA1;&#x51B3;&#x7B56;&#x548C;&#x7EA6;&#x675F;">4.4.1. &#x8BBE;&#x8BA1;&#x51B3;&#x7B56;&#x548C;&#x7EA6;&#x675F;</h3>
+<ol>
+<li>&#x6A21;&#x578B;&#x3001;&#x89C6;&#x56FE;&#x3001;&#x63A7;&#x5236;&#x662F;&#x5206;&#x522B;&#x662F;&#x5173;&#x4E8E;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x53CA;&#x6570;&#x636E;&#x3001;&#x8868;&#x73B0;&#x548C;&#x63A7;&#x5236;&#x7684;&#x4E09;&#x79CD;&#x4E0D;&#x540C;&#x5185;&#x5BB9;&#x62BD;&#x8C61;&#x3002;</li>
+<li>&#x5982;&#x679C;&#x89C6;&#x56FE;&#x9700;&#x8981;&#x6301;&#x7EED;&#x5730;&#x663E;&#x793A;&#x67D0;&#x4E2A;&#x6570;&#x636E;&#x7684;&#x72B6;&#x6001;,&#x90A3;&#x4E48;&#x5B83;&#x2FB8;&#x5148;&#x9700;&#x8981;&#x5728;&#x6A21;&#x578B;&#x4E2D;&#x6CE8;&#x518C;&#x5BF9;&#x8BE5;&#x6570;&#x636E;&#x7684;&#x5174;&#x8DA3;&#x3002;<strong>&#x5982;&#x679C;&#x8BE5;&#x6570;&#x636E;&#x72B6;&#x6001;&#x53D1;&#x2F63;&#x4E86;&#x53D8;&#x66F4;,&#x6A21;&#x578B;&#x4F1A;&#x4E3B;&#x52A8;&#x901A;&#x77E5;&#x89C6;&#x56FE;,&#x7136;&#x540E;&#x518D;&#x7531;&#x89C6;&#x56FE;&#x67E5;&#x8BE2;&#x6570;&#x636E;&#x7684;&#x66F4;&#x65B0; &#x60C5;&#x51B5;</strong>&#x3002;</li>
+<li>&#x89C6;&#x56FE;&#x53EA;&#x80FD;&#x4F7F;&#x7528;&#x6A21;&#x578B;&#x7684;&#x6570;&#x636E;&#x67E5;&#x8BE2;&#x670D;&#x52A1;,&#x53EA;&#x6709;&#x63A7;&#x5236;&#x90E8;&#x4EF6;&#x53EF;&#x4EE5;&#x8C03;&#x2F64;&#x53EF;&#x80FD;&#x4FEE;&#x6539;&#x6A21;&#x578B;&#x72B6;&#x6001;&#x7684;&#x7A0B;&#x5E8F;&#x3002;</li>
+<li><strong>&#x2F64;&#x6237;&#x2F8F;&#x4E3A;&#x867D;&#x7136;&#x7531;&#x89C6;&#x56FE;&#x53D1;&#x8D77;,&#x4F46;&#x662F;&#x5FC5;&#x987B;&#x8F6C;&#x4EA4;&#x7ED9;&#x63A7;&#x5236;&#x90E8;&#x4EF6;&#x5904;&#x7406;</strong>&#x3002;&#x5BF9;&#x63A5;&#x6536;&#x5230;&#x7684;&#x2F64;&#x6237;&#x2F8F;&#x4E3A;, &#x63A7;&#x5236;&#x90E8;&#x4EF6;&#x53EF;&#x80FD;&#x4F1A;&#x6267;&#x2F8F;&#x4E24;&#x79CD;&#x5904;&#x7406;&#x4E2D;&#x7684;&#x2F00;&#x79CD;&#x6216;&#x4E24;&#x79CD;:&#x8C03;&#x2F64;&#x6A21;&#x578B;&#x7684;&#x670D;&#x52A1;,&#x6267;&#x2F8F;&#x4E1A;&#x52A1;&#x903B;&#x8F91;;&#x63D0;&#x4F9B;&#x4E0B;&#x2F00;&#x4E2A;&#x4E1A;&#x52A1;&#x5C55;&#x73B0;&#x3002;</li>
+<li>&#x6A21;&#x578B;&#x90E8;&#x4EF6;&#x76F8;&#x5BF9;&#x72EC;&#x2F74;,&#x65E2;&#x4E0D;&#x4F9D;&#x8D56;&#x4E8E;&#x89C6;&#x56FE;,&#x4E5F;&#x4E0D;&#x4F9D;&#x8D56;&#x4E8E;&#x63A7;&#x5236;&#x3002;&#x867D;&#x7136;&#x6A21;&#x578B;&#x4E0E;&#x89C6;&#x56FE;&#x4E4B;&#x95F4;&#x5B58;&#x5728;&#x2F00;&#x4E2A;&quot;&#x901A;&#x77E5;&#x53D8;&#x66F4;&quot;&#x7684;&#x8FDE;&#x63A5;,&#x4F46;&#x8BE5;&#x8FDE;&#x63A5;&#x7684;&#x4EA4;&#x4E92;&#x534F;&#x8BAE;&#x662F;&#x2FAE;&#x5E38;&#x7A33;&#x5B9A;&#x7684;,&#x53EF;&#x4EE5;&#x8BA4;&#x4E3A;&#x662F;&#x2FAE;&#x5E38;&#x5F31;&#x7684;&#x4F9D;&#x8D56;&#x3002;</li>
+</ol>
+<h3 id="4-4-2-&#x5B9E;&#x73B0;">4.4.2. &#x5B9E;&#x73B0;</h3>
+<ol>
+<li>&#x6A21;&#x578B;-&#x89C6;&#x56FE;-&#x63A7;&#x5236;&#x2EDB;&#x683C;&#x9700;&#x8981;&#x4E3A;&#x6A21;&#x578B;&#x3001;&#x89C6;&#x56FE;&#x548C;&#x63A7;&#x5236;&#x7684;&#x6BCF;&#x4E2A;&#x90E8;&#x4EF6;&#x5B9E;&#x4F8B;&#x5EFA;&#x2F74;&#x6A21;&#x5757;&#x5B9E;&#x73B0;,&#x5404;&#x6A21;&#x5757;&#x95F4;&#x5B58;&#x5728;&#x5BFC;&#x2F0A;/&#x5BFC;&#x51FA;&#x5173;&#x7CFB;,&#x7A0B;&#x5E8F;&#x8C03;&#x2F64;&#x8FDE;&#x63A5;&#x4EF6;&#x4E0D;&#x9700;&#x8981;&#x663E;&#x5F0F;&#x7684;&#x5B9E;&#x73B0;&#x3002;</li>
+<li>&#x7279;&#x5B9A;&#x6280;&#x672F;&#x5B9E;&#x73B0;&#xFF0C;&#x901A;&#x5E38;&#x4E13;&#x2F64;&#x4E8E;WEB
+<ol>
+<li>Model&#x4E0E;Controller&#x5355;&#x5411;</li>
+<li>Controller&#x4E0E;View&#x53CC;&#x5411;</li>
+<li>Model&#x4E0E;View&#x53CC;&#x5411;</li>
+</ol>
+</li>
+<li>&#x5178;&#x578B;&#x5B9E;&#x73B0;
+<ol>
+<li>View&#xFF1A;JSP&#xFF0C;HTML</li>
+<li>Controller&#xFF1A;Servlet</li>
+<li>Model&#xFF1A;JavaBean</li>
+</ol>
+</li>
+</ol>
+<h3 id="4-4-3-&#x6A21;&#x578B;-&#x89C6;&#x56FE;-&#x63A7;&#x5236;&#x98CE;&#x683C;&#x7684;&#x4F18;&#x70B9;&#x6709;">4.4.3. &#x6A21;&#x578B;-&#x89C6;&#x56FE;-&#x63A7;&#x5236;&#x98CE;&#x683C;&#x7684;&#x4F18;&#x70B9;&#x6709;:</h3>
 <blockquote>
-<p>模型封装了系统的业务逻辑,所以是三种类型中为复杂的系统部件。MVC 中模型是相对独⽴的,所以对视图实现和控制实现的修改不会影响到模型实现。再考虑到业务逻辑通常⽐业务表现和控制逻辑更加稳定,所以 MVC 具有⼀定的可修改性优势。</p>
+<p>&#x6A21;&#x578B;&#x5C01;&#x88C5;&#x4E86;&#x7CFB;&#x7EDF;&#x7684;&#x4E1A;&#x52A1;&#x903B;&#x8F91;,&#x6240;&#x4EE5;&#x662F;&#x4E09;&#x79CD;&#x7C7B;&#x578B;&#x4E2D;&#x4E3A;&#x590D;&#x6742;&#x7684;&#x7CFB;&#x7EDF;&#x90E8;&#x4EF6;&#x3002;MVC &#x4E2D;&#x6A21;&#x578B;&#x662F;&#x76F8;&#x5BF9;&#x72EC;&#x2F74;&#x7684;,&#x6240;&#x4EE5;&#x5BF9;&#x89C6;&#x56FE;&#x5B9E;&#x73B0;&#x548C;&#x63A7;&#x5236;&#x5B9E;&#x73B0;&#x7684;&#x4FEE;&#x6539;&#x4E0D;&#x4F1A;&#x5F71;&#x54CD;&#x5230;&#x6A21;&#x578B;&#x5B9E;&#x73B0;&#x3002;&#x518D;&#x8003;&#x8651;&#x5230;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x901A;&#x5E38;&#x2F50;&#x4E1A;&#x52A1;&#x8868;&#x73B0;&#x548C;&#x63A7;&#x5236;&#x903B;&#x8F91;&#x66F4;&#x52A0;&#x7A33;&#x5B9A;,&#x6240;&#x4EE5; MVC &#x5177;&#x6709;&#x2F00;&#x5B9A;&#x7684;&#x53EF;&#x4FEE;&#x6539;&#x6027;&#x4F18;&#x52BF;&#x3002;</p>
 </blockquote>
 <ol>
-<li>易开发性(分别抽象了业务逻辑，表现和控制机制清晰，易于开发)</li>
-<li>视图和控制的可修改性。</li>
-<li>适宜于网络系统开发的特征。(MVC 不仅允许视图和控制的可修改性,⽽且其对业务逻辑、表现和控制的分离使得⼀个模型可以同时建⽴并保持<strong>多个视图</strong>,这⾮常适⽤于⽹络系统开发)。</li>
+<li>&#x6613;&#x5F00;&#x53D1;&#x6027;(&#x5206;&#x522B;&#x62BD;&#x8C61;&#x4E86;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#xFF0C;&#x8868;&#x73B0;&#x548C;&#x63A7;&#x5236;&#x673A;&#x5236;&#x6E05;&#x6670;&#xFF0C;&#x6613;&#x4E8E;&#x5F00;&#x53D1;)</li>
+<li>&#x89C6;&#x56FE;&#x548C;&#x63A7;&#x5236;&#x7684;&#x53EF;&#x4FEE;&#x6539;&#x6027;&#x3002;</li>
+<li>&#x9002;&#x5B9C;&#x4E8E;&#x7F51;&#x7EDC;&#x7CFB;&#x7EDF;&#x5F00;&#x53D1;&#x7684;&#x7279;&#x5F81;&#x3002;(MVC &#x4E0D;&#x4EC5;&#x5141;&#x8BB8;&#x89C6;&#x56FE;&#x548C;&#x63A7;&#x5236;&#x7684;&#x53EF;&#x4FEE;&#x6539;&#x6027;,&#x2F7D;&#x4E14;&#x5176;&#x5BF9;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x3001;&#x8868;&#x73B0;&#x548C;&#x63A7;&#x5236;&#x7684;&#x5206;&#x79BB;&#x4F7F;&#x5F97;&#x2F00;&#x4E2A;&#x6A21;&#x578B;&#x53EF;&#x4EE5;&#x540C;&#x65F6;&#x5EFA;&#x2F74;&#x5E76;&#x4FDD;&#x6301;<strong>&#x591A;&#x4E2A;&#x89C6;&#x56FE;</strong>,&#x8FD9;&#x2FAE;&#x5E38;&#x9002;&#x2F64;&#x4E8E;&#x2F79;&#x7EDC;&#x7CFB;&#x7EDF;&#x5F00;&#x53D1;)&#x3002;</li>
 </ol>
-<h3 id="4-4-4-模型-视图-控制风格的缺点有">4.4.4. 模型-视图-控制风格的缺点有:</h3>
+<h3 id="4-4-4-&#x6A21;&#x578B;-&#x89C6;&#x56FE;-&#x63A7;&#x5236;&#x98CE;&#x683C;&#x7684;&#x7F3A;&#x70B9;&#x6709;">4.4.4. &#x6A21;&#x578B;-&#x89C6;&#x56FE;-&#x63A7;&#x5236;&#x98CE;&#x683C;&#x7684;&#x7F3A;&#x70B9;&#x6709;:</h3>
 <ol>
-<li>复杂性。MVC将⽤户任务分解成了表现、控制和模型三个部分,这增加系统的复杂性,不利于理解任务实现。</li>
-<li>模型修改困难。视图和控制都要依赖于模型,因此,模型难以修改。(往往会我们带来比较高的复杂度问题)</li>
+<li>&#x590D;&#x6742;&#x6027;&#x3002;MVC&#x5C06;&#x2F64;&#x6237;&#x4EFB;&#x52A1;&#x5206;&#x89E3;&#x6210;&#x4E86;&#x8868;&#x73B0;&#x3001;&#x63A7;&#x5236;&#x548C;&#x6A21;&#x578B;&#x4E09;&#x4E2A;&#x90E8;&#x5206;,&#x8FD9;&#x589E;&#x52A0;&#x7CFB;&#x7EDF;&#x7684;&#x590D;&#x6742;&#x6027;,&#x4E0D;&#x5229;&#x4E8E;&#x7406;&#x89E3;&#x4EFB;&#x52A1;&#x5B9E;&#x73B0;&#x3002;</li>
+<li>&#x6A21;&#x578B;&#x4FEE;&#x6539;&#x56F0;&#x96BE;&#x3002;&#x89C6;&#x56FE;&#x548C;&#x63A7;&#x5236;&#x90FD;&#x8981;&#x4F9D;&#x8D56;&#x4E8E;&#x6A21;&#x578B;,&#x56E0;&#x6B64;,&#x6A21;&#x578B;&#x96BE;&#x4EE5;&#x4FEE;&#x6539;&#x3002;(&#x5F80;&#x5F80;&#x4F1A;&#x6211;&#x4EEC;&#x5E26;&#x6765;&#x6BD4;&#x8F83;&#x9AD8;&#x7684;&#x590D;&#x6742;&#x5EA6;&#x95EE;&#x9898;)</li>
 </ol>
-<h2 id="4-5-应用">4.5. 应用</h2>
+<h2 id="4-5-&#x5E94;&#x7528;">4.5. &#x5E94;&#x7528;</h2>
 <ol>
-<li>适合以下的应用
+<li>&#x9002;&#x5408;&#x4EE5;&#x4E0B;&#x7684;&#x5E94;&#x7528;
 <ol>
-<li>在运行状态下根据用户接口的变化的变更是很方便和可行的</li>
-<li>适应或移植用户界面不应影响应用程序功能部分的设计或代码。</li>
+<li>&#x5728;&#x8FD0;&#x884C;&#x72B6;&#x6001;&#x4E0B;&#x6839;&#x636E;&#x7528;&#x6237;&#x63A5;&#x53E3;&#x7684;&#x53D8;&#x5316;&#x7684;&#x53D8;&#x66F4;&#x662F;&#x5F88;&#x65B9;&#x4FBF;&#x548C;&#x53EF;&#x884C;&#x7684;</li>
+<li>&#x9002;&#x5E94;&#x6216;&#x79FB;&#x690D;&#x7528;&#x6237;&#x754C;&#x9762;&#x4E0D;&#x5E94;&#x5F71;&#x54CD;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x529F;&#x80FD;&#x90E8;&#x5206;&#x7684;&#x8BBE;&#x8BA1;&#x6216;&#x4EE3;&#x7801;&#x3002;</li>
 </ol>
 </li>
-<li>例子:网络应用</li>
+<li>&#x4F8B;&#x5B50;:&#x7F51;&#x7EDC;&#x5E94;&#x7528;</li>
 </ol>
-<h2 id="4-6-分层和MVC">4.6. 分层和MVC</h2>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/23.png" alt=""><br>
-<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/24.png" alt=""></p>
-<h1>5. 观察者模式</h1>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/25.png" alt=""></p>
+<h2 id="4-6-&#x5206;&#x5C42;&#x548C;MVC">4.6. &#x5206;&#x5C42;&#x548C;MVC</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/23.png" alt><br>
+<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/24.png" alt></p>
+<h1>5. &#x89C2;&#x5BDF;&#x8005;&#x6A21;&#x5F0F;</h1>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/25.png" alt></p>
 <h2 id="5-1-Observable">5.1. Observable</h2>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Observable</span> &#123;</span><br><span class="line">   <span class="keyword">private</span> <span class="type">boolean</span> <span class="variable">changed</span> <span class="operator">=</span> <span class="literal">false</span>;</span><br><span class="line">   <span class="keyword">private</span> ﬁnal ArrayList&lt;Observer&gt; observers;</span><br><span class="line">   <span class="comment">/** Construct an Observable with zero Observers. */</span></span><br><span class="line"></span><br><span class="line">   <span class="keyword">public</span> <span class="title function_">Observable</span><span class="params">()</span> &#123;</span><br><span class="line">      observers = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">   &#125;</span><br><span class="line"></span><br><span class="line">   <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * 将⼀个观察者添加到观察者集合</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title function_">addObserver</span><span class="params">(Observer o)</span> &#123;</span><br><span class="line">      <span class="keyword">if</span> (o == <span class="literal">null</span>)</span><br><span class="line">         <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">NullPointerException</span>();</span><br><span class="line">      <span class="keyword">if</span> (!observers.contains(o)) &#123;</span><br><span class="line">         observers.add(o);</span><br><span class="line">      &#125;</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Observable</span> {</span><br><span class="line">   <span class="keyword">private</span> <span class="type">boolean</span> <span class="variable">changed</span> <span class="operator">=</span> <span class="literal">false</span>;</span><br><span class="line">   <span class="keyword">private</span> &#xFB01;nal ArrayList&lt;Observer&gt; observers;</span><br><span class="line">   <span class="comment">/** Construct an Observable with zero Observers. */</span></span><br><span class="line"></span><br><span class="line">   <span class="keyword">public</span> <span class="title function_">Observable</span><span class="params">()</span> {</span><br><span class="line">      observers = <span class="keyword">new</span> <span class="title class_">ArrayList</span>&lt;&gt;();</span><br><span class="line">   }</span><br><span class="line"></span><br><span class="line">   <span class="comment">/**</span></span><br><span class="line"><span class="comment">   * &#x5C06;&#x2F00;&#x4E2A;&#x89C2;&#x5BDF;&#x8005;&#x6DFB;&#x52A0;&#x5230;&#x89C2;&#x5BDF;&#x8005;&#x96C6;&#x5408;</span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">   <span class="keyword">public</span> <span class="keyword">synchronized</span> <span class="keyword">void</span> <span class="title function_">addObserver</span><span class="params">(Observer o)</span> {</span><br><span class="line">      <span class="keyword">if</span> (o == <span class="literal">null</span>)</span><br><span class="line">         <span class="keyword">throw</span> <span class="keyword">new</span> <span class="title class_">NullPointerException</span>();</span><br><span class="line">      <span class="keyword">if</span> (!observers.contains(o)) {</span><br><span class="line">         observers.add(o);</span><br><span class="line">      }</span><br><span class="line">   }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 <h2 id="5-2-Observer">5.2. Observer</h2>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">Observer</span> &#123;</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 当被观察者对象的状态发⽣变化时，被观察者对象的notifyObservers()⽅法就会调用这⼀⽅法。</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">update</span><span class="params">(Observable o, Object arg)</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/26.png" alt=""></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">interface</span> <span class="title class_">Observer</span> {</span><br><span class="line">    <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * &#x5F53;&#x88AB;&#x89C2;&#x5BDF;&#x8005;&#x5BF9;&#x8C61;&#x7684;&#x72B6;&#x6001;&#x53D1;&#x2F63;&#x53D8;&#x5316;&#x65F6;&#xFF0C;&#x88AB;&#x89C2;&#x5BDF;&#x8005;&#x5BF9;&#x8C61;&#x7684;notifyObservers()&#x2F45;&#x6CD5;&#x5C31;&#x4F1A;&#x8C03;&#x7528;&#x8FD9;&#x2F00;&#x2F45;&#x6CD5;&#x3002;</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">void</span> <span class="title function_">update</span><span class="params">(Observable o, Object arg)</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt9/26.png" alt></p>
 <h2 id="6-Example">6.Example</h2>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="C:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220407120352147.png" alt="image-20220407120352147"></p>
-<p><strong>key word in context</strong> 上下文关键词</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="C:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220407120405537.png" alt="image-20220407120405537"></p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="C:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220407120416352.png" alt="image-20220407120416352"></p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="C:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220407120505620.png" alt="image-20220407120505620"></p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="C:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220407120513682.png" alt="image-20220407120513682"></p>
-<p>不是调用关系，而是流式的，input将数据过滤后就丢给后续的过滤器，而不在关心后续过程</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="C:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220407120122349.png" alt="image-20220407120122349"></p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="C:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220407120129837.png" alt="image-20220407120129837"></p>
-<h1>6. 题目</h1>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/06/17/SE-II%E7%AC%94%E8%AE%B0/09-%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/C:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220407120352147.png" alt="image-20220407120352147"></p>
+<p><strong>key word in context</strong> &#x4E0A;&#x4E0B;&#x6587;&#x5173;&#x952E;&#x8BCD;</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/06/17/SE-II%E7%AC%94%E8%AE%B0/09-%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/C:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220407120405537.png" alt="image-20220407120405537"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/06/17/SE-II%E7%AC%94%E8%AE%B0/09-%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/C:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220407120416352.png" alt="image-20220407120416352"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/06/17/SE-II%E7%AC%94%E8%AE%B0/09-%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/C:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220407120505620.png" alt="image-20220407120505620"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/06/17/SE-II%E7%AC%94%E8%AE%B0/09-%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/C:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220407120513682.png" alt="image-20220407120513682"></p>
+<p>&#x4E0D;&#x662F;&#x8C03;&#x7528;&#x5173;&#x7CFB;&#xFF0C;&#x800C;&#x662F;&#x6D41;&#x5F0F;&#x7684;&#xFF0C;input&#x5C06;&#x6570;&#x636E;&#x8FC7;&#x6EE4;&#x540E;&#x5C31;&#x4E22;&#x7ED9;&#x540E;&#x7EED;&#x7684;&#x8FC7;&#x6EE4;&#x5668;&#xFF0C;&#x800C;&#x4E0D;&#x5728;&#x5173;&#x5FC3;&#x540E;&#x7EED;&#x8FC7;&#x7A0B;</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/06/17/SE-II%E7%AC%94%E8%AE%B0/09-%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/C:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220407120122349.png" alt="image-20220407120122349"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/06/17/SE-II%E7%AC%94%E8%AE%B0/09-%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E5%9F%BA%E7%A1%80/C:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220407120129837.png" alt="image-20220407120129837"></p>
+<h1>6. &#x9898;&#x76EE;</h1>
 <ol>
-<li>按照功能分解的方式进行模块分割能够实现高内聚的软件设计:√</li>
-<li>软件系统设计的主要目的是为系统制定蓝图, (D)并不是软件设计模型所关注的。
+<li>&#x6309;&#x7167;&#x529F;&#x80FD;&#x5206;&#x89E3;&#x7684;&#x65B9;&#x5F0F;&#x8FDB;&#x884C;&#x6A21;&#x5757;&#x5206;&#x5272;&#x80FD;&#x591F;&#x5B9E;&#x73B0;&#x9AD8;&#x5185;&#x805A;&#x7684;&#x8F6F;&#x4EF6;&#x8BBE;&#x8BA1;:&#x221A;</li>
+<li>&#x8F6F;&#x4EF6;&#x7CFB;&#x7EDF;&#x8BBE;&#x8BA1;&#x7684;&#x4E3B;&#x8981;&#x76EE;&#x7684;&#x662F;&#x4E3A;&#x7CFB;&#x7EDF;&#x5236;&#x5B9A;&#x84DD;&#x56FE;, (D)&#x5E76;&#x4E0D;&#x662F;&#x8F6F;&#x4EF6;&#x8BBE;&#x8BA1;&#x6A21;&#x578B;&#x6240;&#x5173;&#x6CE8;&#x7684;&#x3002;
 <ol>
-<li>系统总体结构</li>
-<li>数据结构</li>
-<li>界面模型</li>
-<li>项目范围(这个是在需求部分已经完成)</li>
+<li>&#x7CFB;&#x7EDF;&#x603B;&#x4F53;&#x7ED3;&#x6784;</li>
+<li>&#x6570;&#x636E;&#x7ED3;&#x6784;</li>
+<li>&#x754C;&#x9762;&#x6A21;&#x578B;</li>
+<li>&#x9879;&#x76EE;&#x8303;&#x56F4;(&#x8FD9;&#x4E2A;&#x662F;&#x5728;&#x9700;&#x6C42;&#x90E8;&#x5206;&#x5DF2;&#x7ECF;&#x5B8C;&#x6210;)</li>
 </ol>
 </li>
-<li>体系结构设计是软件非功能性的实现，而详细设计主要是软件功能性的实现。√
+<li>&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x8BBE;&#x8BA1;&#x662F;&#x8F6F;&#x4EF6;&#x975E;&#x529F;&#x80FD;&#x6027;&#x7684;&#x5B9E;&#x73B0;&#xFF0C;&#x800C;&#x8BE6;&#x7EC6;&#x8BBE;&#x8BA1;&#x4E3B;&#x8981;&#x662F;&#x8F6F;&#x4EF6;&#x529F;&#x80FD;&#x6027;&#x7684;&#x5B9E;&#x73B0;&#x3002;&#x221A;
 <ol>
-<li>很重要，一定要记住</li>
+<li>&#x5F88;&#x91CD;&#x8981;&#xFF0C;&#x4E00;&#x5B9A;&#x8981;&#x8BB0;&#x4F4F;</li>
 </ol>
 </li>
 </ol>

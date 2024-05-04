@@ -20,45 +20,45 @@
   <title>ch08-parser-allstar - Asimov's Blog</title>
 
   
-    <meta name="description" content="ch08-parser-allstar  ANTLR 4 自动将类似 expr 的左递归规则重写成非左递归形式 ANTLR 4 提供优秀的错误报告功能和复杂的错误恢复机制 ANTLR 4 使用了一种名为 Adaptive LL(∗) 的新技术 ANTLR 4 几乎能处理任何文法 (二义性文法✓ 间接左递归✗)  ANTLR 4 如何处理直接左递归与优先级的 写在前面就是优先级 antlr4 LRE">
+    <meta name="description" content="ch08-parser-allstar  ANTLR 4 &#x81EA;&#x52A8;&#x5C06;&#x7C7B;&#x4F3C; expr &#x7684;&#x5DE6;&#x9012;&#x5F52;&#x89C4;&#x5219;&#x91CD;&#x5199;&#x6210;&#x975E;&#x5DE6;&#x9012;&#x5F52;&#x5F62;&#x5F0F; ANTL">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ch08-parser-allstar">
 <meta property="og:url" content="https://chendingya.github.io/2023/03/31/23-Compilers/ch08/index.html">
 <meta property="og:site_name" content="Asimov&#39;s Blog">
-<meta property="og:description" content="ch08-parser-allstar  ANTLR 4 自动将类似 expr 的左递归规则重写成非左递归形式 ANTLR 4 提供优秀的错误报告功能和复杂的错误恢复机制 ANTLR 4 使用了一种名为 Adaptive LL(∗) 的新技术 ANTLR 4 几乎能处理任何文法 (二义性文法✓ 间接左递归✗)  ANTLR 4 如何处理直接左递归与优先级的 写在前面就是优先级 antlr4 LRE">
+<meta property="og:description" content="ch08-parser-allstar  ANTLR 4 &#x81EA;&#x52A8;&#x5C06;&#x7C7B;&#x4F3C; expr &#x7684;&#x5DE6;&#x9012;&#x5F52;&#x89C4;&#x5219;&#x91CD;&#x5199;&#x6210;&#x975E;&#x5DE6;&#x9012;&#x5F52;&#x5F62;&#x5F0F; ANTL">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://chendingya.github.io/2023/03/31/23-Compilers/ch08/ch08/image-20230412194105648.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/03/31/23-Compilers/ch08/ch08/image-20230412194122240.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/03/31/23-Compilers/ch08/ch08/image-20230412212337814.png">
-<meta property="og:image" content="https://chendingya.github.io/ch08/image-20230412213204400.png">
-<meta property="og:image" content="https://chendingya.github.io/ch08/image-20230412213348701.png">
-<meta property="og:image" content="https://chendingya.github.io/ch08/image-20230413133253765.png">
-<meta property="og:image" content="https://chendingya.github.io/ch08/image-20230413133519855.png">
-<meta property="og:image" content="https://chendingya.github.io/ch08/image-20230413133602180.png">
-<meta property="og:image" content="https://chendingya.github.io/ch08/image-20230413133608565.png">
-<meta property="og:image" content="https://chendingya.github.io/ch08/image-20230413134629242.png">
-<meta property="og:image" content="https://chendingya.github.io/ch08/image-20230413134842985.png">
-<meta property="og:image" content="https://chendingya.github.io/ch08/image-20230413134959352.png">
-<meta property="og:image" content="https://chendingya.github.io/ch08/image-20230413135128393.png">
-<meta property="og:image" content="https://chendingya.github.io/ch08/image-20230419135522732.png">
-<meta property="og:image" content="https://chendingya.github.io/ch08/image-20230419135549559.png">
-<meta property="og:image" content="https://chendingya.github.io/ch08/image-20230419135623549.png">
-<meta property="og:image" content="https://chendingya.github.io/ch08/image-20230421131629488.png">
-<meta property="og:image" content="https://chendingya.github.io/ch08/image-20230419135832643.png">
-<meta property="og:image" content="https://chendingya.github.io/ch08/image-20230421131926277.png">
-<meta property="og:image" content="https://chendingya.github.io/ch08/image-20230419135849798.png">
-<meta property="og:image" content="https://chendingya.github.io/ch08/image-20230419153244753.png">
-<meta property="og:image" content="https://chendingya.github.io/ch08/image-20230419153252803.png">
-<meta property="og:image" content="https://chendingya.github.io/ch08/image-20230421182649302.png">
-<meta property="og:image" content="https://chendingya.github.io/ch08/image-20230421184118231.png">
-<meta property="og:image" content="https://chendingya.github.io/ch08/image-20230421195857108.png">
-<meta property="og:image" content="https://chendingya.github.io/ch08/image-20230421184717974.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/31/23-Compilers/ch08/image-20230412194105648.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/31/23-Compilers/ch08/image-20230412194122240.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/31/23-Compilers/ch08/image-20230412212337814.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/31/23-Compilers/ch08/ch08/image-20230412213204400.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/31/23-Compilers/ch08/ch08/image-20230412213348701.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/31/23-Compilers/ch08/ch08/image-20230413133253765.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/31/23-Compilers/ch08/ch08/image-20230413133519855.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/31/23-Compilers/ch08/ch08/image-20230413133602180.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/31/23-Compilers/ch08/ch08/image-20230413133608565.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/31/23-Compilers/ch08/ch08/image-20230413134629242.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/31/23-Compilers/ch08/ch08/image-20230413134842985.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/31/23-Compilers/ch08/ch08/image-20230413134959352.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/31/23-Compilers/ch08/ch08/image-20230413135128393.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/31/23-Compilers/ch08/ch08/image-20230419135522732.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/31/23-Compilers/ch08/ch08/image-20230419135549559.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/31/23-Compilers/ch08/ch08/image-20230419135623549.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/31/23-Compilers/ch08/ch08/image-20230421131629488.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/31/23-Compilers/ch08/ch08/image-20230419135832643.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/31/23-Compilers/ch08/ch08/image-20230421131926277.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/31/23-Compilers/ch08/ch08/image-20230419135849798.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/31/23-Compilers/ch08/ch08/image-20230419153244753.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/31/23-Compilers/ch08/ch08/image-20230419153252803.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/31/23-Compilers/ch08/ch08/image-20230421182649302.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/31/23-Compilers/ch08/ch08/image-20230421184118231.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/31/23-Compilers/ch08/ch08/image-20230421195857108.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/31/23-Compilers/ch08/ch08/image-20230421184717974.png">
 <meta property="article:published_time" content="2023-03-31T02:02:34.000Z">
 <meta property="article:modified_time" content="2023-09-14T10:47:39.250Z">
 <meta property="article:author" content="Asimov">
 <meta property="article:tag" content="编译原理">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://chendingya.github.io/2023/03/31/23-Compilers/ch08/ch08/image-20230412194105648.png">
+<meta name="twitter:image" content="https://chendingya.github.io/2023/03/31/23-Compilers/ch08/image-20230412194105648.png">
   
   
   
@@ -91,7 +91,7 @@
 <div class="widgets">
 
 
-<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2024/05/02/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%842/"><span class="title">系统架构2-质量属性Quality Attributes</span></a><a class="item title" href="/2024/05/01/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%841/"><span class="title">系统架构1-Intro</span></a><a class="item title" href="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/"><span class="title">软件测试-期末复习</span></a><a class="item title" href="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/"><span class="title">机器学习-期末复习</span></a><a class="item title" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/"><span class="title">服务端-ch17-k8s使用</span></a><a class="item title" href="/2023/12/30/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch16-%E5%AE%B9%E5%99%A8%E9%95%9C%E5%83%8F%E6%9E%84%E5%BB%BA%E4%B8%8E%E7%BC%96%E6%8E%92/"><span class="title">服务端-ch16-容器镜像构建与编排</span></a><a class="item title" href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/"><span class="title">服务端-ch15-Docker</span></a><a class="item title" href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/"><span class="title">服务端-ch14-Spring WebFlux</span></a><a class="item title" href="/2023/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch13-%E5%8F%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"><span class="title">服务端-ch13-反应式编程基础</span></a><a class="item title" href="/2023/11/23/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch12-Spring%20Integration/"><span class="title">服务端-ch12-Spring Integration</span></a></div></widget>
+<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2022/10/25/hello-world/"><span class="title">Hello World</span></a><a class="item title" href="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/"><span class="title">软件测试-期末复习</span></a><a class="item title" href="/2024/05/02/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%842/"><span class="title">系统架构2-质量属性Quality Attributes</span></a><a class="item title" href="/2024/05/01/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%841/"><span class="title">系统架构1-Intro</span></a><a class="item title" href="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/"><span class="title">机器学习-期末复习</span></a><a class="item title" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/"><span class="title">服务端-ch17-k8s使用</span></a><a class="item title" href="/2023/12/30/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch16-%E5%AE%B9%E5%99%A8%E9%95%9C%E5%83%8F%E6%9E%84%E5%BB%BA%E4%B8%8E%E7%BC%96%E6%8E%92/"><span class="title">服务端-ch16-容器镜像构建与编排</span></a><a class="item title" href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/"><span class="title">服务端-ch15-Docker</span></a><a class="item title" href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/"><span class="title">服务端-ch14-Spring WebFlux</span></a><a class="item title" href="/2023/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch13-%E5%8F%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"><span class="title">服务端-ch13-反应式编程基础</span></a></div></widget>
 </div>
 <footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/chendingya?tab=repositories" target="_blank" rel="external nofollow noopener noreferrer"><img no-lazy src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" / onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a></div></footer>
 </div></aside><div class="l_main" id="main">
@@ -117,65 +117,65 @@
   </div>
   </div><article class="md-text content"><h1>ch08-parser-allstar</h1>
 <ul>
-<li>ANTLR 4 自动将类似 expr 的<strong>左递归规则重写成非左递归形式</strong></li>
-<li>ANTLR 4 提供<strong>优秀的错误报告功能</strong>和<strong>复杂的错误恢复机制</strong></li>
-<li>ANTLR 4 使用了一种名为 <strong>Adaptive LL(∗)</strong> 的新技术</li>
-<li>ANTLR 4 <strong>几乎能处理任何文法</strong> (<strong>二义性文法✓ 间接左递归✗</strong>)</li>
+<li>ANTLR 4 &#x81EA;&#x52A8;&#x5C06;&#x7C7B;&#x4F3C; expr &#x7684;<strong>&#x5DE6;&#x9012;&#x5F52;&#x89C4;&#x5219;&#x91CD;&#x5199;&#x6210;&#x975E;&#x5DE6;&#x9012;&#x5F52;&#x5F62;&#x5F0F;</strong></li>
+<li>ANTLR 4 &#x63D0;&#x4F9B;<strong>&#x4F18;&#x79C0;&#x7684;&#x9519;&#x8BEF;&#x62A5;&#x544A;&#x529F;&#x80FD;</strong>&#x548C;<strong>&#x590D;&#x6742;&#x7684;&#x9519;&#x8BEF;&#x6062;&#x590D;&#x673A;&#x5236;</strong></li>
+<li>ANTLR 4 &#x4F7F;&#x7528;&#x4E86;&#x4E00;&#x79CD;&#x540D;&#x4E3A; <strong>Adaptive LL(&#x2217;)</strong> &#x7684;&#x65B0;&#x6280;&#x672F;</li>
+<li>ANTLR 4 <strong>&#x51E0;&#x4E4E;&#x80FD;&#x5904;&#x7406;&#x4EFB;&#x4F55;&#x6587;&#x6CD5;</strong> (<strong>&#x4E8C;&#x4E49;&#x6027;&#x6587;&#x6CD5;&#x2713; &#x95F4;&#x63A5;&#x5DE6;&#x9012;&#x5F52;&#x2717;</strong>)</li>
 </ul>
-<h2 id="ANTLR-4-如何处理直接左递归与优先级的">ANTLR 4 如何处理直接左递归与优先级的</h2>
-<p>写在前面就是优先级</p>
-<p>antlr4 LRExpr -Xlog   生成(.log)文件，即可查看直接左递归文法修改后的样子</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="ch08/image-20230412194105648.png" alt="image-20230412194105648"></p>
-<p>简化后：把递归改成循环</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="ch08/image-20230412194122240.png" alt="image-20230412194122240"></p>
-<p>4、3、5都是优先级</p>
-<p>初始的优先级是倒着从下往上ID: 1、int: 2、expr * ：3、expr +: 4</p>
-<p>每match一次就是往下走一层，优先级就要高</p>
-<p>如果我想要展开加法，优先级就得大于3</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="ch08/image-20230412212337814.png" alt="image-20230412212337814"></p>
-<h3 id="优先级上升算法（期末考试要考，画语法树）">优先级上升算法（期末考试要考，画语法树）</h3>
-<p>一旦进入加法，优先级升为4，因为乘法优先级比加法高，希望乘法的展开在加法后面，乘法更加靠近叶子、更深，所以优先级至少要比加法高；同时避免了加法的右结合（例如1 + 2 + 3）</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/ch08/image-20230412213204400.png" alt="image-20230412213204400"></p>
-<p>当递归指针直到2后面的+，无法展开，所以递归结束，返回到E[0]（E[0]处在while循环，因为发生调用了所以优先处理E[4]），然后匹配+，然后递归调用E[4]，E[4]匹配3，结束返回，结束E[0]循环</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/ch08/image-20230412213348701.png" alt="image-20230412213348701"></p>
-<p>实现了左结合，并且优先级上升</p>
-<p><strong>根本问题: 究竟是在 expr 的当前调用中匹配下一个运算符, 还是让 expr 的调用者匹配下一个运算符。</strong></p>
-<h4 id="例子：">例子：</h4>
-<p>例子1：</p>
+<h2 id="ANTLR-4-&#x5982;&#x4F55;&#x5904;&#x7406;&#x76F4;&#x63A5;&#x5DE6;&#x9012;&#x5F52;&#x4E0E;&#x4F18;&#x5148;&#x7EA7;&#x7684;">ANTLR 4 &#x5982;&#x4F55;&#x5904;&#x7406;&#x76F4;&#x63A5;&#x5DE6;&#x9012;&#x5F52;&#x4E0E;&#x4F18;&#x5148;&#x7EA7;&#x7684;</h2>
+<p>&#x5199;&#x5728;&#x524D;&#x9762;&#x5C31;&#x662F;&#x4F18;&#x5148;&#x7EA7;</p>
+<p>antlr4 LRExpr -Xlog   &#x751F;&#x6210;(.log)&#x6587;&#x4EF6;&#xFF0C;&#x5373;&#x53EF;&#x67E5;&#x770B;&#x76F4;&#x63A5;&#x5DE6;&#x9012;&#x5F52;&#x6587;&#x6CD5;&#x4FEE;&#x6539;&#x540E;&#x7684;&#x6837;&#x5B50;</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/03/31/23-Compilers/ch08/image-20230412194105648.png" alt="image-20230412194105648"></p>
+<p>&#x7B80;&#x5316;&#x540E;&#xFF1A;&#x628A;&#x9012;&#x5F52;&#x6539;&#x6210;&#x5FAA;&#x73AF;</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/03/31/23-Compilers/ch08/image-20230412194122240.png" alt="image-20230412194122240"></p>
+<p>4&#x3001;3&#x3001;5&#x90FD;&#x662F;&#x4F18;&#x5148;&#x7EA7;</p>
+<p>&#x521D;&#x59CB;&#x7684;&#x4F18;&#x5148;&#x7EA7;&#x662F;&#x5012;&#x7740;&#x4ECE;&#x4E0B;&#x5F80;&#x4E0A;ID: 1&#x3001;int: 2&#x3001;expr * &#xFF1A;3&#x3001;expr +: 4</p>
+<p>&#x6BCF;match&#x4E00;&#x6B21;&#x5C31;&#x662F;&#x5F80;&#x4E0B;&#x8D70;&#x4E00;&#x5C42;&#xFF0C;&#x4F18;&#x5148;&#x7EA7;&#x5C31;&#x8981;&#x9AD8;</p>
+<p>&#x5982;&#x679C;&#x6211;&#x60F3;&#x8981;&#x5C55;&#x5F00;&#x52A0;&#x6CD5;&#xFF0C;&#x4F18;&#x5148;&#x7EA7;&#x5C31;&#x5F97;&#x5927;&#x4E8E;3</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/03/31/23-Compilers/ch08/image-20230412212337814.png" alt="image-20230412212337814"></p>
+<h3 id="&#x4F18;&#x5148;&#x7EA7;&#x4E0A;&#x5347;&#x7B97;&#x6CD5;&#xFF08;&#x671F;&#x672B;&#x8003;&#x8BD5;&#x8981;&#x8003;&#xFF0C;&#x753B;&#x8BED;&#x6CD5;&#x6811;&#xFF09;">&#x4F18;&#x5148;&#x7EA7;&#x4E0A;&#x5347;&#x7B97;&#x6CD5;&#xFF08;&#x671F;&#x672B;&#x8003;&#x8BD5;&#x8981;&#x8003;&#xFF0C;&#x753B;&#x8BED;&#x6CD5;&#x6811;&#xFF09;</h3>
+<p>&#x4E00;&#x65E6;&#x8FDB;&#x5165;&#x52A0;&#x6CD5;&#xFF0C;&#x4F18;&#x5148;&#x7EA7;&#x5347;&#x4E3A;4&#xFF0C;&#x56E0;&#x4E3A;&#x4E58;&#x6CD5;&#x4F18;&#x5148;&#x7EA7;&#x6BD4;&#x52A0;&#x6CD5;&#x9AD8;&#xFF0C;&#x5E0C;&#x671B;&#x4E58;&#x6CD5;&#x7684;&#x5C55;&#x5F00;&#x5728;&#x52A0;&#x6CD5;&#x540E;&#x9762;&#xFF0C;&#x4E58;&#x6CD5;&#x66F4;&#x52A0;&#x9760;&#x8FD1;&#x53F6;&#x5B50;&#x3001;&#x66F4;&#x6DF1;&#xFF0C;&#x6240;&#x4EE5;&#x4F18;&#x5148;&#x7EA7;&#x81F3;&#x5C11;&#x8981;&#x6BD4;&#x52A0;&#x6CD5;&#x9AD8;&#xFF1B;&#x540C;&#x65F6;&#x907F;&#x514D;&#x4E86;&#x52A0;&#x6CD5;&#x7684;&#x53F3;&#x7ED3;&#x5408;&#xFF08;&#x4F8B;&#x5982;1 + 2 + 3&#xFF09;</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/03/31/23-Compilers/ch08/ch08/image-20230412213204400.png" alt="image-20230412213204400"></p>
+<p>&#x5F53;&#x9012;&#x5F52;&#x6307;&#x9488;&#x76F4;&#x5230;2&#x540E;&#x9762;&#x7684;+&#xFF0C;&#x65E0;&#x6CD5;&#x5C55;&#x5F00;&#xFF0C;&#x6240;&#x4EE5;&#x9012;&#x5F52;&#x7ED3;&#x675F;&#xFF0C;&#x8FD4;&#x56DE;&#x5230;E[0]&#xFF08;E[0]&#x5904;&#x5728;while&#x5FAA;&#x73AF;&#xFF0C;&#x56E0;&#x4E3A;&#x53D1;&#x751F;&#x8C03;&#x7528;&#x4E86;&#x6240;&#x4EE5;&#x4F18;&#x5148;&#x5904;&#x7406;E[4]&#xFF09;&#xFF0C;&#x7136;&#x540E;&#x5339;&#x914D;+&#xFF0C;&#x7136;&#x540E;&#x9012;&#x5F52;&#x8C03;&#x7528;E[4]&#xFF0C;E[4]&#x5339;&#x914D;3&#xFF0C;&#x7ED3;&#x675F;&#x8FD4;&#x56DE;&#xFF0C;&#x7ED3;&#x675F;E[0]&#x5FAA;&#x73AF;</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/03/31/23-Compilers/ch08/ch08/image-20230412213348701.png" alt="image-20230412213348701"></p>
+<p>&#x5B9E;&#x73B0;&#x4E86;&#x5DE6;&#x7ED3;&#x5408;&#xFF0C;&#x5E76;&#x4E14;&#x4F18;&#x5148;&#x7EA7;&#x4E0A;&#x5347;</p>
+<p><strong>&#x6839;&#x672C;&#x95EE;&#x9898;: &#x7A76;&#x7ADF;&#x662F;&#x5728; expr &#x7684;&#x5F53;&#x524D;&#x8C03;&#x7528;&#x4E2D;&#x5339;&#x914D;&#x4E0B;&#x4E00;&#x4E2A;&#x8FD0;&#x7B97;&#x7B26;, &#x8FD8;&#x662F;&#x8BA9; expr &#x7684;&#x8C03;&#x7528;&#x8005;&#x5339;&#x914D;&#x4E0B;&#x4E00;&#x4E2A;&#x8FD0;&#x7B97;&#x7B26;&#x3002;</strong></p>
+<h4 id="&#x4F8B;&#x5B50;&#xFF1A;">&#x4F8B;&#x5B50;&#xFF1A;</h4>
+<p>&#x4F8B;&#x5B50;1&#xFF1A;</p>
 <p>1 + 2 * 3</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/ch08/image-20230413133253765.png" alt="image-20230413133253765"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/03/31/23-Compilers/ch08/ch08/image-20230413133253765.png" alt="image-20230413133253765"></p>
 <p>1 * 2 + 3</p>
-<p>但是不是所有左递归优先级都是上升</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/ch08/image-20230413133519855.png" alt="image-20230413133519855"></p>
+<p>&#x4F46;&#x662F;&#x4E0D;&#x662F;&#x6240;&#x6709;&#x5DE6;&#x9012;&#x5F52;&#x4F18;&#x5148;&#x7EA7;&#x90FD;&#x662F;&#x4E0A;&#x5347;</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/03/31/23-Compilers/ch08/ch08/image-20230413133519855.png" alt="image-20230413133519855"></p>
 <ul>
-<li>前置运算符：右结合：  -(-(-x))</li>
-<li>后置运算符：左结合：( ( ( x!)! )! )</li>
-<li><strong>左结合的含义：1 + 2 + 3中 1 + 2 要先展开：调用的优先级参数要上升</strong></li>
-<li><strong>右结合：调用的优先级参数要不变</strong></li>
+<li>&#x524D;&#x7F6E;&#x8FD0;&#x7B97;&#x7B26;&#xFF1A;&#x53F3;&#x7ED3;&#x5408;&#xFF1A;  -(-(-x))</li>
+<li>&#x540E;&#x7F6E;&#x8FD0;&#x7B97;&#x7B26;&#xFF1A;&#x5DE6;&#x7ED3;&#x5408;&#xFF1A;( ( ( x!)! )! )</li>
+<li><strong>&#x5DE6;&#x7ED3;&#x5408;&#x7684;&#x542B;&#x4E49;&#xFF1A;1 + 2 + 3&#x4E2D; 1 + 2 &#x8981;&#x5148;&#x5C55;&#x5F00;&#xFF1A;&#x8C03;&#x7528;&#x7684;&#x4F18;&#x5148;&#x7EA7;&#x53C2;&#x6570;&#x8981;&#x4E0A;&#x5347;</strong></li>
+<li><strong>&#x53F3;&#x7ED3;&#x5408;&#xFF1A;&#x8C03;&#x7528;&#x7684;&#x4F18;&#x5148;&#x7EA7;&#x53C2;&#x6570;&#x8981;&#x4E0D;&#x53D8;</strong></li>
 </ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/ch08/image-20230413133602180.png" alt="image-20230413133602180"></p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/ch08/image-20230413133608565.png" alt="image-20230413133608565"></p>
-<p>例子2： -a!!</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/03/31/23-Compilers/ch08/ch08/image-20230413133602180.png" alt="image-20230413133602180"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/03/31/23-Compilers/ch08/ch08/image-20230413133608565.png" alt="image-20230413133608565"></p>
+<p>&#x4F8B;&#x5B50;2&#xFF1A; -a!!</p>
 <ul>
-<li>优先级：
+<li>&#x4F18;&#x5148;&#x7EA7;&#xFF1A;
 <ul>
 <li>- : 4 ;</li>
 <li>! : 3 ;</li>
 </ul>
 </li>
-<li>- 想要 实现右结合：不是左递归，所以改写的时候在上面和ID一起，优先级不变</li>
-<li>！是一元运算符，所以没有E[]</li>
-<li>+左结合，优先级应该上升</li>
+<li>- &#x60F3;&#x8981; &#x5B9E;&#x73B0;&#x53F3;&#x7ED3;&#x5408;&#xFF1A;&#x4E0D;&#x662F;&#x5DE6;&#x9012;&#x5F52;&#xFF0C;&#x6240;&#x4EE5;&#x6539;&#x5199;&#x7684;&#x65F6;&#x5019;&#x5728;&#x4E0A;&#x9762;&#x548C;ID&#x4E00;&#x8D77;&#xFF0C;&#x4F18;&#x5148;&#x7EA7;&#x4E0D;&#x53D8;</li>
+<li>&#xFF01;&#x662F;&#x4E00;&#x5143;&#x8FD0;&#x7B97;&#x7B26;&#xFF0C;&#x6240;&#x4EE5;&#x6CA1;&#x6709;E[]</li>
+<li>+&#x5DE6;&#x7ED3;&#x5408;&#xFF0C;&#x4F18;&#x5148;&#x7EA7;&#x5E94;&#x8BE5;&#x4E0A;&#x5347;</li>
 </ul>
-<p>例子：-a + b!</p>
+<p>&#x4F8B;&#x5B50;&#xFF1A;-a + b!</p>
 <ul>
-<li>E[4]返回时返回到第一个()的结尾，进入while循环，<strong>返回上一层调用前的时候注意返回后指针指向代码段在哪(返回的地址)</strong></li>
+<li>E[4]&#x8FD4;&#x56DE;&#x65F6;&#x8FD4;&#x56DE;&#x5230;&#x7B2C;&#x4E00;&#x4E2A;()&#x7684;&#x7ED3;&#x5C3E;&#xFF0C;&#x8FDB;&#x5165;while&#x5FAA;&#x73AF;&#xFF0C;<strong>&#x8FD4;&#x56DE;&#x4E0A;&#x4E00;&#x5C42;&#x8C03;&#x7528;&#x524D;&#x7684;&#x65F6;&#x5019;&#x6CE8;&#x610F;&#x8FD4;&#x56DE;&#x540E;&#x6307;&#x9488;&#x6307;&#x5411;&#x4EE3;&#x7801;&#x6BB5;&#x5728;&#x54EA;(&#x8FD4;&#x56DE;&#x7684;&#x5730;&#x5740;)</strong></li>
 </ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/ch08/image-20230413134629242.png" alt="image-20230413134629242"></p>
-<p>例子3：</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/ch08/image-20230413134842985.png" alt="image-20230413134842985"></p>
-<p>^是右结合，所以展开时调用优先级不变</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/ch08/image-20230413134959352.png" alt="image-20230413134959352"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/03/31/23-Compilers/ch08/ch08/image-20230413134629242.png" alt="image-20230413134629242"></p>
+<p>&#x4F8B;&#x5B50;3&#xFF1A;</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/03/31/23-Compilers/ch08/ch08/image-20230413134842985.png" alt="image-20230413134842985"></p>
+<p>^&#x662F;&#x53F3;&#x7ED3;&#x5408;&#xFF0C;&#x6240;&#x4EE5;&#x5C55;&#x5F00;&#x65F6;&#x8C03;&#x7528;&#x4F18;&#x5148;&#x7EA7;&#x4E0D;&#x53D8;</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/03/31/23-Compilers/ch08/ch08/image-20230413134959352.png" alt="image-20230413134959352"></p>
 <ul>
 <li>
 <p>For left-associative operators, the right operand gets one more precedence level than the operator itself</p>
@@ -184,154 +184,154 @@
 <p>For right-associative operators, the right operand gets the same precedence level as the current operand.</p>
 </li>
 </ul>
-<h2 id="ANTLR-4-如何进行错误报告与恢复的">ANTLR 4 如何进行错误报告与恢复的</h2>
-<h3 id="报错">报错</h3>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/ch08/image-20230413135128393.png" alt="image-20230413135128393"></p>
+<h2 id="ANTLR-4-&#x5982;&#x4F55;&#x8FDB;&#x884C;&#x9519;&#x8BEF;&#x62A5;&#x544A;&#x4E0E;&#x6062;&#x590D;&#x7684;">ANTLR 4 &#x5982;&#x4F55;&#x8FDB;&#x884C;&#x9519;&#x8BEF;&#x62A5;&#x544A;&#x4E0E;&#x6062;&#x590D;&#x7684;</h2>
+<h3 id="&#x62A5;&#x9519;">&#x62A5;&#x9519;</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/03/31/23-Compilers/ch08/ch08/image-20230413135128393.png" alt="image-20230413135128393"></p>
 <ul>
-<li>LexerNoViableAltException是词法错误：识别到了一个不在词法规约中的字符</li>
+<li>LexerNoViableAltException&#x662F;&#x8BCD;&#x6CD5;&#x9519;&#x8BEF;&#xFF1A;&#x8BC6;&#x522B;&#x5230;&#x4E86;&#x4E00;&#x4E2A;&#x4E0D;&#x5728;&#x8BCD;&#x6CD5;&#x89C4;&#x7EA6;&#x4E2D;&#x7684;&#x5B57;&#x7B26;</li>
 </ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/ch08/image-20230419135522732.png" alt="image-20230419135522732"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/03/31/23-Compilers/ch08/ch08/image-20230419135522732.png" alt="image-20230419135522732"></p>
 <ul>
-<li>NoViableAltException是文法错误：要对某个非终结符展开的时候，如果有多个备选分支，但是分析后都不能用
+<li>NoViableAltException&#x662F;&#x6587;&#x6CD5;&#x9519;&#x8BEF;&#xFF1A;&#x8981;&#x5BF9;&#x67D0;&#x4E2A;&#x975E;&#x7EC8;&#x7ED3;&#x7B26;&#x5C55;&#x5F00;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x5982;&#x679C;&#x6709;&#x591A;&#x4E2A;&#x5907;&#x9009;&#x5206;&#x652F;&#xFF0C;&#x4F46;&#x662F;&#x5206;&#x6790;&#x540E;&#x90FD;&#x4E0D;&#x80FD;&#x7528;
 <ul>
-<li>输入流中的当前词法单元与当前规则所期望的词法单元不匹配</li>
-</ul>
-</li>
-</ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/ch08/image-20230419135549559.png" alt="image-20230419135549559"></p>
-<ul>
-<li>InputMismatchException是文法错误：选择了某个备选分支，开始分析时，期望是t这个词法单元，但是指针指向的是a，t != a，想匹配的词法单元不是我想要的
-<ul>
-<li>剩余输入不符合当前规则的任何一个备选分支</li>
+<li>&#x8F93;&#x5165;&#x6D41;&#x4E2D;&#x7684;&#x5F53;&#x524D;&#x8BCD;&#x6CD5;&#x5355;&#x5143;&#x4E0E;&#x5F53;&#x524D;&#x89C4;&#x5219;&#x6240;&#x671F;&#x671B;&#x7684;&#x8BCD;&#x6CD5;&#x5355;&#x5143;&#x4E0D;&#x5339;&#x914D;</li>
 </ul>
 </li>
 </ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/ch08/image-20230419135623549.png" alt="image-20230419135623549"></p>
-<p>《ANTLR 4 权威指南》第 9.2 节: 修改和转发 ANTLR 的错误消息</p>
-<p>如果想要更加详细的信息：覆写接口方法</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/ch08/image-20230421131629488.png" alt="image-20230421131629488"></p>
-<h3 id="恢复">恢复</h3>
-<h4 id="恐慌-应急-Panic-模式">恐慌/应急 (Panic) 模式:</h4>
-<p>假装成功、调整状态、继续进行</p>
-<h4 id="四项基本原则">四项基本原则:</h4>
-<h5 id="1-特殊情况-特殊处理">(1) 特殊情况, 特殊处理</h5>
-<p>如果下一个词法单元符合预期, 则采用 <strong>“单词法符号移除 (single-token deletion)”</strong> 或 <strong>“单词法符号补全 (single-token insertion)” 策略”</strong></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/03/31/23-Compilers/ch08/ch08/image-20230419135549559.png" alt="image-20230419135549559"></p>
 <ul>
-<li>单词法符号移除</li>
-</ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/ch08/image-20230419135832643.png" alt="image-20230419135832643"></p>
-<p>符号移除：多出一个符号，接下来的符号是期望的，就把多出来的移除</p>
-<p>​	<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/ch08/image-20230421131926277.png" alt="image-20230421131926277"></p>
+<li>InputMismatchException&#x662F;&#x6587;&#x6CD5;&#x9519;&#x8BEF;&#xFF1A;&#x9009;&#x62E9;&#x4E86;&#x67D0;&#x4E2A;&#x5907;&#x9009;&#x5206;&#x652F;&#xFF0C;&#x5F00;&#x59CB;&#x5206;&#x6790;&#x65F6;&#xFF0C;&#x671F;&#x671B;&#x662F;t&#x8FD9;&#x4E2A;&#x8BCD;&#x6CD5;&#x5355;&#x5143;&#xFF0C;&#x4F46;&#x662F;&#x6307;&#x9488;&#x6307;&#x5411;&#x7684;&#x662F;a&#xFF0C;t != a&#xFF0C;&#x60F3;&#x5339;&#x914D;&#x7684;&#x8BCD;&#x6CD5;&#x5355;&#x5143;&#x4E0D;&#x662F;&#x6211;&#x60F3;&#x8981;&#x7684;
 <ul>
-<li>单词法符号补全</li>
+<li>&#x5269;&#x4F59;&#x8F93;&#x5165;&#x4E0D;&#x7B26;&#x5408;&#x5F53;&#x524D;&#x89C4;&#x5219;&#x7684;&#x4EFB;&#x4F55;&#x4E00;&#x4E2A;&#x5907;&#x9009;&#x5206;&#x652F;</li>
 </ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/ch08/image-20230419135849798.png" alt="image-20230419135849798"></p>
-<p>符号补全：缺一个类名，补全</p>
-<p><strong>单词法：只处理一个单词的情况</strong></p>
-<h5 id="2-一般情况-统一处理">(2) 一般情况, 统一处理</h5>
-<p>采用 <strong>“同步-返回 (sync-and-return)”</strong> 策略, 使用 <strong>“重新同步集合 (resynchronization set)”</strong> 从当前规则中恢复</p>
-<p>例子：</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/ch08/image-20230419153244753.png" alt="image-20230419153244753"></p>
-<p>Following({expr, atom}) = { ˆ , ]}</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/ch08/image-20230419153252803.png" alt="image-20230419153252803"></p>
+</li>
+</ul>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/03/31/23-Compilers/ch08/ch08/image-20230419135623549.png" alt="image-20230419135623549"></p>
+<p>&#x300A;ANTLR 4 &#x6743;&#x5A01;&#x6307;&#x5357;&#x300B;&#x7B2C; 9.2 &#x8282;: &#x4FEE;&#x6539;&#x548C;&#x8F6C;&#x53D1; ANTLR &#x7684;&#x9519;&#x8BEF;&#x6D88;&#x606F;</p>
+<p>&#x5982;&#x679C;&#x60F3;&#x8981;&#x66F4;&#x52A0;&#x8BE6;&#x7EC6;&#x7684;&#x4FE1;&#x606F;&#xFF1A;&#x8986;&#x5199;&#x63A5;&#x53E3;&#x65B9;&#x6CD5;</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/03/31/23-Compilers/ch08/ch08/image-20230421131629488.png" alt="image-20230421131629488"></p>
+<h3 id="&#x6062;&#x590D;">&#x6062;&#x590D;</h3>
+<h4 id="&#x6050;&#x614C;-&#x5E94;&#x6025;-Panic-&#x6A21;&#x5F0F;">&#x6050;&#x614C;/&#x5E94;&#x6025; (Panic) &#x6A21;&#x5F0F;:</h4>
+<p>&#x5047;&#x88C5;&#x6210;&#x529F;&#x3001;&#x8C03;&#x6574;&#x72B6;&#x6001;&#x3001;&#x7EE7;&#x7EED;&#x8FDB;&#x884C;</p>
+<h4 id="&#x56DB;&#x9879;&#x57FA;&#x672C;&#x539F;&#x5219;">&#x56DB;&#x9879;&#x57FA;&#x672C;&#x539F;&#x5219;:</h4>
+<h5 id="1-&#x7279;&#x6B8A;&#x60C5;&#x51B5;-&#x7279;&#x6B8A;&#x5904;&#x7406;">(1) &#x7279;&#x6B8A;&#x60C5;&#x51B5;, &#x7279;&#x6B8A;&#x5904;&#x7406;</h5>
+<p>&#x5982;&#x679C;&#x4E0B;&#x4E00;&#x4E2A;&#x8BCD;&#x6CD5;&#x5355;&#x5143;&#x7B26;&#x5408;&#x9884;&#x671F;, &#x5219;&#x91C7;&#x7528; <strong>&#x201C;&#x5355;&#x8BCD;&#x6CD5;&#x7B26;&#x53F7;&#x79FB;&#x9664; (single-token deletion)&#x201D;</strong> &#x6216; <strong>&#x201C;&#x5355;&#x8BCD;&#x6CD5;&#x7B26;&#x53F7;&#x8865;&#x5168; (single-token insertion)&#x201D; &#x7B56;&#x7565;&#x201D;</strong></p>
+<ul>
+<li>&#x5355;&#x8BCD;&#x6CD5;&#x7B26;&#x53F7;&#x79FB;&#x9664;</li>
+</ul>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/03/31/23-Compilers/ch08/ch08/image-20230419135832643.png" alt="image-20230419135832643"></p>
+<p>&#x7B26;&#x53F7;&#x79FB;&#x9664;&#xFF1A;&#x591A;&#x51FA;&#x4E00;&#x4E2A;&#x7B26;&#x53F7;&#xFF0C;&#x63A5;&#x4E0B;&#x6765;&#x7684;&#x7B26;&#x53F7;&#x662F;&#x671F;&#x671B;&#x7684;&#xFF0C;&#x5C31;&#x628A;&#x591A;&#x51FA;&#x6765;&#x7684;&#x79FB;&#x9664;</p>
+<p>&#x200B;	<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/03/31/23-Compilers/ch08/ch08/image-20230421131926277.png" alt="image-20230421131926277"></p>
+<ul>
+<li>&#x5355;&#x8BCD;&#x6CD5;&#x7B26;&#x53F7;&#x8865;&#x5168;</li>
+</ul>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/03/31/23-Compilers/ch08/ch08/image-20230419135849798.png" alt="image-20230419135849798"></p>
+<p>&#x7B26;&#x53F7;&#x8865;&#x5168;&#xFF1A;&#x7F3A;&#x4E00;&#x4E2A;&#x7C7B;&#x540D;&#xFF0C;&#x8865;&#x5168;</p>
+<p><strong>&#x5355;&#x8BCD;&#x6CD5;&#xFF1A;&#x53EA;&#x5904;&#x7406;&#x4E00;&#x4E2A;&#x5355;&#x8BCD;&#x7684;&#x60C5;&#x51B5;</strong></p>
+<h5 id="2-&#x4E00;&#x822C;&#x60C5;&#x51B5;-&#x7EDF;&#x4E00;&#x5904;&#x7406;">(2) &#x4E00;&#x822C;&#x60C5;&#x51B5;, &#x7EDF;&#x4E00;&#x5904;&#x7406;</h5>
+<p>&#x91C7;&#x7528; <strong>&#x201C;&#x540C;&#x6B65;-&#x8FD4;&#x56DE; (sync-and-return)&#x201D;</strong> &#x7B56;&#x7565;, &#x4F7F;&#x7528; <strong>&#x201C;&#x91CD;&#x65B0;&#x540C;&#x6B65;&#x96C6;&#x5408; (resynchronization set)&#x201D;</strong> &#x4ECE;&#x5F53;&#x524D;&#x89C4;&#x5219;&#x4E2D;&#x6062;&#x590D;</p>
+<p>&#x4F8B;&#x5B50;&#xFF1A;</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/03/31/23-Compilers/ch08/ch08/image-20230419153244753.png" alt="image-20230419153244753"></p>
+<p>Following({expr, atom}) = { &#x2C6; , ]}</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/03/31/23-Compilers/ch08/ch08/image-20230419153252803.png" alt="image-20230419153252803"></p>
 <p>Following({expr}) = {]}</p>
-<p>输入为一对中括号[]：</p>
+<p>&#x8F93;&#x5165;&#x4E3A;&#x4E00;&#x5BF9;&#x4E2D;&#x62EC;&#x53F7;[]&#xFF1A;</p>
 <ul>
-<li>ANTLR4能识别，并且补全中间缺少的应该有的内容</li>
-<li>正常匹配expr和atom：因为没有别的可选项</li>
-<li>int与]不匹配，持续往后扫描，<strong>抛弃一些符号，直到找到一个想要的词法单元</strong>：<strong>即following({expr, atom})集合</strong>，要么是^要么是]，找到了就表明可以恢复</li>
-<li>这个例子没有抛弃任何符号</li>
-<li>从atom恢复到expr这一层，下面期望^，但指向的符号是]，所以<strong>扔一些词法单元，直到找到following({expr})== {]}</strong></li>
-<li>这一层也没有抛弃任何词法单元</li>
-<li>从expr恢复到group，group需要]，匹配上了，完成恢复过程</li>
-<li>恢复：当前符号不是我想要的，哪些符号是我想要的：假设能够匹配成功atom，期望一个幂运算的符号^，假设能够匹配成功expr，期望一个]或)（ 但是‘)’是不可能的，因为前面已经匹配成功‘]’，已经选定了第一条规则 ），这时候正好下一个字符是]，于是匹配掉了，后面的内容就可以正常匹配了</li>
-<li><strong>恢复是一层一层完成的</strong></li>
-<li>蚂蚁蚂蚁的恢复解释：丢弃词法单元直到碰到当前 Following 集合中的某个词法单元，然后从当前规则中恢复，也就是返回上一层，继续分析。比如，在 <code>【】</code> 例子中，atom 期望 INT/ID，与 ] 不匹配，则不断丢弃输入中的词法单元，直到遇到 ^ 或者 ]。对于这个例子，恰巧当前词法单元就是 ]，所以并没有丢弃任何词法单元，就能从 atom 中恢复，返回到 expr 层。expr 期望看到 ^，与 ] 也不匹配，则不断丢弃词法单元直到遇到 ]。这里同样也没有丢弃任何词法单元，就能从 expr 中恢复，返回到 group 层。group 期望看到 ]，与当前词法单元匹配，成功恢复。</li>
+<li>ANTLR4&#x80FD;&#x8BC6;&#x522B;&#xFF0C;&#x5E76;&#x4E14;&#x8865;&#x5168;&#x4E2D;&#x95F4;&#x7F3A;&#x5C11;&#x7684;&#x5E94;&#x8BE5;&#x6709;&#x7684;&#x5185;&#x5BB9;</li>
+<li>&#x6B63;&#x5E38;&#x5339;&#x914D;expr&#x548C;atom&#xFF1A;&#x56E0;&#x4E3A;&#x6CA1;&#x6709;&#x522B;&#x7684;&#x53EF;&#x9009;&#x9879;</li>
+<li>int&#x4E0E;]&#x4E0D;&#x5339;&#x914D;&#xFF0C;&#x6301;&#x7EED;&#x5F80;&#x540E;&#x626B;&#x63CF;&#xFF0C;<strong>&#x629B;&#x5F03;&#x4E00;&#x4E9B;&#x7B26;&#x53F7;&#xFF0C;&#x76F4;&#x5230;&#x627E;&#x5230;&#x4E00;&#x4E2A;&#x60F3;&#x8981;&#x7684;&#x8BCD;&#x6CD5;&#x5355;&#x5143;</strong>&#xFF1A;<strong>&#x5373;following({expr, atom})&#x96C6;&#x5408;</strong>&#xFF0C;&#x8981;&#x4E48;&#x662F;^&#x8981;&#x4E48;&#x662F;]&#xFF0C;&#x627E;&#x5230;&#x4E86;&#x5C31;&#x8868;&#x660E;&#x53EF;&#x4EE5;&#x6062;&#x590D;</li>
+<li>&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#x6CA1;&#x6709;&#x629B;&#x5F03;&#x4EFB;&#x4F55;&#x7B26;&#x53F7;</li>
+<li>&#x4ECE;atom&#x6062;&#x590D;&#x5230;expr&#x8FD9;&#x4E00;&#x5C42;&#xFF0C;&#x4E0B;&#x9762;&#x671F;&#x671B;^&#xFF0C;&#x4F46;&#x6307;&#x5411;&#x7684;&#x7B26;&#x53F7;&#x662F;]&#xFF0C;&#x6240;&#x4EE5;<strong>&#x6254;&#x4E00;&#x4E9B;&#x8BCD;&#x6CD5;&#x5355;&#x5143;&#xFF0C;&#x76F4;&#x5230;&#x627E;&#x5230;following({expr})== {]}</strong></li>
+<li>&#x8FD9;&#x4E00;&#x5C42;&#x4E5F;&#x6CA1;&#x6709;&#x629B;&#x5F03;&#x4EFB;&#x4F55;&#x8BCD;&#x6CD5;&#x5355;&#x5143;</li>
+<li>&#x4ECE;expr&#x6062;&#x590D;&#x5230;group&#xFF0C;group&#x9700;&#x8981;]&#xFF0C;&#x5339;&#x914D;&#x4E0A;&#x4E86;&#xFF0C;&#x5B8C;&#x6210;&#x6062;&#x590D;&#x8FC7;&#x7A0B;</li>
+<li>&#x6062;&#x590D;&#xFF1A;&#x5F53;&#x524D;&#x7B26;&#x53F7;&#x4E0D;&#x662F;&#x6211;&#x60F3;&#x8981;&#x7684;&#xFF0C;&#x54EA;&#x4E9B;&#x7B26;&#x53F7;&#x662F;&#x6211;&#x60F3;&#x8981;&#x7684;&#xFF1A;&#x5047;&#x8BBE;&#x80FD;&#x591F;&#x5339;&#x914D;&#x6210;&#x529F;atom&#xFF0C;&#x671F;&#x671B;&#x4E00;&#x4E2A;&#x5E42;&#x8FD0;&#x7B97;&#x7684;&#x7B26;&#x53F7;^&#xFF0C;&#x5047;&#x8BBE;&#x80FD;&#x591F;&#x5339;&#x914D;&#x6210;&#x529F;expr&#xFF0C;&#x671F;&#x671B;&#x4E00;&#x4E2A;]&#x6216;)&#xFF08; &#x4F46;&#x662F;&#x2018;)&#x2019;&#x662F;&#x4E0D;&#x53EF;&#x80FD;&#x7684;&#xFF0C;&#x56E0;&#x4E3A;&#x524D;&#x9762;&#x5DF2;&#x7ECF;&#x5339;&#x914D;&#x6210;&#x529F;&#x2018;]&#x2019;&#xFF0C;&#x5DF2;&#x7ECF;&#x9009;&#x5B9A;&#x4E86;&#x7B2C;&#x4E00;&#x6761;&#x89C4;&#x5219; &#xFF09;&#xFF0C;&#x8FD9;&#x65F6;&#x5019;&#x6B63;&#x597D;&#x4E0B;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x662F;]&#xFF0C;&#x4E8E;&#x662F;&#x5339;&#x914D;&#x6389;&#x4E86;&#xFF0C;&#x540E;&#x9762;&#x7684;&#x5185;&#x5BB9;&#x5C31;&#x53EF;&#x4EE5;&#x6B63;&#x5E38;&#x5339;&#x914D;&#x4E86;</li>
+<li><strong>&#x6062;&#x590D;&#x662F;&#x4E00;&#x5C42;&#x4E00;&#x5C42;&#x5B8C;&#x6210;&#x7684;</strong></li>
+<li>&#x8682;&#x8681;&#x8682;&#x8681;&#x7684;&#x6062;&#x590D;&#x89E3;&#x91CA;&#xFF1A;&#x4E22;&#x5F03;&#x8BCD;&#x6CD5;&#x5355;&#x5143;&#x76F4;&#x5230;&#x78B0;&#x5230;&#x5F53;&#x524D; Following &#x96C6;&#x5408;&#x4E2D;&#x7684;&#x67D0;&#x4E2A;&#x8BCD;&#x6CD5;&#x5355;&#x5143;&#xFF0C;&#x7136;&#x540E;&#x4ECE;&#x5F53;&#x524D;&#x89C4;&#x5219;&#x4E2D;&#x6062;&#x590D;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8FD4;&#x56DE;&#x4E0A;&#x4E00;&#x5C42;&#xFF0C;&#x7EE7;&#x7EED;&#x5206;&#x6790;&#x3002;&#x6BD4;&#x5982;&#xFF0C;&#x5728; <code>&#x3010;&#x3011;</code> &#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;atom &#x671F;&#x671B; INT/ID&#xFF0C;&#x4E0E; ] &#x4E0D;&#x5339;&#x914D;&#xFF0C;&#x5219;&#x4E0D;&#x65AD;&#x4E22;&#x5F03;&#x8F93;&#x5165;&#x4E2D;&#x7684;&#x8BCD;&#x6CD5;&#x5355;&#x5143;&#xFF0C;&#x76F4;&#x5230;&#x9047;&#x5230; ^ &#x6216;&#x8005; ]&#x3002;&#x5BF9;&#x4E8E;&#x8FD9;&#x4E2A;&#x4F8B;&#x5B50;&#xFF0C;&#x6070;&#x5DE7;&#x5F53;&#x524D;&#x8BCD;&#x6CD5;&#x5355;&#x5143;&#x5C31;&#x662F; ]&#xFF0C;&#x6240;&#x4EE5;&#x5E76;&#x6CA1;&#x6709;&#x4E22;&#x5F03;&#x4EFB;&#x4F55;&#x8BCD;&#x6CD5;&#x5355;&#x5143;&#xFF0C;&#x5C31;&#x80FD;&#x4ECE; atom &#x4E2D;&#x6062;&#x590D;&#xFF0C;&#x8FD4;&#x56DE;&#x5230; expr &#x5C42;&#x3002;expr &#x671F;&#x671B;&#x770B;&#x5230; ^&#xFF0C;&#x4E0E; ] &#x4E5F;&#x4E0D;&#x5339;&#x914D;&#xFF0C;&#x5219;&#x4E0D;&#x65AD;&#x4E22;&#x5F03;&#x8BCD;&#x6CD5;&#x5355;&#x5143;&#x76F4;&#x5230;&#x9047;&#x5230; ]&#x3002;&#x8FD9;&#x91CC;&#x540C;&#x6837;&#x4E5F;&#x6CA1;&#x6709;&#x4E22;&#x5F03;&#x4EFB;&#x4F55;&#x8BCD;&#x6CD5;&#x5355;&#x5143;&#xFF0C;&#x5C31;&#x80FD;&#x4ECE; expr &#x4E2D;&#x6062;&#x590D;&#xFF0C;&#x8FD4;&#x56DE;&#x5230; group &#x5C42;&#x3002;group &#x671F;&#x671B;&#x770B;&#x5230; ]&#xFF0C;&#x4E0E;&#x5F53;&#x524D;&#x8BCD;&#x6CD5;&#x5355;&#x5143;&#x5339;&#x914D;&#xFF0C;&#x6210;&#x529F;&#x6062;&#x590D;&#x3002;</li>
 </ul>
-<p>Follow (静态) 集合与 Following (动态) 集合的区别：</p>
+<p>Follow (&#x9759;&#x6001;) &#x96C6;&#x5408;&#x4E0E; Following (&#x52A8;&#x6001;) &#x96C6;&#x5408;&#x7684;&#x533A;&#x522B;&#xFF1A;</p>
 <ul>
-<li>这是一个正在进行时的集合</li>
-<li>就当前来看，一定是选择了某个备选分支才到现在，所以是动态的概念</li>
+<li>&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x6B63;&#x5728;&#x8FDB;&#x884C;&#x65F6;&#x7684;&#x96C6;&#x5408;</li>
+<li>&#x5C31;&#x5F53;&#x524D;&#x6765;&#x770B;&#xFF0C;&#x4E00;&#x5B9A;&#x662F;&#x9009;&#x62E9;&#x4E86;&#x67D0;&#x4E2A;&#x5907;&#x9009;&#x5206;&#x652F;&#x624D;&#x5230;&#x73B0;&#x5728;&#xFF0C;&#x6240;&#x4EE5;&#x662F;&#x52A8;&#x6001;&#x7684;&#x6982;&#x5FF5;</li>
 </ul>
-<h5 id="3-统一处理-精细控制">(3) 统一处理, 精细控制</h5>
-<p>如何从子规则中优雅地恢复出来?</p>
-<p>如果循环出错：跳过当前的（即continue），但是继续循环</p>
-<p>Class-Subrule-Start.txt <strong>(“单词法符号移除</strong>”)</p>
-<p>Class-Subrule-Loop.txt (<strong>“另一次 member 迭代”</strong>)</p>
-<p>Class-Subrule-End.txt (<strong>“退出当前 classDef 规则”</strong>)</p>
-<p>具体实现不讲，可以自行阅读代码</p>
-<h5 id="4-自定义错误处理策略">(4) 自定义错误处理策略</h5>
+<h5 id="3-&#x7EDF;&#x4E00;&#x5904;&#x7406;-&#x7CBE;&#x7EC6;&#x63A7;&#x5236;">(3) &#x7EDF;&#x4E00;&#x5904;&#x7406;, &#x7CBE;&#x7EC6;&#x63A7;&#x5236;</h5>
+<p>&#x5982;&#x4F55;&#x4ECE;&#x5B50;&#x89C4;&#x5219;&#x4E2D;&#x4F18;&#x96C5;&#x5730;&#x6062;&#x590D;&#x51FA;&#x6765;?</p>
+<p>&#x5982;&#x679C;&#x5FAA;&#x73AF;&#x51FA;&#x9519;&#xFF1A;&#x8DF3;&#x8FC7;&#x5F53;&#x524D;&#x7684;&#xFF08;&#x5373;continue&#xFF09;&#xFF0C;&#x4F46;&#x662F;&#x7EE7;&#x7EED;&#x5FAA;&#x73AF;</p>
+<p>Class-Subrule-Start.txt <strong>(&#x201C;&#x5355;&#x8BCD;&#x6CD5;&#x7B26;&#x53F7;&#x79FB;&#x9664;</strong>&#x201D;)</p>
+<p>Class-Subrule-Loop.txt (<strong>&#x201C;&#x53E6;&#x4E00;&#x6B21; member &#x8FED;&#x4EE3;&#x201D;</strong>)</p>
+<p>Class-Subrule-End.txt (<strong>&#x201C;&#x9000;&#x51FA;&#x5F53;&#x524D; classDef &#x89C4;&#x5219;&#x201D;</strong>)</p>
+<p>&#x5177;&#x4F53;&#x5B9E;&#x73B0;&#x4E0D;&#x8BB2;&#xFF0C;&#x53EF;&#x4EE5;&#x81EA;&#x884C;&#x9605;&#x8BFB;&#x4EE3;&#x7801;</p>
+<h5 id="4-&#x81EA;&#x5B9A;&#x4E49;&#x9519;&#x8BEF;&#x5904;&#x7406;&#x7B56;&#x7565;">(4) &#x81EA;&#x5B9A;&#x4E49;&#x9519;&#x8BEF;&#x5904;&#x7406;&#x7B56;&#x7565;</h5>
 <ul>
-<li>比如, (已知语法正确) 关闭默认错误处理功能, 提高运行效率</li>
-<li>比如, (出错代价太大) 在遇到第一个语法错误时, 就停止分析</li>
+<li>&#x6BD4;&#x5982;, (&#x5DF2;&#x77E5;&#x8BED;&#x6CD5;&#x6B63;&#x786E;) &#x5173;&#x95ED;&#x9ED8;&#x8BA4;&#x9519;&#x8BEF;&#x5904;&#x7406;&#x529F;&#x80FD;, &#x63D0;&#x9AD8;&#x8FD0;&#x884C;&#x6548;&#x7387;</li>
+<li>&#x6BD4;&#x5982;, (&#x51FA;&#x9519;&#x4EE3;&#x4EF7;&#x592A;&#x5927;) &#x5728;&#x9047;&#x5230;&#x7B2C;&#x4E00;&#x4E2A;&#x8BED;&#x6CD5;&#x9519;&#x8BEF;&#x65F6;, &#x5C31;&#x505C;&#x6B62;&#x5206;&#x6790;</li>
 </ul>
-<p>第 9 章: 错误报告与恢复：有点乱</p>
-<h3 id="ALL-文法">ALL(*)文法</h3>
-<p>例子1：</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/ch08/image-20230421182649302.png" alt="image-20230421182649302"></p>
-<p>这不是 LL(1) 文法，也不是 LL(k) 文法 (∀k ≥ 1)</p>
-<p>对任意可能输入，这是一个LL(*)文法，因为没有办法通过向前看一个固定数量（常数）的字符来确定选用哪个展开式，即LL(K)</p>
-<p>但是ANTLR4能解决，因为和输入有关，是动态的视角，只根据当前的字符串</p>
-<p>bc或者bd选择哪一个生成式：</p>
-<p>bc选第一条，因为c只能由第一条产生</p>
-<h3 id="文法用图示表示：增强迁移网络ATN">文法用图示表示：增强迁移网络ATN</h3>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/ch08/image-20230421184118231.png" alt="image-20230421184118231"></p>
+<p>&#x7B2C; 9 &#x7AE0;: &#x9519;&#x8BEF;&#x62A5;&#x544A;&#x4E0E;&#x6062;&#x590D;&#xFF1A;&#x6709;&#x70B9;&#x4E71;</p>
+<h3 id="ALL-&#x6587;&#x6CD5;">ALL(*)&#x6587;&#x6CD5;</h3>
+<p>&#x4F8B;&#x5B50;1&#xFF1A;</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/03/31/23-Compilers/ch08/ch08/image-20230421182649302.png" alt="image-20230421182649302"></p>
+<p>&#x8FD9;&#x4E0D;&#x662F; LL(1) &#x6587;&#x6CD5;&#xFF0C;&#x4E5F;&#x4E0D;&#x662F; LL(k) &#x6587;&#x6CD5; (&#x2200;k &#x2265; 1)</p>
+<p>&#x5BF9;&#x4EFB;&#x610F;&#x53EF;&#x80FD;&#x8F93;&#x5165;&#xFF0C;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;LL(*)&#x6587;&#x6CD5;&#xFF0C;&#x56E0;&#x4E3A;&#x6CA1;&#x6709;&#x529E;&#x6CD5;&#x901A;&#x8FC7;&#x5411;&#x524D;&#x770B;&#x4E00;&#x4E2A;&#x56FA;&#x5B9A;&#x6570;&#x91CF;&#xFF08;&#x5E38;&#x6570;&#xFF09;&#x7684;&#x5B57;&#x7B26;&#x6765;&#x786E;&#x5B9A;&#x9009;&#x7528;&#x54EA;&#x4E2A;&#x5C55;&#x5F00;&#x5F0F;&#xFF0C;&#x5373;LL(K)</p>
+<p>&#x4F46;&#x662F;ANTLR4&#x80FD;&#x89E3;&#x51B3;&#xFF0C;&#x56E0;&#x4E3A;&#x548C;&#x8F93;&#x5165;&#x6709;&#x5173;&#xFF0C;&#x662F;&#x52A8;&#x6001;&#x7684;&#x89C6;&#x89D2;&#xFF0C;&#x53EA;&#x6839;&#x636E;&#x5F53;&#x524D;&#x7684;&#x5B57;&#x7B26;&#x4E32;</p>
+<p>bc&#x6216;&#x8005;bd&#x9009;&#x62E9;&#x54EA;&#x4E00;&#x4E2A;&#x751F;&#x6210;&#x5F0F;&#xFF1A;</p>
+<p>bc&#x9009;&#x7B2C;&#x4E00;&#x6761;&#xFF0C;&#x56E0;&#x4E3A;c&#x53EA;&#x80FD;&#x7531;&#x7B2C;&#x4E00;&#x6761;&#x4EA7;&#x751F;</p>
+<h3 id="&#x6587;&#x6CD5;&#x7528;&#x56FE;&#x793A;&#x8868;&#x793A;&#xFF1A;&#x589E;&#x5F3A;&#x8FC1;&#x79FB;&#x7F51;&#x7EDC;ATN">&#x6587;&#x6CD5;&#x7528;&#x56FE;&#x793A;&#x8868;&#x793A;&#xFF1A;&#x589E;&#x5F3A;&#x8FC1;&#x79FB;&#x7F51;&#x7EDC;ATN</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/03/31/23-Compilers/ch08/ch08/image-20230421184118231.png" alt="image-20230421184118231"></p>
 <ul>
-<li>起始状态：Ps</li>
-<li>接受状态：P’s</li>
-<li>如果A和c都能匹配，说明第一条备选分支能被选择</li>
-<li><strong>因为A不是终结符，所以A也有ATN</strong></li>
+<li>&#x8D77;&#x59CB;&#x72B6;&#x6001;&#xFF1A;Ps</li>
+<li>&#x63A5;&#x53D7;&#x72B6;&#x6001;&#xFF1A;P&#x2019;s</li>
+<li>&#x5982;&#x679C;A&#x548C;c&#x90FD;&#x80FD;&#x5339;&#x914D;&#xFF0C;&#x8BF4;&#x660E;&#x7B2C;&#x4E00;&#x6761;&#x5907;&#x9009;&#x5206;&#x652F;&#x80FD;&#x88AB;&#x9009;&#x62E9;</li>
+<li><strong>&#x56E0;&#x4E3A;A&#x4E0D;&#x662F;&#x7EC8;&#x7ED3;&#x7B26;&#xFF0C;&#x6240;&#x4EE5;A&#x4E5F;&#x6709;ATN</strong></li>
 <li><strong>Incrementally and dynamically</strong> build up a <strong>lookahead DFA</strong> that <strong>map lookahead phrases to predicated productions</strong>.</li>
-<li>ANTLR4识别文本的时候，是在增量式的、动态式的构建一个DFA，叫向前看DFA
+<li>ANTLR4&#x8BC6;&#x522B;&#x6587;&#x672C;&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x662F;&#x5728;&#x589E;&#x91CF;&#x5F0F;&#x7684;&#x3001;&#x52A8;&#x6001;&#x5F0F;&#x7684;&#x6784;&#x5EFA;&#x4E00;&#x4E2A;DFA&#xFF0C;&#x53EB;&#x5411;&#x524D;&#x770B;DFA
 <ul>
-<li>为每个非终结符都构建一个向前看DFA</li>
+<li>&#x4E3A;&#x6BCF;&#x4E2A;&#x975E;&#x7EC8;&#x7ED3;&#x7B26;&#x90FD;&#x6784;&#x5EFA;&#x4E00;&#x4E2A;&#x5411;&#x524D;&#x770B;DFA</li>
 </ul>
 </li>
 </ul>
-<p>假设要匹配的文本是bc和bd</p>
-<p>状态转移是由输入字符驱动的</p>
-<p>向前看DFA的<strong>作用</strong>，把当前输入的前缀（够判断使用哪一条展开式的前缀）映射到对应的备选分支上，如果前两个字符为bc，就选第一条，前两个字符为bd，就选第二条</p>
-<p>构建完DFA后，就跟LL(1)一样了</p>
-<h4 id="向前看DFA核心思想">向前看DFA核心思想</h4>
-<p>▶ Launch subparsers at a decision point, one per alternative productions.</p>
-<p>▶ These subparsers run in pseudo-parallel to explore all possible paths.</p>
-<p>▶ Subparsers die off as their paths fail to match the remaining input.</p>
-<p>▶ Ambiguity: Multiple subparsers coalesce together or reach EOF.</p>
-<p>▶ Resolution: The first production associated with a surviving subparser.</p>
+<p>&#x5047;&#x8BBE;&#x8981;&#x5339;&#x914D;&#x7684;&#x6587;&#x672C;&#x662F;bc&#x548C;bd</p>
+<p>&#x72B6;&#x6001;&#x8F6C;&#x79FB;&#x662F;&#x7531;&#x8F93;&#x5165;&#x5B57;&#x7B26;&#x9A71;&#x52A8;&#x7684;</p>
+<p>&#x5411;&#x524D;&#x770B;DFA&#x7684;<strong>&#x4F5C;&#x7528;</strong>&#xFF0C;&#x628A;&#x5F53;&#x524D;&#x8F93;&#x5165;&#x7684;&#x524D;&#x7F00;&#xFF08;&#x591F;&#x5224;&#x65AD;&#x4F7F;&#x7528;&#x54EA;&#x4E00;&#x6761;&#x5C55;&#x5F00;&#x5F0F;&#x7684;&#x524D;&#x7F00;&#xFF09;&#x6620;&#x5C04;&#x5230;&#x5BF9;&#x5E94;&#x7684;&#x5907;&#x9009;&#x5206;&#x652F;&#x4E0A;&#xFF0C;&#x5982;&#x679C;&#x524D;&#x4E24;&#x4E2A;&#x5B57;&#x7B26;&#x4E3A;bc&#xFF0C;&#x5C31;&#x9009;&#x7B2C;&#x4E00;&#x6761;&#xFF0C;&#x524D;&#x4E24;&#x4E2A;&#x5B57;&#x7B26;&#x4E3A;bd&#xFF0C;&#x5C31;&#x9009;&#x7B2C;&#x4E8C;&#x6761;</p>
+<p>&#x6784;&#x5EFA;&#x5B8C;DFA&#x540E;&#xFF0C;&#x5C31;&#x8DDF;LL(1)&#x4E00;&#x6837;&#x4E86;</p>
+<h4 id="&#x5411;&#x524D;&#x770B;DFA&#x6838;&#x5FC3;&#x601D;&#x60F3;">&#x5411;&#x524D;&#x770B;DFA&#x6838;&#x5FC3;&#x601D;&#x60F3;</h4>
+<p>&#x25B6; Launch subparsers at a decision point, one per alternative productions.</p>
+<p>&#x25B6; These subparsers run in pseudo-parallel to explore all possible paths.</p>
+<p>&#x25B6; Subparsers die off as their paths fail to match the remaining input.</p>
+<p>&#x25B6; Ambiguity: Multiple subparsers coalesce together or reach EOF.</p>
+<p>&#x25B6; Resolution: The first production associated with a surviving subparser.</p>
 <ul>
-<li>多个分析器同时探测多个备选分支</li>
-<li>同步：输入1个词法，各个分析器调整自己的状态，循环</li>
-<li>死亡：如果探测器期望的词法单元和当前的词法单元不匹配，分析不下去了，分支就die了</li>
-<li>有歧义：
+<li>&#x591A;&#x4E2A;&#x5206;&#x6790;&#x5668;&#x540C;&#x65F6;&#x63A2;&#x6D4B;&#x591A;&#x4E2A;&#x5907;&#x9009;&#x5206;&#x652F;</li>
+<li>&#x540C;&#x6B65;&#xFF1A;&#x8F93;&#x5165;1&#x4E2A;&#x8BCD;&#x6CD5;&#xFF0C;&#x5404;&#x4E2A;&#x5206;&#x6790;&#x5668;&#x8C03;&#x6574;&#x81EA;&#x5DF1;&#x7684;&#x72B6;&#x6001;&#xFF0C;&#x5FAA;&#x73AF;</li>
+<li>&#x6B7B;&#x4EA1;&#xFF1A;&#x5982;&#x679C;&#x63A2;&#x6D4B;&#x5668;&#x671F;&#x671B;&#x7684;&#x8BCD;&#x6CD5;&#x5355;&#x5143;&#x548C;&#x5F53;&#x524D;&#x7684;&#x8BCD;&#x6CD5;&#x5355;&#x5143;&#x4E0D;&#x5339;&#x914D;&#xFF0C;&#x5206;&#x6790;&#x4E0D;&#x4E0B;&#x53BB;&#x4E86;&#xFF0C;&#x5206;&#x652F;&#x5C31;die&#x4E86;</li>
+<li>&#x6709;&#x6B67;&#x4E49;&#xFF1A;
 <ul>
-<li>如果有多条分析器在分支上都走到了输入被消耗完的情况，意味着，根据当前的输入无法决定使用哪个备选分支，即<strong>有歧义</strong></li>
-<li><strong>有歧义</strong>的另一种情况：如果多条分支在分析某个input的时候，走到了同一个状态，接下来路径也必定一样，意味着当前输入也无法确定到底是哪个</li>
+<li>&#x5982;&#x679C;&#x6709;&#x591A;&#x6761;&#x5206;&#x6790;&#x5668;&#x5728;&#x5206;&#x652F;&#x4E0A;&#x90FD;&#x8D70;&#x5230;&#x4E86;&#x8F93;&#x5165;&#x88AB;&#x6D88;&#x8017;&#x5B8C;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x610F;&#x5473;&#x7740;&#xFF0C;&#x6839;&#x636E;&#x5F53;&#x524D;&#x7684;&#x8F93;&#x5165;&#x65E0;&#x6CD5;&#x51B3;&#x5B9A;&#x4F7F;&#x7528;&#x54EA;&#x4E2A;&#x5907;&#x9009;&#x5206;&#x652F;&#xFF0C;&#x5373;<strong>&#x6709;&#x6B67;&#x4E49;</strong></li>
+<li><strong>&#x6709;&#x6B67;&#x4E49;</strong>&#x7684;&#x53E6;&#x4E00;&#x79CD;&#x60C5;&#x51B5;&#xFF1A;&#x5982;&#x679C;&#x591A;&#x6761;&#x5206;&#x652F;&#x5728;&#x5206;&#x6790;&#x67D0;&#x4E2A;input&#x7684;&#x65F6;&#x5019;&#xFF0C;&#x8D70;&#x5230;&#x4E86;&#x540C;&#x4E00;&#x4E2A;&#x72B6;&#x6001;&#xFF0C;&#x63A5;&#x4E0B;&#x6765;&#x8DEF;&#x5F84;&#x4E5F;&#x5FC5;&#x5B9A;&#x4E00;&#x6837;&#xFF0C;&#x610F;&#x5473;&#x7740;&#x5F53;&#x524D;&#x8F93;&#x5165;&#x4E5F;&#x65E0;&#x6CD5;&#x786E;&#x5B9A;&#x5230;&#x5E95;&#x662F;&#x54EA;&#x4E2A;</li>
 </ul>
 </li>
-<li>正常的情况：有且仅有一条路径成功活到某个节点，即选择这个分支</li>
+<li>&#x6B63;&#x5E38;&#x7684;&#x60C5;&#x51B5;&#xFF1A;&#x6709;&#x4E14;&#x4EC5;&#x6709;&#x4E00;&#x6761;&#x8DEF;&#x5F84;&#x6210;&#x529F;&#x6D3B;&#x5230;&#x67D0;&#x4E2A;&#x8282;&#x70B9;&#xFF0C;&#x5373;&#x9009;&#x62E9;&#x8FD9;&#x4E2A;&#x5206;&#x652F;</li>
 </ul>
-<h4 id="例子讲解">例子讲解</h4>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/ch08/image-20230421195857108.png" alt="image-20230421195857108"></p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/ch08/image-20230421184717974.png" alt="image-20230421184717974"></p>
-<p>以bc和bd为输入</p>
-<p>展开S非终结符</p>
+<h4 id="&#x4F8B;&#x5B50;&#x8BB2;&#x89E3;">&#x4F8B;&#x5B50;&#x8BB2;&#x89E3;</h4>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/03/31/23-Compilers/ch08/ch08/image-20230421195857108.png" alt="image-20230421195857108"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/03/31/23-Compilers/ch08/ch08/image-20230421184717974.png" alt="image-20230421184717974"></p>
+<p>&#x4EE5;bc&#x548C;bd&#x4E3A;&#x8F93;&#x5165;</p>
+<p>&#x5C55;&#x5F00;S&#x975E;&#x7EC8;&#x7ED3;&#x7B26;</p>
 <ul>
-<li>D0：三元组：第一个分量是所处状态的符号，第二个分量表示正在探索第几条分支
+<li>D0&#xFF1A;&#x4E09;&#x5143;&#x7EC4;&#xFF1A;&#x7B2C;&#x4E00;&#x4E2A;&#x5206;&#x91CF;&#x662F;&#x6240;&#x5904;&#x72B6;&#x6001;&#x7684;&#x7B26;&#x53F7;&#xFF0C;&#x7B2C;&#x4E8C;&#x4E2A;&#x5206;&#x91CF;&#x8868;&#x793A;&#x6B63;&#x5728;&#x63A2;&#x7D22;&#x7B2C;&#x51E0;&#x6761;&#x5206;&#x652F;
 <ul>
-<li>一些状态是等价的、无法区分的：A是非终结符，展开S，等价于展开A：S可能生成哪些橘子取决于A能展开成哪些词法单元，S依赖于A，所以ps和Pa无法分开，因为Pa和Pa.1和Pa.2无法分开，所以这四个状态相同</li>
-<li>p1和p3和null：p1：A的递归调用结束后返回的指针</li>
+<li>&#x4E00;&#x4E9B;&#x72B6;&#x6001;&#x662F;&#x7B49;&#x4EF7;&#x7684;&#x3001;&#x65E0;&#x6CD5;&#x533A;&#x5206;&#x7684;&#xFF1A;A&#x662F;&#x975E;&#x7EC8;&#x7ED3;&#x7B26;&#xFF0C;&#x5C55;&#x5F00;S&#xFF0C;&#x7B49;&#x4EF7;&#x4E8E;&#x5C55;&#x5F00;A&#xFF1A;S&#x53EF;&#x80FD;&#x751F;&#x6210;&#x54EA;&#x4E9B;&#x6A58;&#x5B50;&#x53D6;&#x51B3;&#x4E8E;A&#x80FD;&#x5C55;&#x5F00;&#x6210;&#x54EA;&#x4E9B;&#x8BCD;&#x6CD5;&#x5355;&#x5143;&#xFF0C;S&#x4F9D;&#x8D56;&#x4E8E;A&#xFF0C;&#x6240;&#x4EE5;ps&#x548C;Pa&#x65E0;&#x6CD5;&#x5206;&#x5F00;&#xFF0C;&#x56E0;&#x4E3A;Pa&#x548C;Pa.1&#x548C;Pa.2&#x65E0;&#x6CD5;&#x5206;&#x5F00;&#xFF0C;&#x6240;&#x4EE5;&#x8FD9;&#x56DB;&#x4E2A;&#x72B6;&#x6001;&#x76F8;&#x540C;</li>
+<li>p1&#x548C;p3&#x548C;null&#xFF1A;p1&#xFF1A;A&#x7684;&#x9012;&#x5F52;&#x8C03;&#x7528;&#x7ED3;&#x675F;&#x540E;&#x8FD4;&#x56DE;&#x7684;&#x6307;&#x9488;</li>
 </ul>
 </li>
-<li>D’：只在Pa.2上有b：P7是由Ps1来的，ε转移到P‘a，上下第二组返回到p1和p3</li>
-<li>f1：看到c，于是只有第一条还活着</li>
-<li>f2：看到d，于是只有第二条活着</li>
-<li>只有第二次bd看到d，f2状态才被构建</li>
+<li>D&#x2019;&#xFF1A;&#x53EA;&#x5728;Pa.2&#x4E0A;&#x6709;b&#xFF1A;P7&#x662F;&#x7531;Ps1&#x6765;&#x7684;&#xFF0C;&#x3B5;&#x8F6C;&#x79FB;&#x5230;P&#x2018;a&#xFF0C;&#x4E0A;&#x4E0B;&#x7B2C;&#x4E8C;&#x7EC4;&#x8FD4;&#x56DE;&#x5230;p1&#x548C;p3</li>
+<li>f1&#xFF1A;&#x770B;&#x5230;c&#xFF0C;&#x4E8E;&#x662F;&#x53EA;&#x6709;&#x7B2C;&#x4E00;&#x6761;&#x8FD8;&#x6D3B;&#x7740;</li>
+<li>f2&#xFF1A;&#x770B;&#x5230;d&#xFF0C;&#x4E8E;&#x662F;&#x53EA;&#x6709;&#x7B2C;&#x4E8C;&#x6761;&#x6D3B;&#x7740;</li>
+<li>&#x53EA;&#x6709;&#x7B2C;&#x4E8C;&#x6B21;bd&#x770B;&#x5230;d&#xFF0C;f2&#x72B6;&#x6001;&#x624D;&#x88AB;&#x6784;&#x5EFA;</li>
 </ul>
-<p>然后可以选择哪个备选分支，接下来就是常规处理</p>
-<p><strong>转移，然后ε转移求闭包、不动点，整个过程和从NFA生成DFA的子集构造法一模一样：</strong></p>
-<p>通过一个符号move一步，构建黑体粗体所写的正确状态，然后再由这些状态通过一个闭包去生成等价的状态</p>
-<p>不同的是：NFA构造DFA过程中，只是通过ε转移去扩展新的状态，但在这，碰到非终结符，要调用非终结符对应的子网络</p>
-<p><strong>语法分析暂时告一段落：LL语法已学，LR语法未学</strong></p>
+<p>&#x7136;&#x540E;&#x53EF;&#x4EE5;&#x9009;&#x62E9;&#x54EA;&#x4E2A;&#x5907;&#x9009;&#x5206;&#x652F;&#xFF0C;&#x63A5;&#x4E0B;&#x6765;&#x5C31;&#x662F;&#x5E38;&#x89C4;&#x5904;&#x7406;</p>
+<p><strong>&#x8F6C;&#x79FB;&#xFF0C;&#x7136;&#x540E;&#x3B5;&#x8F6C;&#x79FB;&#x6C42;&#x95ED;&#x5305;&#x3001;&#x4E0D;&#x52A8;&#x70B9;&#xFF0C;&#x6574;&#x4E2A;&#x8FC7;&#x7A0B;&#x548C;&#x4ECE;NFA&#x751F;&#x6210;DFA&#x7684;&#x5B50;&#x96C6;&#x6784;&#x9020;&#x6CD5;&#x4E00;&#x6A21;&#x4E00;&#x6837;&#xFF1A;</strong></p>
+<p>&#x901A;&#x8FC7;&#x4E00;&#x4E2A;&#x7B26;&#x53F7;move&#x4E00;&#x6B65;&#xFF0C;&#x6784;&#x5EFA;&#x9ED1;&#x4F53;&#x7C97;&#x4F53;&#x6240;&#x5199;&#x7684;&#x6B63;&#x786E;&#x72B6;&#x6001;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x7531;&#x8FD9;&#x4E9B;&#x72B6;&#x6001;&#x901A;&#x8FC7;&#x4E00;&#x4E2A;&#x95ED;&#x5305;&#x53BB;&#x751F;&#x6210;&#x7B49;&#x4EF7;&#x7684;&#x72B6;&#x6001;</p>
+<p>&#x4E0D;&#x540C;&#x7684;&#x662F;&#xFF1A;NFA&#x6784;&#x9020;DFA&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x53EA;&#x662F;&#x901A;&#x8FC7;&#x3B5;&#x8F6C;&#x79FB;&#x53BB;&#x6269;&#x5C55;&#x65B0;&#x7684;&#x72B6;&#x6001;&#xFF0C;&#x4F46;&#x5728;&#x8FD9;&#xFF0C;&#x78B0;&#x5230;&#x975E;&#x7EC8;&#x7ED3;&#x7B26;&#xFF0C;&#x8981;&#x8C03;&#x7528;&#x975E;&#x7EC8;&#x7ED3;&#x7B26;&#x5BF9;&#x5E94;&#x7684;&#x5B50;&#x7F51;&#x7EDC;</p>
+<p><strong>&#x8BED;&#x6CD5;&#x5206;&#x6790;&#x6682;&#x65F6;&#x544A;&#x4E00;&#x6BB5;&#x843D;&#xFF1A;LL&#x8BED;&#x6CD5;&#x5DF2;&#x5B66;&#xFF0C;LR&#x8BED;&#x6CD5;&#x672A;&#x5B66;</strong></p>
 
 <div class="article-footer fs14">
     <section id="license">

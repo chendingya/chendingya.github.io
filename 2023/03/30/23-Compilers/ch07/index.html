@@ -20,12 +20,12 @@
   <title>ch07- LL(1) 语法分析器 - Asimov's Blog</title>
 
   
-    <meta name="description" content="ch07 LL(1) 语法分析器 构建语法分析树: 自顶向下 vs. 自底向上 只考虑无二义性的文法 这意味着, 每个句子对应唯一的一棵语法分析树 自顶向下的、 递归下降的、 基于预测分析表的、 适用于LL(1) 文法的、 LL(1) 语法分析器 自顶向下构建语法分析树  根节点是文法的起始符号 S 每个中间节点表示对某个非终结符应用某个产生式进行推导 (Q : 选择哪个非终结符, 以及选择哪个产">
+    <meta name="description" content="ch07 LL(1) &#x8BED;&#x6CD5;&#x5206;&#x6790;&#x5668; &#x6784;&#x5EFA;&#x8BED;&#x6CD5;&#x5206;&#x6790;&#x6811;: &#x81EA;&#x9876;&#x5411;&#x4E0B; vs. &#x81EA;&#x5E95;&#x5411;&#x4E0A; &#x53EA;&#x8003;&amp;#x8">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ch07- LL(1) 语法分析器">
 <meta property="og:url" content="https://chendingya.github.io/2023/03/30/23-Compilers/ch07/index.html">
 <meta property="og:site_name" content="Asimov&#39;s Blog">
-<meta property="og:description" content="ch07 LL(1) 语法分析器 构建语法分析树: 自顶向下 vs. 自底向上 只考虑无二义性的文法 这意味着, 每个句子对应唯一的一棵语法分析树 自顶向下的、 递归下降的、 基于预测分析表的、 适用于LL(1) 文法的、 LL(1) 语法分析器 自顶向下构建语法分析树  根节点是文法的起始符号 S 每个中间节点表示对某个非终结符应用某个产生式进行推导 (Q : 选择哪个非终结符, 以及选择哪个产">
+<meta property="og:description" content="ch07 LL(1) &#x8BED;&#x6CD5;&#x5206;&#x6790;&#x5668; &#x6784;&#x5EFA;&#x8BED;&#x6CD5;&#x5206;&#x6790;&#x6811;: &#x81EA;&#x9876;&#x5411;&#x4E0B; vs. &#x81EA;&#x5E95;&#x5411;&#x4E0A; &#x53EA;&#x8003;&amp;#x8">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://chendingya.github.io/2023/03/30/23-Compilers/ch07/ch07/image-20230407130558399.png">
 <meta property="og:image" content="https://chendingya.github.io/2023/03/30/23-Compilers/ch07/ch07/image-20230407131743295.png">
@@ -36,15 +36,15 @@
 <meta property="og:image" content="https://chendingya.github.io/2023/03/30/23-Compilers/ch07/ch07/image-20230407190325780.png">
 <meta property="og:image" content="https://chendingya.github.io/2023/03/30/23-Compilers/ch07/ch07/image-20230407191229025.png">
 <meta property="og:image" content="https://chendingya.github.io/2023/03/30/23-Compilers/ch07/ch07/image-20230407200206884.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/03/30/23-Compilers/ch07/ch07/image-20230407200810018.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/03/30/23-Compilers/ch07/ch07/image-20230407200908885.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/03/30/23-Compilers/ch07/ch07/image-20230407200929058.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/03/30/23-Compilers/ch07/ch07/image-20230407201805026.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/03/30/23-Compilers/ch07/ch07/image-20230412111153214.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/03/30/23-Compilers/ch07/ch07/image-20230412111233114.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/03/30/23-Compilers/ch07/ch07/image-20230412170532841.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/03/30/23-Compilers/ch07/ch07/image-20230412170913024.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/03/30/23-Compilers/ch07/ch07/image-20230412171009946.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/30/23-Compilers/ch07/image-20230407200810018.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/30/23-Compilers/ch07/image-20230407200908885.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/30/23-Compilers/ch07/image-20230407200929058.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/30/23-Compilers/ch07/image-20230407201805026.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/30/23-Compilers/ch07/image-20230412111153214.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/30/23-Compilers/ch07/image-20230412111233114.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/30/23-Compilers/ch07/image-20230412170532841.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/30/23-Compilers/ch07/image-20230412170913024.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/03/30/23-Compilers/ch07/image-20230412171009946.png">
 <meta property="article:published_time" content="2023-03-30T02:02:34.000Z">
 <meta property="article:modified_time" content="2023-09-14T10:47:32.697Z">
 <meta property="article:author" content="Asimov">
@@ -83,7 +83,7 @@
 <div class="widgets">
 
 
-<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2024/05/02/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%842/"><span class="title">系统架构2-质量属性Quality Attributes</span></a><a class="item title" href="/2024/05/01/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%841/"><span class="title">系统架构1-Intro</span></a><a class="item title" href="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/"><span class="title">软件测试-期末复习</span></a><a class="item title" href="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/"><span class="title">机器学习-期末复习</span></a><a class="item title" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/"><span class="title">服务端-ch17-k8s使用</span></a><a class="item title" href="/2023/12/30/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch16-%E5%AE%B9%E5%99%A8%E9%95%9C%E5%83%8F%E6%9E%84%E5%BB%BA%E4%B8%8E%E7%BC%96%E6%8E%92/"><span class="title">服务端-ch16-容器镜像构建与编排</span></a><a class="item title" href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/"><span class="title">服务端-ch15-Docker</span></a><a class="item title" href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/"><span class="title">服务端-ch14-Spring WebFlux</span></a><a class="item title" href="/2023/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch13-%E5%8F%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"><span class="title">服务端-ch13-反应式编程基础</span></a><a class="item title" href="/2023/11/23/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch12-Spring%20Integration/"><span class="title">服务端-ch12-Spring Integration</span></a></div></widget>
+<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2022/10/25/hello-world/"><span class="title">Hello World</span></a><a class="item title" href="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/"><span class="title">软件测试-期末复习</span></a><a class="item title" href="/2024/05/02/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%842/"><span class="title">系统架构2-质量属性Quality Attributes</span></a><a class="item title" href="/2024/05/01/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%841/"><span class="title">系统架构1-Intro</span></a><a class="item title" href="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/"><span class="title">机器学习-期末复习</span></a><a class="item title" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/"><span class="title">服务端-ch17-k8s使用</span></a><a class="item title" href="/2023/12/30/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch16-%E5%AE%B9%E5%99%A8%E9%95%9C%E5%83%8F%E6%9E%84%E5%BB%BA%E4%B8%8E%E7%BC%96%E6%8E%92/"><span class="title">服务端-ch16-容器镜像构建与编排</span></a><a class="item title" href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/"><span class="title">服务端-ch15-Docker</span></a><a class="item title" href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/"><span class="title">服务端-ch14-Spring WebFlux</span></a><a class="item title" href="/2023/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch13-%E5%8F%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"><span class="title">服务端-ch13-反应式编程基础</span></a></div></widget>
 </div>
 <footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/chendingya?tab=repositories" target="_blank" rel="external nofollow noopener noreferrer"><img no-lazy src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" / onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a></div></footer>
 </div></aside><div class="l_main" id="main">
@@ -108,219 +108,219 @@
     
   </div>
   </div><article class="md-text content"><h1>ch07</h1>
-<p>LL(1) 语法分析器</p>
-<p>构建语法分析树: 自顶向下 vs. 自底向上</p>
-<p>只考虑无二义性的文法 这意味着, 每个句子对应唯一的一棵语法分析树</p>
-<p>自顶向下的、 递归下降的、 基于预测分析表的、 适用于LL(1) 文法的、 LL(1) 语法分析器</p>
-<h2 id="自顶向下构建语法分析树">自顶向下构建语法分析树</h2>
+<p>LL(1) &#x8BED;&#x6CD5;&#x5206;&#x6790;&#x5668;</p>
+<p>&#x6784;&#x5EFA;&#x8BED;&#x6CD5;&#x5206;&#x6790;&#x6811;: &#x81EA;&#x9876;&#x5411;&#x4E0B; vs. &#x81EA;&#x5E95;&#x5411;&#x4E0A;</p>
+<p>&#x53EA;&#x8003;&#x8651;&#x65E0;&#x4E8C;&#x4E49;&#x6027;&#x7684;&#x6587;&#x6CD5; &#x8FD9;&#x610F;&#x5473;&#x7740;, &#x6BCF;&#x4E2A;&#x53E5;&#x5B50;&#x5BF9;&#x5E94;&#x552F;&#x4E00;&#x7684;&#x4E00;&#x68F5;&#x8BED;&#x6CD5;&#x5206;&#x6790;&#x6811;</p>
+<p>&#x81EA;&#x9876;&#x5411;&#x4E0B;&#x7684;&#x3001; &#x9012;&#x5F52;&#x4E0B;&#x964D;&#x7684;&#x3001; &#x57FA;&#x4E8E;&#x9884;&#x6D4B;&#x5206;&#x6790;&#x8868;&#x7684;&#x3001; &#x9002;&#x7528;&#x4E8E;LL(1) &#x6587;&#x6CD5;&#x7684;&#x3001; LL(1) &#x8BED;&#x6CD5;&#x5206;&#x6790;&#x5668;</p>
+<h2 id="&#x81EA;&#x9876;&#x5411;&#x4E0B;&#x6784;&#x5EFA;&#x8BED;&#x6CD5;&#x5206;&#x6790;&#x6811;">&#x81EA;&#x9876;&#x5411;&#x4E0B;&#x6784;&#x5EFA;&#x8BED;&#x6CD5;&#x5206;&#x6790;&#x6811;</h2>
 <ul>
-<li>根节点是文法的起始符号 S</li>
-<li>每个中间节点表示对某个非终结符应用某个产生式进行推导 (Q : 选择哪个非终结符, 以及选择哪个产生式)</li>
-<li>在推导的每一步, L<strong>L</strong>(1) 总是选择最左边的非终结符进行展开</li>
-<li><strong>L</strong>L(1): 从左向右读入词法单元</li>
-<li>叶节点是词法单元流 w$ 仅包含终结符号与特殊的文件结束符 $ (EOF)</li>
+<li>&#x6839;&#x8282;&#x70B9;&#x662F;&#x6587;&#x6CD5;&#x7684;&#x8D77;&#x59CB;&#x7B26;&#x53F7; S</li>
+<li>&#x6BCF;&#x4E2A;&#x4E2D;&#x95F4;&#x8282;&#x70B9;&#x8868;&#x793A;&#x5BF9;&#x67D0;&#x4E2A;&#x975E;&#x7EC8;&#x7ED3;&#x7B26;&#x5E94;&#x7528;&#x67D0;&#x4E2A;&#x4EA7;&#x751F;&#x5F0F;&#x8FDB;&#x884C;&#x63A8;&#x5BFC; (Q : &#x9009;&#x62E9;&#x54EA;&#x4E2A;&#x975E;&#x7EC8;&#x7ED3;&#x7B26;, &#x4EE5;&#x53CA;&#x9009;&#x62E9;&#x54EA;&#x4E2A;&#x4EA7;&#x751F;&#x5F0F;)</li>
+<li>&#x5728;&#x63A8;&#x5BFC;&#x7684;&#x6BCF;&#x4E00;&#x6B65;, L<strong>L</strong>(1) &#x603B;&#x662F;&#x9009;&#x62E9;&#x6700;&#x5DE6;&#x8FB9;&#x7684;&#x975E;&#x7EC8;&#x7ED3;&#x7B26;&#x8FDB;&#x884C;&#x5C55;&#x5F00;</li>
+<li><strong>L</strong>L(1): &#x4ECE;&#x5DE6;&#x5411;&#x53F3;&#x8BFB;&#x5165;&#x8BCD;&#x6CD5;&#x5355;&#x5143;</li>
+<li>&#x53F6;&#x8282;&#x70B9;&#x662F;&#x8BCD;&#x6CD5;&#x5355;&#x5143;&#x6D41; w$ &#x4EC5;&#x5305;&#x542B;&#x7EC8;&#x7ED3;&#x7B26;&#x53F7;&#x4E0E;&#x7279;&#x6B8A;&#x7684;&#x6587;&#x4EF6;&#x7ED3;&#x675F;&#x7B26; $ (EOF)</li>
 </ul>
-<h3 id="递归下降">递归下降</h3>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="./ch07/image-20230407130558399.png" alt="image-20230407130558399"></p>
-<p>递归下降是LL(1)语法分析器常用的实现方式</p>
-<p>为每个非终结符写一个递归函数 内部按需调用其它非终结符对应的递归函数, 下降一层</p>
-<p>为了实现额外的任务，可以加参数和返回值</p>
-<h4 id="实现过程">实现过程</h4>
+<h3 id="&#x9012;&#x5F52;&#x4E0B;&#x964D;">&#x9012;&#x5F52;&#x4E0B;&#x964D;</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/03/30/23-Compilers/ch07/ch07/image-20230407130558399.png" alt="image-20230407130558399"></p>
+<p>&#x9012;&#x5F52;&#x4E0B;&#x964D;&#x662F;LL(1)&#x8BED;&#x6CD5;&#x5206;&#x6790;&#x5668;&#x5E38;&#x7528;&#x7684;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;</p>
+<p>&#x4E3A;&#x6BCF;&#x4E2A;&#x975E;&#x7EC8;&#x7ED3;&#x7B26;&#x5199;&#x4E00;&#x4E2A;&#x9012;&#x5F52;&#x51FD;&#x6570; &#x5185;&#x90E8;&#x6309;&#x9700;&#x8C03;&#x7528;&#x5176;&#x5B83;&#x975E;&#x7EC8;&#x7ED3;&#x7B26;&#x5BF9;&#x5E94;&#x7684;&#x9012;&#x5F52;&#x51FD;&#x6570;, &#x4E0B;&#x964D;&#x4E00;&#x5C42;</p>
+<p>&#x4E3A;&#x4E86;&#x5B9E;&#x73B0;&#x989D;&#x5916;&#x7684;&#x4EFB;&#x52A1;&#xFF0C;&#x53EF;&#x4EE5;&#x52A0;&#x53C2;&#x6570;&#x548C;&#x8FD4;&#x56DE;&#x503C;</p>
+<h4 id="&#x5B9E;&#x73B0;&#x8FC7;&#x7A0B;">&#x5B9E;&#x73B0;&#x8FC7;&#x7A0B;</h4>
 <ul>
-<li>先选择一个A的产生式，1-k</li>
-<li>for循环处理每个X~1~ ~ X ~k~</li>
-<li>X为非终结符，调用X对应的递归函数</li>
-<li>X为终结符
+<li>&#x5148;&#x9009;&#x62E9;&#x4E00;&#x4E2A;A&#x7684;&#x4EA7;&#x751F;&#x5F0F;&#xFF0C;1-k</li>
+<li>for&#x5FAA;&#x73AF;&#x5904;&#x7406;&#x6BCF;&#x4E2A;X~1~ ~ X ~k~</li>
+<li>X&#x4E3A;&#x975E;&#x7EC8;&#x7ED3;&#x7B26;&#xFF0C;&#x8C03;&#x7528;X&#x5BF9;&#x5E94;&#x7684;&#x9012;&#x5F52;&#x51FD;&#x6570;</li>
+<li>X&#x4E3A;&#x7EC8;&#x7ED3;&#x7B26;
 <ul>
-<li>X~i~=a 匹配上当前的词法单元</li>
-<li>X~i~！=a 出现错误</li>
+<li>X~i~=a &#x5339;&#x914D;&#x4E0A;&#x5F53;&#x524D;&#x7684;&#x8BCD;&#x6CD5;&#x5355;&#x5143;</li>
+<li>X~i~&#xFF01;=a &#x51FA;&#x73B0;&#x9519;&#x8BEF;</li>
 </ul>
 </li>
 </ul>
-<h3 id="优缺点">优缺点</h3>
-<h4 id="优点">优点</h4>
-<p>算法简单</p>
-<h4 id="缺点">缺点</h4>
-<p>能处理文法（上下文无关文法）的种类很少</p>
-<p>如果不能处理，改造文法复杂</p>
-<h3 id="演示递归下降过程">演示递归下降过程</h3>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="./ch07/image-20230407131743295.png" alt="image-20230407131743295"></p>
-<p>每次都选择语法分析树最左边的非终结符进行展开</p>
-<h4 id="同样是展开非终结符-S-为什么前两次选择了-S-→-S-F-而第三次选择了-S-→-F">同样是展开非终结符 S, 为什么前两次选择了 S → (S + F), 而第三次选择了 S → F?</h4>
-<p>因为它们面对的当前词法单元不同</p>
-<h4 id="使用-预测分析表-确定产生式">使用==预测分析表==确定产生式</h4>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="./ch07/image-20230407131921718.png" alt="image-20230407131921718"></p>
-<p>指明了每个<strong>非终结符</strong>在面对不同的<strong>词法单元或文件结束符</strong>时, 该选择哪个<strong>产生式</strong> (按编号进行索引) 或者<strong>报错</strong> (空单元格)</p>
+<h3 id="&#x4F18;&#x7F3A;&#x70B9;">&#x4F18;&#x7F3A;&#x70B9;</h3>
+<h4 id="&#x4F18;&#x70B9;">&#x4F18;&#x70B9;</h4>
+<p>&#x7B97;&#x6CD5;&#x7B80;&#x5355;</p>
+<h4 id="&#x7F3A;&#x70B9;">&#x7F3A;&#x70B9;</h4>
+<p>&#x80FD;&#x5904;&#x7406;&#x6587;&#x6CD5;&#xFF08;&#x4E0A;&#x4E0B;&#x6587;&#x65E0;&#x5173;&#x6587;&#x6CD5;&#xFF09;&#x7684;&#x79CD;&#x7C7B;&#x5F88;&#x5C11;</p>
+<p>&#x5982;&#x679C;&#x4E0D;&#x80FD;&#x5904;&#x7406;&#xFF0C;&#x6539;&#x9020;&#x6587;&#x6CD5;&#x590D;&#x6742;</p>
+<h3 id="&#x6F14;&#x793A;&#x9012;&#x5F52;&#x4E0B;&#x964D;&#x8FC7;&#x7A0B;">&#x6F14;&#x793A;&#x9012;&#x5F52;&#x4E0B;&#x964D;&#x8FC7;&#x7A0B;</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/03/30/23-Compilers/ch07/ch07/image-20230407131743295.png" alt="image-20230407131743295"></p>
+<p>&#x6BCF;&#x6B21;&#x90FD;&#x9009;&#x62E9;&#x8BED;&#x6CD5;&#x5206;&#x6790;&#x6811;&#x6700;&#x5DE6;&#x8FB9;&#x7684;&#x975E;&#x7EC8;&#x7ED3;&#x7B26;&#x8FDB;&#x884C;&#x5C55;&#x5F00;</p>
+<h4 id="&#x540C;&#x6837;&#x662F;&#x5C55;&#x5F00;&#x975E;&#x7EC8;&#x7ED3;&#x7B26;-S-&#x4E3A;&#x4EC0;&#x4E48;&#x524D;&#x4E24;&#x6B21;&#x9009;&#x62E9;&#x4E86;-S-&#x2192;-S-F-&#x800C;&#x7B2C;&#x4E09;&#x6B21;&#x9009;&#x62E9;&#x4E86;-S-&#x2192;-F">&#x540C;&#x6837;&#x662F;&#x5C55;&#x5F00;&#x975E;&#x7EC8;&#x7ED3;&#x7B26; S, &#x4E3A;&#x4EC0;&#x4E48;&#x524D;&#x4E24;&#x6B21;&#x9009;&#x62E9;&#x4E86; S &#x2192; (S + F), &#x800C;&#x7B2C;&#x4E09;&#x6B21;&#x9009;&#x62E9;&#x4E86; S &#x2192; F?</h4>
+<p>&#x56E0;&#x4E3A;&#x5B83;&#x4EEC;&#x9762;&#x5BF9;&#x7684;&#x5F53;&#x524D;&#x8BCD;&#x6CD5;&#x5355;&#x5143;&#x4E0D;&#x540C;</p>
+<h4 id="&#x4F7F;&#x7528;-&#x9884;&#x6D4B;&#x5206;&#x6790;&#x8868;-&#x786E;&#x5B9A;&#x4EA7;&#x751F;&#x5F0F;">&#x4F7F;&#x7528;==&#x9884;&#x6D4B;&#x5206;&#x6790;&#x8868;==&#x786E;&#x5B9A;&#x4EA7;&#x751F;&#x5F0F;</h4>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/03/30/23-Compilers/ch07/ch07/image-20230407131921718.png" alt="image-20230407131921718"></p>
+<p>&#x6307;&#x660E;&#x4E86;&#x6BCF;&#x4E2A;<strong>&#x975E;&#x7EC8;&#x7ED3;&#x7B26;</strong>&#x5728;&#x9762;&#x5BF9;&#x4E0D;&#x540C;&#x7684;<strong>&#x8BCD;&#x6CD5;&#x5355;&#x5143;&#x6216;&#x6587;&#x4EF6;&#x7ED3;&#x675F;&#x7B26;</strong>&#x65F6;, &#x8BE5;&#x9009;&#x62E9;&#x54EA;&#x4E2A;<strong>&#x4EA7;&#x751F;&#x5F0F;</strong> (&#x6309;&#x7F16;&#x53F7;&#x8FDB;&#x884C;&#x7D22;&#x5F15;) &#x6216;&#x8005;<strong>&#x62A5;&#x9519;</strong> (&#x7A7A;&#x5355;&#x5143;&#x683C;)</p>
 <ul>
-<li>只有第二条会产生小括号，如果读入字符是（，就只能选第二条</li>
-<li>第三次是F，面对的读入字符是a，所以只会选择3</li>
+<li>&#x53EA;&#x6709;&#x7B2C;&#x4E8C;&#x6761;&#x4F1A;&#x4EA7;&#x751F;&#x5C0F;&#x62EC;&#x53F7;&#xFF0C;&#x5982;&#x679C;&#x8BFB;&#x5165;&#x5B57;&#x7B26;&#x662F;&#xFF08;&#xFF0C;&#x5C31;&#x53EA;&#x80FD;&#x9009;&#x7B2C;&#x4E8C;&#x6761;</li>
+<li>&#x7B2C;&#x4E09;&#x6B21;&#x662F;F&#xFF0C;&#x9762;&#x5BF9;&#x7684;&#x8BFB;&#x5165;&#x5B57;&#x7B26;&#x662F;a&#xFF0C;&#x6240;&#x4EE5;&#x53EA;&#x4F1A;&#x9009;&#x62E9;3</li>
 </ul>
-<h3 id="LL-1-文法Definition-：">LL(1) 文法Definition ：</h3>
-<p>如果文法 G 的预测分析表是无冲突的, 则 G 是 LL(1) 文法。</p>
-<p>无冲突: 每个单元格里只有一个产生式 (编号)</p>
-<p>对于当前选择的<strong>非终结符</strong>, 仅根据输入中<strong>当前的词法单元</strong> (LL(1)) 即可确定需要使用哪条<strong>产生式</strong></p>
-<h3 id="递归下降的、预测分析实现方法">递归下降的、预测分析实现方法</h3>
-<h4 id="框架：">框架：</h4>
-<p>假定<strong>预测分析表</strong>已经被构建出来了</p>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">procedure <span class="title function_">match</span><span class="params">(t)</span></span><br><span class="line"> <span class="keyword">if</span> token = t then</span><br><span class="line"> token ← next-token()</span><br><span class="line"> <span class="keyword">else</span></span><br><span class="line"> error(token, t)</span><br><span class="line">     </span><br><span class="line">procedure S()</span><br><span class="line"> <span class="keyword">if</span> token = ‘(’ then</span><br><span class="line"> match(‘(’)</span><br><span class="line"> S()</span><br><span class="line"> match(‘+’)</span><br><span class="line"> F()</span><br><span class="line"> match(‘)’)</span><br><span class="line"> <span class="keyword">else</span> <span class="keyword">if</span> token = ‘a’ then</span><br><span class="line"> F()</span><br><span class="line"> <span class="keyword">else</span></span><br><span class="line"> error(token, &#123;‘(’, ‘a’&#125;)</span><br><span class="line"></span><br><span class="line">procedure F()</span><br><span class="line"> <span class="keyword">if</span> token = ‘a’ then</span><br><span class="line"> match(‘a’)</span><br><span class="line"> <span class="keyword">else</span></span><br><span class="line"> error(token, &#123;‘a’&#125;)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h3 id="计算给定文法-G-的预测分析表">计算给定文法 G 的预测分析表</h3>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="./ch07/image-20230407173718296.png" alt="image-20230407173718296"></p>
+<h3 id="LL-1-&#x6587;&#x6CD5;Definition-&#xFF1A;">LL(1) &#x6587;&#x6CD5;Definition &#xFF1A;</h3>
+<p>&#x5982;&#x679C;&#x6587;&#x6CD5; G &#x7684;&#x9884;&#x6D4B;&#x5206;&#x6790;&#x8868;&#x662F;&#x65E0;&#x51B2;&#x7A81;&#x7684;, &#x5219; G &#x662F; LL(1) &#x6587;&#x6CD5;&#x3002;</p>
+<p>&#x65E0;&#x51B2;&#x7A81;: &#x6BCF;&#x4E2A;&#x5355;&#x5143;&#x683C;&#x91CC;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x4EA7;&#x751F;&#x5F0F; (&#x7F16;&#x53F7;)</p>
+<p>&#x5BF9;&#x4E8E;&#x5F53;&#x524D;&#x9009;&#x62E9;&#x7684;<strong>&#x975E;&#x7EC8;&#x7ED3;&#x7B26;</strong>, &#x4EC5;&#x6839;&#x636E;&#x8F93;&#x5165;&#x4E2D;<strong>&#x5F53;&#x524D;&#x7684;&#x8BCD;&#x6CD5;&#x5355;&#x5143;</strong> (LL(1)) &#x5373;&#x53EF;&#x786E;&#x5B9A;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x54EA;&#x6761;<strong>&#x4EA7;&#x751F;&#x5F0F;</strong></p>
+<h3 id="&#x9012;&#x5F52;&#x4E0B;&#x964D;&#x7684;&#x3001;&#x9884;&#x6D4B;&#x5206;&#x6790;&#x5B9E;&#x73B0;&#x65B9;&#x6CD5;">&#x9012;&#x5F52;&#x4E0B;&#x964D;&#x7684;&#x3001;&#x9884;&#x6D4B;&#x5206;&#x6790;&#x5B9E;&#x73B0;&#x65B9;&#x6CD5;</h3>
+<h4 id="&#x6846;&#x67B6;&#xFF1A;">&#x6846;&#x67B6;&#xFF1A;</h4>
+<p>&#x5047;&#x5B9A;<strong>&#x9884;&#x6D4B;&#x5206;&#x6790;&#x8868;</strong>&#x5DF2;&#x7ECF;&#x88AB;&#x6784;&#x5EFA;&#x51FA;&#x6765;&#x4E86;</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">procedure <span class="title function_">match</span><span class="params">(t)</span></span><br><span class="line"> <span class="keyword">if</span> token = t then</span><br><span class="line"> token &#x2190; next-token()</span><br><span class="line"> <span class="keyword">else</span></span><br><span class="line"> error(token, t)</span><br><span class="line">     </span><br><span class="line">procedure S()</span><br><span class="line"> <span class="keyword">if</span> token = &#x2018;(&#x2019; then</span><br><span class="line"> match(&#x2018;(&#x2019;)</span><br><span class="line"> S()</span><br><span class="line"> match(&#x2018;+&#x2019;)</span><br><span class="line"> F()</span><br><span class="line"> match(&#x2018;)&#x2019;)</span><br><span class="line"> <span class="keyword">else</span> <span class="keyword">if</span> token = &#x2018;a&#x2019; then</span><br><span class="line"> F()</span><br><span class="line"> <span class="keyword">else</span></span><br><span class="line"> error(token, {&#x2018;(&#x2019;, &#x2018;a&#x2019;})</span><br><span class="line"></span><br><span class="line">procedure F()</span><br><span class="line"> <span class="keyword">if</span> token = &#x2018;a&#x2019; then</span><br><span class="line"> match(&#x2018;a&#x2019;)</span><br><span class="line"> <span class="keyword">else</span></span><br><span class="line"> error(token, {&#x2018;a&#x2019;})</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h3 id="&#x8BA1;&#x7B97;&#x7ED9;&#x5B9A;&#x6587;&#x6CD5;-G-&#x7684;&#x9884;&#x6D4B;&#x5206;&#x6790;&#x8868;">&#x8BA1;&#x7B97;&#x7ED9;&#x5B9A;&#x6587;&#x6CD5; G &#x7684;&#x9884;&#x6D4B;&#x5206;&#x6790;&#x8868;</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/03/30/23-Compilers/ch07/ch07/image-20230407173718296.png" alt="image-20230407173718296"></p>
 <ul>
-<li>选择decl展开因为只有这样才能在后面产生int</li>
-<li>选择func_call是因为只有这样才能产生ID这个终结符</li>
+<li>&#x9009;&#x62E9;decl&#x5C55;&#x5F00;&#x56E0;&#x4E3A;&#x53EA;&#x6709;&#x8FD9;&#x6837;&#x624D;&#x80FD;&#x5728;&#x540E;&#x9762;&#x4EA7;&#x751F;int</li>
+<li>&#x9009;&#x62E9;func_call&#x662F;&#x56E0;&#x4E3A;&#x53EA;&#x6709;&#x8FD9;&#x6837;&#x624D;&#x80FD;&#x4EA7;&#x751F;ID&#x8FD9;&#x4E2A;&#x7EC8;&#x7ED3;&#x7B26;</li>
 </ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="./ch07/image-20230407182730941.png" alt="image-20230407182730941"></p>
-<h4 id="什么时候选择非终结符的ε产生式">什么时候选择非终结符的ε产生式</h4>
-<p>只有在这个非终结符的后面的这个终结符可能是我想要的终结符的情况下，才可以选择将其变无</p>
-<p>如果有一个终结符，而且这个终结符有一个产生式，变成ε，或者经过很多步推导可以生成ε，后面的非终结符使我们接下来要匹配的终结符，接下来要匹配的终结符最好就是当前指针要指向的终结符</p>
-<p>要看这个非终结符有哪些终结符跟在后面</p>
-<h4 id="First-α-集合-Definition">First(α) 集合 Definition</h4>
-<p><strong>First(α) 是可从 α 推导得到的句型的==首终结符号==的集合</strong></p>
-<p>对于任意的 (产生式的右部) α ∈ (N ∪ T) ∗ :</p>
-<p>First(α) = { t ∈ T ∪ {ϵ} | α ∗=⇒ tβ ∨ α ∗=⇒ ϵ } .  （*==&gt;指经过任意步推导）β是任意非终结符和终结符的集合，可能为空</p>
-<p>考虑非终结符 A 的所有产生式 A → α1, A → α2, . . . , A → αm, 如果它们<strong>对应的 First(αi) 集合互不相交</strong>, 则只需查看当前输入词法单元, 即可确定选择哪个产生式 (<strong>或报错</strong>)</p>
-<p>例：</p>
-<p>First(prog) = {‘int’, ID}</p>
-<p><strong>First是想知道，如果选择了某种特定的展开方式，会产生哪些首终结符，有没有可能是指针指向的字符</strong></p>
-<h4 id="Follow-A-集合-Definition">Follow(A) 集合 Definition</h4>
-<p><strong>Follow(A) 是可能在某些句型中紧跟在 A 右边的终结符的集合</strong></p>
-<p>对于任意的 (产生式的左部) 非终结符 A ∈ N :</p>
-<p>​	Follow(A) = { t ∈ T ∪ {$} | ∃s. S ∗=⇒ s ≜ βAtγ } .</p>
-<p>β和γ是任意非终结符和终结符的集合，可能为空</p>
-<p>如果退出来A这个非终结符，而且后面是终结符，t ∈ Follow(A)， t有可能是$（s是开始符号，而$是输入右端的结束标记）</p>
-<p>考虑产生式 A → α, <strong>如果从 α 可能推导出空串 (α ∗=⇒ ϵ), 则只有当当前词法单元 t ∈ Follow(A), 才可以选择该产生式</strong>(意味着A会消失)</p>
-<h4 id="计算算法">计算算法</h4>
-<h5 id="先计算每个符号-X-的-First-X-集合">先计算每个符号 X 的 First(X) 集合</h5>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">procedure <span class="title function_">first</span><span class="params">(X)</span></span><br><span class="line"> <span class="keyword">if</span> X ∈ T then ▷ 规则 1: X 是终结符</span><br><span class="line"> 	<span class="title function_">First</span><span class="params">(X)</span> = X</span><br><span class="line"> <span class="keyword">for</span> X → Y1Y2 . . . Yk <span class="keyword">do</span> ▷ 规则 <span class="number">2</span>: X 是非终结符</span><br><span class="line">     <span class="comment">//Y的首终结符包含于X的首终结符</span></span><br><span class="line">     <span class="comment">//Y如果变成ε不代表X也会变成ε</span></span><br><span class="line"> 	First(X) ← First(X) ∪ &#123;First(Y1) \ &#123;ϵ&#125;&#125;  </span><br><span class="line"> 	<span class="keyword">for</span> i ← <span class="number">2</span> to k <span class="keyword">do</span></span><br><span class="line">        <span class="comment">//看ε能不能由Y1推出来</span></span><br><span class="line"> 		<span class="keyword">if</span> ϵ ∈ L(Y1 . . . Yi−<span class="number">1</span>) then</span><br><span class="line"> 			<span class="title function_">First</span><span class="params">(X)</span> ← <span class="title function_">First</span><span class="params">(X)</span> ∪ &#123;First(Yi) \ &#123;ϵ&#125;&#125;</span><br><span class="line">	<span class="comment">//看完1~k</span></span><br><span class="line">	<span class="comment">//L(Y1 . . . Yk)表示Y1~Yk都能退出ε</span></span><br><span class="line"> 	<span class="keyword">if</span> ϵ ∈ L(Y1 . . . Yk) then ▷ 规则 <span class="number">3</span>: X 可推导出空串</span><br><span class="line"> 		First(X) ← First(X) ∪ &#123;ϵ&#125;</span><br></pre></td></tr></table></figure>
-<p>不断应用上面的规则, 直到每个 First(X) 都不再变化 <strong>(不动点!!!)</strong></p>
-<h5 id="再计算每个符号串-α-的-First-α">再计算每个符号串 α 的 First(α)</h5>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="./ch07/image-20230407190235069.png" alt="image-20230407190235069"></p>
-<h5 id="例子">例子</h5>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="./ch07/image-20230407190325780.png" alt="image-20230407190325780"></p>
-<h5 id="为每个非终结符-X-计算-Follow-X-集合">为每个非终结符 X 计算 Follow(X) 集合</h5>
-<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">procedure <span class="title function_">follow</span><span class="params">(X)</span></span><br><span class="line">	<span class="keyword">for</span> X 是开始符号 <span class="keyword">do</span> ▷ 规则 1: X 是开始符号</span><br><span class="line">		<span class="title function_">Follow</span><span class="params">(X)</span> ← <span class="title function_">Follow</span><span class="params">(X)</span> ∪ &#123;$&#125;</span><br><span class="line">	<span class="keyword">for</span> A → αX <span class="keyword">do</span> ▷ 规则 <span class="number">2</span>: X 是某产生式右部的最后一个符号</span><br><span class="line">       <span class="comment">//所有能跟在A后的终结符都可能跟在S后面</span></span><br><span class="line">		Follow(X) ← Follow(X) ∪ Follow(A)</span><br><span class="line">	<span class="keyword">for</span> A → αXβ <span class="keyword">do</span> ▷ 规则 <span class="number">3</span>: X 是某产生式右部中间的一个符号、</span><br><span class="line">       <span class="comment">//X是某个产生式中间的符号</span></span><br><span class="line">       <span class="comment">//β能推出来的终结符一定能跟在X后面</span></span><br><span class="line">       <span class="comment">//ε不一定在X后面</span></span><br><span class="line">		Follow(X) ← Follow(X) ∪ (First(β) \ &#123;ϵ&#125;)</span><br><span class="line">		<span class="keyword">if</span> ϵ ∈ First(β) then</span><br><span class="line">		 <span class="title function_">Follow</span><span class="params">(X)</span> ← <span class="title function_">Follow</span><span class="params">(X)</span> ∪ <span class="title function_">Follow</span><span class="params">(A)</span></span><br></pre></td></tr></table></figure>
-<p>不断应用上面的规则, 直到每个 Follow(X) 都不再变化 <strong>(不动点!!!)</strong></p>
-<h5 id="例子-2">例子</h5>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="./ch07/image-20230407191229025.png" alt="image-20230407191229025"></p>
-<p>FL(X)先看F(Y)，再看F(Z)，再看ε是否属于F(XYZ)</p>
-<p>FL(X)⊆FL(Y)  F(Z)⊆FL(Y)，再看Z能不能产生ε，不能，FL(Y)结束</p>
-<p>FL(Z)⊆FL(Z) FL(Z)=∅</p>
-<h3 id="根据First-与-Follow-集合计算给定文法-G-的预测分析表">根据First 与 Follow 集合计算给定文法 G 的预测分析表</h3>
-<p>对应每条产生式 A → α 与终结符 t, 如果</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/03/30/23-Compilers/ch07/ch07/image-20230407182730941.png" alt="image-20230407182730941"></p>
+<h4 id="&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x9009;&#x62E9;&#x975E;&#x7EC8;&#x7ED3;&#x7B26;&#x7684;&#x3B5;&#x4EA7;&#x751F;&#x5F0F;">&#x4EC0;&#x4E48;&#x65F6;&#x5019;&#x9009;&#x62E9;&#x975E;&#x7EC8;&#x7ED3;&#x7B26;&#x7684;&#x3B5;&#x4EA7;&#x751F;&#x5F0F;</h4>
+<p>&#x53EA;&#x6709;&#x5728;&#x8FD9;&#x4E2A;&#x975E;&#x7EC8;&#x7ED3;&#x7B26;&#x7684;&#x540E;&#x9762;&#x7684;&#x8FD9;&#x4E2A;&#x7EC8;&#x7ED3;&#x7B26;&#x53EF;&#x80FD;&#x662F;&#x6211;&#x60F3;&#x8981;&#x7684;&#x7EC8;&#x7ED3;&#x7B26;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x624D;&#x53EF;&#x4EE5;&#x9009;&#x62E9;&#x5C06;&#x5176;&#x53D8;&#x65E0;</p>
+<p>&#x5982;&#x679C;&#x6709;&#x4E00;&#x4E2A;&#x7EC8;&#x7ED3;&#x7B26;&#xFF0C;&#x800C;&#x4E14;&#x8FD9;&#x4E2A;&#x7EC8;&#x7ED3;&#x7B26;&#x6709;&#x4E00;&#x4E2A;&#x4EA7;&#x751F;&#x5F0F;&#xFF0C;&#x53D8;&#x6210;&#x3B5;&#xFF0C;&#x6216;&#x8005;&#x7ECF;&#x8FC7;&#x5F88;&#x591A;&#x6B65;&#x63A8;&#x5BFC;&#x53EF;&#x4EE5;&#x751F;&#x6210;&#x3B5;&#xFF0C;&#x540E;&#x9762;&#x7684;&#x975E;&#x7EC8;&#x7ED3;&#x7B26;&#x4F7F;&#x6211;&#x4EEC;&#x63A5;&#x4E0B;&#x6765;&#x8981;&#x5339;&#x914D;&#x7684;&#x7EC8;&#x7ED3;&#x7B26;&#xFF0C;&#x63A5;&#x4E0B;&#x6765;&#x8981;&#x5339;&#x914D;&#x7684;&#x7EC8;&#x7ED3;&#x7B26;&#x6700;&#x597D;&#x5C31;&#x662F;&#x5F53;&#x524D;&#x6307;&#x9488;&#x8981;&#x6307;&#x5411;&#x7684;&#x7EC8;&#x7ED3;&#x7B26;</p>
+<p>&#x8981;&#x770B;&#x8FD9;&#x4E2A;&#x975E;&#x7EC8;&#x7ED3;&#x7B26;&#x6709;&#x54EA;&#x4E9B;&#x7EC8;&#x7ED3;&#x7B26;&#x8DDF;&#x5728;&#x540E;&#x9762;</p>
+<h4 id="First-&#x3B1;-&#x96C6;&#x5408;-Definition">First(&#x3B1;) &#x96C6;&#x5408; Definition</h4>
+<p><strong>First(&#x3B1;) &#x662F;&#x53EF;&#x4ECE; &#x3B1; &#x63A8;&#x5BFC;&#x5F97;&#x5230;&#x7684;&#x53E5;&#x578B;&#x7684;==&#x9996;&#x7EC8;&#x7ED3;&#x7B26;&#x53F7;==&#x7684;&#x96C6;&#x5408;</strong></p>
+<p>&#x5BF9;&#x4E8E;&#x4EFB;&#x610F;&#x7684; (&#x4EA7;&#x751F;&#x5F0F;&#x7684;&#x53F3;&#x90E8;) &#x3B1; &#x2208; (N &#x222A; T) &#x2217; :</p>
+<p>First(&#x3B1;) = { t &#x2208; T &#x222A; {&#x3F5;} | &#x3B1; &#x2217;=&#x21D2; t&#x3B2; &#x2228; &#x3B1; &#x2217;=&#x21D2; &#x3F5; } .  &#xFF08;*==&gt;&#x6307;&#x7ECF;&#x8FC7;&#x4EFB;&#x610F;&#x6B65;&#x63A8;&#x5BFC;&#xFF09;&#x3B2;&#x662F;&#x4EFB;&#x610F;&#x975E;&#x7EC8;&#x7ED3;&#x7B26;&#x548C;&#x7EC8;&#x7ED3;&#x7B26;&#x7684;&#x96C6;&#x5408;&#xFF0C;&#x53EF;&#x80FD;&#x4E3A;&#x7A7A;</p>
+<p>&#x8003;&#x8651;&#x975E;&#x7EC8;&#x7ED3;&#x7B26; A &#x7684;&#x6240;&#x6709;&#x4EA7;&#x751F;&#x5F0F; A &#x2192; &#x3B1;1, A &#x2192; &#x3B1;2, . . . , A &#x2192; &#x3B1;m, &#x5982;&#x679C;&#x5B83;&#x4EEC;<strong>&#x5BF9;&#x5E94;&#x7684; First(&#x3B1;i) &#x96C6;&#x5408;&#x4E92;&#x4E0D;&#x76F8;&#x4EA4;</strong>, &#x5219;&#x53EA;&#x9700;&#x67E5;&#x770B;&#x5F53;&#x524D;&#x8F93;&#x5165;&#x8BCD;&#x6CD5;&#x5355;&#x5143;, &#x5373;&#x53EF;&#x786E;&#x5B9A;&#x9009;&#x62E9;&#x54EA;&#x4E2A;&#x4EA7;&#x751F;&#x5F0F; (<strong>&#x6216;&#x62A5;&#x9519;</strong>)</p>
+<p>&#x4F8B;&#xFF1A;</p>
+<p>First(prog) = {&#x2018;int&#x2019;, ID}</p>
+<p><strong>First&#x662F;&#x60F3;&#x77E5;&#x9053;&#xFF0C;&#x5982;&#x679C;&#x9009;&#x62E9;&#x4E86;&#x67D0;&#x79CD;&#x7279;&#x5B9A;&#x7684;&#x5C55;&#x5F00;&#x65B9;&#x5F0F;&#xFF0C;&#x4F1A;&#x4EA7;&#x751F;&#x54EA;&#x4E9B;&#x9996;&#x7EC8;&#x7ED3;&#x7B26;&#xFF0C;&#x6709;&#x6CA1;&#x6709;&#x53EF;&#x80FD;&#x662F;&#x6307;&#x9488;&#x6307;&#x5411;&#x7684;&#x5B57;&#x7B26;</strong></p>
+<h4 id="Follow-A-&#x96C6;&#x5408;-Definition">Follow(A) &#x96C6;&#x5408; Definition</h4>
+<p><strong>Follow(A) &#x662F;&#x53EF;&#x80FD;&#x5728;&#x67D0;&#x4E9B;&#x53E5;&#x578B;&#x4E2D;&#x7D27;&#x8DDF;&#x5728; A &#x53F3;&#x8FB9;&#x7684;&#x7EC8;&#x7ED3;&#x7B26;&#x7684;&#x96C6;&#x5408;</strong></p>
+<p>&#x5BF9;&#x4E8E;&#x4EFB;&#x610F;&#x7684; (&#x4EA7;&#x751F;&#x5F0F;&#x7684;&#x5DE6;&#x90E8;) &#x975E;&#x7EC8;&#x7ED3;&#x7B26; A &#x2208; N :</p>
+<p>&#x200B;	Follow(A) = { t &#x2208; T &#x222A; {$} | &#x2203;s. S &#x2217;=&#x21D2; s &#x225C; &#x3B2;At&#x3B3; } .</p>
+<p>&#x3B2;&#x548C;&#x3B3;&#x662F;&#x4EFB;&#x610F;&#x975E;&#x7EC8;&#x7ED3;&#x7B26;&#x548C;&#x7EC8;&#x7ED3;&#x7B26;&#x7684;&#x96C6;&#x5408;&#xFF0C;&#x53EF;&#x80FD;&#x4E3A;&#x7A7A;</p>
+<p>&#x5982;&#x679C;&#x9000;&#x51FA;&#x6765;A&#x8FD9;&#x4E2A;&#x975E;&#x7EC8;&#x7ED3;&#x7B26;&#xFF0C;&#x800C;&#x4E14;&#x540E;&#x9762;&#x662F;&#x7EC8;&#x7ED3;&#x7B26;&#xFF0C;t &#x2208; Follow(A)&#xFF0C; t&#x6709;&#x53EF;&#x80FD;&#x662F;$&#xFF08;s&#x662F;&#x5F00;&#x59CB;&#x7B26;&#x53F7;&#xFF0C;&#x800C;$&#x662F;&#x8F93;&#x5165;&#x53F3;&#x7AEF;&#x7684;&#x7ED3;&#x675F;&#x6807;&#x8BB0;&#xFF09;</p>
+<p>&#x8003;&#x8651;&#x4EA7;&#x751F;&#x5F0F; A &#x2192; &#x3B1;, <strong>&#x5982;&#x679C;&#x4ECE; &#x3B1; &#x53EF;&#x80FD;&#x63A8;&#x5BFC;&#x51FA;&#x7A7A;&#x4E32; (&#x3B1; &#x2217;=&#x21D2; &#x3F5;), &#x5219;&#x53EA;&#x6709;&#x5F53;&#x5F53;&#x524D;&#x8BCD;&#x6CD5;&#x5355;&#x5143; t &#x2208; Follow(A), &#x624D;&#x53EF;&#x4EE5;&#x9009;&#x62E9;&#x8BE5;&#x4EA7;&#x751F;&#x5F0F;</strong>(&#x610F;&#x5473;&#x7740;A&#x4F1A;&#x6D88;&#x5931;)</p>
+<h4 id="&#x8BA1;&#x7B97;&#x7B97;&#x6CD5;">&#x8BA1;&#x7B97;&#x7B97;&#x6CD5;</h4>
+<h5 id="&#x5148;&#x8BA1;&#x7B97;&#x6BCF;&#x4E2A;&#x7B26;&#x53F7;-X-&#x7684;-First-X-&#x96C6;&#x5408;">&#x5148;&#x8BA1;&#x7B97;&#x6BCF;&#x4E2A;&#x7B26;&#x53F7; X &#x7684; First(X) &#x96C6;&#x5408;</h5>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">procedure <span class="title function_">first</span><span class="params">(X)</span></span><br><span class="line"> <span class="keyword">if</span> X &#x2208; T then &#x25B7; &#x89C4;&#x5219; 1: X &#x662F;&#x7EC8;&#x7ED3;&#x7B26;</span><br><span class="line"> 	<span class="title function_">First</span><span class="params">(X)</span> = X</span><br><span class="line"> <span class="keyword">for</span> X &#x2192; Y1Y2 . . . Yk <span class="keyword">do</span> &#x25B7; &#x89C4;&#x5219; <span class="number">2</span>: X &#x662F;&#x975E;&#x7EC8;&#x7ED3;&#x7B26;</span><br><span class="line">     <span class="comment">//Y&#x7684;&#x9996;&#x7EC8;&#x7ED3;&#x7B26;&#x5305;&#x542B;&#x4E8E;X&#x7684;&#x9996;&#x7EC8;&#x7ED3;&#x7B26;</span></span><br><span class="line">     <span class="comment">//Y&#x5982;&#x679C;&#x53D8;&#x6210;&#x3B5;&#x4E0D;&#x4EE3;&#x8868;X&#x4E5F;&#x4F1A;&#x53D8;&#x6210;&#x3B5;</span></span><br><span class="line"> 	First(X) &#x2190; First(X) &#x222A; {First(Y1) \ {&#x3F5;}}  </span><br><span class="line"> 	<span class="keyword">for</span> i &#x2190; <span class="number">2</span> to k <span class="keyword">do</span></span><br><span class="line">        <span class="comment">//&#x770B;&#x3B5;&#x80FD;&#x4E0D;&#x80FD;&#x7531;Y1&#x63A8;&#x51FA;&#x6765;</span></span><br><span class="line"> 		<span class="keyword">if</span> &#x3F5; &#x2208; L(Y1 . . . Yi&#x2212;<span class="number">1</span>) then</span><br><span class="line"> 			<span class="title function_">First</span><span class="params">(X)</span> &#x2190; <span class="title function_">First</span><span class="params">(X)</span> &#x222A; {First(Yi) \ {&#x3F5;}}</span><br><span class="line">	<span class="comment">//&#x770B;&#x5B8C;1~k</span></span><br><span class="line">	<span class="comment">//L(Y1 . . . Yk)&#x8868;&#x793A;Y1~Yk&#x90FD;&#x80FD;&#x9000;&#x51FA;&#x3B5;</span></span><br><span class="line"> 	<span class="keyword">if</span> &#x3F5; &#x2208; L(Y1 . . . Yk) then &#x25B7; &#x89C4;&#x5219; <span class="number">3</span>: X &#x53EF;&#x63A8;&#x5BFC;&#x51FA;&#x7A7A;&#x4E32;</span><br><span class="line"> 		First(X) &#x2190; First(X) &#x222A; {&#x3F5;}</span><br></pre></td></tr></table></figure>
+<p>&#x4E0D;&#x65AD;&#x5E94;&#x7528;&#x4E0A;&#x9762;&#x7684;&#x89C4;&#x5219;, &#x76F4;&#x5230;&#x6BCF;&#x4E2A; First(X) &#x90FD;&#x4E0D;&#x518D;&#x53D8;&#x5316; <strong>(&#x4E0D;&#x52A8;&#x70B9;!!!)</strong></p>
+<h5 id="&#x518D;&#x8BA1;&#x7B97;&#x6BCF;&#x4E2A;&#x7B26;&#x53F7;&#x4E32;-&#x3B1;-&#x7684;-First-&#x3B1;">&#x518D;&#x8BA1;&#x7B97;&#x6BCF;&#x4E2A;&#x7B26;&#x53F7;&#x4E32; &#x3B1; &#x7684; First(&#x3B1;)</h5>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/03/30/23-Compilers/ch07/ch07/image-20230407190235069.png" alt="image-20230407190235069"></p>
+<h5 id="&#x4F8B;&#x5B50;">&#x4F8B;&#x5B50;</h5>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/03/30/23-Compilers/ch07/ch07/image-20230407190325780.png" alt="image-20230407190325780"></p>
+<h5 id="&#x4E3A;&#x6BCF;&#x4E2A;&#x975E;&#x7EC8;&#x7ED3;&#x7B26;-X-&#x8BA1;&#x7B97;-Follow-X-&#x96C6;&#x5408;">&#x4E3A;&#x6BCF;&#x4E2A;&#x975E;&#x7EC8;&#x7ED3;&#x7B26; X &#x8BA1;&#x7B97; Follow(X) &#x96C6;&#x5408;</h5>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">procedure <span class="title function_">follow</span><span class="params">(X)</span></span><br><span class="line">	<span class="keyword">for</span> X &#x662F;&#x5F00;&#x59CB;&#x7B26;&#x53F7; <span class="keyword">do</span> &#x25B7; &#x89C4;&#x5219; 1: X &#x662F;&#x5F00;&#x59CB;&#x7B26;&#x53F7;</span><br><span class="line">		<span class="title function_">Follow</span><span class="params">(X)</span> &#x2190; <span class="title function_">Follow</span><span class="params">(X)</span> &#x222A; {$}</span><br><span class="line">	<span class="keyword">for</span> A &#x2192; &#x3B1;X <span class="keyword">do</span> &#x25B7; &#x89C4;&#x5219; <span class="number">2</span>: X &#x662F;&#x67D0;&#x4EA7;&#x751F;&#x5F0F;&#x53F3;&#x90E8;&#x7684;&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x7B26;&#x53F7;</span><br><span class="line">       <span class="comment">//&#x6240;&#x6709;&#x80FD;&#x8DDF;&#x5728;A&#x540E;&#x7684;&#x7EC8;&#x7ED3;&#x7B26;&#x90FD;&#x53EF;&#x80FD;&#x8DDF;&#x5728;S&#x540E;&#x9762;</span></span><br><span class="line">		Follow(X) &#x2190; Follow(X) &#x222A; Follow(A)</span><br><span class="line">	<span class="keyword">for</span> A &#x2192; &#x3B1;X&#x3B2; <span class="keyword">do</span> &#x25B7; &#x89C4;&#x5219; <span class="number">3</span>: X &#x662F;&#x67D0;&#x4EA7;&#x751F;&#x5F0F;&#x53F3;&#x90E8;&#x4E2D;&#x95F4;&#x7684;&#x4E00;&#x4E2A;&#x7B26;&#x53F7;&#x3001;</span><br><span class="line">       <span class="comment">//X&#x662F;&#x67D0;&#x4E2A;&#x4EA7;&#x751F;&#x5F0F;&#x4E2D;&#x95F4;&#x7684;&#x7B26;&#x53F7;</span></span><br><span class="line">       <span class="comment">//&#x3B2;&#x80FD;&#x63A8;&#x51FA;&#x6765;&#x7684;&#x7EC8;&#x7ED3;&#x7B26;&#x4E00;&#x5B9A;&#x80FD;&#x8DDF;&#x5728;X&#x540E;&#x9762;</span></span><br><span class="line">       <span class="comment">//&#x3B5;&#x4E0D;&#x4E00;&#x5B9A;&#x5728;X&#x540E;&#x9762;</span></span><br><span class="line">		Follow(X) &#x2190; Follow(X) &#x222A; (First(&#x3B2;) \ {&#x3F5;})</span><br><span class="line">		<span class="keyword">if</span> &#x3F5; &#x2208; First(&#x3B2;) then</span><br><span class="line">		 <span class="title function_">Follow</span><span class="params">(X)</span> &#x2190; <span class="title function_">Follow</span><span class="params">(X)</span> &#x222A; <span class="title function_">Follow</span><span class="params">(A)</span></span><br></pre></td></tr></table></figure>
+<p>&#x4E0D;&#x65AD;&#x5E94;&#x7528;&#x4E0A;&#x9762;&#x7684;&#x89C4;&#x5219;, &#x76F4;&#x5230;&#x6BCF;&#x4E2A; Follow(X) &#x90FD;&#x4E0D;&#x518D;&#x53D8;&#x5316; <strong>(&#x4E0D;&#x52A8;&#x70B9;!!!)</strong></p>
+<h5 id="&#x4F8B;&#x5B50;-2">&#x4F8B;&#x5B50;</h5>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/03/30/23-Compilers/ch07/ch07/image-20230407191229025.png" alt="image-20230407191229025"></p>
+<p>FL(X)&#x5148;&#x770B;F(Y)&#xFF0C;&#x518D;&#x770B;F(Z)&#xFF0C;&#x518D;&#x770B;&#x3B5;&#x662F;&#x5426;&#x5C5E;&#x4E8E;F(XYZ)</p>
+<p>FL(X)&#x2286;FL(Y)  F(Z)&#x2286;FL(Y)&#xFF0C;&#x518D;&#x770B;Z&#x80FD;&#x4E0D;&#x80FD;&#x4EA7;&#x751F;&#x3B5;&#xFF0C;&#x4E0D;&#x80FD;&#xFF0C;FL(Y)&#x7ED3;&#x675F;</p>
+<p>FL(Z)&#x2286;FL(Z) FL(Z)=&#x2205;</p>
+<h3 id="&#x6839;&#x636E;First-&#x4E0E;-Follow-&#x96C6;&#x5408;&#x8BA1;&#x7B97;&#x7ED9;&#x5B9A;&#x6587;&#x6CD5;-G-&#x7684;&#x9884;&#x6D4B;&#x5206;&#x6790;&#x8868;">&#x6839;&#x636E;First &#x4E0E; Follow &#x96C6;&#x5408;&#x8BA1;&#x7B97;&#x7ED9;&#x5B9A;&#x6587;&#x6CD5; G &#x7684;&#x9884;&#x6D4B;&#x5206;&#x6790;&#x8868;</h3>
+<p>&#x5BF9;&#x5E94;&#x6BCF;&#x6761;&#x4EA7;&#x751F;&#x5F0F; A &#x2192; &#x3B1; &#x4E0E;&#x7EC8;&#x7ED3;&#x7B26; t, &#x5982;&#x679C;</p>
 <ul>
 <li>
-<p>t ∈ First(α)</p>
+<p>t &#x2208; First(&#x3B1;)</p>
 </li>
 <li>
-<p>α ∗=⇒ ϵ ∧ t ∈ Follow(A)  //α被变为ε消掉</p>
-</li>
-</ul>
-<p>则在表格 [A,t] 中填入 A → α (编号)。</p>
-<h5 id="例子-3">例子</h5>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="./ch07/image-20230407200206884.png" alt="image-20230407200206884"></p>
-<p>(Y,3)出现冲突，该文法不是LL(1)文法</p>
-<h3 id="LL-1-文法-Definition">LL(1) 文法 Definition</h3>
-<p>如果文法 G 的==预测分析表==是无冲突的, 则 G 是 LL(1) 文法。</p>
-<h3 id="LL-1-文法不能够处理的">LL(1) 文法不能够处理的</h3>
-<p>当前要展开A，看到t这个词法单元，可以选择一个没有冲突的、唯一的产生式，但不意味着接着走下去不会出错</p>
-<ul>
-<li>
-<p>t ∈ First(α) (1)</p>
-</li>
-<li>
-<p>ϵ ∈ First(α) ∧ t ∈ Follow(A) (2)</p>
+<p>&#x3B1; &#x2217;=&#x21D2; &#x3F5; &#x2227; t &#x2208; Follow(A)  //&#x3B1;&#x88AB;&#x53D8;&#x4E3A;&#x3B5;&#x6D88;&#x6389;</p>
 </li>
 </ul>
-<p>当下的选择未必正确, 但 “你别无选择”。</p>
-<h3 id="总结LL-1-语法分析器">总结LL(1) 语法分析器</h3>
+<p>&#x5219;&#x5728;&#x8868;&#x683C; [A,t] &#x4E2D;&#x586B;&#x5165; A &#x2192; &#x3B1; (&#x7F16;&#x53F7;)&#x3002;</p>
+<h5 id="&#x4F8B;&#x5B50;-3">&#x4F8B;&#x5B50;</h5>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/03/30/23-Compilers/ch07/ch07/image-20230407200206884.png" alt="image-20230407200206884"></p>
+<p>(Y,3)&#x51FA;&#x73B0;&#x51B2;&#x7A81;&#xFF0C;&#x8BE5;&#x6587;&#x6CD5;&#x4E0D;&#x662F;LL(1)&#x6587;&#x6CD5;</p>
+<h3 id="LL-1-&#x6587;&#x6CD5;-Definition">LL(1) &#x6587;&#x6CD5; Definition</h3>
+<p>&#x5982;&#x679C;&#x6587;&#x6CD5; G &#x7684;==&#x9884;&#x6D4B;&#x5206;&#x6790;&#x8868;==&#x662F;&#x65E0;&#x51B2;&#x7A81;&#x7684;, &#x5219; G &#x662F; LL(1) &#x6587;&#x6CD5;&#x3002;</p>
+<h3 id="LL-1-&#x6587;&#x6CD5;&#x4E0D;&#x80FD;&#x591F;&#x5904;&#x7406;&#x7684;">LL(1) &#x6587;&#x6CD5;&#x4E0D;&#x80FD;&#x591F;&#x5904;&#x7406;&#x7684;</h3>
+<p>&#x5F53;&#x524D;&#x8981;&#x5C55;&#x5F00;A&#xFF0C;&#x770B;&#x5230;t&#x8FD9;&#x4E2A;&#x8BCD;&#x6CD5;&#x5355;&#x5143;&#xFF0C;&#x53EF;&#x4EE5;&#x9009;&#x62E9;&#x4E00;&#x4E2A;&#x6CA1;&#x6709;&#x51B2;&#x7A81;&#x7684;&#x3001;&#x552F;&#x4E00;&#x7684;&#x4EA7;&#x751F;&#x5F0F;&#xFF0C;&#x4F46;&#x4E0D;&#x610F;&#x5473;&#x7740;&#x63A5;&#x7740;&#x8D70;&#x4E0B;&#x53BB;&#x4E0D;&#x4F1A;&#x51FA;&#x9519;</p>
 <ul>
 <li>
-<p>L : 从左向右 (left-to-right) 扫描输入</p>
+<p>t &#x2208; First(&#x3B1;) (1)</p>
 </li>
 <li>
-<p>L : 构建最左 (leftmost) 推导</p>
+<p>&#x3F5; &#x2208; First(&#x3B1;) &#x2227; t &#x2208; Follow(A) (2)</p>
+</li>
+</ul>
+<p>&#x5F53;&#x4E0B;&#x7684;&#x9009;&#x62E9;&#x672A;&#x5FC5;&#x6B63;&#x786E;, &#x4F46; &#x201C;&#x4F60;&#x522B;&#x65E0;&#x9009;&#x62E9;&#x201D;&#x3002;</p>
+<h3 id="&#x603B;&#x7ED3;LL-1-&#x8BED;&#x6CD5;&#x5206;&#x6790;&#x5668;">&#x603B;&#x7ED3;LL(1) &#x8BED;&#x6CD5;&#x5206;&#x6790;&#x5668;</h3>
+<ul>
+<li>
+<p>L : &#x4ECE;&#x5DE6;&#x5411;&#x53F3; (left-to-right) &#x626B;&#x63CF;&#x8F93;&#x5165;</p>
 </li>
 <li>
-<p>1 : 只需向前看一个输入符号便可确定使用哪条产生式</p>
+<p>L : &#x6784;&#x5EFA;&#x6700;&#x5DE6; (leftmost) &#x63A8;&#x5BFC;</p>
+</li>
+<li>
+<p>1 : &#x53EA;&#x9700;&#x5411;&#x524D;&#x770B;&#x4E00;&#x4E2A;&#x8F93;&#x5165;&#x7B26;&#x53F7;&#x4FBF;&#x53EF;&#x786E;&#x5B9A;&#x4F7F;&#x7528;&#x54EA;&#x6761;&#x4EA7;&#x751F;&#x5F0F;</p>
 </li>
 </ul>
 <h3 id="LL-0">LL(0)</h3>
-<p>输入什么都不看，闭着眼的语法分析器:</p>
-<p>只包含一个字符串的文法</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="ch07/image-20230407200810018.png" alt="image-20230407200810018"></p>
-<h3 id="非递归的预测分析算法（非重点，现在一般写递归的，模块性强）">非递归的预测分析算法（非重点，现在一般写递归的，模块性强）</h3>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="ch07/image-20230407200908885.png" alt="image-20230407200908885"></p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="ch07/image-20230407200929058.png" alt="image-20230407200929058"></p>
-<h3 id="不是LL-1-文法的改造文法办法">不是LL(1)文法的改造文法办法</h3>
+<p>&#x8F93;&#x5165;&#x4EC0;&#x4E48;&#x90FD;&#x4E0D;&#x770B;&#xFF0C;&#x95ED;&#x7740;&#x773C;&#x7684;&#x8BED;&#x6CD5;&#x5206;&#x6790;&#x5668;:</p>
+<p>&#x53EA;&#x5305;&#x542B;&#x4E00;&#x4E2A;&#x5B57;&#x7B26;&#x4E32;&#x7684;&#x6587;&#x6CD5;</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/03/30/23-Compilers/ch07/image-20230407200810018.png" alt="image-20230407200810018"></p>
+<h3 id="&#x975E;&#x9012;&#x5F52;&#x7684;&#x9884;&#x6D4B;&#x5206;&#x6790;&#x7B97;&#x6CD5;&#xFF08;&#x975E;&#x91CD;&#x70B9;&#xFF0C;&#x73B0;&#x5728;&#x4E00;&#x822C;&#x5199;&#x9012;&#x5F52;&#x7684;&#xFF0C;&#x6A21;&#x5757;&#x6027;&#x5F3A;&#xFF09;">&#x975E;&#x9012;&#x5F52;&#x7684;&#x9884;&#x6D4B;&#x5206;&#x6790;&#x7B97;&#x6CD5;&#xFF08;&#x975E;&#x91CD;&#x70B9;&#xFF0C;&#x73B0;&#x5728;&#x4E00;&#x822C;&#x5199;&#x9012;&#x5F52;&#x7684;&#xFF0C;&#x6A21;&#x5757;&#x6027;&#x5F3A;&#xFF09;</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/03/30/23-Compilers/ch07/image-20230407200908885.png" alt="image-20230407200908885"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/03/30/23-Compilers/ch07/image-20230407200929058.png" alt="image-20230407200929058"></p>
+<h3 id="&#x4E0D;&#x662F;LL-1-&#x6587;&#x6CD5;&#x7684;&#x6539;&#x9020;&#x6587;&#x6CD5;&#x529E;&#x6CD5;">&#x4E0D;&#x662F;LL(1)&#x6587;&#x6CD5;&#x7684;&#x6539;&#x9020;&#x6587;&#x6CD5;&#x529E;&#x6CD5;</h3>
 <ul>
-<li><strong>消除左递归</strong></li>
-<li><strong>提取左公因子</strong></li>
+<li><strong>&#x6D88;&#x9664;&#x5DE6;&#x9012;&#x5F52;</strong></li>
+<li><strong>&#x63D0;&#x53D6;&#x5DE6;&#x516C;&#x56E0;&#x5B50;</strong></li>
 </ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="ch07/image-20230407201805026.png" alt="image-20230407201805026"></p>
-<p>左递归改完是左递归</p>
-<p>E 在不消耗任何词法单元的情况下, 直接递归调用 E, 造成死循环</p>
-<p>解决方案：</p>
-<p>左递归改为右递归</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="ch07/image-20230412111153214.png" alt="image-20230412111153214"></p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="ch07/image-20230412111233114.png" alt="image-20230412111233114"></p>
-<h3 id="直接左递归-Direct-Left-Recursion-消除左递归">直接左递归 (Direct Left Recursion)消除左递归</h3>
-<h4 id="例子：">例子：</h4>
-<ul>
-<li>
-<p>A → Aα | β</p>
-</li>
-<li>
-<p>A → βA′</p>
-<p>A ′ → αA′ | ϵ</p>
-</li>
-</ul>
-<h4 id="范式">范式</h4>
-<ul>
-<li>A → Aα1 | Aα2 | . . . Aαm | β1 | β2 | . . . βn</li>
-<li>其中, βi 都不以 A 开头</li>
-</ul>
-<p>改为：</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/03/30/23-Compilers/ch07/image-20230407201805026.png" alt="image-20230407201805026"></p>
+<p>&#x5DE6;&#x9012;&#x5F52;&#x6539;&#x5B8C;&#x662F;&#x5DE6;&#x9012;&#x5F52;</p>
+<p>E &#x5728;&#x4E0D;&#x6D88;&#x8017;&#x4EFB;&#x4F55;&#x8BCD;&#x6CD5;&#x5355;&#x5143;&#x7684;&#x60C5;&#x51B5;&#x4E0B;, &#x76F4;&#x63A5;&#x9012;&#x5F52;&#x8C03;&#x7528; E, &#x9020;&#x6210;&#x6B7B;&#x5FAA;&#x73AF;</p>
+<p>&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF1A;</p>
+<p>&#x5DE6;&#x9012;&#x5F52;&#x6539;&#x4E3A;&#x53F3;&#x9012;&#x5F52;</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/03/30/23-Compilers/ch07/image-20230412111153214.png" alt="image-20230412111153214"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/03/30/23-Compilers/ch07/image-20230412111233114.png" alt="image-20230412111233114"></p>
+<h3 id="&#x76F4;&#x63A5;&#x5DE6;&#x9012;&#x5F52;-Direct-Left-Recursion-&#x6D88;&#x9664;&#x5DE6;&#x9012;&#x5F52;">&#x76F4;&#x63A5;&#x5DE6;&#x9012;&#x5F52; (Direct Left Recursion)&#x6D88;&#x9664;&#x5DE6;&#x9012;&#x5F52;</h3>
+<h4 id="&#x4F8B;&#x5B50;&#xFF1A;">&#x4F8B;&#x5B50;&#xFF1A;</h4>
 <ul>
 <li>
-<p>A → β1A ′ | β2A ′ | · · · | βnA′</p>
-<p>A ′ → α1A ′ | α2A ′ | · · · | αmA ′ | ϵ</p>
+<p>A &#x2192; A&#x3B1; | &#x3B2;</p>
+</li>
+<li>
+<p>A &#x2192; &#x3B2;A&#x2032;</p>
+<p>A &#x2032; &#x2192; &#x3B1;A&#x2032; | &#x3F5;</p>
 </li>
 </ul>
-<h3 id="间接左递归-Indirect-Left-Recursion-消除左递归">间接左递归 (Indirect Left Recursion)消除左递归</h3>
-<p>单看每一条产生式都没有左递归</p>
+<h4 id="&#x8303;&#x5F0F;">&#x8303;&#x5F0F;</h4>
+<ul>
+<li>A &#x2192; A&#x3B1;1 | A&#x3B1;2 | . . . A&#x3B1;m | &#x3B2;1 | &#x3B2;2 | . . . &#x3B2;n</li>
+<li>&#x5176;&#x4E2D;, &#x3B2;i &#x90FD;&#x4E0D;&#x4EE5; A &#x5F00;&#x5934;</li>
+</ul>
+<p>&#x6539;&#x4E3A;&#xFF1A;</p>
 <ul>
 <li>
-<p>S → Ac | c</p>
-<p>A → Bb | b</p>
-<p>B → Sa | a</p>
+<p>A &#x2192; &#x3B2;1A &#x2032; | &#x3B2;2A &#x2032; | &#xB7; &#xB7; &#xB7; | &#x3B2;nA&#x2032;</p>
+<p>A &#x2032; &#x2192; &#x3B1;1A &#x2032; | &#x3B1;2A &#x2032; | &#xB7; &#xB7; &#xB7; | &#x3B1;mA &#x2032; | &#x3F5;</p>
+</li>
+</ul>
+<h3 id="&#x95F4;&#x63A5;&#x5DE6;&#x9012;&#x5F52;-Indirect-Left-Recursion-&#x6D88;&#x9664;&#x5DE6;&#x9012;&#x5F52;">&#x95F4;&#x63A5;&#x5DE6;&#x9012;&#x5F52; (Indirect Left Recursion)&#x6D88;&#x9664;&#x5DE6;&#x9012;&#x5F52;</h3>
+<p>&#x5355;&#x770B;&#x6BCF;&#x4E00;&#x6761;&#x4EA7;&#x751F;&#x5F0F;&#x90FD;&#x6CA1;&#x6709;&#x5DE6;&#x9012;&#x5F52;</p>
 <ul>
-<li>S =⇒ Ac =⇒ Bbc =⇒ Sabc：构成了左递归</li>
+<li>
+<p>S &#x2192; Ac | c</p>
+<p>A &#x2192; Bb | b</p>
+<p>B &#x2192; Sa | a</p>
+<ul>
+<li>S =&#x21D2; Ac =&#x21D2; Bbc =&#x21D2; Sabc&#xFF1A;&#x6784;&#x6210;&#x4E86;&#x5DE6;&#x9012;&#x5F52;</li>
 </ul>
 </li>
 </ul>
-<p>改间接左递归比较麻烦，绕了一圈回到自己，消除需要满足这样的性质：</p>
-<p>如果对满足这样条件的产生式：</p>
-<p>A~i~ → A~j~α =⇒ i &lt; j</p>
-<p>即：如果右部第一个为非终结符，则要求i &lt; j</p>
-<p>即：每推一步，产生出来的非终结符的编号越来越大，所以不可能绕回自己，不可能产生左递归</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="ch07/image-20230412170532841.png" alt="image-20230412170532841"></p>
+<p>&#x6539;&#x95F4;&#x63A5;&#x5DE6;&#x9012;&#x5F52;&#x6BD4;&#x8F83;&#x9EBB;&#x70E6;&#xFF0C;&#x7ED5;&#x4E86;&#x4E00;&#x5708;&#x56DE;&#x5230;&#x81EA;&#x5DF1;&#xFF0C;&#x6D88;&#x9664;&#x9700;&#x8981;&#x6EE1;&#x8DB3;&#x8FD9;&#x6837;&#x7684;&#x6027;&#x8D28;&#xFF1A;</p>
+<p>&#x5982;&#x679C;&#x5BF9;&#x6EE1;&#x8DB3;&#x8FD9;&#x6837;&#x6761;&#x4EF6;&#x7684;&#x4EA7;&#x751F;&#x5F0F;&#xFF1A;</p>
+<p>A~i~ &#x2192; A~j~&#x3B1; =&#x21D2; i &lt; j</p>
+<p>&#x5373;&#xFF1A;&#x5982;&#x679C;&#x53F3;&#x90E8;&#x7B2C;&#x4E00;&#x4E2A;&#x4E3A;&#x975E;&#x7EC8;&#x7ED3;&#x7B26;&#xFF0C;&#x5219;&#x8981;&#x6C42;i &lt; j</p>
+<p>&#x5373;&#xFF1A;&#x6BCF;&#x63A8;&#x4E00;&#x6B65;&#xFF0C;&#x4EA7;&#x751F;&#x51FA;&#x6765;&#x7684;&#x975E;&#x7EC8;&#x7ED3;&#x7B26;&#x7684;&#x7F16;&#x53F7;&#x8D8A;&#x6765;&#x8D8A;&#x5927;&#xFF0C;&#x6240;&#x4EE5;&#x4E0D;&#x53EF;&#x80FD;&#x7ED5;&#x56DE;&#x81EA;&#x5DF1;&#xFF0C;&#x4E0D;&#x53EF;&#x80FD;&#x4EA7;&#x751F;&#x5DE6;&#x9012;&#x5F52;</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/03/30/23-Compilers/ch07/image-20230412170532841.png" alt="image-20230412170532841"></p>
 <ul>
-<li>产生直接左递归：可以按照之前的方式处理了</li>
-<li>算法要求:
+<li>&#x4EA7;&#x751F;&#x76F4;&#x63A5;&#x5DE6;&#x9012;&#x5F52;&#xFF1A;&#x53EF;&#x4EE5;&#x6309;&#x7167;&#x4E4B;&#x524D;&#x7684;&#x65B9;&#x5F0F;&#x5904;&#x7406;&#x4E86;</li>
+<li>&#x7B97;&#x6CD5;&#x8981;&#x6C42;:
 <ul>
-<li>文法中不存在环 (形如 A ∗=⇒ A 的推导)</li>
-<li>文法中不存在 ϵ 产生式 (形如 A → ϵ 的产生式)</li>
+<li>&#x6587;&#x6CD5;&#x4E2D;&#x4E0D;&#x5B58;&#x5728;&#x73AF; (&#x5F62;&#x5982; A &#x2217;=&#x21D2; A &#x7684;&#x63A8;&#x5BFC;)</li>
+<li>&#x6587;&#x6CD5;&#x4E2D;&#x4E0D;&#x5B58;&#x5728; &#x3F5; &#x4EA7;&#x751F;&#x5F0F; (&#x5F62;&#x5982; A &#x2192; &#x3F5; &#x7684;&#x4EA7;&#x751F;&#x5F0F;)</li>
 </ul>
 </li>
 </ul>
-<p>间接左递归的处理在工程上不是必须的：很多实用的文法不会有间接左递归，为了少量的文法在工程上实现一个理论可行的东西是不明智的</p>
-<h3 id="提取左公因子-Left-Factoring">提取左公因子 (Left-Factoring)</h3>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="ch07/image-20230412170913024.png" alt="image-20230412170913024"></p>
-<p><strong>ANTLR 4 可以处理有左公因子的文法，不需要自己提取</strong></p>
-<p>提取公共部分’int’ ID</p>
-<p>如果提取完是空就空着</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="ch07/image-20230412171009946.png" alt="image-20230412171009946"></p>
-<p>很明显, <strong>提取左公因子无助于消除文法二义性</strong></p>
+<p>&#x95F4;&#x63A5;&#x5DE6;&#x9012;&#x5F52;&#x7684;&#x5904;&#x7406;&#x5728;&#x5DE5;&#x7A0B;&#x4E0A;&#x4E0D;&#x662F;&#x5FC5;&#x987B;&#x7684;&#xFF1A;&#x5F88;&#x591A;&#x5B9E;&#x7528;&#x7684;&#x6587;&#x6CD5;&#x4E0D;&#x4F1A;&#x6709;&#x95F4;&#x63A5;&#x5DE6;&#x9012;&#x5F52;&#xFF0C;&#x4E3A;&#x4E86;&#x5C11;&#x91CF;&#x7684;&#x6587;&#x6CD5;&#x5728;&#x5DE5;&#x7A0B;&#x4E0A;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x7406;&#x8BBA;&#x53EF;&#x884C;&#x7684;&#x4E1C;&#x897F;&#x662F;&#x4E0D;&#x660E;&#x667A;&#x7684;</p>
+<h3 id="&#x63D0;&#x53D6;&#x5DE6;&#x516C;&#x56E0;&#x5B50;-Left-Factoring">&#x63D0;&#x53D6;&#x5DE6;&#x516C;&#x56E0;&#x5B50; (Left-Factoring)</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/03/30/23-Compilers/ch07/image-20230412170913024.png" alt="image-20230412170913024"></p>
+<p><strong>ANTLR 4 &#x53EF;&#x4EE5;&#x5904;&#x7406;&#x6709;&#x5DE6;&#x516C;&#x56E0;&#x5B50;&#x7684;&#x6587;&#x6CD5;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x81EA;&#x5DF1;&#x63D0;&#x53D6;</strong></p>
+<p>&#x63D0;&#x53D6;&#x516C;&#x5171;&#x90E8;&#x5206;&#x2019;int&#x2019; ID</p>
+<p>&#x5982;&#x679C;&#x63D0;&#x53D6;&#x5B8C;&#x662F;&#x7A7A;&#x5C31;&#x7A7A;&#x7740;</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/03/30/23-Compilers/ch07/image-20230412171009946.png" alt="image-20230412171009946"></p>
+<p>&#x5F88;&#x660E;&#x663E;, <strong>&#x63D0;&#x53D6;&#x5DE6;&#x516C;&#x56E0;&#x5B50;&#x65E0;&#x52A9;&#x4E8E;&#x6D88;&#x9664;&#x6587;&#x6CD5;&#x4E8C;&#x4E49;&#x6027;</strong></p>
 
 <div class="article-footer fs14">
     <section id="license">

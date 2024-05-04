@@ -20,24 +20,24 @@
   <title>SE-II-ch21-软件的维护与演化 - Asimov's Blog</title>
 
   
-    <meta name="description" content="21-软件的维护与演化   1. 维护  1.1. 软件维护的主要工作是&quot;修改&quot;  1.1.1. 维护是什么 1.1.2. 软件维护   1.2. 软件变更的常见情景  1.2.1. 软件维护类型划分[Lientz1980] 1.2.2. 软件维护   1.3. 软件维护代价高昂  1.3.1. 软件维护成本远远超出开发 1.3.2. 从事维护工作的人员比率在上升 1.3.3.">
+    <meta name="description" content="21-&#x8F6F;&#x4EF6;&#x7684;&#x7EF4;&#x62A4;&#x4E0E;&#x6F14;&#x5316;   1. &#x7EF4;&#x62A4;  1.1. &#x8F6F;&#x4EF6;&#x7EF4;&#x62A4;&#x7684;&#x4E3B;&#x8981;&#x5DE5;&#x4F5C;&#x662F;&quot;&#x4FEE;&#x6539;&amp;q">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SE-II-ch21-软件的维护与演化">
 <meta property="og:url" content="https://chendingya.github.io/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/21-%E8%BD%AF%E4%BB%B6%E7%9A%84%E7%BB%B4%E6%8A%A4%E4%B8%8E%E6%BC%94%E5%8C%96/index.html">
 <meta property="og:site_name" content="Asimov&#39;s Blog">
-<meta property="og:description" content="21-软件的维护与演化   1. 维护  1.1. 软件维护的主要工作是&quot;修改&quot;  1.1.1. 维护是什么 1.1.2. 软件维护   1.2. 软件变更的常见情景  1.2.1. 软件维护类型划分[Lientz1980] 1.2.2. 软件维护   1.3. 软件维护代价高昂  1.3.1. 软件维护成本远远超出开发 1.3.2. 从事维护工作的人员比率在上升 1.3.3.">
+<meta property="og:description" content="21-&#x8F6F;&#x4EF6;&#x7684;&#x7EF4;&#x62A4;&#x4E0E;&#x6F14;&#x5316;   1. &#x7EF4;&#x62A4;  1.1. &#x8F6F;&#x4EF6;&#x7EF4;&#x62A4;&#x7684;&#x4E3B;&#x8981;&#x5DE5;&#x4F5C;&#x662F;&quot;&#x4FEE;&#x6539;&amp;q">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="c:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220607102741273.png">
-<meta property="og:image" content="c:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220607103137390.png">
-<meta property="og:image" content="c:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220607105019191.png">
-<meta property="og:image" content="c:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220607105310072.png">
-<meta property="og:image" content="c:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220607110030412.png">
+<meta property="og:image" content="https://chendingya.github.io/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/21-%E8%BD%AF%E4%BB%B6%E7%9A%84%E7%BB%B4%E6%8A%A4%E4%B8%8E%E6%BC%94%E5%8C%96/C:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220607102741273.png">
+<meta property="og:image" content="https://chendingya.github.io/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/21-%E8%BD%AF%E4%BB%B6%E7%9A%84%E7%BB%B4%E6%8A%A4%E4%B8%8E%E6%BC%94%E5%8C%96/C:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220607103137390.png">
+<meta property="og:image" content="https://chendingya.github.io/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/21-%E8%BD%AF%E4%BB%B6%E7%9A%84%E7%BB%B4%E6%8A%A4%E4%B8%8E%E6%BC%94%E5%8C%96/C:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220607105019191.png">
+<meta property="og:image" content="https://chendingya.github.io/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/21-%E8%BD%AF%E4%BB%B6%E7%9A%84%E7%BB%B4%E6%8A%A4%E4%B8%8E%E6%BC%94%E5%8C%96/C:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220607105310072.png">
+<meta property="og:image" content="https://chendingya.github.io/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/21-%E8%BD%AF%E4%BB%B6%E7%9A%84%E7%BB%B4%E6%8A%A4%E4%B8%8E%E6%BC%94%E5%8C%96/C:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220607110030412.png">
 <meta property="article:published_time" content="2022-06-18T08:02:34.000Z">
 <meta property="article:modified_time" content="2023-09-17T07:55:16.061Z">
 <meta property="article:author" content="Asimov">
 <meta property="article:tag" content="软件工程与计算II">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="c:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220607102741273.png">
+<meta name="twitter:image" content="https://chendingya.github.io/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/21-%E8%BD%AF%E4%BB%B6%E7%9A%84%E7%BB%B4%E6%8A%A4%E4%B8%8E%E6%BC%94%E5%8C%96/C:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220607102741273.png">
   
   
   
@@ -70,7 +70,7 @@
 <div class="widgets">
 
 
-<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2024/05/02/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%842/"><span class="title">系统架构2-质量属性Quality Attributes</span></a><a class="item title" href="/2024/05/01/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%841/"><span class="title">系统架构1-Intro</span></a><a class="item title" href="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/"><span class="title">软件测试-期末复习</span></a><a class="item title" href="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/"><span class="title">机器学习-期末复习</span></a><a class="item title" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/"><span class="title">服务端-ch17-k8s使用</span></a><a class="item title" href="/2023/12/30/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch16-%E5%AE%B9%E5%99%A8%E9%95%9C%E5%83%8F%E6%9E%84%E5%BB%BA%E4%B8%8E%E7%BC%96%E6%8E%92/"><span class="title">服务端-ch16-容器镜像构建与编排</span></a><a class="item title" href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/"><span class="title">服务端-ch15-Docker</span></a><a class="item title" href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/"><span class="title">服务端-ch14-Spring WebFlux</span></a><a class="item title" href="/2023/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch13-%E5%8F%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"><span class="title">服务端-ch13-反应式编程基础</span></a><a class="item title" href="/2023/11/23/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch12-Spring%20Integration/"><span class="title">服务端-ch12-Spring Integration</span></a></div></widget>
+<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2022/10/25/hello-world/"><span class="title">Hello World</span></a><a class="item title" href="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/"><span class="title">软件测试-期末复习</span></a><a class="item title" href="/2024/05/02/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%842/"><span class="title">系统架构2-质量属性Quality Attributes</span></a><a class="item title" href="/2024/05/01/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%841/"><span class="title">系统架构1-Intro</span></a><a class="item title" href="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/"><span class="title">机器学习-期末复习</span></a><a class="item title" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/"><span class="title">服务端-ch17-k8s使用</span></a><a class="item title" href="/2023/12/30/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch16-%E5%AE%B9%E5%99%A8%E9%95%9C%E5%83%8F%E6%9E%84%E5%BB%BA%E4%B8%8E%E7%BC%96%E6%8E%92/"><span class="title">服务端-ch16-容器镜像构建与编排</span></a><a class="item title" href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/"><span class="title">服务端-ch15-Docker</span></a><a class="item title" href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/"><span class="title">服务端-ch14-Spring WebFlux</span></a><a class="item title" href="/2023/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch13-%E5%8F%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"><span class="title">服务端-ch13-反应式编程基础</span></a></div></widget>
 </div>
 <footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/chendingya?tab=repositories" target="_blank" rel="external nofollow noopener noreferrer"><img no-lazy src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" / onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a></div></footer>
 </div></aside><div class="l_main" id="main">
@@ -94,455 +94,455 @@
     </div>
     
   </div>
-  </div><article class="md-text content"><h2 id="21-软件的维护与演化">21-软件的维护与演化</h2>
+  </div><article class="md-text content"><h2 id="21-&#x8F6F;&#x4EF6;&#x7684;&#x7EF4;&#x62A4;&#x4E0E;&#x6F14;&#x5316;">21-&#x8F6F;&#x4EF6;&#x7684;&#x7EF4;&#x62A4;&#x4E0E;&#x6F14;&#x5316;</h2>
 <!-- TOC -->
 <ul>
-<li><a href="#1-%E7%BB%B4%E6%8A%A4">1. 维护</a>
+<li><a href="#1-%E7%BB%B4%E6%8A%A4">1. &#x7EF4;&#x62A4;</a>
 <ul>
-<li><a href="#11-%E8%BD%AF%E4%BB%B6%E7%BB%B4%E6%8A%A4%E7%9A%84%E4%B8%BB%E8%A6%81%E5%B7%A5%E4%BD%9C%E6%98%AF%E4%BF%AE%E6%94%B9">1.1. 软件维护的主要工作是&quot;修改&quot;</a>
+<li><a href="#11-%E8%BD%AF%E4%BB%B6%E7%BB%B4%E6%8A%A4%E7%9A%84%E4%B8%BB%E8%A6%81%E5%B7%A5%E4%BD%9C%E6%98%AF%E4%BF%AE%E6%94%B9">1.1. &#x8F6F;&#x4EF6;&#x7EF4;&#x62A4;&#x7684;&#x4E3B;&#x8981;&#x5DE5;&#x4F5C;&#x662F;&quot;&#x4FEE;&#x6539;&quot;</a>
 <ul>
-<li><a href="#111-%E7%BB%B4%E6%8A%A4%E6%98%AF%E4%BB%80%E4%B9%88">1.1.1. 维护是什么</a></li>
-<li><a href="#112-%E8%BD%AF%E4%BB%B6%E7%BB%B4%E6%8A%A4">1.1.2. 软件维护</a></li>
+<li><a href="#111-%E7%BB%B4%E6%8A%A4%E6%98%AF%E4%BB%80%E4%B9%88">1.1.1. &#x7EF4;&#x62A4;&#x662F;&#x4EC0;&#x4E48;</a></li>
+<li><a href="#112-%E8%BD%AF%E4%BB%B6%E7%BB%B4%E6%8A%A4">1.1.2. &#x8F6F;&#x4EF6;&#x7EF4;&#x62A4;</a></li>
 </ul>
 </li>
-<li><a href="#12-%E8%BD%AF%E4%BB%B6%E5%8F%98%E6%9B%B4%E7%9A%84%E5%B8%B8%E8%A7%81%E6%83%85%E6%99%AF">1.2. 软件变更的常见情景</a>
+<li><a href="#12-%E8%BD%AF%E4%BB%B6%E5%8F%98%E6%9B%B4%E7%9A%84%E5%B8%B8%E8%A7%81%E6%83%85%E6%99%AF">1.2. &#x8F6F;&#x4EF6;&#x53D8;&#x66F4;&#x7684;&#x5E38;&#x89C1;&#x60C5;&#x666F;</a>
 <ul>
-<li><a href="#121-%E8%BD%AF%E4%BB%B6%E7%BB%B4%E6%8A%A4%E7%B1%BB%E5%9E%8B%E5%88%92%E5%88%86lientz1980">1.2.1. 软件维护类型划分[Lientz1980]</a></li>
-<li><a href="#122-%E8%BD%AF%E4%BB%B6%E7%BB%B4%E6%8A%A4">1.2.2. 软件维护</a></li>
+<li><a href="#121-%E8%BD%AF%E4%BB%B6%E7%BB%B4%E6%8A%A4%E7%B1%BB%E5%9E%8B%E5%88%92%E5%88%86lientz1980">1.2.1. &#x8F6F;&#x4EF6;&#x7EF4;&#x62A4;&#x7C7B;&#x578B;&#x5212;&#x5206;[Lientz1980]</a></li>
+<li><a href="#122-%E8%BD%AF%E4%BB%B6%E7%BB%B4%E6%8A%A4">1.2.2. &#x8F6F;&#x4EF6;&#x7EF4;&#x62A4;</a></li>
 </ul>
 </li>
-<li><a href="#13-%E8%BD%AF%E4%BB%B6%E7%BB%B4%E6%8A%A4%E4%BB%A3%E4%BB%B7%E9%AB%98%E6%98%82">1.3. 软件维护代价高昂</a>
+<li><a href="#13-%E8%BD%AF%E4%BB%B6%E7%BB%B4%E6%8A%A4%E4%BB%A3%E4%BB%B7%E9%AB%98%E6%98%82">1.3. &#x8F6F;&#x4EF6;&#x7EF4;&#x62A4;&#x4EE3;&#x4EF7;&#x9AD8;&#x6602;</a>
 <ul>
-<li><a href="#131-%E8%BD%AF%E4%BB%B6%E7%BB%B4%E6%8A%A4%E6%88%90%E6%9C%AC%E8%BF%9C%E8%BF%9C%E8%B6%85%E5%87%BA%E5%BC%80%E5%8F%91">1.3.1. 软件维护成本远远超出开发</a></li>
-<li><a href="#132-%E4%BB%8E%E4%BA%8B%E7%BB%B4%E6%8A%A4%E5%B7%A5%E4%BD%9C%E7%9A%84%E4%BA%BA%E5%91%98%E6%AF%94%E7%8E%87%E5%9C%A8%E4%B8%8A%E5%8D%87">1.3.2. 从事维护工作的人员比率在上升</a></li>
-<li><a href="#133-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BD%AF%E4%BB%B6%E7%BB%B4%E6%8A%A4%E6%9C%89%E8%BF%99%E4%B9%88%E9%AB%98%E7%9A%84%E4%BB%A3%E4%BB%B7">1.3.3. 为什么软件维护有这么高的代价？</a></li>
-<li><a href="#134-%E9%9C%80%E6%B1%82%E5%8F%98%E6%9B%B4%E9%9D%9E%E5%B8%B8%E9%A2%91%E7%B9%81">1.3.4. 需求变更非常频繁</a></li>
-<li><a href="#135-%E9%A2%91%E7%B9%81%E5%8F%98%E6%9B%B4%E7%9A%84%E9%9C%80%E6%B1%82%E6%8E%A8%E9%AB%98%E4%BA%86%E7%BB%B4%E6%8A%A4%E6%88%90%E6%9C%AC">1.3.5. 频繁变更的需求推高了维护成本</a></li>
-<li><a href="#136-%E7%BB%B4%E6%8A%A4%E7%9A%84%E5%9B%B0%E9%9A%BE%E6%80%A7">1.3.6. 维护的困难性</a></li>
+<li><a href="#131-%E8%BD%AF%E4%BB%B6%E7%BB%B4%E6%8A%A4%E6%88%90%E6%9C%AC%E8%BF%9C%E8%BF%9C%E8%B6%85%E5%87%BA%E5%BC%80%E5%8F%91">1.3.1. &#x8F6F;&#x4EF6;&#x7EF4;&#x62A4;&#x6210;&#x672C;&#x8FDC;&#x8FDC;&#x8D85;&#x51FA;&#x5F00;&#x53D1;</a></li>
+<li><a href="#132-%E4%BB%8E%E4%BA%8B%E7%BB%B4%E6%8A%A4%E5%B7%A5%E4%BD%9C%E7%9A%84%E4%BA%BA%E5%91%98%E6%AF%94%E7%8E%87%E5%9C%A8%E4%B8%8A%E5%8D%87">1.3.2. &#x4ECE;&#x4E8B;&#x7EF4;&#x62A4;&#x5DE5;&#x4F5C;&#x7684;&#x4EBA;&#x5458;&#x6BD4;&#x7387;&#x5728;&#x4E0A;&#x5347;</a></li>
+<li><a href="#133-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%BD%AF%E4%BB%B6%E7%BB%B4%E6%8A%A4%E6%9C%89%E8%BF%99%E4%B9%88%E9%AB%98%E7%9A%84%E4%BB%A3%E4%BB%B7">1.3.3. &#x4E3A;&#x4EC0;&#x4E48;&#x8F6F;&#x4EF6;&#x7EF4;&#x62A4;&#x6709;&#x8FD9;&#x4E48;&#x9AD8;&#x7684;&#x4EE3;&#x4EF7;&#xFF1F;</a></li>
+<li><a href="#134-%E9%9C%80%E6%B1%82%E5%8F%98%E6%9B%B4%E9%9D%9E%E5%B8%B8%E9%A2%91%E7%B9%81">1.3.4. &#x9700;&#x6C42;&#x53D8;&#x66F4;&#x975E;&#x5E38;&#x9891;&#x7E41;</a></li>
+<li><a href="#135-%E9%A2%91%E7%B9%81%E5%8F%98%E6%9B%B4%E7%9A%84%E9%9C%80%E6%B1%82%E6%8E%A8%E9%AB%98%E4%BA%86%E7%BB%B4%E6%8A%A4%E6%88%90%E6%9C%AC">1.3.5. &#x9891;&#x7E41;&#x53D8;&#x66F4;&#x7684;&#x9700;&#x6C42;&#x63A8;&#x9AD8;&#x4E86;&#x7EF4;&#x62A4;&#x6210;&#x672C;</a></li>
+<li><a href="#136-%E7%BB%B4%E6%8A%A4%E7%9A%84%E5%9B%B0%E9%9A%BE%E6%80%A7">1.3.6. &#x7EF4;&#x62A4;&#x7684;&#x56F0;&#x96BE;&#x6027;</a></li>
 </ul>
 </li>
-<li><a href="#14-%E5%BC%80%E5%8F%91%E5%8F%AF%E7%BB%B4%E6%8A%A4%E7%9A%84%E8%BD%AF%E4%BB%B6">1.4. 开发可维护的软件</a>
+<li><a href="#14-%E5%BC%80%E5%8F%91%E5%8F%AF%E7%BB%B4%E6%8A%A4%E7%9A%84%E8%BD%AF%E4%BB%B6">1.4. &#x5F00;&#x53D1;&#x53EF;&#x7EF4;&#x62A4;&#x7684;&#x8F6F;&#x4EF6;</a>
 <ul>
-<li><a href="#141-%E5%89%8D%E6%9C%9F%E5%BC%80%E5%8F%91%E9%98%B6%E6%AE%B5%E6%9B%B4%E5%85%85%E5%88%86%E7%9A%84%E5%87%86%E5%A4%87%E5%8F%AF%E4%BB%A5%E5%87%8F%E8%BD%BB%E5%90%8E%E6%9C%9F%E7%BB%B4%E6%8A%A4%E7%9A%84%E5%8E%8B%E5%8A%9B%E5%92%8C%E5%9B%B0%E9%9A%BE">1.4.1. 前期(开发阶段)更充分的准备可以减轻后期维护的压力和困难</a></li>
-<li><a href="#142-%E8%80%83%E8%99%91%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%8F%AF%E5%8F%98%E6%9B%B4%E6%80%A7">1.4.2. 考虑软件的可变更性</a></li>
-<li><a href="#143-%E4%B8%BA%E9%99%8D%E4%BD%8E%E7%BB%B4%E6%8A%A4%E5%9B%B0%E9%9A%BE%E8%80%8C%E5%BC%80%E5%8F%91">1.4.3. 为降低维护困难而开发</a></li>
+<li><a href="#141-%E5%89%8D%E6%9C%9F%E5%BC%80%E5%8F%91%E9%98%B6%E6%AE%B5%E6%9B%B4%E5%85%85%E5%88%86%E7%9A%84%E5%87%86%E5%A4%87%E5%8F%AF%E4%BB%A5%E5%87%8F%E8%BD%BB%E5%90%8E%E6%9C%9F%E7%BB%B4%E6%8A%A4%E7%9A%84%E5%8E%8B%E5%8A%9B%E5%92%8C%E5%9B%B0%E9%9A%BE">1.4.1. &#x524D;&#x671F;(&#x5F00;&#x53D1;&#x9636;&#x6BB5;)&#x66F4;&#x5145;&#x5206;&#x7684;&#x51C6;&#x5907;&#x53EF;&#x4EE5;&#x51CF;&#x8F7B;&#x540E;&#x671F;&#x7EF4;&#x62A4;&#x7684;&#x538B;&#x529B;&#x548C;&#x56F0;&#x96BE;</a></li>
+<li><a href="#142-%E8%80%83%E8%99%91%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%8F%AF%E5%8F%98%E6%9B%B4%E6%80%A7">1.4.2. &#x8003;&#x8651;&#x8F6F;&#x4EF6;&#x7684;&#x53EF;&#x53D8;&#x66F4;&#x6027;</a></li>
+<li><a href="#143-%E4%B8%BA%E9%99%8D%E4%BD%8E%E7%BB%B4%E6%8A%A4%E5%9B%B0%E9%9A%BE%E8%80%8C%E5%BC%80%E5%8F%91">1.4.3. &#x4E3A;&#x964D;&#x4F4E;&#x7EF4;&#x62A4;&#x56F0;&#x96BE;&#x800C;&#x5F00;&#x53D1;</a></li>
 </ul>
 </li>
-<li><a href="#15-%E8%BD%AF%E4%BB%B6%E7%BB%B4%E6%8A%A4%E7%9A%84%E8%BF%87%E7%A8%8B">1.5. 软件维护的过程</a>
+<li><a href="#15-%E8%BD%AF%E4%BB%B6%E7%BB%B4%E6%8A%A4%E7%9A%84%E8%BF%87%E7%A8%8B">1.5. &#x8F6F;&#x4EF6;&#x7EF4;&#x62A4;&#x7684;&#x8FC7;&#x7A0B;</a>
 <ul>
-<li><a href="#151-%E6%AD%A5%E9%AA%A41%E9%97%AE%E9%A2%98%E4%BF%AE%E6%94%B9%E7%9A%84%E6%A0%87%E8%AF%86%E5%88%86%E7%B1%BB%E4%B8%8E%E5%88%92%E5%88%86%E4%BC%98%E5%85%88%E7%BA%A7">1.5.1. 步骤1:问题/修改的标识、分类与划分优先级</a></li>
-<li><a href="#152-%E6%AD%A5%E9%AA%A42%E5%88%86%E6%9E%90">1.5.2. 步骤2:分析</a></li>
-<li><a href="#153-%E6%AD%A5%E9%AA%A43%E8%AE%BE%E8%AE%A1">1.5.3. 步骤3:设计</a></li>
-<li><a href="#154-%E6%AD%A5%E9%AA%A44%E5%AE%9E%E7%8E%B0">1.5.4. 步骤4:实现</a></li>
-<li><a href="#155-%E6%AD%A5%E9%AA%A45%E5%9B%9E%E5%BD%92%E6%B5%8B%E8%AF%95">1.5.5. 步骤5:回归测试</a></li>
-<li><a href="#156-%E6%AD%A5%E9%AA%A46%E9%AA%8C%E6%94%B6%E6%B5%8B%E8%AF%95">1.5.6. 步骤6:验收测试</a></li>
-<li><a href="#157-%E6%AD%A5%E9%AA%A47%E7%A7%BB%E4%BA%A4">1.5.7. 步骤7:移交</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#2-%E8%BD%AF%E4%BB%B6%E6%BC%94%E5%8C%96">2. 软件演化</a>
-<ul>
-<li><a href="#21-%E7%BB%B4%E6%8A%A4%E5%92%8C%E6%BC%94%E5%8C%96">2.1. 维护和演化</a></li>
-<li><a href="#22-%E8%BD%AF%E4%BB%B6%E6%BC%94%E5%8C%96%E5%AE%9A%E5%BE%8B">2.2. 软件演化定律</a></li>
-<li><a href="#23-%E8%BD%AF%E4%BB%B6%E6%BC%94%E5%8C%96%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%A8%A1%E5%9E%8B">2.3. 软件演化生命周期模型</a>
-<ul>
-<li><a href="#231-%E6%AD%A5%E9%AA%A4%E4%B8%80%E5%88%9D%E5%A7%8B%E5%BC%80%E5%8F%91">2.3.1. 步骤一:初始开发</a></li>
-<li><a href="#232-%E6%AD%A5%E9%AA%A4%E4%BA%8C%E6%BC%94%E5%8C%96">2.3.2. 步骤二:演化</a></li>
-<li><a href="#233-%E6%AD%A5%E9%AA%A4%E4%B8%89%E6%9C%8D%E5%8A%A1">2.3.3. 步骤三:服务</a></li>
-<li><a href="#234-%E6%AD%A5%E9%AA%A4%E5%9B%9B%E9%80%90%E6%AD%A5%E6%B7%98%E6%B1%B0">2.3.4. 步骤四:逐步淘汰</a></li>
-<li><a href="#235-%E6%AD%A5%E9%AA%A4%E4%BA%94%E5%81%9C%E6%AD%A2">2.3.5. 步骤五:停止</a></li>
-</ul>
-</li>
-<li><a href="#24-%E5%BC%80%E5%8F%91%E5%9B%A2%E9%98%9F%E5%9C%A8%E4%B8%8D%E5%90%8C%E9%98%B6%E6%AE%B5%E7%9A%84%E4%B8%8D%E5%90%8C%E5%B7%A5%E4%BD%9C">2.4. 开发团队在不同阶段的不同工作</a></li>
-</ul>
-</li>
-<li><a href="#3-%E8%BD%AF%E4%BB%B6%E7%BB%B4%E6%8A%A4%E4%B8%8E%E6%BC%94%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF">3. 软件维护与演化的技术</a>
-<ul>
-<li><a href="#31-%E9%81%97%E7%95%99%E8%BD%AF%E4%BB%B6">3.1. 遗留软件</a>
-<ul>
-<li><a href="#311-%E5%AF%B9%E4%BA%8E%E9%81%97%E7%95%99%E8%BD%AF%E4%BB%B6%E7%9A%84%E4%B8%8D%E5%90%8C%E5%A4%84%E7%90%86%E6%96%B9%E5%BC%8F">3.1.1. 对于遗留软件的不同处理方式</a></li>
-</ul>
-</li>
-<li><a href="#32-%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B">3.2. 逆向工程</a></li>
-<li><a href="#33-%E5%86%8D%E5%B7%A5%E7%A8%8B">3.3. 再工程</a>
-<ul>
-<li><a href="#331-%E5%86%8D%E5%B7%A5%E7%A8%8B%E4%B8%8E%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B%E7%9A%84%E5%85%B3%E7%B3%BB">3.3.1. 再工程与逆向工程的关系</a></li>
-<li><a href="#332-%E5%86%8D%E5%B7%A5%E7%A8%8B">3.3.2. 再工程</a></li>
+<li><a href="#151-%E6%AD%A5%E9%AA%A41%E9%97%AE%E9%A2%98%E4%BF%AE%E6%94%B9%E7%9A%84%E6%A0%87%E8%AF%86%E5%88%86%E7%B1%BB%E4%B8%8E%E5%88%92%E5%88%86%E4%BC%98%E5%85%88%E7%BA%A7">1.5.1. &#x6B65;&#x9AA4;1:&#x95EE;&#x9898;/&#x4FEE;&#x6539;&#x7684;&#x6807;&#x8BC6;&#x3001;&#x5206;&#x7C7B;&#x4E0E;&#x5212;&#x5206;&#x4F18;&#x5148;&#x7EA7;</a></li>
+<li><a href="#152-%E6%AD%A5%E9%AA%A42%E5%88%86%E6%9E%90">1.5.2. &#x6B65;&#x9AA4;2:&#x5206;&#x6790;</a></li>
+<li><a href="#153-%E6%AD%A5%E9%AA%A43%E8%AE%BE%E8%AE%A1">1.5.3. &#x6B65;&#x9AA4;3:&#x8BBE;&#x8BA1;</a></li>
+<li><a href="#154-%E6%AD%A5%E9%AA%A44%E5%AE%9E%E7%8E%B0">1.5.4. &#x6B65;&#x9AA4;4:&#x5B9E;&#x73B0;</a></li>
+<li><a href="#155-%E6%AD%A5%E9%AA%A45%E5%9B%9E%E5%BD%92%E6%B5%8B%E8%AF%95">1.5.5. &#x6B65;&#x9AA4;5:&#x56DE;&#x5F52;&#x6D4B;&#x8BD5;</a></li>
+<li><a href="#156-%E6%AD%A5%E9%AA%A46%E9%AA%8C%E6%94%B6%E6%B5%8B%E8%AF%95">1.5.6. &#x6B65;&#x9AA4;6:&#x9A8C;&#x6536;&#x6D4B;&#x8BD5;</a></li>
+<li><a href="#157-%E6%AD%A5%E9%AA%A47%E7%A7%BB%E4%BA%A4">1.5.7. &#x6B65;&#x9AA4;7:&#x79FB;&#x4EA4;</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#4-%E6%80%BB%E7%BB%93">4. 总结</a></li>
+<li><a href="#2-%E8%BD%AF%E4%BB%B6%E6%BC%94%E5%8C%96">2. &#x8F6F;&#x4EF6;&#x6F14;&#x5316;</a>
+<ul>
+<li><a href="#21-%E7%BB%B4%E6%8A%A4%E5%92%8C%E6%BC%94%E5%8C%96">2.1. &#x7EF4;&#x62A4;&#x548C;&#x6F14;&#x5316;</a></li>
+<li><a href="#22-%E8%BD%AF%E4%BB%B6%E6%BC%94%E5%8C%96%E5%AE%9A%E5%BE%8B">2.2. &#x8F6F;&#x4EF6;&#x6F14;&#x5316;&#x5B9A;&#x5F8B;</a></li>
+<li><a href="#23-%E8%BD%AF%E4%BB%B6%E6%BC%94%E5%8C%96%E7%94%9F%E5%91%BD%E5%91%A8%E6%9C%9F%E6%A8%A1%E5%9E%8B">2.3. &#x8F6F;&#x4EF6;&#x6F14;&#x5316;&#x751F;&#x547D;&#x5468;&#x671F;&#x6A21;&#x578B;</a>
+<ul>
+<li><a href="#231-%E6%AD%A5%E9%AA%A4%E4%B8%80%E5%88%9D%E5%A7%8B%E5%BC%80%E5%8F%91">2.3.1. &#x6B65;&#x9AA4;&#x4E00;:&#x521D;&#x59CB;&#x5F00;&#x53D1;</a></li>
+<li><a href="#232-%E6%AD%A5%E9%AA%A4%E4%BA%8C%E6%BC%94%E5%8C%96">2.3.2. &#x6B65;&#x9AA4;&#x4E8C;:&#x6F14;&#x5316;</a></li>
+<li><a href="#233-%E6%AD%A5%E9%AA%A4%E4%B8%89%E6%9C%8D%E5%8A%A1">2.3.3. &#x6B65;&#x9AA4;&#x4E09;:&#x670D;&#x52A1;</a></li>
+<li><a href="#234-%E6%AD%A5%E9%AA%A4%E5%9B%9B%E9%80%90%E6%AD%A5%E6%B7%98%E6%B1%B0">2.3.4. &#x6B65;&#x9AA4;&#x56DB;:&#x9010;&#x6B65;&#x6DD8;&#x6C70;</a></li>
+<li><a href="#235-%E6%AD%A5%E9%AA%A4%E4%BA%94%E5%81%9C%E6%AD%A2">2.3.5. &#x6B65;&#x9AA4;&#x4E94;:&#x505C;&#x6B62;</a></li>
+</ul>
+</li>
+<li><a href="#24-%E5%BC%80%E5%8F%91%E5%9B%A2%E9%98%9F%E5%9C%A8%E4%B8%8D%E5%90%8C%E9%98%B6%E6%AE%B5%E7%9A%84%E4%B8%8D%E5%90%8C%E5%B7%A5%E4%BD%9C">2.4. &#x5F00;&#x53D1;&#x56E2;&#x961F;&#x5728;&#x4E0D;&#x540C;&#x9636;&#x6BB5;&#x7684;&#x4E0D;&#x540C;&#x5DE5;&#x4F5C;</a></li>
+</ul>
+</li>
+<li><a href="#3-%E8%BD%AF%E4%BB%B6%E7%BB%B4%E6%8A%A4%E4%B8%8E%E6%BC%94%E5%8C%96%E7%9A%84%E6%8A%80%E6%9C%AF">3. &#x8F6F;&#x4EF6;&#x7EF4;&#x62A4;&#x4E0E;&#x6F14;&#x5316;&#x7684;&#x6280;&#x672F;</a>
+<ul>
+<li><a href="#31-%E9%81%97%E7%95%99%E8%BD%AF%E4%BB%B6">3.1. &#x9057;&#x7559;&#x8F6F;&#x4EF6;</a>
+<ul>
+<li><a href="#311-%E5%AF%B9%E4%BA%8E%E9%81%97%E7%95%99%E8%BD%AF%E4%BB%B6%E7%9A%84%E4%B8%8D%E5%90%8C%E5%A4%84%E7%90%86%E6%96%B9%E5%BC%8F">3.1.1. &#x5BF9;&#x4E8E;&#x9057;&#x7559;&#x8F6F;&#x4EF6;&#x7684;&#x4E0D;&#x540C;&#x5904;&#x7406;&#x65B9;&#x5F0F;</a></li>
+</ul>
+</li>
+<li><a href="#32-%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B">3.2. &#x9006;&#x5411;&#x5DE5;&#x7A0B;</a></li>
+<li><a href="#33-%E5%86%8D%E5%B7%A5%E7%A8%8B">3.3. &#x518D;&#x5DE5;&#x7A0B;</a>
+<ul>
+<li><a href="#331-%E5%86%8D%E5%B7%A5%E7%A8%8B%E4%B8%8E%E9%80%86%E5%90%91%E5%B7%A5%E7%A8%8B%E7%9A%84%E5%85%B3%E7%B3%BB">3.3.1. &#x518D;&#x5DE5;&#x7A0B;&#x4E0E;&#x9006;&#x5411;&#x5DE5;&#x7A0B;&#x7684;&#x5173;&#x7CFB;</a></li>
+<li><a href="#332-%E5%86%8D%E5%B7%A5%E7%A8%8B">3.3.2. &#x518D;&#x5DE5;&#x7A0B;</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#4-%E6%80%BB%E7%BB%93">4. &#x603B;&#x7ED3;</a></li>
 </ul>
 <!-- /TOC -->
-<h1>1. 维护</h1>
+<h1>1. &#x7EF4;&#x62A4;</h1>
 <ol>
-<li>软件维护的<strong>主要工作是&quot;修改&quot;</strong></li>
-<li>软件维护代价高昂</li>
-<li>软件维护的过程</li>
+<li>&#x8F6F;&#x4EF6;&#x7EF4;&#x62A4;&#x7684;<strong>&#x4E3B;&#x8981;&#x5DE5;&#x4F5C;&#x662F;&quot;&#x4FEE;&#x6539;&quot;</strong></li>
+<li>&#x8F6F;&#x4EF6;&#x7EF4;&#x62A4;&#x4EE3;&#x4EF7;&#x9AD8;&#x6602;</li>
+<li>&#x8F6F;&#x4EF6;&#x7EF4;&#x62A4;&#x7684;&#x8FC7;&#x7A0B;</li>
 </ol>
-<h2 id="1-1-软件维护的主要工作是-修改">1.1. 软件维护的主要工作是&quot;修改&quot;</h2>
-<h3 id="1-1-1-维护是什么">1.1.1. 维护是什么</h3>
+<h2 id="1-1-&#x8F6F;&#x4EF6;&#x7EF4;&#x62A4;&#x7684;&#x4E3B;&#x8981;&#x5DE5;&#x4F5C;&#x662F;-&#x4FEE;&#x6539;">1.1. &#x8F6F;&#x4EF6;&#x7EF4;&#x62A4;&#x7684;&#x4E3B;&#x8981;&#x5DE5;&#x4F5C;&#x662F;&quot;&#x4FEE;&#x6539;&quot;</h2>
+<h3 id="1-1-1-&#x7EF4;&#x62A4;&#x662F;&#x4EC0;&#x4E48;">1.1.1. &#x7EF4;&#x62A4;&#x662F;&#x4EC0;&#x4E48;</h3>
 <ol>
-<li>各个工程领域都会在将产品交付给用户之后进行维护工作
+<li>&#x5404;&#x4E2A;&#x5DE5;&#x7A0B;&#x9886;&#x57DF;&#x90FD;&#x4F1A;&#x5728;&#x5C06;&#x4EA7;&#x54C1;&#x4EA4;&#x4ED8;&#x7ED9;&#x7528;&#x6237;&#x4E4B;&#x540E;&#x8FDB;&#x884C;&#x7EF4;&#x62A4;&#x5DE5;&#x4F5C;
 <ol>
-<li>主要是为了保证产品的正常运转而进行使用帮助、故障解决和磨损处理等工作。</li>
-</ol>
-</li>
-<li>软件的维护主要是&quot;修改&quot;
-<ol>
-<li>软件不会磨损，硬件的变更会影响软件产品</li>
-<li>软件维护只需要完成少量的使用帮助、故障解决和磨损处理等工作</li>
-<li>软件特性上是易于修改的</li>
-<li>软件只有持续修改才能保持价值</li>
+<li>&#x4E3B;&#x8981;&#x662F;&#x4E3A;&#x4E86;&#x4FDD;&#x8BC1;&#x4EA7;&#x54C1;&#x7684;&#x6B63;&#x5E38;&#x8FD0;&#x8F6C;&#x800C;&#x8FDB;&#x884C;&#x4F7F;&#x7528;&#x5E2E;&#x52A9;&#x3001;&#x6545;&#x969C;&#x89E3;&#x51B3;&#x548C;&#x78E8;&#x635F;&#x5904;&#x7406;&#x7B49;&#x5DE5;&#x4F5C;&#x3002;</li>
 </ol>
 </li>
-</ol>
-<h3 id="1-1-2-软件维护">1.1.2. 软件维护</h3>
+<li>&#x8F6F;&#x4EF6;&#x7684;&#x7EF4;&#x62A4;&#x4E3B;&#x8981;&#x662F;&quot;&#x4FEE;&#x6539;&quot;
 <ol>
-<li>修改软件的代价非常高，软件维护的重点在于软件修改和变更上。</li>
-<li>IEEE就定义软件维护为[IEEE610.12-1990]：<strong>软件维护是在交付之后修改软件系统或其部件的活动过程，以修正缺陷、提高性能或其他属性、适应变化的环境。</strong></li>
-</ol>
-<h2 id="1-2-软件变更的常见情景">1.2. 软件变更的常见情景</h2>
-<ol>
-<li>问题发生了改变。
-<ol>
-<li>随着时间的发展，形势可能会发生变化，导致用户的问题发生变化。这些使得软件的需求发生变化，出现新的需求，否则软件将减小甚至失去服务用户的作用。</li>
-</ol>
-</li>
-<li>环境发生了改变。
-<ol>
-<li>随着软件产品的生命周期越来越长，在软件生存期内外界环境发生变化的可能性越来越大，因此，软件经常需要修改以适应外界环境的改变。</li>
-<li>比如硬件上出现了变更。</li>
-</ol>
-</li>
-<li>软件产品中存在缺陷。
-<ol>
-<li>软件开发的理想结果当然是建立一个完全无缺陷的软件产品，<strong>但这是不可能达到的目标</strong>。最终的软件产品总是或多或少的会遗留下一些缺陷。当这些缺陷在使用中暴露出来时，必须予以及时的解决。</li>
+<li>&#x8F6F;&#x4EF6;&#x4E0D;&#x4F1A;&#x78E8;&#x635F;&#xFF0C;&#x786C;&#x4EF6;&#x7684;&#x53D8;&#x66F4;&#x4F1A;&#x5F71;&#x54CD;&#x8F6F;&#x4EF6;&#x4EA7;&#x54C1;</li>
+<li>&#x8F6F;&#x4EF6;&#x7EF4;&#x62A4;&#x53EA;&#x9700;&#x8981;&#x5B8C;&#x6210;&#x5C11;&#x91CF;&#x7684;&#x4F7F;&#x7528;&#x5E2E;&#x52A9;&#x3001;&#x6545;&#x969C;&#x89E3;&#x51B3;&#x548C;&#x78E8;&#x635F;&#x5904;&#x7406;&#x7B49;&#x5DE5;&#x4F5C;</li>
+<li>&#x8F6F;&#x4EF6;&#x7279;&#x6027;&#x4E0A;&#x662F;&#x6613;&#x4E8E;&#x4FEE;&#x6539;&#x7684;</li>
+<li>&#x8F6F;&#x4EF6;&#x53EA;&#x6709;&#x6301;&#x7EED;&#x4FEE;&#x6539;&#x624D;&#x80FD;&#x4FDD;&#x6301;&#x4EF7;&#x503C;</li>
 </ol>
 </li>
 </ol>
-<h3 id="1-2-1-软件维护类型划分-Lientz1980">1.2.1. 软件维护类型划分[Lientz1980]</h3>
+<h3 id="1-1-2-&#x8F6F;&#x4EF6;&#x7EF4;&#x62A4;">1.1.2. &#x8F6F;&#x4EF6;&#x7EF4;&#x62A4;</h3>
 <ol>
-<li>完善性维护(Perfective maintenance)：为了满足用户新的需求、增加软件功能而进行的软件修改活动。</li>
-<li>适应性维护(Adaptive maintenance)：为了使软件能适应新的环境而进行的软件修改活动。</li>
-<li>修正性维护(Corrective maintenance)：为了排除软件产品中遗留缺陷而进行的软件修改活动。</li>
-<li>预防性维护(Preventive maintenance)：<strong>为了让软件产品在将来可维护，提升可维护性的软件修改活动</strong>。【如重构软件】
+<li>&#x4FEE;&#x6539;&#x8F6F;&#x4EF6;&#x7684;&#x4EE3;&#x4EF7;&#x975E;&#x5E38;&#x9AD8;&#xFF0C;&#x8F6F;&#x4EF6;&#x7EF4;&#x62A4;&#x7684;&#x91CD;&#x70B9;&#x5728;&#x4E8E;&#x8F6F;&#x4EF6;&#x4FEE;&#x6539;&#x548C;&#x53D8;&#x66F4;&#x4E0A;&#x3002;</li>
+<li>IEEE&#x5C31;&#x5B9A;&#x4E49;&#x8F6F;&#x4EF6;&#x7EF4;&#x62A4;&#x4E3A;[IEEE610.12-1990]&#xFF1A;<strong>&#x8F6F;&#x4EF6;&#x7EF4;&#x62A4;&#x662F;&#x5728;&#x4EA4;&#x4ED8;&#x4E4B;&#x540E;&#x4FEE;&#x6539;&#x8F6F;&#x4EF6;&#x7CFB;&#x7EDF;&#x6216;&#x5176;&#x90E8;&#x4EF6;&#x7684;&#x6D3B;&#x52A8;&#x8FC7;&#x7A0B;&#xFF0C;&#x4EE5;&#x4FEE;&#x6B63;&#x7F3A;&#x9677;&#x3001;&#x63D0;&#x9AD8;&#x6027;&#x80FD;&#x6216;&#x5176;&#x4ED6;&#x5C5E;&#x6027;&#x3001;&#x9002;&#x5E94;&#x53D8;&#x5316;&#x7684;&#x73AF;&#x5883;&#x3002;</strong></li>
+</ol>
+<h2 id="1-2-&#x8F6F;&#x4EF6;&#x53D8;&#x66F4;&#x7684;&#x5E38;&#x89C1;&#x60C5;&#x666F;">1.2. &#x8F6F;&#x4EF6;&#x53D8;&#x66F4;&#x7684;&#x5E38;&#x89C1;&#x60C5;&#x666F;</h2>
 <ol>
-<li>随着持续的修改，软件的复杂度会上升，质量会下降。预防性修改是为了解决上述问题而进行的软件调整，是一种特殊类型的&quot;修改&quot;</li>
-<li><strong>只有这一种维护是根源于软件维护中的规律性</strong>。</li>
+<li>&#x95EE;&#x9898;&#x53D1;&#x751F;&#x4E86;&#x6539;&#x53D8;&#x3002;
+<ol>
+<li>&#x968F;&#x7740;&#x65F6;&#x95F4;&#x7684;&#x53D1;&#x5C55;&#xFF0C;&#x5F62;&#x52BF;&#x53EF;&#x80FD;&#x4F1A;&#x53D1;&#x751F;&#x53D8;&#x5316;&#xFF0C;&#x5BFC;&#x81F4;&#x7528;&#x6237;&#x7684;&#x95EE;&#x9898;&#x53D1;&#x751F;&#x53D8;&#x5316;&#x3002;&#x8FD9;&#x4E9B;&#x4F7F;&#x5F97;&#x8F6F;&#x4EF6;&#x7684;&#x9700;&#x6C42;&#x53D1;&#x751F;&#x53D8;&#x5316;&#xFF0C;&#x51FA;&#x73B0;&#x65B0;&#x7684;&#x9700;&#x6C42;&#xFF0C;&#x5426;&#x5219;&#x8F6F;&#x4EF6;&#x5C06;&#x51CF;&#x5C0F;&#x751A;&#x81F3;&#x5931;&#x53BB;&#x670D;&#x52A1;&#x7528;&#x6237;&#x7684;&#x4F5C;&#x7528;&#x3002;</li>
+</ol>
+</li>
+<li>&#x73AF;&#x5883;&#x53D1;&#x751F;&#x4E86;&#x6539;&#x53D8;&#x3002;
+<ol>
+<li>&#x968F;&#x7740;&#x8F6F;&#x4EF6;&#x4EA7;&#x54C1;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x8D8A;&#x6765;&#x8D8A;&#x957F;&#xFF0C;&#x5728;&#x8F6F;&#x4EF6;&#x751F;&#x5B58;&#x671F;&#x5185;&#x5916;&#x754C;&#x73AF;&#x5883;&#x53D1;&#x751F;&#x53D8;&#x5316;&#x7684;&#x53EF;&#x80FD;&#x6027;&#x8D8A;&#x6765;&#x8D8A;&#x5927;&#xFF0C;&#x56E0;&#x6B64;&#xFF0C;&#x8F6F;&#x4EF6;&#x7ECF;&#x5E38;&#x9700;&#x8981;&#x4FEE;&#x6539;&#x4EE5;&#x9002;&#x5E94;&#x5916;&#x754C;&#x73AF;&#x5883;&#x7684;&#x6539;&#x53D8;&#x3002;</li>
+<li>&#x6BD4;&#x5982;&#x786C;&#x4EF6;&#x4E0A;&#x51FA;&#x73B0;&#x4E86;&#x53D8;&#x66F4;&#x3002;</li>
+</ol>
+</li>
+<li>&#x8F6F;&#x4EF6;&#x4EA7;&#x54C1;&#x4E2D;&#x5B58;&#x5728;&#x7F3A;&#x9677;&#x3002;
+<ol>
+<li>&#x8F6F;&#x4EF6;&#x5F00;&#x53D1;&#x7684;&#x7406;&#x60F3;&#x7ED3;&#x679C;&#x5F53;&#x7136;&#x662F;&#x5EFA;&#x7ACB;&#x4E00;&#x4E2A;&#x5B8C;&#x5168;&#x65E0;&#x7F3A;&#x9677;&#x7684;&#x8F6F;&#x4EF6;&#x4EA7;&#x54C1;&#xFF0C;<strong>&#x4F46;&#x8FD9;&#x662F;&#x4E0D;&#x53EF;&#x80FD;&#x8FBE;&#x5230;&#x7684;&#x76EE;&#x6807;</strong>&#x3002;&#x6700;&#x7EC8;&#x7684;&#x8F6F;&#x4EF6;&#x4EA7;&#x54C1;&#x603B;&#x662F;&#x6216;&#x591A;&#x6216;&#x5C11;&#x7684;&#x4F1A;&#x9057;&#x7559;&#x4E0B;&#x4E00;&#x4E9B;&#x7F3A;&#x9677;&#x3002;&#x5F53;&#x8FD9;&#x4E9B;&#x7F3A;&#x9677;&#x5728;&#x4F7F;&#x7528;&#x4E2D;&#x66B4;&#x9732;&#x51FA;&#x6765;&#x65F6;&#xFF0C;&#x5FC5;&#x987B;&#x4E88;&#x4EE5;&#x53CA;&#x65F6;&#x7684;&#x89E3;&#x51B3;&#x3002;</li>
 </ol>
 </li>
 </ol>
-<h3 id="1-2-2-软件维护">1.2.2. 软件维护</h3>
+<h3 id="1-2-1-&#x8F6F;&#x4EF6;&#x7EF4;&#x62A4;&#x7C7B;&#x578B;&#x5212;&#x5206;-Lientz1980">1.2.1. &#x8F6F;&#x4EF6;&#x7EF4;&#x62A4;&#x7C7B;&#x578B;&#x5212;&#x5206;[Lientz1980]</h3>
 <ol>
-<li>理想情况下，为满足一些变更而执行的维护活动应该不会降低软件产品的质量，尤其是可维护性，否则，本次的维护活动将使得未来的维护活动更加困难。</li>
-<li>但是<strong>实践表明软件维护活动的确会降低软件产品的质量</strong>，甚至导致一个软件产品在进行一系列维护活动之后会失去可维护性。</li>
-<li>[Lehman1980,1984]将这种现象表述为：在一个程序发生变更时，它的结构倾向于变得更复杂，因此需要投入一些额外的资源以在保持功能的同时简化程序结构。
+<li>&#x5B8C;&#x5584;&#x6027;&#x7EF4;&#x62A4;(Perfective maintenance)&#xFF1A;&#x4E3A;&#x4E86;&#x6EE1;&#x8DB3;&#x7528;&#x6237;&#x65B0;&#x7684;&#x9700;&#x6C42;&#x3001;&#x589E;&#x52A0;&#x8F6F;&#x4EF6;&#x529F;&#x80FD;&#x800C;&#x8FDB;&#x884C;&#x7684;&#x8F6F;&#x4EF6;&#x4FEE;&#x6539;&#x6D3B;&#x52A8;&#x3002;</li>
+<li>&#x9002;&#x5E94;&#x6027;&#x7EF4;&#x62A4;(Adaptive maintenance)&#xFF1A;&#x4E3A;&#x4E86;&#x4F7F;&#x8F6F;&#x4EF6;&#x80FD;&#x9002;&#x5E94;&#x65B0;&#x7684;&#x73AF;&#x5883;&#x800C;&#x8FDB;&#x884C;&#x7684;&#x8F6F;&#x4EF6;&#x4FEE;&#x6539;&#x6D3B;&#x52A8;&#x3002;</li>
+<li>&#x4FEE;&#x6B63;&#x6027;&#x7EF4;&#x62A4;(Corrective maintenance)&#xFF1A;&#x4E3A;&#x4E86;&#x6392;&#x9664;&#x8F6F;&#x4EF6;&#x4EA7;&#x54C1;&#x4E2D;&#x9057;&#x7559;&#x7F3A;&#x9677;&#x800C;&#x8FDB;&#x884C;&#x7684;&#x8F6F;&#x4EF6;&#x4FEE;&#x6539;&#x6D3B;&#x52A8;&#x3002;</li>
+<li>&#x9884;&#x9632;&#x6027;&#x7EF4;&#x62A4;(Preventive maintenance)&#xFF1A;<strong>&#x4E3A;&#x4E86;&#x8BA9;&#x8F6F;&#x4EF6;&#x4EA7;&#x54C1;&#x5728;&#x5C06;&#x6765;&#x53EF;&#x7EF4;&#x62A4;&#xFF0C;&#x63D0;&#x5347;&#x53EF;&#x7EF4;&#x62A4;&#x6027;&#x7684;&#x8F6F;&#x4EF6;&#x4FEE;&#x6539;&#x6D3B;&#x52A8;</strong>&#x3002;&#x3010;&#x5982;&#x91CD;&#x6784;&#x8F6F;&#x4EF6;&#x3011;
 <ol>
-<li>别人来维护代码，可能会降低代码效率等等</li>
+<li>&#x968F;&#x7740;&#x6301;&#x7EED;&#x7684;&#x4FEE;&#x6539;&#xFF0C;&#x8F6F;&#x4EF6;&#x7684;&#x590D;&#x6742;&#x5EA6;&#x4F1A;&#x4E0A;&#x5347;&#xFF0C;&#x8D28;&#x91CF;&#x4F1A;&#x4E0B;&#x964D;&#x3002;&#x9884;&#x9632;&#x6027;&#x4FEE;&#x6539;&#x662F;&#x4E3A;&#x4E86;&#x89E3;&#x51B3;&#x4E0A;&#x8FF0;&#x95EE;&#x9898;&#x800C;&#x8FDB;&#x884C;&#x7684;&#x8F6F;&#x4EF6;&#x8C03;&#x6574;&#xFF0C;&#x662F;&#x4E00;&#x79CD;&#x7279;&#x6B8A;&#x7C7B;&#x578B;&#x7684;&quot;&#x4FEE;&#x6539;&quot;</li>
+<li><strong>&#x53EA;&#x6709;&#x8FD9;&#x4E00;&#x79CD;&#x7EF4;&#x62A4;&#x662F;&#x6839;&#x6E90;&#x4E8E;&#x8F6F;&#x4EF6;&#x7EF4;&#x62A4;&#x4E2D;&#x7684;&#x89C4;&#x5F8B;&#x6027;</strong>&#x3002;</li>
 </ol>
 </li>
-<li>预防性维护就是为了简化维护后的软件结构以提高软件可维护性的额外投入。</li>
 </ol>
-<h2 id="1-3-软件维护代价高昂">1.3. 软件维护代价高昂</h2>
-<h3 id="1-3-1-软件维护成本远远超出开发">1.3.1. 软件维护成本远远超出开发</h3>
+<h3 id="1-2-2-&#x8F6F;&#x4EF6;&#x7EF4;&#x62A4;">1.2.2. &#x8F6F;&#x4EF6;&#x7EF4;&#x62A4;</h3>
 <ol>
-<li>一般认为，<strong>维护成本是开发成本的3倍以上(目前可能是4倍以上)</strong></li>
-</ol>
-<h3 id="1-3-2-从事维护工作的人员比率在上升">1.3.2. 从事维护工作的人员比率在上升</h3>
+<li>&#x7406;&#x60F3;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x4E3A;&#x6EE1;&#x8DB3;&#x4E00;&#x4E9B;&#x53D8;&#x66F4;&#x800C;&#x6267;&#x884C;&#x7684;&#x7EF4;&#x62A4;&#x6D3B;&#x52A8;&#x5E94;&#x8BE5;&#x4E0D;&#x4F1A;&#x964D;&#x4F4E;&#x8F6F;&#x4EF6;&#x4EA7;&#x54C1;&#x7684;&#x8D28;&#x91CF;&#xFF0C;&#x5C24;&#x5176;&#x662F;&#x53EF;&#x7EF4;&#x62A4;&#x6027;&#xFF0C;&#x5426;&#x5219;&#xFF0C;&#x672C;&#x6B21;&#x7684;&#x7EF4;&#x62A4;&#x6D3B;&#x52A8;&#x5C06;&#x4F7F;&#x5F97;&#x672A;&#x6765;&#x7684;&#x7EF4;&#x62A4;&#x6D3B;&#x52A8;&#x66F4;&#x52A0;&#x56F0;&#x96BE;&#x3002;</li>
+<li>&#x4F46;&#x662F;<strong>&#x5B9E;&#x8DF5;&#x8868;&#x660E;&#x8F6F;&#x4EF6;&#x7EF4;&#x62A4;&#x6D3B;&#x52A8;&#x7684;&#x786E;&#x4F1A;&#x964D;&#x4F4E;&#x8F6F;&#x4EF6;&#x4EA7;&#x54C1;&#x7684;&#x8D28;&#x91CF;</strong>&#xFF0C;&#x751A;&#x81F3;&#x5BFC;&#x81F4;&#x4E00;&#x4E2A;&#x8F6F;&#x4EF6;&#x4EA7;&#x54C1;&#x5728;&#x8FDB;&#x884C;&#x4E00;&#x7CFB;&#x5217;&#x7EF4;&#x62A4;&#x6D3B;&#x52A8;&#x4E4B;&#x540E;&#x4F1A;&#x5931;&#x53BB;&#x53EF;&#x7EF4;&#x62A4;&#x6027;&#x3002;</li>
+<li>[Lehman1980,1984]&#x5C06;&#x8FD9;&#x79CD;&#x73B0;&#x8C61;&#x8868;&#x8FF0;&#x4E3A;&#xFF1A;&#x5728;&#x4E00;&#x4E2A;&#x7A0B;&#x5E8F;&#x53D1;&#x751F;&#x53D8;&#x66F4;&#x65F6;&#xFF0C;&#x5B83;&#x7684;&#x7ED3;&#x6784;&#x503E;&#x5411;&#x4E8E;&#x53D8;&#x5F97;&#x66F4;&#x590D;&#x6742;&#xFF0C;&#x56E0;&#x6B64;&#x9700;&#x8981;&#x6295;&#x5165;&#x4E00;&#x4E9B;&#x989D;&#x5916;&#x7684;&#x8D44;&#x6E90;&#x4EE5;&#x5728;&#x4FDD;&#x6301;&#x529F;&#x80FD;&#x7684;&#x540C;&#x65F6;&#x7B80;&#x5316;&#x7A0B;&#x5E8F;&#x7ED3;&#x6784;&#x3002;
 <ol>
-<li>[Jones2006]在对美国的软件开发者进行调查时发现：1975年时有不超过75,000人在从事维护工作，占所有开发人员的17%；1990年时有大概800,000人在从事维护工作，占所有开发人员的47%；2005 年时有2,500,000人在从事维护工作，占所有开发人员的76%。</li>
-<li>软件工程的成功绝不仅是开发的成功，更要求维护工作的成功；只有降低软件维护的成本，才能降低整个软件工程的成本。</li>
+<li>&#x522B;&#x4EBA;&#x6765;&#x7EF4;&#x62A4;&#x4EE3;&#x7801;&#xFF0C;&#x53EF;&#x80FD;&#x4F1A;&#x964D;&#x4F4E;&#x4EE3;&#x7801;&#x6548;&#x7387;&#x7B49;&#x7B49;</li>
 </ol>
-<h3 id="1-3-3-为什么软件维护有这么高的代价？">1.3.3. 为什么软件维护有这么高的代价？</h3>
+</li>
+<li>&#x9884;&#x9632;&#x6027;&#x7EF4;&#x62A4;&#x5C31;&#x662F;&#x4E3A;&#x4E86;&#x7B80;&#x5316;&#x7EF4;&#x62A4;&#x540E;&#x7684;&#x8F6F;&#x4EF6;&#x7ED3;&#x6784;&#x4EE5;&#x63D0;&#x9AD8;&#x8F6F;&#x4EF6;&#x53EF;&#x7EF4;&#x62A4;&#x6027;&#x7684;&#x989D;&#x5916;&#x6295;&#x5165;&#x3002;</li>
+</ol>
+<h2 id="1-3-&#x8F6F;&#x4EF6;&#x7EF4;&#x62A4;&#x4EE3;&#x4EF7;&#x9AD8;&#x6602;">1.3. &#x8F6F;&#x4EF6;&#x7EF4;&#x62A4;&#x4EE3;&#x4EF7;&#x9AD8;&#x6602;</h2>
+<h3 id="1-3-1-&#x8F6F;&#x4EF6;&#x7EF4;&#x62A4;&#x6210;&#x672C;&#x8FDC;&#x8FDC;&#x8D85;&#x51FA;&#x5F00;&#x53D1;">1.3.1. &#x8F6F;&#x4EF6;&#x7EF4;&#x62A4;&#x6210;&#x672C;&#x8FDC;&#x8FDC;&#x8D85;&#x51FA;&#x5F00;&#x53D1;</h3>
 <ol>
-<li>变更频繁</li>
-<li>维护工作困难</li>
+<li>&#x4E00;&#x822C;&#x8BA4;&#x4E3A;&#xFF0C;<strong>&#x7EF4;&#x62A4;&#x6210;&#x672C;&#x662F;&#x5F00;&#x53D1;&#x6210;&#x672C;&#x7684;3&#x500D;&#x4EE5;&#x4E0A;(&#x76EE;&#x524D;&#x53EF;&#x80FD;&#x662F;4&#x500D;&#x4EE5;&#x4E0A;)</strong></li>
 </ol>
-<h3 id="1-3-4-需求变更非常频繁">1.3.4. 需求变更非常频繁</h3>
+<h3 id="1-3-2-&#x4ECE;&#x4E8B;&#x7EF4;&#x62A4;&#x5DE5;&#x4F5C;&#x7684;&#x4EBA;&#x5458;&#x6BD4;&#x7387;&#x5728;&#x4E0A;&#x5347;">1.3.2. &#x4ECE;&#x4E8B;&#x7EF4;&#x62A4;&#x5DE5;&#x4F5C;&#x7684;&#x4EBA;&#x5458;&#x6BD4;&#x7387;&#x5728;&#x4E0A;&#x5347;</h3>
 <ol>
-<li>[Jones1996]发现：对于管理信息系统，其需求一般每月增长1％左右；商业软件的增长率可以高达3.5％；其他类型的软件介于这两者之间。</li>
-<li>如果需求每个月变更2％，则相当于需求每年要变化1/4，所以这是一个惊人的数字。n 在[Stark1999]的调查中，需求的可变性(可变性＝变化的需求数量÷总需求数量)也高达48％。</li>
+<li>[Jones2006]&#x5728;&#x5BF9;&#x7F8E;&#x56FD;&#x7684;&#x8F6F;&#x4EF6;&#x5F00;&#x53D1;&#x8005;&#x8FDB;&#x884C;&#x8C03;&#x67E5;&#x65F6;&#x53D1;&#x73B0;&#xFF1A;1975&#x5E74;&#x65F6;&#x6709;&#x4E0D;&#x8D85;&#x8FC7;75,000&#x4EBA;&#x5728;&#x4ECE;&#x4E8B;&#x7EF4;&#x62A4;&#x5DE5;&#x4F5C;&#xFF0C;&#x5360;&#x6240;&#x6709;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x7684;17%&#xFF1B;1990&#x5E74;&#x65F6;&#x6709;&#x5927;&#x6982;800,000&#x4EBA;&#x5728;&#x4ECE;&#x4E8B;&#x7EF4;&#x62A4;&#x5DE5;&#x4F5C;&#xFF0C;&#x5360;&#x6240;&#x6709;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x7684;47%&#xFF1B;2005 &#x5E74;&#x65F6;&#x6709;2,500,000&#x4EBA;&#x5728;&#x4ECE;&#x4E8B;&#x7EF4;&#x62A4;&#x5DE5;&#x4F5C;&#xFF0C;&#x5360;&#x6240;&#x6709;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x7684;76%&#x3002;</li>
+<li>&#x8F6F;&#x4EF6;&#x5DE5;&#x7A0B;&#x7684;&#x6210;&#x529F;&#x7EDD;&#x4E0D;&#x4EC5;&#x662F;&#x5F00;&#x53D1;&#x7684;&#x6210;&#x529F;&#xFF0C;&#x66F4;&#x8981;&#x6C42;&#x7EF4;&#x62A4;&#x5DE5;&#x4F5C;&#x7684;&#x6210;&#x529F;&#xFF1B;&#x53EA;&#x6709;&#x964D;&#x4F4E;&#x8F6F;&#x4EF6;&#x7EF4;&#x62A4;&#x7684;&#x6210;&#x672C;&#xFF0C;&#x624D;&#x80FD;&#x964D;&#x4F4E;&#x6574;&#x4E2A;&#x8F6F;&#x4EF6;&#x5DE5;&#x7A0B;&#x7684;&#x6210;&#x672C;&#x3002;</li>
 </ol>
-<h3 id="1-3-5-频繁变更的需求推高了维护成本">1.3.5. 频繁变更的需求推高了维护成本</h3>
+<h3 id="1-3-3-&#x4E3A;&#x4EC0;&#x4E48;&#x8F6F;&#x4EF6;&#x7EF4;&#x62A4;&#x6709;&#x8FD9;&#x4E48;&#x9AD8;&#x7684;&#x4EE3;&#x4EF7;&#xFF1F;">1.3.3. &#x4E3A;&#x4EC0;&#x4E48;&#x8F6F;&#x4EF6;&#x7EF4;&#x62A4;&#x6709;&#x8FD9;&#x4E48;&#x9AD8;&#x7684;&#x4EE3;&#x4EF7;&#xFF1F;</h3>
+<ol>
+<li>&#x53D8;&#x66F4;&#x9891;&#x7E41;</li>
+<li>&#x7EF4;&#x62A4;&#x5DE5;&#x4F5C;&#x56F0;&#x96BE;</li>
+</ol>
+<h3 id="1-3-4-&#x9700;&#x6C42;&#x53D8;&#x66F4;&#x975E;&#x5E38;&#x9891;&#x7E41;">1.3.4. &#x9700;&#x6C42;&#x53D8;&#x66F4;&#x975E;&#x5E38;&#x9891;&#x7E41;</h3>
+<ol>
+<li>[Jones1996]&#x53D1;&#x73B0;&#xFF1A;&#x5BF9;&#x4E8E;&#x7BA1;&#x7406;&#x4FE1;&#x606F;&#x7CFB;&#x7EDF;&#xFF0C;&#x5176;&#x9700;&#x6C42;&#x4E00;&#x822C;&#x6BCF;&#x6708;&#x589E;&#x957F;1&#xFF05;&#x5DE6;&#x53F3;&#xFF1B;&#x5546;&#x4E1A;&#x8F6F;&#x4EF6;&#x7684;&#x589E;&#x957F;&#x7387;&#x53EF;&#x4EE5;&#x9AD8;&#x8FBE;3.5&#xFF05;&#xFF1B;&#x5176;&#x4ED6;&#x7C7B;&#x578B;&#x7684;&#x8F6F;&#x4EF6;&#x4ECB;&#x4E8E;&#x8FD9;&#x4E24;&#x8005;&#x4E4B;&#x95F4;&#x3002;</li>
+<li>&#x5982;&#x679C;&#x9700;&#x6C42;&#x6BCF;&#x4E2A;&#x6708;&#x53D8;&#x66F4;2&#xFF05;&#xFF0C;&#x5219;&#x76F8;&#x5F53;&#x4E8E;&#x9700;&#x6C42;&#x6BCF;&#x5E74;&#x8981;&#x53D8;&#x5316;1/4&#xFF0C;&#x6240;&#x4EE5;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x60CA;&#x4EBA;&#x7684;&#x6570;&#x5B57;&#x3002;n &#x5728;[Stark1999]&#x7684;&#x8C03;&#x67E5;&#x4E2D;&#xFF0C;&#x9700;&#x6C42;&#x7684;&#x53EF;&#x53D8;&#x6027;(&#x53EF;&#x53D8;&#x6027;&#xFF1D;&#x53D8;&#x5316;&#x7684;&#x9700;&#x6C42;&#x6570;&#x91CF;&#xF7;&#x603B;&#x9700;&#x6C42;&#x6570;&#x91CF;)&#x4E5F;&#x9AD8;&#x8FBE;48&#xFF05;&#x3002;</li>
+</ol>
+<h3 id="1-3-5-&#x9891;&#x7E41;&#x53D8;&#x66F4;&#x7684;&#x9700;&#x6C42;&#x63A8;&#x9AD8;&#x4E86;&#x7EF4;&#x62A4;&#x6210;&#x672C;">1.3.5. &#x9891;&#x7E41;&#x53D8;&#x66F4;&#x7684;&#x9700;&#x6C42;&#x63A8;&#x9AD8;&#x4E86;&#x7EF4;&#x62A4;&#x6210;&#x672C;</h3>
 <ol>
 <li>
-<p>[Lientz1980]发现在各种变更中，为满足新需求而进行的<strong>完善性维护占用了最多的软件维护成本</strong></p>
+<p>[Lientz1980]&#x53D1;&#x73B0;&#x5728;&#x5404;&#x79CD;&#x53D8;&#x66F4;&#x4E2D;&#xFF0C;&#x4E3A;&#x6EE1;&#x8DB3;&#x65B0;&#x9700;&#x6C42;&#x800C;&#x8FDB;&#x884C;&#x7684;<strong>&#x5B8C;&#x5584;&#x6027;&#x7EF4;&#x62A4;&#x5360;&#x7528;&#x4E86;&#x6700;&#x591A;&#x7684;&#x8F6F;&#x4EF6;&#x7EF4;&#x62A4;&#x6210;&#x672C;</strong></p>
 </li>
 <li>
-<p>为什么在数量上少于新开发需求，但是变更需求却耗费了比新开发大得多的成本？</p>
+<p>&#x4E3A;&#x4EC0;&#x4E48;&#x5728;&#x6570;&#x91CF;&#x4E0A;&#x5C11;&#x4E8E;&#x65B0;&#x5F00;&#x53D1;&#x9700;&#x6C42;&#xFF0C;&#x4F46;&#x662F;&#x53D8;&#x66F4;&#x9700;&#x6C42;&#x5374;&#x8017;&#x8D39;&#x4E86;&#x6BD4;&#x65B0;&#x5F00;&#x53D1;&#x5927;&#x5F97;&#x591A;&#x7684;&#x6210;&#x672C;&#xFF1F;</p>
 <ol>
-<li>程序理解</li>
-<li>影响分析</li>
+<li>&#x7A0B;&#x5E8F;&#x7406;&#x89E3;</li>
+<li>&#x5F71;&#x54CD;&#x5206;&#x6790;</li>
 </ol>
 </li>
 <li>
-<p>重构可以极强地降低了我们的维护成本</p>
+<p>&#x91CD;&#x6784;&#x53EF;&#x4EE5;&#x6781;&#x5F3A;&#x5730;&#x964D;&#x4F4E;&#x4E86;&#x6211;&#x4EEC;&#x7684;&#x7EF4;&#x62A4;&#x6210;&#x672C;</p>
 </li>
 </ol>
-<h3 id="1-3-6-维护的困难性">1.3.6. 维护的困难性</h3>
+<h3 id="1-3-6-&#x7EF4;&#x62A4;&#x7684;&#x56F0;&#x96BE;&#x6027;">1.3.6. &#x7EF4;&#x62A4;&#x7684;&#x56F0;&#x96BE;&#x6027;</h3>
 <ol>
-<li>程序的理解
+<li>&#x7A0B;&#x5E8F;&#x7684;&#x7406;&#x89E3;
 <ol>
-<li>在维护中修改软件时，不论被修改的是哪个部分，维护人员都需要全面理解整个软件系统的结构和行为，只有这样才能确定需要修改的程序位置和修改方法。理解软件系统的结构和行为就需要准确理解程序代码，而这是一个困难的任务。</li>
-<li>实践调查表明维护时间的**50%～90%**都被消耗在了程序理解上[Corbi1989, Livadas1994]。</li>
+<li>&#x5728;&#x7EF4;&#x62A4;&#x4E2D;&#x4FEE;&#x6539;&#x8F6F;&#x4EF6;&#x65F6;&#xFF0C;&#x4E0D;&#x8BBA;&#x88AB;&#x4FEE;&#x6539;&#x7684;&#x662F;&#x54EA;&#x4E2A;&#x90E8;&#x5206;&#xFF0C;&#x7EF4;&#x62A4;&#x4EBA;&#x5458;&#x90FD;&#x9700;&#x8981;&#x5168;&#x9762;&#x7406;&#x89E3;&#x6574;&#x4E2A;&#x8F6F;&#x4EF6;&#x7CFB;&#x7EDF;&#x7684;&#x7ED3;&#x6784;&#x548C;&#x884C;&#x4E3A;&#xFF0C;&#x53EA;&#x6709;&#x8FD9;&#x6837;&#x624D;&#x80FD;&#x786E;&#x5B9A;&#x9700;&#x8981;&#x4FEE;&#x6539;&#x7684;&#x7A0B;&#x5E8F;&#x4F4D;&#x7F6E;&#x548C;&#x4FEE;&#x6539;&#x65B9;&#x6CD5;&#x3002;&#x7406;&#x89E3;&#x8F6F;&#x4EF6;&#x7CFB;&#x7EDF;&#x7684;&#x7ED3;&#x6784;&#x548C;&#x884C;&#x4E3A;&#x5C31;&#x9700;&#x8981;&#x51C6;&#x786E;&#x7406;&#x89E3;&#x7A0B;&#x5E8F;&#x4EE3;&#x7801;&#xFF0C;&#x800C;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x56F0;&#x96BE;&#x7684;&#x4EFB;&#x52A1;&#x3002;</li>
+<li>&#x5B9E;&#x8DF5;&#x8C03;&#x67E5;&#x8868;&#x660E;&#x7EF4;&#x62A4;&#x65F6;&#x95F4;&#x7684;**50%&#xFF5E;90%**&#x90FD;&#x88AB;&#x6D88;&#x8017;&#x5728;&#x4E86;&#x7A0B;&#x5E8F;&#x7406;&#x89E3;&#x4E0A;[Corbi1989, Livadas1994]&#x3002;</li>
 </ol>
 </li>
-<li><strong>软件维护人员通常不是程序代码的编写者</strong>，不同人的思维方式不同，维护人员不仅要读懂程序逻辑还要理解编写者的思路</li>
-<li>实践中很多软件项目的文档不全或者更新不及时，维护人员无法获得足够的帮助，只能单纯依赖代码片段拼接来形成对系统的整体理解</li>
-<li>影响分析
+<li><strong>&#x8F6F;&#x4EF6;&#x7EF4;&#x62A4;&#x4EBA;&#x5458;&#x901A;&#x5E38;&#x4E0D;&#x662F;&#x7A0B;&#x5E8F;&#x4EE3;&#x7801;&#x7684;&#x7F16;&#x5199;&#x8005;</strong>&#xFF0C;&#x4E0D;&#x540C;&#x4EBA;&#x7684;&#x601D;&#x7EF4;&#x65B9;&#x5F0F;&#x4E0D;&#x540C;&#xFF0C;&#x7EF4;&#x62A4;&#x4EBA;&#x5458;&#x4E0D;&#x4EC5;&#x8981;&#x8BFB;&#x61C2;&#x7A0B;&#x5E8F;&#x903B;&#x8F91;&#x8FD8;&#x8981;&#x7406;&#x89E3;&#x7F16;&#x5199;&#x8005;&#x7684;&#x601D;&#x8DEF;</li>
+<li>&#x5B9E;&#x8DF5;&#x4E2D;&#x5F88;&#x591A;&#x8F6F;&#x4EF6;&#x9879;&#x76EE;&#x7684;&#x6587;&#x6863;&#x4E0D;&#x5168;&#x6216;&#x8005;&#x66F4;&#x65B0;&#x4E0D;&#x53CA;&#x65F6;&#xFF0C;&#x7EF4;&#x62A4;&#x4EBA;&#x5458;&#x65E0;&#x6CD5;&#x83B7;&#x5F97;&#x8DB3;&#x591F;&#x7684;&#x5E2E;&#x52A9;&#xFF0C;&#x53EA;&#x80FD;&#x5355;&#x7EAF;&#x4F9D;&#x8D56;&#x4EE3;&#x7801;&#x7247;&#x6BB5;&#x62FC;&#x63A5;&#x6765;&#x5F62;&#x6210;&#x5BF9;&#x7CFB;&#x7EDF;&#x7684;&#x6574;&#x4F53;&#x7406;&#x89E3;</li>
+<li>&#x5F71;&#x54CD;&#x5206;&#x6790;
 <ol>
-<li>在开发软件时，具体功能和需求并不是各自独立实现的，即不是每一个需求都被单独实现为一段代码。通常，每条需求会被实现为相互联系的多个程序代码片段，而且每个程序代码片段要同时承载多个具体需求的实现。程序代码片段与具体需求之间是多对多的复杂关系。而且软件的程序代码也是互相联系的，维护人员在修改一部分程序代码时，可能会影响到其他部分。</li>
-<li>有统计调查表明：每修正一个缺陷，都有20～50%的几率引入新的缺陷</li>
-<li>为了阻止修改带来坏的连锁反应，开发者需要耗费很多精力
+<li>&#x5728;&#x5F00;&#x53D1;&#x8F6F;&#x4EF6;&#x65F6;&#xFF0C;&#x5177;&#x4F53;&#x529F;&#x80FD;&#x548C;&#x9700;&#x6C42;&#x5E76;&#x4E0D;&#x662F;&#x5404;&#x81EA;&#x72EC;&#x7ACB;&#x5B9E;&#x73B0;&#x7684;&#xFF0C;&#x5373;&#x4E0D;&#x662F;&#x6BCF;&#x4E00;&#x4E2A;&#x9700;&#x6C42;&#x90FD;&#x88AB;&#x5355;&#x72EC;&#x5B9E;&#x73B0;&#x4E3A;&#x4E00;&#x6BB5;&#x4EE3;&#x7801;&#x3002;&#x901A;&#x5E38;&#xFF0C;&#x6BCF;&#x6761;&#x9700;&#x6C42;&#x4F1A;&#x88AB;&#x5B9E;&#x73B0;&#x4E3A;&#x76F8;&#x4E92;&#x8054;&#x7CFB;&#x7684;&#x591A;&#x4E2A;&#x7A0B;&#x5E8F;&#x4EE3;&#x7801;&#x7247;&#x6BB5;&#xFF0C;&#x800C;&#x4E14;&#x6BCF;&#x4E2A;&#x7A0B;&#x5E8F;&#x4EE3;&#x7801;&#x7247;&#x6BB5;&#x8981;&#x540C;&#x65F6;&#x627F;&#x8F7D;&#x591A;&#x4E2A;&#x5177;&#x4F53;&#x9700;&#x6C42;&#x7684;&#x5B9E;&#x73B0;&#x3002;&#x7A0B;&#x5E8F;&#x4EE3;&#x7801;&#x7247;&#x6BB5;&#x4E0E;&#x5177;&#x4F53;&#x9700;&#x6C42;&#x4E4B;&#x95F4;&#x662F;&#x591A;&#x5BF9;&#x591A;&#x7684;&#x590D;&#x6742;&#x5173;&#x7CFB;&#x3002;&#x800C;&#x4E14;&#x8F6F;&#x4EF6;&#x7684;&#x7A0B;&#x5E8F;&#x4EE3;&#x7801;&#x4E5F;&#x662F;&#x4E92;&#x76F8;&#x8054;&#x7CFB;&#x7684;&#xFF0C;&#x7EF4;&#x62A4;&#x4EBA;&#x5458;&#x5728;&#x4FEE;&#x6539;&#x4E00;&#x90E8;&#x5206;&#x7A0B;&#x5E8F;&#x4EE3;&#x7801;&#x65F6;&#xFF0C;&#x53EF;&#x80FD;&#x4F1A;&#x5F71;&#x54CD;&#x5230;&#x5176;&#x4ED6;&#x90E8;&#x5206;&#x3002;</li>
+<li>&#x6709;&#x7EDF;&#x8BA1;&#x8C03;&#x67E5;&#x8868;&#x660E;&#xFF1A;&#x6BCF;&#x4FEE;&#x6B63;&#x4E00;&#x4E2A;&#x7F3A;&#x9677;&#xFF0C;&#x90FD;&#x6709;20&#xFF5E;50%&#x7684;&#x51E0;&#x7387;&#x5F15;&#x5165;&#x65B0;&#x7684;&#x7F3A;&#x9677;</li>
+<li>&#x4E3A;&#x4E86;&#x963B;&#x6B62;&#x4FEE;&#x6539;&#x5E26;&#x6765;&#x574F;&#x7684;&#x8FDE;&#x9501;&#x53CD;&#x5E94;&#xFF0C;&#x5F00;&#x53D1;&#x8005;&#x9700;&#x8981;&#x8017;&#x8D39;&#x5F88;&#x591A;&#x7CBE;&#x529B;
 <ol>
-<li>回归测试、需求跟踪等</li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-<h2 id="1-4-开发可维护的软件">1.4. 开发可维护的软件</h2>
-<ol>
-<li>通过分析软件维护的高代价性可以发现，很多软件维护中的困难和问题根源于软件开发阶段。</li>
-<li>虽然软件维护工作表现在软件交付之后，但是需要在软件开发时就预备一些前期工作。</li>
-</ol>
-<h3 id="1-4-1-前期-开发阶段-更充分的准备可以减轻后期维护的压力和困难">1.4.1. 前期(开发阶段)更充分的准备可以减轻后期维护的压力和困难</h3>
-<ol>
-<li>考虑软件的可变更性</li>
-<li>为降低维护困难而开发</li>
-</ol>
-<h3 id="1-4-2-考虑软件的可变更性">1.4.2. 考虑软件的可变更性</h3>
-<ol>
-<li>预测变更并将其独立封装，便于修改时的程序定义与理解，防止修改时的连锁反应
-<ol>
-<li>分析需求的易变性，尽可能发现和预测可能的变更</li>
-<li>为变更进行设计，开发人员需要进行关注点分离，使用信息隐藏等设计思想为可能的变更进行设计，将其封装起来</li>
-</ol>
-</li>
-</ol>
-<h3 id="1-4-3-为降低维护困难而开发">1.4.3. 为降低维护困难而开发</h3>
-<ol>
-<li>为后期理解程序和进行影响分析提供额外的便利
-<ol>
-<li>编写详细的技术文档并保持及时更新。</li>
-<li>保证代码的可读性。</li>
-<li>维护需求跟踪链。
-<ol>
-<li>需求跟踪链从正反两个方向纪录&quot;需求、设计、编码、测试&quot;之间的跟踪与回溯关系</li>
-</ol>
-</li>
-<li>维护回归测试基线。
-<ol>
-<li>回归测试基线包含了系统修改之前的有效测试用例集合， 因此只需要根据修改情况对回归测试基线进行简单的修正</li>
+<li>&#x56DE;&#x5F52;&#x6D4B;&#x8BD5;&#x3001;&#x9700;&#x6C42;&#x8DDF;&#x8E2A;&#x7B49;</li>
 </ol>
 </li>
 </ol>
 </li>
 </ol>
-<h2 id="1-5-软件维护的过程">1.5. 软件维护的过程</h2>
-<h3 id="1-5-1-步骤1-问题-修改的标识、分类与划分优先级">1.5.1. 步骤1:问题/修改的标识、分类与划分优先级</h3>
+<h2 id="1-4-&#x5F00;&#x53D1;&#x53EF;&#x7EF4;&#x62A4;&#x7684;&#x8F6F;&#x4EF6;">1.4. &#x5F00;&#x53D1;&#x53EF;&#x7EF4;&#x62A4;&#x7684;&#x8F6F;&#x4EF6;</h2>
 <ol>
-<li>该步骤的主要任务是进行变更管理(Change Management)：
+<li>&#x901A;&#x8FC7;&#x5206;&#x6790;&#x8F6F;&#x4EF6;&#x7EF4;&#x62A4;&#x7684;&#x9AD8;&#x4EE3;&#x4EF7;&#x6027;&#x53EF;&#x4EE5;&#x53D1;&#x73B0;&#xFF0C;&#x5F88;&#x591A;&#x8F6F;&#x4EF6;&#x7EF4;&#x62A4;&#x4E2D;&#x7684;&#x56F0;&#x96BE;&#x548C;&#x95EE;&#x9898;&#x6839;&#x6E90;&#x4E8E;&#x8F6F;&#x4EF6;&#x5F00;&#x53D1;&#x9636;&#x6BB5;&#x3002;</li>
+<li>&#x867D;&#x7136;&#x8F6F;&#x4EF6;&#x7EF4;&#x62A4;&#x5DE5;&#x4F5C;&#x8868;&#x73B0;&#x5728;&#x8F6F;&#x4EF6;&#x4EA4;&#x4ED8;&#x4E4B;&#x540E;&#xFF0C;&#x4F46;&#x662F;&#x9700;&#x8981;&#x5728;&#x8F6F;&#x4EF6;&#x5F00;&#x53D1;&#x65F6;&#x5C31;&#x9884;&#x5907;&#x4E00;&#x4E9B;&#x524D;&#x671F;&#x5DE5;&#x4F5C;&#x3002;</li>
+</ol>
+<h3 id="1-4-1-&#x524D;&#x671F;-&#x5F00;&#x53D1;&#x9636;&#x6BB5;-&#x66F4;&#x5145;&#x5206;&#x7684;&#x51C6;&#x5907;&#x53EF;&#x4EE5;&#x51CF;&#x8F7B;&#x540E;&#x671F;&#x7EF4;&#x62A4;&#x7684;&#x538B;&#x529B;&#x548C;&#x56F0;&#x96BE;">1.4.1. &#x524D;&#x671F;(&#x5F00;&#x53D1;&#x9636;&#x6BB5;)&#x66F4;&#x5145;&#x5206;&#x7684;&#x51C6;&#x5907;&#x53EF;&#x4EE5;&#x51CF;&#x8F7B;&#x540E;&#x671F;&#x7EF4;&#x62A4;&#x7684;&#x538B;&#x529B;&#x548C;&#x56F0;&#x96BE;</h3>
 <ol>
-<li>用户、客户或其他人员提出变更请求；</li>
-<li>维护人员为变更请求建立变更记录(Change Record)，赋予标识，进行变更类别分类，确定其优先级。</li>
-<li>初步评估变更的可能影响，并据此确定是否接受该变更请求。</li>
-<li>如果决定执行变更，就为其安排修改时间。通常多个小的修改会安排到一个时间内批量完成。</li>
+<li>&#x8003;&#x8651;&#x8F6F;&#x4EF6;&#x7684;&#x53EF;&#x53D8;&#x66F4;&#x6027;</li>
+<li>&#x4E3A;&#x964D;&#x4F4E;&#x7EF4;&#x62A4;&#x56F0;&#x96BE;&#x800C;&#x5F00;&#x53D1;</li>
+</ol>
+<h3 id="1-4-2-&#x8003;&#x8651;&#x8F6F;&#x4EF6;&#x7684;&#x53EF;&#x53D8;&#x66F4;&#x6027;">1.4.2. &#x8003;&#x8651;&#x8F6F;&#x4EF6;&#x7684;&#x53EF;&#x53D8;&#x66F4;&#x6027;</h3>
+<ol>
+<li>&#x9884;&#x6D4B;&#x53D8;&#x66F4;&#x5E76;&#x5C06;&#x5176;&#x72EC;&#x7ACB;&#x5C01;&#x88C5;&#xFF0C;&#x4FBF;&#x4E8E;&#x4FEE;&#x6539;&#x65F6;&#x7684;&#x7A0B;&#x5E8F;&#x5B9A;&#x4E49;&#x4E0E;&#x7406;&#x89E3;&#xFF0C;&#x9632;&#x6B62;&#x4FEE;&#x6539;&#x65F6;&#x7684;&#x8FDE;&#x9501;&#x53CD;&#x5E94;
+<ol>
+<li>&#x5206;&#x6790;&#x9700;&#x6C42;&#x7684;&#x6613;&#x53D8;&#x6027;&#xFF0C;&#x5C3D;&#x53EF;&#x80FD;&#x53D1;&#x73B0;&#x548C;&#x9884;&#x6D4B;&#x53EF;&#x80FD;&#x7684;&#x53D8;&#x66F4;</li>
+<li>&#x4E3A;&#x53D8;&#x66F4;&#x8FDB;&#x884C;&#x8BBE;&#x8BA1;&#xFF0C;&#x5F00;&#x53D1;&#x4EBA;&#x5458;&#x9700;&#x8981;&#x8FDB;&#x884C;&#x5173;&#x6CE8;&#x70B9;&#x5206;&#x79BB;&#xFF0C;&#x4F7F;&#x7528;&#x4FE1;&#x606F;&#x9690;&#x85CF;&#x7B49;&#x8BBE;&#x8BA1;&#x601D;&#x60F3;&#x4E3A;&#x53EF;&#x80FD;&#x7684;&#x53D8;&#x66F4;&#x8FDB;&#x884C;&#x8BBE;&#x8BA1;&#xFF0C;&#x5C06;&#x5176;&#x5C01;&#x88C5;&#x8D77;&#x6765;</li>
 </ol>
 </li>
 </ol>
-<h3 id="1-5-2-步骤2-分析">1.5.2. 步骤2:分析</h3>
+<h3 id="1-4-3-&#x4E3A;&#x964D;&#x4F4E;&#x7EF4;&#x62A4;&#x56F0;&#x96BE;&#x800C;&#x5F00;&#x53D1;">1.4.3. &#x4E3A;&#x964D;&#x4F4E;&#x7EF4;&#x62A4;&#x56F0;&#x96BE;&#x800C;&#x5F00;&#x53D1;</h3>
 <ol>
-<li>该步骤的主要任务是为后续的修改(设计、实现、测试、交付发布等)确定一个基本的规划，包括2个阶段：
+<li>&#x4E3A;&#x540E;&#x671F;&#x7406;&#x89E3;&#x7A0B;&#x5E8F;&#x548C;&#x8FDB;&#x884C;&#x5F71;&#x54CD;&#x5206;&#x6790;&#x63D0;&#x4F9B;&#x989D;&#x5916;&#x7684;&#x4FBF;&#x5229;
 <ol>
-<li>步骤2.1 可行性分析。
+<li>&#x7F16;&#x5199;&#x8BE6;&#x7EC6;&#x7684;&#x6280;&#x672F;&#x6587;&#x6863;&#x5E76;&#x4FDD;&#x6301;&#x53CA;&#x65F6;&#x66F4;&#x65B0;&#x3002;</li>
+<li>&#x4FDD;&#x8BC1;&#x4EE3;&#x7801;&#x7684;&#x53EF;&#x8BFB;&#x6027;&#x3002;</li>
+<li>&#x7EF4;&#x62A4;&#x9700;&#x6C42;&#x8DDF;&#x8E2A;&#x94FE;&#x3002;
 <ol>
-<li>该步骤的任务是提出候选方案，并分析方案的可行性，建立可行性报告。</li>
-<li>可行性报告的内容包括：变更的影响范围、候选方案、需求变化分析、对安全性和保密性的影响、人的因素、短期和长期成本、修正的价值与效益等。</li>
+<li>&#x9700;&#x6C42;&#x8DDF;&#x8E2A;&#x94FE;&#x4ECE;&#x6B63;&#x53CD;&#x4E24;&#x4E2A;&#x65B9;&#x5411;&#x7EAA;&#x5F55;&quot;&#x9700;&#x6C42;&#x3001;&#x8BBE;&#x8BA1;&#x3001;&#x7F16;&#x7801;&#x3001;&#x6D4B;&#x8BD5;&quot;&#x4E4B;&#x95F4;&#x7684;&#x8DDF;&#x8E2A;&#x4E0E;&#x56DE;&#x6EAF;&#x5173;&#x7CFB;</li>
 </ol>
 </li>
-<li>步骤2.2 详细分析
+<li>&#x7EF4;&#x62A4;&#x56DE;&#x5F52;&#x6D4B;&#x8BD5;&#x57FA;&#x7EBF;&#x3002;
 <ol>
-<li>该步骤的任务是准确定义修改的需求，标识需要修改的元素、标识修改中的安全与保密因素、确定一个测试策略和建立一个实现计划。</li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
-<h3 id="1-5-3-步骤3-设计">1.5.3. 步骤3:设计</h3>
-<ol>
-<li>该步骤的主要任务是依据变更分析的结果和已有系统的信息，完成对系统设计的变更。</li>
-<li>具体工作包括：<strong>标识被影响的软件模型、修改软件设计文档、为新的设计创建测试用例、更新回归测试集、更新需求文档。</strong>
-<ol>
-<li>在进行完善性维护和适应性维护时，设计步骤要针对新的功能需求执行一个完整的详细设计过程。</li>
-<li>在进行修正性维护时，设计要防止程序修改带来连锁的负面效应。</li>
-<li>在进行预防性维护时，设计要重点关注软件结构的质量，以此为依据修改程序代码和软件系统结构。</li>
+<li>&#x56DE;&#x5F52;&#x6D4B;&#x8BD5;&#x57FA;&#x7EBF;&#x5305;&#x542B;&#x4E86;&#x7CFB;&#x7EDF;&#x4FEE;&#x6539;&#x4E4B;&#x524D;&#x7684;&#x6709;&#x6548;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x96C6;&#x5408;&#xFF0C; &#x56E0;&#x6B64;&#x53EA;&#x9700;&#x8981;&#x6839;&#x636E;&#x4FEE;&#x6539;&#x60C5;&#x51B5;&#x5BF9;&#x56DE;&#x5F52;&#x6D4B;&#x8BD5;&#x57FA;&#x7EBF;&#x8FDB;&#x884C;&#x7B80;&#x5355;&#x7684;&#x4FEE;&#x6B63;</li>
 </ol>
 </li>
 </ol>
-<h3 id="1-5-4-步骤4-实现">1.5.4. 步骤4:实现</h3>
-<ol>
-<li>该步骤的主要任务是根据变更的设计，完成代码实现。</li>
-<li>具体工作包括：编码与单元测试、集成新修改代码、集成测试、风险分析和代码评审。</li>
+</li>
 </ol>
-<h3 id="1-5-5-步骤5-回归测试">1.5.5. 步骤5:回归测试</h3>
+<h2 id="1-5-&#x8F6F;&#x4EF6;&#x7EF4;&#x62A4;&#x7684;&#x8FC7;&#x7A0B;">1.5. &#x8F6F;&#x4EF6;&#x7EF4;&#x62A4;&#x7684;&#x8FC7;&#x7A0B;</h2>
+<h3 id="1-5-1-&#x6B65;&#x9AA4;1-&#x95EE;&#x9898;-&#x4FEE;&#x6539;&#x7684;&#x6807;&#x8BC6;&#x3001;&#x5206;&#x7C7B;&#x4E0E;&#x5212;&#x5206;&#x4F18;&#x5148;&#x7EA7;">1.5.1. &#x6B65;&#x9AA4;1:&#x95EE;&#x9898;/&#x4FEE;&#x6539;&#x7684;&#x6807;&#x8BC6;&#x3001;&#x5206;&#x7C7B;&#x4E0E;&#x5212;&#x5206;&#x4F18;&#x5148;&#x7EA7;</h3>
 <ol>
-<li>该步骤的主要任务是确保对变更的修改不会带来连锁的负面效应，要保证系统仍然能够满足其他未被修改的需求。</li>
-<li>具体工作包括：针对变更情况进行功能测试和界面测试、对整个系统进行回归测试、验证系统是否准备好进行验收测试。</li>
-</ol>
-<h3 id="1-5-6-步骤6-验收测试">1.5.6. 步骤6:验收测试</h3>
+<li>&#x8BE5;&#x6B65;&#x9AA4;&#x7684;&#x4E3B;&#x8981;&#x4EFB;&#x52A1;&#x662F;&#x8FDB;&#x884C;&#x53D8;&#x66F4;&#x7BA1;&#x7406;(Change Management)&#xFF1A;
 <ol>
-<li>该步骤的主要任务是由用户、客户或客户指定的第三方来验证系统是否满足用户的变更请求。</li>
-<li>具体工作包括：针对变更请求的功能测试、针对用户使用环境的兼容性测试、对整个系统进行回归测试。</li>
-</ol>
-<h3 id="1-5-7-步骤7-移交">1.5.7. 步骤7:移交</h3>
-<ol>
-<li>该步骤的主要任务是将修正的系统发布用于安装和运营。</li>
-<li>具体工作包括：进行配置审计；通知用户团体、为了备份系统而开发一个阶段性版本、在客户的设施上进行安装和培训。其中配置审计是要通过配置管理系统确定一个系统的发布包，包括文档、软件程序、培训文档、以及其他相关文档。</li>
-</ol>
-<h1>2. 软件演化</h1>
-<h2 id="2-1-维护和演化">2.1. 维护和演化</h2>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="C:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220607102741273.png" alt="image-20220607102741273"></p>
-<h2 id="2-2-软件演化定律">2.2. 软件演化定律</h2>
-<ol>
-<li>在研究的基础上，Lehman提出了大型软件系统演化的8条定律，下面是其中的3条：
-<ol>
-<li><strong>持续变化</strong>：一个大型软件系统要么进行不断的变化，要么用处会越来越少。</li>
-<li>不断增加的复杂度：随着软件系统的发展，它的复杂性会不断增加，除非进行一定的工作来维持或降低复杂度。</li>
-<li>质量降低：系统的质量将出现下滑，除非进行一定的工作来适应环境变化。</li>
+<li>&#x7528;&#x6237;&#x3001;&#x5BA2;&#x6237;&#x6216;&#x5176;&#x4ED6;&#x4EBA;&#x5458;&#x63D0;&#x51FA;&#x53D8;&#x66F4;&#x8BF7;&#x6C42;&#xFF1B;</li>
+<li>&#x7EF4;&#x62A4;&#x4EBA;&#x5458;&#x4E3A;&#x53D8;&#x66F4;&#x8BF7;&#x6C42;&#x5EFA;&#x7ACB;&#x53D8;&#x66F4;&#x8BB0;&#x5F55;(Change Record)&#xFF0C;&#x8D4B;&#x4E88;&#x6807;&#x8BC6;&#xFF0C;&#x8FDB;&#x884C;&#x53D8;&#x66F4;&#x7C7B;&#x522B;&#x5206;&#x7C7B;&#xFF0C;&#x786E;&#x5B9A;&#x5176;&#x4F18;&#x5148;&#x7EA7;&#x3002;</li>
+<li>&#x521D;&#x6B65;&#x8BC4;&#x4F30;&#x53D8;&#x66F4;&#x7684;&#x53EF;&#x80FD;&#x5F71;&#x54CD;&#xFF0C;&#x5E76;&#x636E;&#x6B64;&#x786E;&#x5B9A;&#x662F;&#x5426;&#x63A5;&#x53D7;&#x8BE5;&#x53D8;&#x66F4;&#x8BF7;&#x6C42;&#x3002;</li>
+<li>&#x5982;&#x679C;&#x51B3;&#x5B9A;&#x6267;&#x884C;&#x53D8;&#x66F4;&#xFF0C;&#x5C31;&#x4E3A;&#x5176;&#x5B89;&#x6392;&#x4FEE;&#x6539;&#x65F6;&#x95F4;&#x3002;&#x901A;&#x5E38;&#x591A;&#x4E2A;&#x5C0F;&#x7684;&#x4FEE;&#x6539;&#x4F1A;&#x5B89;&#x6392;&#x5230;&#x4E00;&#x4E2A;&#x65F6;&#x95F4;&#x5185;&#x6279;&#x91CF;&#x5B8C;&#x6210;&#x3002;</li>
 </ol>
 </li>
 </ol>
-<h2 id="2-3-软件演化生命周期模型">2.3. 软件演化生命周期模型</h2>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="C:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220607103137390.png" alt="image-20220607103137390"></p>
-<h3 id="2-3-1-步骤一-初始开发">2.3.1. 步骤一:初始开发</h3>
+<h3 id="1-5-2-&#x6B65;&#x9AA4;2-&#x5206;&#x6790;">1.5.2. &#x6B65;&#x9AA4;2:&#x5206;&#x6790;</h3>
 <ol>
-<li>初始开发阶段按照传统的软件开发方式完成第一个版本的软件产品开发。第一版的软件产品可以实现全部需求，也可以(通常是)只包含部分需求——对用户来说非常重要和紧急的最高优先级需求。</li>
-<li>初始阶段的一个极其重要的工作是建立一个好的软件体系结构。
+<li>&#x8BE5;&#x6B65;&#x9AA4;&#x7684;&#x4E3B;&#x8981;&#x4EFB;&#x52A1;&#x662F;&#x4E3A;&#x540E;&#x7EED;&#x7684;&#x4FEE;&#x6539;(&#x8BBE;&#x8BA1;&#x3001;&#x5B9E;&#x73B0;&#x3001;&#x6D4B;&#x8BD5;&#x3001;&#x4EA4;&#x4ED8;&#x53D1;&#x5E03;&#x7B49;)&#x786E;&#x5B9A;&#x4E00;&#x4E2A;&#x57FA;&#x672C;&#x7684;&#x89C4;&#x5212;&#xFF0C;&#x5305;&#x62EC;2&#x4E2A;&#x9636;&#x6BB5;&#xFF1A;
 <ol>
-<li>具有很好的可扩展性，能够包容后续的演化增量。</li>
-<li>具有很好的可修改性，能够处理后续阶段中的预期变更请求和未预期变更请求。</li>
-<li>比较坚实、可靠，能够在后续演化保持稳定的表现。</li>
+<li>&#x6B65;&#x9AA4;2.1 &#x53EF;&#x884C;&#x6027;&#x5206;&#x6790;&#x3002;
+<ol>
+<li>&#x8BE5;&#x6B65;&#x9AA4;&#x7684;&#x4EFB;&#x52A1;&#x662F;&#x63D0;&#x51FA;&#x5019;&#x9009;&#x65B9;&#x6848;&#xFF0C;&#x5E76;&#x5206;&#x6790;&#x65B9;&#x6848;&#x7684;&#x53EF;&#x884C;&#x6027;&#xFF0C;&#x5EFA;&#x7ACB;&#x53EF;&#x884C;&#x6027;&#x62A5;&#x544A;&#x3002;</li>
+<li>&#x53EF;&#x884C;&#x6027;&#x62A5;&#x544A;&#x7684;&#x5185;&#x5BB9;&#x5305;&#x62EC;&#xFF1A;&#x53D8;&#x66F4;&#x7684;&#x5F71;&#x54CD;&#x8303;&#x56F4;&#x3001;&#x5019;&#x9009;&#x65B9;&#x6848;&#x3001;&#x9700;&#x6C42;&#x53D8;&#x5316;&#x5206;&#x6790;&#x3001;&#x5BF9;&#x5B89;&#x5168;&#x6027;&#x548C;&#x4FDD;&#x5BC6;&#x6027;&#x7684;&#x5F71;&#x54CD;&#x3001;&#x4EBA;&#x7684;&#x56E0;&#x7D20;&#x3001;&#x77ED;&#x671F;&#x548C;&#x957F;&#x671F;&#x6210;&#x672C;&#x3001;&#x4FEE;&#x6B63;&#x7684;&#x4EF7;&#x503C;&#x4E0E;&#x6548;&#x76CA;&#x7B49;&#x3002;</li>
 </ol>
 </li>
-<li>在初始阶段的详细设计也要关注软件系统的可扩展性和可修改性，编程要关注程序的可读性以方便后续阶段的程序理解，技术文档的准备要充分以帮助后续阶段的程序理解</li>
-</ol>
-<h3 id="2-3-2-步骤二-演化">2.3.2. 步骤二:演化</h3>
+<li>&#x6B65;&#x9AA4;2.2 &#x8BE6;&#x7EC6;&#x5206;&#x6790;
 <ol>
-<li>在完成初始开发之后，软件产品就进入演化阶段。该阶段可能会有预先安排的需求增量，也可能完全是对变更请求的处理，它们的共同点都是保持软件产品的持续增值，让软件产品能够满足用户越来越多的需要，实现更大的业务价值。</li>
-<li>总的来说，该阶段可能的演化增量有：
-<ol>
-<li>预先安排的需求增量；</li>
-<li>因为问题变化或者环境变化产生的变更请求；</li>
-<li>修正已有的缺陷；</li>
-<li>随着用户与开发者之间越来越相互熟悉对方领域而新增加的需求。</li>
+<li>&#x8BE5;&#x6B65;&#x9AA4;&#x7684;&#x4EFB;&#x52A1;&#x662F;&#x51C6;&#x786E;&#x5B9A;&#x4E49;&#x4FEE;&#x6539;&#x7684;&#x9700;&#x6C42;&#xFF0C;&#x6807;&#x8BC6;&#x9700;&#x8981;&#x4FEE;&#x6539;&#x7684;&#x5143;&#x7D20;&#x3001;&#x6807;&#x8BC6;&#x4FEE;&#x6539;&#x4E2D;&#x7684;&#x5B89;&#x5168;&#x4E0E;&#x4FDD;&#x5BC6;&#x56E0;&#x7D20;&#x3001;&#x786E;&#x5B9A;&#x4E00;&#x4E2A;&#x6D4B;&#x8BD5;&#x7B56;&#x7565;&#x548C;&#x5EFA;&#x7ACB;&#x4E00;&#x4E2A;&#x5B9E;&#x73B0;&#x8BA1;&#x5212;&#x3002;</li>
 </ol>
 </li>
-<li>演化阶段的软件产品要具备两个特征：
-<ol>
-<li>软件产品具有<strong>较好的可演化性</strong>。一个软件产品在演化过程中复杂性会逐渐增高，可演化性会逐渐降低直至无法继续演化。演化阶段的软件产品虽然其可演化性低于初始开发阶段的软件产品，<strong>但是还没有到达无法演化的地步，还具有较好的可演化性</strong>。</li>
-<li>软件产品能够帮助用户实现较好的<strong>业务价值</strong>。只有这样，用户才会继续需要该产品，并持续提供资金支持。</li>
 </ol>
 </li>
-<li>如果在演化过程中，一个软件产品开始不满足第(2)条特征，那么该产品就会提前进入停止阶段。如果软件产品满足第(2)条的同时不满足第(1)条特征，那么该产品就会进入服务阶段。如果开发团队因为竞争产品的出现或者其他市场考虑，也可以让同时满足上面两条特征的软件产品提前进入服务阶段。</li>
 </ol>
-<h3 id="2-3-3-步骤三-服务">2.3.3. 步骤三:服务</h3>
+<h3 id="1-5-3-&#x6B65;&#x9AA4;3-&#x8BBE;&#x8BA1;">1.5.3. &#x6B65;&#x9AA4;3:&#x8BBE;&#x8BA1;</h3>
 <ol>
-<li><strong>服务阶段的软件产品不再持续的增加自己的价值，而只是周期性的修正已有的缺陷。</strong></li>
-<li>一个软件产品被置于服务阶段可能是因为它的软件结构已经无法继续演化，也可能是开发团队出于市场考虑，不再重点关注该产品。</li>
-<li>服务阶段的产品还仍然被用户使用，因为它仍然能够给用户提供一定的业务价值，所以开发团队仍然需要修正已有缺陷或者进行一些低程度的需求增量，保证用户的正常使用。</li>
-</ol>
-<h3 id="2-3-4-步骤四-逐步淘汰">2.3.4. 步骤四:逐步淘汰</h3>
+<li>&#x8BE5;&#x6B65;&#x9AA4;&#x7684;&#x4E3B;&#x8981;&#x4EFB;&#x52A1;&#x662F;&#x4F9D;&#x636E;&#x53D8;&#x66F4;&#x5206;&#x6790;&#x7684;&#x7ED3;&#x679C;&#x548C;&#x5DF2;&#x6709;&#x7CFB;&#x7EDF;&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x5B8C;&#x6210;&#x5BF9;&#x7CFB;&#x7EDF;&#x8BBE;&#x8BA1;&#x7684;&#x53D8;&#x66F4;&#x3002;</li>
+<li>&#x5177;&#x4F53;&#x5DE5;&#x4F5C;&#x5305;&#x62EC;&#xFF1A;<strong>&#x6807;&#x8BC6;&#x88AB;&#x5F71;&#x54CD;&#x7684;&#x8F6F;&#x4EF6;&#x6A21;&#x578B;&#x3001;&#x4FEE;&#x6539;&#x8F6F;&#x4EF6;&#x8BBE;&#x8BA1;&#x6587;&#x6863;&#x3001;&#x4E3A;&#x65B0;&#x7684;&#x8BBE;&#x8BA1;&#x521B;&#x5EFA;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x3001;&#x66F4;&#x65B0;&#x56DE;&#x5F52;&#x6D4B;&#x8BD5;&#x96C6;&#x3001;&#x66F4;&#x65B0;&#x9700;&#x6C42;&#x6587;&#x6863;&#x3002;</strong>
 <ol>
-<li>在逐步淘汰阶段，开发者已经不再提供软件产品的任何服务，也即<strong>不再继续维护该软件</strong>。</li>
-<li>虽然在开发者看来软件的生命周期已经结束，但是用户可能会继续使用处于该阶段的软件产品，因为它们仍然能够帮助用户实现一定的业务价值。只是用户在使用软件时必须要容忍软件产品中的各种不便，包括仍然存在的缺陷和对新环境的不适应。</li>
-<li>对于该阶段的产品，开发者需要考虑该产品是否可以作为有用的遗留资源用于新软件的开发，用户需要考虑如何更换新的软件产品并转移已有的业务数据。</li>
+<li>&#x5728;&#x8FDB;&#x884C;&#x5B8C;&#x5584;&#x6027;&#x7EF4;&#x62A4;&#x548C;&#x9002;&#x5E94;&#x6027;&#x7EF4;&#x62A4;&#x65F6;&#xFF0C;&#x8BBE;&#x8BA1;&#x6B65;&#x9AA4;&#x8981;&#x9488;&#x5BF9;&#x65B0;&#x7684;&#x529F;&#x80FD;&#x9700;&#x6C42;&#x6267;&#x884C;&#x4E00;&#x4E2A;&#x5B8C;&#x6574;&#x7684;&#x8BE6;&#x7EC6;&#x8BBE;&#x8BA1;&#x8FC7;&#x7A0B;&#x3002;</li>
+<li>&#x5728;&#x8FDB;&#x884C;&#x4FEE;&#x6B63;&#x6027;&#x7EF4;&#x62A4;&#x65F6;&#xFF0C;&#x8BBE;&#x8BA1;&#x8981;&#x9632;&#x6B62;&#x7A0B;&#x5E8F;&#x4FEE;&#x6539;&#x5E26;&#x6765;&#x8FDE;&#x9501;&#x7684;&#x8D1F;&#x9762;&#x6548;&#x5E94;&#x3002;</li>
+<li>&#x5728;&#x8FDB;&#x884C;&#x9884;&#x9632;&#x6027;&#x7EF4;&#x62A4;&#x65F6;&#xFF0C;&#x8BBE;&#x8BA1;&#x8981;&#x91CD;&#x70B9;&#x5173;&#x6CE8;&#x8F6F;&#x4EF6;&#x7ED3;&#x6784;&#x7684;&#x8D28;&#x91CF;&#xFF0C;&#x4EE5;&#x6B64;&#x4E3A;&#x4F9D;&#x636E;&#x4FEE;&#x6539;&#x7A0B;&#x5E8F;&#x4EE3;&#x7801;&#x548C;&#x8F6F;&#x4EF6;&#x7CFB;&#x7EDF;&#x7ED3;&#x6784;&#x3002;</li>
 </ol>
-<h3 id="2-3-5-步骤五-停止">2.3.5. 步骤五:停止</h3>
+</li>
+</ol>
+<h3 id="1-5-4-&#x6B65;&#x9AA4;4-&#x5B9E;&#x73B0;">1.5.4. &#x6B65;&#x9AA4;4:&#x5B9E;&#x73B0;</h3>
 <ol>
-<li>一个软件正式退出使用状态之后就进行停止状态。开发者不再进行维护，用户也不再使用。</li>
+<li>&#x8BE5;&#x6B65;&#x9AA4;&#x7684;&#x4E3B;&#x8981;&#x4EFB;&#x52A1;&#x662F;&#x6839;&#x636E;&#x53D8;&#x66F4;&#x7684;&#x8BBE;&#x8BA1;&#xFF0C;&#x5B8C;&#x6210;&#x4EE3;&#x7801;&#x5B9E;&#x73B0;&#x3002;</li>
+<li>&#x5177;&#x4F53;&#x5DE5;&#x4F5C;&#x5305;&#x62EC;&#xFF1A;&#x7F16;&#x7801;&#x4E0E;&#x5355;&#x5143;&#x6D4B;&#x8BD5;&#x3001;&#x96C6;&#x6210;&#x65B0;&#x4FEE;&#x6539;&#x4EE3;&#x7801;&#x3001;&#x96C6;&#x6210;&#x6D4B;&#x8BD5;&#x3001;&#x98CE;&#x9669;&#x5206;&#x6790;&#x548C;&#x4EE3;&#x7801;&#x8BC4;&#x5BA1;&#x3002;</li>
 </ol>
-<h2 id="2-4-开发团队在不同阶段的不同工作">2.4. 开发团队在不同阶段的不同工作</h2>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="C:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220607105019191.png" alt="image-20220607105019191"></p>
-<h1>3. 软件维护与演化的技术</h1>
+<h3 id="1-5-5-&#x6B65;&#x9AA4;5-&#x56DE;&#x5F52;&#x6D4B;&#x8BD5;">1.5.5. &#x6B65;&#x9AA4;5:&#x56DE;&#x5F52;&#x6D4B;&#x8BD5;</h3>
 <ol>
-<li><strong>遗留软件</strong></li>
-<li><strong>逆向工程</strong></li>
-<li><strong>再工程</strong></li>
+<li>&#x8BE5;&#x6B65;&#x9AA4;&#x7684;&#x4E3B;&#x8981;&#x4EFB;&#x52A1;&#x662F;&#x786E;&#x4FDD;&#x5BF9;&#x53D8;&#x66F4;&#x7684;&#x4FEE;&#x6539;&#x4E0D;&#x4F1A;&#x5E26;&#x6765;&#x8FDE;&#x9501;&#x7684;&#x8D1F;&#x9762;&#x6548;&#x5E94;&#xFF0C;&#x8981;&#x4FDD;&#x8BC1;&#x7CFB;&#x7EDF;&#x4ECD;&#x7136;&#x80FD;&#x591F;&#x6EE1;&#x8DB3;&#x5176;&#x4ED6;&#x672A;&#x88AB;&#x4FEE;&#x6539;&#x7684;&#x9700;&#x6C42;&#x3002;</li>
+<li>&#x5177;&#x4F53;&#x5DE5;&#x4F5C;&#x5305;&#x62EC;&#xFF1A;&#x9488;&#x5BF9;&#x53D8;&#x66F4;&#x60C5;&#x51B5;&#x8FDB;&#x884C;&#x529F;&#x80FD;&#x6D4B;&#x8BD5;&#x548C;&#x754C;&#x9762;&#x6D4B;&#x8BD5;&#x3001;&#x5BF9;&#x6574;&#x4E2A;&#x7CFB;&#x7EDF;&#x8FDB;&#x884C;&#x56DE;&#x5F52;&#x6D4B;&#x8BD5;&#x3001;&#x9A8C;&#x8BC1;&#x7CFB;&#x7EDF;&#x662F;&#x5426;&#x51C6;&#x5907;&#x597D;&#x8FDB;&#x884C;&#x9A8C;&#x6536;&#x6D4B;&#x8BD5;&#x3002;</li>
 </ol>
-<h2 id="3-1-遗留软件">3.1. 遗留软件</h2>
+<h3 id="1-5-6-&#x6B65;&#x9AA4;6-&#x9A8C;&#x6536;&#x6D4B;&#x8BD5;">1.5.6. &#x6B65;&#x9AA4;6:&#x9A8C;&#x6536;&#x6D4B;&#x8BD5;</h3>
 <ol>
-<li>这些软件可能非常古老，并且规模很大</li>
-<li>已经被严重修改过了</li>
-<li>基于过时的技术</li>
-<li>没有可用的文档</li>
-<li>找不到任何一个最初的开发人员</li>
-<li>拥有大量有用的数据</li>
-<li>这些软件通常是业务的核心元素，替换它们需要一大笔花费。</li>
+<li>&#x8BE5;&#x6B65;&#x9AA4;&#x7684;&#x4E3B;&#x8981;&#x4EFB;&#x52A1;&#x662F;&#x7531;&#x7528;&#x6237;&#x3001;&#x5BA2;&#x6237;&#x6216;&#x5BA2;&#x6237;&#x6307;&#x5B9A;&#x7684;&#x7B2C;&#x4E09;&#x65B9;&#x6765;&#x9A8C;&#x8BC1;&#x7CFB;&#x7EDF;&#x662F;&#x5426;&#x6EE1;&#x8DB3;&#x7528;&#x6237;&#x7684;&#x53D8;&#x66F4;&#x8BF7;&#x6C42;&#x3002;</li>
+<li>&#x5177;&#x4F53;&#x5DE5;&#x4F5C;&#x5305;&#x62EC;&#xFF1A;&#x9488;&#x5BF9;&#x53D8;&#x66F4;&#x8BF7;&#x6C42;&#x7684;&#x529F;&#x80FD;&#x6D4B;&#x8BD5;&#x3001;&#x9488;&#x5BF9;&#x7528;&#x6237;&#x4F7F;&#x7528;&#x73AF;&#x5883;&#x7684;&#x517C;&#x5BB9;&#x6027;&#x6D4B;&#x8BD5;&#x3001;&#x5BF9;&#x6574;&#x4E2A;&#x7CFB;&#x7EDF;&#x8FDB;&#x884C;&#x56DE;&#x5F52;&#x6D4B;&#x8BD5;&#x3002;</li>
 </ol>
-<h3 id="3-1-1-对于遗留软件的不同处理方式">3.1.1. 对于遗留软件的不同处理方式</h3>
+<h3 id="1-5-7-&#x6B65;&#x9AA4;7-&#x79FB;&#x4EA4;">1.5.7. &#x6B65;&#x9AA4;7:&#x79FB;&#x4EA4;</h3>
 <ol>
-<li>如果遗留软件已经没有使用价值，就直接丢弃该软件。</li>
-<li>如果遗留软件还有使用价值，但是其维护的成本效益比低于新开发一个软件系统的成本效益比，那么冻结遗留软件，将其作为一个新的更大系统的组成部分进行使用。</li>
-<li>如果遗留软件的成本效益比低于新开发一个软件系统的成本效益比，而且该遗留软件仍然<strong>具备较好的可维护性</strong>，那么就<strong>逆向工程</strong>遗留软件<strong>并继续维护一段时间</strong>；</li>
-<li>如果遗留软件的成本效益比高于新开发一个软件系统的成本效益比，而且该遗留软件已经<strong>不具备可维护性</strong>，那么就修改系统使其获得新生(即<strong>再工程</strong>该系统)，然后<strong>继续维护再造后的系统</strong>。</li>
+<li>&#x8BE5;&#x6B65;&#x9AA4;&#x7684;&#x4E3B;&#x8981;&#x4EFB;&#x52A1;&#x662F;&#x5C06;&#x4FEE;&#x6B63;&#x7684;&#x7CFB;&#x7EDF;&#x53D1;&#x5E03;&#x7528;&#x4E8E;&#x5B89;&#x88C5;&#x548C;&#x8FD0;&#x8425;&#x3002;</li>
+<li>&#x5177;&#x4F53;&#x5DE5;&#x4F5C;&#x5305;&#x62EC;&#xFF1A;&#x8FDB;&#x884C;&#x914D;&#x7F6E;&#x5BA1;&#x8BA1;&#xFF1B;&#x901A;&#x77E5;&#x7528;&#x6237;&#x56E2;&#x4F53;&#x3001;&#x4E3A;&#x4E86;&#x5907;&#x4EFD;&#x7CFB;&#x7EDF;&#x800C;&#x5F00;&#x53D1;&#x4E00;&#x4E2A;&#x9636;&#x6BB5;&#x6027;&#x7248;&#x672C;&#x3001;&#x5728;&#x5BA2;&#x6237;&#x7684;&#x8BBE;&#x65BD;&#x4E0A;&#x8FDB;&#x884C;&#x5B89;&#x88C5;&#x548C;&#x57F9;&#x8BAD;&#x3002;&#x5176;&#x4E2D;&#x914D;&#x7F6E;&#x5BA1;&#x8BA1;&#x662F;&#x8981;&#x901A;&#x8FC7;&#x914D;&#x7F6E;&#x7BA1;&#x7406;&#x7CFB;&#x7EDF;&#x786E;&#x5B9A;&#x4E00;&#x4E2A;&#x7CFB;&#x7EDF;&#x7684;&#x53D1;&#x5E03;&#x5305;&#xFF0C;&#x5305;&#x62EC;&#x6587;&#x6863;&#x3001;&#x8F6F;&#x4EF6;&#x7A0B;&#x5E8F;&#x3001;&#x57F9;&#x8BAD;&#x6587;&#x6863;&#x3001;&#x4EE5;&#x53CA;&#x5176;&#x4ED6;&#x76F8;&#x5173;&#x6587;&#x6863;&#x3002;</li>
 </ol>
-<h2 id="3-2-逆向工程">3.2. 逆向工程</h2>
+<h1>2. &#x8F6F;&#x4EF6;&#x6F14;&#x5316;</h1>
+<h2 id="2-1-&#x7EF4;&#x62A4;&#x548C;&#x6F14;&#x5316;">2.1. &#x7EF4;&#x62A4;&#x548C;&#x6F14;&#x5316;</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/21-%E8%BD%AF%E4%BB%B6%E7%9A%84%E7%BB%B4%E6%8A%A4%E4%B8%8E%E6%BC%94%E5%8C%96/C:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220607102741273.png" alt="image-20220607102741273"></p>
+<h2 id="2-2-&#x8F6F;&#x4EF6;&#x6F14;&#x5316;&#x5B9A;&#x5F8B;">2.2. &#x8F6F;&#x4EF6;&#x6F14;&#x5316;&#x5B9A;&#x5F8B;</h2>
 <ol>
-<li>处理遗留软件时，维护人员接受的<strong>维护对象可能是一个==没有任何文档也没有程序源代码==的软件程序</strong>，此时，维护人员需要使用逆向工程技术</li>
-<li>逆向工程技术是指：“分析目标系统，标识系统的部件及其交互关系，并且使用其它形式或者更高层的抽象创建系统表现的过程[Chikofsky1990]”。</li>
-<li>逆向工程的基本原理是抽取软件系统的需求与设计而隐藏实现细节，然后在需求与设计的层次上描述软件系统，以建立对系统更加准确和清晰的理解。【<strong>正向工程即软件开发：从需求到软件；逆向工程即反着来：从已有的一个产品逆推代码和需求</strong>】</li>
+<li>&#x5728;&#x7814;&#x7A76;&#x7684;&#x57FA;&#x7840;&#x4E0A;&#xFF0C;Lehman&#x63D0;&#x51FA;&#x4E86;&#x5927;&#x578B;&#x8F6F;&#x4EF6;&#x7CFB;&#x7EDF;&#x6F14;&#x5316;&#x7684;8&#x6761;&#x5B9A;&#x5F8B;&#xFF0C;&#x4E0B;&#x9762;&#x662F;&#x5176;&#x4E2D;&#x7684;3&#x6761;&#xFF1A;
+<ol>
+<li><strong>&#x6301;&#x7EED;&#x53D8;&#x5316;</strong>&#xFF1A;&#x4E00;&#x4E2A;&#x5927;&#x578B;&#x8F6F;&#x4EF6;&#x7CFB;&#x7EDF;&#x8981;&#x4E48;&#x8FDB;&#x884C;&#x4E0D;&#x65AD;&#x7684;&#x53D8;&#x5316;&#xFF0C;&#x8981;&#x4E48;&#x7528;&#x5904;&#x4F1A;&#x8D8A;&#x6765;&#x8D8A;&#x5C11;&#x3002;</li>
+<li>&#x4E0D;&#x65AD;&#x589E;&#x52A0;&#x7684;&#x590D;&#x6742;&#x5EA6;&#xFF1A;&#x968F;&#x7740;&#x8F6F;&#x4EF6;&#x7CFB;&#x7EDF;&#x7684;&#x53D1;&#x5C55;&#xFF0C;&#x5B83;&#x7684;&#x590D;&#x6742;&#x6027;&#x4F1A;&#x4E0D;&#x65AD;&#x589E;&#x52A0;&#xFF0C;&#x9664;&#x975E;&#x8FDB;&#x884C;&#x4E00;&#x5B9A;&#x7684;&#x5DE5;&#x4F5C;&#x6765;&#x7EF4;&#x6301;&#x6216;&#x964D;&#x4F4E;&#x590D;&#x6742;&#x5EA6;&#x3002;</li>
+<li>&#x8D28;&#x91CF;&#x964D;&#x4F4E;&#xFF1A;&#x7CFB;&#x7EDF;&#x7684;&#x8D28;&#x91CF;&#x5C06;&#x51FA;&#x73B0;&#x4E0B;&#x6ED1;&#xFF0C;&#x9664;&#x975E;&#x8FDB;&#x884C;&#x4E00;&#x5B9A;&#x7684;&#x5DE5;&#x4F5C;&#x6765;&#x9002;&#x5E94;&#x73AF;&#x5883;&#x53D8;&#x5316;&#x3002;</li>
 </ol>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="C:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220607105310072.png" alt="image-20220607105310072"></p>
+</li>
+</ol>
+<h2 id="2-3-&#x8F6F;&#x4EF6;&#x6F14;&#x5316;&#x751F;&#x547D;&#x5468;&#x671F;&#x6A21;&#x578B;">2.3. &#x8F6F;&#x4EF6;&#x6F14;&#x5316;&#x751F;&#x547D;&#x5468;&#x671F;&#x6A21;&#x578B;</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/21-%E8%BD%AF%E4%BB%B6%E7%9A%84%E7%BB%B4%E6%8A%A4%E4%B8%8E%E6%BC%94%E5%8C%96/C:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220607103137390.png" alt="image-20220607103137390"></p>
+<h3 id="2-3-1-&#x6B65;&#x9AA4;&#x4E00;-&#x521D;&#x59CB;&#x5F00;&#x53D1;">2.3.1. &#x6B65;&#x9AA4;&#x4E00;:&#x521D;&#x59CB;&#x5F00;&#x53D1;</h3>
+<ol>
+<li>&#x521D;&#x59CB;&#x5F00;&#x53D1;&#x9636;&#x6BB5;&#x6309;&#x7167;&#x4F20;&#x7EDF;&#x7684;&#x8F6F;&#x4EF6;&#x5F00;&#x53D1;&#x65B9;&#x5F0F;&#x5B8C;&#x6210;&#x7B2C;&#x4E00;&#x4E2A;&#x7248;&#x672C;&#x7684;&#x8F6F;&#x4EF6;&#x4EA7;&#x54C1;&#x5F00;&#x53D1;&#x3002;&#x7B2C;&#x4E00;&#x7248;&#x7684;&#x8F6F;&#x4EF6;&#x4EA7;&#x54C1;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x5168;&#x90E8;&#x9700;&#x6C42;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;(&#x901A;&#x5E38;&#x662F;)&#x53EA;&#x5305;&#x542B;&#x90E8;&#x5206;&#x9700;&#x6C42;&#x2014;&#x2014;&#x5BF9;&#x7528;&#x6237;&#x6765;&#x8BF4;&#x975E;&#x5E38;&#x91CD;&#x8981;&#x548C;&#x7D27;&#x6025;&#x7684;&#x6700;&#x9AD8;&#x4F18;&#x5148;&#x7EA7;&#x9700;&#x6C42;&#x3002;</li>
+<li>&#x521D;&#x59CB;&#x9636;&#x6BB5;&#x7684;&#x4E00;&#x4E2A;&#x6781;&#x5176;&#x91CD;&#x8981;&#x7684;&#x5DE5;&#x4F5C;&#x662F;&#x5EFA;&#x7ACB;&#x4E00;&#x4E2A;&#x597D;&#x7684;&#x8F6F;&#x4EF6;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x3002;
+<ol>
+<li>&#x5177;&#x6709;&#x5F88;&#x597D;&#x7684;&#x53EF;&#x6269;&#x5C55;&#x6027;&#xFF0C;&#x80FD;&#x591F;&#x5305;&#x5BB9;&#x540E;&#x7EED;&#x7684;&#x6F14;&#x5316;&#x589E;&#x91CF;&#x3002;</li>
+<li>&#x5177;&#x6709;&#x5F88;&#x597D;&#x7684;&#x53EF;&#x4FEE;&#x6539;&#x6027;&#xFF0C;&#x80FD;&#x591F;&#x5904;&#x7406;&#x540E;&#x7EED;&#x9636;&#x6BB5;&#x4E2D;&#x7684;&#x9884;&#x671F;&#x53D8;&#x66F4;&#x8BF7;&#x6C42;&#x548C;&#x672A;&#x9884;&#x671F;&#x53D8;&#x66F4;&#x8BF7;&#x6C42;&#x3002;</li>
+<li>&#x6BD4;&#x8F83;&#x575A;&#x5B9E;&#x3001;&#x53EF;&#x9760;&#xFF0C;&#x80FD;&#x591F;&#x5728;&#x540E;&#x7EED;&#x6F14;&#x5316;&#x4FDD;&#x6301;&#x7A33;&#x5B9A;&#x7684;&#x8868;&#x73B0;&#x3002;</li>
+</ol>
+</li>
+<li>&#x5728;&#x521D;&#x59CB;&#x9636;&#x6BB5;&#x7684;&#x8BE6;&#x7EC6;&#x8BBE;&#x8BA1;&#x4E5F;&#x8981;&#x5173;&#x6CE8;&#x8F6F;&#x4EF6;&#x7CFB;&#x7EDF;&#x7684;&#x53EF;&#x6269;&#x5C55;&#x6027;&#x548C;&#x53EF;&#x4FEE;&#x6539;&#x6027;&#xFF0C;&#x7F16;&#x7A0B;&#x8981;&#x5173;&#x6CE8;&#x7A0B;&#x5E8F;&#x7684;&#x53EF;&#x8BFB;&#x6027;&#x4EE5;&#x65B9;&#x4FBF;&#x540E;&#x7EED;&#x9636;&#x6BB5;&#x7684;&#x7A0B;&#x5E8F;&#x7406;&#x89E3;&#xFF0C;&#x6280;&#x672F;&#x6587;&#x6863;&#x7684;&#x51C6;&#x5907;&#x8981;&#x5145;&#x5206;&#x4EE5;&#x5E2E;&#x52A9;&#x540E;&#x7EED;&#x9636;&#x6BB5;&#x7684;&#x7A0B;&#x5E8F;&#x7406;&#x89E3;</li>
+</ol>
+<h3 id="2-3-2-&#x6B65;&#x9AA4;&#x4E8C;-&#x6F14;&#x5316;">2.3.2. &#x6B65;&#x9AA4;&#x4E8C;:&#x6F14;&#x5316;</h3>
+<ol>
+<li>&#x5728;&#x5B8C;&#x6210;&#x521D;&#x59CB;&#x5F00;&#x53D1;&#x4E4B;&#x540E;&#xFF0C;&#x8F6F;&#x4EF6;&#x4EA7;&#x54C1;&#x5C31;&#x8FDB;&#x5165;&#x6F14;&#x5316;&#x9636;&#x6BB5;&#x3002;&#x8BE5;&#x9636;&#x6BB5;&#x53EF;&#x80FD;&#x4F1A;&#x6709;&#x9884;&#x5148;&#x5B89;&#x6392;&#x7684;&#x9700;&#x6C42;&#x589E;&#x91CF;&#xFF0C;&#x4E5F;&#x53EF;&#x80FD;&#x5B8C;&#x5168;&#x662F;&#x5BF9;&#x53D8;&#x66F4;&#x8BF7;&#x6C42;&#x7684;&#x5904;&#x7406;&#xFF0C;&#x5B83;&#x4EEC;&#x7684;&#x5171;&#x540C;&#x70B9;&#x90FD;&#x662F;&#x4FDD;&#x6301;&#x8F6F;&#x4EF6;&#x4EA7;&#x54C1;&#x7684;&#x6301;&#x7EED;&#x589E;&#x503C;&#xFF0C;&#x8BA9;&#x8F6F;&#x4EF6;&#x4EA7;&#x54C1;&#x80FD;&#x591F;&#x6EE1;&#x8DB3;&#x7528;&#x6237;&#x8D8A;&#x6765;&#x8D8A;&#x591A;&#x7684;&#x9700;&#x8981;&#xFF0C;&#x5B9E;&#x73B0;&#x66F4;&#x5927;&#x7684;&#x4E1A;&#x52A1;&#x4EF7;&#x503C;&#x3002;</li>
+<li>&#x603B;&#x7684;&#x6765;&#x8BF4;&#xFF0C;&#x8BE5;&#x9636;&#x6BB5;&#x53EF;&#x80FD;&#x7684;&#x6F14;&#x5316;&#x589E;&#x91CF;&#x6709;&#xFF1A;
+<ol>
+<li>&#x9884;&#x5148;&#x5B89;&#x6392;&#x7684;&#x9700;&#x6C42;&#x589E;&#x91CF;&#xFF1B;</li>
+<li>&#x56E0;&#x4E3A;&#x95EE;&#x9898;&#x53D8;&#x5316;&#x6216;&#x8005;&#x73AF;&#x5883;&#x53D8;&#x5316;&#x4EA7;&#x751F;&#x7684;&#x53D8;&#x66F4;&#x8BF7;&#x6C42;&#xFF1B;</li>
+<li>&#x4FEE;&#x6B63;&#x5DF2;&#x6709;&#x7684;&#x7F3A;&#x9677;&#xFF1B;</li>
+<li>&#x968F;&#x7740;&#x7528;&#x6237;&#x4E0E;&#x5F00;&#x53D1;&#x8005;&#x4E4B;&#x95F4;&#x8D8A;&#x6765;&#x8D8A;&#x76F8;&#x4E92;&#x719F;&#x6089;&#x5BF9;&#x65B9;&#x9886;&#x57DF;&#x800C;&#x65B0;&#x589E;&#x52A0;&#x7684;&#x9700;&#x6C42;&#x3002;</li>
+</ol>
+</li>
+<li>&#x6F14;&#x5316;&#x9636;&#x6BB5;&#x7684;&#x8F6F;&#x4EF6;&#x4EA7;&#x54C1;&#x8981;&#x5177;&#x5907;&#x4E24;&#x4E2A;&#x7279;&#x5F81;&#xFF1A;
+<ol>
+<li>&#x8F6F;&#x4EF6;&#x4EA7;&#x54C1;&#x5177;&#x6709;<strong>&#x8F83;&#x597D;&#x7684;&#x53EF;&#x6F14;&#x5316;&#x6027;</strong>&#x3002;&#x4E00;&#x4E2A;&#x8F6F;&#x4EF6;&#x4EA7;&#x54C1;&#x5728;&#x6F14;&#x5316;&#x8FC7;&#x7A0B;&#x4E2D;&#x590D;&#x6742;&#x6027;&#x4F1A;&#x9010;&#x6E10;&#x589E;&#x9AD8;&#xFF0C;&#x53EF;&#x6F14;&#x5316;&#x6027;&#x4F1A;&#x9010;&#x6E10;&#x964D;&#x4F4E;&#x76F4;&#x81F3;&#x65E0;&#x6CD5;&#x7EE7;&#x7EED;&#x6F14;&#x5316;&#x3002;&#x6F14;&#x5316;&#x9636;&#x6BB5;&#x7684;&#x8F6F;&#x4EF6;&#x4EA7;&#x54C1;&#x867D;&#x7136;&#x5176;&#x53EF;&#x6F14;&#x5316;&#x6027;&#x4F4E;&#x4E8E;&#x521D;&#x59CB;&#x5F00;&#x53D1;&#x9636;&#x6BB5;&#x7684;&#x8F6F;&#x4EF6;&#x4EA7;&#x54C1;&#xFF0C;<strong>&#x4F46;&#x662F;&#x8FD8;&#x6CA1;&#x6709;&#x5230;&#x8FBE;&#x65E0;&#x6CD5;&#x6F14;&#x5316;&#x7684;&#x5730;&#x6B65;&#xFF0C;&#x8FD8;&#x5177;&#x6709;&#x8F83;&#x597D;&#x7684;&#x53EF;&#x6F14;&#x5316;&#x6027;</strong>&#x3002;</li>
+<li>&#x8F6F;&#x4EF6;&#x4EA7;&#x54C1;&#x80FD;&#x591F;&#x5E2E;&#x52A9;&#x7528;&#x6237;&#x5B9E;&#x73B0;&#x8F83;&#x597D;&#x7684;<strong>&#x4E1A;&#x52A1;&#x4EF7;&#x503C;</strong>&#x3002;&#x53EA;&#x6709;&#x8FD9;&#x6837;&#xFF0C;&#x7528;&#x6237;&#x624D;&#x4F1A;&#x7EE7;&#x7EED;&#x9700;&#x8981;&#x8BE5;&#x4EA7;&#x54C1;&#xFF0C;&#x5E76;&#x6301;&#x7EED;&#x63D0;&#x4F9B;&#x8D44;&#x91D1;&#x652F;&#x6301;&#x3002;</li>
+</ol>
+</li>
+<li>&#x5982;&#x679C;&#x5728;&#x6F14;&#x5316;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x4E00;&#x4E2A;&#x8F6F;&#x4EF6;&#x4EA7;&#x54C1;&#x5F00;&#x59CB;&#x4E0D;&#x6EE1;&#x8DB3;&#x7B2C;(2)&#x6761;&#x7279;&#x5F81;&#xFF0C;&#x90A3;&#x4E48;&#x8BE5;&#x4EA7;&#x54C1;&#x5C31;&#x4F1A;&#x63D0;&#x524D;&#x8FDB;&#x5165;&#x505C;&#x6B62;&#x9636;&#x6BB5;&#x3002;&#x5982;&#x679C;&#x8F6F;&#x4EF6;&#x4EA7;&#x54C1;&#x6EE1;&#x8DB3;&#x7B2C;(2)&#x6761;&#x7684;&#x540C;&#x65F6;&#x4E0D;&#x6EE1;&#x8DB3;&#x7B2C;(1)&#x6761;&#x7279;&#x5F81;&#xFF0C;&#x90A3;&#x4E48;&#x8BE5;&#x4EA7;&#x54C1;&#x5C31;&#x4F1A;&#x8FDB;&#x5165;&#x670D;&#x52A1;&#x9636;&#x6BB5;&#x3002;&#x5982;&#x679C;&#x5F00;&#x53D1;&#x56E2;&#x961F;&#x56E0;&#x4E3A;&#x7ADE;&#x4E89;&#x4EA7;&#x54C1;&#x7684;&#x51FA;&#x73B0;&#x6216;&#x8005;&#x5176;&#x4ED6;&#x5E02;&#x573A;&#x8003;&#x8651;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x8BA9;&#x540C;&#x65F6;&#x6EE1;&#x8DB3;&#x4E0A;&#x9762;&#x4E24;&#x6761;&#x7279;&#x5F81;&#x7684;&#x8F6F;&#x4EF6;&#x4EA7;&#x54C1;&#x63D0;&#x524D;&#x8FDB;&#x5165;&#x670D;&#x52A1;&#x9636;&#x6BB5;&#x3002;</li>
+</ol>
+<h3 id="2-3-3-&#x6B65;&#x9AA4;&#x4E09;-&#x670D;&#x52A1;">2.3.3. &#x6B65;&#x9AA4;&#x4E09;:&#x670D;&#x52A1;</h3>
+<ol>
+<li><strong>&#x670D;&#x52A1;&#x9636;&#x6BB5;&#x7684;&#x8F6F;&#x4EF6;&#x4EA7;&#x54C1;&#x4E0D;&#x518D;&#x6301;&#x7EED;&#x7684;&#x589E;&#x52A0;&#x81EA;&#x5DF1;&#x7684;&#x4EF7;&#x503C;&#xFF0C;&#x800C;&#x53EA;&#x662F;&#x5468;&#x671F;&#x6027;&#x7684;&#x4FEE;&#x6B63;&#x5DF2;&#x6709;&#x7684;&#x7F3A;&#x9677;&#x3002;</strong></li>
+<li>&#x4E00;&#x4E2A;&#x8F6F;&#x4EF6;&#x4EA7;&#x54C1;&#x88AB;&#x7F6E;&#x4E8E;&#x670D;&#x52A1;&#x9636;&#x6BB5;&#x53EF;&#x80FD;&#x662F;&#x56E0;&#x4E3A;&#x5B83;&#x7684;&#x8F6F;&#x4EF6;&#x7ED3;&#x6784;&#x5DF2;&#x7ECF;&#x65E0;&#x6CD5;&#x7EE7;&#x7EED;&#x6F14;&#x5316;&#xFF0C;&#x4E5F;&#x53EF;&#x80FD;&#x662F;&#x5F00;&#x53D1;&#x56E2;&#x961F;&#x51FA;&#x4E8E;&#x5E02;&#x573A;&#x8003;&#x8651;&#xFF0C;&#x4E0D;&#x518D;&#x91CD;&#x70B9;&#x5173;&#x6CE8;&#x8BE5;&#x4EA7;&#x54C1;&#x3002;</li>
+<li>&#x670D;&#x52A1;&#x9636;&#x6BB5;&#x7684;&#x4EA7;&#x54C1;&#x8FD8;&#x4ECD;&#x7136;&#x88AB;&#x7528;&#x6237;&#x4F7F;&#x7528;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4ECD;&#x7136;&#x80FD;&#x591F;&#x7ED9;&#x7528;&#x6237;&#x63D0;&#x4F9B;&#x4E00;&#x5B9A;&#x7684;&#x4E1A;&#x52A1;&#x4EF7;&#x503C;&#xFF0C;&#x6240;&#x4EE5;&#x5F00;&#x53D1;&#x56E2;&#x961F;&#x4ECD;&#x7136;&#x9700;&#x8981;&#x4FEE;&#x6B63;&#x5DF2;&#x6709;&#x7F3A;&#x9677;&#x6216;&#x8005;&#x8FDB;&#x884C;&#x4E00;&#x4E9B;&#x4F4E;&#x7A0B;&#x5EA6;&#x7684;&#x9700;&#x6C42;&#x589E;&#x91CF;&#xFF0C;&#x4FDD;&#x8BC1;&#x7528;&#x6237;&#x7684;&#x6B63;&#x5E38;&#x4F7F;&#x7528;&#x3002;</li>
+</ol>
+<h3 id="2-3-4-&#x6B65;&#x9AA4;&#x56DB;-&#x9010;&#x6B65;&#x6DD8;&#x6C70;">2.3.4. &#x6B65;&#x9AA4;&#x56DB;:&#x9010;&#x6B65;&#x6DD8;&#x6C70;</h3>
+<ol>
+<li>&#x5728;&#x9010;&#x6B65;&#x6DD8;&#x6C70;&#x9636;&#x6BB5;&#xFF0C;&#x5F00;&#x53D1;&#x8005;&#x5DF2;&#x7ECF;&#x4E0D;&#x518D;&#x63D0;&#x4F9B;&#x8F6F;&#x4EF6;&#x4EA7;&#x54C1;&#x7684;&#x4EFB;&#x4F55;&#x670D;&#x52A1;&#xFF0C;&#x4E5F;&#x5373;<strong>&#x4E0D;&#x518D;&#x7EE7;&#x7EED;&#x7EF4;&#x62A4;&#x8BE5;&#x8F6F;&#x4EF6;</strong>&#x3002;</li>
+<li>&#x867D;&#x7136;&#x5728;&#x5F00;&#x53D1;&#x8005;&#x770B;&#x6765;&#x8F6F;&#x4EF6;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x5DF2;&#x7ECF;&#x7ED3;&#x675F;&#xFF0C;&#x4F46;&#x662F;&#x7528;&#x6237;&#x53EF;&#x80FD;&#x4F1A;&#x7EE7;&#x7EED;&#x4F7F;&#x7528;&#x5904;&#x4E8E;&#x8BE5;&#x9636;&#x6BB5;&#x7684;&#x8F6F;&#x4EF6;&#x4EA7;&#x54C1;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4EEC;&#x4ECD;&#x7136;&#x80FD;&#x591F;&#x5E2E;&#x52A9;&#x7528;&#x6237;&#x5B9E;&#x73B0;&#x4E00;&#x5B9A;&#x7684;&#x4E1A;&#x52A1;&#x4EF7;&#x503C;&#x3002;&#x53EA;&#x662F;&#x7528;&#x6237;&#x5728;&#x4F7F;&#x7528;&#x8F6F;&#x4EF6;&#x65F6;&#x5FC5;&#x987B;&#x8981;&#x5BB9;&#x5FCD;&#x8F6F;&#x4EF6;&#x4EA7;&#x54C1;&#x4E2D;&#x7684;&#x5404;&#x79CD;&#x4E0D;&#x4FBF;&#xFF0C;&#x5305;&#x62EC;&#x4ECD;&#x7136;&#x5B58;&#x5728;&#x7684;&#x7F3A;&#x9677;&#x548C;&#x5BF9;&#x65B0;&#x73AF;&#x5883;&#x7684;&#x4E0D;&#x9002;&#x5E94;&#x3002;</li>
+<li>&#x5BF9;&#x4E8E;&#x8BE5;&#x9636;&#x6BB5;&#x7684;&#x4EA7;&#x54C1;&#xFF0C;&#x5F00;&#x53D1;&#x8005;&#x9700;&#x8981;&#x8003;&#x8651;&#x8BE5;&#x4EA7;&#x54C1;&#x662F;&#x5426;&#x53EF;&#x4EE5;&#x4F5C;&#x4E3A;&#x6709;&#x7528;&#x7684;&#x9057;&#x7559;&#x8D44;&#x6E90;&#x7528;&#x4E8E;&#x65B0;&#x8F6F;&#x4EF6;&#x7684;&#x5F00;&#x53D1;&#xFF0C;&#x7528;&#x6237;&#x9700;&#x8981;&#x8003;&#x8651;&#x5982;&#x4F55;&#x66F4;&#x6362;&#x65B0;&#x7684;&#x8F6F;&#x4EF6;&#x4EA7;&#x54C1;&#x5E76;&#x8F6C;&#x79FB;&#x5DF2;&#x6709;&#x7684;&#x4E1A;&#x52A1;&#x6570;&#x636E;&#x3002;</li>
+</ol>
+<h3 id="2-3-5-&#x6B65;&#x9AA4;&#x4E94;-&#x505C;&#x6B62;">2.3.5. &#x6B65;&#x9AA4;&#x4E94;:&#x505C;&#x6B62;</h3>
+<ol>
+<li>&#x4E00;&#x4E2A;&#x8F6F;&#x4EF6;&#x6B63;&#x5F0F;&#x9000;&#x51FA;&#x4F7F;&#x7528;&#x72B6;&#x6001;&#x4E4B;&#x540E;&#x5C31;&#x8FDB;&#x884C;&#x505C;&#x6B62;&#x72B6;&#x6001;&#x3002;&#x5F00;&#x53D1;&#x8005;&#x4E0D;&#x518D;&#x8FDB;&#x884C;&#x7EF4;&#x62A4;&#xFF0C;&#x7528;&#x6237;&#x4E5F;&#x4E0D;&#x518D;&#x4F7F;&#x7528;&#x3002;</li>
+</ol>
+<h2 id="2-4-&#x5F00;&#x53D1;&#x56E2;&#x961F;&#x5728;&#x4E0D;&#x540C;&#x9636;&#x6BB5;&#x7684;&#x4E0D;&#x540C;&#x5DE5;&#x4F5C;">2.4. &#x5F00;&#x53D1;&#x56E2;&#x961F;&#x5728;&#x4E0D;&#x540C;&#x9636;&#x6BB5;&#x7684;&#x4E0D;&#x540C;&#x5DE5;&#x4F5C;</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/21-%E8%BD%AF%E4%BB%B6%E7%9A%84%E7%BB%B4%E6%8A%A4%E4%B8%8E%E6%BC%94%E5%8C%96/C:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220607105019191.png" alt="image-20220607105019191"></p>
+<h1>3. &#x8F6F;&#x4EF6;&#x7EF4;&#x62A4;&#x4E0E;&#x6F14;&#x5316;&#x7684;&#x6280;&#x672F;</h1>
+<ol>
+<li><strong>&#x9057;&#x7559;&#x8F6F;&#x4EF6;</strong></li>
+<li><strong>&#x9006;&#x5411;&#x5DE5;&#x7A0B;</strong></li>
+<li><strong>&#x518D;&#x5DE5;&#x7A0B;</strong></li>
+</ol>
+<h2 id="3-1-&#x9057;&#x7559;&#x8F6F;&#x4EF6;">3.1. &#x9057;&#x7559;&#x8F6F;&#x4EF6;</h2>
+<ol>
+<li>&#x8FD9;&#x4E9B;&#x8F6F;&#x4EF6;&#x53EF;&#x80FD;&#x975E;&#x5E38;&#x53E4;&#x8001;&#xFF0C;&#x5E76;&#x4E14;&#x89C4;&#x6A21;&#x5F88;&#x5927;</li>
+<li>&#x5DF2;&#x7ECF;&#x88AB;&#x4E25;&#x91CD;&#x4FEE;&#x6539;&#x8FC7;&#x4E86;</li>
+<li>&#x57FA;&#x4E8E;&#x8FC7;&#x65F6;&#x7684;&#x6280;&#x672F;</li>
+<li>&#x6CA1;&#x6709;&#x53EF;&#x7528;&#x7684;&#x6587;&#x6863;</li>
+<li>&#x627E;&#x4E0D;&#x5230;&#x4EFB;&#x4F55;&#x4E00;&#x4E2A;&#x6700;&#x521D;&#x7684;&#x5F00;&#x53D1;&#x4EBA;&#x5458;</li>
+<li>&#x62E5;&#x6709;&#x5927;&#x91CF;&#x6709;&#x7528;&#x7684;&#x6570;&#x636E;</li>
+<li>&#x8FD9;&#x4E9B;&#x8F6F;&#x4EF6;&#x901A;&#x5E38;&#x662F;&#x4E1A;&#x52A1;&#x7684;&#x6838;&#x5FC3;&#x5143;&#x7D20;&#xFF0C;&#x66FF;&#x6362;&#x5B83;&#x4EEC;&#x9700;&#x8981;&#x4E00;&#x5927;&#x7B14;&#x82B1;&#x8D39;&#x3002;</li>
+</ol>
+<h3 id="3-1-1-&#x5BF9;&#x4E8E;&#x9057;&#x7559;&#x8F6F;&#x4EF6;&#x7684;&#x4E0D;&#x540C;&#x5904;&#x7406;&#x65B9;&#x5F0F;">3.1.1. &#x5BF9;&#x4E8E;&#x9057;&#x7559;&#x8F6F;&#x4EF6;&#x7684;&#x4E0D;&#x540C;&#x5904;&#x7406;&#x65B9;&#x5F0F;</h3>
+<ol>
+<li>&#x5982;&#x679C;&#x9057;&#x7559;&#x8F6F;&#x4EF6;&#x5DF2;&#x7ECF;&#x6CA1;&#x6709;&#x4F7F;&#x7528;&#x4EF7;&#x503C;&#xFF0C;&#x5C31;&#x76F4;&#x63A5;&#x4E22;&#x5F03;&#x8BE5;&#x8F6F;&#x4EF6;&#x3002;</li>
+<li>&#x5982;&#x679C;&#x9057;&#x7559;&#x8F6F;&#x4EF6;&#x8FD8;&#x6709;&#x4F7F;&#x7528;&#x4EF7;&#x503C;&#xFF0C;&#x4F46;&#x662F;&#x5176;&#x7EF4;&#x62A4;&#x7684;&#x6210;&#x672C;&#x6548;&#x76CA;&#x6BD4;&#x4F4E;&#x4E8E;&#x65B0;&#x5F00;&#x53D1;&#x4E00;&#x4E2A;&#x8F6F;&#x4EF6;&#x7CFB;&#x7EDF;&#x7684;&#x6210;&#x672C;&#x6548;&#x76CA;&#x6BD4;&#xFF0C;&#x90A3;&#x4E48;&#x51BB;&#x7ED3;&#x9057;&#x7559;&#x8F6F;&#x4EF6;&#xFF0C;&#x5C06;&#x5176;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x66F4;&#x5927;&#x7CFB;&#x7EDF;&#x7684;&#x7EC4;&#x6210;&#x90E8;&#x5206;&#x8FDB;&#x884C;&#x4F7F;&#x7528;&#x3002;</li>
+<li>&#x5982;&#x679C;&#x9057;&#x7559;&#x8F6F;&#x4EF6;&#x7684;&#x6210;&#x672C;&#x6548;&#x76CA;&#x6BD4;&#x4F4E;&#x4E8E;&#x65B0;&#x5F00;&#x53D1;&#x4E00;&#x4E2A;&#x8F6F;&#x4EF6;&#x7CFB;&#x7EDF;&#x7684;&#x6210;&#x672C;&#x6548;&#x76CA;&#x6BD4;&#xFF0C;&#x800C;&#x4E14;&#x8BE5;&#x9057;&#x7559;&#x8F6F;&#x4EF6;&#x4ECD;&#x7136;<strong>&#x5177;&#x5907;&#x8F83;&#x597D;&#x7684;&#x53EF;&#x7EF4;&#x62A4;&#x6027;</strong>&#xFF0C;&#x90A3;&#x4E48;&#x5C31;<strong>&#x9006;&#x5411;&#x5DE5;&#x7A0B;</strong>&#x9057;&#x7559;&#x8F6F;&#x4EF6;<strong>&#x5E76;&#x7EE7;&#x7EED;&#x7EF4;&#x62A4;&#x4E00;&#x6BB5;&#x65F6;&#x95F4;</strong>&#xFF1B;</li>
+<li>&#x5982;&#x679C;&#x9057;&#x7559;&#x8F6F;&#x4EF6;&#x7684;&#x6210;&#x672C;&#x6548;&#x76CA;&#x6BD4;&#x9AD8;&#x4E8E;&#x65B0;&#x5F00;&#x53D1;&#x4E00;&#x4E2A;&#x8F6F;&#x4EF6;&#x7CFB;&#x7EDF;&#x7684;&#x6210;&#x672C;&#x6548;&#x76CA;&#x6BD4;&#xFF0C;&#x800C;&#x4E14;&#x8BE5;&#x9057;&#x7559;&#x8F6F;&#x4EF6;&#x5DF2;&#x7ECF;<strong>&#x4E0D;&#x5177;&#x5907;&#x53EF;&#x7EF4;&#x62A4;&#x6027;</strong>&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x4FEE;&#x6539;&#x7CFB;&#x7EDF;&#x4F7F;&#x5176;&#x83B7;&#x5F97;&#x65B0;&#x751F;(&#x5373;<strong>&#x518D;&#x5DE5;&#x7A0B;</strong>&#x8BE5;&#x7CFB;&#x7EDF;)&#xFF0C;&#x7136;&#x540E;<strong>&#x7EE7;&#x7EED;&#x7EF4;&#x62A4;&#x518D;&#x9020;&#x540E;&#x7684;&#x7CFB;&#x7EDF;</strong>&#x3002;</li>
+</ol>
+<h2 id="3-2-&#x9006;&#x5411;&#x5DE5;&#x7A0B;">3.2. &#x9006;&#x5411;&#x5DE5;&#x7A0B;</h2>
+<ol>
+<li>&#x5904;&#x7406;&#x9057;&#x7559;&#x8F6F;&#x4EF6;&#x65F6;&#xFF0C;&#x7EF4;&#x62A4;&#x4EBA;&#x5458;&#x63A5;&#x53D7;&#x7684;<strong>&#x7EF4;&#x62A4;&#x5BF9;&#x8C61;&#x53EF;&#x80FD;&#x662F;&#x4E00;&#x4E2A;==&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x6587;&#x6863;&#x4E5F;&#x6CA1;&#x6709;&#x7A0B;&#x5E8F;&#x6E90;&#x4EE3;&#x7801;==&#x7684;&#x8F6F;&#x4EF6;&#x7A0B;&#x5E8F;</strong>&#xFF0C;&#x6B64;&#x65F6;&#xFF0C;&#x7EF4;&#x62A4;&#x4EBA;&#x5458;&#x9700;&#x8981;&#x4F7F;&#x7528;&#x9006;&#x5411;&#x5DE5;&#x7A0B;&#x6280;&#x672F;</li>
+<li>&#x9006;&#x5411;&#x5DE5;&#x7A0B;&#x6280;&#x672F;&#x662F;&#x6307;&#xFF1A;&#x201C;&#x5206;&#x6790;&#x76EE;&#x6807;&#x7CFB;&#x7EDF;&#xFF0C;&#x6807;&#x8BC6;&#x7CFB;&#x7EDF;&#x7684;&#x90E8;&#x4EF6;&#x53CA;&#x5176;&#x4EA4;&#x4E92;&#x5173;&#x7CFB;&#xFF0C;&#x5E76;&#x4E14;&#x4F7F;&#x7528;&#x5176;&#x5B83;&#x5F62;&#x5F0F;&#x6216;&#x8005;&#x66F4;&#x9AD8;&#x5C42;&#x7684;&#x62BD;&#x8C61;&#x521B;&#x5EFA;&#x7CFB;&#x7EDF;&#x8868;&#x73B0;&#x7684;&#x8FC7;&#x7A0B;[Chikofsky1990]&#x201D;&#x3002;</li>
+<li>&#x9006;&#x5411;&#x5DE5;&#x7A0B;&#x7684;&#x57FA;&#x672C;&#x539F;&#x7406;&#x662F;&#x62BD;&#x53D6;&#x8F6F;&#x4EF6;&#x7CFB;&#x7EDF;&#x7684;&#x9700;&#x6C42;&#x4E0E;&#x8BBE;&#x8BA1;&#x800C;&#x9690;&#x85CF;&#x5B9E;&#x73B0;&#x7EC6;&#x8282;&#xFF0C;&#x7136;&#x540E;&#x5728;&#x9700;&#x6C42;&#x4E0E;&#x8BBE;&#x8BA1;&#x7684;&#x5C42;&#x6B21;&#x4E0A;&#x63CF;&#x8FF0;&#x8F6F;&#x4EF6;&#x7CFB;&#x7EDF;&#xFF0C;&#x4EE5;&#x5EFA;&#x7ACB;&#x5BF9;&#x7CFB;&#x7EDF;&#x66F4;&#x52A0;&#x51C6;&#x786E;&#x548C;&#x6E05;&#x6670;&#x7684;&#x7406;&#x89E3;&#x3002;&#x3010;<strong>&#x6B63;&#x5411;&#x5DE5;&#x7A0B;&#x5373;&#x8F6F;&#x4EF6;&#x5F00;&#x53D1;&#xFF1A;&#x4ECE;&#x9700;&#x6C42;&#x5230;&#x8F6F;&#x4EF6;&#xFF1B;&#x9006;&#x5411;&#x5DE5;&#x7A0B;&#x5373;&#x53CD;&#x7740;&#x6765;&#xFF1A;&#x4ECE;&#x5DF2;&#x6709;&#x7684;&#x4E00;&#x4E2A;&#x4EA7;&#x54C1;&#x9006;&#x63A8;&#x4EE3;&#x7801;&#x548C;&#x9700;&#x6C42;</strong>&#x3011;</li>
+</ol>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/21-%E8%BD%AF%E4%BB%B6%E7%9A%84%E7%BB%B4%E6%8A%A4%E4%B8%8E%E6%BC%94%E5%8C%96/C:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220607105310072.png" alt="image-20220607105310072"></p>
 <ol start="4">
-<li>逆向工程技术在实践中得到了广泛的应用，并在下列方面取得了较大的成功：
+<li>&#x9006;&#x5411;&#x5DE5;&#x7A0B;&#x6280;&#x672F;&#x5728;&#x5B9E;&#x8DF5;&#x4E2D;&#x5F97;&#x5230;&#x4E86;&#x5E7F;&#x6CDB;&#x7684;&#x5E94;&#x7528;&#xFF0C;&#x5E76;&#x5728;&#x4E0B;&#x5217;&#x65B9;&#x9762;&#x53D6;&#x5F97;&#x4E86;&#x8F83;&#x5927;&#x7684;&#x6210;&#x529F;&#xFF1A;
 <ol>
-<li>识别可复用资产</li>
-<li>在过程程序中寻找对象</li>
-<li>发现软件体系结构</li>
-<li>推导概念数据结构(即数据的需求分析模型和设计模型)</li>
-<li>检测重复冗余</li>
-<li><strong>将二进制程序转换为某种源代码</strong></li>
-<li>重写用户界面</li>
-<li>将串行化程序并行化</li>
-<li>转换、约减、移植和包装遗留软件代码。</li>
+<li>&#x8BC6;&#x522B;&#x53EF;&#x590D;&#x7528;&#x8D44;&#x4EA7;</li>
+<li>&#x5728;&#x8FC7;&#x7A0B;&#x7A0B;&#x5E8F;&#x4E2D;&#x5BFB;&#x627E;&#x5BF9;&#x8C61;</li>
+<li>&#x53D1;&#x73B0;&#x8F6F;&#x4EF6;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;</li>
+<li>&#x63A8;&#x5BFC;&#x6982;&#x5FF5;&#x6570;&#x636E;&#x7ED3;&#x6784;(&#x5373;&#x6570;&#x636E;&#x7684;&#x9700;&#x6C42;&#x5206;&#x6790;&#x6A21;&#x578B;&#x548C;&#x8BBE;&#x8BA1;&#x6A21;&#x578B;)</li>
+<li>&#x68C0;&#x6D4B;&#x91CD;&#x590D;&#x5197;&#x4F59;</li>
+<li><strong>&#x5C06;&#x4E8C;&#x8FDB;&#x5236;&#x7A0B;&#x5E8F;&#x8F6C;&#x6362;&#x4E3A;&#x67D0;&#x79CD;&#x6E90;&#x4EE3;&#x7801;</strong></li>
+<li>&#x91CD;&#x5199;&#x7528;&#x6237;&#x754C;&#x9762;</li>
+<li>&#x5C06;&#x4E32;&#x884C;&#x5316;&#x7A0B;&#x5E8F;&#x5E76;&#x884C;&#x5316;</li>
+<li>&#x8F6C;&#x6362;&#x3001;&#x7EA6;&#x51CF;&#x3001;&#x79FB;&#x690D;&#x548C;&#x5305;&#x88C5;&#x9057;&#x7559;&#x8F6F;&#x4EF6;&#x4EE3;&#x7801;&#x3002;</li>
 </ol>
 </li>
 </ol>
-<h2 id="3-3-再工程">3.3. 再工程</h2>
+<h2 id="3-3-&#x518D;&#x5DE5;&#x7A0B;">3.3. &#x518D;&#x5DE5;&#x7A0B;</h2>
 <ol>
-<li>再工程的目的是对遗留软件系统进行分析和重新开发，以便进一步利用新技术来改善系统或促进现存系统的再利用。[Chikofsky1990]将再工程定义为：检查和改造一个目标系统，<strong>用新的模式及其实现复原该目标系统</strong>。【<strong>分析一个软件的实现机制，然后复现它，重新写出一个新的类似的软件</strong>】</li>
+<li>&#x518D;&#x5DE5;&#x7A0B;&#x7684;&#x76EE;&#x7684;&#x662F;&#x5BF9;&#x9057;&#x7559;&#x8F6F;&#x4EF6;&#x7CFB;&#x7EDF;&#x8FDB;&#x884C;&#x5206;&#x6790;&#x548C;&#x91CD;&#x65B0;&#x5F00;&#x53D1;&#xFF0C;&#x4EE5;&#x4FBF;&#x8FDB;&#x4E00;&#x6B65;&#x5229;&#x7528;&#x65B0;&#x6280;&#x672F;&#x6765;&#x6539;&#x5584;&#x7CFB;&#x7EDF;&#x6216;&#x4FC3;&#x8FDB;&#x73B0;&#x5B58;&#x7CFB;&#x7EDF;&#x7684;&#x518D;&#x5229;&#x7528;&#x3002;[Chikofsky1990]&#x5C06;&#x518D;&#x5DE5;&#x7A0B;&#x5B9A;&#x4E49;&#x4E3A;&#xFF1A;&#x68C0;&#x67E5;&#x548C;&#x6539;&#x9020;&#x4E00;&#x4E2A;&#x76EE;&#x6807;&#x7CFB;&#x7EDF;&#xFF0C;<strong>&#x7528;&#x65B0;&#x7684;&#x6A21;&#x5F0F;&#x53CA;&#x5176;&#x5B9E;&#x73B0;&#x590D;&#x539F;&#x8BE5;&#x76EE;&#x6807;&#x7CFB;&#x7EDF;</strong>&#x3002;&#x3010;<strong>&#x5206;&#x6790;&#x4E00;&#x4E2A;&#x8F6F;&#x4EF6;&#x7684;&#x5B9E;&#x73B0;&#x673A;&#x5236;&#xFF0C;&#x7136;&#x540E;&#x590D;&#x73B0;&#x5B83;&#xFF0C;&#x91CD;&#x65B0;&#x5199;&#x51FA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x7C7B;&#x4F3C;&#x7684;&#x8F6F;&#x4EF6;</strong>&#x3011;</li>
 </ol>
-<h3 id="3-3-1-再工程与逆向工程的关系">3.3.1. 再工程与逆向工程的关系</h3>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="C:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220607110030412.png" alt="image-20220607110030412"></p>
-<p>所以<strong>再工程前通常都需要有前导的逆向工程</strong></p>
-<h3 id="3-3-2-再工程">3.3.2. 再工程</h3>
+<h3 id="3-3-1-&#x518D;&#x5DE5;&#x7A0B;&#x4E0E;&#x9006;&#x5411;&#x5DE5;&#x7A0B;&#x7684;&#x5173;&#x7CFB;">3.3.1. &#x518D;&#x5DE5;&#x7A0B;&#x4E0E;&#x9006;&#x5411;&#x5DE5;&#x7A0B;&#x7684;&#x5173;&#x7CFB;</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/21-%E8%BD%AF%E4%BB%B6%E7%9A%84%E7%BB%B4%E6%8A%A4%E4%B8%8E%E6%BC%94%E5%8C%96/C:%5CUsers%5Cwbl%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20220607110030412.png" alt="image-20220607110030412"></p>
+<p>&#x6240;&#x4EE5;<strong>&#x518D;&#x5DE5;&#x7A0B;&#x524D;&#x901A;&#x5E38;&#x90FD;&#x9700;&#x8981;&#x6709;&#x524D;&#x5BFC;&#x7684;&#x9006;&#x5411;&#x5DE5;&#x7A0B;</strong></p>
+<h3 id="3-3-2-&#x518D;&#x5DE5;&#x7A0B;">3.3.2. &#x518D;&#x5DE5;&#x7A0B;</h3>
 <ol>
-<li>[Arnold1993]认为再工程主要是下列两类活动：
+<li>[Arnold1993]&#x8BA4;&#x4E3A;&#x518D;&#x5DE5;&#x7A0B;&#x4E3B;&#x8981;&#x662F;&#x4E0B;&#x5217;&#x4E24;&#x7C7B;&#x6D3B;&#x52A8;&#xFF1A;
 <ol>
-<li>改进人们对软件的理解</li>
-<li>改进软件自身，通常是提高其可维护性、可复用性和可演化性</li>
-</ol>
-</li>
-<li>常见的具体活动有
-<ol>
-<li>重新文档化</li>
-<li>重组系统的结构</li>
-<li>将系统转换为更新的编程语言</li>
-<li>修改数据的结构组织。</li>
+<li>&#x6539;&#x8FDB;&#x4EBA;&#x4EEC;&#x5BF9;&#x8F6F;&#x4EF6;&#x7684;&#x7406;&#x89E3;</li>
+<li>&#x6539;&#x8FDB;&#x8F6F;&#x4EF6;&#x81EA;&#x8EAB;&#xFF0C;&#x901A;&#x5E38;&#x662F;&#x63D0;&#x9AD8;&#x5176;&#x53EF;&#x7EF4;&#x62A4;&#x6027;&#x3001;&#x53EF;&#x590D;&#x7528;&#x6027;&#x548C;&#x53EF;&#x6F14;&#x5316;&#x6027;</li>
 </ol>
 </li>
-<li><strong>是抽象出来一个视图，然后完全重新开始开发，而不是基于逆向工程得到的结果进行再工程</strong></li>
-</ol>
-<h1>4. 总结</h1>
+<li>&#x5E38;&#x89C1;&#x7684;&#x5177;&#x4F53;&#x6D3B;&#x52A8;&#x6709;
 <ol>
-<li>软件维护与一般工程领域的维护活动不同，<strong>软件维护主要是进行修改(尤其是需求变更)，而不是进行零件保养、维修与替换</strong></li>
-<li>虽然软件开发是软件工程的主要关注点，但软件维护耗费了更多的成本，所以需要在软件开发阶段进行一些预备工作以降低软件维护阶段的成本</li>
-<li>软件演化式的开发模糊了开发与维护的边界，既解决了软件开发周期太长的问题，又降低了&quot;修改&quot;所导致的软件质量下降的速度，延长了整个产品的有效生命周期</li>
-<li>软件维护与开发中常用的专门技术有：遗留软件处理、逆向工程和再工程</li>
+<li>&#x91CD;&#x65B0;&#x6587;&#x6863;&#x5316;</li>
+<li>&#x91CD;&#x7EC4;&#x7CFB;&#x7EDF;&#x7684;&#x7ED3;&#x6784;</li>
+<li>&#x5C06;&#x7CFB;&#x7EDF;&#x8F6C;&#x6362;&#x4E3A;&#x66F4;&#x65B0;&#x7684;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;</li>
+<li>&#x4FEE;&#x6539;&#x6570;&#x636E;&#x7684;&#x7ED3;&#x6784;&#x7EC4;&#x7EC7;&#x3002;</li>
+</ol>
+</li>
+<li><strong>&#x662F;&#x62BD;&#x8C61;&#x51FA;&#x6765;&#x4E00;&#x4E2A;&#x89C6;&#x56FE;&#xFF0C;&#x7136;&#x540E;&#x5B8C;&#x5168;&#x91CD;&#x65B0;&#x5F00;&#x59CB;&#x5F00;&#x53D1;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x57FA;&#x4E8E;&#x9006;&#x5411;&#x5DE5;&#x7A0B;&#x5F97;&#x5230;&#x7684;&#x7ED3;&#x679C;&#x8FDB;&#x884C;&#x518D;&#x5DE5;&#x7A0B;</strong></li>
+</ol>
+<h1>4. &#x603B;&#x7ED3;</h1>
+<ol>
+<li>&#x8F6F;&#x4EF6;&#x7EF4;&#x62A4;&#x4E0E;&#x4E00;&#x822C;&#x5DE5;&#x7A0B;&#x9886;&#x57DF;&#x7684;&#x7EF4;&#x62A4;&#x6D3B;&#x52A8;&#x4E0D;&#x540C;&#xFF0C;<strong>&#x8F6F;&#x4EF6;&#x7EF4;&#x62A4;&#x4E3B;&#x8981;&#x662F;&#x8FDB;&#x884C;&#x4FEE;&#x6539;(&#x5C24;&#x5176;&#x662F;&#x9700;&#x6C42;&#x53D8;&#x66F4;)&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x8FDB;&#x884C;&#x96F6;&#x4EF6;&#x4FDD;&#x517B;&#x3001;&#x7EF4;&#x4FEE;&#x4E0E;&#x66FF;&#x6362;</strong></li>
+<li>&#x867D;&#x7136;&#x8F6F;&#x4EF6;&#x5F00;&#x53D1;&#x662F;&#x8F6F;&#x4EF6;&#x5DE5;&#x7A0B;&#x7684;&#x4E3B;&#x8981;&#x5173;&#x6CE8;&#x70B9;&#xFF0C;&#x4F46;&#x8F6F;&#x4EF6;&#x7EF4;&#x62A4;&#x8017;&#x8D39;&#x4E86;&#x66F4;&#x591A;&#x7684;&#x6210;&#x672C;&#xFF0C;&#x6240;&#x4EE5;&#x9700;&#x8981;&#x5728;&#x8F6F;&#x4EF6;&#x5F00;&#x53D1;&#x9636;&#x6BB5;&#x8FDB;&#x884C;&#x4E00;&#x4E9B;&#x9884;&#x5907;&#x5DE5;&#x4F5C;&#x4EE5;&#x964D;&#x4F4E;&#x8F6F;&#x4EF6;&#x7EF4;&#x62A4;&#x9636;&#x6BB5;&#x7684;&#x6210;&#x672C;</li>
+<li>&#x8F6F;&#x4EF6;&#x6F14;&#x5316;&#x5F0F;&#x7684;&#x5F00;&#x53D1;&#x6A21;&#x7CCA;&#x4E86;&#x5F00;&#x53D1;&#x4E0E;&#x7EF4;&#x62A4;&#x7684;&#x8FB9;&#x754C;&#xFF0C;&#x65E2;&#x89E3;&#x51B3;&#x4E86;&#x8F6F;&#x4EF6;&#x5F00;&#x53D1;&#x5468;&#x671F;&#x592A;&#x957F;&#x7684;&#x95EE;&#x9898;&#xFF0C;&#x53C8;&#x964D;&#x4F4E;&#x4E86;&quot;&#x4FEE;&#x6539;&quot;&#x6240;&#x5BFC;&#x81F4;&#x7684;&#x8F6F;&#x4EF6;&#x8D28;&#x91CF;&#x4E0B;&#x964D;&#x7684;&#x901F;&#x5EA6;&#xFF0C;&#x5EF6;&#x957F;&#x4E86;&#x6574;&#x4E2A;&#x4EA7;&#x54C1;&#x7684;&#x6709;&#x6548;&#x751F;&#x547D;&#x5468;&#x671F;</li>
+<li>&#x8F6F;&#x4EF6;&#x7EF4;&#x62A4;&#x4E0E;&#x5F00;&#x53D1;&#x4E2D;&#x5E38;&#x7528;&#x7684;&#x4E13;&#x95E8;&#x6280;&#x672F;&#x6709;&#xFF1A;&#x9057;&#x7559;&#x8F6F;&#x4EF6;&#x5904;&#x7406;&#x3001;&#x9006;&#x5411;&#x5DE5;&#x7A0B;&#x548C;&#x518D;&#x5DE5;&#x7A0B;</li>
 </ol>
 
 <div class="article-footer fs14">
@@ -553,7 +553,7 @@
     </section>
     </div>
 </article>
-<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/20-%E8%BD%AF%E4%BB%B6%E4%BA%A4%E4%BB%98/">SE-II-ch20-软件交付</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/22-%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B%E6%A8%A1%E5%9E%8B/">SE-II-ch22-软件开发过程模型</a></div></section></div>
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/22-%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E8%BF%87%E7%A8%8B%E6%A8%A1%E5%9E%8B/">SE-II-ch22-软件开发过程模型</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/2022/06/17/SE-II%E7%AC%94%E8%AE%B0/07-%E9%9C%80%E6%B1%82%E6%96%87%E6%A1%A3%E5%8C%96%E4%B8%8E%E9%AA%8C%E8%AF%81/">SE-II-ch07-需求文档化与验证</a></div></section></div>
 
 
 

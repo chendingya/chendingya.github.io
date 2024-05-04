@@ -20,23 +20,23 @@
   <title>服务端-ch14-Spring WebFlux - Asimov's Blog</title>
 
   
-    <meta name="description" content="ch14-Spring WebFlux 异步Web框架的事件轮询(event looping)机制 用更少的线程处理更多的请求，从而减少线程管理的开销  Spring MVC与Spring WebFlux的共性与不同  Reactive Microservices With Spring Boot  依赖 1234&lt;dependency&gt;    &lt;groupId&gt;org.s">
+    <meta name="description" content="ch14-Spring WebFlux &#x5F02;&#x6B65;Web&#x6846;&#x67B6;&#x7684;&#x4E8B;&#x4EF6;&#x8F6E;&#x8BE2;(event looping)&#x673A;&#x5236; &#x7528;&#x66F4;&#x5C11;&#x7684;&#x7EBF;&#x7A0B;&#x5904;&#x7406;&#x66F4;&amp;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="服务端-ch14-Spring WebFlux">
 <meta property="og:url" content="https://chendingya.github.io/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/index.html">
 <meta property="og:site_name" content="Asimov&#39;s Blog">
-<meta property="og:description" content="ch14-Spring WebFlux 异步Web框架的事件轮询(event looping)机制 用更少的线程处理更多的请求，从而减少线程管理的开销  Spring MVC与Spring WebFlux的共性与不同  Reactive Microservices With Spring Boot  依赖 1234&lt;dependency&gt;    &lt;groupId&gt;org.s">
+<meta property="og:description" content="ch14-Spring WebFlux &#x5F02;&#x6B65;Web&#x6846;&#x67B6;&#x7684;&#x4E8B;&#x4EF6;&#x8F6E;&#x8BE2;(event looping)&#x673A;&#x5236; &#x7528;&#x66F4;&#x5C11;&#x7684;&#x7EBF;&#x7A0B;&#x5904;&#x7406;&#x66F4;&amp;">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://chendingya.github.io/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/ch14-Spring%20WebFlux/image-20231217103350611.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/ch14-Spring%20WebFlux/image-20231217103402970.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/ch14-Spring%20WebFlux/image-20231217103422723.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/ch14-Spring%20WebFlux/image-20231217103504428.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/image-20231217103350611.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/image-20231217103402970.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/image-20231217103422723.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/image-20231217103504428.png">
 <meta property="article:published_time" content="2023-12-14T10:32:34.000Z">
 <meta property="article:modified_time" content="2024-01-04T09:57:01.455Z">
 <meta property="article:author" content="Asimov">
 <meta property="article:tag" content="springboot">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://chendingya.github.io/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/ch14-Spring%20WebFlux/image-20231217103350611.png">
+<meta name="twitter:image" content="https://chendingya.github.io/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/image-20231217103350611.png">
   
   
   
@@ -69,7 +69,7 @@
 <div class="widgets">
 
 
-<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2024/05/02/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%842/"><span class="title">系统架构2-质量属性Quality Attributes</span></a><a class="item title" href="/2024/05/01/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%841/"><span class="title">系统架构1-Intro</span></a><a class="item title" href="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/"><span class="title">软件测试-期末复习</span></a><a class="item title" href="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/"><span class="title">机器学习-期末复习</span></a><a class="item title" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/"><span class="title">服务端-ch17-k8s使用</span></a><a class="item title" href="/2023/12/30/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch16-%E5%AE%B9%E5%99%A8%E9%95%9C%E5%83%8F%E6%9E%84%E5%BB%BA%E4%B8%8E%E7%BC%96%E6%8E%92/"><span class="title">服务端-ch16-容器镜像构建与编排</span></a><a class="item title" href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/"><span class="title">服务端-ch15-Docker</span></a><a class="item title" href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/"><span class="title">服务端-ch14-Spring WebFlux</span></a><a class="item title" href="/2023/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch13-%E5%8F%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"><span class="title">服务端-ch13-反应式编程基础</span></a><a class="item title" href="/2023/11/23/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch12-Spring%20Integration/"><span class="title">服务端-ch12-Spring Integration</span></a></div></widget>
+<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2022/10/25/hello-world/"><span class="title">Hello World</span></a><a class="item title" href="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/"><span class="title">软件测试-期末复习</span></a><a class="item title" href="/2024/05/02/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%842/"><span class="title">系统架构2-质量属性Quality Attributes</span></a><a class="item title" href="/2024/05/01/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%841/"><span class="title">系统架构1-Intro</span></a><a class="item title" href="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/"><span class="title">机器学习-期末复习</span></a><a class="item title" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/"><span class="title">服务端-ch17-k8s使用</span></a><a class="item title" href="/2023/12/30/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch16-%E5%AE%B9%E5%99%A8%E9%95%9C%E5%83%8F%E6%9E%84%E5%BB%BA%E4%B8%8E%E7%BC%96%E6%8E%92/"><span class="title">服务端-ch16-容器镜像构建与编排</span></a><a class="item title" href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/"><span class="title">服务端-ch15-Docker</span></a><a class="item title" href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/"><span class="title">服务端-ch14-Spring WebFlux</span></a><a class="item title" href="/2023/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch13-%E5%8F%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"><span class="title">服务端-ch13-反应式编程基础</span></a></div></widget>
 </div>
 <footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/chendingya?tab=repositories" target="_blank" rel="external nofollow noopener noreferrer"><img no-lazy src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" / onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a></div></footer>
 </div></aside><div class="l_main" id="main">
@@ -94,71 +94,71 @@
     
   </div>
   </div><article class="md-text content"><h1>ch14-Spring WebFlux</h1>
-<h2 id="异步Web框架的事件轮询-event-looping-机制">异步Web框架的事件轮询(event looping)机制</h2>
-<p>用更少的线程处理更多的请求，从而减少线程管理的开销</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="ch14-Spring%20WebFlux/image-20231217103350611.png" alt="image-20231217103350611"></p>
-<h2 id="Spring-MVC与Spring-WebFlux的共性与不同">Spring MVC与Spring WebFlux的共性与不同</h2>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="ch14-Spring%20WebFlux/image-20231217103402970.png" alt="image-20231217103402970"></p>
+<h2 id="&#x5F02;&#x6B65;Web&#x6846;&#x67B6;&#x7684;&#x4E8B;&#x4EF6;&#x8F6E;&#x8BE2;-event-looping-&#x673A;&#x5236;">&#x5F02;&#x6B65;Web&#x6846;&#x67B6;&#x7684;&#x4E8B;&#x4EF6;&#x8F6E;&#x8BE2;(event looping)&#x673A;&#x5236;</h2>
+<p>&#x7528;&#x66F4;&#x5C11;&#x7684;&#x7EBF;&#x7A0B;&#x5904;&#x7406;&#x66F4;&#x591A;&#x7684;&#x8BF7;&#x6C42;&#xFF0C;&#x4ECE;&#x800C;&#x51CF;&#x5C11;&#x7EBF;&#x7A0B;&#x7BA1;&#x7406;&#x7684;&#x5F00;&#x9500;</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/image-20231217103350611.png" alt="image-20231217103350611"></p>
+<h2 id="Spring-MVC&#x4E0E;Spring-WebFlux&#x7684;&#x5171;&#x6027;&#x4E0E;&#x4E0D;&#x540C;">Spring MVC&#x4E0E;Spring WebFlux&#x7684;&#x5171;&#x6027;&#x4E0E;&#x4E0D;&#x540C;</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/image-20231217103402970.png" alt="image-20231217103402970"></p>
 <h2 id="Reactive-Microservices-With-Spring-Boot">Reactive Microservices With Spring Boot</h2>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="ch14-Spring%20WebFlux/image-20231217103422723.png" alt="image-20231217103422723"></p>
-<h3 id="依赖">依赖</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/image-20231217103422723.png" alt="image-20231217103422723"></p>
+<h3 id="&#x4F9D;&#x8D56;">&#x4F9D;&#x8D56;</h3>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-webflux<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-<h3 id="编写反应式控制器">编写反应式控制器</h3>
-<p>Ingredient：Get、Post</p>
-<h3 id="端到端反应式栈">端到端反应式栈</h3>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="ch14-Spring%20WebFlux/image-20231217103504428.png" alt="image-20231217103504428"></p>
+<h3 id="&#x7F16;&#x5199;&#x53CD;&#x5E94;&#x5F0F;&#x63A7;&#x5236;&#x5668;">&#x7F16;&#x5199;&#x53CD;&#x5E94;&#x5F0F;&#x63A7;&#x5236;&#x5668;</h3>
+<p>Ingredient&#xFF1A;Get&#x3001;Post</p>
+<h3 id="&#x7AEF;&#x5230;&#x7AEF;&#x53CD;&#x5E94;&#x5F0F;&#x6808;">&#x7AEF;&#x5230;&#x7AEF;&#x53CD;&#x5E94;&#x5F0F;&#x6808;</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/image-20231217103504428.png" alt="image-20231217103504428"></p>
 <h3 id="R2DBC">R2DBC</h3>
 <ul>
 <li>
-<p>反应式关系型数据库连接（reactive relational database connectivity）</p>
+<p>&#x53CD;&#x5E94;&#x5F0F;&#x5173;&#x7CFB;&#x578B;&#x6570;&#x636E;&#x5E93;&#x8FDE;&#x63A5;&#xFF08;reactive relational database connectivity&#xFF09;</p>
 </li>
 <li>
-<p>是JDBC的替代方案，实现非阻塞的持久化操作</p>
+<p>&#x662F;JDBC&#x7684;&#x66FF;&#x4EE3;&#x65B9;&#x6848;&#xFF0C;&#x5B9E;&#x73B0;&#x975E;&#x963B;&#x585E;&#x7684;&#x6301;&#x4E45;&#x5316;&#x64CD;&#x4F5C;</p>
 </li>
 <li>
-<p>依赖</p>
+<p>&#x4F9D;&#x8D56;</p>
 </li>
 </ul>
   <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-data-r2dbc<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 <ul>
 <li>
-<p>H2数据库和驱动</p>
+<p>H2&#x6570;&#x636E;&#x5E93;&#x548C;&#x9A71;&#x52A8;</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.h2database<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>h2<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>runtime<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>io.r2dbc<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>r2dbc-h2<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">scope</span>&gt;</span>runtime<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<h2 id="使用函数式编程范式来定义控制器">使用函数式编程范式来定义控制器</h2>
+<h2 id="&#x4F7F;&#x7528;&#x51FD;&#x6570;&#x5F0F;&#x7F16;&#x7A0B;&#x8303;&#x5F0F;&#x6765;&#x5B9A;&#x4E49;&#x63A7;&#x5236;&#x5668;">&#x4F7F;&#x7528;&#x51FD;&#x6570;&#x5F0F;&#x7F16;&#x7A0B;&#x8303;&#x5F0F;&#x6765;&#x5B9A;&#x4E49;&#x63A7;&#x5236;&#x5668;</h2>
 <ul>
-<li>使用函数式编程风格来定义endpoints的功能</li>
-<li>框架引入了两个基本组件：HandlerFunction 和 RouterFunction</li>
-<li>HandlerFunction 表示处理接收到的请求并生成响应的函数</li>
-<li>RouterFunction 替代了 @RequestMapping 注解。它用于将接收到的请求路由到处理函数</li>
+<li>&#x4F7F;&#x7528;&#x51FD;&#x6570;&#x5F0F;&#x7F16;&#x7A0B;&#x98CE;&#x683C;&#x6765;&#x5B9A;&#x4E49;endpoints&#x7684;&#x529F;&#x80FD;</li>
+<li>&#x6846;&#x67B6;&#x5F15;&#x5165;&#x4E86;&#x4E24;&#x4E2A;&#x57FA;&#x672C;&#x7EC4;&#x4EF6;&#xFF1A;HandlerFunction &#x548C; RouterFunction</li>
+<li>HandlerFunction &#x8868;&#x793A;&#x5904;&#x7406;&#x63A5;&#x6536;&#x5230;&#x7684;&#x8BF7;&#x6C42;&#x5E76;&#x751F;&#x6210;&#x54CD;&#x5E94;&#x7684;&#x51FD;&#x6570;</li>
+<li>RouterFunction &#x66FF;&#x4EE3;&#x4E86; @RequestMapping &#x6CE8;&#x89E3;&#x3002;&#x5B83;&#x7528;&#x4E8E;&#x5C06;&#x63A5;&#x6536;&#x5230;&#x7684;&#x8BF7;&#x6C42;&#x8DEF;&#x7531;&#x5230;&#x5904;&#x7406;&#x51FD;&#x6570;</li>
 </ul>
-<h2 id="函数式编程模型涉及的4个类型">函数式编程模型涉及的4个类型</h2>
+<h2 id="&#x51FD;&#x6570;&#x5F0F;&#x7F16;&#x7A0B;&#x6A21;&#x578B;&#x6D89;&#x53CA;&#x7684;4&#x4E2A;&#x7C7B;&#x578B;">&#x51FD;&#x6570;&#x5F0F;&#x7F16;&#x7A0B;&#x6A21;&#x578B;&#x6D89;&#x53CA;&#x7684;4&#x4E2A;&#x7C7B;&#x578B;</h2>
 <ul>
 <li>RouterFunction Bean</li>
 <li>org.springframework.web.reactive.function.server
 <ul>
-<li>RequestPredicate，声明要处理的请求类型</li>
-<li>RouterFunction，声明如何将请求路由到处理器代码中</li>
-<li>ServerRequest，代表一个http请求，包括对请求头和请求体的访问</li>
-<li>ServerResponse，代表一个http响应，包括响应头和响应体信息</li>
+<li>RequestPredicate&#xFF0C;&#x58F0;&#x660E;&#x8981;&#x5904;&#x7406;&#x7684;&#x8BF7;&#x6C42;&#x7C7B;&#x578B;</li>
+<li>RouterFunction&#xFF0C;&#x58F0;&#x660E;&#x5982;&#x4F55;&#x5C06;&#x8BF7;&#x6C42;&#x8DEF;&#x7531;&#x5230;&#x5904;&#x7406;&#x5668;&#x4EE3;&#x7801;&#x4E2D;</li>
+<li>ServerRequest&#xFF0C;&#x4EE3;&#x8868;&#x4E00;&#x4E2A;http&#x8BF7;&#x6C42;&#xFF0C;&#x5305;&#x62EC;&#x5BF9;&#x8BF7;&#x6C42;&#x5934;&#x548C;&#x8BF7;&#x6C42;&#x4F53;&#x7684;&#x8BBF;&#x95EE;</li>
+<li>ServerResponse&#xFF0C;&#x4EE3;&#x8868;&#x4E00;&#x4E2A;http&#x54CD;&#x5E94;&#xFF0C;&#x5305;&#x62EC;&#x54CD;&#x5E94;&#x5934;&#x548C;&#x54CD;&#x5E94;&#x4F53;&#x4FE1;&#x606F;</li>
 </ul>
 </li>
 </ul>
-<h3 id="测试反应式控制器">测试反应式控制器</h3>
+<h3 id="&#x6D4B;&#x8BD5;&#x53CD;&#x5E94;&#x5F0F;&#x63A7;&#x5236;&#x5668;">&#x6D4B;&#x8BD5;&#x53CD;&#x5E94;&#x5F0F;&#x63A7;&#x5236;&#x5668;</h3>
 <ul>
-<li>处理器函数使用单独的Bean实现，GreetingHandler</li>
+<li>&#x5904;&#x7406;&#x5668;&#x51FD;&#x6570;&#x4F7F;&#x7528;&#x5355;&#x72EC;&#x7684;Bean&#x5B9E;&#x73B0;&#xFF0C;GreetingHandler</li>
 <li>WebTestClient</li>
 </ul>
-<h3 id="反应式消费Rest-API">反应式消费Rest API</h3>
+<h3 id="&#x53CD;&#x5E94;&#x5F0F;&#x6D88;&#x8D39;Rest-API">&#x53CD;&#x5E94;&#x5F0F;&#x6D88;&#x8D39;Rest API</h3>
 <ul>
 <li>RestTemplate=&gt;WebClient</li>
 <li>GreetingClient</li>
 </ul>
-<h3 id="控制器的快速返回">控制器的快速返回</h3>
+<h3 id="&#x63A7;&#x5236;&#x5668;&#x7684;&#x5FEB;&#x901F;&#x8FD4;&#x56DE;">&#x63A7;&#x5236;&#x5668;&#x7684;&#x5FEB;&#x901F;&#x8FD4;&#x56DE;</h3>
 <ul>
 <li>/mono</li>
-<li>/flux，text/event-stream</li>
+<li>/flux&#xFF0C;text/event-stream</li>
 </ul>
 
 <div class="article-footer fs14">

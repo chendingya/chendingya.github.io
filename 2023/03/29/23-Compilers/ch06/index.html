@@ -20,12 +20,12 @@
   <title>ch06-Listener & Visitor & 上下文无关文法 - Asimov's Blog</title>
 
   
-    <meta name="description" content="ch06 2023.3.29  监听器模式 时机问题：监听enter还是exit CallGraphListener.java 1234567891011121314151617181920public class CallGraphListener extends CymbolBaseListener &#123;  private Graph graph &#x3D; new Graph();  Str">
+    <meta name="description" content="ch06 2023.3.29  &#x76D1;&#x542C;&#x5668;&#x6A21;&#x5F0F; &#x65F6;&#x673A;&#x95EE;&#x9898;&#xFF1A;&#x76D1;&#x542C;enter&#x8FD8;&#x662F;exit CallGraphListener.java 1234567891011121314151617181920public">
 <meta property="og:type" content="article">
 <meta property="og:title" content="ch06-Listener &amp; Visitor &amp; 上下文无关文法">
 <meta property="og:url" content="https://chendingya.github.io/2023/03/29/23-Compilers/ch06/index.html">
 <meta property="og:site_name" content="Asimov&#39;s Blog">
-<meta property="og:description" content="ch06 2023.3.29  监听器模式 时机问题：监听enter还是exit CallGraphListener.java 1234567891011121314151617181920public class CallGraphListener extends CymbolBaseListener &#123;  private Graph graph &#x3D; new Graph();  Str">
+<meta property="og:description" content="ch06 2023.3.29  &#x76D1;&#x542C;&#x5668;&#x6A21;&#x5F0F; &#x65F6;&#x673A;&#x95EE;&#x9898;&#xFF1A;&#x76D1;&#x542C;enter&#x8FD8;&#x662F;exit CallGraphListener.java 1234567891011121314151617181920public">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://chendingya.github.io/2023/03/29/23-Compilers/ch06/ch06/image-20230331200825006.png">
 <meta property="og:image" content="https://chendingya.github.io/2023/03/29/23-Compilers/ch06/ch06/image-20230403132702883.png">
@@ -75,7 +75,7 @@
 <div class="widgets">
 
 
-<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2024/05/02/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%842/"><span class="title">系统架构2-质量属性Quality Attributes</span></a><a class="item title" href="/2024/05/01/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%841/"><span class="title">系统架构1-Intro</span></a><a class="item title" href="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/"><span class="title">软件测试-期末复习</span></a><a class="item title" href="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/"><span class="title">机器学习-期末复习</span></a><a class="item title" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/"><span class="title">服务端-ch17-k8s使用</span></a><a class="item title" href="/2023/12/30/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch16-%E5%AE%B9%E5%99%A8%E9%95%9C%E5%83%8F%E6%9E%84%E5%BB%BA%E4%B8%8E%E7%BC%96%E6%8E%92/"><span class="title">服务端-ch16-容器镜像构建与编排</span></a><a class="item title" href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/"><span class="title">服务端-ch15-Docker</span></a><a class="item title" href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/"><span class="title">服务端-ch14-Spring WebFlux</span></a><a class="item title" href="/2023/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch13-%E5%8F%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"><span class="title">服务端-ch13-反应式编程基础</span></a><a class="item title" href="/2023/11/23/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch12-Spring%20Integration/"><span class="title">服务端-ch12-Spring Integration</span></a></div></widget>
+<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2022/10/25/hello-world/"><span class="title">Hello World</span></a><a class="item title" href="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/"><span class="title">软件测试-期末复习</span></a><a class="item title" href="/2024/05/02/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%842/"><span class="title">系统架构2-质量属性Quality Attributes</span></a><a class="item title" href="/2024/05/01/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%841/"><span class="title">系统架构1-Intro</span></a><a class="item title" href="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/"><span class="title">机器学习-期末复习</span></a><a class="item title" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/"><span class="title">服务端-ch17-k8s使用</span></a><a class="item title" href="/2023/12/30/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch16-%E5%AE%B9%E5%99%A8%E9%95%9C%E5%83%8F%E6%9E%84%E5%BB%BA%E4%B8%8E%E7%BC%96%E6%8E%92/"><span class="title">服务端-ch16-容器镜像构建与编排</span></a><a class="item title" href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/"><span class="title">服务端-ch15-Docker</span></a><a class="item title" href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/"><span class="title">服务端-ch14-Spring WebFlux</span></a><a class="item title" href="/2023/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch13-%E5%8F%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"><span class="title">服务端-ch13-反应式编程基础</span></a></div></widget>
 </div>
 <footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/chendingya?tab=repositories" target="_blank" rel="external nofollow noopener noreferrer"><img no-lazy src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" / onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a></div></footer>
 </div></aside><div class="l_main" id="main">
@@ -101,192 +101,192 @@
   </div>
   </div><article class="md-text content"><h1>ch06</h1>
 <p>2023.3.29</p>
-<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="./ch06/image-20230331200825006.png" alt="image-20230331200825006" style="zoom:50%;" />
-<h2 id="监听器模式">监听器模式</h2>
-<p>时机问题：监听enter还是exit</p>
+<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/03/29/23-Compilers/ch06/ch06/image-20230331200825006.png" alt="image-20230331200825006" style="zoom:50%;">
+<h2 id="&#x76D1;&#x542C;&#x5668;&#x6A21;&#x5F0F;">&#x76D1;&#x542C;&#x5668;&#x6A21;&#x5F0F;</h2>
+<p>&#x65F6;&#x673A;&#x95EE;&#x9898;&#xFF1A;&#x76D1;&#x542C;enter&#x8FD8;&#x662F;exit</p>
 <p>CallGraphListener.java</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CallGraphListener</span> <span class="keyword">extends</span> <span class="title class_">CymbolBaseListener</span> &#123;</span><br><span class="line">  <span class="keyword">private</span> <span class="type">Graph</span> <span class="variable">graph</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Graph</span>();</span><br><span class="line">  <span class="type">String</span> <span class="variable">currentFunctionName</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">enterFunctionDecl</span><span class="params">(CymbolParser.FunctionDeclContext ctx)</span> &#123;</span><br><span class="line">    currentFunctionName = ctx.ID().getText();</span><br><span class="line">    graph.addNode(currentFunctionName);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">enterCall</span><span class="params">(CymbolParser.CallContext ctx)</span> &#123;</span><br><span class="line">    <span class="type">String</span> <span class="variable">callee</span> <span class="operator">=</span> ctx.ID().getText();</span><br><span class="line">    graph.addEdge(currentFunctionName, callee);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> Graph <span class="title function_">getGraph</span><span class="params">()</span> &#123;</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.graph;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="计算器">计算器</h2>
-<h3 id="功能：">功能：</h3>
-<p>±*/（）改变优先级</p>
-<p>block函数体，暂时只关心表达式语句</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="./ch06/image-20230403132702883.png" alt="image-20230403132702883"></p>
-<h3 id="在DFS过程中计算子节点的值">在DFS过程中计算子节点的值</h3>
-<p>监听器模式问题：每一个事件方法，返回值都为void，但是计算器需要返回值</p>
-<p><strong>退出相应节点的时候计算值</strong></p>
-<p><strong>退出表达式语句时，表示值已经计算完毕，可以直接打印</strong></p>
-<h4 id="解决方案">解决方案</h4>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CallGraphListener</span> <span class="keyword">extends</span> <span class="title class_">CymbolBaseListener</span> {</span><br><span class="line">  <span class="keyword">private</span> <span class="type">Graph</span> <span class="variable">graph</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Graph</span>();</span><br><span class="line">  <span class="type">String</span> <span class="variable">currentFunctionName</span> <span class="operator">=</span> <span class="literal">null</span>;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">enterFunctionDecl</span><span class="params">(CymbolParser.FunctionDeclContext ctx)</span> {</span><br><span class="line">    currentFunctionName = ctx.ID().getText();</span><br><span class="line">    graph.addNode(currentFunctionName);</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">enterCall</span><span class="params">(CymbolParser.CallContext ctx)</span> {</span><br><span class="line">    <span class="type">String</span> <span class="variable">callee</span> <span class="operator">=</span> ctx.ID().getText();</span><br><span class="line">    graph.addEdge(currentFunctionName, callee);</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  <span class="keyword">public</span> Graph <span class="title function_">getGraph</span><span class="params">()</span> {</span><br><span class="line">    <span class="keyword">return</span> <span class="built_in">this</span>.graph;</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<h2 id="&#x8BA1;&#x7B97;&#x5668;">&#x8BA1;&#x7B97;&#x5668;</h2>
+<h3 id="&#x529F;&#x80FD;&#xFF1A;">&#x529F;&#x80FD;&#xFF1A;</h3>
+<p>&#xB1;*/&#xFF08;&#xFF09;&#x6539;&#x53D8;&#x4F18;&#x5148;&#x7EA7;</p>
+<p>block&#x51FD;&#x6570;&#x4F53;&#xFF0C;&#x6682;&#x65F6;&#x53EA;&#x5173;&#x5FC3;&#x8868;&#x8FBE;&#x5F0F;&#x8BED;&#x53E5;</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/03/29/23-Compilers/ch06/ch06/image-20230403132702883.png" alt="image-20230403132702883"></p>
+<h3 id="&#x5728;DFS&#x8FC7;&#x7A0B;&#x4E2D;&#x8BA1;&#x7B97;&#x5B50;&#x8282;&#x70B9;&#x7684;&#x503C;">&#x5728;DFS&#x8FC7;&#x7A0B;&#x4E2D;&#x8BA1;&#x7B97;&#x5B50;&#x8282;&#x70B9;&#x7684;&#x503C;</h3>
+<p>&#x76D1;&#x542C;&#x5668;&#x6A21;&#x5F0F;&#x95EE;&#x9898;&#xFF1A;&#x6BCF;&#x4E00;&#x4E2A;&#x4E8B;&#x4EF6;&#x65B9;&#x6CD5;&#xFF0C;&#x8FD4;&#x56DE;&#x503C;&#x90FD;&#x4E3A;void&#xFF0C;&#x4F46;&#x662F;&#x8BA1;&#x7B97;&#x5668;&#x9700;&#x8981;&#x8FD4;&#x56DE;&#x503C;</p>
+<p><strong>&#x9000;&#x51FA;&#x76F8;&#x5E94;&#x8282;&#x70B9;&#x7684;&#x65F6;&#x5019;&#x8BA1;&#x7B97;&#x503C;</strong></p>
+<p><strong>&#x9000;&#x51FA;&#x8868;&#x8FBE;&#x5F0F;&#x8BED;&#x53E5;&#x65F6;&#xFF0C;&#x8868;&#x793A;&#x503C;&#x5DF2;&#x7ECF;&#x8BA1;&#x7B97;&#x5B8C;&#x6BD5;&#xFF0C;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x6253;&#x5370;</strong></p>
+<h4 id="&#x89E3;&#x51B3;&#x65B9;&#x6848;">&#x89E3;&#x51B3;&#x65B9;&#x6848;</h4>
 <ul>
 <li>
-<p>抛弃listener转向visitor</p>
+<p>&#x629B;&#x5F03;listener&#x8F6C;&#x5411;visitor</p>
 </li>
 <li>
-<p>不能使用全局变量这种方法，ANTLR4使用标注语法分析树Annotated Parse Tree</p>
+<p>&#x4E0D;&#x80FD;&#x4F7F;&#x7528;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x8FD9;&#x79CD;&#x65B9;&#x6CD5;&#xFF0C;ANTLR4&#x4F7F;&#x7528;&#x6807;&#x6CE8;&#x8BED;&#x6CD5;&#x5206;&#x6790;&#x6811;Annotated Parse Tree</p>
 </li>
 </ul>
-<h5 id="标注语法分析树Annotated-Parse-Tree">标注语法分析树Annotated Parse Tree</h5>
-<p>将值直接存储在节点上，（标注）</p>
-<p>hashmap， key为node， value为标注值</p>
+<h5 id="&#x6807;&#x6CE8;&#x8BED;&#x6CD5;&#x5206;&#x6790;&#x6811;Annotated-Parse-Tree">&#x6807;&#x6CE8;&#x8BED;&#x6CD5;&#x5206;&#x6790;&#x6811;Annotated Parse Tree</h5>
+<p>&#x5C06;&#x503C;&#x76F4;&#x63A5;&#x5B58;&#x50A8;&#x5728;&#x8282;&#x70B9;&#x4E0A;&#xFF0C;&#xFF08;&#x6807;&#x6CE8;&#xFF09;</p>
+<p>hashmap&#xFF0C; key&#x4E3A;node&#xFF0C; value&#x4E3A;&#x6807;&#x6CE8;&#x503C;</p>
 <p>hashmap: PaeseTreeProperty&lt;Type&gt;</p>
-<h5 id="override：">override：</h5>
+<h5 id="override&#xFF1A;">override&#xFF1A;</h5>
 <p>CalcListener.java</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CalcListener</span> <span class="keyword">extends</span> <span class="title class_">CymbolBaseListener</span> &#123;</span><br><span class="line">  <span class="keyword">private</span> ParseTreeProperty&lt;Integer&gt; values = <span class="keyword">new</span> <span class="title class_">ParseTreeProperty</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">exitExprStat</span><span class="params">(CymbolParser.ExprStatContext ctx)</span> &#123;</span><br><span class="line">      <span class="comment">//退出表达式节点</span></span><br><span class="line">      <span class="comment">//打印表达式结果，值等于子节点值</span></span><br><span class="line">    System.out.println(ctx.expr().getText() + </span><br><span class="line">                       <span class="string">&quot; = &quot;</span> + values.get(ctx.expr()));</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">exitAddSub</span><span class="params">(CymbolParser.AddSubContext ctx)</span> &#123;</span><br><span class="line">      <span class="comment">//左节点+/-右节点</span></span><br><span class="line">      <span class="comment">//是+还是-已经标注</span></span><br><span class="line">      <span class="comment">//左节点和右节点也有标注</span></span><br><span class="line">    <span class="type">int</span> <span class="variable">lvalue</span> <span class="operator">=</span> values.get(ctx.lhs);</span><br><span class="line">    <span class="type">int</span> <span class="variable">rvalue</span> <span class="operator">=</span> values.get(ctx.rhs);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (ctx.op.getType() == ADD) &#123;</span><br><span class="line">      values.put(ctx, lvalue + rvalue);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      values.put(ctx, lvalue - rvalue);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">exitParens</span><span class="params">(CymbolParser.ParensContext ctx)</span> &#123;</span><br><span class="line">     <span class="comment">//(expr) expr</span></span><br><span class="line">     <span class="comment">//形同去括号，从子节点中取出放到括号节点</span></span><br><span class="line">     <span class="comment">//expr为子节点</span></span><br><span class="line">    values.put(ctx, values.get(ctx.expr()));</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">exitNegate</span><span class="params">(CymbolParser.NegateContext ctx)</span> &#123;</span><br><span class="line">      <span class="comment">//从子节点取值，取负号，标记</span></span><br><span class="line">    values.put(ctx, -values.get(ctx.expr()));</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">exitInt</span><span class="params">(CymbolParser.IntContext ctx)</span> &#123;</span><br><span class="line">     <span class="comment">//把值取出来，放到相应节点</span></span><br><span class="line">     <span class="comment">//ctx当前节点</span></span><br><span class="line">    values.put(ctx, Integer.valueOf(ctx.INT().getText()));</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">exitPower</span><span class="params">(CymbolParser.PowerContext ctx)</span> &#123;</span><br><span class="line">      <span class="comment">//幂运算</span></span><br><span class="line">      <span class="comment">//同理</span></span><br><span class="line">    <span class="type">int</span> <span class="variable">lvalue</span> <span class="operator">=</span> values.get(ctx.lhs);</span><br><span class="line">    <span class="type">int</span> <span class="variable">rvalue</span> <span class="operator">=</span> values.get(ctx.rhs);</span><br><span class="line"></span><br><span class="line">    values.put(ctx, Integer.parseInt(String.valueOf</span><br><span class="line">                                     (Math.pow(lvalue, rvalue))));</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">exitMultDiv</span><span class="params">(CymbolParser.MultDivContext ctx)</span> &#123;</span><br><span class="line">      <span class="comment">// * or /</span></span><br><span class="line">    <span class="type">int</span> <span class="variable">lvalue</span> <span class="operator">=</span> values.get(ctx.lhs);</span><br><span class="line">    <span class="type">int</span> <span class="variable">rvalue</span> <span class="operator">=</span> values.get(ctx.rhs);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (ctx.op.getType() == MUL) &#123;</span><br><span class="line">      values.put(ctx, lvalue * rvalue);</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      values.put(ctx, lvalue / rvalue);</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>测试程序</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">CalcListener</span> <span class="keyword">extends</span> <span class="title class_">CymbolBaseListener</span> {</span><br><span class="line">  <span class="keyword">private</span> ParseTreeProperty&lt;Integer&gt; values = <span class="keyword">new</span> <span class="title class_">ParseTreeProperty</span>&lt;&gt;();</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">exitExprStat</span><span class="params">(CymbolParser.ExprStatContext ctx)</span> {</span><br><span class="line">      <span class="comment">//&#x9000;&#x51FA;&#x8868;&#x8FBE;&#x5F0F;&#x8282;&#x70B9;</span></span><br><span class="line">      <span class="comment">//&#x6253;&#x5370;&#x8868;&#x8FBE;&#x5F0F;&#x7ED3;&#x679C;&#xFF0C;&#x503C;&#x7B49;&#x4E8E;&#x5B50;&#x8282;&#x70B9;&#x503C;</span></span><br><span class="line">    System.out.println(ctx.expr().getText() + </span><br><span class="line">                       <span class="string">&quot; = &quot;</span> + values.get(ctx.expr()));</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">exitAddSub</span><span class="params">(CymbolParser.AddSubContext ctx)</span> {</span><br><span class="line">      <span class="comment">//&#x5DE6;&#x8282;&#x70B9;+/-&#x53F3;&#x8282;&#x70B9;</span></span><br><span class="line">      <span class="comment">//&#x662F;+&#x8FD8;&#x662F;-&#x5DF2;&#x7ECF;&#x6807;&#x6CE8;</span></span><br><span class="line">      <span class="comment">//&#x5DE6;&#x8282;&#x70B9;&#x548C;&#x53F3;&#x8282;&#x70B9;&#x4E5F;&#x6709;&#x6807;&#x6CE8;</span></span><br><span class="line">    <span class="type">int</span> <span class="variable">lvalue</span> <span class="operator">=</span> values.get(ctx.lhs);</span><br><span class="line">    <span class="type">int</span> <span class="variable">rvalue</span> <span class="operator">=</span> values.get(ctx.rhs);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (ctx.op.getType() == ADD) {</span><br><span class="line">      values.put(ctx, lvalue + rvalue);</span><br><span class="line">    } <span class="keyword">else</span> {</span><br><span class="line">      values.put(ctx, lvalue - rvalue);</span><br><span class="line">    }</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">exitParens</span><span class="params">(CymbolParser.ParensContext ctx)</span> {</span><br><span class="line">     <span class="comment">//(expr) expr</span></span><br><span class="line">     <span class="comment">//&#x5F62;&#x540C;&#x53BB;&#x62EC;&#x53F7;&#xFF0C;&#x4ECE;&#x5B50;&#x8282;&#x70B9;&#x4E2D;&#x53D6;&#x51FA;&#x653E;&#x5230;&#x62EC;&#x53F7;&#x8282;&#x70B9;</span></span><br><span class="line">     <span class="comment">//expr&#x4E3A;&#x5B50;&#x8282;&#x70B9;</span></span><br><span class="line">    values.put(ctx, values.get(ctx.expr()));</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">exitNegate</span><span class="params">(CymbolParser.NegateContext ctx)</span> {</span><br><span class="line">      <span class="comment">//&#x4ECE;&#x5B50;&#x8282;&#x70B9;&#x53D6;&#x503C;&#xFF0C;&#x53D6;&#x8D1F;&#x53F7;&#xFF0C;&#x6807;&#x8BB0;</span></span><br><span class="line">    values.put(ctx, -values.get(ctx.expr()));</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">exitInt</span><span class="params">(CymbolParser.IntContext ctx)</span> {</span><br><span class="line">     <span class="comment">//&#x628A;&#x503C;&#x53D6;&#x51FA;&#x6765;&#xFF0C;&#x653E;&#x5230;&#x76F8;&#x5E94;&#x8282;&#x70B9;</span></span><br><span class="line">     <span class="comment">//ctx&#x5F53;&#x524D;&#x8282;&#x70B9;</span></span><br><span class="line">    values.put(ctx, Integer.valueOf(ctx.INT().getText()));</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">exitPower</span><span class="params">(CymbolParser.PowerContext ctx)</span> {</span><br><span class="line">      <span class="comment">//&#x5E42;&#x8FD0;&#x7B97;</span></span><br><span class="line">      <span class="comment">//&#x540C;&#x7406;</span></span><br><span class="line">    <span class="type">int</span> <span class="variable">lvalue</span> <span class="operator">=</span> values.get(ctx.lhs);</span><br><span class="line">    <span class="type">int</span> <span class="variable">rvalue</span> <span class="operator">=</span> values.get(ctx.rhs);</span><br><span class="line"></span><br><span class="line">    values.put(ctx, Integer.parseInt(String.valueOf</span><br><span class="line">                                     (Math.pow(lvalue, rvalue))));</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  <span class="meta">@Override</span></span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">exitMultDiv</span><span class="params">(CymbolParser.MultDivContext ctx)</span> {</span><br><span class="line">      <span class="comment">// * or /</span></span><br><span class="line">    <span class="type">int</span> <span class="variable">lvalue</span> <span class="operator">=</span> values.get(ctx.lhs);</span><br><span class="line">    <span class="type">int</span> <span class="variable">rvalue</span> <span class="operator">=</span> values.get(ctx.rhs);</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (ctx.op.getType() == MUL) {</span><br><span class="line">      values.put(ctx, lvalue * rvalue);</span><br><span class="line">    } <span class="keyword">else</span> {</span><br><span class="line">      values.put(ctx, lvalue / rvalue);</span><br><span class="line">    }</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>&#x6D4B;&#x8BD5;&#x7A0B;&#x5E8F;</p>
 <p>Calculator.java</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> calc;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.antlr.v4.runtime.CharStream;</span><br><span class="line"><span class="keyword">import</span> org.antlr.v4.runtime.CharStreams;</span><br><span class="line"><span class="keyword">import</span> org.antlr.v4.runtime.CommonTokenStream;</span><br><span class="line"><span class="keyword">import</span> org.antlr.v4.runtime.tree.ParseTree;</span><br><span class="line"><span class="keyword">import</span> org.antlr.v4.runtime.tree.ParseTreeWalker;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.FileInputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStream;</span><br><span class="line"><span class="keyword">import</span> java.nio.file.Path;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> calc.listener.CalcListener;</span><br><span class="line"><span class="keyword">import</span> cymbol.CymbolLexer;</span><br><span class="line"><span class="keyword">import</span> cymbol.CymbolParser;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Calculator</span> &#123;</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException &#123;</span><br><span class="line">    <span class="type">InputStream</span> <span class="variable">is</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileInputStream</span>(Path.of(<span class="string">&quot;src/main/antlr/cymbol/cymbol-calculator.txt&quot;</span>).toFile());</span><br><span class="line"><span class="comment">//    InputStream is = new FileInputStream(Path.of(&quot;src/main/antlr/cymbol/cymbol-calc-stat.txt&quot;).toFile());</span></span><br><span class="line">    <span class="type">CharStream</span> <span class="variable">cs</span> <span class="operator">=</span> CharStreams.fromStream(is);</span><br><span class="line">    <span class="type">CymbolLexer</span> <span class="variable">lexer</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">CymbolLexer</span>(cs);</span><br><span class="line">    <span class="type">CommonTokenStream</span> <span class="variable">tokens</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">CommonTokenStream</span>(lexer);</span><br><span class="line"></span><br><span class="line">    <span class="type">CymbolParser</span> <span class="variable">parser</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">CymbolParser</span>(tokens);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// for CalcListener and cymbol-calculator.txt</span></span><br><span class="line">    <span class="type">ParseTree</span> <span class="variable">tree</span> <span class="operator">=</span> parser.prog();</span><br><span class="line">    <span class="type">ParseTreeWalker</span> <span class="variable">walker</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ParseTreeWalker</span>();</span><br><span class="line">    <span class="type">CalcListener</span> <span class="variable">calcListener</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">CalcListener</span>();</span><br><span class="line">    walker.walk(calcListener, tree);</span><br><span class="line"></span><br><span class="line"><span class="comment">//    for CalcVistor and cymbol-calc-stat.txt</span></span><br><span class="line"><span class="comment">//    ParseTree tree = parser.block();</span></span><br><span class="line"><span class="comment">//    CalcVisitor caclVisitor = new CalcVisitor();</span></span><br><span class="line"><span class="comment">//    caclVisitor.visit(tree);</span></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h2 id="访问者visitor">访问者visitor</h2>
-<p>自己遍历语法分析树，自己掌握遍历过程</p>
-<p>更加灵活和复杂</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="./ch06/image-20230404144310498.png" alt="image-20230404144310498"></p>
-<h4 id="任务：">任务：</h4>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> calc;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.antlr.v4.runtime.CharStream;</span><br><span class="line"><span class="keyword">import</span> org.antlr.v4.runtime.CharStreams;</span><br><span class="line"><span class="keyword">import</span> org.antlr.v4.runtime.CommonTokenStream;</span><br><span class="line"><span class="keyword">import</span> org.antlr.v4.runtime.tree.ParseTree;</span><br><span class="line"><span class="keyword">import</span> org.antlr.v4.runtime.tree.ParseTreeWalker;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> java.io.FileInputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStream;</span><br><span class="line"><span class="keyword">import</span> java.nio.file.Path;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> calc.listener.CalcListener;</span><br><span class="line"><span class="keyword">import</span> cymbol.CymbolLexer;</span><br><span class="line"><span class="keyword">import</span> cymbol.CymbolParser;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Calculator</span> {</span><br><span class="line">  <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title function_">main</span><span class="params">(String[] args)</span> <span class="keyword">throws</span> IOException {</span><br><span class="line">    <span class="type">InputStream</span> <span class="variable">is</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">FileInputStream</span>(Path.of(<span class="string">&quot;src/main/antlr/cymbol/cymbol-calculator.txt&quot;</span>).toFile());</span><br><span class="line"><span class="comment">//    InputStream is = new FileInputStream(Path.of(&quot;src/main/antlr/cymbol/cymbol-calc-stat.txt&quot;).toFile());</span></span><br><span class="line">    <span class="type">CharStream</span> <span class="variable">cs</span> <span class="operator">=</span> CharStreams.fromStream(is);</span><br><span class="line">    <span class="type">CymbolLexer</span> <span class="variable">lexer</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">CymbolLexer</span>(cs);</span><br><span class="line">    <span class="type">CommonTokenStream</span> <span class="variable">tokens</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">CommonTokenStream</span>(lexer);</span><br><span class="line"></span><br><span class="line">    <span class="type">CymbolParser</span> <span class="variable">parser</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">CymbolParser</span>(tokens);</span><br><span class="line"></span><br><span class="line">    <span class="comment">// for CalcListener and cymbol-calculator.txt</span></span><br><span class="line">    <span class="type">ParseTree</span> <span class="variable">tree</span> <span class="operator">=</span> parser.prog();</span><br><span class="line">    <span class="type">ParseTreeWalker</span> <span class="variable">walker</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">ParseTreeWalker</span>();</span><br><span class="line">    <span class="type">CalcListener</span> <span class="variable">calcListener</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">CalcListener</span>();</span><br><span class="line">    walker.walk(calcListener, tree);</span><br><span class="line"></span><br><span class="line"><span class="comment">//    for CalcVistor and cymbol-calc-stat.txt</span></span><br><span class="line"><span class="comment">//    ParseTree tree = parser.block();</span></span><br><span class="line"><span class="comment">//    CalcVisitor caclVisitor = new CalcVisitor();</span></span><br><span class="line"><span class="comment">//    caclVisitor.visit(tree);</span></span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<h2 id="&#x8BBF;&#x95EE;&#x8005;visitor">&#x8BBF;&#x95EE;&#x8005;visitor</h2>
+<p>&#x81EA;&#x5DF1;&#x904D;&#x5386;&#x8BED;&#x6CD5;&#x5206;&#x6790;&#x6811;&#xFF0C;&#x81EA;&#x5DF1;&#x638C;&#x63E1;&#x904D;&#x5386;&#x8FC7;&#x7A0B;</p>
+<p>&#x66F4;&#x52A0;&#x7075;&#x6D3B;&#x548C;&#x590D;&#x6742;</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/03/29/23-Compilers/ch06/ch06/image-20230404144310498.png" alt="image-20230404144310498"></p>
+<h4 id="&#x4EFB;&#x52A1;&#xFF1A;">&#x4EFB;&#x52A1;&#xFF1A;</h4>
 <ul>
 <li>
-<p>类型检查</p>
+<p>&#x7C7B;&#x578B;&#x68C0;&#x67E5;</p>
 </li>
 <li>
-<p>代码生成</p>
+<p>&#x4EE3;&#x7801;&#x751F;&#x6210;</p>
 </li>
 <li>
-<p>打印</p>
+<p>&#x6253;&#x5370;</p>
 </li>
 </ul>
-<h5 id="缺点：">缺点：</h5>
+<h5 id="&#x7F3A;&#x70B9;&#xFF1A;">&#x7F3A;&#x70B9;&#xFF1A;</h5>
 <ul>
 <li>
-<p>在每一个节点里都要有一个相应的实现，合起来才是一个整体</p>
+<p>&#x5728;&#x6BCF;&#x4E00;&#x4E2A;&#x8282;&#x70B9;&#x91CC;&#x90FD;&#x8981;&#x6709;&#x4E00;&#x4E2A;&#x76F8;&#x5E94;&#x7684;&#x5B9E;&#x73B0;&#xFF0C;&#x5408;&#x8D77;&#x6765;&#x624D;&#x662F;&#x4E00;&#x4E2A;&#x6574;&#x4F53;</p>
 </li>
 <li>
-<p>如果我想要新增一个任务，我就必须修改每一个类，并添加任务方法，在软件工程中修改旧代码不符合设计理念</p>
+<p>&#x5982;&#x679C;&#x6211;&#x60F3;&#x8981;&#x65B0;&#x589E;&#x4E00;&#x4E2A;&#x4EFB;&#x52A1;&#xFF0C;&#x6211;&#x5C31;&#x5FC5;&#x987B;&#x4FEE;&#x6539;&#x6BCF;&#x4E00;&#x4E2A;&#x7C7B;&#xFF0C;&#x5E76;&#x6DFB;&#x52A0;&#x4EFB;&#x52A1;&#x65B9;&#x6CD5;&#xFF0C;&#x5728;&#x8F6F;&#x4EF6;&#x5DE5;&#x7A0B;&#x4E2D;&#x4FEE;&#x6539;&#x65E7;&#x4EE3;&#x7801;&#x4E0D;&#x7B26;&#x5408;&#x8BBE;&#x8BA1;&#x7406;&#x5FF5;</p>
 </li>
 </ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="./ch06/image-20230404144622416.png" alt="image-20230404144622416"></p>
-<p>visitor：</p>
-<p>将node类结构和在类上的方法解耦合</p>
-<p>如果想要新增，就新增一个对应方法的visitor，解决了上述的两个缺点，创建一个新的类即可</p>
-<h5 id="两个类结构：">两个类结构：</h5>
-<p>一个是tree上的node结构，一个是能够访问node的visitor</p>
-<h5 id="两个类的互动：">两个类的互动：</h5>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="./ch06/image-20230404145721357.png" alt="image-20230404145721357"></p>
-<p><strong><u>双重分派</u>来确定具体调用的是哪一个方法</strong></p>
-<p>accept方法接受一个visitor，实现 : v-&gt;visitAssignment(this)，v即是接受的visitor</p>
-<p>如果v的类型是TypeCheckingVisitor，那么调用的就是TypeCheckingVisitor的visitor</p>
-<p>this的类型就是AssignmentNode，拿到的就是AssignmentNode</p>
-<p>所以visitAssignment就拿到了AssignmentNode对象，就可以通过AssignmentNode访问对象的其他方法</p>
-<p>参考资料：</p>
-<p>《设计模式 可复用面向对象软件的基础》</p>
-<h2 id="理论：上下文无关文法Context-Free-Grammar-CFG">理论：上下文无关文法Context-Free Grammar (CFG)</h2>
-<h3 id="定义">定义</h3>
-<p>Definition (Context-Free Grammar (CFG); 上下文无关文法)</p>
-<p>上下文无关文法 G 是一个四元组 G = (T, N, S, P):</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/03/29/23-Compilers/ch06/ch06/image-20230404144622416.png" alt="image-20230404144622416"></p>
+<p>visitor&#xFF1A;</p>
+<p>&#x5C06;node&#x7C7B;&#x7ED3;&#x6784;&#x548C;&#x5728;&#x7C7B;&#x4E0A;&#x7684;&#x65B9;&#x6CD5;&#x89E3;&#x8026;&#x5408;</p>
+<p>&#x5982;&#x679C;&#x60F3;&#x8981;&#x65B0;&#x589E;&#xFF0C;&#x5C31;&#x65B0;&#x589E;&#x4E00;&#x4E2A;&#x5BF9;&#x5E94;&#x65B9;&#x6CD5;&#x7684;visitor&#xFF0C;&#x89E3;&#x51B3;&#x4E86;&#x4E0A;&#x8FF0;&#x7684;&#x4E24;&#x4E2A;&#x7F3A;&#x70B9;&#xFF0C;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x7C7B;&#x5373;&#x53EF;</p>
+<h5 id="&#x4E24;&#x4E2A;&#x7C7B;&#x7ED3;&#x6784;&#xFF1A;">&#x4E24;&#x4E2A;&#x7C7B;&#x7ED3;&#x6784;&#xFF1A;</h5>
+<p>&#x4E00;&#x4E2A;&#x662F;tree&#x4E0A;&#x7684;node&#x7ED3;&#x6784;&#xFF0C;&#x4E00;&#x4E2A;&#x662F;&#x80FD;&#x591F;&#x8BBF;&#x95EE;node&#x7684;visitor</p>
+<h5 id="&#x4E24;&#x4E2A;&#x7C7B;&#x7684;&#x4E92;&#x52A8;&#xFF1A;">&#x4E24;&#x4E2A;&#x7C7B;&#x7684;&#x4E92;&#x52A8;&#xFF1A;</h5>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/03/29/23-Compilers/ch06/ch06/image-20230404145721357.png" alt="image-20230404145721357"></p>
+<p><strong><u>&#x53CC;&#x91CD;&#x5206;&#x6D3E;</u>&#x6765;&#x786E;&#x5B9A;&#x5177;&#x4F53;&#x8C03;&#x7528;&#x7684;&#x662F;&#x54EA;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;</strong></p>
+<p>accept&#x65B9;&#x6CD5;&#x63A5;&#x53D7;&#x4E00;&#x4E2A;visitor&#xFF0C;&#x5B9E;&#x73B0; : v-&gt;visitAssignment(this)&#xFF0C;v&#x5373;&#x662F;&#x63A5;&#x53D7;&#x7684;visitor</p>
+<p>&#x5982;&#x679C;v&#x7684;&#x7C7B;&#x578B;&#x662F;TypeCheckingVisitor&#xFF0C;&#x90A3;&#x4E48;&#x8C03;&#x7528;&#x7684;&#x5C31;&#x662F;TypeCheckingVisitor&#x7684;visitor</p>
+<p>this&#x7684;&#x7C7B;&#x578B;&#x5C31;&#x662F;AssignmentNode&#xFF0C;&#x62FF;&#x5230;&#x7684;&#x5C31;&#x662F;AssignmentNode</p>
+<p>&#x6240;&#x4EE5;visitAssignment&#x5C31;&#x62FF;&#x5230;&#x4E86;AssignmentNode&#x5BF9;&#x8C61;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;AssignmentNode&#x8BBF;&#x95EE;&#x5BF9;&#x8C61;&#x7684;&#x5176;&#x4ED6;&#x65B9;&#x6CD5;</p>
+<p>&#x53C2;&#x8003;&#x8D44;&#x6599;&#xFF1A;</p>
+<p>&#x300A;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F; &#x53EF;&#x590D;&#x7528;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x8F6F;&#x4EF6;&#x7684;&#x57FA;&#x7840;&#x300B;</p>
+<h2 id="&#x7406;&#x8BBA;&#xFF1A;&#x4E0A;&#x4E0B;&#x6587;&#x65E0;&#x5173;&#x6587;&#x6CD5;Context-Free-Grammar-CFG">&#x7406;&#x8BBA;&#xFF1A;&#x4E0A;&#x4E0B;&#x6587;&#x65E0;&#x5173;&#x6587;&#x6CD5;Context-Free Grammar (CFG)</h2>
+<h3 id="&#x5B9A;&#x4E49;">&#x5B9A;&#x4E49;</h3>
+<p>Definition (Context-Free Grammar (CFG); &#x4E0A;&#x4E0B;&#x6587;&#x65E0;&#x5173;&#x6587;&#x6CD5;)</p>
+<p>&#x4E0A;&#x4E0B;&#x6587;&#x65E0;&#x5173;&#x6587;&#x6CD5; G &#x662F;&#x4E00;&#x4E2A;&#x56DB;&#x5143;&#x7EC4; G = (T, N, S, P):</p>
 <ul>
 <li>
-<p>T 是终结符号 (Terminal) 集合, 对应于词法分析器产生的词法单元</p>
+<p>T &#x662F;&#x7EC8;&#x7ED3;&#x7B26;&#x53F7; (Terminal) &#x96C6;&#x5408;, &#x5BF9;&#x5E94;&#x4E8E;&#x8BCD;&#x6CD5;&#x5206;&#x6790;&#x5668;&#x4EA7;&#x751F;&#x7684;&#x8BCD;&#x6CD5;&#x5355;&#x5143;</p>
 </li>
 <li>
-<p>N 是非终结符号 (Non-terminal) 集合</p>
+<p>N &#x662F;&#x975E;&#x7EC8;&#x7ED3;&#x7B26;&#x53F7; (Non-terminal) &#x96C6;&#x5408;</p>
 </li>
 <li>
-<p>S 是开始 (Start) 符号 (S ∈ N 且唯一)</p>
+<p>S &#x662F;&#x5F00;&#x59CB; (Start) &#x7B26;&#x53F7; (S &#x2208; N &#x4E14;&#x552F;&#x4E00;)</p>
 </li>
 <li>
-<p>P 是产生式 (Production) 集合</p>
+<p>P &#x662F;&#x4EA7;&#x751F;&#x5F0F; (Production) &#x96C6;&#x5408;</p>
 </li>
 <li></li>
 </ul>
-<p>A ∈ N → α ∈ (T ∪ N) ∗</p>
+<p>A &#x2208; N &#x2192; &#x3B1; &#x2208; (T &#x222A; N) &#x2217;</p>
 <ul>
 <li>
-<p>头部/左部 (Head) A: 单个非终结符</p>
+<p>&#x5934;&#x90E8;/&#x5DE6;&#x90E8; (Head) A: &#x5355;&#x4E2A;&#x975E;&#x7EC8;&#x7ED3;&#x7B26;</p>
 </li>
 <li>
-<p>体部/右部 (Body) α: 终结符与非终结符构成的串, 也可以是空串 ϵ</p>
+<p>&#x4F53;&#x90E8;/&#x53F3;&#x90E8; (Body) &#x3B1;: &#x7EC8;&#x7ED3;&#x7B26;&#x4E0E;&#x975E;&#x7EC8;&#x7ED3;&#x7B26;&#x6784;&#x6210;&#x7684;&#x4E32;, &#x4E5F;&#x53EF;&#x4EE5;&#x662F;&#x7A7A;&#x4E32; &#x3F5;</p>
 </li>
 </ul>
-<h3 id="上下文敏感文法Context-Sensitive-Grammar-CSG">上下文敏感文法Context-Sensitive Grammar (CSG)</h3>
-<p>开始符能否展开，取决于上下文</p>
-<p>例子：</p>
-<p>S → aBC</p>
-<p>S → aSBC</p>
-<p>CB → CZ</p>
-<p>CZ → WZ</p>
-<p>WZ → WC</p>
-<p>WC → BC</p>
-<p>aB → ab //B能否展开为ab取决于B前的a</p>
-<p>bB → bb</p>
-<p>bC → bc</p>
-<p>cC → cc</p>
-<h4 id="ANTLR4使用BNF拓展泛式">ANTLR4使用BNF拓展泛式</h4>
+<h3 id="&#x4E0A;&#x4E0B;&#x6587;&#x654F;&#x611F;&#x6587;&#x6CD5;Context-Sensitive-Grammar-CSG">&#x4E0A;&#x4E0B;&#x6587;&#x654F;&#x611F;&#x6587;&#x6CD5;Context-Sensitive Grammar (CSG)</h3>
+<p>&#x5F00;&#x59CB;&#x7B26;&#x80FD;&#x5426;&#x5C55;&#x5F00;&#xFF0C;&#x53D6;&#x51B3;&#x4E8E;&#x4E0A;&#x4E0B;&#x6587;</p>
+<p>&#x4F8B;&#x5B50;&#xFF1A;</p>
+<p>S &#x2192; aBC</p>
+<p>S &#x2192; aSBC</p>
+<p>CB &#x2192; CZ</p>
+<p>CZ &#x2192; WZ</p>
+<p>WZ &#x2192; WC</p>
+<p>WC &#x2192; BC</p>
+<p>aB &#x2192; ab //B&#x80FD;&#x5426;&#x5C55;&#x5F00;&#x4E3A;ab&#x53D6;&#x51B3;&#x4E8E;B&#x524D;&#x7684;a</p>
+<p>bB &#x2192; bb</p>
+<p>bC &#x2192; bc</p>
+<p>cC &#x2192; cc</p>
+<h4 id="ANTLR4&#x4F7F;&#x7528;BNF&#x62D3;&#x5C55;&#x6CDB;&#x5F0F;">ANTLR4&#x4F7F;&#x7528;BNF&#x62D3;&#x5C55;&#x6CDB;&#x5F0F;</h4>
 <p>[Extended] Backus-Naur form ([E]BNF)</p>
-<p>三为图灵奖得主</p>
-<p>John Backus (1924 ∼ 2007) 1977 (FORTRAN)</p>
-<p>Peter Naur (1928 ∼ 2016) 2005 (ALGOL60)</p>
-<p>Niklaus Wirth (1934 ∼) 1984 (PLs; PASCAL)</p>
-<h5 id="语义-上下文无关文法-G-定义了一个语言-L-G">语义: 上下文无关文法 G 定义了一个语言 L(G)</h5>
-<h3 id="推导-Derivation">推导 (Derivation)</h3>
-<p>推导即是将某个产生式的左边替换成它的右边 每一步推导需要选择替换哪个非终结符号, 以及使用哪个产生式</p>
-<p>E =⇒ −E : 经过一步推导得出</p>
-<p>E +=⇒ −(id + E) : 经过一步或多步推导得出</p>
-<p>E ∗=⇒ −(id + E) : 经过零步或多步推导得出</p>
-<h5 id="Leftmost-最左-Derivation-Rightmost-最右-Derivation-：">Leftmost (最左) Derivation / Rightmost (最右) Derivation ：</h5>
-<p>每一步都选择最左或者最右展开</p>
-<h5 id="句型-Definition-Sentential-Form">句型 Definition (Sentential Form)</h5>
-<p>如果 S ∗=⇒ α, 且 α ∈ (T ∪ N) ∗ , 则称 α 是文法 G 的一个句型。</p>
-<p>推导过程中的每一个中间结果叫句型</p>
-<h5 id="句子-Definition-Sentence">句子 Definition (Sentence)</h5>
-<p>如果 S ∗=⇒ w, 且 w ∈ T ∗ , 则称 w 是文法 G 的一个句子。</p>
-<p>只有终结符构成的，叫句子</p>
-<h5 id="Definition-文法-G-生成的语言-L-G">Definition (文法 G 生成的语言 L(G))</h5>
-<p>文法 G 的语言 L(G) 是它能推导出的<strong>所有句子</strong>构成的集合。</p>
-<p>w ∈ L(G) ⇐⇒ S ∗=⇒ w</p>
-<h4 id="关于文法-G-的两个基本问题">关于文法 G 的两个基本问题:</h4>
+<p>&#x4E09;&#x4E3A;&#x56FE;&#x7075;&#x5956;&#x5F97;&#x4E3B;</p>
+<p>John Backus (1924 &#x223C; 2007) 1977 (FORTRAN)</p>
+<p>Peter Naur (1928 &#x223C; 2016) 2005 (ALGOL60)</p>
+<p>Niklaus Wirth (1934 &#x223C;) 1984 (PLs; PASCAL)</p>
+<h5 id="&#x8BED;&#x4E49;-&#x4E0A;&#x4E0B;&#x6587;&#x65E0;&#x5173;&#x6587;&#x6CD5;-G-&#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E2A;&#x8BED;&#x8A00;-L-G">&#x8BED;&#x4E49;: &#x4E0A;&#x4E0B;&#x6587;&#x65E0;&#x5173;&#x6587;&#x6CD5; G &#x5B9A;&#x4E49;&#x4E86;&#x4E00;&#x4E2A;&#x8BED;&#x8A00; L(G)</h5>
+<h3 id="&#x63A8;&#x5BFC;-Derivation">&#x63A8;&#x5BFC; (Derivation)</h3>
+<p>&#x63A8;&#x5BFC;&#x5373;&#x662F;&#x5C06;&#x67D0;&#x4E2A;&#x4EA7;&#x751F;&#x5F0F;&#x7684;&#x5DE6;&#x8FB9;&#x66FF;&#x6362;&#x6210;&#x5B83;&#x7684;&#x53F3;&#x8FB9; &#x6BCF;&#x4E00;&#x6B65;&#x63A8;&#x5BFC;&#x9700;&#x8981;&#x9009;&#x62E9;&#x66FF;&#x6362;&#x54EA;&#x4E2A;&#x975E;&#x7EC8;&#x7ED3;&#x7B26;&#x53F7;, &#x4EE5;&#x53CA;&#x4F7F;&#x7528;&#x54EA;&#x4E2A;&#x4EA7;&#x751F;&#x5F0F;</p>
+<p>E =&#x21D2; &#x2212;E : &#x7ECF;&#x8FC7;&#x4E00;&#x6B65;&#x63A8;&#x5BFC;&#x5F97;&#x51FA;</p>
+<p>E +=&#x21D2; &#x2212;(id + E) : &#x7ECF;&#x8FC7;&#x4E00;&#x6B65;&#x6216;&#x591A;&#x6B65;&#x63A8;&#x5BFC;&#x5F97;&#x51FA;</p>
+<p>E &#x2217;=&#x21D2; &#x2212;(id + E) : &#x7ECF;&#x8FC7;&#x96F6;&#x6B65;&#x6216;&#x591A;&#x6B65;&#x63A8;&#x5BFC;&#x5F97;&#x51FA;</p>
+<h5 id="Leftmost-&#x6700;&#x5DE6;-Derivation-Rightmost-&#x6700;&#x53F3;-Derivation-&#xFF1A;">Leftmost (&#x6700;&#x5DE6;) Derivation / Rightmost (&#x6700;&#x53F3;) Derivation &#xFF1A;</h5>
+<p>&#x6BCF;&#x4E00;&#x6B65;&#x90FD;&#x9009;&#x62E9;&#x6700;&#x5DE6;&#x6216;&#x8005;&#x6700;&#x53F3;&#x5C55;&#x5F00;</p>
+<h5 id="&#x53E5;&#x578B;-Definition-Sentential-Form">&#x53E5;&#x578B; Definition (Sentential Form)</h5>
+<p>&#x5982;&#x679C; S &#x2217;=&#x21D2; &#x3B1;, &#x4E14; &#x3B1; &#x2208; (T &#x222A; N) &#x2217; , &#x5219;&#x79F0; &#x3B1; &#x662F;&#x6587;&#x6CD5; G &#x7684;&#x4E00;&#x4E2A;&#x53E5;&#x578B;&#x3002;</p>
+<p>&#x63A8;&#x5BFC;&#x8FC7;&#x7A0B;&#x4E2D;&#x7684;&#x6BCF;&#x4E00;&#x4E2A;&#x4E2D;&#x95F4;&#x7ED3;&#x679C;&#x53EB;&#x53E5;&#x578B;</p>
+<h5 id="&#x53E5;&#x5B50;-Definition-Sentence">&#x53E5;&#x5B50; Definition (Sentence)</h5>
+<p>&#x5982;&#x679C; S &#x2217;=&#x21D2; w, &#x4E14; w &#x2208; T &#x2217; , &#x5219;&#x79F0; w &#x662F;&#x6587;&#x6CD5; G &#x7684;&#x4E00;&#x4E2A;&#x53E5;&#x5B50;&#x3002;</p>
+<p>&#x53EA;&#x6709;&#x7EC8;&#x7ED3;&#x7B26;&#x6784;&#x6210;&#x7684;&#xFF0C;&#x53EB;&#x53E5;&#x5B50;</p>
+<h5 id="Definition-&#x6587;&#x6CD5;-G-&#x751F;&#x6210;&#x7684;&#x8BED;&#x8A00;-L-G">Definition (&#x6587;&#x6CD5; G &#x751F;&#x6210;&#x7684;&#x8BED;&#x8A00; L(G))</h5>
+<p>&#x6587;&#x6CD5; G &#x7684;&#x8BED;&#x8A00; L(G) &#x662F;&#x5B83;&#x80FD;&#x63A8;&#x5BFC;&#x51FA;&#x7684;<strong>&#x6240;&#x6709;&#x53E5;&#x5B50;</strong>&#x6784;&#x6210;&#x7684;&#x96C6;&#x5408;&#x3002;</p>
+<p>w &#x2208; L(G) &#x21D0;&#x21D2; S &#x2217;=&#x21D2; w</p>
+<h4 id="&#x5173;&#x4E8E;&#x6587;&#x6CD5;-G-&#x7684;&#x4E24;&#x4E2A;&#x57FA;&#x672C;&#x95EE;&#x9898;">&#x5173;&#x4E8E;&#x6587;&#x6CD5; G &#x7684;&#x4E24;&#x4E2A;&#x57FA;&#x672C;&#x95EE;&#x9898;:</h4>
 <ul>
-<li>Membership 问题: 给定字符串 x ∈ T ∗ , x ∈ L(G)?</li>
-<li>L(G) 究竟是什么</li>
+<li>Membership &#x95EE;&#x9898;: &#x7ED9;&#x5B9A;&#x5B57;&#x7B26;&#x4E32; x &#x2208; T &#x2217; , x &#x2208; L(G)?</li>
+<li>L(G) &#x7A76;&#x7ADF;&#x662F;&#x4EC0;&#x4E48;</li>
 </ul>
-<h5 id="例子">例子</h5>
+<h5 id="&#x4F8B;&#x5B50;">&#x4F8B;&#x5B50;</h5>
 <ul>
-<li>字母表 Σ = {a, b} 上的所有<strong>回文串</strong> (Palindrome) 构成的语言：</li>
+<li>&#x5B57;&#x6BCD;&#x8868; &#x3A3; = {a, b} &#x4E0A;&#x7684;&#x6240;&#x6709;<strong>&#x56DE;&#x6587;&#x4E32;</strong> (Palindrome) &#x6784;&#x6210;&#x7684;&#x8BED;&#x8A00;&#xFF1A;</li>
 </ul>
-<p>S → aSa S → bSb S → a S → b S → ϵ</p>
+<p>S &#x2192; aSa S &#x2192; bSb S &#x2192; a S &#x2192; b S &#x2192; &#x3F5;</p>
 <ul>
-<li>{b n a mb 2n | n ≥ 0, m ≥ 0}</li>
+<li>{b n a mb 2n | n &#x2265; 0, m &#x2265; 0}</li>
 </ul>
-<p>S → bSbb | A</p>
-<p>A → aA | ϵ</p>
+<p>S &#x2192; bSbb | A</p>
+<p>A &#x2192; aA | &#x3F5;</p>
 <ul>
-<li>{x ∈ {a, b} ∗ | x 中 a, b 个数相同}</li>
+<li>{x &#x2208; {a, b} &#x2217; | x &#x4E2D; a, b &#x4E2A;&#x6570;&#x76F8;&#x540C;}</li>
 </ul>
-<p>V → aVbV | bVaV | ϵ</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="./ch06/image-20230404190127016.png" alt="image-20230404190127016"></p>
-<p>必定存在一个b，使得前后的ab个数相同（符合V的要求）</p>
-<p>如何证明绿色箭头值的b一定存在？</p>
-<p>画一个横纵坐标的图示方法：</p>
-<p>a：+1（往上走）；b：-1（往下走）</p>
-<p>可以方便的找到与x轴交叉的b</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="./ch06/image-20230404190407764.png" alt="image-20230404190407764"></p>
+<p>V &#x2192; aVbV | bVaV | &#x3F5;</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/03/29/23-Compilers/ch06/ch06/image-20230404190127016.png" alt="image-20230404190127016"></p>
+<p>&#x5FC5;&#x5B9A;&#x5B58;&#x5728;&#x4E00;&#x4E2A;b&#xFF0C;&#x4F7F;&#x5F97;&#x524D;&#x540E;&#x7684;ab&#x4E2A;&#x6570;&#x76F8;&#x540C;&#xFF08;&#x7B26;&#x5408;V&#x7684;&#x8981;&#x6C42;&#xFF09;</p>
+<p>&#x5982;&#x4F55;&#x8BC1;&#x660E;&#x7EFF;&#x8272;&#x7BAD;&#x5934;&#x503C;&#x7684;b&#x4E00;&#x5B9A;&#x5B58;&#x5728;&#xFF1F;</p>
+<p>&#x753B;&#x4E00;&#x4E2A;&#x6A2A;&#x7EB5;&#x5750;&#x6807;&#x7684;&#x56FE;&#x793A;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<p>a&#xFF1A;+1&#xFF08;&#x5F80;&#x4E0A;&#x8D70;&#xFF09;&#xFF1B;b&#xFF1A;-1&#xFF08;&#x5F80;&#x4E0B;&#x8D70;&#xFF09;</p>
+<p>&#x53EF;&#x4EE5;&#x65B9;&#x4FBF;&#x7684;&#x627E;&#x5230;&#x4E0E;x&#x8F74;&#x4EA4;&#x53C9;&#x7684;b</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/03/29/23-Compilers/ch06/ch06/image-20230404190407764.png" alt="image-20230404190407764"></p>
 <ul>
-<li>{x ∈ {a, b} ∗ | x 中 a, b 个数不同}</li>
+<li>{x &#x2208; {a, b} &#x2217; | x &#x4E2D; a, b &#x4E2A;&#x6570;&#x4E0D;&#x540C;}</li>
 </ul>
-<p>上下文无关文法没有定义集合减法</p>
-<p>S → T | U</p>
-<p>T → VaT | VaV</p>
-<p>U → VbU | VbV</p>
-<p>V → aVbV | bVaV | ϵ</p>
-<h4 id="为什么不使用优雅、强大的正则表达式描述程序设计语言的语法">为什么不使用优雅、强大的正则表达式描述程序设计语言的语法?</h4>
-<p>正则表达式的表达能力严格弱于上下文无关文法</p>
-<p>每个正则表达式 r 对应的语言 L® 都可以使用上下文无关文法来描述</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="./ch06/image-20230404192315729.png" alt="image-20230404192315729"></p>
-<p><strong>正则表达式可以表达的：r = (a|b) ∗ abb</strong></p>
-<p>NFA直接读出上下文无关文法：</p>
-<p>为每个状态设置一个非终结符</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="./ch06/image-20230404192831967.png" alt="image-20230404192831967"></p>
-<p><strong>正则表达式不可以表达的：</strong></p>
-<p>L = {a<sup>n</sup>b<sup>n</sup> | n ≥ 0} 无法使用正则表达式描述。</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="./ch06/image-20230404193407163.png" alt="image-20230404193407163"></p>
-<p>m&gt;k，至少存在两个状态是同一个状态</p>
-<p>第一次遇到si和最后一次遇到si，消耗j个a</p>
+<p>&#x4E0A;&#x4E0B;&#x6587;&#x65E0;&#x5173;&#x6587;&#x6CD5;&#x6CA1;&#x6709;&#x5B9A;&#x4E49;&#x96C6;&#x5408;&#x51CF;&#x6CD5;</p>
+<p>S &#x2192; T | U</p>
+<p>T &#x2192; VaT | VaV</p>
+<p>U &#x2192; VbU | VbV</p>
+<p>V &#x2192; aVbV | bVaV | &#x3F5;</p>
+<h4 id="&#x4E3A;&#x4EC0;&#x4E48;&#x4E0D;&#x4F7F;&#x7528;&#x4F18;&#x96C5;&#x3001;&#x5F3A;&#x5927;&#x7684;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x63CF;&#x8FF0;&#x7A0B;&#x5E8F;&#x8BBE;&#x8BA1;&#x8BED;&#x8A00;&#x7684;&#x8BED;&#x6CD5;">&#x4E3A;&#x4EC0;&#x4E48;&#x4E0D;&#x4F7F;&#x7528;&#x4F18;&#x96C5;&#x3001;&#x5F3A;&#x5927;&#x7684;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x63CF;&#x8FF0;&#x7A0B;&#x5E8F;&#x8BBE;&#x8BA1;&#x8BED;&#x8A00;&#x7684;&#x8BED;&#x6CD5;?</h4>
+<p>&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x7684;&#x8868;&#x8FBE;&#x80FD;&#x529B;&#x4E25;&#x683C;&#x5F31;&#x4E8E;&#x4E0A;&#x4E0B;&#x6587;&#x65E0;&#x5173;&#x6587;&#x6CD5;</p>
+<p>&#x6BCF;&#x4E2A;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F; r &#x5BF9;&#x5E94;&#x7684;&#x8BED;&#x8A00; L&#xAE; &#x90FD;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x4E0A;&#x4E0B;&#x6587;&#x65E0;&#x5173;&#x6587;&#x6CD5;&#x6765;&#x63CF;&#x8FF0;</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/03/29/23-Compilers/ch06/ch06/image-20230404192315729.png" alt="image-20230404192315729"></p>
+<p><strong>&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x53EF;&#x4EE5;&#x8868;&#x8FBE;&#x7684;&#xFF1A;r = (a|b) &#x2217; abb</strong></p>
+<p>NFA&#x76F4;&#x63A5;&#x8BFB;&#x51FA;&#x4E0A;&#x4E0B;&#x6587;&#x65E0;&#x5173;&#x6587;&#x6CD5;&#xFF1A;</p>
+<p>&#x4E3A;&#x6BCF;&#x4E2A;&#x72B6;&#x6001;&#x8BBE;&#x7F6E;&#x4E00;&#x4E2A;&#x975E;&#x7EC8;&#x7ED3;&#x7B26;</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/03/29/23-Compilers/ch06/ch06/image-20230404192831967.png" alt="image-20230404192831967"></p>
+<p><strong>&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x4E0D;&#x53EF;&#x4EE5;&#x8868;&#x8FBE;&#x7684;&#xFF1A;</strong></p>
+<p>L = {a<sup>n</sup>b<sup>n</sup> | n &#x2265; 0} &#x65E0;&#x6CD5;&#x4F7F;&#x7528;&#x6B63;&#x5219;&#x8868;&#x8FBE;&#x5F0F;&#x63CF;&#x8FF0;&#x3002;</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/03/29/23-Compilers/ch06/ch06/image-20230404193407163.png" alt="image-20230404193407163"></p>
+<p>m&gt;k&#xFF0C;&#x81F3;&#x5C11;&#x5B58;&#x5728;&#x4E24;&#x4E2A;&#x72B6;&#x6001;&#x662F;&#x540C;&#x4E00;&#x4E2A;&#x72B6;&#x6001;</p>
+<p>&#x7B2C;&#x4E00;&#x6B21;&#x9047;&#x5230;si&#x548C;&#x6700;&#x540E;&#x4E00;&#x6B21;&#x9047;&#x5230;si&#xFF0C;&#x6D88;&#x8017;j&#x4E2A;a</p>
 <h5 id="Pumping-Lemma-for-Context-free-Language">Pumping Lemma for Context-free Language</h5>
-<p>L = {a <sup>n</sup> b<sup> n</sup> c<sup> n</sup> | n ≥ 0}无法用上下文无关文法表示，能用上下文敏感文法表示</p>
+<p>L = {a <sup>n</sup> b<sup> n</sup> c<sup> n</sup> | n &#x2265; 0}&#x65E0;&#x6CD5;&#x7528;&#x4E0A;&#x4E0B;&#x6587;&#x65E0;&#x5173;&#x6587;&#x6CD5;&#x8868;&#x793A;&#xFF0C;&#x80FD;&#x7528;&#x4E0A;&#x4E0B;&#x6587;&#x654F;&#x611F;&#x6587;&#x6CD5;&#x8868;&#x793A;</p>
 
 <div class="article-footer fs14">
     <section id="license">

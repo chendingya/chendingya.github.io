@@ -20,24 +20,24 @@
   <title>SE-II-软件工程与计算II重点整理(第16-19章) - Asimov's Blog</title>
 
   
-    <meta name="description" content="软件工程与计算II重点整理(第16-19章) | Blog of Samperson 1.如何实现可修改性、可扩展性、灵活性 教材263页需要进行接口和实现的分离： 通过接口和实现该接口的类；通过子类继承父类 注意：继承关系（A＋B）可能使得灵活性下降，因为父类接口的变化会影响子类，这时可以通过组合关系来解决。 利用抽象类机制实现可修改性和可扩展性：只要方法的接口保持不变，方法的实现代码是比较容易">
+    <meta name="description" content="&#x8F6F;&#x4EF6;&#x5DE5;&#x7A0B;&#x4E0E;&#x8BA1;&#x7B97;II&#x91CD;&#x70B9;&#x6574;&#x7406;(&#x7B2C;16-19&#x7AE0;) | Blog of Samperson 1.&#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x53EF;&#x4FEE;&#x6539;&#x6027;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SE-II-软件工程与计算II重点整理(第16-19章)">
 <meta property="og:url" content="https://chendingya.github.io/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC16-19%E7%AB%A0)/index.html">
 <meta property="og:site_name" content="Asimov&#39;s Blog">
-<meta property="og:description" content="软件工程与计算II重点整理(第16-19章) | Blog of Samperson 1.如何实现可修改性、可扩展性、灵活性 教材263页需要进行接口和实现的分离： 通过接口和实现该接口的类；通过子类继承父类 注意：继承关系（A＋B）可能使得灵活性下降，因为父类接口的变化会影响子类，这时可以通过组合关系来解决。 利用抽象类机制实现可修改性和可扩展性：只要方法的接口保持不变，方法的实现代码是比较容易">
+<meta property="og:description" content="&#x8F6F;&#x4EF6;&#x5DE5;&#x7A0B;&#x4E0E;&#x8BA1;&#x7B97;II&#x91CD;&#x70B9;&#x6574;&#x7406;(&#x7B2C;16-19&#x7AE0;) | Blog of Samperson 1.&#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x53EF;&#x4FEE;&#x6539;&#x6027;">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://chendingya.github.io/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC16-19%E7%AB%A0)/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC16-19%E7%AB%A0)/image-20230617141925891.png">
-<meta property="og:image" content="https://chendingya.github.io/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC16-19%E7%AB%A0)/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC16-19%E7%AB%A0)/image-20230617202242712.png">
-<meta property="og:image" content="https://chendingya.github.io/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC16-19%E7%AB%A0)/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC16-19%E7%AB%A0)/image-20230617202337800.png">
-<meta property="og:image" content="https://chendingya.github.io/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC16-19%E7%AB%A0)/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC16-19%E7%AB%A0)/image-20230617202312093.png">
-<meta property="og:image" content="https://chendingya.github.io/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC16-19%E7%AB%A0)/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC16-19%E7%AB%A0)/image-20230617202449538.png">
+<meta property="og:image" content="https://chendingya.github.io/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC16-19%E7%AB%A0)/image-20230617141925891.png">
+<meta property="og:image" content="https://chendingya.github.io/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC16-19%E7%AB%A0)/image-20230617202242712.png">
+<meta property="og:image" content="https://chendingya.github.io/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC16-19%E7%AB%A0)/image-20230617202337800.png">
+<meta property="og:image" content="https://chendingya.github.io/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC16-19%E7%AB%A0)/image-20230617202312093.png">
+<meta property="og:image" content="https://chendingya.github.io/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC16-19%E7%AB%A0)/image-20230617202449538.png">
 <meta property="article:published_time" content="2022-06-20T08:02:34.000Z">
 <meta property="article:modified_time" content="2023-09-17T08:07:52.043Z">
 <meta property="article:author" content="Asimov">
 <meta property="article:tag" content="软件工程与计算II">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://chendingya.github.io/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC16-19%E7%AB%A0)/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC16-19%E7%AB%A0)/image-20230617141925891.png">
+<meta name="twitter:image" content="https://chendingya.github.io/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC16-19%E7%AB%A0)/image-20230617141925891.png">
   
   
   
@@ -70,7 +70,7 @@
 <div class="widgets">
 
 
-<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2024/05/02/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%842/"><span class="title">系统架构2-质量属性Quality Attributes</span></a><a class="item title" href="/2024/05/01/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%841/"><span class="title">系统架构1-Intro</span></a><a class="item title" href="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/"><span class="title">软件测试-期末复习</span></a><a class="item title" href="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/"><span class="title">机器学习-期末复习</span></a><a class="item title" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/"><span class="title">服务端-ch17-k8s使用</span></a><a class="item title" href="/2023/12/30/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch16-%E5%AE%B9%E5%99%A8%E9%95%9C%E5%83%8F%E6%9E%84%E5%BB%BA%E4%B8%8E%E7%BC%96%E6%8E%92/"><span class="title">服务端-ch16-容器镜像构建与编排</span></a><a class="item title" href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/"><span class="title">服务端-ch15-Docker</span></a><a class="item title" href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/"><span class="title">服务端-ch14-Spring WebFlux</span></a><a class="item title" href="/2023/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch13-%E5%8F%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"><span class="title">服务端-ch13-反应式编程基础</span></a><a class="item title" href="/2023/11/23/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch12-Spring%20Integration/"><span class="title">服务端-ch12-Spring Integration</span></a></div></widget>
+<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2022/10/25/hello-world/"><span class="title">Hello World</span></a><a class="item title" href="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/"><span class="title">软件测试-期末复习</span></a><a class="item title" href="/2024/05/02/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%842/"><span class="title">系统架构2-质量属性Quality Attributes</span></a><a class="item title" href="/2024/05/01/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%841/"><span class="title">系统架构1-Intro</span></a><a class="item title" href="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/"><span class="title">机器学习-期末复习</span></a><a class="item title" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/"><span class="title">服务端-ch17-k8s使用</span></a><a class="item title" href="/2023/12/30/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch16-%E5%AE%B9%E5%99%A8%E9%95%9C%E5%83%8F%E6%9E%84%E5%BB%BA%E4%B8%8E%E7%BC%96%E6%8E%92/"><span class="title">服务端-ch16-容器镜像构建与编排</span></a><a class="item title" href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/"><span class="title">服务端-ch15-Docker</span></a><a class="item title" href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/"><span class="title">服务端-ch14-Spring WebFlux</span></a><a class="item title" href="/2023/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch13-%E5%8F%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"><span class="title">服务端-ch13-反应式编程基础</span></a></div></widget>
 </div>
 <footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/chendingya?tab=repositories" target="_blank" rel="external nofollow noopener noreferrer"><img no-lazy src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" / onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a></div></footer>
 </div></aside><div class="l_main" id="main">
@@ -94,150 +94,150 @@
     </div>
     
   </div>
-  </div><article class="md-text content"><h1>软件工程与计算II重点整理(第16-19章) | Blog of Samperson</h1>
-<h2 id="1-如何实现可修改性、可扩展性、灵活性">1.如何实现可修改性、可扩展性、灵活性</h2>
-<p>教材263页需要进行接口和实现的分离：</p>
-<p>通过接口和实现该接口的类；通过子类继承父类</p>
-<p>注意：继承关系（A＋B）可能使得灵活性下降，因为父类接口的变化会影响子类，这时可以通过组合关系来解决。</p>
-<p><strong>利用抽象类机制实现可修改性和可扩展性</strong>：只要方法的接口保持不变，方法的实现代码是比较容易修改的，不会产生连锁反应。通过简单修改创建新类的代码，就可以相当容易地做到扩展新的需求（不用修改大量与类方法调用相关的代码。</p>
-<p><strong>利用委托机制实现灵活性</strong>：</p>
-<p><strong>继承的缺陷：一旦一个对象被创建完成，它的类型就无法改变，这使得单纯利用继承机制无法实现灵活性（类型的动态改变）。</strong></p>
-<p>利用组合（委托）机制可以解决这个问题</p>
-<h2 id="2-策略模式">2.策略模式</h2>
-<p>设计分析：</p>
-<p>1）首先，可以把上下文和策略分割为不同的类实现不同的职责。上下文Context类负责通过执行策略实现自己职责；</p>
-<p>而策略类Strategy只负责复杂策略的实现。</p>
-<p>2）其次，上下文类和策略类之间的关系是<strong>用组合代替继承</strong>。</p>
-<p>3）最后，各种策略则在具体策略类(ConcreteStrategy)中提供，而向上下文类提供统一的策略接口。（客户通常会创建一个ConcreteStrategy对象，然后传递给Context来灵活配置Strategy接口的具体实现）</p>
-<p>应用场景：需要定义同一个行为的多种变体（可以是一个类的行为，也可是多个类的行为）</p>
-<p>一个类定义了很多行为，而且通过switch语句进行选择。</p>
-<p>相关原则：SRP，OCP+LSP+DIP，使用组合</p>
-<p>缺点：代码难以理解（违反显式原则）；需要考虑concreteStrategy由谁来创建的问题</p>
-<p>可修改性、可扩展性符合DIP原则的抽象类（继承）机制：</p>
-<p>通过定义抽象类与继承（实现）它的子类强制性地做到：接口与实现的分离，进而实现上述质量；</p>
-<p>强制性地使用抽象类起到接口的作用，强制性地使用子类起到实现的作用</p>
-<p>灵活性：组合（委托）机制，动态调整所委托的类，实现灵活性</p>
-<h2 id="3-抽象工厂模式">3.抽象工厂模式</h2>
-<p>学会区分简单工厂，工厂方法，和抽象工厂</p>
+  </div><article class="md-text content"><h1>&#x8F6F;&#x4EF6;&#x5DE5;&#x7A0B;&#x4E0E;&#x8BA1;&#x7B97;II&#x91CD;&#x70B9;&#x6574;&#x7406;(&#x7B2C;16-19&#x7AE0;) | Blog of Samperson</h1>
+<h2 id="1-&#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x53EF;&#x4FEE;&#x6539;&#x6027;&#x3001;&#x53EF;&#x6269;&#x5C55;&#x6027;&#x3001;&#x7075;&#x6D3B;&#x6027;">1.&#x5982;&#x4F55;&#x5B9E;&#x73B0;&#x53EF;&#x4FEE;&#x6539;&#x6027;&#x3001;&#x53EF;&#x6269;&#x5C55;&#x6027;&#x3001;&#x7075;&#x6D3B;&#x6027;</h2>
+<p>&#x6559;&#x6750;263&#x9875;&#x9700;&#x8981;&#x8FDB;&#x884C;&#x63A5;&#x53E3;&#x548C;&#x5B9E;&#x73B0;&#x7684;&#x5206;&#x79BB;&#xFF1A;</p>
+<p>&#x901A;&#x8FC7;&#x63A5;&#x53E3;&#x548C;&#x5B9E;&#x73B0;&#x8BE5;&#x63A5;&#x53E3;&#x7684;&#x7C7B;&#xFF1B;&#x901A;&#x8FC7;&#x5B50;&#x7C7B;&#x7EE7;&#x627F;&#x7236;&#x7C7B;</p>
+<p>&#x6CE8;&#x610F;&#xFF1A;&#x7EE7;&#x627F;&#x5173;&#x7CFB;&#xFF08;A&#xFF0B;B&#xFF09;&#x53EF;&#x80FD;&#x4F7F;&#x5F97;&#x7075;&#x6D3B;&#x6027;&#x4E0B;&#x964D;&#xFF0C;&#x56E0;&#x4E3A;&#x7236;&#x7C7B;&#x63A5;&#x53E3;&#x7684;&#x53D8;&#x5316;&#x4F1A;&#x5F71;&#x54CD;&#x5B50;&#x7C7B;&#xFF0C;&#x8FD9;&#x65F6;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x7EC4;&#x5408;&#x5173;&#x7CFB;&#x6765;&#x89E3;&#x51B3;&#x3002;</p>
+<p><strong>&#x5229;&#x7528;&#x62BD;&#x8C61;&#x7C7B;&#x673A;&#x5236;&#x5B9E;&#x73B0;&#x53EF;&#x4FEE;&#x6539;&#x6027;&#x548C;&#x53EF;&#x6269;&#x5C55;&#x6027;</strong>&#xFF1A;&#x53EA;&#x8981;&#x65B9;&#x6CD5;&#x7684;&#x63A5;&#x53E3;&#x4FDD;&#x6301;&#x4E0D;&#x53D8;&#xFF0C;&#x65B9;&#x6CD5;&#x7684;&#x5B9E;&#x73B0;&#x4EE3;&#x7801;&#x662F;&#x6BD4;&#x8F83;&#x5BB9;&#x6613;&#x4FEE;&#x6539;&#x7684;&#xFF0C;&#x4E0D;&#x4F1A;&#x4EA7;&#x751F;&#x8FDE;&#x9501;&#x53CD;&#x5E94;&#x3002;&#x901A;&#x8FC7;&#x7B80;&#x5355;&#x4FEE;&#x6539;&#x521B;&#x5EFA;&#x65B0;&#x7C7B;&#x7684;&#x4EE3;&#x7801;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x76F8;&#x5F53;&#x5BB9;&#x6613;&#x5730;&#x505A;&#x5230;&#x6269;&#x5C55;&#x65B0;&#x7684;&#x9700;&#x6C42;&#xFF08;&#x4E0D;&#x7528;&#x4FEE;&#x6539;&#x5927;&#x91CF;&#x4E0E;&#x7C7B;&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x76F8;&#x5173;&#x7684;&#x4EE3;&#x7801;&#x3002;</p>
+<p><strong>&#x5229;&#x7528;&#x59D4;&#x6258;&#x673A;&#x5236;&#x5B9E;&#x73B0;&#x7075;&#x6D3B;&#x6027;</strong>&#xFF1A;</p>
+<p><strong>&#x7EE7;&#x627F;&#x7684;&#x7F3A;&#x9677;&#xFF1A;&#x4E00;&#x65E6;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#x88AB;&#x521B;&#x5EFA;&#x5B8C;&#x6210;&#xFF0C;&#x5B83;&#x7684;&#x7C7B;&#x578B;&#x5C31;&#x65E0;&#x6CD5;&#x6539;&#x53D8;&#xFF0C;&#x8FD9;&#x4F7F;&#x5F97;&#x5355;&#x7EAF;&#x5229;&#x7528;&#x7EE7;&#x627F;&#x673A;&#x5236;&#x65E0;&#x6CD5;&#x5B9E;&#x73B0;&#x7075;&#x6D3B;&#x6027;&#xFF08;&#x7C7B;&#x578B;&#x7684;&#x52A8;&#x6001;&#x6539;&#x53D8;&#xFF09;&#x3002;</strong></p>
+<p>&#x5229;&#x7528;&#x7EC4;&#x5408;&#xFF08;&#x59D4;&#x6258;&#xFF09;&#x673A;&#x5236;&#x53EF;&#x4EE5;&#x89E3;&#x51B3;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;</p>
+<h2 id="2-&#x7B56;&#x7565;&#x6A21;&#x5F0F;">2.&#x7B56;&#x7565;&#x6A21;&#x5F0F;</h2>
+<p>&#x8BBE;&#x8BA1;&#x5206;&#x6790;&#xFF1A;</p>
+<p>1&#xFF09;&#x9996;&#x5148;&#xFF0C;&#x53EF;&#x4EE5;&#x628A;&#x4E0A;&#x4E0B;&#x6587;&#x548C;&#x7B56;&#x7565;&#x5206;&#x5272;&#x4E3A;&#x4E0D;&#x540C;&#x7684;&#x7C7B;&#x5B9E;&#x73B0;&#x4E0D;&#x540C;&#x7684;&#x804C;&#x8D23;&#x3002;&#x4E0A;&#x4E0B;&#x6587;Context&#x7C7B;&#x8D1F;&#x8D23;&#x901A;&#x8FC7;&#x6267;&#x884C;&#x7B56;&#x7565;&#x5B9E;&#x73B0;&#x81EA;&#x5DF1;&#x804C;&#x8D23;&#xFF1B;</p>
+<p>&#x800C;&#x7B56;&#x7565;&#x7C7B;Strategy&#x53EA;&#x8D1F;&#x8D23;&#x590D;&#x6742;&#x7B56;&#x7565;&#x7684;&#x5B9E;&#x73B0;&#x3002;</p>
+<p>2&#xFF09;&#x5176;&#x6B21;&#xFF0C;&#x4E0A;&#x4E0B;&#x6587;&#x7C7B;&#x548C;&#x7B56;&#x7565;&#x7C7B;&#x4E4B;&#x95F4;&#x7684;&#x5173;&#x7CFB;&#x662F;<strong>&#x7528;&#x7EC4;&#x5408;&#x4EE3;&#x66FF;&#x7EE7;&#x627F;</strong>&#x3002;</p>
+<p>3&#xFF09;&#x6700;&#x540E;&#xFF0C;&#x5404;&#x79CD;&#x7B56;&#x7565;&#x5219;&#x5728;&#x5177;&#x4F53;&#x7B56;&#x7565;&#x7C7B;(ConcreteStrategy)&#x4E2D;&#x63D0;&#x4F9B;&#xFF0C;&#x800C;&#x5411;&#x4E0A;&#x4E0B;&#x6587;&#x7C7B;&#x63D0;&#x4F9B;&#x7EDF;&#x4E00;&#x7684;&#x7B56;&#x7565;&#x63A5;&#x53E3;&#x3002;&#xFF08;&#x5BA2;&#x6237;&#x901A;&#x5E38;&#x4F1A;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;ConcreteStrategy&#x5BF9;&#x8C61;&#xFF0C;&#x7136;&#x540E;&#x4F20;&#x9012;&#x7ED9;Context&#x6765;&#x7075;&#x6D3B;&#x914D;&#x7F6E;Strategy&#x63A5;&#x53E3;&#x7684;&#x5177;&#x4F53;&#x5B9E;&#x73B0;&#xFF09;</p>
+<p>&#x5E94;&#x7528;&#x573A;&#x666F;&#xFF1A;&#x9700;&#x8981;&#x5B9A;&#x4E49;&#x540C;&#x4E00;&#x4E2A;&#x884C;&#x4E3A;&#x7684;&#x591A;&#x79CD;&#x53D8;&#x4F53;&#xFF08;&#x53EF;&#x4EE5;&#x662F;&#x4E00;&#x4E2A;&#x7C7B;&#x7684;&#x884C;&#x4E3A;&#xFF0C;&#x4E5F;&#x53EF;&#x662F;&#x591A;&#x4E2A;&#x7C7B;&#x7684;&#x884C;&#x4E3A;&#xFF09;</p>
+<p>&#x4E00;&#x4E2A;&#x7C7B;&#x5B9A;&#x4E49;&#x4E86;&#x5F88;&#x591A;&#x884C;&#x4E3A;&#xFF0C;&#x800C;&#x4E14;&#x901A;&#x8FC7;switch&#x8BED;&#x53E5;&#x8FDB;&#x884C;&#x9009;&#x62E9;&#x3002;</p>
+<p>&#x76F8;&#x5173;&#x539F;&#x5219;&#xFF1A;SRP&#xFF0C;OCP+LSP+DIP&#xFF0C;&#x4F7F;&#x7528;&#x7EC4;&#x5408;</p>
+<p>&#x7F3A;&#x70B9;&#xFF1A;&#x4EE3;&#x7801;&#x96BE;&#x4EE5;&#x7406;&#x89E3;&#xFF08;&#x8FDD;&#x53CD;&#x663E;&#x5F0F;&#x539F;&#x5219;&#xFF09;&#xFF1B;&#x9700;&#x8981;&#x8003;&#x8651;concreteStrategy&#x7531;&#x8C01;&#x6765;&#x521B;&#x5EFA;&#x7684;&#x95EE;&#x9898;</p>
+<p>&#x53EF;&#x4FEE;&#x6539;&#x6027;&#x3001;&#x53EF;&#x6269;&#x5C55;&#x6027;&#x7B26;&#x5408;DIP&#x539F;&#x5219;&#x7684;&#x62BD;&#x8C61;&#x7C7B;&#xFF08;&#x7EE7;&#x627F;&#xFF09;&#x673A;&#x5236;&#xFF1A;</p>
+<p>&#x901A;&#x8FC7;&#x5B9A;&#x4E49;&#x62BD;&#x8C61;&#x7C7B;&#x4E0E;&#x7EE7;&#x627F;&#xFF08;&#x5B9E;&#x73B0;&#xFF09;&#x5B83;&#x7684;&#x5B50;&#x7C7B;&#x5F3A;&#x5236;&#x6027;&#x5730;&#x505A;&#x5230;&#xFF1A;&#x63A5;&#x53E3;&#x4E0E;&#x5B9E;&#x73B0;&#x7684;&#x5206;&#x79BB;&#xFF0C;&#x8FDB;&#x800C;&#x5B9E;&#x73B0;&#x4E0A;&#x8FF0;&#x8D28;&#x91CF;&#xFF1B;</p>
+<p>&#x5F3A;&#x5236;&#x6027;&#x5730;&#x4F7F;&#x7528;&#x62BD;&#x8C61;&#x7C7B;&#x8D77;&#x5230;&#x63A5;&#x53E3;&#x7684;&#x4F5C;&#x7528;&#xFF0C;&#x5F3A;&#x5236;&#x6027;&#x5730;&#x4F7F;&#x7528;&#x5B50;&#x7C7B;&#x8D77;&#x5230;&#x5B9E;&#x73B0;&#x7684;&#x4F5C;&#x7528;</p>
+<p>&#x7075;&#x6D3B;&#x6027;&#xFF1A;&#x7EC4;&#x5408;&#xFF08;&#x59D4;&#x6258;&#xFF09;&#x673A;&#x5236;&#xFF0C;&#x52A8;&#x6001;&#x8C03;&#x6574;&#x6240;&#x59D4;&#x6258;&#x7684;&#x7C7B;&#xFF0C;&#x5B9E;&#x73B0;&#x7075;&#x6D3B;&#x6027;</p>
+<h2 id="3-&#x62BD;&#x8C61;&#x5DE5;&#x5382;&#x6A21;&#x5F0F;">3.&#x62BD;&#x8C61;&#x5DE5;&#x5382;&#x6A21;&#x5F0F;</h2>
+<p>&#x5B66;&#x4F1A;&#x533A;&#x5206;&#x7B80;&#x5355;&#x5DE5;&#x5382;&#xFF0C;&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#xFF0C;&#x548C;&#x62BD;&#x8C61;&#x5DE5;&#x5382;</p>
 <ul>
-<li>简单工厂：使用一个工厂对象，通过if－else等方式实例化需要的对象</li>
-<li>工厂方法：一个抽象方法creator（可以在原来的类中），使用子类继承creator所在的类通过实现creator方法来实例化需要的对象（实例化推迟到子类）。</li>
-<li>抽象工厂：为应对灵活性要求，提供2套接口：**一是表现出稳定的工厂行为的工厂接口，二是表现出稳定产品行为的产品接口。**从而，<strong>实现了工厂多态和产品多态</strong>。需要的是产品组合。</li>
+<li>&#x7B80;&#x5355;&#x5DE5;&#x5382;&#xFF1A;&#x4F7F;&#x7528;&#x4E00;&#x4E2A;&#x5DE5;&#x5382;&#x5BF9;&#x8C61;&#xFF0C;&#x901A;&#x8FC7;if&#xFF0D;else&#x7B49;&#x65B9;&#x5F0F;&#x5B9E;&#x4F8B;&#x5316;&#x9700;&#x8981;&#x7684;&#x5BF9;&#x8C61;</li>
+<li>&#x5DE5;&#x5382;&#x65B9;&#x6CD5;&#xFF1A;&#x4E00;&#x4E2A;&#x62BD;&#x8C61;&#x65B9;&#x6CD5;creator&#xFF08;&#x53EF;&#x4EE5;&#x5728;&#x539F;&#x6765;&#x7684;&#x7C7B;&#x4E2D;&#xFF09;&#xFF0C;&#x4F7F;&#x7528;&#x5B50;&#x7C7B;&#x7EE7;&#x627F;creator&#x6240;&#x5728;&#x7684;&#x7C7B;&#x901A;&#x8FC7;&#x5B9E;&#x73B0;creator&#x65B9;&#x6CD5;&#x6765;&#x5B9E;&#x4F8B;&#x5316;&#x9700;&#x8981;&#x7684;&#x5BF9;&#x8C61;&#xFF08;&#x5B9E;&#x4F8B;&#x5316;&#x63A8;&#x8FDF;&#x5230;&#x5B50;&#x7C7B;&#xFF09;&#x3002;</li>
+<li>&#x62BD;&#x8C61;&#x5DE5;&#x5382;&#xFF1A;&#x4E3A;&#x5E94;&#x5BF9;&#x7075;&#x6D3B;&#x6027;&#x8981;&#x6C42;&#xFF0C;&#x63D0;&#x4F9B;2&#x5957;&#x63A5;&#x53E3;&#xFF1A;**&#x4E00;&#x662F;&#x8868;&#x73B0;&#x51FA;&#x7A33;&#x5B9A;&#x7684;&#x5DE5;&#x5382;&#x884C;&#x4E3A;&#x7684;&#x5DE5;&#x5382;&#x63A5;&#x53E3;&#xFF0C;&#x4E8C;&#x662F;&#x8868;&#x73B0;&#x51FA;&#x7A33;&#x5B9A;&#x4EA7;&#x54C1;&#x884C;&#x4E3A;&#x7684;&#x4EA7;&#x54C1;&#x63A5;&#x53E3;&#x3002;**&#x4ECE;&#x800C;&#xFF0C;<strong>&#x5B9E;&#x73B0;&#x4E86;&#x5DE5;&#x5382;&#x591A;&#x6001;&#x548C;&#x4EA7;&#x54C1;&#x591A;&#x6001;</strong>&#x3002;&#x9700;&#x8981;&#x7684;&#x662F;&#x4EA7;&#x54C1;&#x7EC4;&#x5408;&#x3002;</li>
 </ul>
-<p>有一个抽象工厂，该抽象工厂有所有种类产品的create()，</p>
-<p>不同的产品组合拥有不同的具体工厂（继承抽象工厂，实现所有的create()）.</p>
-<p>（1）相关原则：<strong>不要重复，封装，OCP＋LSP+DIP。可能违法了显式原则</strong>。</p>
-<p>（2）应用场景：抽象工厂模式可以帮助系统独立于如何对产品的创建、构成、表现。抽象工厂模式可以让系统灵活配置拥有某多个产品族中的某一个。</p>
-<p>一个产品族的产品应该被一起使用，抽象工厂模式可以强调这个限制。</p>
-<p>如果你想提供一个产品的库，抽象工厂模式可以帮助暴露该库的接口，而不是实现。</p>
-<p>（3）应用注意点：<strong>隔离了客户和具体实现</strong>。客户可见的都是抽象的接口。</p>
-<p><strong>使得对产品的配置变得更加灵活。可以使得产品之间有一定一致性。</strong></p>
-<p>同一类产品可以很容易一起使用。但是<strong>限制是对于新的产品的类型的支持是比较困难</strong>。</p>
-<p><strong>抽象工厂的接口一旦定义好，就不容易变更了。</strong></p>
-<p>而这个场景的“代价”，或者是“限制”，是一个工厂中具体产品的种类是稳定的。</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC16-19%E7%AB%A0)/image-20230617141925891.png" alt=""></p>
-<h2 id="4-单件模式">4.单件模式</h2>
-<p>为了实现只创建一个对象，首先要让类的构造方法变为私有的；</p>
-<p>然后只能通过getInstance方法获得Singleton类型的对象的引用。</p>
-<p>相关原则：封装，而且使用了全局变量</p>
-<h2 id="5-迭代器模式">5.迭代器模式</h2>
-<p><strong>通过Aggregate创建Iterator对于遍历这件事情，主要有2个行为：</strong></p>
-<p><strong>1）是否有下一个元素；</strong></p>
-<p><strong>2）得到下一个元素。</strong></p>
-<p>所以，我们<strong>设计迭代器接口hasNext()和next()</strong>，分别对应前面2个行为。有了这两个接口，就可以完成遍历操作。</p>
-<p>迭代器提供的方法只提供了对集合的访问的方法，却屏蔽了对集合修改的方法，这样就对我们把集合作为参数可以做到对集合的“值传递”的效果。</p>
-<p><strong>体现的原则：针对接口编程；SRP; ISP（接口分离）；OCP＋LSP＋DIP</strong> 开闭原则接口分隔原则 依赖倒置原则</p>
-<p>应用：在同一个集合上进行多种方式的遍历</p>
+<p>&#x6709;&#x4E00;&#x4E2A;&#x62BD;&#x8C61;&#x5DE5;&#x5382;&#xFF0C;&#x8BE5;&#x62BD;&#x8C61;&#x5DE5;&#x5382;&#x6709;&#x6240;&#x6709;&#x79CD;&#x7C7B;&#x4EA7;&#x54C1;&#x7684;create()&#xFF0C;</p>
+<p>&#x4E0D;&#x540C;&#x7684;&#x4EA7;&#x54C1;&#x7EC4;&#x5408;&#x62E5;&#x6709;&#x4E0D;&#x540C;&#x7684;&#x5177;&#x4F53;&#x5DE5;&#x5382;&#xFF08;&#x7EE7;&#x627F;&#x62BD;&#x8C61;&#x5DE5;&#x5382;&#xFF0C;&#x5B9E;&#x73B0;&#x6240;&#x6709;&#x7684;create()&#xFF09;.</p>
+<p>&#xFF08;1&#xFF09;&#x76F8;&#x5173;&#x539F;&#x5219;&#xFF1A;<strong>&#x4E0D;&#x8981;&#x91CD;&#x590D;&#xFF0C;&#x5C01;&#x88C5;&#xFF0C;OCP&#xFF0B;LSP+DIP&#x3002;&#x53EF;&#x80FD;&#x8FDD;&#x6CD5;&#x4E86;&#x663E;&#x5F0F;&#x539F;&#x5219;</strong>&#x3002;</p>
+<p>&#xFF08;2&#xFF09;&#x5E94;&#x7528;&#x573A;&#x666F;&#xFF1A;&#x62BD;&#x8C61;&#x5DE5;&#x5382;&#x6A21;&#x5F0F;&#x53EF;&#x4EE5;&#x5E2E;&#x52A9;&#x7CFB;&#x7EDF;&#x72EC;&#x7ACB;&#x4E8E;&#x5982;&#x4F55;&#x5BF9;&#x4EA7;&#x54C1;&#x7684;&#x521B;&#x5EFA;&#x3001;&#x6784;&#x6210;&#x3001;&#x8868;&#x73B0;&#x3002;&#x62BD;&#x8C61;&#x5DE5;&#x5382;&#x6A21;&#x5F0F;&#x53EF;&#x4EE5;&#x8BA9;&#x7CFB;&#x7EDF;&#x7075;&#x6D3B;&#x914D;&#x7F6E;&#x62E5;&#x6709;&#x67D0;&#x591A;&#x4E2A;&#x4EA7;&#x54C1;&#x65CF;&#x4E2D;&#x7684;&#x67D0;&#x4E00;&#x4E2A;&#x3002;</p>
+<p>&#x4E00;&#x4E2A;&#x4EA7;&#x54C1;&#x65CF;&#x7684;&#x4EA7;&#x54C1;&#x5E94;&#x8BE5;&#x88AB;&#x4E00;&#x8D77;&#x4F7F;&#x7528;&#xFF0C;&#x62BD;&#x8C61;&#x5DE5;&#x5382;&#x6A21;&#x5F0F;&#x53EF;&#x4EE5;&#x5F3A;&#x8C03;&#x8FD9;&#x4E2A;&#x9650;&#x5236;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x4F60;&#x60F3;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;&#x4EA7;&#x54C1;&#x7684;&#x5E93;&#xFF0C;&#x62BD;&#x8C61;&#x5DE5;&#x5382;&#x6A21;&#x5F0F;&#x53EF;&#x4EE5;&#x5E2E;&#x52A9;&#x66B4;&#x9732;&#x8BE5;&#x5E93;&#x7684;&#x63A5;&#x53E3;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x5B9E;&#x73B0;&#x3002;</p>
+<p>&#xFF08;3&#xFF09;&#x5E94;&#x7528;&#x6CE8;&#x610F;&#x70B9;&#xFF1A;<strong>&#x9694;&#x79BB;&#x4E86;&#x5BA2;&#x6237;&#x548C;&#x5177;&#x4F53;&#x5B9E;&#x73B0;</strong>&#x3002;&#x5BA2;&#x6237;&#x53EF;&#x89C1;&#x7684;&#x90FD;&#x662F;&#x62BD;&#x8C61;&#x7684;&#x63A5;&#x53E3;&#x3002;</p>
+<p><strong>&#x4F7F;&#x5F97;&#x5BF9;&#x4EA7;&#x54C1;&#x7684;&#x914D;&#x7F6E;&#x53D8;&#x5F97;&#x66F4;&#x52A0;&#x7075;&#x6D3B;&#x3002;&#x53EF;&#x4EE5;&#x4F7F;&#x5F97;&#x4EA7;&#x54C1;&#x4E4B;&#x95F4;&#x6709;&#x4E00;&#x5B9A;&#x4E00;&#x81F4;&#x6027;&#x3002;</strong></p>
+<p>&#x540C;&#x4E00;&#x7C7B;&#x4EA7;&#x54C1;&#x53EF;&#x4EE5;&#x5F88;&#x5BB9;&#x6613;&#x4E00;&#x8D77;&#x4F7F;&#x7528;&#x3002;&#x4F46;&#x662F;<strong>&#x9650;&#x5236;&#x662F;&#x5BF9;&#x4E8E;&#x65B0;&#x7684;&#x4EA7;&#x54C1;&#x7684;&#x7C7B;&#x578B;&#x7684;&#x652F;&#x6301;&#x662F;&#x6BD4;&#x8F83;&#x56F0;&#x96BE;</strong>&#x3002;</p>
+<p><strong>&#x62BD;&#x8C61;&#x5DE5;&#x5382;&#x7684;&#x63A5;&#x53E3;&#x4E00;&#x65E6;&#x5B9A;&#x4E49;&#x597D;&#xFF0C;&#x5C31;&#x4E0D;&#x5BB9;&#x6613;&#x53D8;&#x66F4;&#x4E86;&#x3002;</strong></p>
+<p>&#x800C;&#x8FD9;&#x4E2A;&#x573A;&#x666F;&#x7684;&#x201C;&#x4EE3;&#x4EF7;&#x201D;&#xFF0C;&#x6216;&#x8005;&#x662F;&#x201C;&#x9650;&#x5236;&#x201D;&#xFF0C;&#x662F;&#x4E00;&#x4E2A;&#x5DE5;&#x5382;&#x4E2D;&#x5177;&#x4F53;&#x4EA7;&#x54C1;&#x7684;&#x79CD;&#x7C7B;&#x662F;&#x7A33;&#x5B9A;&#x7684;&#x3002;</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC16-19%E7%AB%A0)/image-20230617141925891.png" alt></p>
+<h2 id="4-&#x5355;&#x4EF6;&#x6A21;&#x5F0F;">4.&#x5355;&#x4EF6;&#x6A21;&#x5F0F;</h2>
+<p>&#x4E3A;&#x4E86;&#x5B9E;&#x73B0;&#x53EA;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x9996;&#x5148;&#x8981;&#x8BA9;&#x7C7B;&#x7684;&#x6784;&#x9020;&#x65B9;&#x6CD5;&#x53D8;&#x4E3A;&#x79C1;&#x6709;&#x7684;&#xFF1B;</p>
+<p>&#x7136;&#x540E;&#x53EA;&#x80FD;&#x901A;&#x8FC7;getInstance&#x65B9;&#x6CD5;&#x83B7;&#x5F97;Singleton&#x7C7B;&#x578B;&#x7684;&#x5BF9;&#x8C61;&#x7684;&#x5F15;&#x7528;&#x3002;</p>
+<p>&#x76F8;&#x5173;&#x539F;&#x5219;&#xFF1A;&#x5C01;&#x88C5;&#xFF0C;&#x800C;&#x4E14;&#x4F7F;&#x7528;&#x4E86;&#x5168;&#x5C40;&#x53D8;&#x91CF;</p>
+<h2 id="5-&#x8FED;&#x4EE3;&#x5668;&#x6A21;&#x5F0F;">5.&#x8FED;&#x4EE3;&#x5668;&#x6A21;&#x5F0F;</h2>
+<p><strong>&#x901A;&#x8FC7;Aggregate&#x521B;&#x5EFA;Iterator&#x5BF9;&#x4E8E;&#x904D;&#x5386;&#x8FD9;&#x4EF6;&#x4E8B;&#x60C5;&#xFF0C;&#x4E3B;&#x8981;&#x6709;2&#x4E2A;&#x884C;&#x4E3A;&#xFF1A;</strong></p>
+<p><strong>1&#xFF09;&#x662F;&#x5426;&#x6709;&#x4E0B;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#xFF1B;</strong></p>
+<p><strong>2&#xFF09;&#x5F97;&#x5230;&#x4E0B;&#x4E00;&#x4E2A;&#x5143;&#x7D20;&#x3002;</strong></p>
+<p>&#x6240;&#x4EE5;&#xFF0C;&#x6211;&#x4EEC;<strong>&#x8BBE;&#x8BA1;&#x8FED;&#x4EE3;&#x5668;&#x63A5;&#x53E3;hasNext()&#x548C;next()</strong>&#xFF0C;&#x5206;&#x522B;&#x5BF9;&#x5E94;&#x524D;&#x9762;2&#x4E2A;&#x884C;&#x4E3A;&#x3002;&#x6709;&#x4E86;&#x8FD9;&#x4E24;&#x4E2A;&#x63A5;&#x53E3;&#xFF0C;&#x5C31;&#x53EF;&#x4EE5;&#x5B8C;&#x6210;&#x904D;&#x5386;&#x64CD;&#x4F5C;&#x3002;</p>
+<p>&#x8FED;&#x4EE3;&#x5668;&#x63D0;&#x4F9B;&#x7684;&#x65B9;&#x6CD5;&#x53EA;&#x63D0;&#x4F9B;&#x4E86;&#x5BF9;&#x96C6;&#x5408;&#x7684;&#x8BBF;&#x95EE;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x5374;&#x5C4F;&#x853D;&#x4E86;&#x5BF9;&#x96C6;&#x5408;&#x4FEE;&#x6539;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x8FD9;&#x6837;&#x5C31;&#x5BF9;&#x6211;&#x4EEC;&#x628A;&#x96C6;&#x5408;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x53EF;&#x4EE5;&#x505A;&#x5230;&#x5BF9;&#x96C6;&#x5408;&#x7684;&#x201C;&#x503C;&#x4F20;&#x9012;&#x201D;&#x7684;&#x6548;&#x679C;&#x3002;</p>
+<p><strong>&#x4F53;&#x73B0;&#x7684;&#x539F;&#x5219;&#xFF1A;&#x9488;&#x5BF9;&#x63A5;&#x53E3;&#x7F16;&#x7A0B;&#xFF1B;SRP; ISP&#xFF08;&#x63A5;&#x53E3;&#x5206;&#x79BB;&#xFF09;&#xFF1B;OCP&#xFF0B;LSP&#xFF0B;DIP</strong> &#x5F00;&#x95ED;&#x539F;&#x5219;&#x63A5;&#x53E3;&#x5206;&#x9694;&#x539F;&#x5219; &#x4F9D;&#x8D56;&#x5012;&#x7F6E;&#x539F;&#x5219;</p>
+<p>&#x5E94;&#x7528;&#xFF1A;&#x5728;&#x540C;&#x4E00;&#x4E2A;&#x96C6;&#x5408;&#x4E0A;&#x8FDB;&#x884C;&#x591A;&#x79CD;&#x65B9;&#x5F0F;&#x7684;&#x904D;&#x5386;</p>
 <blockquote>
-<p>【题型】给出场景，应用设计模式写出代码<br>
-【题型】给出代码，要求用设计模式改写</p>
+<p>&#x3010;&#x9898;&#x578B;&#x3011;&#x7ED9;&#x51FA;&#x573A;&#x666F;&#xFF0C;&#x5E94;&#x7528;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x5199;&#x51FA;&#x4EE3;&#x7801;<br>
+&#x3010;&#x9898;&#x578B;&#x3011;&#x7ED9;&#x51FA;&#x4EE3;&#x7801;&#xFF0C;&#x8981;&#x6C42;&#x7528;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x6539;&#x5199;</p>
 </blockquote>
 <blockquote>
-<p>信息隐藏——策略模式、单件模式<br>
-对象创建——抽象工厂、单件模式<br>
-接口编程——迭代器模式</p>
+<p>&#x4FE1;&#x606F;&#x9690;&#x85CF;&#x2014;&#x2014;&#x7B56;&#x7565;&#x6A21;&#x5F0F;&#x3001;&#x5355;&#x4EF6;&#x6A21;&#x5F0F;<br>
+&#x5BF9;&#x8C61;&#x521B;&#x5EFA;&#x2014;&#x2014;&#x62BD;&#x8C61;&#x5DE5;&#x5382;&#x3001;&#x5355;&#x4EF6;&#x6A21;&#x5F0F;<br>
+&#x63A5;&#x53E3;&#x7F16;&#x7A0B;&#x2014;&#x2014;&#x8FED;&#x4EE3;&#x5668;&#x6A21;&#x5F0F;</p>
 </blockquote>
 <blockquote>
-<p>策略模式——减少耦合、依赖倒置<br>
-抽象工厂——职责抽象、接口重用<br>
-单件模式——职责抽象<br>
-迭代器模式——减少耦合、依赖倒置</p>
+<p>&#x7B56;&#x7565;&#x6A21;&#x5F0F;&#x2014;&#x2014;&#x51CF;&#x5C11;&#x8026;&#x5408;&#x3001;&#x4F9D;&#x8D56;&#x5012;&#x7F6E;<br>
+&#x62BD;&#x8C61;&#x5DE5;&#x5382;&#x2014;&#x2014;&#x804C;&#x8D23;&#x62BD;&#x8C61;&#x3001;&#x63A5;&#x53E3;&#x91CD;&#x7528;<br>
+&#x5355;&#x4EF6;&#x6A21;&#x5F0F;&#x2014;&#x2014;&#x804C;&#x8D23;&#x62BD;&#x8C61;<br>
+&#x8FED;&#x4EE3;&#x5668;&#x6A21;&#x5F0F;&#x2014;&#x2014;&#x51CF;&#x5C11;&#x8026;&#x5408;&#x3001;&#x4F9D;&#x8D56;&#x5012;&#x7F6E;</p>
 </blockquote>
-<h2 id="第17、18章-软件构造和代码设计">第17、18章 软件构造和代码设计</h2>
-<h2 id="1-构造包含的活动">1.构造包含的活动</h2>
-<p>详细设计；编程；测试；调试；代码评审；集成与构建；构造管理。</p>
-<h2 id="2-名词解释">2.名词解释</h2>
-<p>（1）重构：修改软件系统的严谨方法，它在不改变代码外部表现的情况下改进其内部结构</p>
-<p>（2）测试驱动开发：测试驱动开发要求程序员在编写一段代码之前，<strong>优先完成该段代码的测试代码。测试代码之后，程序员再编写程序代</strong>码，并在编程中重复执行测试代码，以验证程序代码的正确性。</p>
-<p>（3）结对编程：<strong>两个程序员挨着坐在一起</strong>，共同协作进行软件构造活动</p>
-<h2 id="3-给定代码段示例，对其进行改进或发现其中的问题">3.给定代码段示例，对其进行改进或发现其中的问题</h2>
-<p>复杂决策：使用有意义的名称封装复杂决策，</p>
-<p>例如对于决策“ If( (id&gt;0) &amp;&amp; (id&lt;=MAX_ID))”，可以封装为“If ( isIdValid(id) )”，</p>
-<p>方法isIdValid(id)的内容为 “return ((id&gt;0) &amp;&amp; (id&lt;=MAX_ID) )”</p>
-<p>数据使用</p>
-<p>（1）<strong>不要将变量应用于与命名不相符的目的</strong>。例如使用变量total表示销售的总价，而不是临时客串for循环的计数器。</p>
-<p>（2）<strong>不要将单个变量用于多个目的</strong>。在代码的前半部分使用total表示销售总价，在代码后半部分不再需要“销售总价”信息时再用total客串for循环的计数器也是不允许的。</p>
-<p>（3）<strong>限制全局变量的使用</strong>，如果不得不使用全局变量，就明确注释全局变量的声明和使用处。（4）不要使用突兀的数字与字符，例如15（天）、“MALE”等，要将它们定义为常量或变量后使用。</p>
-<p><strong>明确依赖关系</strong>：类之间模糊的依赖关系会影响到代码的理解与修改，非常容易导致修改时产生未预期的连锁反应。对于这些模糊的依赖关系，需要进行明确的注释</p>
-<h2 id="4-契约式设计">4.契约式设计</h2>
-<p>契约式设计又称断言式设计，它的基本思想是：</p>
-<p><strong>如果一个函数或方法，在前置条件满足的情况下开始执行，完成后能够满足后置条件，那么这个函数就是正确、可靠的</strong>。</p>
-<p>见书上示例P308</p>
-<p>（1）异常</p>
-<p>（2）断言：assert Expression1( : Expression2)</p>
-<p>Expression1 是一个布尔表达式，在契约式设计中可以将其设置为前置条件或者后置条件；</p>
-<p>Expression2 是一个值，各种常见类型都可以；</p>
-<p>如果Expression1 为true，断言不影响程序执行；如果Expression1 为false，断言抛出AssertionError 异常，如果存在Expression2 就使用它作为参数构造AssertionError。</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC16-19%E7%AB%A0)/image-20230617202242712.png" alt=""></p>
-<h2 id="5-防御式编程">5.防御式编程</h2>
-<p>优点：<strong>显著提高可靠性</strong></p>
-<p>防御式编程的基本思想是：在一个方法与其他方法、操作系统、硬件等外界环境交互时，不能确保外界都是正确的，所以要<strong>在外界发生错误时，保护方法内部不受损害</strong>。</p>
-<p>与契约式设计有共同点，又有很大的差异。</p>
-<p>共同点是他们都要检查输入参数的有效性。</p>
-<p>差异性是防御式编程将所有与外界的交互都纳入防御范围，如用户输入的有效性、待读写文件的有效性、调用的其他方法返回值的有效值……</p>
-<p><strong>编程方式：异常与断言。</strong></p>
+<h2 id="&#x7B2C;17&#x3001;18&#x7AE0;-&#x8F6F;&#x4EF6;&#x6784;&#x9020;&#x548C;&#x4EE3;&#x7801;&#x8BBE;&#x8BA1;">&#x7B2C;17&#x3001;18&#x7AE0; &#x8F6F;&#x4EF6;&#x6784;&#x9020;&#x548C;&#x4EE3;&#x7801;&#x8BBE;&#x8BA1;</h2>
+<h2 id="1-&#x6784;&#x9020;&#x5305;&#x542B;&#x7684;&#x6D3B;&#x52A8;">1.&#x6784;&#x9020;&#x5305;&#x542B;&#x7684;&#x6D3B;&#x52A8;</h2>
+<p>&#x8BE6;&#x7EC6;&#x8BBE;&#x8BA1;&#xFF1B;&#x7F16;&#x7A0B;&#xFF1B;&#x6D4B;&#x8BD5;&#xFF1B;&#x8C03;&#x8BD5;&#xFF1B;&#x4EE3;&#x7801;&#x8BC4;&#x5BA1;&#xFF1B;&#x96C6;&#x6210;&#x4E0E;&#x6784;&#x5EFA;&#xFF1B;&#x6784;&#x9020;&#x7BA1;&#x7406;&#x3002;</p>
+<h2 id="2-&#x540D;&#x8BCD;&#x89E3;&#x91CA;">2.&#x540D;&#x8BCD;&#x89E3;&#x91CA;</h2>
+<p>&#xFF08;1&#xFF09;&#x91CD;&#x6784;&#xFF1A;&#x4FEE;&#x6539;&#x8F6F;&#x4EF6;&#x7CFB;&#x7EDF;&#x7684;&#x4E25;&#x8C28;&#x65B9;&#x6CD5;&#xFF0C;&#x5B83;&#x5728;&#x4E0D;&#x6539;&#x53D8;&#x4EE3;&#x7801;&#x5916;&#x90E8;&#x8868;&#x73B0;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x6539;&#x8FDB;&#x5176;&#x5185;&#x90E8;&#x7ED3;&#x6784;</p>
+<p>&#xFF08;2&#xFF09;&#x6D4B;&#x8BD5;&#x9A71;&#x52A8;&#x5F00;&#x53D1;&#xFF1A;&#x6D4B;&#x8BD5;&#x9A71;&#x52A8;&#x5F00;&#x53D1;&#x8981;&#x6C42;&#x7A0B;&#x5E8F;&#x5458;&#x5728;&#x7F16;&#x5199;&#x4E00;&#x6BB5;&#x4EE3;&#x7801;&#x4E4B;&#x524D;&#xFF0C;<strong>&#x4F18;&#x5148;&#x5B8C;&#x6210;&#x8BE5;&#x6BB5;&#x4EE3;&#x7801;&#x7684;&#x6D4B;&#x8BD5;&#x4EE3;&#x7801;&#x3002;&#x6D4B;&#x8BD5;&#x4EE3;&#x7801;&#x4E4B;&#x540E;&#xFF0C;&#x7A0B;&#x5E8F;&#x5458;&#x518D;&#x7F16;&#x5199;&#x7A0B;&#x5E8F;&#x4EE3;</strong>&#x7801;&#xFF0C;&#x5E76;&#x5728;&#x7F16;&#x7A0B;&#x4E2D;&#x91CD;&#x590D;&#x6267;&#x884C;&#x6D4B;&#x8BD5;&#x4EE3;&#x7801;&#xFF0C;&#x4EE5;&#x9A8C;&#x8BC1;&#x7A0B;&#x5E8F;&#x4EE3;&#x7801;&#x7684;&#x6B63;&#x786E;&#x6027;&#x3002;</p>
+<p>&#xFF08;3&#xFF09;&#x7ED3;&#x5BF9;&#x7F16;&#x7A0B;&#xFF1A;<strong>&#x4E24;&#x4E2A;&#x7A0B;&#x5E8F;&#x5458;&#x6328;&#x7740;&#x5750;&#x5728;&#x4E00;&#x8D77;</strong>&#xFF0C;&#x5171;&#x540C;&#x534F;&#x4F5C;&#x8FDB;&#x884C;&#x8F6F;&#x4EF6;&#x6784;&#x9020;&#x6D3B;&#x52A8;</p>
+<h2 id="3-&#x7ED9;&#x5B9A;&#x4EE3;&#x7801;&#x6BB5;&#x793A;&#x4F8B;&#xFF0C;&#x5BF9;&#x5176;&#x8FDB;&#x884C;&#x6539;&#x8FDB;&#x6216;&#x53D1;&#x73B0;&#x5176;&#x4E2D;&#x7684;&#x95EE;&#x9898;">3.&#x7ED9;&#x5B9A;&#x4EE3;&#x7801;&#x6BB5;&#x793A;&#x4F8B;&#xFF0C;&#x5BF9;&#x5176;&#x8FDB;&#x884C;&#x6539;&#x8FDB;&#x6216;&#x53D1;&#x73B0;&#x5176;&#x4E2D;&#x7684;&#x95EE;&#x9898;</h2>
+<p>&#x590D;&#x6742;&#x51B3;&#x7B56;&#xFF1A;&#x4F7F;&#x7528;&#x6709;&#x610F;&#x4E49;&#x7684;&#x540D;&#x79F0;&#x5C01;&#x88C5;&#x590D;&#x6742;&#x51B3;&#x7B56;&#xFF0C;</p>
+<p>&#x4F8B;&#x5982;&#x5BF9;&#x4E8E;&#x51B3;&#x7B56;&#x201C; If( (id&gt;0) &amp;&amp; (id&lt;=MAX_ID))&#x201D;&#xFF0C;&#x53EF;&#x4EE5;&#x5C01;&#x88C5;&#x4E3A;&#x201C;If ( isIdValid(id) )&#x201D;&#xFF0C;</p>
+<p>&#x65B9;&#x6CD5;isIdValid(id)&#x7684;&#x5185;&#x5BB9;&#x4E3A; &#x201C;return ((id&gt;0) &amp;&amp; (id&lt;=MAX_ID) )&#x201D;</p>
+<p>&#x6570;&#x636E;&#x4F7F;&#x7528;</p>
+<p>&#xFF08;1&#xFF09;<strong>&#x4E0D;&#x8981;&#x5C06;&#x53D8;&#x91CF;&#x5E94;&#x7528;&#x4E8E;&#x4E0E;&#x547D;&#x540D;&#x4E0D;&#x76F8;&#x7B26;&#x7684;&#x76EE;&#x7684;</strong>&#x3002;&#x4F8B;&#x5982;&#x4F7F;&#x7528;&#x53D8;&#x91CF;total&#x8868;&#x793A;&#x9500;&#x552E;&#x7684;&#x603B;&#x4EF7;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x4E34;&#x65F6;&#x5BA2;&#x4E32;for&#x5FAA;&#x73AF;&#x7684;&#x8BA1;&#x6570;&#x5668;&#x3002;</p>
+<p>&#xFF08;2&#xFF09;<strong>&#x4E0D;&#x8981;&#x5C06;&#x5355;&#x4E2A;&#x53D8;&#x91CF;&#x7528;&#x4E8E;&#x591A;&#x4E2A;&#x76EE;&#x7684;</strong>&#x3002;&#x5728;&#x4EE3;&#x7801;&#x7684;&#x524D;&#x534A;&#x90E8;&#x5206;&#x4F7F;&#x7528;total&#x8868;&#x793A;&#x9500;&#x552E;&#x603B;&#x4EF7;&#xFF0C;&#x5728;&#x4EE3;&#x7801;&#x540E;&#x534A;&#x90E8;&#x5206;&#x4E0D;&#x518D;&#x9700;&#x8981;&#x201C;&#x9500;&#x552E;&#x603B;&#x4EF7;&#x201D;&#x4FE1;&#x606F;&#x65F6;&#x518D;&#x7528;total&#x5BA2;&#x4E32;for&#x5FAA;&#x73AF;&#x7684;&#x8BA1;&#x6570;&#x5668;&#x4E5F;&#x662F;&#x4E0D;&#x5141;&#x8BB8;&#x7684;&#x3002;</p>
+<p>&#xFF08;3&#xFF09;<strong>&#x9650;&#x5236;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x7684;&#x4F7F;&#x7528;</strong>&#xFF0C;&#x5982;&#x679C;&#x4E0D;&#x5F97;&#x4E0D;&#x4F7F;&#x7528;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#xFF0C;&#x5C31;&#x660E;&#x786E;&#x6CE8;&#x91CA;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x7684;&#x58F0;&#x660E;&#x548C;&#x4F7F;&#x7528;&#x5904;&#x3002;&#xFF08;4&#xFF09;&#x4E0D;&#x8981;&#x4F7F;&#x7528;&#x7A81;&#x5140;&#x7684;&#x6570;&#x5B57;&#x4E0E;&#x5B57;&#x7B26;&#xFF0C;&#x4F8B;&#x5982;15&#xFF08;&#x5929;&#xFF09;&#x3001;&#x201C;MALE&#x201D;&#x7B49;&#xFF0C;&#x8981;&#x5C06;&#x5B83;&#x4EEC;&#x5B9A;&#x4E49;&#x4E3A;&#x5E38;&#x91CF;&#x6216;&#x53D8;&#x91CF;&#x540E;&#x4F7F;&#x7528;&#x3002;</p>
+<p><strong>&#x660E;&#x786E;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;</strong>&#xFF1A;&#x7C7B;&#x4E4B;&#x95F4;&#x6A21;&#x7CCA;&#x7684;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;&#x4F1A;&#x5F71;&#x54CD;&#x5230;&#x4EE3;&#x7801;&#x7684;&#x7406;&#x89E3;&#x4E0E;&#x4FEE;&#x6539;&#xFF0C;&#x975E;&#x5E38;&#x5BB9;&#x6613;&#x5BFC;&#x81F4;&#x4FEE;&#x6539;&#x65F6;&#x4EA7;&#x751F;&#x672A;&#x9884;&#x671F;&#x7684;&#x8FDE;&#x9501;&#x53CD;&#x5E94;&#x3002;&#x5BF9;&#x4E8E;&#x8FD9;&#x4E9B;&#x6A21;&#x7CCA;&#x7684;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;&#xFF0C;&#x9700;&#x8981;&#x8FDB;&#x884C;&#x660E;&#x786E;&#x7684;&#x6CE8;&#x91CA;</p>
+<h2 id="4-&#x5951;&#x7EA6;&#x5F0F;&#x8BBE;&#x8BA1;">4.&#x5951;&#x7EA6;&#x5F0F;&#x8BBE;&#x8BA1;</h2>
+<p>&#x5951;&#x7EA6;&#x5F0F;&#x8BBE;&#x8BA1;&#x53C8;&#x79F0;&#x65AD;&#x8A00;&#x5F0F;&#x8BBE;&#x8BA1;&#xFF0C;&#x5B83;&#x7684;&#x57FA;&#x672C;&#x601D;&#x60F3;&#x662F;&#xFF1A;</p>
+<p><strong>&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#x6216;&#x65B9;&#x6CD5;&#xFF0C;&#x5728;&#x524D;&#x7F6E;&#x6761;&#x4EF6;&#x6EE1;&#x8DB3;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x5F00;&#x59CB;&#x6267;&#x884C;&#xFF0C;&#x5B8C;&#x6210;&#x540E;&#x80FD;&#x591F;&#x6EE1;&#x8DB3;&#x540E;&#x7F6E;&#x6761;&#x4EF6;&#xFF0C;&#x90A3;&#x4E48;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x5C31;&#x662F;&#x6B63;&#x786E;&#x3001;&#x53EF;&#x9760;&#x7684;</strong>&#x3002;</p>
+<p>&#x89C1;&#x4E66;&#x4E0A;&#x793A;&#x4F8B;P308</p>
+<p>&#xFF08;1&#xFF09;&#x5F02;&#x5E38;</p>
+<p>&#xFF08;2&#xFF09;&#x65AD;&#x8A00;&#xFF1A;assert Expression1( : Expression2)</p>
+<p>Expression1 &#x662F;&#x4E00;&#x4E2A;&#x5E03;&#x5C14;&#x8868;&#x8FBE;&#x5F0F;&#xFF0C;&#x5728;&#x5951;&#x7EA6;&#x5F0F;&#x8BBE;&#x8BA1;&#x4E2D;&#x53EF;&#x4EE5;&#x5C06;&#x5176;&#x8BBE;&#x7F6E;&#x4E3A;&#x524D;&#x7F6E;&#x6761;&#x4EF6;&#x6216;&#x8005;&#x540E;&#x7F6E;&#x6761;&#x4EF6;&#xFF1B;</p>
+<p>Expression2 &#x662F;&#x4E00;&#x4E2A;&#x503C;&#xFF0C;&#x5404;&#x79CD;&#x5E38;&#x89C1;&#x7C7B;&#x578B;&#x90FD;&#x53EF;&#x4EE5;&#xFF1B;</p>
+<p>&#x5982;&#x679C;Expression1 &#x4E3A;true&#xFF0C;&#x65AD;&#x8A00;&#x4E0D;&#x5F71;&#x54CD;&#x7A0B;&#x5E8F;&#x6267;&#x884C;&#xFF1B;&#x5982;&#x679C;Expression1 &#x4E3A;false&#xFF0C;&#x65AD;&#x8A00;&#x629B;&#x51FA;AssertionError &#x5F02;&#x5E38;&#xFF0C;&#x5982;&#x679C;&#x5B58;&#x5728;Expression2 &#x5C31;&#x4F7F;&#x7528;&#x5B83;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x6784;&#x9020;AssertionError&#x3002;</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC16-19%E7%AB%A0)/image-20230617202242712.png" alt></p>
+<h2 id="5-&#x9632;&#x5FA1;&#x5F0F;&#x7F16;&#x7A0B;">5.&#x9632;&#x5FA1;&#x5F0F;&#x7F16;&#x7A0B;</h2>
+<p>&#x4F18;&#x70B9;&#xFF1A;<strong>&#x663E;&#x8457;&#x63D0;&#x9AD8;&#x53EF;&#x9760;&#x6027;</strong></p>
+<p>&#x9632;&#x5FA1;&#x5F0F;&#x7F16;&#x7A0B;&#x7684;&#x57FA;&#x672C;&#x601D;&#x60F3;&#x662F;&#xFF1A;&#x5728;&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#x4E0E;&#x5176;&#x4ED6;&#x65B9;&#x6CD5;&#x3001;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x3001;&#x786C;&#x4EF6;&#x7B49;&#x5916;&#x754C;&#x73AF;&#x5883;&#x4EA4;&#x4E92;&#x65F6;&#xFF0C;&#x4E0D;&#x80FD;&#x786E;&#x4FDD;&#x5916;&#x754C;&#x90FD;&#x662F;&#x6B63;&#x786E;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x8981;<strong>&#x5728;&#x5916;&#x754C;&#x53D1;&#x751F;&#x9519;&#x8BEF;&#x65F6;&#xFF0C;&#x4FDD;&#x62A4;&#x65B9;&#x6CD5;&#x5185;&#x90E8;&#x4E0D;&#x53D7;&#x635F;&#x5BB3;</strong>&#x3002;</p>
+<p>&#x4E0E;&#x5951;&#x7EA6;&#x5F0F;&#x8BBE;&#x8BA1;&#x6709;&#x5171;&#x540C;&#x70B9;&#xFF0C;&#x53C8;&#x6709;&#x5F88;&#x5927;&#x7684;&#x5DEE;&#x5F02;&#x3002;</p>
+<p>&#x5171;&#x540C;&#x70B9;&#x662F;&#x4ED6;&#x4EEC;&#x90FD;&#x8981;&#x68C0;&#x67E5;&#x8F93;&#x5165;&#x53C2;&#x6570;&#x7684;&#x6709;&#x6548;&#x6027;&#x3002;</p>
+<p>&#x5DEE;&#x5F02;&#x6027;&#x662F;&#x9632;&#x5FA1;&#x5F0F;&#x7F16;&#x7A0B;&#x5C06;&#x6240;&#x6709;&#x4E0E;&#x5916;&#x754C;&#x7684;&#x4EA4;&#x4E92;&#x90FD;&#x7EB3;&#x5165;&#x9632;&#x5FA1;&#x8303;&#x56F4;&#xFF0C;&#x5982;&#x7528;&#x6237;&#x8F93;&#x5165;&#x7684;&#x6709;&#x6548;&#x6027;&#x3001;&#x5F85;&#x8BFB;&#x5199;&#x6587;&#x4EF6;&#x7684;&#x6709;&#x6548;&#x6027;&#x3001;&#x8C03;&#x7528;&#x7684;&#x5176;&#x4ED6;&#x65B9;&#x6CD5;&#x8FD4;&#x56DE;&#x503C;&#x7684;&#x6709;&#x6548;&#x503C;&#x2026;&#x2026;</p>
+<p><strong>&#x7F16;&#x7A0B;&#x65B9;&#x5F0F;&#xFF1A;&#x5F02;&#x5E38;&#x4E0E;&#x65AD;&#x8A00;&#x3002;</strong></p>
 <blockquote>
-<p><strong>输入参数是否合法？</strong></p>
-<p><strong>用户输入是否有效？</strong></p>
-<p><strong>外部文件是否存在？</strong></p>
-<p><strong>对其他对象的引用是否为NULL？</strong></p>
-<p><strong>其他对象是否已初始化？</strong></p>
-<p><strong>其他对象的某个方法是否已执行？</strong></p>
-<p><strong>其他对象的返回值是否正确？</strong></p>
-<p><strong>数据库系统连接是否正常？</strong></p>
-<p><strong>网络连接是否正常？</strong></p>
-</blockquote>
-<blockquote>
-<p><strong>网络接收的信息是否有效？</strong></p>
-</blockquote>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC16-19%E7%AB%A0)/image-20230617202337800.png" alt=""></p>
-<h2 id="6-表驱动">6.表驱动</h2>
-<p>对于特别复杂的决策，可以将其包装为决策表，然后用使用表驱动编程的方式加以解决。</p>
-<p>示例见书上P307</p>
-<h2 id="7-单元测试用例的设计">7.单元测试用例的设计</h2>
-<p>MockObject创建桩程序</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC16-19%E7%AB%A0)/image-20230617202312093.png" alt=""></p>
-<h2 id="第19章-软件测试【必考】">第19章 软件测试【必考】</h2>
-<p>（1）<strong>黑盒测试</strong>：基于规格的技术，是把测试对象看做一个黑盒子，</p>
-<p><strong>完全基于输入和输出数据来判定测试对象的正确性</strong>，测试使用测试对象的规格说明来设计输入和输出数据。</p>
-<p>常见方法：</p>
-<p><strong>等价类划分（把输入按照等价类划分，包括有效和无效）；</strong></p>
-<p><strong>边界值分析；</strong></p>
-<p><strong>决策表；</strong></p>
-<p><strong>状态转换。</strong></p>
-<p>（2）白盒测试：基于代码的技术，<strong>将测试对象看成透明的，不关心测试对象的规格</strong>，而是<strong>按照测试对象内部的程序结构来设计测试用例进行测试工作。</strong></p>
-<h2 id="2-能解释并区别白盒测试三种不同的方法【必考】">2.能解释并区别白盒测试三种不同的方法【必考】</h2>
-<p>语句覆盖、分支覆盖和路径覆盖。教材329页</p>
-<p>语句覆盖：确保被测试对象的<strong>每一行程序代码</strong>都至少执行一次</p>
-<p>条件覆盖：确保程序中<strong>每个判断的每个结果都至少满足一次</strong></p>
-<p>路径覆盖：确保程序中<strong>每条独立的执行路径都至少执行一次</strong></p>
-<blockquote>
-<p>【题型】给出一个场景，判断应该使用哪种测试方法，如何去写（JUnit基本使用方法）给出功能需求——写功能测试用例给出设计图——写集成测试用例，Stub和Driver</p>
+<p><strong>&#x8F93;&#x5165;&#x53C2;&#x6570;&#x662F;&#x5426;&#x5408;&#x6CD5;&#xFF1F;</strong></p>
+<p><strong>&#x7528;&#x6237;&#x8F93;&#x5165;&#x662F;&#x5426;&#x6709;&#x6548;&#xFF1F;</strong></p>
+<p><strong>&#x5916;&#x90E8;&#x6587;&#x4EF6;&#x662F;&#x5426;&#x5B58;&#x5728;&#xFF1F;</strong></p>
+<p><strong>&#x5BF9;&#x5176;&#x4ED6;&#x5BF9;&#x8C61;&#x7684;&#x5F15;&#x7528;&#x662F;&#x5426;&#x4E3A;NULL&#xFF1F;</strong></p>
+<p><strong>&#x5176;&#x4ED6;&#x5BF9;&#x8C61;&#x662F;&#x5426;&#x5DF2;&#x521D;&#x59CB;&#x5316;&#xFF1F;</strong></p>
+<p><strong>&#x5176;&#x4ED6;&#x5BF9;&#x8C61;&#x7684;&#x67D0;&#x4E2A;&#x65B9;&#x6CD5;&#x662F;&#x5426;&#x5DF2;&#x6267;&#x884C;&#xFF1F;</strong></p>
+<p><strong>&#x5176;&#x4ED6;&#x5BF9;&#x8C61;&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x662F;&#x5426;&#x6B63;&#x786E;&#xFF1F;</strong></p>
+<p><strong>&#x6570;&#x636E;&#x5E93;&#x7CFB;&#x7EDF;&#x8FDE;&#x63A5;&#x662F;&#x5426;&#x6B63;&#x5E38;&#xFF1F;</strong></p>
+<p><strong>&#x7F51;&#x7EDC;&#x8FDE;&#x63A5;&#x662F;&#x5426;&#x6B63;&#x5E38;&#xFF1F;</strong></p>
 </blockquote>
 <blockquote>
-<p>给出方法描述——写单元测试用例，MockObject</p>
+<p><strong>&#x7F51;&#x7EDC;&#x63A5;&#x6536;&#x7684;&#x4FE1;&#x606F;&#x662F;&#x5426;&#x6709;&#x6548;&#xFF1F;</strong></p>
 </blockquote>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC16-19%E7%AB%A0)/image-20230617202449538.png" alt=""></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC16-19%E7%AB%A0)/image-20230617202337800.png" alt></p>
+<h2 id="6-&#x8868;&#x9A71;&#x52A8;">6.&#x8868;&#x9A71;&#x52A8;</h2>
+<p>&#x5BF9;&#x4E8E;&#x7279;&#x522B;&#x590D;&#x6742;&#x7684;&#x51B3;&#x7B56;&#xFF0C;&#x53EF;&#x4EE5;&#x5C06;&#x5176;&#x5305;&#x88C5;&#x4E3A;&#x51B3;&#x7B56;&#x8868;&#xFF0C;&#x7136;&#x540E;&#x7528;&#x4F7F;&#x7528;&#x8868;&#x9A71;&#x52A8;&#x7F16;&#x7A0B;&#x7684;&#x65B9;&#x5F0F;&#x52A0;&#x4EE5;&#x89E3;&#x51B3;&#x3002;</p>
+<p>&#x793A;&#x4F8B;&#x89C1;&#x4E66;&#x4E0A;P307</p>
+<h2 id="7-&#x5355;&#x5143;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x7684;&#x8BBE;&#x8BA1;">7.&#x5355;&#x5143;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x7684;&#x8BBE;&#x8BA1;</h2>
+<p>MockObject&#x521B;&#x5EFA;&#x6869;&#x7A0B;&#x5E8F;</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC16-19%E7%AB%A0)/image-20230617202312093.png" alt></p>
+<h2 id="&#x7B2C;19&#x7AE0;-&#x8F6F;&#x4EF6;&#x6D4B;&#x8BD5;&#x3010;&#x5FC5;&#x8003;&#x3011;">&#x7B2C;19&#x7AE0; &#x8F6F;&#x4EF6;&#x6D4B;&#x8BD5;&#x3010;&#x5FC5;&#x8003;&#x3011;</h2>
+<p>&#xFF08;1&#xFF09;<strong>&#x9ED1;&#x76D2;&#x6D4B;&#x8BD5;</strong>&#xFF1A;&#x57FA;&#x4E8E;&#x89C4;&#x683C;&#x7684;&#x6280;&#x672F;&#xFF0C;&#x662F;&#x628A;&#x6D4B;&#x8BD5;&#x5BF9;&#x8C61;&#x770B;&#x505A;&#x4E00;&#x4E2A;&#x9ED1;&#x76D2;&#x5B50;&#xFF0C;</p>
+<p><strong>&#x5B8C;&#x5168;&#x57FA;&#x4E8E;&#x8F93;&#x5165;&#x548C;&#x8F93;&#x51FA;&#x6570;&#x636E;&#x6765;&#x5224;&#x5B9A;&#x6D4B;&#x8BD5;&#x5BF9;&#x8C61;&#x7684;&#x6B63;&#x786E;&#x6027;</strong>&#xFF0C;&#x6D4B;&#x8BD5;&#x4F7F;&#x7528;&#x6D4B;&#x8BD5;&#x5BF9;&#x8C61;&#x7684;&#x89C4;&#x683C;&#x8BF4;&#x660E;&#x6765;&#x8BBE;&#x8BA1;&#x8F93;&#x5165;&#x548C;&#x8F93;&#x51FA;&#x6570;&#x636E;&#x3002;</p>
+<p>&#x5E38;&#x89C1;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<p><strong>&#x7B49;&#x4EF7;&#x7C7B;&#x5212;&#x5206;&#xFF08;&#x628A;&#x8F93;&#x5165;&#x6309;&#x7167;&#x7B49;&#x4EF7;&#x7C7B;&#x5212;&#x5206;&#xFF0C;&#x5305;&#x62EC;&#x6709;&#x6548;&#x548C;&#x65E0;&#x6548;&#xFF09;&#xFF1B;</strong></p>
+<p><strong>&#x8FB9;&#x754C;&#x503C;&#x5206;&#x6790;&#xFF1B;</strong></p>
+<p><strong>&#x51B3;&#x7B56;&#x8868;&#xFF1B;</strong></p>
+<p><strong>&#x72B6;&#x6001;&#x8F6C;&#x6362;&#x3002;</strong></p>
+<p>&#xFF08;2&#xFF09;&#x767D;&#x76D2;&#x6D4B;&#x8BD5;&#xFF1A;&#x57FA;&#x4E8E;&#x4EE3;&#x7801;&#x7684;&#x6280;&#x672F;&#xFF0C;<strong>&#x5C06;&#x6D4B;&#x8BD5;&#x5BF9;&#x8C61;&#x770B;&#x6210;&#x900F;&#x660E;&#x7684;&#xFF0C;&#x4E0D;&#x5173;&#x5FC3;&#x6D4B;&#x8BD5;&#x5BF9;&#x8C61;&#x7684;&#x89C4;&#x683C;</strong>&#xFF0C;&#x800C;&#x662F;<strong>&#x6309;&#x7167;&#x6D4B;&#x8BD5;&#x5BF9;&#x8C61;&#x5185;&#x90E8;&#x7684;&#x7A0B;&#x5E8F;&#x7ED3;&#x6784;&#x6765;&#x8BBE;&#x8BA1;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x8FDB;&#x884C;&#x6D4B;&#x8BD5;&#x5DE5;&#x4F5C;&#x3002;</strong></p>
+<h2 id="2-&#x80FD;&#x89E3;&#x91CA;&#x5E76;&#x533A;&#x522B;&#x767D;&#x76D2;&#x6D4B;&#x8BD5;&#x4E09;&#x79CD;&#x4E0D;&#x540C;&#x7684;&#x65B9;&#x6CD5;&#x3010;&#x5FC5;&#x8003;&#x3011;">2.&#x80FD;&#x89E3;&#x91CA;&#x5E76;&#x533A;&#x522B;&#x767D;&#x76D2;&#x6D4B;&#x8BD5;&#x4E09;&#x79CD;&#x4E0D;&#x540C;&#x7684;&#x65B9;&#x6CD5;&#x3010;&#x5FC5;&#x8003;&#x3011;</h2>
+<p>&#x8BED;&#x53E5;&#x8986;&#x76D6;&#x3001;&#x5206;&#x652F;&#x8986;&#x76D6;&#x548C;&#x8DEF;&#x5F84;&#x8986;&#x76D6;&#x3002;&#x6559;&#x6750;329&#x9875;</p>
+<p>&#x8BED;&#x53E5;&#x8986;&#x76D6;&#xFF1A;&#x786E;&#x4FDD;&#x88AB;&#x6D4B;&#x8BD5;&#x5BF9;&#x8C61;&#x7684;<strong>&#x6BCF;&#x4E00;&#x884C;&#x7A0B;&#x5E8F;&#x4EE3;&#x7801;</strong>&#x90FD;&#x81F3;&#x5C11;&#x6267;&#x884C;&#x4E00;&#x6B21;</p>
+<p>&#x6761;&#x4EF6;&#x8986;&#x76D6;&#xFF1A;&#x786E;&#x4FDD;&#x7A0B;&#x5E8F;&#x4E2D;<strong>&#x6BCF;&#x4E2A;&#x5224;&#x65AD;&#x7684;&#x6BCF;&#x4E2A;&#x7ED3;&#x679C;&#x90FD;&#x81F3;&#x5C11;&#x6EE1;&#x8DB3;&#x4E00;&#x6B21;</strong></p>
+<p>&#x8DEF;&#x5F84;&#x8986;&#x76D6;&#xFF1A;&#x786E;&#x4FDD;&#x7A0B;&#x5E8F;&#x4E2D;<strong>&#x6BCF;&#x6761;&#x72EC;&#x7ACB;&#x7684;&#x6267;&#x884C;&#x8DEF;&#x5F84;&#x90FD;&#x81F3;&#x5C11;&#x6267;&#x884C;&#x4E00;&#x6B21;</strong></p>
+<blockquote>
+<p>&#x3010;&#x9898;&#x578B;&#x3011;&#x7ED9;&#x51FA;&#x4E00;&#x4E2A;&#x573A;&#x666F;&#xFF0C;&#x5224;&#x65AD;&#x5E94;&#x8BE5;&#x4F7F;&#x7528;&#x54EA;&#x79CD;&#x6D4B;&#x8BD5;&#x65B9;&#x6CD5;&#xFF0C;&#x5982;&#x4F55;&#x53BB;&#x5199;&#xFF08;JUnit&#x57FA;&#x672C;&#x4F7F;&#x7528;&#x65B9;&#x6CD5;&#xFF09;&#x7ED9;&#x51FA;&#x529F;&#x80FD;&#x9700;&#x6C42;&#x2014;&#x2014;&#x5199;&#x529F;&#x80FD;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x7ED9;&#x51FA;&#x8BBE;&#x8BA1;&#x56FE;&#x2014;&#x2014;&#x5199;&#x96C6;&#x6210;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#xFF0C;Stub&#x548C;Driver</p>
+</blockquote>
+<blockquote>
+<p>&#x7ED9;&#x51FA;&#x65B9;&#x6CD5;&#x63CF;&#x8FF0;&#x2014;&#x2014;&#x5199;&#x5355;&#x5143;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#xFF0C;MockObject</p>
+</blockquote>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC16-19%E7%AB%A0)/image-20230617202449538.png" alt></p>
 
 <div class="article-footer fs14">
     <section id="license">

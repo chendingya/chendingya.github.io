@@ -20,12 +20,12 @@
   <title>SE-II-ch14-面向对象的模块化 - Asimov's Blog</title>
 
   
-    <meta name="description" content="14-面向对象的模块化   1. 模块化的原则(总结) 2. 面向对象中的模块与耦合  2.1. 类 2.2. 模块 2.3. 耦合中的结构方法与OO方法 2.4. 降低耦合的设计原则   3. 访问耦合  3.1. 隐式耦合:Cascading Message 级联调用问题  3.1.1. 解决方案 — 引入局部变量 3.1.2. Cascading Message问题案例 3.1.3. 解决方">
+    <meta name="description" content="14-&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7684;&#x6A21;&#x5757;&#x5316;   1. &#x6A21;&#x5757;&#x5316;&#x7684;&#x539F;&#x5219;(&#x603B;&#x7ED3;) 2. &#x9762;&#x5411;&#x5BF9;&#x8C61;&#x4E2D;&#x7684;&#x6A21;&amp;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SE-II-ch14-面向对象的模块化">
 <meta property="og:url" content="https://chendingya.github.io/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/14-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%A8%A1%E5%9D%97%E5%8C%96/index.html">
 <meta property="og:site_name" content="Asimov&#39;s Blog">
-<meta property="og:description" content="14-面向对象的模块化   1. 模块化的原则(总结) 2. 面向对象中的模块与耦合  2.1. 类 2.2. 模块 2.3. 耦合中的结构方法与OO方法 2.4. 降低耦合的设计原则   3. 访问耦合  3.1. 隐式耦合:Cascading Message 级联调用问题  3.1.1. 解决方案 — 引入局部变量 3.1.2. Cascading Message问题案例 3.1.3. 解决方">
+<meta property="og:description" content="14-&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7684;&#x6A21;&#x5757;&#x5316;   1. &#x6A21;&#x5757;&#x5316;&#x7684;&#x539F;&#x5219;(&#x603B;&#x7ED3;) 2. &#x9762;&#x5411;&#x5BF9;&#x8C61;&#x4E2D;&#x7684;&#x6A21;&amp;">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/1.png">
 <meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/2.png">
@@ -94,7 +94,7 @@
 <div class="widgets">
 
 
-<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2024/05/02/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%842/"><span class="title">系统架构2-质量属性Quality Attributes</span></a><a class="item title" href="/2024/05/01/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%841/"><span class="title">系统架构1-Intro</span></a><a class="item title" href="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/"><span class="title">软件测试-期末复习</span></a><a class="item title" href="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/"><span class="title">机器学习-期末复习</span></a><a class="item title" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/"><span class="title">服务端-ch17-k8s使用</span></a><a class="item title" href="/2023/12/30/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch16-%E5%AE%B9%E5%99%A8%E9%95%9C%E5%83%8F%E6%9E%84%E5%BB%BA%E4%B8%8E%E7%BC%96%E6%8E%92/"><span class="title">服务端-ch16-容器镜像构建与编排</span></a><a class="item title" href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/"><span class="title">服务端-ch15-Docker</span></a><a class="item title" href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/"><span class="title">服务端-ch14-Spring WebFlux</span></a><a class="item title" href="/2023/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch13-%E5%8F%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"><span class="title">服务端-ch13-反应式编程基础</span></a><a class="item title" href="/2023/11/23/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch12-Spring%20Integration/"><span class="title">服务端-ch12-Spring Integration</span></a></div></widget>
+<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2022/10/25/hello-world/"><span class="title">Hello World</span></a><a class="item title" href="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/"><span class="title">软件测试-期末复习</span></a><a class="item title" href="/2024/05/02/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%842/"><span class="title">系统架构2-质量属性Quality Attributes</span></a><a class="item title" href="/2024/05/01/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%841/"><span class="title">系统架构1-Intro</span></a><a class="item title" href="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/"><span class="title">机器学习-期末复习</span></a><a class="item title" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/"><span class="title">服务端-ch17-k8s使用</span></a><a class="item title" href="/2023/12/30/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch16-%E5%AE%B9%E5%99%A8%E9%95%9C%E5%83%8F%E6%9E%84%E5%BB%BA%E4%B8%8E%E7%BC%96%E6%8E%92/"><span class="title">服务端-ch16-容器镜像构建与编排</span></a><a class="item title" href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/"><span class="title">服务端-ch15-Docker</span></a><a class="item title" href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/"><span class="title">服务端-ch14-Spring WebFlux</span></a><a class="item title" href="/2023/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch13-%E5%8F%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"><span class="title">服务端-ch13-反应式编程基础</span></a></div></widget>
 </div>
 <footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/chendingya?tab=repositories" target="_blank" rel="external nofollow noopener noreferrer"><img no-lazy src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" / onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a></div></footer>
 </div></aside><div class="l_main" id="main">
@@ -118,628 +118,628 @@
     </div>
     
   </div>
-  </div><article class="md-text content"><h2 id="14-面向对象的模块化">14-面向对象的模块化</h2>
+  </div><article class="md-text content"><h2 id="14-&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7684;&#x6A21;&#x5757;&#x5316;">14-&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7684;&#x6A21;&#x5757;&#x5316;</h2>
 <!-- TOC -->
 <ul>
-<li><a href="#1-%E6%A8%A1%E5%9D%97%E5%8C%96%E7%9A%84%E5%8E%9F%E5%88%99%E6%80%BB%E7%BB%93">1. 模块化的原则(总结)</a></li>
-<li><a href="#2-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%AD%E7%9A%84%E6%A8%A1%E5%9D%97%E4%B8%8E%E8%80%A6%E5%90%88">2. 面向对象中的模块与耦合</a>
+<li><a href="#1-%E6%A8%A1%E5%9D%97%E5%8C%96%E7%9A%84%E5%8E%9F%E5%88%99%E6%80%BB%E7%BB%93">1. &#x6A21;&#x5757;&#x5316;&#x7684;&#x539F;&#x5219;(&#x603B;&#x7ED3;)</a></li>
+<li><a href="#2-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%AD%E7%9A%84%E6%A8%A1%E5%9D%97%E4%B8%8E%E8%80%A6%E5%90%88">2. &#x9762;&#x5411;&#x5BF9;&#x8C61;&#x4E2D;&#x7684;&#x6A21;&#x5757;&#x4E0E;&#x8026;&#x5408;</a>
 <ul>
-<li><a href="#21-%E7%B1%BB">2.1. 类</a></li>
-<li><a href="#22-%E6%A8%A1%E5%9D%97">2.2. 模块</a></li>
-<li><a href="#23-%E8%80%A6%E5%90%88%E4%B8%AD%E7%9A%84%E7%BB%93%E6%9E%84%E6%96%B9%E6%B3%95%E4%B8%8Eoo%E6%96%B9%E6%B3%95">2.3. 耦合中的结构方法与OO方法</a></li>
-<li><a href="#24-%E9%99%8D%E4%BD%8E%E8%80%A6%E5%90%88%E7%9A%84%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99">2.4. 降低耦合的设计原则</a></li>
+<li><a href="#21-%E7%B1%BB">2.1. &#x7C7B;</a></li>
+<li><a href="#22-%E6%A8%A1%E5%9D%97">2.2. &#x6A21;&#x5757;</a></li>
+<li><a href="#23-%E8%80%A6%E5%90%88%E4%B8%AD%E7%9A%84%E7%BB%93%E6%9E%84%E6%96%B9%E6%B3%95%E4%B8%8Eoo%E6%96%B9%E6%B3%95">2.3. &#x8026;&#x5408;&#x4E2D;&#x7684;&#x7ED3;&#x6784;&#x65B9;&#x6CD5;&#x4E0E;OO&#x65B9;&#x6CD5;</a></li>
+<li><a href="#24-%E9%99%8D%E4%BD%8E%E8%80%A6%E5%90%88%E7%9A%84%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99">2.4. &#x964D;&#x4F4E;&#x8026;&#x5408;&#x7684;&#x8BBE;&#x8BA1;&#x539F;&#x5219;</a></li>
 </ul>
 </li>
-<li><a href="#3-%E8%AE%BF%E9%97%AE%E8%80%A6%E5%90%88">3. 访问耦合</a>
+<li><a href="#3-%E8%AE%BF%E9%97%AE%E8%80%A6%E5%90%88">3. &#x8BBF;&#x95EE;&#x8026;&#x5408;</a>
 <ul>
-<li><a href="#31-%E9%9A%90%E5%BC%8F%E8%80%A6%E5%90%88cascading-message-%E7%BA%A7%E8%81%94%E8%B0%83%E7%94%A8%E9%97%AE%E9%A2%98">3.1. 隐式耦合:Cascading Message 级联调用问题</a>
+<li><a href="#31-%E9%9A%90%E5%BC%8F%E8%80%A6%E5%90%88cascading-message-%E7%BA%A7%E8%81%94%E8%B0%83%E7%94%A8%E9%97%AE%E9%A2%98">3.1. &#x9690;&#x5F0F;&#x8026;&#x5408;:Cascading Message &#x7EA7;&#x8054;&#x8C03;&#x7528;&#x95EE;&#x9898;</a>
 <ul>
-<li><a href="#311-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88--%E5%BC%95%E5%85%A5%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F">3.1.1. 解决方案 — 引入局部变量</a></li>
-<li><a href="#312-cascading-message%E9%97%AE%E9%A2%98%E6%A1%88%E4%BE%8B">3.1.2. Cascading Message问题案例</a></li>
-<li><a href="#313-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88--%E5%A7%94%E6%89%98">3.1.3. 解决方案 — 委托</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#4-%E7%BB%84%E4%BB%B6%E8%80%A6%E5%90%88%E5%8E%9F%E7%90%86">4. 组件耦合原理</a>
-<ul>
-<li><a href="#41-%E5%8E%9F%E5%88%99%E5%9B%9B%E9%9D%A2%E5%90%91%E6%8E%A5%E5%8F%A3%E7%BC%96%E7%A8%8B">4.1. 原则四：面向接口编程</a></li>
-<li><a href="#42-%E5%8E%9F%E5%88%99%E4%BA%94%E8%BF%AA%E7%B1%B3%E7%89%B9%E6%B3%95%E5%88%99">4.2. 原则五:迪米特法则</a>
-<ul>
-<li><a href="#421-%E9%97%AE%E9%A2%98%E6%A1%88%E4%BE%8B">4.2.1. 问题案例</a></li>
-</ul>
-</li>
-<li><a href="#43-%E5%8E%9F%E5%88%99%E5%85%AD%E6%8E%A5%E5%8F%A3%E9%9A%94%E7%A6%BB%E5%8E%9F%E5%88%99isp%E4%B9%9F%E5%8F%AB%E6%8E%A5%E5%8F%A3%E6%9C%80%E5%B0%8F%E5%8C%96%E5%8E%9F%E5%88%99">4.3. 原则六：接口隔离原则(ISP)/也叫接口最小化原则</a></li>
-<li><a href="#44-%E8%A7%A3%E9%87%8A%E6%8E%A5%E5%8F%A3%E9%9A%94%E7%A6%BB%E5%8E%9F%E5%88%99">4.4. 解释接口隔离原则</a>
-<ul>
-<li><a href="#441-%E6%A1%88%E4%BE%8B%E4%B8%80gui%E7%95%8C%E9%9D%A2%E9%97%AE%E9%A2%98">4.4.1. 案例一:GUI界面问题</a></li>
-<li><a href="#442-%E6%A1%88%E4%BE%8B%E4%BA%8Capplication%E7%9A%84%E4%BE%9D%E8%B5%96%E9%97%AE%E9%A2%98">4.4.2. 案例二:Application的依赖问题</a></li>
+<li><a href="#311-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88--%E5%BC%95%E5%85%A5%E5%B1%80%E9%83%A8%E5%8F%98%E9%87%8F">3.1.1. &#x89E3;&#x51B3;&#x65B9;&#x6848; &#x2014; &#x5F15;&#x5165;&#x5C40;&#x90E8;&#x53D8;&#x91CF;</a></li>
+<li><a href="#312-cascading-message%E9%97%AE%E9%A2%98%E6%A1%88%E4%BE%8B">3.1.2. Cascading Message&#x95EE;&#x9898;&#x6848;&#x4F8B;</a></li>
+<li><a href="#313-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88--%E5%A7%94%E6%89%98">3.1.3. &#x89E3;&#x51B3;&#x65B9;&#x6848; &#x2014; &#x59D4;&#x6258;</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#5-%E7%BB%A7%E6%89%BF%E8%80%A6%E5%90%88">5. 继承耦合</a>
+<li><a href="#4-%E7%BB%84%E4%BB%B6%E8%80%A6%E5%90%88%E5%8E%9F%E7%90%86">4. &#x7EC4;&#x4EF6;&#x8026;&#x5408;&#x539F;&#x7406;</a>
 <ul>
-<li><a href="#51-%E4%BF%AE%E9%A5%B0%E7%BB%A7%E6%89%BF%E8%80%A6%E5%90%88">5.1. 修饰继承耦合</a>
+<li><a href="#41-%E5%8E%9F%E5%88%99%E5%9B%9B%E9%9D%A2%E5%90%91%E6%8E%A5%E5%8F%A3%E7%BC%96%E7%A8%8B">4.1. &#x539F;&#x5219;&#x56DB;&#xFF1A;&#x9762;&#x5411;&#x63A5;&#x53E3;&#x7F16;&#x7A0B;</a></li>
+<li><a href="#42-%E5%8E%9F%E5%88%99%E4%BA%94%E8%BF%AA%E7%B1%B3%E7%89%B9%E6%B3%95%E5%88%99">4.2. &#x539F;&#x5219;&#x4E94;:&#x8FEA;&#x7C73;&#x7279;&#x6CD5;&#x5219;</a>
 <ul>
-<li><a href="#511-%E6%A1%88%E4%BE%8B">5.1.1. 案例</a></li>
+<li><a href="#421-%E9%97%AE%E9%A2%98%E6%A1%88%E4%BE%8B">4.2.1. &#x95EE;&#x9898;&#x6848;&#x4F8B;</a></li>
 </ul>
 </li>
-<li><a href="#52-%E5%AE%8C%E5%96%84%E7%BB%A7%E6%89%BF%E8%80%A6%E5%90%88">5.2. 完善继承耦合</a></li>
-<li><a href="#53-%E6%89%A9%E5%B1%95%E7%BB%A7%E6%89%BF%E8%80%A6%E5%90%88">5.3. 扩展继承耦合</a></li>
-</ul>
-</li>
-<li><a href="#6-%E9%99%8D%E4%BD%8E%E7%BB%A7%E6%89%BF%E8%80%A6%E5%90%88%E7%9A%84%E6%96%B9%E6%B3%95">6. 降低继承耦合的方法</a>
+<li><a href="#43-%E5%8E%9F%E5%88%99%E5%85%AD%E6%8E%A5%E5%8F%A3%E9%9A%94%E7%A6%BB%E5%8E%9F%E5%88%99isp%E4%B9%9F%E5%8F%AB%E6%8E%A5%E5%8F%A3%E6%9C%80%E5%B0%8F%E5%8C%96%E5%8E%9F%E5%88%99">4.3. &#x539F;&#x5219;&#x516D;&#xFF1A;&#x63A5;&#x53E3;&#x9694;&#x79BB;&#x539F;&#x5219;(ISP)/&#x4E5F;&#x53EB;&#x63A5;&#x53E3;&#x6700;&#x5C0F;&#x5316;&#x539F;&#x5219;</a></li>
+<li><a href="#44-%E8%A7%A3%E9%87%8A%E6%8E%A5%E5%8F%A3%E9%9A%94%E7%A6%BB%E5%8E%9F%E5%88%99">4.4. &#x89E3;&#x91CA;&#x63A5;&#x53E3;&#x9694;&#x79BB;&#x539F;&#x5219;</a>
 <ul>
-<li><a href="#61-%E7%BB%A7%E6%89%BF%E8%80%A6%E5%90%88%E5%8E%9F%E7%90%86">6.1. 继承耦合原理</a></li>
-<li><a href="#62-%E5%8E%9F%E5%88%99%E4%B8%83%E9%87%8C%E6%B0%8F%E6%9B%BF%E6%8D%A2%E5%8E%9F%E5%88%99">6.2. 原则七：里氏替换原则</a>
-<ul>
-<li><a href="#621-%E9%97%AE%E9%A2%98%E6%A1%88%E4%BE%8B%E4%B8%80%E9%93%B6%E8%A1%8C%E9%97%AE%E9%A2%98">6.2.1. 问题案例一:银行问题</a></li>
-<li><a href="#622-%E9%97%AE%E9%A2%98%E6%A1%88%E4%BE%8B%E4%BA%8Cis-a-square-a-rectangle">6.2.2. 问题案例二:Is a Square a Rectangle?</a></li>
-<li><a href="#623-%E9%97%AE%E9%A2%98%E6%A1%88%E4%BE%8B%E4%B8%89penguin-is-a-bird">6.2.3. 问题案例三:Penguin is a bird?</a></li>
-</ul>
-</li>
-<li><a href="#63-%E9%87%8C%E6%B0%8F%E6%9B%BF%E6%8D%A2%E5%8E%9F%E5%88%99%E6%80%BB%E7%BB%93">6.3. 里氏替换原则总结</a>
-<ul>
-<li><a href="#631-%E8%AF%BE%E5%A0%82%E7%BB%83%E4%B9%A0">6.3.1. 课堂练习</a></li>
-</ul>
-</li>
-<li><a href="#64-%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99%E5%85%AB%E7%BB%84%E5%90%88%E4%BB%A3%E6%9B%BF%E7%BB%A7%E6%89%BF">6.4. 设计原则八:组合代替继承</a>
-<ul>
-<li><a href="#641-coad%E7%9A%84%E7%BB%A7%E6%89%BF%E8%A7%84%E5%88%99">6.4.1. Coad的继承规则</a></li>
-<li><a href="#642-%E7%BB%A7%E6%89%BF%E7%BB%84%E5%90%88-%E5%AE%9E%E4%BE%8B%E4%B8%80">6.4.2. 继承/组合 实例一</a></li>
-<li><a href="#643-%E7%BB%A7%E6%89%BF%E7%BB%84%E5%90%88-%E7%A4%BA%E4%BE%8B%E4%BA%8C">6.4.3. 继承/组合 示例二</a></li>
+<li><a href="#441-%E6%A1%88%E4%BE%8B%E4%B8%80gui%E7%95%8C%E9%9D%A2%E9%97%AE%E9%A2%98">4.4.1. &#x6848;&#x4F8B;&#x4E00;:GUI&#x754C;&#x9762;&#x95EE;&#x9898;</a></li>
+<li><a href="#442-%E6%A1%88%E4%BE%8B%E4%BA%8Capplication%E7%9A%84%E4%BE%9D%E8%B5%96%E9%97%AE%E9%A2%98">4.4.2. &#x6848;&#x4F8B;&#x4E8C;:Application&#x7684;&#x4F9D;&#x8D56;&#x95EE;&#x9898;</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#7-%E5%86%85%E8%81%9A">7. 内聚</a>
+<li><a href="#5-%E7%BB%A7%E6%89%BF%E8%80%A6%E5%90%88">5. &#x7EE7;&#x627F;&#x8026;&#x5408;</a>
 <ul>
-<li><a href="#71-%E6%96%B9%E6%B3%95%E5%86%85%E8%81%9A">7.1. 方法内聚</a></li>
-<li><a href="#72-%E6%8F%90%E9%AB%98%E5%86%85%E8%81%9A%E7%9A%84%E6%96%B9%E6%B3%95">7.2. 提高内聚的方法</a>
+<li><a href="#51-%E4%BF%AE%E9%A5%B0%E7%BB%A7%E6%89%BF%E8%80%A6%E5%90%88">5.1. &#x4FEE;&#x9970;&#x7EE7;&#x627F;&#x8026;&#x5408;</a>
 <ul>
-<li><a href="#721-%E5%8E%9F%E5%88%99%E4%B9%9D%E5%8D%95%E4%B8%80%E8%B4%A3%E4%BB%BB%E5%8E%9F%E5%88%99srp">7.2.1. 原则九：单一责任原则(SRP)</a>
-<ul>
-<li><a href="#7211-%E9%97%AE%E9%A2%98%E6%A1%88%E4%BE%8B">7.2.1.1. 问题案例</a></li>
-<li><a href="#7212-%E7%BB%93%E5%B1%80%E6%96%B9%E6%A1%88">7.2.1.2. 结局方案</a></li>
+<li><a href="#511-%E6%A1%88%E4%BE%8B">5.1.1. &#x6848;&#x4F8B;</a></li>
 </ul>
 </li>
-<li><a href="#722-%E5%8D%95%E4%B8%80%E8%81%8C%E8%B4%A3%E5%8E%9F%E5%88%99">7.2.2. 单一职责原则</a></li>
+<li><a href="#52-%E5%AE%8C%E5%96%84%E7%BB%A7%E6%89%BF%E8%80%A6%E5%90%88">5.2. &#x5B8C;&#x5584;&#x7EE7;&#x627F;&#x8026;&#x5408;</a></li>
+<li><a href="#53-%E6%89%A9%E5%B1%95%E7%BB%A7%E6%89%BF%E8%80%A6%E5%90%88">5.3. &#x6269;&#x5C55;&#x7EE7;&#x627F;&#x8026;&#x5408;</a></li>
 </ul>
 </li>
-<li><a href="#73-%E8%AF%BE%E5%A0%82%E7%BB%83%E4%B9%A0">7.3. 课堂练习</a></li>
-</ul>
-</li>
-<li><a href="#8-%E8%80%A6%E5%90%88%E5%92%8C%E5%86%85%E8%81%9A%E7%9A%84%E5%BA%A6%E9%87%8F">8. 耦合和内聚的度量</a>
+<li><a href="#6-%E9%99%8D%E4%BD%8E%E7%BB%A7%E6%89%BF%E8%80%A6%E5%90%88%E7%9A%84%E6%96%B9%E6%B3%95">6. &#x964D;&#x4F4E;&#x7EE7;&#x627F;&#x8026;&#x5408;&#x7684;&#x65B9;&#x6CD5;</a>
 <ul>
-<li><a href="#81-%E7%B1%BB%E4%B9%8B%E9%97%B4%E7%9A%84%E8%80%A6%E5%90%88%E5%BA%A6%E9%87%8F">8.1. 类之间的耦合度量</a>
+<li><a href="#61-%E7%BB%A7%E6%89%BF%E8%80%A6%E5%90%88%E5%8E%9F%E7%90%86">6.1. &#x7EE7;&#x627F;&#x8026;&#x5408;&#x539F;&#x7406;</a></li>
+<li><a href="#62-%E5%8E%9F%E5%88%99%E4%B8%83%E9%87%8C%E6%B0%8F%E6%9B%BF%E6%8D%A2%E5%8E%9F%E5%88%99">6.2. &#x539F;&#x5219;&#x4E03;&#xFF1A;&#x91CC;&#x6C0F;&#x66FF;&#x6362;&#x539F;&#x5219;</a>
 <ul>
-<li><a href="#811-%E7%AC%AC%E4%B8%80%E7%A7%8D%E5%BA%A6%E9%87%8Fcbo%E6%96%B9%E6%B3%95%E8%B0%83%E7%94%A8%E8%80%A6%E5%90%88">8.1.1. 第一种度量:CBO(方法调用耦合)</a></li>
-<li><a href="#812-%E7%AC%AC%E4%BA%8C%E7%A7%8D%E5%BA%A6%E9%87%8Fdac%E6%95%B0%E6%8D%AE%E6%8A%BD%E8%B1%A1%E8%80%A6%E5%90%88">8.1.2. 第二种度量:DAC(数据抽象耦合)</a></li>
-<li><a href="#813-%E7%AC%AC%E4%B8%89%E7%A7%8D%E5%BA%A6%E9%87%8Fca%E5%92%8Cce%E6%9C%89%E6%95%88%E5%92%8C">8.1.3. 第三种度量:Ca和Ce(有效和)</a></li>
-<li><a href="#814-%E7%AC%AC%E5%9B%9B%E7%A7%8D%E5%BA%A6%E9%87%8Fdit-%E7%BB%A7%E6%89%BF%E6%A0%91%E7%9A%84%E6%B7%B1%E5%BA%A6">8.1.4. 第四种度量:DIT 继承树的深度</a></li>
-<li><a href="#815-%E7%AC%AC%E4%BA%94%E7%A7%8D%E5%BA%A6%E9%87%8F-number-of-children-noc-%E5%AD%90%E7%B1%BB%E7%9A%84%E6%95%B0%E9%87%8F">8.1.5. 第五种度量 Number of children (NOC) 子类的数量</a></li>
-<li><a href="#816-%E8%A1%A1%E9%87%8F%E7%B1%BB%E5%87%9D%E8%81%9A%E5%8A%9B-lcom">8.1.6. 衡量类凝聚力 LCOM</a></li>
+<li><a href="#621-%E9%97%AE%E9%A2%98%E6%A1%88%E4%BE%8B%E4%B8%80%E9%93%B6%E8%A1%8C%E9%97%AE%E9%A2%98">6.2.1. &#x95EE;&#x9898;&#x6848;&#x4F8B;&#x4E00;:&#x94F6;&#x884C;&#x95EE;&#x9898;</a></li>
+<li><a href="#622-%E9%97%AE%E9%A2%98%E6%A1%88%E4%BE%8B%E4%BA%8Cis-a-square-a-rectangle">6.2.2. &#x95EE;&#x9898;&#x6848;&#x4F8B;&#x4E8C;:Is a Square a Rectangle?</a></li>
+<li><a href="#623-%E9%97%AE%E9%A2%98%E6%A1%88%E4%BE%8B%E4%B8%89penguin-is-a-bird">6.2.3. &#x95EE;&#x9898;&#x6848;&#x4F8B;&#x4E09;:Penguin is a bird?</a></li>
 </ul>
 </li>
-<li><a href="#82-summaryprinciples-from-modularization-%E6%A8%A1%E5%9D%97%E5%8C%96%E7%9A%84%E5%8E%9F%E5%88%99">8.2. Summary:Principles from Modularization 模块化的原则</a></li>
+<li><a href="#63-%E9%87%8C%E6%B0%8F%E6%9B%BF%E6%8D%A2%E5%8E%9F%E5%88%99%E6%80%BB%E7%BB%93">6.3. &#x91CC;&#x6C0F;&#x66FF;&#x6362;&#x539F;&#x5219;&#x603B;&#x7ED3;</a>
+<ul>
+<li><a href="#631-%E8%AF%BE%E5%A0%82%E7%BB%83%E4%B9%A0">6.3.1. &#x8BFE;&#x5802;&#x7EC3;&#x4E60;</a></li>
+</ul>
+</li>
+<li><a href="#64-%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99%E5%85%AB%E7%BB%84%E5%90%88%E4%BB%A3%E6%9B%BF%E7%BB%A7%E6%89%BF">6.4. &#x8BBE;&#x8BA1;&#x539F;&#x5219;&#x516B;:&#x7EC4;&#x5408;&#x4EE3;&#x66FF;&#x7EE7;&#x627F;</a>
+<ul>
+<li><a href="#641-coad%E7%9A%84%E7%BB%A7%E6%89%BF%E8%A7%84%E5%88%99">6.4.1. Coad&#x7684;&#x7EE7;&#x627F;&#x89C4;&#x5219;</a></li>
+<li><a href="#642-%E7%BB%A7%E6%89%BF%E7%BB%84%E5%90%88-%E5%AE%9E%E4%BE%8B%E4%B8%80">6.4.2. &#x7EE7;&#x627F;/&#x7EC4;&#x5408; &#x5B9E;&#x4F8B;&#x4E00;</a></li>
+<li><a href="#643-%E7%BB%A7%E6%89%BF%E7%BB%84%E5%90%88-%E7%A4%BA%E4%BE%8B%E4%BA%8C">6.4.3. &#x7EE7;&#x627F;/&#x7EC4;&#x5408; &#x793A;&#x4F8B;&#x4E8C;</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#7-%E5%86%85%E8%81%9A">7. &#x5185;&#x805A;</a>
+<ul>
+<li><a href="#71-%E6%96%B9%E6%B3%95%E5%86%85%E8%81%9A">7.1. &#x65B9;&#x6CD5;&#x5185;&#x805A;</a></li>
+<li><a href="#72-%E6%8F%90%E9%AB%98%E5%86%85%E8%81%9A%E7%9A%84%E6%96%B9%E6%B3%95">7.2. &#x63D0;&#x9AD8;&#x5185;&#x805A;&#x7684;&#x65B9;&#x6CD5;</a>
+<ul>
+<li><a href="#721-%E5%8E%9F%E5%88%99%E4%B9%9D%E5%8D%95%E4%B8%80%E8%B4%A3%E4%BB%BB%E5%8E%9F%E5%88%99srp">7.2.1. &#x539F;&#x5219;&#x4E5D;&#xFF1A;&#x5355;&#x4E00;&#x8D23;&#x4EFB;&#x539F;&#x5219;(SRP)</a>
+<ul>
+<li><a href="#7211-%E9%97%AE%E9%A2%98%E6%A1%88%E4%BE%8B">7.2.1.1. &#x95EE;&#x9898;&#x6848;&#x4F8B;</a></li>
+<li><a href="#7212-%E7%BB%93%E5%B1%80%E6%96%B9%E6%A1%88">7.2.1.2. &#x7ED3;&#x5C40;&#x65B9;&#x6848;</a></li>
+</ul>
+</li>
+<li><a href="#722-%E5%8D%95%E4%B8%80%E8%81%8C%E8%B4%A3%E5%8E%9F%E5%88%99">7.2.2. &#x5355;&#x4E00;&#x804C;&#x8D23;&#x539F;&#x5219;</a></li>
+</ul>
+</li>
+<li><a href="#73-%E8%AF%BE%E5%A0%82%E7%BB%83%E4%B9%A0">7.3. &#x8BFE;&#x5802;&#x7EC3;&#x4E60;</a></li>
+</ul>
+</li>
+<li><a href="#8-%E8%80%A6%E5%90%88%E5%92%8C%E5%86%85%E8%81%9A%E7%9A%84%E5%BA%A6%E9%87%8F">8. &#x8026;&#x5408;&#x548C;&#x5185;&#x805A;&#x7684;&#x5EA6;&#x91CF;</a>
+<ul>
+<li><a href="#81-%E7%B1%BB%E4%B9%8B%E9%97%B4%E7%9A%84%E8%80%A6%E5%90%88%E5%BA%A6%E9%87%8F">8.1. &#x7C7B;&#x4E4B;&#x95F4;&#x7684;&#x8026;&#x5408;&#x5EA6;&#x91CF;</a>
+<ul>
+<li><a href="#811-%E7%AC%AC%E4%B8%80%E7%A7%8D%E5%BA%A6%E9%87%8Fcbo%E6%96%B9%E6%B3%95%E8%B0%83%E7%94%A8%E8%80%A6%E5%90%88">8.1.1. &#x7B2C;&#x4E00;&#x79CD;&#x5EA6;&#x91CF;:CBO(&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x8026;&#x5408;)</a></li>
+<li><a href="#812-%E7%AC%AC%E4%BA%8C%E7%A7%8D%E5%BA%A6%E9%87%8Fdac%E6%95%B0%E6%8D%AE%E6%8A%BD%E8%B1%A1%E8%80%A6%E5%90%88">8.1.2. &#x7B2C;&#x4E8C;&#x79CD;&#x5EA6;&#x91CF;:DAC(&#x6570;&#x636E;&#x62BD;&#x8C61;&#x8026;&#x5408;)</a></li>
+<li><a href="#813-%E7%AC%AC%E4%B8%89%E7%A7%8D%E5%BA%A6%E9%87%8Fca%E5%92%8Cce%E6%9C%89%E6%95%88%E5%92%8C">8.1.3. &#x7B2C;&#x4E09;&#x79CD;&#x5EA6;&#x91CF;:Ca&#x548C;Ce(&#x6709;&#x6548;&#x548C;)</a></li>
+<li><a href="#814-%E7%AC%AC%E5%9B%9B%E7%A7%8D%E5%BA%A6%E9%87%8Fdit-%E7%BB%A7%E6%89%BF%E6%A0%91%E7%9A%84%E6%B7%B1%E5%BA%A6">8.1.4. &#x7B2C;&#x56DB;&#x79CD;&#x5EA6;&#x91CF;:DIT &#x7EE7;&#x627F;&#x6811;&#x7684;&#x6DF1;&#x5EA6;</a></li>
+<li><a href="#815-%E7%AC%AC%E4%BA%94%E7%A7%8D%E5%BA%A6%E9%87%8F-number-of-children-noc-%E5%AD%90%E7%B1%BB%E7%9A%84%E6%95%B0%E9%87%8F">8.1.5. &#x7B2C;&#x4E94;&#x79CD;&#x5EA6;&#x91CF; Number of children (NOC) &#x5B50;&#x7C7B;&#x7684;&#x6570;&#x91CF;</a></li>
+<li><a href="#816-%E8%A1%A1%E9%87%8F%E7%B1%BB%E5%87%9D%E8%81%9A%E5%8A%9B-lcom">8.1.6. &#x8861;&#x91CF;&#x7C7B;&#x51DD;&#x805A;&#x529B; LCOM</a></li>
+</ul>
+</li>
+<li><a href="#82-summaryprinciples-from-modularization-%E6%A8%A1%E5%9D%97%E5%8C%96%E7%9A%84%E5%8E%9F%E5%88%99">8.2. Summary:Principles from Modularization &#x6A21;&#x5757;&#x5316;&#x7684;&#x539F;&#x5219;</a></li>
 </ul>
 </li>
 </ul>
 <!-- /TOC -->
-<h1>1. 模块化的原则(总结)</h1>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/1.png" alt=""></p>
+<h1>1. &#x6A21;&#x5757;&#x5316;&#x7684;&#x539F;&#x5219;(&#x603B;&#x7ED3;)</h1>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/1.png" alt></p>
 <ol>
-<li>核心就是上面的</li>
-<li>题目是，给例子，发现违反的原则并纠正</li>
+<li>&#x6838;&#x5FC3;&#x5C31;&#x662F;&#x4E0A;&#x9762;&#x7684;</li>
+<li>&#x9898;&#x76EE;&#x662F;&#xFF0C;&#x7ED9;&#x4F8B;&#x5B50;&#xFF0C;&#x53D1;&#x73B0;&#x8FDD;&#x53CD;&#x7684;&#x539F;&#x5219;&#x5E76;&#x7EA0;&#x6B63;</li>
 </ol>
-<h1>2. 面向对象中的模块与耦合</h1>
-<h2 id="2-1-类">2.1. 类</h2>
+<h1>2. &#x9762;&#x5411;&#x5BF9;&#x8C61;&#x4E2D;&#x7684;&#x6A21;&#x5757;&#x4E0E;&#x8026;&#x5408;</h1>
+<h2 id="2-1-&#x7C7B;">2.1. &#x7C7B;</h2>
 <ol>
-<li>模块化是消除软件复杂度的一个重要方法，它有效地将一个复杂系统分解为若干个代码片段，每一个代码片段完成一个功能，并且包含完成这个功能所需要的信息。</li>
-<li><strong>模块化希望代码片段由两部分组成:接口和实现。</strong></li>
+<li>&#x6A21;&#x5757;&#x5316;&#x662F;&#x6D88;&#x9664;&#x8F6F;&#x4EF6;&#x590D;&#x6742;&#x5EA6;&#x7684;&#x4E00;&#x4E2A;&#x91CD;&#x8981;&#x65B9;&#x6CD5;&#xFF0C;&#x5B83;&#x6709;&#x6548;&#x5730;&#x5C06;&#x4E00;&#x4E2A;&#x590D;&#x6742;&#x7CFB;&#x7EDF;&#x5206;&#x89E3;&#x4E3A;&#x82E5;&#x5E72;&#x4E2A;&#x4EE3;&#x7801;&#x7247;&#x6BB5;&#xFF0C;&#x6BCF;&#x4E00;&#x4E2A;&#x4EE3;&#x7801;&#x7247;&#x6BB5;&#x5B8C;&#x6210;&#x4E00;&#x4E2A;&#x529F;&#x80FD;&#xFF0C;&#x5E76;&#x4E14;&#x5305;&#x542B;&#x5B8C;&#x6210;&#x8FD9;&#x4E2A;&#x529F;&#x80FD;&#x6240;&#x9700;&#x8981;&#x7684;&#x4FE1;&#x606F;&#x3002;</li>
+<li><strong>&#x6A21;&#x5757;&#x5316;&#x5E0C;&#x671B;&#x4EE3;&#x7801;&#x7247;&#x6BB5;&#x7531;&#x4E24;&#x90E8;&#x5206;&#x7EC4;&#x6210;:&#x63A5;&#x53E3;&#x548C;&#x5B9E;&#x73B0;&#x3002;</strong></li>
 </ol>
-<h2 id="2-2-模块">2.2. 模块</h2>
+<h2 id="2-2-&#x6A21;&#x5757;">2.2. &#x6A21;&#x5757;</h2>
 <ol>
-<li>一段代码
+<li>&#x4E00;&#x6BB5;&#x4EE3;&#x7801;
 <ol>
-<li>方法</li>
-<li>类</li>
-<li>模块(包)</li>
-</ol>
-</li>
-<li>耦合:通过段</li>
-<li>聚合:内部段</li>
-</ol>
-<h2 id="2-3-耦合中的结构方法与OO方法">2.3. 耦合中的结构方法与OO方法</h2>
-<ol>
-<li>耦合:耦合是对从一个模块到另一个模块的连接所建立的关联强度的度量。</li>
-<li>结构化方法:连接是对其他地方定义的某些标签或地址的引用</li>
-<li>面向对象方法:
-<ol>
-<li>访问耦合</li>
-<li>继承耦合</li>
+<li>&#x65B9;&#x6CD5;</li>
+<li>&#x7C7B;</li>
+<li>&#x6A21;&#x5757;(&#x5305;)</li>
 </ol>
 </li>
+<li>&#x8026;&#x5408;:&#x901A;&#x8FC7;&#x6BB5;</li>
+<li>&#x805A;&#x5408;:&#x5185;&#x90E8;&#x6BB5;</li>
 </ol>
-<h2 id="2-4-降低耦合的设计原则">2.4. 降低耦合的设计原则</h2>
-<p><strong>在13节中</strong></p>
+<h2 id="2-3-&#x8026;&#x5408;&#x4E2D;&#x7684;&#x7ED3;&#x6784;&#x65B9;&#x6CD5;&#x4E0E;OO&#x65B9;&#x6CD5;">2.3. &#x8026;&#x5408;&#x4E2D;&#x7684;&#x7ED3;&#x6784;&#x65B9;&#x6CD5;&#x4E0E;OO&#x65B9;&#x6CD5;</h2>
 <ol>
-<li>原则一：Global Variables Consider Harmful</li>
-<li>原则二：To be Explicit</li>
-<li>原则三：Do not Repeat</li>
-<li>原则四：Programming to Interface</li>
+<li>&#x8026;&#x5408;:&#x8026;&#x5408;&#x662F;&#x5BF9;&#x4ECE;&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#x5230;&#x53E6;&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#x7684;&#x8FDE;&#x63A5;&#x6240;&#x5EFA;&#x7ACB;&#x7684;&#x5173;&#x8054;&#x5F3A;&#x5EA6;&#x7684;&#x5EA6;&#x91CF;&#x3002;</li>
+<li>&#x7ED3;&#x6784;&#x5316;&#x65B9;&#x6CD5;:&#x8FDE;&#x63A5;&#x662F;&#x5BF9;&#x5176;&#x4ED6;&#x5730;&#x65B9;&#x5B9A;&#x4E49;&#x7684;&#x67D0;&#x4E9B;&#x6807;&#x7B7E;&#x6216;&#x5730;&#x5740;&#x7684;&#x5F15;&#x7528;</li>
+<li>&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x65B9;&#x6CD5;:
+<ol>
+<li>&#x8BBF;&#x95EE;&#x8026;&#x5408;</li>
+<li>&#x7EE7;&#x627F;&#x8026;&#x5408;</li>
 </ol>
-<h1>3. 访问耦合</h1>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/2.png" alt=""></p>
-<p>上面的规格是指参数。</p>
-<p>这里<strong>耦合性的强弱是根据在A中能否很轻易的看到B被引用</strong>，越容易看到，耦合度越低</p>
-<p>隐式访问是需要避免的，实现访问是可以接受的，后面两者是提倡的</p>
-<h2 id="3-1-隐式耦合-Cascading-Message-级联调用问题">3.1. 隐式耦合:Cascading Message 级联调用问题</h2>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/3.png" alt=""></p>
-<h3 id="3-1-1-解决方案-—-引入局部变量">3.1.1. 解决方案 — 引入局部变量</h3>
-<p>显式的展现耦合关系</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/4.png" alt=""></p>
+</li>
+</ol>
+<h2 id="2-4-&#x964D;&#x4F4E;&#x8026;&#x5408;&#x7684;&#x8BBE;&#x8BA1;&#x539F;&#x5219;">2.4. &#x964D;&#x4F4E;&#x8026;&#x5408;&#x7684;&#x8BBE;&#x8BA1;&#x539F;&#x5219;</h2>
+<p><strong>&#x5728;13&#x8282;&#x4E2D;</strong></p>
+<ol>
+<li>&#x539F;&#x5219;&#x4E00;&#xFF1A;Global Variables Consider Harmful</li>
+<li>&#x539F;&#x5219;&#x4E8C;&#xFF1A;To be Explicit</li>
+<li>&#x539F;&#x5219;&#x4E09;&#xFF1A;Do not Repeat</li>
+<li>&#x539F;&#x5219;&#x56DB;&#xFF1A;Programming to Interface</li>
+</ol>
+<h1>3. &#x8BBF;&#x95EE;&#x8026;&#x5408;</h1>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/2.png" alt></p>
+<p>&#x4E0A;&#x9762;&#x7684;&#x89C4;&#x683C;&#x662F;&#x6307;&#x53C2;&#x6570;&#x3002;</p>
+<p>&#x8FD9;&#x91CC;<strong>&#x8026;&#x5408;&#x6027;&#x7684;&#x5F3A;&#x5F31;&#x662F;&#x6839;&#x636E;&#x5728;A&#x4E2D;&#x80FD;&#x5426;&#x5F88;&#x8F7B;&#x6613;&#x7684;&#x770B;&#x5230;B&#x88AB;&#x5F15;&#x7528;</strong>&#xFF0C;&#x8D8A;&#x5BB9;&#x6613;&#x770B;&#x5230;&#xFF0C;&#x8026;&#x5408;&#x5EA6;&#x8D8A;&#x4F4E;</p>
+<p>&#x9690;&#x5F0F;&#x8BBF;&#x95EE;&#x662F;&#x9700;&#x8981;&#x907F;&#x514D;&#x7684;&#xFF0C;&#x5B9E;&#x73B0;&#x8BBF;&#x95EE;&#x662F;&#x53EF;&#x4EE5;&#x63A5;&#x53D7;&#x7684;&#xFF0C;&#x540E;&#x9762;&#x4E24;&#x8005;&#x662F;&#x63D0;&#x5021;&#x7684;</p>
+<h2 id="3-1-&#x9690;&#x5F0F;&#x8026;&#x5408;-Cascading-Message-&#x7EA7;&#x8054;&#x8C03;&#x7528;&#x95EE;&#x9898;">3.1. &#x9690;&#x5F0F;&#x8026;&#x5408;:Cascading Message &#x7EA7;&#x8054;&#x8C03;&#x7528;&#x95EE;&#x9898;</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/3.png" alt></p>
+<h3 id="3-1-1-&#x89E3;&#x51B3;&#x65B9;&#x6848;-&#x2014;-&#x5F15;&#x5165;&#x5C40;&#x90E8;&#x53D8;&#x91CF;">3.1.1. &#x89E3;&#x51B3;&#x65B9;&#x6848; &#x2014; &#x5F15;&#x5165;&#x5C40;&#x90E8;&#x53D8;&#x91CF;</h3>
+<p>&#x663E;&#x5F0F;&#x7684;&#x5C55;&#x73B0;&#x8026;&#x5408;&#x5173;&#x7CFB;</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/4.png" alt></p>
 <ul>
-<li>避免隐式耦合，变为显式耦合，降低耦合度</li>
+<li>&#x907F;&#x514D;&#x9690;&#x5F0F;&#x8026;&#x5408;&#xFF0C;&#x53D8;&#x4E3A;&#x663E;&#x5F0F;&#x8026;&#x5408;&#xFF0C;&#x964D;&#x4F4E;&#x8026;&#x5408;&#x5EA6;</li>
 </ul>
-<h3 id="3-1-2-Cascading-Message问题案例">3.1.2. Cascading Message问题案例</h3>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/5.png" alt=""></p>
+<h3 id="3-1-2-Cascading-Message&#x95EE;&#x9898;&#x6848;&#x4F8B;">3.1.2. Cascading Message&#x95EE;&#x9898;&#x6848;&#x4F8B;</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/5.png" alt></p>
 <ul>
-<li>上面的代码中通过A.b.c就实现了调用，看不出代码和customer之间是有关系的。这样的方式不合适</li>
+<li>&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x4E2D;&#x901A;&#x8FC7;A.b.c&#x5C31;&#x5B9E;&#x73B0;&#x4E86;&#x8C03;&#x7528;&#xFF0C;&#x770B;&#x4E0D;&#x51FA;&#x4EE3;&#x7801;&#x548C;customer&#x4E4B;&#x95F4;&#x662F;&#x6709;&#x5173;&#x7CFB;&#x7684;&#x3002;&#x8FD9;&#x6837;&#x7684;&#x65B9;&#x5F0F;&#x4E0D;&#x5408;&#x9002;</li>
 </ul>
-<h3 id="3-1-3-解决方案-—-委托">3.1.3. 解决方案 — 委托</h3>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/6.png" alt=""></p>
+<h3 id="3-1-3-&#x89E3;&#x51B3;&#x65B9;&#x6848;-&#x2014;-&#x59D4;&#x6258;">3.1.3. &#x89E3;&#x51B3;&#x65B9;&#x6848; &#x2014; &#x59D4;&#x6258;</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/6.png" alt></p>
 <ul>
-<li>使用委托的方式来解决，委托给一个类来完成这个业务，让Account去完成下一步的调用，这样左边的类和customer就没关系了</li>
+<li>&#x4F7F;&#x7528;&#x59D4;&#x6258;&#x7684;&#x65B9;&#x5F0F;&#x6765;&#x89E3;&#x51B3;&#xFF0C;&#x59D4;&#x6258;&#x7ED9;&#x4E00;&#x4E2A;&#x7C7B;&#x6765;&#x5B8C;&#x6210;&#x8FD9;&#x4E2A;&#x4E1A;&#x52A1;&#xFF0C;&#x8BA9;Account&#x53BB;&#x5B8C;&#x6210;&#x4E0B;&#x4E00;&#x6B65;&#x7684;&#x8C03;&#x7528;&#xFF0C;&#x8FD9;&#x6837;&#x5DE6;&#x8FB9;&#x7684;&#x7C7B;&#x548C;customer&#x5C31;&#x6CA1;&#x5173;&#x7CFB;&#x4E86;</li>
 </ul>
-<h1>4. 组件耦合原理</h1>
-<h2 id="4-1-原则四：面向接口编程">4.1. 原则四：面向接口编程</h2>
+<h1>4. &#x7EC4;&#x4EF6;&#x8026;&#x5408;&#x539F;&#x7406;</h1>
+<h2 id="4-1-&#x539F;&#x5219;&#x56DB;&#xFF1A;&#x9762;&#x5411;&#x63A5;&#x53E3;&#x7F16;&#x7A0B;">4.1. &#x539F;&#x5219;&#x56DB;&#xFF1A;&#x9762;&#x5411;&#x63A5;&#x53E3;&#x7F16;&#x7A0B;</h2>
 <ol>
-<li>编程到所需的接口，不仅是受支持的接口</li>
-<li>按照约定设计
+<li>&#x7F16;&#x7A0B;&#x5230;&#x6240;&#x9700;&#x7684;&#x63A5;&#x53E3;&#xFF0C;&#x4E0D;&#x4EC5;&#x662F;&#x53D7;&#x652F;&#x6301;&#x7684;&#x63A5;&#x53E3;</li>
+<li>&#x6309;&#x7167;&#x7EA6;&#x5B9A;&#x8BBE;&#x8BA1;
 <ol>
-<li>模块/类合同：所需方法/提供的方法</li>
-<li>方法合同：前提条件，后置条件，不变式</li>
+<li>&#x6A21;&#x5757;/&#x7C7B;&#x5408;&#x540C;&#xFF1A;&#x6240;&#x9700;&#x65B9;&#x6CD5;/&#x63D0;&#x4F9B;&#x7684;&#x65B9;&#x6CD5;</li>
+<li>&#x65B9;&#x6CD5;&#x5408;&#x540C;&#xFF1A;&#x524D;&#x63D0;&#x6761;&#x4EF6;&#xFF0C;&#x540E;&#x7F6E;&#x6761;&#x4EF6;&#xFF0C;&#x4E0D;&#x53D8;&#x5F0F;</li>
 </ol>
 </li>
-<li>在考虑(非继承的)类与类之间的关系时，一方面要求值访问对方的接口，另一方面要避免隐式访问。</li>
-<li>课本231页关于契约的含义的补充:
+<li>&#x5728;&#x8003;&#x8651;(&#x975E;&#x7EE7;&#x627F;&#x7684;)&#x7C7B;&#x4E0E;&#x7C7B;&#x4E4B;&#x95F4;&#x7684;&#x5173;&#x7CFB;&#x65F6;&#xFF0C;&#x4E00;&#x65B9;&#x9762;&#x8981;&#x6C42;&#x503C;&#x8BBF;&#x95EE;&#x5BF9;&#x65B9;&#x7684;&#x63A5;&#x53E3;&#xFF0C;&#x53E6;&#x4E00;&#x65B9;&#x9762;&#x8981;&#x907F;&#x514D;&#x9690;&#x5F0F;&#x8BBF;&#x95EE;&#x3002;</li>
+<li>&#x8BFE;&#x672C;231&#x9875;&#x5173;&#x4E8E;&#x5951;&#x7EA6;&#x7684;&#x542B;&#x4E49;&#x7684;&#x8865;&#x5145;:
 <ol>
-<li>前置条件</li>
-<li>后值条件</li>
-<li>不变式</li>
+<li>&#x524D;&#x7F6E;&#x6761;&#x4EF6;</li>
+<li>&#x540E;&#x503C;&#x6761;&#x4EF6;</li>
+<li>&#x4E0D;&#x53D8;&#x5F0F;</li>
 </ol>
 </li>
-<li>案例</li>
+<li>&#x6848;&#x4F8B;</li>
 </ol>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/8.png" alt=""></p>
-<h2 id="4-2-原则五-迪米特法则">4.2. 原则五:迪米特法则</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/8.png" alt></p>
+<h2 id="4-2-&#x539F;&#x5219;&#x4E94;-&#x8FEA;&#x7C73;&#x7279;&#x6CD5;&#x5219;">4.2. &#x539F;&#x5219;&#x4E94;:&#x8FEA;&#x7C73;&#x7279;&#x6CD5;&#x5219;</h2>
 <ol>
-<li>通俗说法【<strong>不和陌生人说话</strong>】
+<li>&#x901A;&#x4FD7;&#x8BF4;&#x6CD5;&#x3010;<strong>&#x4E0D;&#x548C;&#x964C;&#x751F;&#x4EBA;&#x8BF4;&#x8BDD;</strong>&#x3011;
 <ol>
-<li>你可以自己玩。(调用this的方法)</li>
-<li>你可以玩自己的玩具，但不能拆开它们(自己的成员变量)</li>
-<li>你可以玩送给你的玩具。(传进来的参数)</li>
-<li>你可以玩自己制作的玩具。(自己创建的对象)</li>
+<li>&#x4F60;&#x53EF;&#x4EE5;&#x81EA;&#x5DF1;&#x73A9;&#x3002;(&#x8C03;&#x7528;this&#x7684;&#x65B9;&#x6CD5;)</li>
+<li>&#x4F60;&#x53EF;&#x4EE5;&#x73A9;&#x81EA;&#x5DF1;&#x7684;&#x73A9;&#x5177;&#xFF0C;&#x4F46;&#x4E0D;&#x80FD;&#x62C6;&#x5F00;&#x5B83;&#x4EEC;(&#x81EA;&#x5DF1;&#x7684;&#x6210;&#x5458;&#x53D8;&#x91CF;)</li>
+<li>&#x4F60;&#x53EF;&#x4EE5;&#x73A9;&#x9001;&#x7ED9;&#x4F60;&#x7684;&#x73A9;&#x5177;&#x3002;(&#x4F20;&#x8FDB;&#x6765;&#x7684;&#x53C2;&#x6570;)</li>
+<li>&#x4F60;&#x53EF;&#x4EE5;&#x73A9;&#x81EA;&#x5DF1;&#x5236;&#x4F5C;&#x7684;&#x73A9;&#x5177;&#x3002;(&#x81EA;&#x5DF1;&#x521B;&#x5EFA;&#x7684;&#x5BF9;&#x8C61;)</li>
 </ol>
 </li>
-<li>更加形式化的说法:
+<li>&#x66F4;&#x52A0;&#x5F62;&#x5F0F;&#x5316;&#x7684;&#x8BF4;&#x6CD5;:
 <ol>
-<li>每个单元对于其他单元只能拥有有限的知识，只是与当前单元紧密联系的单元</li>
-<li>每个单元只能和它的朋友交谈，不能和陌生单元交谈</li>
-<li>只和自己的直接的朋友交谈</li>
+<li>&#x6BCF;&#x4E2A;&#x5355;&#x5143;&#x5BF9;&#x4E8E;&#x5176;&#x4ED6;&#x5355;&#x5143;&#x53EA;&#x80FD;&#x62E5;&#x6709;&#x6709;&#x9650;&#x7684;&#x77E5;&#x8BC6;&#xFF0C;&#x53EA;&#x662F;&#x4E0E;&#x5F53;&#x524D;&#x5355;&#x5143;&#x7D27;&#x5BC6;&#x8054;&#x7CFB;&#x7684;&#x5355;&#x5143;</li>
+<li>&#x6BCF;&#x4E2A;&#x5355;&#x5143;&#x53EA;&#x80FD;&#x548C;&#x5B83;&#x7684;&#x670B;&#x53CB;&#x4EA4;&#x8C08;&#xFF0C;&#x4E0D;&#x80FD;&#x548C;&#x964C;&#x751F;&#x5355;&#x5143;&#x4EA4;&#x8C08;</li>
+<li>&#x53EA;&#x548C;&#x81EA;&#x5DF1;&#x7684;&#x76F4;&#x63A5;&#x7684;&#x670B;&#x53CB;&#x4EA4;&#x8C08;</li>
 </ol>
 </li>
-<li>例子：如果对象O有方法M，那么M只能调用下列对象中的方法【对应上面的四条】：
+<li>&#x4F8B;&#x5B50;&#xFF1A;&#x5982;&#x679C;&#x5BF9;&#x8C61;O&#x6709;&#x65B9;&#x6CD5;M&#xFF0C;&#x90A3;&#x4E48;M&#x53EA;&#x80FD;&#x8C03;&#x7528;&#x4E0B;&#x5217;&#x5BF9;&#x8C61;&#x4E2D;&#x7684;&#x65B9;&#x6CD5;&#x3010;&#x5BF9;&#x5E94;&#x4E0A;&#x9762;&#x7684;&#x56DB;&#x6761;&#x3011;&#xFF1A;
 <ol>
-<li>O自己</li>
-<li>O的成员变量</li>
-<li>M中的参数对象</li>
-<li>在M中创建的对象</li>
+<li>O&#x81EA;&#x5DF1;</li>
+<li>O&#x7684;&#x6210;&#x5458;&#x53D8;&#x91CF;</li>
+<li>M&#x4E2D;&#x7684;&#x53C2;&#x6570;&#x5BF9;&#x8C61;</li>
+<li>&#x5728;M&#x4E2D;&#x521B;&#x5EFA;&#x7684;&#x5BF9;&#x8C61;</li>
 </ol>
 </li>
 </ol>
-<p>迪米特法则特别强调不要出现如 a.b.Method的方法应该只有 a.Method，这与避免隐式耦合的观点一致</p>
-<h3 id="4-2-1-问题案例">4.2.1. 问题案例</h3>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/7.png" alt=""></p>
+<p>&#x8FEA;&#x7C73;&#x7279;&#x6CD5;&#x5219;&#x7279;&#x522B;&#x5F3A;&#x8C03;&#x4E0D;&#x8981;&#x51FA;&#x73B0;&#x5982; a.b.Method&#x7684;&#x65B9;&#x6CD5;&#x5E94;&#x8BE5;&#x53EA;&#x6709; a.Method&#xFF0C;&#x8FD9;&#x4E0E;&#x907F;&#x514D;&#x9690;&#x5F0F;&#x8026;&#x5408;&#x7684;&#x89C2;&#x70B9;&#x4E00;&#x81F4;</p>
+<h3 id="4-2-1-&#x95EE;&#x9898;&#x6848;&#x4F8B;">4.2.1. &#x95EE;&#x9898;&#x6848;&#x4F8B;</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/7.png" alt></p>
 <ul>
-<li>通过联系人获得信息</li>
-<li>如何获得其他的引用？
+<li>&#x901A;&#x8FC7;&#x8054;&#x7CFB;&#x4EBA;&#x83B7;&#x5F97;&#x4FE1;&#x606F;</li>
+<li>&#x5982;&#x4F55;&#x83B7;&#x5F97;&#x5176;&#x4ED6;&#x7684;&#x5F15;&#x7528;&#xFF1F;
 <ol>
 <li>this</li>
-<li>成员变量:√在Contact里面持有PostalArea的一个成员变量。</li>
-<li>方法传入的参数</li>
-<li>自己创建</li>
+<li>&#x6210;&#x5458;&#x53D8;&#x91CF;:&#x221A;&#x5728;Contact&#x91CC;&#x9762;&#x6301;&#x6709;PostalArea&#x7684;&#x4E00;&#x4E2A;&#x6210;&#x5458;&#x53D8;&#x91CF;&#x3002;</li>
+<li>&#x65B9;&#x6CD5;&#x4F20;&#x5165;&#x7684;&#x53C2;&#x6570;</li>
+<li>&#x81EA;&#x5DF1;&#x521B;&#x5EFA;</li>
 </ol>
 </li>
 </ul>
-<h2 id="4-3-原则六：接口隔离原则-ISP-也叫接口最小化原则">4.3. 原则六：接口隔离原则(ISP)/也叫接口最小化原则</h2>
+<h2 id="4-3-&#x539F;&#x5219;&#x516D;&#xFF1A;&#x63A5;&#x53E3;&#x9694;&#x79BB;&#x539F;&#x5219;-ISP-&#x4E5F;&#x53EB;&#x63A5;&#x53E3;&#x6700;&#x5C0F;&#x5316;&#x539F;&#x5219;">4.3. &#x539F;&#x5219;&#x516D;&#xFF1A;&#x63A5;&#x53E3;&#x9694;&#x79BB;&#x539F;&#x5219;(ISP)/&#x4E5F;&#x53EB;&#x63A5;&#x53E3;&#x6700;&#x5C0F;&#x5316;&#x539F;&#x5219;</h2>
 <ol>
 <li>
-<p>不应强迫客户端依赖于不使用的接口。 马丁(R. Martin)，1996年</p>
-<p>【不应当依赖于一个大接口】</p>
+<p>&#x4E0D;&#x5E94;&#x5F3A;&#x8FEB;&#x5BA2;&#x6237;&#x7AEF;&#x4F9D;&#x8D56;&#x4E8E;&#x4E0D;&#x4F7F;&#x7528;&#x7684;&#x63A5;&#x53E3;&#x3002; &#x9A6C;&#x4E01;(R. Martin)&#xFF0C;1996&#x5E74;</p>
+<p>&#x3010;&#x4E0D;&#x5E94;&#x5F53;&#x4F9D;&#x8D56;&#x4E8E;&#x4E00;&#x4E2A;&#x5927;&#x63A5;&#x53E3;&#x3011;</p>
 </li>
 <li>
-<p>面向简单接口编程</p>
+<p>&#x9762;&#x5411;&#x7B80;&#x5355;&#x63A5;&#x53E3;&#x7F16;&#x7A0B;</p>
 </li>
 <li>
-<p>许多客户专用接口比一个通用接口要好</p>
+<p>&#x8BB8;&#x591A;&#x5BA2;&#x6237;&#x4E13;&#x7528;&#x63A5;&#x53E3;&#x6BD4;&#x4E00;&#x4E2A;&#x901A;&#x7528;&#x63A5;&#x53E3;&#x8981;&#x597D;</p>
 </li>
 </ol>
-<h2 id="4-4-解释接口隔离原则">4.4. 解释接口隔离原则</h2>
+<h2 id="4-4-&#x89E3;&#x91CA;&#x63A5;&#x53E3;&#x9694;&#x79BB;&#x539F;&#x5219;">4.4. &#x89E3;&#x91CA;&#x63A5;&#x53E3;&#x9694;&#x79BB;&#x539F;&#x5219;</h2>
 <ol>
-<li>多用途的类
+<li>&#x591A;&#x7528;&#x9014;&#x7684;&#x7C7B;
 <ol>
-<li>方法分成不同组</li>
-<li>没有一个用户使用所有的方法</li>
+<li>&#x65B9;&#x6CD5;&#x5206;&#x6210;&#x4E0D;&#x540C;&#x7EC4;</li>
+<li>&#x6CA1;&#x6709;&#x4E00;&#x4E2A;&#x7528;&#x6237;&#x4F7F;&#x7528;&#x6240;&#x6709;&#x7684;&#x65B9;&#x6CD5;</li>
 </ol>
 </li>
-<li>可能会导致不想要的依赖：使用类的一个方面的接口也间接依赖于其他方面的依赖性</li>
-<li>ISP有助于解决问题：使用多个客户特定的接口</li>
+<li>&#x53EF;&#x80FD;&#x4F1A;&#x5BFC;&#x81F4;&#x4E0D;&#x60F3;&#x8981;&#x7684;&#x4F9D;&#x8D56;&#xFF1A;&#x4F7F;&#x7528;&#x7C7B;&#x7684;&#x4E00;&#x4E2A;&#x65B9;&#x9762;&#x7684;&#x63A5;&#x53E3;&#x4E5F;&#x95F4;&#x63A5;&#x4F9D;&#x8D56;&#x4E8E;&#x5176;&#x4ED6;&#x65B9;&#x9762;&#x7684;&#x4F9D;&#x8D56;&#x6027;</li>
+<li>ISP&#x6709;&#x52A9;&#x4E8E;&#x89E3;&#x51B3;&#x95EE;&#x9898;&#xFF1A;&#x4F7F;&#x7528;&#x591A;&#x4E2A;&#x5BA2;&#x6237;&#x7279;&#x5B9A;&#x7684;&#x63A5;&#x53E3;</li>
 </ol>
-<h3 id="4-4-1-案例一-GUI界面问题">4.4.1. 案例一:GUI界面问题</h3>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/9.png" alt=""></p>
+<h3 id="4-4-1-&#x6848;&#x4F8B;&#x4E00;-GUI&#x754C;&#x9762;&#x95EE;&#x9898;">4.4.1. &#x6848;&#x4F8B;&#x4E00;:GUI&#x754C;&#x9762;&#x95EE;&#x9898;</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/9.png" alt></p>
 <ul>
-<li>进一步细化接口，避免出现不必要的依赖。【<strong>把大接口分成小接口</strong>】</li>
+<li>&#x8FDB;&#x4E00;&#x6B65;&#x7EC6;&#x5316;&#x63A5;&#x53E3;&#xFF0C;&#x907F;&#x514D;&#x51FA;&#x73B0;&#x4E0D;&#x5FC5;&#x8981;&#x7684;&#x4F9D;&#x8D56;&#x3002;&#x3010;<strong>&#x628A;&#x5927;&#x63A5;&#x53E3;&#x5206;&#x6210;&#x5C0F;&#x63A5;&#x53E3;</strong>&#x3011;</li>
 </ul>
-<h3 id="4-4-2-案例二-Application的依赖问题">4.4.2. 案例二:Application的依赖问题</h3>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/10.png" alt=""></p>
+<h3 id="4-4-2-&#x6848;&#x4F8B;&#x4E8C;-Application&#x7684;&#x4F9D;&#x8D56;&#x95EE;&#x9898;">4.4.2. &#x6848;&#x4F8B;&#x4E8C;:Application&#x7684;&#x4F9D;&#x8D56;&#x95EE;&#x9898;</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/10.png" alt></p>
 <ul>
-<li>想法一:将ApplicationForm拆开</li>
-<li>想法二:将Controller合并</li>
-<li>根据具体情况选择想法一 和想法二</li>
+<li>&#x60F3;&#x6CD5;&#x4E00;:&#x5C06;ApplicationForm&#x62C6;&#x5F00;</li>
+<li>&#x60F3;&#x6CD5;&#x4E8C;:&#x5C06;Controller&#x5408;&#x5E76;</li>
+<li>&#x6839;&#x636E;&#x5177;&#x4F53;&#x60C5;&#x51B5;&#x9009;&#x62E9;&#x60F3;&#x6CD5;&#x4E00; &#x548C;&#x60F3;&#x6CD5;&#x4E8C;</li>
 </ul>
-<h1>5. 继承耦合</h1>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/11.png" alt=""></p>
+<h1>5. &#x7EE7;&#x627F;&#x8026;&#x5408;</h1>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/11.png" alt></p>
 <ol>
-<li>在以上的各种类型的继承关系中，<strong>修改规格、修改实现、精化规格是不可以接受的。</strong></li>
-<li>精化实现是可以接受的，也是经常被使用的，即方法的重写</li>
-<li>扩展是最好的继承耦合，但不可能每个继承都只是只拓展不调整的</li>
+<li>&#x5728;&#x4EE5;&#x4E0A;&#x7684;&#x5404;&#x79CD;&#x7C7B;&#x578B;&#x7684;&#x7EE7;&#x627F;&#x5173;&#x7CFB;&#x4E2D;&#xFF0C;<strong>&#x4FEE;&#x6539;&#x89C4;&#x683C;&#x3001;&#x4FEE;&#x6539;&#x5B9E;&#x73B0;&#x3001;&#x7CBE;&#x5316;&#x89C4;&#x683C;&#x662F;&#x4E0D;&#x53EF;&#x4EE5;&#x63A5;&#x53D7;&#x7684;&#x3002;</strong></li>
+<li>&#x7CBE;&#x5316;&#x5B9E;&#x73B0;&#x662F;&#x53EF;&#x4EE5;&#x63A5;&#x53D7;&#x7684;&#xFF0C;&#x4E5F;&#x662F;&#x7ECF;&#x5E38;&#x88AB;&#x4F7F;&#x7528;&#x7684;&#xFF0C;&#x5373;&#x65B9;&#x6CD5;&#x7684;&#x91CD;&#x5199;</li>
+<li>&#x6269;&#x5C55;&#x662F;&#x6700;&#x597D;&#x7684;&#x7EE7;&#x627F;&#x8026;&#x5408;&#xFF0C;&#x4F46;&#x4E0D;&#x53EF;&#x80FD;&#x6BCF;&#x4E2A;&#x7EE7;&#x627F;&#x90FD;&#x53EA;&#x662F;&#x53EA;&#x62D3;&#x5C55;&#x4E0D;&#x8C03;&#x6574;&#x7684;</li>
 </ol>
-<h2 id="5-1-修改继承耦合">5.1. 修改继承耦合</h2>
+<h2 id="5-1-&#x4FEE;&#x6539;&#x7EE7;&#x627F;&#x8026;&#x5408;">5.1. &#x4FEE;&#x6539;&#x7EE7;&#x627F;&#x8026;&#x5408;</h2>
 <ol>
-<li>没有任何规则和限制的修改</li>
-<li>最差的继承耦合</li>
-<li>如果客户端使用父引用，则需要使用parent和child方法
+<li>&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x89C4;&#x5219;&#x548C;&#x9650;&#x5236;&#x7684;&#x4FEE;&#x6539;</li>
+<li>&#x6700;&#x5DEE;&#x7684;&#x7EE7;&#x627F;&#x8026;&#x5408;</li>
+<li>&#x5982;&#x679C;&#x5BA2;&#x6237;&#x7AEF;&#x4F7F;&#x7528;&#x7236;&#x5F15;&#x7528;&#xFF0C;&#x5219;&#x9700;&#x8981;&#x4F7F;&#x7528;parent&#x548C;child&#x65B9;&#x6CD5;
 <ol>
-<li>隐含的</li>
-<li>有两个连接，比较复杂</li>
+<li>&#x9690;&#x542B;&#x7684;</li>
+<li>&#x6709;&#x4E24;&#x4E2A;&#x8FDE;&#x63A5;&#xFF0C;&#x6BD4;&#x8F83;&#x590D;&#x6742;</li>
 </ol>
 </li>
-<li>危害多态</li>
+<li>&#x5371;&#x5BB3;&#x591A;&#x6001;</li>
 </ol>
-<h3 id="5-1-1-案例">5.1.1. 案例</h3>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/12.png" alt=""></p>
+<h3 id="5-1-1-&#x6848;&#x4F8B;">5.1.1. &#x6848;&#x4F8B;</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/12.png" alt></p>
 <ul>
-<li>父类能做的子类都能做吗?√</li>
-<li>子类能做的父类都能做吗?×</li>
+<li>&#x7236;&#x7C7B;&#x80FD;&#x505A;&#x7684;&#x5B50;&#x7C7B;&#x90FD;&#x80FD;&#x505A;&#x5417;?&#x221A;</li>
+<li>&#x5B50;&#x7C7B;&#x80FD;&#x505A;&#x7684;&#x7236;&#x7C7B;&#x90FD;&#x80FD;&#x505A;&#x5417;?&#xD7;</li>
 </ul>
-<h2 id="5-2-精化继承耦合">5.2. 精化继承耦合</h2>
+<h2 id="5-2-&#x7CBE;&#x5316;&#x7EE7;&#x627F;&#x8026;&#x5408;">5.2. &#x7CBE;&#x5316;&#x7EE7;&#x627F;&#x8026;&#x5408;</h2>
 <ol>
-<li>定义新信息</li>
-<li>继承的信息仅<strong>根据预定规则</strong>进行更改</li>
-<li>如果客户使用父母参考，则需要整个父母和子女的修饰
+<li>&#x5B9A;&#x4E49;&#x65B0;&#x4FE1;&#x606F;</li>
+<li>&#x7EE7;&#x627F;&#x7684;&#x4FE1;&#x606F;&#x4EC5;<strong>&#x6839;&#x636E;&#x9884;&#x5B9A;&#x89C4;&#x5219;</strong>&#x8FDB;&#x884C;&#x66F4;&#x6539;</li>
+<li>&#x5982;&#x679C;&#x5BA2;&#x6237;&#x4F7F;&#x7528;&#x7236;&#x6BCD;&#x53C2;&#x8003;&#xFF0C;&#x5219;&#x9700;&#x8981;&#x6574;&#x4E2A;&#x7236;&#x6BCD;&#x548C;&#x5B50;&#x5973;&#x7684;&#x4FEE;&#x9970;
 <ol>
 <li>1+connections</li>
 </ol>
 </li>
-<li>常见的</li>
+<li>&#x5E38;&#x89C1;&#x7684;</li>
 </ol>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/13.png" alt=""></p>
-<h2 id="5-3-扩展继承耦合">5.3. 扩展继承耦合</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/13.png" alt></p>
+<h2 id="5-3-&#x6269;&#x5C55;&#x7EE7;&#x627F;&#x8026;&#x5408;">5.3. &#x6269;&#x5C55;&#x7EE7;&#x627F;&#x8026;&#x5408;</h2>
 <ol>
-<li>子类仅添加方法和实例变量，而没有修改或修饰任何继承的方法和实例变量</li>
-<li>如果客户端使用父引用，则仅需要父引用：一次引用</li>
+<li>&#x5B50;&#x7C7B;&#x4EC5;&#x6DFB;&#x52A0;&#x65B9;&#x6CD5;&#x548C;&#x5B9E;&#x4F8B;&#x53D8;&#x91CF;&#xFF0C;&#x800C;&#x6CA1;&#x6709;&#x4FEE;&#x6539;&#x6216;&#x4FEE;&#x9970;&#x4EFB;&#x4F55;&#x7EE7;&#x627F;&#x7684;&#x65B9;&#x6CD5;&#x548C;&#x5B9E;&#x4F8B;&#x53D8;&#x91CF;</li>
+<li>&#x5982;&#x679C;&#x5BA2;&#x6237;&#x7AEF;&#x4F7F;&#x7528;&#x7236;&#x5F15;&#x7528;&#xFF0C;&#x5219;&#x4EC5;&#x9700;&#x8981;&#x7236;&#x5F15;&#x7528;&#xFF1A;&#x4E00;&#x6B21;&#x5F15;&#x7528;</li>
 </ol>
-<h1>6. 降低继承耦合的方法</h1>
-<h2 id="6-1-继承耦合原理">6.1. 继承耦合原理</h2>
-<h2 id="6-2-原则七：里氏替换原则-LSP">6.2. 原则七：里氏替换原则[LSP]</h2>
+<h1>6. &#x964D;&#x4F4E;&#x7EE7;&#x627F;&#x8026;&#x5408;&#x7684;&#x65B9;&#x6CD5;</h1>
+<h2 id="6-1-&#x7EE7;&#x627F;&#x8026;&#x5408;&#x539F;&#x7406;">6.1. &#x7EE7;&#x627F;&#x8026;&#x5408;&#x539F;&#x7406;</h2>
+<h2 id="6-2-&#x539F;&#x5219;&#x4E03;&#xFF1A;&#x91CC;&#x6C0F;&#x66FF;&#x6362;&#x539F;&#x5219;-LSP">6.2. &#x539F;&#x5219;&#x4E03;&#xFF1A;&#x91CC;&#x6C0F;&#x66FF;&#x6362;&#x539F;&#x5219;[LSP]</h2>
 <ol>
-<li><strong>所有派生类都必须可以替代其基类并起到相同的作用</strong>，如果违反了，那么父类和子类一定有较强的耦合</li>
-<li>“使用指针或对基类的引用的函数必须能够在不知道的情况下使用派生类的对象。” -R. Martin，1996年</li>
+<li><strong>&#x6240;&#x6709;&#x6D3E;&#x751F;&#x7C7B;&#x90FD;&#x5FC5;&#x987B;&#x53EF;&#x4EE5;&#x66FF;&#x4EE3;&#x5176;&#x57FA;&#x7C7B;&#x5E76;&#x8D77;&#x5230;&#x76F8;&#x540C;&#x7684;&#x4F5C;&#x7528;</strong>&#xFF0C;&#x5982;&#x679C;&#x8FDD;&#x53CD;&#x4E86;&#xFF0C;&#x90A3;&#x4E48;&#x7236;&#x7C7B;&#x548C;&#x5B50;&#x7C7B;&#x4E00;&#x5B9A;&#x6709;&#x8F83;&#x5F3A;&#x7684;&#x8026;&#x5408;</li>
+<li>&#x201C;&#x4F7F;&#x7528;&#x6307;&#x9488;&#x6216;&#x5BF9;&#x57FA;&#x7C7B;&#x7684;&#x5F15;&#x7528;&#x7684;&#x51FD;&#x6570;&#x5FC5;&#x987B;&#x80FD;&#x591F;&#x5728;&#x4E0D;&#x77E5;&#x9053;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x4F7F;&#x7528;&#x6D3E;&#x751F;&#x7C7B;&#x7684;&#x5BF9;&#x8C61;&#x3002;&#x201D; -R. Martin&#xFF0C;1996&#x5E74;</li>
 </ol>
-<h3 id="6-2-1-问题案例一-银行问题">6.2.1. 问题案例一:银行问题</h3>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/14.png" alt=""></p>
+<h3 id="6-2-1-&#x95EE;&#x9898;&#x6848;&#x4F8B;&#x4E00;-&#x94F6;&#x884C;&#x95EE;&#x9898;">6.2.1. &#x95EE;&#x9898;&#x6848;&#x4F8B;&#x4E00;:&#x94F6;&#x884C;&#x95EE;&#x9898;</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/14.png" alt></p>
 <ul>
-<li>继承关系有问题吗？</li>
-<li>继承后子类能够当做父类看待吗？不能，因为子类要求比父类更强，因此在execute中if判断余额是大于要取钱的数目时，会调用payer，但子类中要求余额减去债务才能取钱，要求更高了，所以方法调用会出错</li>
-<li>解决方案:在父类中增加新的变量完成，这样在execute方法中执行就不会出错了，因为此时判断的就是可</li>
+<li>&#x7EE7;&#x627F;&#x5173;&#x7CFB;&#x6709;&#x95EE;&#x9898;&#x5417;&#xFF1F;</li>
+<li>&#x7EE7;&#x627F;&#x540E;&#x5B50;&#x7C7B;&#x80FD;&#x591F;&#x5F53;&#x505A;&#x7236;&#x7C7B;&#x770B;&#x5F85;&#x5417;&#xFF1F;&#x4E0D;&#x80FD;&#xFF0C;&#x56E0;&#x4E3A;&#x5B50;&#x7C7B;&#x8981;&#x6C42;&#x6BD4;&#x7236;&#x7C7B;&#x66F4;&#x5F3A;&#xFF0C;&#x56E0;&#x6B64;&#x5728;execute&#x4E2D;if&#x5224;&#x65AD;&#x4F59;&#x989D;&#x662F;&#x5927;&#x4E8E;&#x8981;&#x53D6;&#x94B1;&#x7684;&#x6570;&#x76EE;&#x65F6;&#xFF0C;&#x4F1A;&#x8C03;&#x7528;payer&#xFF0C;&#x4F46;&#x5B50;&#x7C7B;&#x4E2D;&#x8981;&#x6C42;&#x4F59;&#x989D;&#x51CF;&#x53BB;&#x503A;&#x52A1;&#x624D;&#x80FD;&#x53D6;&#x94B1;&#xFF0C;&#x8981;&#x6C42;&#x66F4;&#x9AD8;&#x4E86;&#xFF0C;&#x6240;&#x4EE5;&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x4F1A;&#x51FA;&#x9519;</li>
+<li>&#x89E3;&#x51B3;&#x65B9;&#x6848;:&#x5728;&#x7236;&#x7C7B;&#x4E2D;&#x589E;&#x52A0;&#x65B0;&#x7684;&#x53D8;&#x91CF;&#x5B8C;&#x6210;&#xFF0C;&#x8FD9;&#x6837;&#x5728;execute&#x65B9;&#x6CD5;&#x4E2D;&#x6267;&#x884C;&#x5C31;&#x4E0D;&#x4F1A;&#x51FA;&#x9519;&#x4E86;&#xFF0C;&#x56E0;&#x4E3A;&#x6B64;&#x65F6;&#x5224;&#x65AD;&#x7684;&#x5C31;&#x662F;&#x53EF;</li>
 </ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/15.png" alt=""></p>
-<h3 id="6-2-2-问题案例二-Is-a-Square-a-Rectangle">6.2.2. 问题案例二:Is a Square a Rectangle?</h3>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Rect</span> <span class="variable">r</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Rect</span>();</span><br><span class="line">setWidth = <span class="number">4</span>;</span><br><span class="line">setHeight = <span class="number">5</span>;</span><br><span class="line"><span class="keyword">assert</span>(<span class="number">20</span> == getArea());</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Square</span> <span class="keyword">extends</span> <span class="title class_">Rect</span>&#123;</span><br><span class="line">   <span class="comment">// Square invariant, height = width</span></span><br><span class="line">   setWidth(x) &#123;</span><br><span class="line">      setHeight()=x;</span><br><span class="line">   &#125;</span><br><span class="line">   setHeight(x) &#123;</span><br><span class="line">      setWidth(x)</span><br><span class="line">   &#125;</span><br><span class="line">&#125; <span class="comment">// violate LSP?</span></span><br></pre></td></tr></table></figure>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/15.png" alt></p>
+<h3 id="6-2-2-&#x95EE;&#x9898;&#x6848;&#x4F8B;&#x4E8C;-Is-a-Square-a-Rectangle">6.2.2. &#x95EE;&#x9898;&#x6848;&#x4F8B;&#x4E8C;:Is a Square a Rectangle?</h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Rect</span> <span class="variable">r</span> <span class="operator">=</span> <span class="keyword">new</span> <span class="title class_">Rect</span>();</span><br><span class="line">setWidth = <span class="number">4</span>;</span><br><span class="line">setHeight = <span class="number">5</span>;</span><br><span class="line"><span class="keyword">assert</span>(<span class="number">20</span> == getArea());</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Square</span> <span class="keyword">extends</span> <span class="title class_">Rect</span>{</span><br><span class="line">   <span class="comment">// Square invariant, height = width</span></span><br><span class="line">   setWidth(x) {</span><br><span class="line">      setHeight()=x;</span><br><span class="line">   }</span><br><span class="line">   setHeight(x) {</span><br><span class="line">      setWidth(x)</span><br><span class="line">   }</span><br><span class="line">} <span class="comment">// violate LSP?</span></span><br></pre></td></tr></table></figure>
 <ol>
-<li>正方形继承长方形:正方形条件比长方形条件更强，多限制条件。</li>
-<li>正方形继承长方形是不合适的。</li>
-<li>长方形继承正方形也是不合适的</li>
+<li>&#x6B63;&#x65B9;&#x5F62;&#x7EE7;&#x627F;&#x957F;&#x65B9;&#x5F62;:&#x6B63;&#x65B9;&#x5F62;&#x6761;&#x4EF6;&#x6BD4;&#x957F;&#x65B9;&#x5F62;&#x6761;&#x4EF6;&#x66F4;&#x5F3A;&#xFF0C;&#x591A;&#x9650;&#x5236;&#x6761;&#x4EF6;&#x3002;</li>
+<li>&#x6B63;&#x65B9;&#x5F62;&#x7EE7;&#x627F;&#x957F;&#x65B9;&#x5F62;&#x662F;&#x4E0D;&#x5408;&#x9002;&#x7684;&#x3002;</li>
+<li>&#x957F;&#x65B9;&#x5F62;&#x7EE7;&#x627F;&#x6B63;&#x65B9;&#x5F62;&#x4E5F;&#x662F;&#x4E0D;&#x5408;&#x9002;&#x7684;</li>
 </ol>
-<h3 id="6-2-3-问题案例三-Penguin-is-a-bird">6.2.3. 问题案例三:Penguin is a bird?</h3>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Bird</span> &#123;</span><br><span class="line">   <span class="comment">// has beak, wings,...</span></span><br><span class="line">   <span class="keyword">public</span>: virtual <span class="keyword">void</span> <span class="title function_">fly</span><span class="params">()</span>;</span><br><span class="line">   <span class="comment">// Bird can ﬂy</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Parrot</span> : <span class="keyword">public</span> Bird &#123;</span><br><span class="line">   <span class="comment">// Parrot is a bird</span></span><br><span class="line">   <span class="keyword">public</span>: virtual <span class="keyword">void</span> <span class="title function_">mimic</span><span class="params">()</span>;</span><br><span class="line">   <span class="comment">// Can Repeat words...</span></span><br><span class="line">&#125;;</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Penguin</span> : <span class="keyword">public</span> Bird &#123;</span><br><span class="line">   <span class="keyword">public</span>: <span class="keyword">void</span> <span class="title function_">fly</span><span class="params">()</span> &#123;</span><br><span class="line">      error (<span class="string">&quot;Penguins don’t fly!&quot;</span>);</span><br><span class="line">   &#125; </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+<h3 id="6-2-3-&#x95EE;&#x9898;&#x6848;&#x4F8B;&#x4E09;-Penguin-is-a-bird">6.2.3. &#x95EE;&#x9898;&#x6848;&#x4F8B;&#x4E09;:Penguin is a bird?</h3>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Bird</span> {</span><br><span class="line">   <span class="comment">// has beak, wings,...</span></span><br><span class="line">   <span class="keyword">public</span>: virtual <span class="keyword">void</span> <span class="title function_">fly</span><span class="params">()</span>;</span><br><span class="line">   <span class="comment">// Bird can &#xFB02;y</span></span><br><span class="line">};</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Parrot</span> : <span class="keyword">public</span> Bird {</span><br><span class="line">   <span class="comment">// Parrot is a bird</span></span><br><span class="line">   <span class="keyword">public</span>: virtual <span class="keyword">void</span> <span class="title function_">mimic</span><span class="params">()</span>;</span><br><span class="line">   <span class="comment">// Can Repeat words...</span></span><br><span class="line">};</span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Penguin</span> : <span class="keyword">public</span> Bird {</span><br><span class="line">   <span class="keyword">public</span>: <span class="keyword">void</span> <span class="title function_">fly</span><span class="params">()</span> {</span><br><span class="line">      error (<span class="string">&quot;Penguins don&#x2019;t fly!&quot;</span>);</span><br><span class="line">   } </span><br><span class="line">};</span><br></pre></td></tr></table></figure>
 <ul>
-<li>不应该被叫做brid，而应该是flyingBird</li>
+<li>&#x4E0D;&#x5E94;&#x8BE5;&#x88AB;&#x53EB;&#x505A;brid&#xFF0C;&#x800C;&#x5E94;&#x8BE5;&#x662F;flyingBird</li>
 <li>Penguins Fail to Fly!</li>
 </ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">PlayWithBird</span> <span class="params">(Bird abird)</span> &#123;</span><br><span class="line">   abird.fly();</span><br><span class="line">   <span class="comment">// OK if Parrot.</span></span><br><span class="line">   <span class="comment">// if bird happens to be Penguin...OOOPS!!</span></span><br><span class="line">&#125; </span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">void</span> <span class="title function_">PlayWithBird</span> <span class="params">(Bird abird)</span> {</span><br><span class="line">   abird.fly();</span><br><span class="line">   <span class="comment">// OK if Parrot.</span></span><br><span class="line">   <span class="comment">// if bird happens to be Penguin...OOOPS!!</span></span><br><span class="line">} </span><br></pre></td></tr></table></figure>
 <ol>
-<li>不建模：“企鹅不可能”，它建模&quot;企鹅可能很好，但如果他们尝试是错误的&quot;，则尝试运行时错误→不可取</li>
-<li>考虑可替代性-LSP失败</li>
+<li>&#x4E0D;&#x5EFA;&#x6A21;&#xFF1A;&#x201C;&#x4F01;&#x9E45;&#x4E0D;&#x53EF;&#x80FD;&#x201D;&#xFF0C;&#x5B83;&#x5EFA;&#x6A21;&quot;&#x4F01;&#x9E45;&#x53EF;&#x80FD;&#x5F88;&#x597D;&#xFF0C;&#x4F46;&#x5982;&#x679C;&#x4ED6;&#x4EEC;&#x5C1D;&#x8BD5;&#x662F;&#x9519;&#x8BEF;&#x7684;&quot;&#xFF0C;&#x5219;&#x5C1D;&#x8BD5;&#x8FD0;&#x884C;&#x65F6;&#x9519;&#x8BEF;&#x2192;&#x4E0D;&#x53EF;&#x53D6;</li>
+<li>&#x8003;&#x8651;&#x53EF;&#x66FF;&#x4EE3;&#x6027;-LSP&#x5931;&#x8D25;</li>
 </ol>
-<h2 id="6-3-里氏替换原则总结">6.3. 里氏替换原则总结</h2>
+<h2 id="6-3-&#x91CC;&#x6C0F;&#x66FF;&#x6362;&#x539F;&#x5219;&#x603B;&#x7ED3;">6.3. &#x91CC;&#x6C0F;&#x66FF;&#x6362;&#x539F;&#x5219;&#x603B;&#x7ED3;</h2>
 <ol>
-<li>LSP与语义和替换有关
+<li>LSP&#x4E0E;&#x8BED;&#x4E49;&#x548C;&#x66FF;&#x6362;&#x6709;&#x5173;
 <ol>
-<li>设计前先了解
+<li>&#x8BBE;&#x8BA1;&#x524D;&#x5148;&#x4E86;&#x89E3;
 <ol>
-<li>必须清楚地记录每个方法和类的含义和目的</li>
-<li>缺乏用户理解将导致事实上违反LSP</li>
+<li>&#x5FC5;&#x987B;&#x6E05;&#x695A;&#x5730;&#x8BB0;&#x5F55;&#x6BCF;&#x4E2A;&#x65B9;&#x6CD5;&#x548C;&#x7C7B;&#x7684;&#x542B;&#x4E49;&#x548C;&#x76EE;&#x7684;</li>
+<li>&#x7F3A;&#x4E4F;&#x7528;&#x6237;&#x7406;&#x89E3;&#x5C06;&#x5BFC;&#x81F4;&#x4E8B;&#x5B9E;&#x4E0A;&#x8FDD;&#x53CD;LSP</li>
 </ol>
 </li>
-<li>可替换性至关重要
+<li>&#x53EF;&#x66FF;&#x6362;&#x6027;&#x81F3;&#x5173;&#x91CD;&#x8981;
 <ol>
-<li>每当任何系统中的任何代码引用任何类时，</li>
-<li>该类别的任何将来或现有的子类别都必须100％可替换</li>
+<li>&#x6BCF;&#x5F53;&#x4EFB;&#x4F55;&#x7CFB;&#x7EDF;&#x4E2D;&#x7684;&#x4EFB;&#x4F55;&#x4EE3;&#x7801;&#x5F15;&#x7528;&#x4EFB;&#x4F55;&#x7C7B;&#x65F6;&#xFF0C;</li>
+<li>&#x8BE5;&#x7C7B;&#x522B;&#x7684;&#x4EFB;&#x4F55;&#x5C06;&#x6765;&#x6216;&#x73B0;&#x6709;&#x7684;&#x5B50;&#x7C7B;&#x522B;&#x90FD;&#x5FC5;&#x987B;100&#xFF05;&#x53EF;&#x66FF;&#x6362;</li>
 </ol>
 </li>
 </ol>
 </li>
 </ol>
 <blockquote>
-<p>&quot;在派生类中重写一种方法时，<strong>只能用一个较弱的方法代替其先决条件，而用一个较强的方法代替其后置条件&quot;</strong> — B. Meyer，1988年</p>
+<p>&quot;&#x5728;&#x6D3E;&#x751F;&#x7C7B;&#x4E2D;&#x91CD;&#x5199;&#x4E00;&#x79CD;&#x65B9;&#x6CD5;&#x65F6;&#xFF0C;<strong>&#x53EA;&#x80FD;&#x7528;&#x4E00;&#x4E2A;&#x8F83;&#x5F31;&#x7684;&#x65B9;&#x6CD5;&#x4EE3;&#x66FF;&#x5176;&#x5148;&#x51B3;&#x6761;&#x4EF6;&#xFF0C;&#x800C;&#x7528;&#x4E00;&#x4E2A;&#x8F83;&#x5F3A;&#x7684;&#x65B9;&#x6CD5;&#x4EE3;&#x66FF;&#x5176;&#x540E;&#x7F6E;&#x6761;&#x4EF6;&quot;</strong> &#x2014; B. Meyer&#xFF0C;1988&#x5E74;</p>
 </blockquote>
 <ol>
-<li>合同设计
+<li>&#x5408;&#x540C;&#x8BBE;&#x8BA1;
 <ol>
-<li>对象的行为：
+<li>&#x5BF9;&#x8C61;&#x7684;&#x884C;&#x4E3A;&#xFF1A;
 <ol>
-<li>更弱的前置条件</li>
-<li>更强的后置条件</li>
+<li>&#x66F4;&#x5F31;&#x7684;&#x524D;&#x7F6E;&#x6761;&#x4EF6;</li>
+<li>&#x66F4;&#x5F3A;&#x7684;&#x540E;&#x7F6E;&#x6761;&#x4EF6;</li>
 </ol>
 </li>
 </ol>
 </li>
-<li><strong>派生类服务应该require no more且 promise no less</strong>【要求不能更高，父类要求100就可以，子类不能要求超过；实现的不能更低，父类实现A，子类至少要实现A，可以实现ABC更多】</li>
-<li>LSP用来判断是否可以进行继承</li>
-<li><strong>符合 LSP 的继承关系可以减少耦合：</strong>
+<li><strong>&#x6D3E;&#x751F;&#x7C7B;&#x670D;&#x52A1;&#x5E94;&#x8BE5;require no more&#x4E14; promise no less</strong>&#x3010;&#x8981;&#x6C42;&#x4E0D;&#x80FD;&#x66F4;&#x9AD8;&#xFF0C;&#x7236;&#x7C7B;&#x8981;&#x6C42;100&#x5C31;&#x53EF;&#x4EE5;&#xFF0C;&#x5B50;&#x7C7B;&#x4E0D;&#x80FD;&#x8981;&#x6C42;&#x8D85;&#x8FC7;&#xFF1B;&#x5B9E;&#x73B0;&#x7684;&#x4E0D;&#x80FD;&#x66F4;&#x4F4E;&#xFF0C;&#x7236;&#x7C7B;&#x5B9E;&#x73B0;A&#xFF0C;&#x5B50;&#x7C7B;&#x81F3;&#x5C11;&#x8981;&#x5B9E;&#x73B0;A&#xFF0C;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;ABC&#x66F4;&#x591A;&#x3011;</li>
+<li>LSP&#x7528;&#x6765;&#x5224;&#x65AD;&#x662F;&#x5426;&#x53EF;&#x4EE5;&#x8FDB;&#x884C;&#x7EE7;&#x627F;</li>
+<li><strong>&#x7B26;&#x5408; LSP &#x7684;&#x7EE7;&#x627F;&#x5173;&#x7CFB;&#x53EF;&#x4EE5;&#x51CF;&#x5C11;&#x8026;&#x5408;&#xFF1A;</strong>
 <ol>
-<li>在 client 类中持有 S，S 有 N 种子类，那么 client 只需要了解 S 即可，因为<strong>耦合度为 1</strong></li>
-<li>如果不使用继承，那么 client 需要了解 N 个子类，<strong>耦合度为 N</strong></li>
-<li>如果继承不符合 LSP，那么client 必须要知道引用的具体类型，因此不但要了解 S，还有了解 N 个子类，<strong>所以耦合度反而增加 N+1</strong></li>
+<li>&#x5728; client &#x7C7B;&#x4E2D;&#x6301;&#x6709; S&#xFF0C;S &#x6709; N &#x79CD;&#x5B50;&#x7C7B;&#xFF0C;&#x90A3;&#x4E48; client &#x53EA;&#x9700;&#x8981;&#x4E86;&#x89E3; S &#x5373;&#x53EF;&#xFF0C;&#x56E0;&#x4E3A;<strong>&#x8026;&#x5408;&#x5EA6;&#x4E3A; 1</strong></li>
+<li>&#x5982;&#x679C;&#x4E0D;&#x4F7F;&#x7528;&#x7EE7;&#x627F;&#xFF0C;&#x90A3;&#x4E48; client &#x9700;&#x8981;&#x4E86;&#x89E3; N &#x4E2A;&#x5B50;&#x7C7B;&#xFF0C;<strong>&#x8026;&#x5408;&#x5EA6;&#x4E3A; N</strong></li>
+<li>&#x5982;&#x679C;&#x7EE7;&#x627F;&#x4E0D;&#x7B26;&#x5408; LSP&#xFF0C;&#x90A3;&#x4E48;client &#x5FC5;&#x987B;&#x8981;&#x77E5;&#x9053;&#x5F15;&#x7528;&#x7684;&#x5177;&#x4F53;&#x7C7B;&#x578B;&#xFF0C;&#x56E0;&#x6B64;&#x4E0D;&#x4F46;&#x8981;&#x4E86;&#x89E3; S&#xFF0C;&#x8FD8;&#x6709;&#x4E86;&#x89E3; N &#x4E2A;&#x5B50;&#x7C7B;&#xFF0C;<strong>&#x6240;&#x4EE5;&#x8026;&#x5408;&#x5EA6;&#x53CD;&#x800C;&#x589E;&#x52A0; N+1</strong></li>
 </ol>
 </li>
 </ol>
-<h3 id="6-3-1-课堂练习">6.3.1. 课堂练习</h3>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/30.png" alt=""></p>
+<h3 id="6-3-1-&#x8BFE;&#x5802;&#x7EC3;&#x4E60;">6.3.1. &#x8BFE;&#x5802;&#x7EC3;&#x4E60;</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/30.png" alt></p>
 <ol>
 <li>
-<p>两种设计都不好，都让 commonDoor 去实现了alarm，而它不应该能发出警报。因此子类不能当作父类来看待，因为父类要求的警报功能，子类 commonDoor 做不到，没有实现【<strong>注意不能把方法继承了，但里面什么都不做</strong>，这样是不对的】</p>
+<p>&#x4E24;&#x79CD;&#x8BBE;&#x8BA1;&#x90FD;&#x4E0D;&#x597D;&#xFF0C;&#x90FD;&#x8BA9; commonDoor &#x53BB;&#x5B9E;&#x73B0;&#x4E86;alarm&#xFF0C;&#x800C;&#x5B83;&#x4E0D;&#x5E94;&#x8BE5;&#x80FD;&#x53D1;&#x51FA;&#x8B66;&#x62A5;&#x3002;&#x56E0;&#x6B64;&#x5B50;&#x7C7B;&#x4E0D;&#x80FD;&#x5F53;&#x4F5C;&#x7236;&#x7C7B;&#x6765;&#x770B;&#x5F85;&#xFF0C;&#x56E0;&#x4E3A;&#x7236;&#x7C7B;&#x8981;&#x6C42;&#x7684;&#x8B66;&#x62A5;&#x529F;&#x80FD;&#xFF0C;&#x5B50;&#x7C7B; commonDoor &#x505A;&#x4E0D;&#x5230;&#xFF0C;&#x6CA1;&#x6709;&#x5B9E;&#x73B0;&#x3010;<strong>&#x6CE8;&#x610F;&#x4E0D;&#x80FD;&#x628A;&#x65B9;&#x6CD5;&#x7EE7;&#x627F;&#x4E86;&#xFF0C;&#x4F46;&#x91CC;&#x9762;&#x4EC0;&#x4E48;&#x90FD;&#x4E0D;&#x505A;</strong>&#xFF0C;&#x8FD9;&#x6837;&#x662F;&#x4E0D;&#x5BF9;&#x7684;&#x3011;</p>
 </li>
 <li>
-<p>正确的应该时，door 里面不能有 alarm()，两个子类继承 door，并且 alarmDoor 去实现 alarm接口。</p>
-<p>这样就能用子类去替换父类了</p>
+<p>&#x6B63;&#x786E;&#x7684;&#x5E94;&#x8BE5;&#x65F6;&#xFF0C;door &#x91CC;&#x9762;&#x4E0D;&#x80FD;&#x6709; alarm()&#xFF0C;&#x4E24;&#x4E2A;&#x5B50;&#x7C7B;&#x7EE7;&#x627F; door&#xFF0C;&#x5E76;&#x4E14; alarmDoor &#x53BB;&#x5B9E;&#x73B0; alarm&#x63A5;&#x53E3;&#x3002;</p>
+<p>&#x8FD9;&#x6837;&#x5C31;&#x80FD;&#x7528;&#x5B50;&#x7C7B;&#x53BB;&#x66FF;&#x6362;&#x7236;&#x7C7B;&#x4E86;</p>
 </li>
 </ol>
-<h2 id="6-4-设计原则八-组合代替继承">6.4. 设计原则八:组合代替继承</h2>
+<h2 id="6-4-&#x8BBE;&#x8BA1;&#x539F;&#x5219;&#x516B;-&#x7EC4;&#x5408;&#x4EE3;&#x66FF;&#x7EE7;&#x627F;">6.4. &#x8BBE;&#x8BA1;&#x539F;&#x5219;&#x516B;:&#x7EC4;&#x5408;&#x4EE3;&#x66FF;&#x7EE7;&#x627F;</h2>
 <ol>
-<li><strong>组合优于继承</strong></li>
-<li><strong>使用继承实现多态</strong>，否则尽量组合</li>
-<li>**使用委托【组合】**而不是使用继承去重用代码！</li>
-<li>在<strong>希望复用代码又不能满足 LSP 时</strong>，往往会用组合来替代继承。用继承的时候一 定要符合 LSP, <strong>不要只为了代码复用而使用继承。</strong></li>
+<li><strong>&#x7EC4;&#x5408;&#x4F18;&#x4E8E;&#x7EE7;&#x627F;</strong></li>
+<li><strong>&#x4F7F;&#x7528;&#x7EE7;&#x627F;&#x5B9E;&#x73B0;&#x591A;&#x6001;</strong>&#xFF0C;&#x5426;&#x5219;&#x5C3D;&#x91CF;&#x7EC4;&#x5408;</li>
+<li>**&#x4F7F;&#x7528;&#x59D4;&#x6258;&#x3010;&#x7EC4;&#x5408;&#x3011;**&#x800C;&#x4E0D;&#x662F;&#x4F7F;&#x7528;&#x7EE7;&#x627F;&#x53BB;&#x91CD;&#x7528;&#x4EE3;&#x7801;&#xFF01;</li>
+<li>&#x5728;<strong>&#x5E0C;&#x671B;&#x590D;&#x7528;&#x4EE3;&#x7801;&#x53C8;&#x4E0D;&#x80FD;&#x6EE1;&#x8DB3; LSP &#x65F6;</strong>&#xFF0C;&#x5F80;&#x5F80;&#x4F1A;&#x7528;&#x7EC4;&#x5408;&#x6765;&#x66FF;&#x4EE3;&#x7EE7;&#x627F;&#x3002;&#x7528;&#x7EE7;&#x627F;&#x7684;&#x65F6;&#x5019;&#x4E00; &#x5B9A;&#x8981;&#x7B26;&#x5408; LSP, <strong>&#x4E0D;&#x8981;&#x53EA;&#x4E3A;&#x4E86;&#x4EE3;&#x7801;&#x590D;&#x7528;&#x800C;&#x4F7F;&#x7528;&#x7EE7;&#x627F;&#x3002;</strong></li>
 </ol>
-<h3 id="6-4-1-Coad的继承规则">6.4.1. Coad的继承规则</h3>
+<h3 id="6-4-1-Coad&#x7684;&#x7EE7;&#x627F;&#x89C4;&#x5219;">6.4.1. Coad&#x7684;&#x7EE7;&#x627F;&#x89C4;&#x5219;</h3>
 <ol>
-<li>仅在满足以下所有条件时才使用继承：
+<li>&#x4EC5;&#x5728;&#x6EE1;&#x8DB3;&#x4EE5;&#x4E0B;&#x6240;&#x6709;&#x6761;&#x4EF6;&#x65F6;&#x624D;&#x4F7F;&#x7528;&#x7EE7;&#x627F;&#xFF1A;
 <ol>
-<li>子类表示&quot;是一种特殊的&quot;，而不是&quot;是一种角色&quot;</li>
-<li>子类的实例永远不需要成为另一个类的对象</li>
-<li>子类扩展而不是覆盖或取消其父类的职责</li>
-<li>子类不会扩展仅是实用程序类的功能</li>
-</ol>
-</li>
-</ol>
-<h3 id="6-4-2-继承-组合-实例一">6.4.2. 继承/组合 实例一</h3>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/16.png" alt=""></p>
-<ul>
-<li>如果出现一个用户既是 Passenger 也是 Agent</li>
-<li>Java不允许多继承</li>
-</ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/17.png" alt=""></p>
-<ul>
-<li>直接的想法就是直接组合</li>
-<li>Person里面持有Passenger、Agent，但是这时候对于单一身份的人是很奇怪的</li>
-</ul>
-<h3 id="6-4-3-继承-组合-示例二【经典方式-star-】">6.4.3. 继承/组合 示例二【经典方式:star:】</h3>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/18.png" alt=""></p>
-<ul>
-<li>Person持有Role，Passenger和Agent实现抽象接口PersonRole</li>
-<li>Role可以是一个List，因此可以实现一个人既是 passenger 也是 agent</li>
-</ul>
-<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Object</span> &#123;  </span><br><span class="line">	<span class="keyword">public</span>: <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">update</span><span class="params">()</span> </span>&#123;&#125;; </span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">draw</span><span class="params">()</span> </span>&#123;&#125;;</span><br><span class="line"> 	<span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">collide</span><span class="params">(Object objects[])</span> </span>&#123;&#125;; </span><br><span class="line">&#125;; </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Visible</span> : <span class="keyword">public</span> Object &#123; </span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">      <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">draw</span><span class="params">()</span> </span>&#123; </span><br><span class="line">        <span class="comment">/* draw model at position of this object */</span> &#125;; </span><br><span class="line">    <span class="keyword">private</span>: Model* model; </span><br><span class="line">&#125;; </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solid</span> : <span class="keyword">public</span> Object &#123; </span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">      <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">collide</span><span class="params">(Object objects[])</span> </span>&#123; </span><br><span class="line">	<span class="comment">/* check and react to collisions with objects */</span> &#125;; </span><br><span class="line">&#125;; </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Movable</span> : <span class="keyword">public</span> Object &#123; </span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">      <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">update</span><span class="params">()</span> </span>&#123;</span><br><span class="line">		 <span class="comment">/* update position */</span> &#125;; </span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
-<ul>
-<li>问题:游戏引擎中存在很多的对象,三个类分别实现方法之一</li>
-<li><strong>继承三件事但是只做了一件，Promise No Less不符合</strong></li>
-<li><strong>接口应该拆成3个</strong></li>
-</ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/1.jpg" alt=""></p>
-<h1>7. 内聚</h1>
-<ol>
-<li><strong>方法内聚和结构化中的函数内聚一致</strong>，功能内聚、信息内聚、过程内聚、时间内聚、逻辑内聚、偶然内聚。</li>
-<li>类的内聚衡量类的成员变量和方法之间的内聚：类应该是信息内聚的又应该是功能内聚的</li>
-</ol>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/19.png" alt=""></p>
-<ul>
-<li>方法和属性保持一致</li>
-</ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/20.png" alt=""></p>
-<ul>
-<li>提高内聚性:将一个类分为三个类</li>
-</ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/21.png" alt=""></p>
-<ul>
-<li>将时间抽象出来，可以进一步抽象</li>
-</ul>
-<h2 id="7-1-方法内聚">7.1. 方法内聚</h2>
-<ol>
-<li>一类方法是普通耦合</li>
-<li>所有方法尽一责
-<ol>
-<li>信息内聚</li>
-<li>相对功能(功能内聚)</li>
-<li>第九个原则:单一职责原理</li>
+<li>&#x5B50;&#x7C7B;&#x8868;&#x793A;&quot;&#x662F;&#x4E00;&#x79CD;&#x7279;&#x6B8A;&#x7684;&quot;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&quot;&#x662F;&#x4E00;&#x79CD;&#x89D2;&#x8272;&quot;</li>
+<li>&#x5B50;&#x7C7B;&#x7684;&#x5B9E;&#x4F8B;&#x6C38;&#x8FDC;&#x4E0D;&#x9700;&#x8981;&#x6210;&#x4E3A;&#x53E6;&#x4E00;&#x4E2A;&#x7C7B;&#x7684;&#x5BF9;&#x8C61;</li>
+<li>&#x5B50;&#x7C7B;&#x6269;&#x5C55;&#x800C;&#x4E0D;&#x662F;&#x8986;&#x76D6;&#x6216;&#x53D6;&#x6D88;&#x5176;&#x7236;&#x7C7B;&#x7684;&#x804C;&#x8D23;</li>
+<li>&#x5B50;&#x7C7B;&#x4E0D;&#x4F1A;&#x6269;&#x5C55;&#x4EC5;&#x662F;&#x5B9E;&#x7528;&#x7A0B;&#x5E8F;&#x7C7B;&#x7684;&#x529F;&#x80FD;</li>
 </ol>
 </li>
 </ol>
-<h2 id="7-2-提高内聚的方法">7.2. 提高内聚的方法</h2>
-<h3 id="7-2-1-原则九：单一责任原则-SRP">7.2.1. 原则九：单一责任原则(SRP)</h3>
-<p>一个高内聚的类不仅要是信息内聚的，还应该是功能内聚的，也就是说，<strong>信息与行为除了要集中之外，还要联合起来表达一个内聚的概念，而不是单纯的堆砌，这就是单一职责原则</strong></p>
+<h3 id="6-4-2-&#x7EE7;&#x627F;-&#x7EC4;&#x5408;-&#x5B9E;&#x4F8B;&#x4E00;">6.4.2. &#x7EE7;&#x627F;/&#x7EC4;&#x5408; &#x5B9E;&#x4F8B;&#x4E00;</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/16.png" alt></p>
+<ul>
+<li>&#x5982;&#x679C;&#x51FA;&#x73B0;&#x4E00;&#x4E2A;&#x7528;&#x6237;&#x65E2;&#x662F; Passenger &#x4E5F;&#x662F; Agent</li>
+<li>Java&#x4E0D;&#x5141;&#x8BB8;&#x591A;&#x7EE7;&#x627F;</li>
+</ul>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/17.png" alt></p>
+<ul>
+<li>&#x76F4;&#x63A5;&#x7684;&#x60F3;&#x6CD5;&#x5C31;&#x662F;&#x76F4;&#x63A5;&#x7EC4;&#x5408;</li>
+<li>Person&#x91CC;&#x9762;&#x6301;&#x6709;Passenger&#x3001;Agent&#xFF0C;&#x4F46;&#x662F;&#x8FD9;&#x65F6;&#x5019;&#x5BF9;&#x4E8E;&#x5355;&#x4E00;&#x8EAB;&#x4EFD;&#x7684;&#x4EBA;&#x662F;&#x5F88;&#x5947;&#x602A;&#x7684;</li>
+</ul>
+<h3 id="6-4-3-&#x7EE7;&#x627F;-&#x7EC4;&#x5408;-&#x793A;&#x4F8B;&#x4E8C;&#x3010;&#x7ECF;&#x5178;&#x65B9;&#x5F0F;-star-&#x3011;">6.4.3. &#x7EE7;&#x627F;/&#x7EC4;&#x5408; &#x793A;&#x4F8B;&#x4E8C;&#x3010;&#x7ECF;&#x5178;&#x65B9;&#x5F0F;:star:&#x3011;</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/18.png" alt></p>
+<ul>
+<li>Person&#x6301;&#x6709;Role&#xFF0C;Passenger&#x548C;Agent&#x5B9E;&#x73B0;&#x62BD;&#x8C61;&#x63A5;&#x53E3;PersonRole</li>
+<li>Role&#x53EF;&#x4EE5;&#x662F;&#x4E00;&#x4E2A;List&#xFF0C;&#x56E0;&#x6B64;&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x4EBA;&#x65E2;&#x662F; passenger &#x4E5F;&#x662F; agent</li>
+</ul>
+<figure class="highlight c++"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">class</span> <span class="title class_">Object</span> {  </span><br><span class="line">	<span class="keyword">public</span>: <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">update</span><span class="params">()</span> </span>{}; </span><br><span class="line">	<span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">draw</span><span class="params">()</span> </span>{};</span><br><span class="line"> 	<span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">collide</span><span class="params">(Object objects[])</span> </span>{}; </span><br><span class="line">}; </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Visible</span> : <span class="keyword">public</span> Object { </span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">      <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">draw</span><span class="params">()</span> </span>{ </span><br><span class="line">        <span class="comment">/* draw model at position of this object */</span> }; </span><br><span class="line">    <span class="keyword">private</span>: Model* model; </span><br><span class="line">}; </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Solid</span> : <span class="keyword">public</span> Object { </span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">      <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">collide</span><span class="params">(Object objects[])</span> </span>{ </span><br><span class="line">	<span class="comment">/* check and react to collisions with objects */</span> }; </span><br><span class="line">}; </span><br><span class="line"><span class="keyword">class</span> <span class="title class_">Movable</span> : <span class="keyword">public</span> Object { </span><br><span class="line">    <span class="keyword">public</span>:</span><br><span class="line">      <span class="function"><span class="keyword">virtual</span> <span class="type">void</span> <span class="title">update</span><span class="params">()</span> </span>{</span><br><span class="line">		 <span class="comment">/* update position */</span> }; </span><br><span class="line">};</span><br></pre></td></tr></table></figure>
+<ul>
+<li>&#x95EE;&#x9898;:&#x6E38;&#x620F;&#x5F15;&#x64CE;&#x4E2D;&#x5B58;&#x5728;&#x5F88;&#x591A;&#x7684;&#x5BF9;&#x8C61;,&#x4E09;&#x4E2A;&#x7C7B;&#x5206;&#x522B;&#x5B9E;&#x73B0;&#x65B9;&#x6CD5;&#x4E4B;&#x4E00;</li>
+<li><strong>&#x7EE7;&#x627F;&#x4E09;&#x4EF6;&#x4E8B;&#x4F46;&#x662F;&#x53EA;&#x505A;&#x4E86;&#x4E00;&#x4EF6;&#xFF0C;Promise No Less&#x4E0D;&#x7B26;&#x5408;</strong></li>
+<li><strong>&#x63A5;&#x53E3;&#x5E94;&#x8BE5;&#x62C6;&#x6210;3&#x4E2A;</strong></li>
+</ul>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/1.jpg" alt></p>
+<h1>7. &#x5185;&#x805A;</h1>
+<ol>
+<li><strong>&#x65B9;&#x6CD5;&#x5185;&#x805A;&#x548C;&#x7ED3;&#x6784;&#x5316;&#x4E2D;&#x7684;&#x51FD;&#x6570;&#x5185;&#x805A;&#x4E00;&#x81F4;</strong>&#xFF0C;&#x529F;&#x80FD;&#x5185;&#x805A;&#x3001;&#x4FE1;&#x606F;&#x5185;&#x805A;&#x3001;&#x8FC7;&#x7A0B;&#x5185;&#x805A;&#x3001;&#x65F6;&#x95F4;&#x5185;&#x805A;&#x3001;&#x903B;&#x8F91;&#x5185;&#x805A;&#x3001;&#x5076;&#x7136;&#x5185;&#x805A;&#x3002;</li>
+<li>&#x7C7B;&#x7684;&#x5185;&#x805A;&#x8861;&#x91CF;&#x7C7B;&#x7684;&#x6210;&#x5458;&#x53D8;&#x91CF;&#x548C;&#x65B9;&#x6CD5;&#x4E4B;&#x95F4;&#x7684;&#x5185;&#x805A;&#xFF1A;&#x7C7B;&#x5E94;&#x8BE5;&#x662F;&#x4FE1;&#x606F;&#x5185;&#x805A;&#x7684;&#x53C8;&#x5E94;&#x8BE5;&#x662F;&#x529F;&#x80FD;&#x5185;&#x805A;&#x7684;</li>
+</ol>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/19.png" alt></p>
+<ul>
+<li>&#x65B9;&#x6CD5;&#x548C;&#x5C5E;&#x6027;&#x4FDD;&#x6301;&#x4E00;&#x81F4;</li>
+</ul>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/20.png" alt></p>
+<ul>
+<li>&#x63D0;&#x9AD8;&#x5185;&#x805A;&#x6027;:&#x5C06;&#x4E00;&#x4E2A;&#x7C7B;&#x5206;&#x4E3A;&#x4E09;&#x4E2A;&#x7C7B;</li>
+</ul>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/21.png" alt></p>
+<ul>
+<li>&#x5C06;&#x65F6;&#x95F4;&#x62BD;&#x8C61;&#x51FA;&#x6765;&#xFF0C;&#x53EF;&#x4EE5;&#x8FDB;&#x4E00;&#x6B65;&#x62BD;&#x8C61;</li>
+</ul>
+<h2 id="7-1-&#x65B9;&#x6CD5;&#x5185;&#x805A;">7.1. &#x65B9;&#x6CD5;&#x5185;&#x805A;</h2>
+<ol>
+<li>&#x4E00;&#x7C7B;&#x65B9;&#x6CD5;&#x662F;&#x666E;&#x901A;&#x8026;&#x5408;</li>
+<li>&#x6240;&#x6709;&#x65B9;&#x6CD5;&#x5C3D;&#x4E00;&#x8D23;
+<ol>
+<li>&#x4FE1;&#x606F;&#x5185;&#x805A;</li>
+<li>&#x76F8;&#x5BF9;&#x529F;&#x80FD;(&#x529F;&#x80FD;&#x5185;&#x805A;)</li>
+<li>&#x7B2C;&#x4E5D;&#x4E2A;&#x539F;&#x5219;:&#x5355;&#x4E00;&#x804C;&#x8D23;&#x539F;&#x7406;</li>
+</ol>
+</li>
+</ol>
+<h2 id="7-2-&#x63D0;&#x9AD8;&#x5185;&#x805A;&#x7684;&#x65B9;&#x6CD5;">7.2. &#x63D0;&#x9AD8;&#x5185;&#x805A;&#x7684;&#x65B9;&#x6CD5;</h2>
+<h3 id="7-2-1-&#x539F;&#x5219;&#x4E5D;&#xFF1A;&#x5355;&#x4E00;&#x8D23;&#x4EFB;&#x539F;&#x5219;-SRP">7.2.1. &#x539F;&#x5219;&#x4E5D;&#xFF1A;&#x5355;&#x4E00;&#x8D23;&#x4EFB;&#x539F;&#x5219;(SRP)</h3>
+<p>&#x4E00;&#x4E2A;&#x9AD8;&#x5185;&#x805A;&#x7684;&#x7C7B;&#x4E0D;&#x4EC5;&#x8981;&#x662F;&#x4FE1;&#x606F;&#x5185;&#x805A;&#x7684;&#xFF0C;&#x8FD8;&#x5E94;&#x8BE5;&#x662F;&#x529F;&#x80FD;&#x5185;&#x805A;&#x7684;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;<strong>&#x4FE1;&#x606F;&#x4E0E;&#x884C;&#x4E3A;&#x9664;&#x4E86;&#x8981;&#x96C6;&#x4E2D;&#x4E4B;&#x5916;&#xFF0C;&#x8FD8;&#x8981;&#x8054;&#x5408;&#x8D77;&#x6765;&#x8868;&#x8FBE;&#x4E00;&#x4E2A;&#x5185;&#x805A;&#x7684;&#x6982;&#x5FF5;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x5355;&#x7EAF;&#x7684;&#x5806;&#x780C;&#xFF0C;&#x8FD9;&#x5C31;&#x662F;&#x5355;&#x4E00;&#x804C;&#x8D23;&#x539F;&#x5219;</strong></p>
 <blockquote>
-<p>“<strong>一个类只有一个改变的理由 a class should have only one reason to change</strong>”-罗伯特·马丁(Robert Martin)</p>
+<p>&#x201C;<strong>&#x4E00;&#x4E2A;&#x7C7B;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x6539;&#x53D8;&#x7684;&#x7406;&#x7531; a class should have only one reason to change</strong>&#x201D;-&#x7F57;&#x4F2F;&#x7279;&#xB7;&#x9A6C;&#x4E01;(Robert Martin)</p>
 </blockquote>
 <ol>
-<li>与内聚性相关并从中导出，即模块中的元素应在功能上紧密相关</li>
-<li><strong>类履行某种职责的责任也是类变化的原因</strong></li>
-<li>一个高内聚的类不仅要是功能内聚的，还应该是信息内聚的。</li>
+<li>&#x4E0E;&#x5185;&#x805A;&#x6027;&#x76F8;&#x5173;&#x5E76;&#x4ECE;&#x4E2D;&#x5BFC;&#x51FA;&#xFF0C;&#x5373;&#x6A21;&#x5757;&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x5E94;&#x5728;&#x529F;&#x80FD;&#x4E0A;&#x7D27;&#x5BC6;&#x76F8;&#x5173;</li>
+<li><strong>&#x7C7B;&#x5C65;&#x884C;&#x67D0;&#x79CD;&#x804C;&#x8D23;&#x7684;&#x8D23;&#x4EFB;&#x4E5F;&#x662F;&#x7C7B;&#x53D8;&#x5316;&#x7684;&#x539F;&#x56E0;</strong></li>
+<li>&#x4E00;&#x4E2A;&#x9AD8;&#x5185;&#x805A;&#x7684;&#x7C7B;&#x4E0D;&#x4EC5;&#x8981;&#x662F;&#x529F;&#x80FD;&#x5185;&#x805A;&#x7684;&#xFF0C;&#x8FD8;&#x5E94;&#x8BE5;&#x662F;&#x4FE1;&#x606F;&#x5185;&#x805A;&#x7684;&#x3002;</li>
 </ol>
-<h4 id="7-2-1-1-问题案例">7.2.1.1. 问题案例</h4>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/22.png" alt=""></p>
+<h4 id="7-2-1-1-&#x95EE;&#x9898;&#x6848;&#x4F8B;">7.2.1.1. &#x95EE;&#x9898;&#x6848;&#x4F8B;</h4>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/22.png" alt></p>
 <ul>
-<li>修改的原因:
+<li>&#x4FEE;&#x6539;&#x7684;&#x539F;&#x56E0;:
 <ul>
-<li>业务逻辑</li>
-<li>XML格式</li>
+<li>&#x4E1A;&#x52A1;&#x903B;&#x8F91;</li>
+<li>XML&#x683C;&#x5F0F;</li>
 </ul>
 </li>
-<li>如何修改如何分开</li>
+<li>&#x5982;&#x4F55;&#x4FEE;&#x6539;&#x5982;&#x4F55;&#x5206;&#x5F00;</li>
 </ul>
-<h4 id="7-2-1-2-结局方案">7.2.1.2. 结局方案</h4>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/23.png" alt=""></p>
+<h4 id="7-2-1-2-&#x7ED3;&#x5C40;&#x65B9;&#x6848;">7.2.1.2. &#x7ED3;&#x5C40;&#x65B9;&#x6848;</h4>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/23.png" alt></p>
 <ul>
-<li>我们将两部分职责分开</li>
+<li>&#x6211;&#x4EEC;&#x5C06;&#x4E24;&#x90E8;&#x5206;&#x804C;&#x8D23;&#x5206;&#x5F00;</li>
 </ul>
-<h3 id="7-2-2-单一职责原则">7.2.2. 单一职责原则</h3>
+<h3 id="7-2-2-&#x5355;&#x4E00;&#x804C;&#x8D23;&#x539F;&#x5219;">7.2.2. &#x5355;&#x4E00;&#x804C;&#x8D23;&#x539F;&#x5219;</h3>
 <ol>
-<li><strong>类只有一个改变的理由：职能/职责的凝聚力</strong></li>
-<li>几个职责：表示更改的几个原因→更频繁的更改</li>
-<li>听起来很简单
+<li><strong>&#x7C7B;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x6539;&#x53D8;&#x7684;&#x7406;&#x7531;&#xFF1A;&#x804C;&#x80FD;/&#x804C;&#x8D23;&#x7684;&#x51DD;&#x805A;&#x529B;</strong></li>
+<li>&#x51E0;&#x4E2A;&#x804C;&#x8D23;&#xFF1A;&#x8868;&#x793A;&#x66F4;&#x6539;&#x7684;&#x51E0;&#x4E2A;&#x539F;&#x56E0;&#x2192;&#x66F4;&#x9891;&#x7E41;&#x7684;&#x66F4;&#x6539;</li>
+<li>&#x542C;&#x8D77;&#x6765;&#x5F88;&#x7B80;&#x5355;
 <ol>
-<li>在现实生活中并非如此轻松</li>
-<li><strong>实现单一职责可能会导致具有复杂性，重复性，不透明性</strong>的</li>
+<li>&#x5728;&#x73B0;&#x5B9E;&#x751F;&#x6D3B;&#x4E2D;&#x5E76;&#x975E;&#x5982;&#x6B64;&#x8F7B;&#x677E;</li>
+<li><strong>&#x5B9E;&#x73B0;&#x5355;&#x4E00;&#x804C;&#x8D23;&#x53EF;&#x80FD;&#x4F1A;&#x5BFC;&#x81F4;&#x5177;&#x6709;&#x590D;&#x6742;&#x6027;&#xFF0C;&#x91CD;&#x590D;&#x6027;&#xFF0C;&#x4E0D;&#x900F;&#x660E;&#x6027;</strong>&#x7684;</li>
 </ol>
 </li>
 </ol>
-<h2 id="7-3-课堂练习">7.3. 课堂练习</h2>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/25.png" alt=""></p>
+<h2 id="7-3-&#x8BFE;&#x5802;&#x7EC3;&#x4E60;">7.3. &#x8BFE;&#x5802;&#x7EC3;&#x4E60;</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/25.png" alt></p>
 <ul>
-<li>打电话和挂起两个职责分离开</li>
+<li>&#x6253;&#x7535;&#x8BDD;&#x548C;&#x6302;&#x8D77;&#x4E24;&#x4E2A;&#x804C;&#x8D23;&#x5206;&#x79BB;&#x5F00;</li>
 </ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/26.png" alt=""></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/26.png" alt></p>
 <ul>
-<li>几何画板:Draw和Area的计算如何分开</li>
+<li>&#x51E0;&#x4F55;&#x753B;&#x677F;:Draw&#x548C;Area&#x7684;&#x8BA1;&#x7B97;&#x5982;&#x4F55;&#x5206;&#x5F00;</li>
 </ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/27.png" alt=""></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/27.png" alt></p>
 <ul>
-<li>解决方案:集合长方形和图形长方形一一对应</li>
+<li>&#x89E3;&#x51B3;&#x65B9;&#x6848;:&#x96C6;&#x5408;&#x957F;&#x65B9;&#x5F62;&#x548C;&#x56FE;&#x5F62;&#x957F;&#x65B9;&#x5F62;&#x4E00;&#x4E00;&#x5BF9;&#x5E94;</li>
 </ul>
-<h1>8. 耦合和内聚的度量</h1>
-<h2 id="8-1-类之间的耦合度量">8.1. 类之间的耦合度量</h2>
-<h3 id="8-1-1-第一种度量-CBO-方法调用耦合">8.1.1. 第一种度量:CBO(方法调用耦合)</h3>
+<h1>8. &#x8026;&#x5408;&#x548C;&#x5185;&#x805A;&#x7684;&#x5EA6;&#x91CF;</h1>
+<h2 id="8-1-&#x7C7B;&#x4E4B;&#x95F4;&#x7684;&#x8026;&#x5408;&#x5EA6;&#x91CF;">8.1. &#x7C7B;&#x4E4B;&#x95F4;&#x7684;&#x8026;&#x5408;&#x5EA6;&#x91CF;</h2>
+<h3 id="8-1-1-&#x7B2C;&#x4E00;&#x79CD;&#x5EA6;&#x91CF;-CBO-&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x8026;&#x5408;">8.1.1. &#x7B2C;&#x4E00;&#x79CD;&#x5EA6;&#x91CF;:CBO(&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x8026;&#x5408;)</h3>
 <p><em>Coupling Between Objects</em></p>
 <ol>
 <li>
-<p>对象类之间的耦合(CBO)</p>
+<p>&#x5BF9;&#x8C61;&#x7C7B;&#x4E4B;&#x95F4;&#x7684;&#x8026;&#x5408;(CBO)</p>
 </li>
 <li>
-<p>CBO = <strong>该类访问其他类的成员方法的数量 + 其他类的成员访问该类的成员方法的数量</strong></p>
-<p>外界的其他类不包括存在继承关系的类。</p>
+<p>CBO = <strong>&#x8BE5;&#x7C7B;&#x8BBF;&#x95EE;&#x5176;&#x4ED6;&#x7C7B;&#x7684;&#x6210;&#x5458;&#x65B9;&#x6CD5;&#x7684;&#x6570;&#x91CF; + &#x5176;&#x4ED6;&#x7C7B;&#x7684;&#x6210;&#x5458;&#x8BBF;&#x95EE;&#x8BE5;&#x7C7B;&#x7684;&#x6210;&#x5458;&#x65B9;&#x6CD5;&#x7684;&#x6570;&#x91CF;</strong></p>
+<p>&#x5916;&#x754C;&#x7684;&#x5176;&#x4ED6;&#x7C7B;&#x4E0D;&#x5305;&#x62EC;&#x5B58;&#x5728;&#x7EE7;&#x627F;&#x5173;&#x7CFB;&#x7684;&#x7C7B;&#x3002;</p>
 </li>
 <li>
-<p>越低越好</p>
+<p>&#x8D8A;&#x4F4E;&#x8D8A;&#x597D;</p>
 </li>
 </ol>
-<h3 id="8-1-2-第二种度量-DAC-数据抽象耦合">8.1.2. 第二种度量:DAC(数据抽象耦合)</h3>
+<h3 id="8-1-2-&#x7B2C;&#x4E8C;&#x79CD;&#x5EA6;&#x91CF;-DAC-&#x6570;&#x636E;&#x62BD;&#x8C61;&#x8026;&#x5408;">8.1.2. &#x7B2C;&#x4E8C;&#x79CD;&#x5EA6;&#x91CF;:DAC(&#x6570;&#x636E;&#x62BD;&#x8C61;&#x8026;&#x5408;)</h3>
 <p><em>Data Abstraction Coupling</em></p>
 <ol>
 <li>
-<p>数据抽象耦合(DAC)</p>
+<p>&#x6570;&#x636E;&#x62BD;&#x8C61;&#x8026;&#x5408;(DAC)</p>
 </li>
 <li>
-<p>DAC = <strong>统计一类包含的其他类的其他类的实例的数量，不包括继承关系带来的实例引用</strong></p>
+<p>DAC = <strong>&#x7EDF;&#x8BA1;&#x4E00;&#x7C7B;&#x5305;&#x542B;&#x7684;&#x5176;&#x4ED6;&#x7C7B;&#x7684;&#x5176;&#x4ED6;&#x7C7B;&#x7684;&#x5B9E;&#x4F8B;&#x7684;&#x6570;&#x91CF;&#xFF0C;&#x4E0D;&#x5305;&#x62EC;&#x7EE7;&#x627F;&#x5173;&#x7CFB;&#x5E26;&#x6765;&#x7684;&#x5B9E;&#x4F8B;&#x5F15;&#x7528;</strong></p>
 </li>
 <li>
-<p>越低越好</p>
+<p>&#x8D8A;&#x4F4E;&#x8D8A;&#x597D;</p>
 </li>
 </ol>
-<h3 id="8-1-3-第三种度量-Ca和Ce-有效和">8.1.3. 第三种度量:Ca和Ce(有效和)</h3>
+<h3 id="8-1-3-&#x7B2C;&#x4E09;&#x79CD;&#x5EA6;&#x91CF;-Ca&#x548C;Ce-&#x6709;&#x6548;&#x548C;">8.1.3. &#x7B2C;&#x4E09;&#x79CD;&#x5EA6;&#x91CF;:Ca&#x548C;Ce(&#x6709;&#x6548;&#x548C;)</h3>
 <ol>
-<li>Ce和Ca(有效和有效偶联)
+<li>Ce&#x548C;Ca(&#x6709;&#x6548;&#x548C;&#x6709;&#x6548;&#x5076;&#x8054;)
 <ol>
-<li>Ca:在此类之外依赖于这类内部的类的数量</li>
-<li>Ce:这个类中依赖于这个类的外部的类的数量</li>
+<li>Ca:&#x5728;&#x6B64;&#x7C7B;&#x4E4B;&#x5916;&#x4F9D;&#x8D56;&#x4E8E;&#x8FD9;&#x7C7B;&#x5185;&#x90E8;&#x7684;&#x7C7B;&#x7684;&#x6570;&#x91CF;</li>
+<li>Ce:&#x8FD9;&#x4E2A;&#x7C7B;&#x4E2D;&#x4F9D;&#x8D56;&#x4E8E;&#x8FD9;&#x4E2A;&#x7C7B;&#x7684;&#x5916;&#x90E8;&#x7684;&#x7C7B;&#x7684;&#x6570;&#x91CF;</li>
 </ol>
 </li>
-<li>越低越好</li>
+<li>&#x8D8A;&#x4F4E;&#x8D8A;&#x597D;</li>
 </ol>
-<h3 id="8-1-4-第四种度量-DIT-继承树的深度">8.1.4. 第四种度量:DIT 继承树的深度</h3>
+<h3 id="8-1-4-&#x7B2C;&#x56DB;&#x79CD;&#x5EA6;&#x91CF;-DIT-&#x7EE7;&#x627F;&#x6811;&#x7684;&#x6DF1;&#x5EA6;">8.1.4. &#x7B2C;&#x56DB;&#x79CD;&#x5EA6;&#x91CF;:DIT &#x7EE7;&#x627F;&#x6811;&#x7684;&#x6DF1;&#x5EA6;</h3>
 <p><em>Depth of the Inheritance Tree</em></p>
 <ol>
 <li>
-<p>继承树的深度</p>
+<p>&#x7EE7;&#x627F;&#x6811;&#x7684;&#x6DF1;&#x5EA6;</p>
 </li>
 <li>
-<p><strong>统计从继承树的根节点到叶节点的长度。</strong></p>
+<p><strong>&#x7EDF;&#x8BA1;&#x4ECE;&#x7EE7;&#x627F;&#x6811;&#x7684;&#x6839;&#x8282;&#x70B9;&#x5230;&#x53F6;&#x8282;&#x70B9;&#x7684;&#x957F;&#x5EA6;&#x3002;</strong></p>
 </li>
 <li>
-<p>随着DIT的增长，由于高度的继承性，很难预测类的行为</p>
+<p>&#x968F;&#x7740;DIT&#x7684;&#x589E;&#x957F;&#xFF0C;&#x7531;&#x4E8E;&#x9AD8;&#x5EA6;&#x7684;&#x7EE7;&#x627F;&#x6027;&#xFF0C;&#x5F88;&#x96BE;&#x9884;&#x6D4B;&#x7C7B;&#x7684;&#x884C;&#x4E3A;</p>
 </li>
 <li>
-<p>DIT 越大越好，因为 DIT <strong>越大意味着继承机制减少耦合的效果越强，复用代码的程度也越高</strong>。</p>
-<p>但 DIT 越大也意味着子类需要遵守的<strong>约束越多而且越隐晦</strong>（因为父类距离太远），<strong>越难以保证 LSP 的实现</strong>。</p>
+<p>DIT &#x8D8A;&#x5927;&#x8D8A;&#x597D;&#xFF0C;&#x56E0;&#x4E3A; DIT <strong>&#x8D8A;&#x5927;&#x610F;&#x5473;&#x7740;&#x7EE7;&#x627F;&#x673A;&#x5236;&#x51CF;&#x5C11;&#x8026;&#x5408;&#x7684;&#x6548;&#x679C;&#x8D8A;&#x5F3A;&#xFF0C;&#x590D;&#x7528;&#x4EE3;&#x7801;&#x7684;&#x7A0B;&#x5EA6;&#x4E5F;&#x8D8A;&#x9AD8;</strong>&#x3002;</p>
+<p>&#x4F46; DIT &#x8D8A;&#x5927;&#x4E5F;&#x610F;&#x5473;&#x7740;&#x5B50;&#x7C7B;&#x9700;&#x8981;&#x9075;&#x5B88;&#x7684;<strong>&#x7EA6;&#x675F;&#x8D8A;&#x591A;&#x800C;&#x4E14;&#x8D8A;&#x9690;&#x6666;</strong>&#xFF08;&#x56E0;&#x4E3A;&#x7236;&#x7C7B;&#x8DDD;&#x79BB;&#x592A;&#x8FDC;&#xFF09;&#xFF0C;<strong>&#x8D8A;&#x96BE;&#x4EE5;&#x4FDD;&#x8BC1; LSP &#x7684;&#x5B9E;&#x73B0;</strong>&#x3002;</p>
 </li>
 <li>
-<p>因此应当适中，当DIT&gt;3同样也需要审查继承机制的正确性，确保能遵守 LSP。</p>
+<p>&#x56E0;&#x6B64;&#x5E94;&#x5F53;&#x9002;&#x4E2D;&#xFF0C;&#x5F53;DIT&gt;3&#x540C;&#x6837;&#x4E5F;&#x9700;&#x8981;&#x5BA1;&#x67E5;&#x7EE7;&#x627F;&#x673A;&#x5236;&#x7684;&#x6B63;&#x786E;&#x6027;&#xFF0C;&#x786E;&#x4FDD;&#x80FD;&#x9075;&#x5B88; LSP&#x3002;</p>
 </li>
 </ol>
-<h3 id="8-1-5-第五种度量-NOC-子类的数量">8.1.5. 第五种度量: NOC 子类的数量</h3>
+<h3 id="8-1-5-&#x7B2C;&#x4E94;&#x79CD;&#x5EA6;&#x91CF;-NOC-&#x5B50;&#x7C7B;&#x7684;&#x6570;&#x91CF;">8.1.5. &#x7B2C;&#x4E94;&#x79CD;&#x5EA6;&#x91CF;: NOC &#x5B50;&#x7C7B;&#x7684;&#x6570;&#x91CF;</h3>
 <p><em>Number of Children</em></p>
 <ol>
-<li><strong>是一个类的直接子类的数量</strong></li>
-<li>随着 NOC 的增长，可复用性增加，抽象减弱了【<strong>和 DIT 增长的效果一样</strong>】</li>
-<li>随着 NOC 的增长，抽象可能变得<strong>稀疏</strong>，<strong><font color=red>即当子类变多后，如果能将这么多子类都抽象成一个父类，难度比较大，因为子类多了，共性就会减少</font></strong></li>
-<li>一般 NOC 超过 3，就需要认真审查继承机制的正确性，检查是否满足 LSP</li>
+<li><strong>&#x662F;&#x4E00;&#x4E2A;&#x7C7B;&#x7684;&#x76F4;&#x63A5;&#x5B50;&#x7C7B;&#x7684;&#x6570;&#x91CF;</strong></li>
+<li>&#x968F;&#x7740; NOC &#x7684;&#x589E;&#x957F;&#xFF0C;&#x53EF;&#x590D;&#x7528;&#x6027;&#x589E;&#x52A0;&#xFF0C;&#x62BD;&#x8C61;&#x51CF;&#x5F31;&#x4E86;&#x3010;<strong>&#x548C; DIT &#x589E;&#x957F;&#x7684;&#x6548;&#x679C;&#x4E00;&#x6837;</strong>&#x3011;</li>
+<li>&#x968F;&#x7740; NOC &#x7684;&#x589E;&#x957F;&#xFF0C;&#x62BD;&#x8C61;&#x53EF;&#x80FD;&#x53D8;&#x5F97;<strong>&#x7A00;&#x758F;</strong>&#xFF0C;<strong><font color="red">&#x5373;&#x5F53;&#x5B50;&#x7C7B;&#x53D8;&#x591A;&#x540E;&#xFF0C;&#x5982;&#x679C;&#x80FD;&#x5C06;&#x8FD9;&#x4E48;&#x591A;&#x5B50;&#x7C7B;&#x90FD;&#x62BD;&#x8C61;&#x6210;&#x4E00;&#x4E2A;&#x7236;&#x7C7B;&#xFF0C;&#x96BE;&#x5EA6;&#x6BD4;&#x8F83;&#x5927;&#xFF0C;&#x56E0;&#x4E3A;&#x5B50;&#x7C7B;&#x591A;&#x4E86;&#xFF0C;&#x5171;&#x6027;&#x5C31;&#x4F1A;&#x51CF;&#x5C11;</font></strong></li>
+<li>&#x4E00;&#x822C; NOC &#x8D85;&#x8FC7; 3&#xFF0C;&#x5C31;&#x9700;&#x8981;&#x8BA4;&#x771F;&#x5BA1;&#x67E5;&#x7EE7;&#x627F;&#x673A;&#x5236;&#x7684;&#x6B63;&#x786E;&#x6027;&#xFF0C;&#x68C0;&#x67E5;&#x662F;&#x5426;&#x6EE1;&#x8DB3; LSP</li>
 </ol>
-<h3 id="8-1-6-衡量类凝聚力-LCOM（不考）">8.1.6. 衡量类凝聚力 LCOM（不考）</h3>
+<h3 id="8-1-6-&#x8861;&#x91CF;&#x7C7B;&#x51DD;&#x805A;&#x529B;-LCOM&#xFF08;&#x4E0D;&#x8003;&#xFF09;">8.1.6. &#x8861;&#x91CF;&#x7C7B;&#x51DD;&#x805A;&#x529B; LCOM&#xFF08;&#x4E0D;&#x8003;&#xFF09;</h3>
 <blockquote>
 <p>Lack of cohesion in methods (LCOM)</p>
 </blockquote>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/28.png" alt=""></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt14/28.png" alt></p>
 <ul>
-<li>交集为空则在P中，交集不为空则在Q中</li>
+<li>&#x4EA4;&#x96C6;&#x4E3A;&#x7A7A;&#x5219;&#x5728;P&#x4E2D;&#xFF0C;&#x4EA4;&#x96C6;&#x4E0D;&#x4E3A;&#x7A7A;&#x5219;&#x5728;Q&#x4E2D;</li>
 </ul>
 <ol>
 <li>
-<p>值越低越好</p>
+<p>&#x503C;&#x8D8A;&#x4F4E;&#x8D8A;&#x597D;</p>
 </li>
 <li>
-<p><strong>如果LCOM&gt;= 1，说明所有方法中的相互之间隔离比较大，相交的部分很少，因此它们不应该放在一个类中，应将类划分</strong></p>
+<p><strong>&#x5982;&#x679C;LCOM&gt;= 1&#xFF0C;&#x8BF4;&#x660E;&#x6240;&#x6709;&#x65B9;&#x6CD5;&#x4E2D;&#x7684;&#x76F8;&#x4E92;&#x4E4B;&#x95F4;&#x9694;&#x79BB;&#x6BD4;&#x8F83;&#x5927;&#xFF0C;&#x76F8;&#x4EA4;&#x7684;&#x90E8;&#x5206;&#x5F88;&#x5C11;&#xFF0C;&#x56E0;&#x6B64;&#x5B83;&#x4EEC;&#x4E0D;&#x5E94;&#x8BE5;&#x653E;&#x5728;&#x4E00;&#x4E2A;&#x7C7B;&#x4E2D;&#xFF0C;&#x5E94;&#x5C06;&#x7C7B;&#x5212;&#x5206;</strong></p>
 </li>
 <li>
-<p>还定义了许多其他版本的LCOM</p>
+<p>&#x8FD8;&#x5B9A;&#x4E49;&#x4E86;&#x8BB8;&#x591A;&#x5176;&#x4ED6;&#x7248;&#x672C;&#x7684;LCOM</p>
 </li>
 <li>
-<p>使用连通图【<em>如果两个方法有相交的实例变量，则连接</em>】的数目来表示方法之间的联系，<strong>如果连通图数目大于 1，说明有不相交的部分，这两个部分应该分开</strong></p>
+<p>&#x4F7F;&#x7528;&#x8FDE;&#x901A;&#x56FE;&#x3010;<em>&#x5982;&#x679C;&#x4E24;&#x4E2A;&#x65B9;&#x6CD5;&#x6709;&#x76F8;&#x4EA4;&#x7684;&#x5B9E;&#x4F8B;&#x53D8;&#x91CF;&#xFF0C;&#x5219;&#x8FDE;&#x63A5;</em>&#x3011;&#x7684;&#x6570;&#x76EE;&#x6765;&#x8868;&#x793A;&#x65B9;&#x6CD5;&#x4E4B;&#x95F4;&#x7684;&#x8054;&#x7CFB;&#xFF0C;<strong>&#x5982;&#x679C;&#x8FDE;&#x901A;&#x56FE;&#x6570;&#x76EE;&#x5927;&#x4E8E; 1&#xFF0C;&#x8BF4;&#x660E;&#x6709;&#x4E0D;&#x76F8;&#x4EA4;&#x7684;&#x90E8;&#x5206;&#xFF0C;&#x8FD9;&#x4E24;&#x4E2A;&#x90E8;&#x5206;&#x5E94;&#x8BE5;&#x5206;&#x5F00;</strong></p>
 </li>
 </ol>
-<h2 id="8-2-Summary-Principles-from-Modularization-模块化的原则">8.2. Summary:Principles from Modularization 模块化的原则</h2>
+<h2 id="8-2-Summary-Principles-from-Modularization-&#x6A21;&#x5757;&#x5316;&#x7684;&#x539F;&#x5219;">8.2. Summary:Principles from Modularization &#x6A21;&#x5757;&#x5316;&#x7684;&#x539F;&#x5219;</h2>
 <ol>
-<li>《Global Variables Consider Harmful》 全局变量被认为是有害的</li>
-<li>《To be Explicit》让代码清晰一点</li>
-<li>《Do not Repeat》避免重复</li>
-<li>《Programming to Interface(Design by Contract)》面向接口编程，按照契约设计</li>
-<li>《The Law of Demeter》迪米特法则</li>
-<li>《Interface Segregation Principle(ISP)》接口分离原则</li>
-<li>《Liskov Substitution Principle (LSP)》里氏替换原则:Request No More, Promise No Less</li>
-<li>《Favor Composition Over Inheritance》 选择组合而不是继承</li>
-<li>《Single Responsibility Principle》单一职责原理</li>
+<li>&#x300A;Global Variables Consider Harmful&#x300B; &#x5168;&#x5C40;&#x53D8;&#x91CF;&#x88AB;&#x8BA4;&#x4E3A;&#x662F;&#x6709;&#x5BB3;&#x7684;</li>
+<li>&#x300A;To be Explicit&#x300B;&#x8BA9;&#x4EE3;&#x7801;&#x6E05;&#x6670;&#x4E00;&#x70B9;</li>
+<li>&#x300A;Do not Repeat&#x300B;&#x907F;&#x514D;&#x91CD;&#x590D;</li>
+<li>&#x300A;Programming to Interface(Design by Contract)&#x300B;&#x9762;&#x5411;&#x63A5;&#x53E3;&#x7F16;&#x7A0B;&#xFF0C;&#x6309;&#x7167;&#x5951;&#x7EA6;&#x8BBE;&#x8BA1;</li>
+<li>&#x300A;The Law of Demeter&#x300B;&#x8FEA;&#x7C73;&#x7279;&#x6CD5;&#x5219;</li>
+<li>&#x300A;Interface Segregation Principle(ISP)&#x300B;&#x63A5;&#x53E3;&#x5206;&#x79BB;&#x539F;&#x5219;</li>
+<li>&#x300A;Liskov Substitution Principle (LSP)&#x300B;&#x91CC;&#x6C0F;&#x66FF;&#x6362;&#x539F;&#x5219;:Request No More, Promise No Less</li>
+<li>&#x300A;Favor Composition Over Inheritance&#x300B; &#x9009;&#x62E9;&#x7EC4;&#x5408;&#x800C;&#x4E0D;&#x662F;&#x7EE7;&#x627F;</li>
+<li>&#x300A;Single Responsibility Principle&#x300B;&#x5355;&#x4E00;&#x804C;&#x8D23;&#x539F;&#x7406;</li>
 </ol>
 
 <div class="article-footer fs14">
@@ -750,7 +750,7 @@
     </section>
     </div>
 </article>
-<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/13-%E6%A8%A1%E5%9D%97%E5%8C%96%E4%B8%8E%E4%BF%A1%E6%81%AF%E9%9A%90%E8%97%8F/">SE-II-ch13-详细设计中的模块化与信息隐藏</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/15-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E4%BF%A1%E6%81%AF%E9%9A%90%E8%97%8F/">SE-II-ch15-面向对象的信息隐藏</a></div></section></div>
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/16-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">SE-II-ch16-设计模式</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/17-%E8%BD%AF%E4%BB%B6%E6%9E%84%E9%80%A0/">SE-II-ch17-软件构造</a></div></section></div>
 
 
 

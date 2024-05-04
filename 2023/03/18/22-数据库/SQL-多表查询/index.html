@@ -20,12 +20,12 @@
   <title>SQL-多表查询 - Asimov's Blog</title>
 
   
-    <meta name="description" content="SQL-多表查询 多表关系  一对多  部门和员工的关系 实现：在多的一方建立外键，指向一方的主键   多对多  学生和课程的关系 实现：建立第三张中间表，中间表至少包含两个外键，分别关联两方主键   一对一  用户和用户详情的关系 在任意一方加入外键，关联另外一方的主键，并设置外键为唯一的UNIQUE    笛卡尔积 m * n  多表查询时需要消除无效的笛卡尔积 消除方法为：观察多表之间字段的">
+    <meta name="description" content="SQL-&#x591A;&#x8868;&#x67E5;&#x8BE2; &#x591A;&#x8868;&#x5173;&#x7CFB;  &#x4E00;&#x5BF9;&#x591A;  &#x90E8;&#x95E8;&#x548C;&#x5458;&#x5DE5;&#x7684;&#x5173;&#x7CFB; &#x5B9E;&#x73B0;&#xFF1A;&#x5728;&amp;#x591">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SQL-多表查询">
 <meta property="og:url" content="https://chendingya.github.io/2023/03/18/22-%E6%95%B0%E6%8D%AE%E5%BA%93/SQL-%E5%A4%9A%E8%A1%A8%E6%9F%A5%E8%AF%A2/index.html">
 <meta property="og:site_name" content="Asimov&#39;s Blog">
-<meta property="og:description" content="SQL-多表查询 多表关系  一对多  部门和员工的关系 实现：在多的一方建立外键，指向一方的主键   多对多  学生和课程的关系 实现：建立第三张中间表，中间表至少包含两个外键，分别关联两方主键   一对一  用户和用户详情的关系 在任意一方加入外键，关联另外一方的主键，并设置外键为唯一的UNIQUE    笛卡尔积 m * n  多表查询时需要消除无效的笛卡尔积 消除方法为：观察多表之间字段的">
+<meta property="og:description" content="SQL-&#x591A;&#x8868;&#x67E5;&#x8BE2; &#x591A;&#x8868;&#x5173;&#x7CFB;  &#x4E00;&#x5BF9;&#x591A;  &#x90E8;&#x95E8;&#x548C;&#x5458;&#x5DE5;&#x7684;&#x5173;&#x7CFB; &#x5B9E;&#x73B0;&#xFF1A;&#x5728;&amp;#x591">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-03-18T08:02:34.000Z">
 <meta property="article:modified_time" content="2023-10-15T03:12:01.574Z">
@@ -64,7 +64,7 @@
 <div class="widgets">
 
 
-<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2024/05/02/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%842/"><span class="title">系统架构2-质量属性Quality Attributes</span></a><a class="item title" href="/2024/05/01/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%841/"><span class="title">系统架构1-Intro</span></a><a class="item title" href="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/"><span class="title">软件测试-期末复习</span></a><a class="item title" href="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/"><span class="title">机器学习-期末复习</span></a><a class="item title" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/"><span class="title">服务端-ch17-k8s使用</span></a><a class="item title" href="/2023/12/30/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch16-%E5%AE%B9%E5%99%A8%E9%95%9C%E5%83%8F%E6%9E%84%E5%BB%BA%E4%B8%8E%E7%BC%96%E6%8E%92/"><span class="title">服务端-ch16-容器镜像构建与编排</span></a><a class="item title" href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/"><span class="title">服务端-ch15-Docker</span></a><a class="item title" href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/"><span class="title">服务端-ch14-Spring WebFlux</span></a><a class="item title" href="/2023/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch13-%E5%8F%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"><span class="title">服务端-ch13-反应式编程基础</span></a><a class="item title" href="/2023/11/23/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch12-Spring%20Integration/"><span class="title">服务端-ch12-Spring Integration</span></a></div></widget>
+<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2022/10/25/hello-world/"><span class="title">Hello World</span></a><a class="item title" href="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/"><span class="title">软件测试-期末复习</span></a><a class="item title" href="/2024/05/02/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%842/"><span class="title">系统架构2-质量属性Quality Attributes</span></a><a class="item title" href="/2024/05/01/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%841/"><span class="title">系统架构1-Intro</span></a><a class="item title" href="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/"><span class="title">机器学习-期末复习</span></a><a class="item title" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/"><span class="title">服务端-ch17-k8s使用</span></a><a class="item title" href="/2023/12/30/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch16-%E5%AE%B9%E5%99%A8%E9%95%9C%E5%83%8F%E6%9E%84%E5%BB%BA%E4%B8%8E%E7%BC%96%E6%8E%92/"><span class="title">服务端-ch16-容器镜像构建与编排</span></a><a class="item title" href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/"><span class="title">服务端-ch15-Docker</span></a><a class="item title" href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/"><span class="title">服务端-ch14-Spring WebFlux</span></a><a class="item title" href="/2023/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch13-%E5%8F%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"><span class="title">服务端-ch13-反应式编程基础</span></a></div></widget>
 </div>
 <footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/chendingya?tab=repositories" target="_blank" rel="external nofollow noopener noreferrer"><img no-lazy src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" / onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a></div></footer>
 </div></aside><div class="l_main" id="main">
@@ -88,154 +88,154 @@
     </div>
     
   </div>
-  </div><article class="md-text content"><h1>SQL-多表查询</h1>
-<h3 id="多表关系">多表关系</h3>
+  </div><article class="md-text content"><h1>SQL-&#x591A;&#x8868;&#x67E5;&#x8BE2;</h1>
+<h3 id="&#x591A;&#x8868;&#x5173;&#x7CFB;">&#x591A;&#x8868;&#x5173;&#x7CFB;</h3>
 <ul>
-<li>一对多
+<li>&#x4E00;&#x5BF9;&#x591A;
 <ul>
-<li>部门和员工的关系</li>
-<li>实现：在多的一方建立外键，指向一方的主键</li>
+<li>&#x90E8;&#x95E8;&#x548C;&#x5458;&#x5DE5;&#x7684;&#x5173;&#x7CFB;</li>
+<li>&#x5B9E;&#x73B0;&#xFF1A;&#x5728;&#x591A;&#x7684;&#x4E00;&#x65B9;&#x5EFA;&#x7ACB;&#x5916;&#x952E;&#xFF0C;&#x6307;&#x5411;&#x4E00;&#x65B9;&#x7684;&#x4E3B;&#x952E;</li>
 </ul>
 </li>
-<li>多对多
+<li>&#x591A;&#x5BF9;&#x591A;
 <ul>
-<li>学生和课程的关系</li>
-<li>实现：建立第三张中间表，中间表至少包含两个外键，分别关联两方主键</li>
+<li>&#x5B66;&#x751F;&#x548C;&#x8BFE;&#x7A0B;&#x7684;&#x5173;&#x7CFB;</li>
+<li>&#x5B9E;&#x73B0;&#xFF1A;&#x5EFA;&#x7ACB;&#x7B2C;&#x4E09;&#x5F20;&#x4E2D;&#x95F4;&#x8868;&#xFF0C;&#x4E2D;&#x95F4;&#x8868;&#x81F3;&#x5C11;&#x5305;&#x542B;&#x4E24;&#x4E2A;&#x5916;&#x952E;&#xFF0C;&#x5206;&#x522B;&#x5173;&#x8054;&#x4E24;&#x65B9;&#x4E3B;&#x952E;</li>
 </ul>
 </li>
-<li>一对一
+<li>&#x4E00;&#x5BF9;&#x4E00;
 <ul>
-<li>用户和用户详情的关系</li>
-<li>在任意一方加入外键，关联另外一方的主键，并设置外键为唯一的UNIQUE</li>
+<li>&#x7528;&#x6237;&#x548C;&#x7528;&#x6237;&#x8BE6;&#x60C5;&#x7684;&#x5173;&#x7CFB;</li>
+<li>&#x5728;&#x4EFB;&#x610F;&#x4E00;&#x65B9;&#x52A0;&#x5165;&#x5916;&#x952E;&#xFF0C;&#x5173;&#x8054;&#x53E6;&#x5916;&#x4E00;&#x65B9;&#x7684;&#x4E3B;&#x952E;&#xFF0C;&#x5E76;&#x8BBE;&#x7F6E;&#x5916;&#x952E;&#x4E3A;&#x552F;&#x4E00;&#x7684;UNIQUE</li>
 </ul>
 </li>
 </ul>
-<h4 id="笛卡尔积">笛卡尔积</h4>
+<h4 id="&#x7B1B;&#x5361;&#x5C14;&#x79EF;">&#x7B1B;&#x5361;&#x5C14;&#x79EF;</h4>
 <p>m * n</p>
 <ul>
-<li>多表查询时需要消除无效的笛卡尔积</li>
-<li>消除方法为：观察多表之间字段的联系，选择相同或有关联的字段，用where条件where a = b</li>
+<li>&#x591A;&#x8868;&#x67E5;&#x8BE2;&#x65F6;&#x9700;&#x8981;&#x6D88;&#x9664;&#x65E0;&#x6548;&#x7684;&#x7B1B;&#x5361;&#x5C14;&#x79EF;</li>
+<li>&#x6D88;&#x9664;&#x65B9;&#x6CD5;&#x4E3A;&#xFF1A;&#x89C2;&#x5BDF;&#x591A;&#x8868;&#x4E4B;&#x95F4;&#x5B57;&#x6BB5;&#x7684;&#x8054;&#x7CFB;&#xFF0C;&#x9009;&#x62E9;&#x76F8;&#x540C;&#x6216;&#x6709;&#x5173;&#x8054;&#x7684;&#x5B57;&#x6BB5;&#xFF0C;&#x7528;where&#x6761;&#x4EF6;where a = b</li>
 </ul>
-<h4 id="多表查询的分类">多表查询的分类</h4>
-<h5 id="连接查询">连接查询</h5>
+<h4 id="&#x591A;&#x8868;&#x67E5;&#x8BE2;&#x7684;&#x5206;&#x7C7B;">&#x591A;&#x8868;&#x67E5;&#x8BE2;&#x7684;&#x5206;&#x7C7B;</h4>
+<h5 id="&#x8FDE;&#x63A5;&#x67E5;&#x8BE2;">&#x8FDE;&#x63A5;&#x67E5;&#x8BE2;</h5>
 <ul>
 <li>
-<p>内连接：相当于查询A、B交集</p>
+<p>&#x5185;&#x8FDE;&#x63A5;&#xFF1A;&#x76F8;&#x5F53;&#x4E8E;&#x67E5;&#x8BE2;A&#x3001;B&#x4EA4;&#x96C6;</p>
 <ul>
 <li>
-<p>显式内连接</p>
+<p>&#x663E;&#x5F0F;&#x5185;&#x8FDE;&#x63A5;</p>
 </li>
 <li>
-<pre><code class="language-mysql">select 字段列表 from 表1 [inner] join 表2 on 连接条件...;
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 隐式内连接：</span><br><span class="line"></span><br><span class="line">* ```mysql</span><br><span class="line">  select 字段列表 from 表1 [别名], 表2 [别名] where 条件...;</span><br></pre></td></tr></table></figure>
+<pre><code class="language-mysql">select &#x5B57;&#x6BB5;&#x5217;&#x8868; from &#x8868;1 [inner] join &#x8868;2 on &#x8FDE;&#x63A5;&#x6761;&#x4EF6;...;
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* &#x9690;&#x5F0F;&#x5185;&#x8FDE;&#x63A5;&#xFF1A;</span><br><span class="line"></span><br><span class="line">* ```mysql</span><br><span class="line">  select &#x5B57;&#x6BB5;&#x5217;&#x8868; from &#x8868;1 [&#x522B;&#x540D;], &#x8868;2 [&#x522B;&#x540D;] where &#x6761;&#x4EF6;...;</span><br></pre></td></tr></table></figure>
 
 </code></pre>
 </li>
 </ul>
 </li>
 <li>
-<p>外连接：</p>
+<p>&#x5916;&#x8FDE;&#x63A5;&#xFF1A;</p>
 <ul>
 <li>
-<p>表1或者表2中含有另一表暂时空缺为null的字段，如果想要查询该字段，需要选择合适的外连接</p>
+<p>&#x8868;1&#x6216;&#x8005;&#x8868;2&#x4E2D;&#x542B;&#x6709;&#x53E6;&#x4E00;&#x8868;&#x6682;&#x65F6;&#x7A7A;&#x7F3A;&#x4E3A;null&#x7684;&#x5B57;&#x6BB5;&#xFF0C;&#x5982;&#x679C;&#x60F3;&#x8981;&#x67E5;&#x8BE2;&#x8BE5;&#x5B57;&#x6BB5;&#xFF0C;&#x9700;&#x8981;&#x9009;&#x62E9;&#x5408;&#x9002;&#x7684;&#x5916;&#x8FDE;&#x63A5;</p>
 </li>
 <li>
-<p>左外和右外可以通过更改表的顺序相互转变</p>
+<p>&#x5DE6;&#x5916;&#x548C;&#x53F3;&#x5916;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x66F4;&#x6539;&#x8868;&#x7684;&#x987A;&#x5E8F;&#x76F8;&#x4E92;&#x8F6C;&#x53D8;</p>
 </li>
 <li>
-<p>左外连接：查询左表（表1）所有数据，以及两张表交集数据</p>
+<p>&#x5DE6;&#x5916;&#x8FDE;&#x63A5;&#xFF1A;&#x67E5;&#x8BE2;&#x5DE6;&#x8868;&#xFF08;&#x8868;1&#xFF09;&#x6240;&#x6709;&#x6570;&#x636E;&#xFF0C;&#x4EE5;&#x53CA;&#x4E24;&#x5F20;&#x8868;&#x4EA4;&#x96C6;&#x6570;&#x636E;</p>
 </li>
 <li>
-<pre><code class="language-mysql">select 字段列表 from 表1 left [outer] join 表2 on 条件;
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* 右外连接：查询右表（表2）所有数据，以及两张表交集数据</span><br><span class="line"></span><br><span class="line">* ```mysql</span><br><span class="line">  select 字段列表 from 表1 right [outer] join 表2 on 条件;</span><br></pre></td></tr></table></figure>
+<pre><code class="language-mysql">select &#x5B57;&#x6BB5;&#x5217;&#x8868; from &#x8868;1 left [outer] join &#x8868;2 on &#x6761;&#x4EF6;;
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">* &#x53F3;&#x5916;&#x8FDE;&#x63A5;&#xFF1A;&#x67E5;&#x8BE2;&#x53F3;&#x8868;&#xFF08;&#x8868;2&#xFF09;&#x6240;&#x6709;&#x6570;&#x636E;&#xFF0C;&#x4EE5;&#x53CA;&#x4E24;&#x5F20;&#x8868;&#x4EA4;&#x96C6;&#x6570;&#x636E;</span><br><span class="line"></span><br><span class="line">* ```mysql</span><br><span class="line">  select &#x5B57;&#x6BB5;&#x5217;&#x8868; from &#x8868;1 right [outer] join &#x8868;2 on &#x6761;&#x4EF6;;</span><br></pre></td></tr></table></figure>
 
 </code></pre>
 </li>
 </ul>
 </li>
 <li>
-<p>自连接：当前表与自身的连接查询，<strong><u>自连接必须使用表别名</u></strong></p>
+<p>&#x81EA;&#x8FDE;&#x63A5;&#xFF1A;&#x5F53;&#x524D;&#x8868;&#x4E0E;&#x81EA;&#x8EAB;&#x7684;&#x8FDE;&#x63A5;&#x67E5;&#x8BE2;&#xFF0C;<strong><u>&#x81EA;&#x8FDE;&#x63A5;&#x5FC5;&#x987B;&#x4F7F;&#x7528;&#x8868;&#x522B;&#x540D;</u></strong></p>
 </li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select 字段列表 from 表1 别名1 join 表1 别名2 on 条件...;</span><br></pre></td></tr></table></figure>
-<p>可以使内连接查询，也可以是外连接查询</p>
-<h5 id=""></h5>
-<h4 id="联合查询union">联合查询union</h4>
-<p>将多次查询的结果合并，形成一个新的查询结果集</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select 字段列表 from 表1 ...</span><br><span class="line">union [all]</span><br><span class="line">select 字段列表 from 表2 ...;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select &#x5B57;&#x6BB5;&#x5217;&#x8868; from &#x8868;1 &#x522B;&#x540D;1 join &#x8868;1 &#x522B;&#x540D;2 on &#x6761;&#x4EF6;...;</span><br></pre></td></tr></table></figure>
+<p>&#x53EF;&#x4EE5;&#x4F7F;&#x5185;&#x8FDE;&#x63A5;&#x67E5;&#x8BE2;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x662F;&#x5916;&#x8FDE;&#x63A5;&#x67E5;&#x8BE2;</p>
+<h5 id></h5>
+<h4 id="&#x8054;&#x5408;&#x67E5;&#x8BE2;union">&#x8054;&#x5408;&#x67E5;&#x8BE2;union</h4>
+<p>&#x5C06;&#x591A;&#x6B21;&#x67E5;&#x8BE2;&#x7684;&#x7ED3;&#x679C;&#x5408;&#x5E76;&#xFF0C;&#x5F62;&#x6210;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x67E5;&#x8BE2;&#x7ED3;&#x679C;&#x96C6;</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">select &#x5B57;&#x6BB5;&#x5217;&#x8868; from &#x8868;1 ...</span><br><span class="line">union [all]</span><br><span class="line">select &#x5B57;&#x6BB5;&#x5217;&#x8868; from &#x8868;2 ...;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>可能会有重复的行，<u>需要去重：不加all</u></li>
-<li>联合的前提：<strong><u>select的字段相同（有相同的列数和字段类型）</u></strong></li>
+<li>&#x53EF;&#x80FD;&#x4F1A;&#x6709;&#x91CD;&#x590D;&#x7684;&#x884C;&#xFF0C;<u>&#x9700;&#x8981;&#x53BB;&#x91CD;&#xFF1A;&#x4E0D;&#x52A0;all</u></li>
+<li>&#x8054;&#x5408;&#x7684;&#x524D;&#x63D0;&#xFF1A;<strong><u>select&#x7684;&#x5B57;&#x6BB5;&#x76F8;&#x540C;&#xFF08;&#x6709;&#x76F8;&#x540C;&#x7684;&#x5217;&#x6570;&#x548C;&#x5B57;&#x6BB5;&#x7C7B;&#x578B;&#xFF09;</u></strong></li>
 </ul>
-<h4 id="子查询">子查询</h4>
-<p>SQL语句中嵌套SELECT语句，称为嵌套查询，又称子查询。</p>
+<h4 id="&#x5B50;&#x67E5;&#x8BE2;">&#x5B50;&#x67E5;&#x8BE2;</h4>
+<p>SQL&#x8BED;&#x53E5;&#x4E2D;&#x5D4C;&#x5957;SELECT&#x8BED;&#x53E5;&#xFF0C;&#x79F0;&#x4E3A;&#x5D4C;&#x5957;&#x67E5;&#x8BE2;&#xFF0C;&#x53C8;&#x79F0;&#x5B50;&#x67E5;&#x8BE2;&#x3002;</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from t1 where column1 = ( select column1 FROM t2 );</span><br></pre></td></tr></table></figure>
 <ul>
 <li>
-<p>子查询外部的语句可以是INSERT /UPDATE/ DELETE / SELECT 的任何一个</p>
+<p>&#x5B50;&#x67E5;&#x8BE2;&#x5916;&#x90E8;&#x7684;&#x8BED;&#x53E5;&#x53EF;&#x4EE5;&#x662F;INSERT /UPDATE/ DELETE / SELECT &#x7684;&#x4EFB;&#x4F55;&#x4E00;&#x4E2A;</p>
 </li>
 <li>
-<p>根据子查询结果不同，分为:</p>
+<p>&#x6839;&#x636E;&#x5B50;&#x67E5;&#x8BE2;&#x7ED3;&#x679C;&#x4E0D;&#x540C;&#xFF0C;&#x5206;&#x4E3A;:</p>
 </li>
 <li>
-<p>标量子查询(子查询[括号内部select]返回结果为单个值，数字或日期等)：最简单</p>
+<p>&#x6807;&#x91CF;&#x5B50;&#x67E5;&#x8BE2;(&#x5B50;&#x67E5;&#x8BE2;[&#x62EC;&#x53F7;&#x5185;&#x90E8;select]&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x4E3A;&#x5355;&#x4E2A;&#x503C;&#xFF0C;&#x6570;&#x5B57;&#x6216;&#x65E5;&#x671F;&#x7B49;)&#xFF1A;&#x6700;&#x7B80;&#x5355;</p>
 <ul>
 <li>
-<pre><code class="language-mysql">查询销售部员工id
-select * from employees where dept_id = (select id from dept where name = '销售部');
+<pre><code class="language-mysql">&#x67E5;&#x8BE2;&#x9500;&#x552E;&#x90E8;&#x5458;&#x5DE5;id
+select * from employees where dept_id = (select id from dept where name = &apos;&#x9500;&#x552E;&#x90E8;&apos;);
 
-查询在“方东白”入职之后的员工信息
-select * from emp where entrydate &gt; (select entrydate from emp where name = '方东白');
+&#x67E5;&#x8BE2;&#x5728;&#x201C;&#x65B9;&#x4E1C;&#x767D;&#x201D;&#x5165;&#x804C;&#x4E4B;&#x540E;&#x7684;&#x5458;&#x5DE5;&#x4FE1;&#x606F;
+select * from emp where entrydate &gt; (select entrydate from emp where name = &apos;&#x65B9;&#x4E1C;&#x767D;&apos;);
 </code></pre>
 </li>
 </ul>
 </li>
 <li>
-<p>列子查询(子查询返回结果为一列，可以是多行)</p>
+<p>&#x5217;&#x5B50;&#x67E5;&#x8BE2;(&#x5B50;&#x67E5;&#x8BE2;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x4E3A;&#x4E00;&#x5217;&#xFF0C;&#x53EF;&#x4EE5;&#x662F;&#x591A;&#x884C;)</p>
 <ul>
 <li>in / not in / any / some / all</li>
 </ul>
 </li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">select * from emp where dept_id in (select id from dept where name = ‘销售部’or name = &#x27;市场部&#x27;);</span><br><span class="line">select * from emp where salary &gt; all ( select salary from emp where dept_id = (select id from dept mhere nane= &#x27;财务部&#x27;))</span><br><span class="line">select * from emp where salary &gt; some ( select salary from emp where dept_id = (select id from dept where name=&#x27;研发部&#x27;));</span><br><span class="line">// 查询“销售部”和“市场部”的所有员工信息  查询“销售部”和“市场部”的部门ID</span><br><span class="line">// 查询比财务部所有人工资都高的员工信息 查询所有财务部人员工资 比财务部所有人工资都高的员工信息</span><br><span class="line">//查询比研发部其中任意一人工资高的员工信息</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">select * from emp where dept_id in (select id from dept where name = &#x2018;&#x9500;&#x552E;&#x90E8;&#x2019;or name = &apos;&#x5E02;&#x573A;&#x90E8;&apos;);</span><br><span class="line">select * from emp where salary &gt; all ( select salary from emp where dept_id = (select id from dept mhere nane= &apos;&#x8D22;&#x52A1;&#x90E8;&apos;))</span><br><span class="line">select * from emp where salary &gt; some ( select salary from emp where dept_id = (select id from dept where name=&apos;&#x7814;&#x53D1;&#x90E8;&apos;));</span><br><span class="line">// &#x67E5;&#x8BE2;&#x201C;&#x9500;&#x552E;&#x90E8;&#x201D;&#x548C;&#x201C;&#x5E02;&#x573A;&#x90E8;&#x201D;&#x7684;&#x6240;&#x6709;&#x5458;&#x5DE5;&#x4FE1;&#x606F;  &#x67E5;&#x8BE2;&#x201C;&#x9500;&#x552E;&#x90E8;&#x201D;&#x548C;&#x201C;&#x5E02;&#x573A;&#x90E8;&#x201D;&#x7684;&#x90E8;&#x95E8;ID</span><br><span class="line">// &#x67E5;&#x8BE2;&#x6BD4;&#x8D22;&#x52A1;&#x90E8;&#x6240;&#x6709;&#x4EBA;&#x5DE5;&#x8D44;&#x90FD;&#x9AD8;&#x7684;&#x5458;&#x5DE5;&#x4FE1;&#x606F; &#x67E5;&#x8BE2;&#x6240;&#x6709;&#x8D22;&#x52A1;&#x90E8;&#x4EBA;&#x5458;&#x5DE5;&#x8D44; &#x6BD4;&#x8D22;&#x52A1;&#x90E8;&#x6240;&#x6709;&#x4EBA;&#x5DE5;&#x8D44;&#x90FD;&#x9AD8;&#x7684;&#x5458;&#x5DE5;&#x4FE1;&#x606F;</span><br><span class="line">//&#x67E5;&#x8BE2;&#x6BD4;&#x7814;&#x53D1;&#x90E8;&#x5176;&#x4E2D;&#x4EFB;&#x610F;&#x4E00;&#x4EBA;&#x5DE5;&#x8D44;&#x9AD8;&#x7684;&#x5458;&#x5DE5;&#x4FE1;&#x606F;</span><br></pre></td></tr></table></figure>
 <table>
 <thead>
 <tr>
-<th>操作符</th>
-<th>描述</th>
+<th>&#x64CD;&#x4F5C;&#x7B26;</th>
+<th>&#x63CF;&#x8FF0;</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <td>IN</td>
-<td>在指定的集合范围之内，多选一</td>
+<td>&#x5728;&#x6307;&#x5B9A;&#x7684;&#x96C6;&#x5408;&#x8303;&#x56F4;&#x4E4B;&#x5185;&#xFF0C;&#x591A;&#x9009;&#x4E00;</td>
 </tr>
 <tr>
 <td>NOT IN</td>
-<td>不在指定的集合范围之内</td>
+<td>&#x4E0D;&#x5728;&#x6307;&#x5B9A;&#x7684;&#x96C6;&#x5408;&#x8303;&#x56F4;&#x4E4B;&#x5185;</td>
 </tr>
 <tr>
 <td>ANY</td>
-<td>子查询返回列表中，有任意一个满足即可</td>
+<td>&#x5B50;&#x67E5;&#x8BE2;&#x8FD4;&#x56DE;&#x5217;&#x8868;&#x4E2D;&#xFF0C;&#x6709;&#x4EFB;&#x610F;&#x4E00;&#x4E2A;&#x6EE1;&#x8DB3;&#x5373;&#x53EF;</td>
 </tr>
 <tr>
 <td>SOME</td>
-<td>与ANY等同，使用SOME的地方都可以使用ANY</td>
+<td>&#x4E0E;ANY&#x7B49;&#x540C;&#xFF0C;&#x4F7F;&#x7528;SOME&#x7684;&#x5730;&#x65B9;&#x90FD;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;ANY</td>
 </tr>
 <tr>
 <td>ALL</td>
-<td>子查询返回列表的所有值都必须满足</td>
+<td>&#x5B50;&#x67E5;&#x8BE2;&#x8FD4;&#x56DE;&#x5217;&#x8868;&#x7684;&#x6240;&#x6709;&#x503C;&#x90FD;&#x5FC5;&#x987B;&#x6EE1;&#x8DB3;</td>
 </tr>
 </tbody>
 </table>
 <ul>
-<li>行子查询(子查询返回结果为一行，可以为多列)</li>
+<li>&#x884C;&#x5B50;&#x67E5;&#x8BE2;(&#x5B50;&#x67E5;&#x8BE2;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x4E3A;&#x4E00;&#x884C;&#xFF0C;&#x53EF;&#x4EE5;&#x4E3A;&#x591A;&#x5217;)</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">查询与“张无忌”的薪资及直属领导相同的员工信息;</span><br><span class="line">a.查询“张无忌”的薪资及直属领导</span><br><span class="line">b．查询与“张无忌”的薪资及直属领导相同的员工信息;</span><br><span class="line">select * from emp where (salary,managerid) = (select salary, managerid from emp where name = &#x27;张无忌&#x27;);</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#x67E5;&#x8BE2;&#x4E0E;&#x201C;&#x5F20;&#x65E0;&#x5FCC;&#x201D;&#x7684;&#x85AA;&#x8D44;&#x53CA;&#x76F4;&#x5C5E;&#x9886;&#x5BFC;&#x76F8;&#x540C;&#x7684;&#x5458;&#x5DE5;&#x4FE1;&#x606F;;</span><br><span class="line">a.&#x67E5;&#x8BE2;&#x201C;&#x5F20;&#x65E0;&#x5FCC;&#x201D;&#x7684;&#x85AA;&#x8D44;&#x53CA;&#x76F4;&#x5C5E;&#x9886;&#x5BFC;</span><br><span class="line">b&#xFF0E;&#x67E5;&#x8BE2;&#x4E0E;&#x201C;&#x5F20;&#x65E0;&#x5FCC;&#x201D;&#x7684;&#x85AA;&#x8D44;&#x53CA;&#x76F4;&#x5C5E;&#x9886;&#x5BFC;&#x76F8;&#x540C;&#x7684;&#x5458;&#x5DE5;&#x4FE1;&#x606F;;</span><br><span class="line">select * from emp where (salary,managerid) = (select salary, managerid from emp where name = &apos;&#x5F20;&#x65E0;&#x5FCC;&apos;);</span><br></pre></td></tr></table></figure>
 <ul>
-<li>表子查询(子查询结果为多行多列)</li>
+<li>&#x8868;&#x5B50;&#x67E5;&#x8BE2;(&#x5B50;&#x67E5;&#x8BE2;&#x7ED3;&#x679C;&#x4E3A;&#x591A;&#x884C;&#x591A;&#x5217;)</li>
 </ul>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">查询与”鹿杖客”，“宋远桥”的职位和薪资相同的员工信恳</span><br><span class="line">a．查询鹿杖客”，“宋远桥”的职位和薪资</span><br><span class="line">b.查询与“鹿杖客”，“宋远桥”的职位和薪资相同的员工信息</span><br><span class="line">select * from emp where (job, salary) in ( select job，salary from emp where name =&#x27;鹿杖客&#x27; or name =&#x27;宋远桥&#x27;)</span><br><span class="line"></span><br><span class="line">查询入职日期是“2006-01-01”之后的员工信息，及其部门信息</span><br><span class="line">a.入职日期是”2086-01-01”之后的员工信息</span><br><span class="line">b．查询这部分员工，对应的部门信息;</span><br><span class="line">select e.*，d.* from (select * from emp where entrydate &gt; &#x27;2006-01-01&#x27;) e left join dept d on e.dept_id = d.id</span><br><span class="line">//left join是因为员工表中有员工部门是null</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#x67E5;&#x8BE2;&#x4E0E;&#x201D;&#x9E7F;&#x6756;&#x5BA2;&#x201D;&#xFF0C;&#x201C;&#x5B8B;&#x8FDC;&#x6865;&#x201D;&#x7684;&#x804C;&#x4F4D;&#x548C;&#x85AA;&#x8D44;&#x76F8;&#x540C;&#x7684;&#x5458;&#x5DE5;&#x4FE1;&#x6073;</span><br><span class="line">a&#xFF0E;&#x67E5;&#x8BE2;&#x9E7F;&#x6756;&#x5BA2;&#x201D;&#xFF0C;&#x201C;&#x5B8B;&#x8FDC;&#x6865;&#x201D;&#x7684;&#x804C;&#x4F4D;&#x548C;&#x85AA;&#x8D44;</span><br><span class="line">b.&#x67E5;&#x8BE2;&#x4E0E;&#x201C;&#x9E7F;&#x6756;&#x5BA2;&#x201D;&#xFF0C;&#x201C;&#x5B8B;&#x8FDC;&#x6865;&#x201D;&#x7684;&#x804C;&#x4F4D;&#x548C;&#x85AA;&#x8D44;&#x76F8;&#x540C;&#x7684;&#x5458;&#x5DE5;&#x4FE1;&#x606F;</span><br><span class="line">select * from emp where (job, salary) in ( select job&#xFF0C;salary from emp where name =&apos;&#x9E7F;&#x6756;&#x5BA2;&apos; or name =&apos;&#x5B8B;&#x8FDC;&#x6865;&apos;)</span><br><span class="line"></span><br><span class="line">&#x67E5;&#x8BE2;&#x5165;&#x804C;&#x65E5;&#x671F;&#x662F;&#x201C;2006-01-01&#x201D;&#x4E4B;&#x540E;&#x7684;&#x5458;&#x5DE5;&#x4FE1;&#x606F;&#xFF0C;&#x53CA;&#x5176;&#x90E8;&#x95E8;&#x4FE1;&#x606F;</span><br><span class="line">a.&#x5165;&#x804C;&#x65E5;&#x671F;&#x662F;&#x201D;2086-01-01&#x201D;&#x4E4B;&#x540E;&#x7684;&#x5458;&#x5DE5;&#x4FE1;&#x606F;</span><br><span class="line">b&#xFF0E;&#x67E5;&#x8BE2;&#x8FD9;&#x90E8;&#x5206;&#x5458;&#x5DE5;&#xFF0C;&#x5BF9;&#x5E94;&#x7684;&#x90E8;&#x95E8;&#x4FE1;&#x606F;;</span><br><span class="line">select e.*&#xFF0C;d.* from (select * from emp where entrydate &gt; &apos;2006-01-01&apos;) e left join dept d on e.dept_id = d.id</span><br><span class="line">//left join&#x662F;&#x56E0;&#x4E3A;&#x5458;&#x5DE5;&#x8868;&#x4E2D;&#x6709;&#x5458;&#x5DE5;&#x90E8;&#x95E8;&#x662F;null</span><br></pre></td></tr></table></figure>
 
 <div class="article-footer fs14">
     <section id="license">

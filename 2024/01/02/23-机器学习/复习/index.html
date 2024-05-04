@@ -20,54 +20,54 @@
   <title>机器学习-期末复习 - Asimov's Blog</title>
 
   
-    <meta name="description" content="基本概念  分类 回归 维数灾难 随着输入维数的增加，需要更多的数据 欠拟合 过拟合 …  评价指标 距离度量函数 计算度量 生成式&#x2F;判别式模型 svm 逻辑回归 决策树就是判别式模型 不关心具体的样本的特点，而只在意差别 贝叶斯 隐马尔科夫就是生成式模型，先学习特点，再进行比较   KNN👍 无监督学习 KNN思想 计算所有训练样本和测试样本的距离，降序排列，选择k个相近的，如果是分类问题就投">
+    <meta name="description" content="&#x57FA;&#x672C;&#x6982;&#x5FF5;  &#x5206;&#x7C7B; &#x56DE;&#x5F52; &#x7EF4;&#x6570;&#x707E;&#x96BE; &#x968F;&#x7740;&#x8F93;&#x5165;&#x7EF4;&#x6570;&#x7684;&#x589E;&#x52A0;&#xFF0C;&#x9700;&#x8981;&amp;#x">
 <meta property="og:type" content="article">
 <meta property="og:title" content="机器学习-期末复习">
 <meta property="og:url" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/index.html">
 <meta property="og:site_name" content="Asimov&#39;s Blog">
-<meta property="og:description" content="基本概念  分类 回归 维数灾难 随着输入维数的增加，需要更多的数据 欠拟合 过拟合 …  评价指标 距离度量函数 计算度量 生成式&#x2F;判别式模型 svm 逻辑回归 决策树就是判别式模型 不关心具体的样本的特点，而只在意差别 贝叶斯 隐马尔科夫就是生成式模型，先学习特点，再进行比较   KNN👍 无监督学习 KNN思想 计算所有训练样本和测试样本的距离，降序排列，选择k个相近的，如果是分类问题就投">
+<meta property="og:description" content="&#x57FA;&#x672C;&#x6982;&#x5FF5;  &#x5206;&#x7C7B; &#x56DE;&#x5F52; &#x7EF4;&#x6570;&#x707E;&#x96BE; &#x968F;&#x7740;&#x8F93;&#x5165;&#x7EF4;&#x6570;&#x7684;&#x589E;&#x52A0;&#xFF0C;&#x9700;&#x8981;&amp;#x">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/output%20(1).png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240103194024908.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20231231221026702.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20231231215557316.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/output.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20231231215741195.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20231231215912833.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20231231220256600.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20231231221425980.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20231231221449293.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20231231221517705.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20231231221530087.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240102170619735.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240102170630844.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240102170655898.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240102175743098.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240102170758340.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240102191401786.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240102185427868.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240102185112582.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240102194707308.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240102195519802.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240103194109389.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240103194024908.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20231231221026702.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20231231215557316.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/output.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20231231215741195.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20231231215912833.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20231231220256600.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20231231221425980.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20231231221449293.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20231231221517705.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20231231221530087.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240102170619735.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240102170630844.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240102170655898.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240102175743098.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240102170758340.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240102191401786.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240102185427868.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240102185112582.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240102194707308.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240102195519802.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240103194109389.png">
 <meta property="og:image" content="https://chillcharlie-img.oss-cn-hangzhou.aliyuncs.com/image%2F2023%2F10%2F31%2Fc8b73d3ef4d015deee061644405f9d3c_20231031191039.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240103194325785.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240103195109290.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240103201933670.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240103203628136.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240103204121077.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240103204411794.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240103214122668.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240105093344393.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240105093435057.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/f3b36683-20d6-424e-b774-49163d1905bc.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240103214518185.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240103194325785.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240103195109290.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240103201933670.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240103203628136.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240103204121077.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240103204411794.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240103214122668.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240105093344393.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240105093435057.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/f3b36683-20d6-424e-b774-49163d1905bc.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240103214518185.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/20210106110219329.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTkyOTUyNA==,size_16,color_FFFFFF,t_70#pic_center">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240104201106524.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240104201111299.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240104201106524.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240104201111299.png">
 <meta property="og:image" content="https://img-blog.csdnimg.cn/9e015fa8100a4bcf9c92b58e4d7ec21c.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAdm9uICBOZXVtYW5u,size_20,color_FFFFFF,t_70,g_se,x_16">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240103221144241.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240103221153946.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240103221144241.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240103221153946.png">
 <meta property="og:image" content="https://pic1.zhimg.com/80/v2-4c3b00f07cce0c7dccf2e4ba5e167e30_720w.webp">
 <meta property="og:image" content="https://pic2.zhimg.com/80/v2-229a2c9828a26d594dc854b659cfc8a5_720w.webp">
 <meta property="og:image" content="https://pic3.zhimg.com/80/v2-821048bfaee14d8c03cc5044e04fe336_720w.webp">
@@ -75,17 +75,17 @@
 <meta property="og:image" content="https://pic4.zhimg.com/80/v2-6b81b4032ecb28ece404e344c173481b_720w.webp">
 <meta property="og:image" content="https://pic1.zhimg.com/80/v2-08fc41b67409cb6c61ecb6af72bcea30_720w.webp">
 <meta property="og:image" content="https://pic3.zhimg.com/80/v2-96a40f41090b4bb5e7ebbf0a0e186d9a_720w.webp">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240103222047615.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240103222047615.png">
 <meta property="og:image" content="https://pic1.zhimg.com/80/v2-af58e27acdf63325dda676ac5fc03b3c_720w.webp">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240104205849529.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240104211239177.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240104211317829.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240104211514332.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240104212411083.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240104212357878.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240104214407021.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240104214356276.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240104214450119.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240104205849529.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240104211239177.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240104211317829.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240104211514332.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240104212411083.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240104212357878.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240104214407021.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240104214356276.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240104214450119.png">
 <meta property="article:published_time" content="2024-01-02T10:32:34.000Z">
 <meta property="article:modified_time" content="2024-01-05T06:21:10.172Z">
 <meta property="article:author" content="Asimov">
@@ -125,7 +125,7 @@
 <div class="widgets">
 
 
-<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2024/05/02/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%842/"><span class="title">系统架构2-质量属性Quality Attributes</span></a><a class="item title" href="/2024/05/01/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%841/"><span class="title">系统架构1-Intro</span></a><a class="item title" href="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/"><span class="title">软件测试-期末复习</span></a><a class="item title" href="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/"><span class="title">机器学习-期末复习</span></a><a class="item title" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/"><span class="title">服务端-ch17-k8s使用</span></a><a class="item title" href="/2023/12/30/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch16-%E5%AE%B9%E5%99%A8%E9%95%9C%E5%83%8F%E6%9E%84%E5%BB%BA%E4%B8%8E%E7%BC%96%E6%8E%92/"><span class="title">服务端-ch16-容器镜像构建与编排</span></a><a class="item title" href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/"><span class="title">服务端-ch15-Docker</span></a><a class="item title" href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/"><span class="title">服务端-ch14-Spring WebFlux</span></a><a class="item title" href="/2023/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch13-%E5%8F%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"><span class="title">服务端-ch13-反应式编程基础</span></a><a class="item title" href="/2023/11/23/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch12-Spring%20Integration/"><span class="title">服务端-ch12-Spring Integration</span></a></div></widget>
+<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2022/10/25/hello-world/"><span class="title">Hello World</span></a><a class="item title" href="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/"><span class="title">软件测试-期末复习</span></a><a class="item title" href="/2024/05/02/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%842/"><span class="title">系统架构2-质量属性Quality Attributes</span></a><a class="item title" href="/2024/05/01/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%841/"><span class="title">系统架构1-Intro</span></a><a class="item title" href="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/"><span class="title">机器学习-期末复习</span></a><a class="item title" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/"><span class="title">服务端-ch17-k8s使用</span></a><a class="item title" href="/2023/12/30/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch16-%E5%AE%B9%E5%99%A8%E9%95%9C%E5%83%8F%E6%9E%84%E5%BB%BA%E4%B8%8E%E7%BC%96%E6%8E%92/"><span class="title">服务端-ch16-容器镜像构建与编排</span></a><a class="item title" href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/"><span class="title">服务端-ch15-Docker</span></a><a class="item title" href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/"><span class="title">服务端-ch14-Spring WebFlux</span></a><a class="item title" href="/2023/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch13-%E5%8F%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"><span class="title">服务端-ch13-反应式编程基础</span></a></div></widget>
 </div>
 <footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/chendingya?tab=repositories" target="_blank" rel="external nofollow noopener noreferrer"><img no-lazy src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" / onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a></div></footer>
 </div></aside><div class="l_main" id="main">
@@ -149,559 +149,559 @@
     </div>
     
   </div>
-  </div><article class="md-text content"><h1>基本概念</h1>
+  </div><article class="md-text content"><h1>&#x57FA;&#x672C;&#x6982;&#x5FF5;</h1>
 <ul>
-<li>分类</li>
-<li>回归</li>
-<li>维数灾难 随着输入维数的增加，需要更多的数据</li>
-<li>欠拟合</li>
-<li>过拟合</li>
-<li>…</li>
+<li>&#x5206;&#x7C7B;</li>
+<li>&#x56DE;&#x5F52;</li>
+<li>&#x7EF4;&#x6570;&#x707E;&#x96BE; &#x968F;&#x7740;&#x8F93;&#x5165;&#x7EF4;&#x6570;&#x7684;&#x589E;&#x52A0;&#xFF0C;&#x9700;&#x8981;&#x66F4;&#x591A;&#x7684;&#x6570;&#x636E;</li>
+<li>&#x6B20;&#x62DF;&#x5408;</li>
+<li>&#x8FC7;&#x62DF;&#x5408;</li>
+<li>&#x2026;</li>
 </ul>
-<h2 id="评价指标">评价指标</h2>
-<h2 id="距离度量函数">距离度量函数</h2>
-<h2 id="计算度量">计算度量</h2>
-<h2 id="生成式-判别式模型">生成式/判别式模型</h2>
-<p>svm 逻辑回归 决策树就是判别式模型 不关心具体的样本的特点，而只在意差别</p>
-<p>贝叶斯 隐马尔科夫就是生成式模型，先学习特点，再进行比较</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="./%E5%A4%8D%E4%B9%A0/output%20(1).png" alt=""></p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240103194024908.png" alt="image-20240103194024908"></p>
-<h1>KNN👍</h1>
-<p>无监督学习</p>
-<h2 id="KNN思想">KNN思想</h2>
-<p>计算所有训练样本和测试样本的距离，降序排列，选择k个相近的，如果是分类问题就投票最多，如果是回归问题就算平均</p>
-<h2 id="概念">概念</h2>
-<p>一般k是奇数，k越小对噪声越敏感，模型复杂容易过拟合，k越大对噪声不敏感，但是模型简单，容易欠拟合。</p>
-<h2 id="算法流程">算法流程</h2>
+<h2 id="&#x8BC4;&#x4EF7;&#x6307;&#x6807;">&#x8BC4;&#x4EF7;&#x6307;&#x6807;</h2>
+<h2 id="&#x8DDD;&#x79BB;&#x5EA6;&#x91CF;&#x51FD;&#x6570;">&#x8DDD;&#x79BB;&#x5EA6;&#x91CF;&#x51FD;&#x6570;</h2>
+<h2 id="&#x8BA1;&#x7B97;&#x5EA6;&#x91CF;">&#x8BA1;&#x7B97;&#x5EA6;&#x91CF;</h2>
+<h2 id="&#x751F;&#x6210;&#x5F0F;-&#x5224;&#x522B;&#x5F0F;&#x6A21;&#x578B;">&#x751F;&#x6210;&#x5F0F;/&#x5224;&#x522B;&#x5F0F;&#x6A21;&#x578B;</h2>
+<p>svm &#x903B;&#x8F91;&#x56DE;&#x5F52; &#x51B3;&#x7B56;&#x6811;&#x5C31;&#x662F;&#x5224;&#x522B;&#x5F0F;&#x6A21;&#x578B; &#x4E0D;&#x5173;&#x5FC3;&#x5177;&#x4F53;&#x7684;&#x6837;&#x672C;&#x7684;&#x7279;&#x70B9;&#xFF0C;&#x800C;&#x53EA;&#x5728;&#x610F;&#x5DEE;&#x522B;</p>
+<p>&#x8D1D;&#x53F6;&#x65AF; &#x9690;&#x9A6C;&#x5C14;&#x79D1;&#x592B;&#x5C31;&#x662F;&#x751F;&#x6210;&#x5F0F;&#x6A21;&#x578B;&#xFF0C;&#x5148;&#x5B66;&#x4E60;&#x7279;&#x70B9;&#xFF0C;&#x518D;&#x8FDB;&#x884C;&#x6BD4;&#x8F83;</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/%E5%A4%8D%E4%B9%A0/output%20(1).png" alt></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240103194024908.png" alt="image-20240103194024908"></p>
+<h1>KNN&#x1F44D;</h1>
+<p>&#x65E0;&#x76D1;&#x7763;&#x5B66;&#x4E60;</p>
+<h2 id="KNN&#x601D;&#x60F3;">KNN&#x601D;&#x60F3;</h2>
+<p>&#x8BA1;&#x7B97;&#x6240;&#x6709;&#x8BAD;&#x7EC3;&#x6837;&#x672C;&#x548C;&#x6D4B;&#x8BD5;&#x6837;&#x672C;&#x7684;&#x8DDD;&#x79BB;&#xFF0C;&#x964D;&#x5E8F;&#x6392;&#x5217;&#xFF0C;&#x9009;&#x62E9;k&#x4E2A;&#x76F8;&#x8FD1;&#x7684;&#xFF0C;&#x5982;&#x679C;&#x662F;&#x5206;&#x7C7B;&#x95EE;&#x9898;&#x5C31;&#x6295;&#x7968;&#x6700;&#x591A;&#xFF0C;&#x5982;&#x679C;&#x662F;&#x56DE;&#x5F52;&#x95EE;&#x9898;&#x5C31;&#x7B97;&#x5E73;&#x5747;</p>
+<h2 id="&#x6982;&#x5FF5;">&#x6982;&#x5FF5;</h2>
+<p>&#x4E00;&#x822C;k&#x662F;&#x5947;&#x6570;&#xFF0C;k&#x8D8A;&#x5C0F;&#x5BF9;&#x566A;&#x58F0;&#x8D8A;&#x654F;&#x611F;&#xFF0C;&#x6A21;&#x578B;&#x590D;&#x6742;&#x5BB9;&#x6613;&#x8FC7;&#x62DF;&#x5408;&#xFF0C;k&#x8D8A;&#x5927;&#x5BF9;&#x566A;&#x58F0;&#x4E0D;&#x654F;&#x611F;&#xFF0C;&#x4F46;&#x662F;&#x6A21;&#x578B;&#x7B80;&#x5355;&#xFF0C;&#x5BB9;&#x6613;&#x6B20;&#x62DF;&#x5408;&#x3002;</p>
+<h2 id="&#x7B97;&#x6CD5;&#x6D41;&#x7A0B;">&#x7B97;&#x6CD5;&#x6D41;&#x7A0B;</h2>
 <p>(k-Nearest Neighbor Regression)</p>
 <ul>
-<li>计算测试样本x和Dtrain中所有训练样本xi之间的距离d(,xi)</li>
-<li>对所有距离值 (相似度值) 进行进行升序(降序) 排列</li>
-<li>选择K个最近(距离最小/相似度最大) 的训练样本</li>
-<li>将距离值的倒数作为权重，然后将K个近邻的标签值加权平均作为x的预测值</li>
+<li>&#x8BA1;&#x7B97;&#x6D4B;&#x8BD5;&#x6837;&#x672C;x&#x548C;Dtrain&#x4E2D;&#x6240;&#x6709;&#x8BAD;&#x7EC3;&#x6837;&#x672C;xi&#x4E4B;&#x95F4;&#x7684;&#x8DDD;&#x79BB;d(,xi)</li>
+<li>&#x5BF9;&#x6240;&#x6709;&#x8DDD;&#x79BB;&#x503C; (&#x76F8;&#x4F3C;&#x5EA6;&#x503C;) &#x8FDB;&#x884C;&#x8FDB;&#x884C;&#x5347;&#x5E8F;(&#x964D;&#x5E8F;) &#x6392;&#x5217;</li>
+<li>&#x9009;&#x62E9;K&#x4E2A;&#x6700;&#x8FD1;(&#x8DDD;&#x79BB;&#x6700;&#x5C0F;/&#x76F8;&#x4F3C;&#x5EA6;&#x6700;&#x5927;) &#x7684;&#x8BAD;&#x7EC3;&#x6837;&#x672C;</li>
+<li>&#x5C06;&#x8DDD;&#x79BB;&#x503C;&#x7684;&#x5012;&#x6570;&#x4F5C;&#x4E3A;&#x6743;&#x91CD;&#xFF0C;&#x7136;&#x540E;&#x5C06;K&#x4E2A;&#x8FD1;&#x90BB;&#x7684;&#x6807;&#x7B7E;&#x503C;&#x52A0;&#x6743;&#x5E73;&#x5747;&#x4F5C;&#x4E3A;x&#x7684;&#x9884;&#x6D4B;&#x503C;</li>
 </ul>
-<h2 id="降低计算复杂度，大概看一下">降低计算复杂度，大概看一下</h2>
-<p>优点在于对异常值不敏感，精度高，没有数据输入假定</p>
-<p>缺点在于时间复杂度高，空间复杂度高</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20231231221026702.png" alt="image-20231231221026702"></p>
-<h1>聚类👍</h1>
-<p><strong>无监督学习</strong></p>
-<h2 id="聚类概念">聚类概念</h2>
-<p>将整个数据集中每个样本的特征向量看成是分布在特征空间中的一些点，点与点之间的距离即可作为相似性度量依据。<br>
-聚类分析是根据不同样本之间的差异，根据距离函数的规律(大小) 进行分类 (聚类) 的。</p>
-<h2 id="聚类准则：聚类好坏判断，">聚类准则：聚类好坏判断，</h2>
+<h2 id="&#x964D;&#x4F4E;&#x8BA1;&#x7B97;&#x590D;&#x6742;&#x5EA6;&#xFF0C;&#x5927;&#x6982;&#x770B;&#x4E00;&#x4E0B;">&#x964D;&#x4F4E;&#x8BA1;&#x7B97;&#x590D;&#x6742;&#x5EA6;&#xFF0C;&#x5927;&#x6982;&#x770B;&#x4E00;&#x4E0B;</h2>
+<p>&#x4F18;&#x70B9;&#x5728;&#x4E8E;&#x5BF9;&#x5F02;&#x5E38;&#x503C;&#x4E0D;&#x654F;&#x611F;&#xFF0C;&#x7CBE;&#x5EA6;&#x9AD8;&#xFF0C;&#x6CA1;&#x6709;&#x6570;&#x636E;&#x8F93;&#x5165;&#x5047;&#x5B9A;</p>
+<p>&#x7F3A;&#x70B9;&#x5728;&#x4E8E;&#x65F6;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x9AD8;&#xFF0C;&#x7A7A;&#x95F4;&#x590D;&#x6742;&#x5EA6;&#x9AD8;</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20231231221026702.png" alt="image-20231231221026702"></p>
+<h1>&#x805A;&#x7C7B;&#x1F44D;</h1>
+<p><strong>&#x65E0;&#x76D1;&#x7763;&#x5B66;&#x4E60;</strong></p>
+<h2 id="&#x805A;&#x7C7B;&#x6982;&#x5FF5;">&#x805A;&#x7C7B;&#x6982;&#x5FF5;</h2>
+<p>&#x5C06;&#x6574;&#x4E2A;&#x6570;&#x636E;&#x96C6;&#x4E2D;&#x6BCF;&#x4E2A;&#x6837;&#x672C;&#x7684;&#x7279;&#x5F81;&#x5411;&#x91CF;&#x770B;&#x6210;&#x662F;&#x5206;&#x5E03;&#x5728;&#x7279;&#x5F81;&#x7A7A;&#x95F4;&#x4E2D;&#x7684;&#x4E00;&#x4E9B;&#x70B9;&#xFF0C;&#x70B9;&#x4E0E;&#x70B9;&#x4E4B;&#x95F4;&#x7684;&#x8DDD;&#x79BB;&#x5373;&#x53EF;&#x4F5C;&#x4E3A;&#x76F8;&#x4F3C;&#x6027;&#x5EA6;&#x91CF;&#x4F9D;&#x636E;&#x3002;<br>
+&#x805A;&#x7C7B;&#x5206;&#x6790;&#x662F;&#x6839;&#x636E;&#x4E0D;&#x540C;&#x6837;&#x672C;&#x4E4B;&#x95F4;&#x7684;&#x5DEE;&#x5F02;&#xFF0C;&#x6839;&#x636E;&#x8DDD;&#x79BB;&#x51FD;&#x6570;&#x7684;&#x89C4;&#x5F8B;(&#x5927;&#x5C0F;) &#x8FDB;&#x884C;&#x5206;&#x7C7B; (&#x805A;&#x7C7B;) &#x7684;&#x3002;</p>
+<h2 id="&#x805A;&#x7C7B;&#x51C6;&#x5219;&#xFF1A;&#x805A;&#x7C7B;&#x597D;&#x574F;&#x5224;&#x65AD;&#xFF0C;">&#x805A;&#x7C7B;&#x51C6;&#x5219;&#xFF1A;&#x805A;&#x7C7B;&#x597D;&#x574F;&#x5224;&#x65AD;&#xFF0C;</h2>
 <ul>
-<li>聚类（簇）内部⾼相似性</li>
-<li>聚类（簇）之间低相似性</li>
+<li>&#x805A;&#x7C7B;&#xFF08;&#x7C07;&#xFF09;&#x5185;&#x90E8;&#x2FBC;&#x76F8;&#x4F3C;&#x6027;</li>
+<li>&#x805A;&#x7C7B;&#xFF08;&#x7C07;&#xFF09;&#x4E4B;&#x95F4;&#x4F4E;&#x76F8;&#x4F3C;&#x6027;</li>
 </ul>
-<h2 id="度量">度量</h2>
+<h2 id="&#x5EA6;&#x91CF;">&#x5EA6;&#x91CF;</h2>
 <ul>
 <li>
-<p>距离度量：度量同类样本间的相似性和不同类样本间的差异性</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20231231215557316.png" alt=""></p>
+<p>&#x8DDD;&#x79BB;&#x5EA6;&#x91CF;&#xFF1A;&#x5EA6;&#x91CF;&#x540C;&#x7C7B;&#x6837;&#x672C;&#x95F4;&#x7684;&#x76F8;&#x4F3C;&#x6027;&#x548C;&#x4E0D;&#x540C;&#x7C7B;&#x6837;&#x672C;&#x95F4;&#x7684;&#x5DEE;&#x5F02;&#x6027;</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20231231215557316.png" alt></p>
 </li>
 </ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/output.png" alt=""></p>
-<h2 id="三类聚类方法">三类聚类方法</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/output.png" alt></p>
+<h2 id="&#x4E09;&#x7C7B;&#x805A;&#x7C7B;&#x65B9;&#x6CD5;">&#x4E09;&#x7C7B;&#x805A;&#x7C7B;&#x65B9;&#x6CD5;</h2>
 <ul>
-<li>基于试探的聚类搜索算法<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20231231215741195.png" alt=""></li>
-<li>系统聚类法：将数据样本按距离准则逐步分类，类别由多<br>
-到少，直到获得合适的分类要求为止
+<li>&#x57FA;&#x4E8E;&#x8BD5;&#x63A2;&#x7684;&#x805A;&#x7C7B;&#x641C;&#x7D22;&#x7B97;&#x6CD5;<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20231231215741195.png" alt></li>
+<li>&#x7CFB;&#x7EDF;&#x805A;&#x7C7B;&#x6CD5;&#xFF1A;&#x5C06;&#x6570;&#x636E;&#x6837;&#x672C;&#x6309;&#x8DDD;&#x79BB;&#x51C6;&#x5219;&#x9010;&#x6B65;&#x5206;&#x7C7B;&#xFF0C;&#x7C7B;&#x522B;&#x7531;&#x591A;<br>
+&#x5230;&#x5C11;&#xFF0C;&#x76F4;&#x5230;&#x83B7;&#x5F97;&#x5408;&#x9002;&#x7684;&#x5206;&#x7C7B;&#x8981;&#x6C42;&#x4E3A;&#x6B62;
 <ul>
-<li><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20231231215912833.png" alt=""></li>
-<li>主要的距离计算准则:<br>
-最短距离法 (两个集合所有距离最小值<br>
-最长距离法 (两个集合所有距离最大值)<br>
-类平均距离法 (两个集合所有距离平均值</li>
+<li><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20231231215912833.png" alt></li>
+<li>&#x4E3B;&#x8981;&#x7684;&#x8DDD;&#x79BB;&#x8BA1;&#x7B97;&#x51C6;&#x5219;:<br>
+&#x6700;&#x77ED;&#x8DDD;&#x79BB;&#x6CD5; (&#x4E24;&#x4E2A;&#x96C6;&#x5408;&#x6240;&#x6709;&#x8DDD;&#x79BB;&#x6700;&#x5C0F;&#x503C;<br>
+&#x6700;&#x957F;&#x8DDD;&#x79BB;&#x6CD5; (&#x4E24;&#x4E2A;&#x96C6;&#x5408;&#x6240;&#x6709;&#x8DDD;&#x79BB;&#x6700;&#x5927;&#x503C;)<br>
+&#x7C7B;&#x5E73;&#x5747;&#x8DDD;&#x79BB;&#x6CD5; (&#x4E24;&#x4E2A;&#x96C6;&#x5408;&#x6240;&#x6709;&#x8DDD;&#x79BB;&#x5E73;&#x5747;&#x503C;</li>
 </ul>
 </li>
-<li>动态聚类法： kmeans isodata算法 迭代自组织数据分析算法)</li>
+<li>&#x52A8;&#x6001;&#x805A;&#x7C7B;&#x6CD5;&#xFF1A; kmeans isodata&#x7B97;&#x6CD5; &#x8FED;&#x4EE3;&#x81EA;&#x7EC4;&#x7EC7;&#x6570;&#x636E;&#x5206;&#x6790;&#x7B97;&#x6CD5;)</li>
 </ul>
 <h2 id="k-means"><strong>k-means</strong></h2>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20231231220256600.png" alt=""></p>
-<h2 id="评价指标-2">评价指标</h2>
-<p>在实际应用中，需要试探不同的K值和选择不同的聚类中心的起始值。<br>
-如果数据样本可以形成若干个相距较远的孤立的区域分布，一般都能得到较好的收敛效果。<br>
-K-means算法比较适合于分类数目已知的情况。</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20231231221425980.png" alt="image-20231231221425980"></p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20231231221449293.png" alt="image-20231231221449293"></p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20231231221517705.png" alt="image-20231231221517705"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20231231221530087.png" alt="image-20231231221530087"></p>
-<h1>决策树</h1>
-<p><strong>监督学习</strong></p>
-<h2 id="概念-2">概念</h2>
-<p>实例集合X: 上例中用六个属性表示</p>
-<p>目标概念c: 定义在实例集上的布尔函数 c:X-&gt;{0,1}</p>
-<p>训练样例:正例(c(x)=1)，反例(c(x)=0)</p>
-<p>假设集H:每个假设h表示X上定义的布尔函数h:X&gt;10,1</p>
-<p>搜索(泛化)的操作</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20231231220256600.png" alt></p>
+<h2 id="&#x8BC4;&#x4EF7;&#x6307;&#x6807;-2">&#x8BC4;&#x4EF7;&#x6307;&#x6807;</h2>
+<p>&#x5728;&#x5B9E;&#x9645;&#x5E94;&#x7528;&#x4E2D;&#xFF0C;&#x9700;&#x8981;&#x8BD5;&#x63A2;&#x4E0D;&#x540C;&#x7684;K&#x503C;&#x548C;&#x9009;&#x62E9;&#x4E0D;&#x540C;&#x7684;&#x805A;&#x7C7B;&#x4E2D;&#x5FC3;&#x7684;&#x8D77;&#x59CB;&#x503C;&#x3002;<br>
+&#x5982;&#x679C;&#x6570;&#x636E;&#x6837;&#x672C;&#x53EF;&#x4EE5;&#x5F62;&#x6210;&#x82E5;&#x5E72;&#x4E2A;&#x76F8;&#x8DDD;&#x8F83;&#x8FDC;&#x7684;&#x5B64;&#x7ACB;&#x7684;&#x533A;&#x57DF;&#x5206;&#x5E03;&#xFF0C;&#x4E00;&#x822C;&#x90FD;&#x80FD;&#x5F97;&#x5230;&#x8F83;&#x597D;&#x7684;&#x6536;&#x655B;&#x6548;&#x679C;&#x3002;<br>
+K-means&#x7B97;&#x6CD5;&#x6BD4;&#x8F83;&#x9002;&#x5408;&#x4E8E;&#x5206;&#x7C7B;&#x6570;&#x76EE;&#x5DF2;&#x77E5;&#x7684;&#x60C5;&#x51B5;&#x3002;</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20231231221425980.png" alt="image-20231231221425980"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20231231221449293.png" alt="image-20231231221449293"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20231231221517705.png" alt="image-20231231221517705"><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20231231221530087.png" alt="image-20231231221530087"></p>
+<h1>&#x51B3;&#x7B56;&#x6811;</h1>
+<p><strong>&#x76D1;&#x7763;&#x5B66;&#x4E60;</strong></p>
+<h2 id="&#x6982;&#x5FF5;-2">&#x6982;&#x5FF5;</h2>
+<p>&#x5B9E;&#x4F8B;&#x96C6;&#x5408;X: &#x4E0A;&#x4F8B;&#x4E2D;&#x7528;&#x516D;&#x4E2A;&#x5C5E;&#x6027;&#x8868;&#x793A;</p>
+<p>&#x76EE;&#x6807;&#x6982;&#x5FF5;c: &#x5B9A;&#x4E49;&#x5728;&#x5B9E;&#x4F8B;&#x96C6;&#x4E0A;&#x7684;&#x5E03;&#x5C14;&#x51FD;&#x6570; c:X-&gt;{0,1}</p>
+<p>&#x8BAD;&#x7EC3;&#x6837;&#x4F8B;:&#x6B63;&#x4F8B;(c(x)=1)&#xFF0C;&#x53CD;&#x4F8B;(c(x)=0)</p>
+<p>&#x5047;&#x8BBE;&#x96C6;H:&#x6BCF;&#x4E2A;&#x5047;&#x8BBE;h&#x8868;&#x793A;X&#x4E0A;&#x5B9A;&#x4E49;&#x7684;&#x5E03;&#x5C14;&#x51FD;&#x6570;h:X&gt;10,1</p>
+<p>&#x641C;&#x7D22;(&#x6CDB;&#x5316;)&#x7684;&#x64CD;&#x4F5C;</p>
 <ul>
-<li>用逻辑变量替换常量</li>
-<li>合取表达式去掉部分条件</li>
-<li>对表达式增加析取项</li>
-<li>用属性的超类来替换属性</li>
+<li>&#x7528;&#x903B;&#x8F91;&#x53D8;&#x91CF;&#x66FF;&#x6362;&#x5E38;&#x91CF;</li>
+<li>&#x5408;&#x53D6;&#x8868;&#x8FBE;&#x5F0F;&#x53BB;&#x6389;&#x90E8;&#x5206;&#x6761;&#x4EF6;</li>
+<li>&#x5BF9;&#x8868;&#x8FBE;&#x5F0F;&#x589E;&#x52A0;&#x6790;&#x53D6;&#x9879;</li>
+<li>&#x7528;&#x5C5E;&#x6027;&#x7684;&#x8D85;&#x7C7B;&#x6765;&#x66FF;&#x6362;&#x5C5E;&#x6027;</li>
 </ul>
-<p>变型空间Version Space ：假设空间H中所有假设的列表</p>
-<p>正例和反例的作用</p>
+<p>&#x53D8;&#x578B;&#x7A7A;&#x95F4;Version Space &#xFF1A;&#x5047;&#x8BBE;&#x7A7A;&#x95F4;H&#x4E2D;&#x6240;&#x6709;&#x5047;&#x8BBE;&#x7684;&#x5217;&#x8868;</p>
+<p>&#x6B63;&#x4F8B;&#x548C;&#x53CD;&#x4F8B;&#x7684;&#x4F5C;&#x7528;</p>
 <ul>
-<li>正例用于S泛化，搜索S集合</li>
-<li>反例用于G特化，缩小G集合</li>
+<li>&#x6B63;&#x4F8B;&#x7528;&#x4E8E;S&#x6CDB;&#x5316;&#xFF0C;&#x641C;&#x7D22;S&#x96C6;&#x5408;</li>
+<li>&#x53CD;&#x4F8B;&#x7528;&#x4E8E;G&#x7279;&#x5316;&#xFF0C;&#x7F29;&#x5C0F;G&#x96C6;&#x5408;</li>
 </ul>
-<h2 id="决策树">决策树</h2>
-<p>实例:“属性-值”对表示，应用最广的归纳推理算法之一</p>
-<p>目标函数具有离散的输出值</p>
-<p>很好的健壮性(样例可以包含错误，也可以处理缺少属性值的实例)</p>
-<p>能够学习析取表达式</p>
-<p><strong>决策树</strong>是一个预测模型；他代表的是对象属性与对象值之间的一种映射关系。树中每个节点表示某个对象，而每个分叉路径则代表某个可能的属性值，而每个叶节点则对应从根节点到该叶节点所经历的路径所表示的对象的值。决策树仅有单一输出，</p>
-<h3 id="构造">构造</h3>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/dang_wang/article/details/21646083">机器学习之决策树，ID3算法_用于学习布尔函数的id3算法-CSDN博客</a></p>
-<h4 id="问题设置">问题设置</h4>
-<p>可能的实例集X<br>
-未知的目标函数f:X&gt;Y<br>
-假设函数集 H={h|h:X&gt;Y}</p>
-<h4 id="输入">输入</h4>
-<p>未知目标函数f的训练实例{&lt;xi，yi&gt;}</p>
-<h4 id="输出">输出</h4>
-<p>最佳近似f的假设h∈H</p>
-<h4 id="ID3算法：用于学习布尔函数的ID3算法">ID3算法：用于学习布尔函数的ID3算法</h4>
+<h2 id="&#x51B3;&#x7B56;&#x6811;">&#x51B3;&#x7B56;&#x6811;</h2>
+<p>&#x5B9E;&#x4F8B;:&#x201C;&#x5C5E;&#x6027;-&#x503C;&#x201D;&#x5BF9;&#x8868;&#x793A;&#xFF0C;&#x5E94;&#x7528;&#x6700;&#x5E7F;&#x7684;&#x5F52;&#x7EB3;&#x63A8;&#x7406;&#x7B97;&#x6CD5;&#x4E4B;&#x4E00;</p>
+<p>&#x76EE;&#x6807;&#x51FD;&#x6570;&#x5177;&#x6709;&#x79BB;&#x6563;&#x7684;&#x8F93;&#x51FA;&#x503C;</p>
+<p>&#x5F88;&#x597D;&#x7684;&#x5065;&#x58EE;&#x6027;(&#x6837;&#x4F8B;&#x53EF;&#x4EE5;&#x5305;&#x542B;&#x9519;&#x8BEF;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x5904;&#x7406;&#x7F3A;&#x5C11;&#x5C5E;&#x6027;&#x503C;&#x7684;&#x5B9E;&#x4F8B;)</p>
+<p>&#x80FD;&#x591F;&#x5B66;&#x4E60;&#x6790;&#x53D6;&#x8868;&#x8FBE;&#x5F0F;</p>
+<p><strong>&#x51B3;&#x7B56;&#x6811;</strong>&#x662F;&#x4E00;&#x4E2A;&#x9884;&#x6D4B;&#x6A21;&#x578B;&#xFF1B;&#x4ED6;&#x4EE3;&#x8868;&#x7684;&#x662F;&#x5BF9;&#x8C61;&#x5C5E;&#x6027;&#x4E0E;&#x5BF9;&#x8C61;&#x503C;&#x4E4B;&#x95F4;&#x7684;&#x4E00;&#x79CD;&#x6620;&#x5C04;&#x5173;&#x7CFB;&#x3002;&#x6811;&#x4E2D;&#x6BCF;&#x4E2A;&#x8282;&#x70B9;&#x8868;&#x793A;&#x67D0;&#x4E2A;&#x5BF9;&#x8C61;&#xFF0C;&#x800C;&#x6BCF;&#x4E2A;&#x5206;&#x53C9;&#x8DEF;&#x5F84;&#x5219;&#x4EE3;&#x8868;&#x67D0;&#x4E2A;&#x53EF;&#x80FD;&#x7684;&#x5C5E;&#x6027;&#x503C;&#xFF0C;&#x800C;&#x6BCF;&#x4E2A;&#x53F6;&#x8282;&#x70B9;&#x5219;&#x5BF9;&#x5E94;&#x4ECE;&#x6839;&#x8282;&#x70B9;&#x5230;&#x8BE5;&#x53F6;&#x8282;&#x70B9;&#x6240;&#x7ECF;&#x5386;&#x7684;&#x8DEF;&#x5F84;&#x6240;&#x8868;&#x793A;&#x7684;&#x5BF9;&#x8C61;&#x7684;&#x503C;&#x3002;&#x51B3;&#x7B56;&#x6811;&#x4EC5;&#x6709;&#x5355;&#x4E00;&#x8F93;&#x51FA;&#xFF0C;</p>
+<h3 id="&#x6784;&#x9020;">&#x6784;&#x9020;</h3>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/dang_wang/article/details/21646083">&#x673A;&#x5668;&#x5B66;&#x4E60;&#x4E4B;&#x51B3;&#x7B56;&#x6811;&#xFF0C;ID3&#x7B97;&#x6CD5;_&#x7528;&#x4E8E;&#x5B66;&#x4E60;&#x5E03;&#x5C14;&#x51FD;&#x6570;&#x7684;id3&#x7B97;&#x6CD5;-CSDN&#x535A;&#x5BA2;</a></p>
+<h4 id="&#x95EE;&#x9898;&#x8BBE;&#x7F6E;">&#x95EE;&#x9898;&#x8BBE;&#x7F6E;</h4>
+<p>&#x53EF;&#x80FD;&#x7684;&#x5B9E;&#x4F8B;&#x96C6;X<br>
+&#x672A;&#x77E5;&#x7684;&#x76EE;&#x6807;&#x51FD;&#x6570;f:X&gt;Y<br>
+&#x5047;&#x8BBE;&#x51FD;&#x6570;&#x96C6; H={h|h:X&gt;Y}</p>
+<h4 id="&#x8F93;&#x5165;">&#x8F93;&#x5165;</h4>
+<p>&#x672A;&#x77E5;&#x76EE;&#x6807;&#x51FD;&#x6570;f&#x7684;&#x8BAD;&#x7EC3;&#x5B9E;&#x4F8B;{&lt;xi&#xFF0C;yi&gt;}</p>
+<h4 id="&#x8F93;&#x51FA;">&#x8F93;&#x51FA;</h4>
+<p>&#x6700;&#x4F73;&#x8FD1;&#x4F3C;f&#x7684;&#x5047;&#x8BBE;h&#x2208;H</p>
+<h4 id="ID3&#x7B97;&#x6CD5;&#xFF1A;&#x7528;&#x4E8E;&#x5B66;&#x4E60;&#x5E03;&#x5C14;&#x51FD;&#x6570;&#x7684;ID3&#x7B97;&#x6CD5;">ID3&#x7B97;&#x6CD5;&#xFF1A;&#x7528;&#x4E8E;&#x5B66;&#x4E60;&#x5E03;&#x5C14;&#x51FD;&#x6570;&#x7684;ID3&#x7B97;&#x6CD5;</h4>
 <ol>
-<li>创建树的Root结点</li>
-<li>如果所有Examples的目标属性均为“正”那么返回label=“+”的单结点树Root</li>
-<li>如果所有Examples的目标属性均为“反那么返回label=“_”的单结点树Root</li>
-<li>如果Attributes为“空”，那么返回单结点树Root，label设置为Examples中最普遍的目标属性值5.</li>
-<li>否则
+<li>&#x521B;&#x5EFA;&#x6811;&#x7684;Root&#x7ED3;&#x70B9;</li>
+<li>&#x5982;&#x679C;&#x6240;&#x6709;Examples&#x7684;&#x76EE;&#x6807;&#x5C5E;&#x6027;&#x5747;&#x4E3A;&#x201C;&#x6B63;&#x201D;&#x90A3;&#x4E48;&#x8FD4;&#x56DE;label=&#x201C;+&#x201D;&#x7684;&#x5355;&#x7ED3;&#x70B9;&#x6811;Root</li>
+<li>&#x5982;&#x679C;&#x6240;&#x6709;Examples&#x7684;&#x76EE;&#x6807;&#x5C5E;&#x6027;&#x5747;&#x4E3A;&#x201C;&#x53CD;&#x90A3;&#x4E48;&#x8FD4;&#x56DE;label=&#x201C;_&#x201D;&#x7684;&#x5355;&#x7ED3;&#x70B9;&#x6811;Root</li>
+<li>&#x5982;&#x679C;Attributes&#x4E3A;&#x201C;&#x7A7A;&#x201D;&#xFF0C;&#x90A3;&#x4E48;&#x8FD4;&#x56DE;&#x5355;&#x7ED3;&#x70B9;&#x6811;Root&#xFF0C;label&#x8BBE;&#x7F6E;&#x4E3A;Examples&#x4E2D;&#x6700;&#x666E;&#x904D;&#x7684;&#x76EE;&#x6807;&#x5C5E;&#x6027;&#x503C;5.</li>
+<li>&#x5426;&#x5219;
 <ul>
-<li>A&lt;-Attributes中分类Examples能力最好的属性</li>
-<li>Root的决策属性&lt;- A</li>
-<li>对于A的每个可能值vi
+<li>A&lt;-Attributes&#x4E2D;&#x5206;&#x7C7B;Examples&#x80FD;&#x529B;&#x6700;&#x597D;&#x7684;&#x5C5E;&#x6027;</li>
+<li>Root&#x7684;&#x51B3;&#x7B56;&#x5C5E;&#x6027;&lt;- A</li>
+<li>&#x5BF9;&#x4E8E;A&#x7684;&#x6BCF;&#x4E2A;&#x53EF;&#x80FD;&#x503C;vi
 <ul>
-<li>令$Examples_vi$为Examples中满足A属性值为$V_i$的子集</li>
-<li><strong>特殊情况</strong>：如果$Examples_vi$为空
+<li>&#x4EE4;$Examples_vi$&#x4E3A;Examples&#x4E2D;&#x6EE1;&#x8DB3;A&#x5C5E;&#x6027;&#x503C;&#x4E3A;$V_i$&#x7684;&#x5B50;&#x96C6;</li>
+<li><strong>&#x7279;&#x6B8A;&#x60C5;&#x51B5;</strong>&#xFF1A;&#x5982;&#x679C;$Examples_vi$&#x4E3A;&#x7A7A;
 <ul>
-<li>在这个分支下加一个叶子结点，结点的label设置为Examples中最普遍的目标属性值</li>
+<li>&#x5728;&#x8FD9;&#x4E2A;&#x5206;&#x652F;&#x4E0B;&#x52A0;&#x4E00;&#x4E2A;&#x53F6;&#x5B50;&#x7ED3;&#x70B9;&#xFF0C;&#x7ED3;&#x70B9;&#x7684;label&#x8BBE;&#x7F6E;&#x4E3A;Examples&#x4E2D;&#x6700;&#x666E;&#x904D;&#x7684;&#x76EE;&#x6807;&#x5C5E;&#x6027;&#x503C;</li>
 </ul>
 </li>
-<li>否则，在这个分支下加一个子树ID3($Examples_vi$ ，Attributes-{A})</li>
+<li>&#x5426;&#x5219;&#xFF0C;&#x5728;&#x8FD9;&#x4E2A;&#x5206;&#x652F;&#x4E0B;&#x52A0;&#x4E00;&#x4E2A;&#x5B50;&#x6811;ID3($Examples_vi$ &#xFF0C;Attributes-{A})</li>
 </ul>
 </li>
 </ul>
 </li>
-<li>结束，返回树Root</li>
+<li>&#x7ED3;&#x675F;&#xFF0C;&#x8FD4;&#x56DE;&#x6811;Root</li>
 </ol>
-<h3 id="例子👍">例子👍</h3>
-<p>比如有类别A 类别B 类别C， 第一个属性是年龄第二个属性是工作，结果是是否可以贷款</p>
-<p>ID3要考虑的是选用年龄还是选用工作作为分类标准</p>
-<p>计算的方式就是通过信息增益率</p>
-<p><strong>信息增益率的算法就是说用总体的熵减去用一个标准分类后子树的熵的和，越大越好</strong></p>
-<p>熵的计算方式是假设一共八个人，三个人可以贷款，五个人不可以贷款</p>
-<p>那么就是$-3/8<em>log(3/8)±5/8</em>log(3/8)$</p>
-<p>那么我们现在假设年龄有两种一个是老年，一个是年轻</p>
-<p>我们就需要去看，老年里面有多少个可以贷款，有多少个不可以贷款。</p>
-<p>假设四个老人，2个可以贷款，2个不可以贷款</p>
-<p>计算方式就是$-1/2<em>log(1/2)±1/2</em>log(1/2)$，同理可知年轻人的就是$-1/4<em>log(1/4)±3/4</em>log(3/4)$</p>
-<p>我们认为上面一个h1,另外一个h2，总体的是h。那么计算信息增益就是$h-(1/2<em>h1+1/2</em>h2)$。然后再计算一个如果用工作作为衡量标准会怎么认为，比较一下大小就好了</p>
-<p>越大越好</p>
-<h3 id="构造时如何选择节点和最佳属性">构造时如何选择节点和最佳属性</h3>
+<h3 id="&#x4F8B;&#x5B50;&#x1F44D;">&#x4F8B;&#x5B50;&#x1F44D;</h3>
+<p>&#x6BD4;&#x5982;&#x6709;&#x7C7B;&#x522B;A &#x7C7B;&#x522B;B &#x7C7B;&#x522B;C&#xFF0C; &#x7B2C;&#x4E00;&#x4E2A;&#x5C5E;&#x6027;&#x662F;&#x5E74;&#x9F84;&#x7B2C;&#x4E8C;&#x4E2A;&#x5C5E;&#x6027;&#x662F;&#x5DE5;&#x4F5C;&#xFF0C;&#x7ED3;&#x679C;&#x662F;&#x662F;&#x5426;&#x53EF;&#x4EE5;&#x8D37;&#x6B3E;</p>
+<p>ID3&#x8981;&#x8003;&#x8651;&#x7684;&#x662F;&#x9009;&#x7528;&#x5E74;&#x9F84;&#x8FD8;&#x662F;&#x9009;&#x7528;&#x5DE5;&#x4F5C;&#x4F5C;&#x4E3A;&#x5206;&#x7C7B;&#x6807;&#x51C6;</p>
+<p>&#x8BA1;&#x7B97;&#x7684;&#x65B9;&#x5F0F;&#x5C31;&#x662F;&#x901A;&#x8FC7;&#x4FE1;&#x606F;&#x589E;&#x76CA;&#x7387;</p>
+<p><strong>&#x4FE1;&#x606F;&#x589E;&#x76CA;&#x7387;&#x7684;&#x7B97;&#x6CD5;&#x5C31;&#x662F;&#x8BF4;&#x7528;&#x603B;&#x4F53;&#x7684;&#x71B5;&#x51CF;&#x53BB;&#x7528;&#x4E00;&#x4E2A;&#x6807;&#x51C6;&#x5206;&#x7C7B;&#x540E;&#x5B50;&#x6811;&#x7684;&#x71B5;&#x7684;&#x548C;&#xFF0C;&#x8D8A;&#x5927;&#x8D8A;&#x597D;</strong></p>
+<p>&#x71B5;&#x7684;&#x8BA1;&#x7B97;&#x65B9;&#x5F0F;&#x662F;&#x5047;&#x8BBE;&#x4E00;&#x5171;&#x516B;&#x4E2A;&#x4EBA;&#xFF0C;&#x4E09;&#x4E2A;&#x4EBA;&#x53EF;&#x4EE5;&#x8D37;&#x6B3E;&#xFF0C;&#x4E94;&#x4E2A;&#x4EBA;&#x4E0D;&#x53EF;&#x4EE5;&#x8D37;&#x6B3E;</p>
+<p>&#x90A3;&#x4E48;&#x5C31;&#x662F;$-3/8<em>log(3/8)&#xB1;5/8</em>log(3/8)$</p>
+<p>&#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x73B0;&#x5728;&#x5047;&#x8BBE;&#x5E74;&#x9F84;&#x6709;&#x4E24;&#x79CD;&#x4E00;&#x4E2A;&#x662F;&#x8001;&#x5E74;&#xFF0C;&#x4E00;&#x4E2A;&#x662F;&#x5E74;&#x8F7B;</p>
+<p>&#x6211;&#x4EEC;&#x5C31;&#x9700;&#x8981;&#x53BB;&#x770B;&#xFF0C;&#x8001;&#x5E74;&#x91CC;&#x9762;&#x6709;&#x591A;&#x5C11;&#x4E2A;&#x53EF;&#x4EE5;&#x8D37;&#x6B3E;&#xFF0C;&#x6709;&#x591A;&#x5C11;&#x4E2A;&#x4E0D;&#x53EF;&#x4EE5;&#x8D37;&#x6B3E;&#x3002;</p>
+<p>&#x5047;&#x8BBE;&#x56DB;&#x4E2A;&#x8001;&#x4EBA;&#xFF0C;2&#x4E2A;&#x53EF;&#x4EE5;&#x8D37;&#x6B3E;&#xFF0C;2&#x4E2A;&#x4E0D;&#x53EF;&#x4EE5;&#x8D37;&#x6B3E;</p>
+<p>&#x8BA1;&#x7B97;&#x65B9;&#x5F0F;&#x5C31;&#x662F;$-1/2<em>log(1/2)&#xB1;1/2</em>log(1/2)$&#xFF0C;&#x540C;&#x7406;&#x53EF;&#x77E5;&#x5E74;&#x8F7B;&#x4EBA;&#x7684;&#x5C31;&#x662F;$-1/4<em>log(1/4)&#xB1;3/4</em>log(3/4)$</p>
+<p>&#x6211;&#x4EEC;&#x8BA4;&#x4E3A;&#x4E0A;&#x9762;&#x4E00;&#x4E2A;h1,&#x53E6;&#x5916;&#x4E00;&#x4E2A;h2&#xFF0C;&#x603B;&#x4F53;&#x7684;&#x662F;h&#x3002;&#x90A3;&#x4E48;&#x8BA1;&#x7B97;&#x4FE1;&#x606F;&#x589E;&#x76CA;&#x5C31;&#x662F;$h-(1/2<em>h1+1/2</em>h2)$&#x3002;&#x7136;&#x540E;&#x518D;&#x8BA1;&#x7B97;&#x4E00;&#x4E2A;&#x5982;&#x679C;&#x7528;&#x5DE5;&#x4F5C;&#x4F5C;&#x4E3A;&#x8861;&#x91CF;&#x6807;&#x51C6;&#x4F1A;&#x600E;&#x4E48;&#x8BA4;&#x4E3A;&#xFF0C;&#x6BD4;&#x8F83;&#x4E00;&#x4E0B;&#x5927;&#x5C0F;&#x5C31;&#x597D;&#x4E86;</p>
+<p>&#x8D8A;&#x5927;&#x8D8A;&#x597D;</p>
+<h3 id="&#x6784;&#x9020;&#x65F6;&#x5982;&#x4F55;&#x9009;&#x62E9;&#x8282;&#x70B9;&#x548C;&#x6700;&#x4F73;&#x5C5E;&#x6027;">&#x6784;&#x9020;&#x65F6;&#x5982;&#x4F55;&#x9009;&#x62E9;&#x8282;&#x70B9;&#x548C;&#x6700;&#x4F73;&#x5C5E;&#x6027;</h3>
 <ul>
 <li>
-<p>熵：刻画了样例集的纯度(purity)</p>
+<p>&#x71B5;&#xFF1A;&#x523B;&#x753B;&#x4E86;&#x6837;&#x4F8B;&#x96C6;&#x7684;&#x7EAF;&#x5EA6;(purity)</p>
 <ul>
-<li><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240102170619735.png" alt="image-20240102170619735"></li>
-<li><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240102170630844.png" alt="image-20240102170630844"></li>
-<li><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240102170655898.png" alt="image-20240102170655898"></li>
+<li><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240102170619735.png" alt="image-20240102170619735"></li>
+<li><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240102170630844.png" alt="image-20240102170630844"></li>
+<li><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240102170655898.png" alt="image-20240102170655898"></li>
 </ul>
 </li>
 <li>
-<p>信息增益：在划分数据集之前之后信息发生的变化，计算每个特征值划分数据集获得的信息增益，获得信息增益最高的特征就是最好的选择。</p>
-<p>定义属性A对数据集D的信息增益为infoGain(D|A)，它等于D本身的熵，减去 给定A的条件下D的条件熵，即：<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240102175743098.png" alt="image-20240102175743098"></p>
+<p>&#x4FE1;&#x606F;&#x589E;&#x76CA;&#xFF1A;&#x5728;&#x5212;&#x5206;&#x6570;&#x636E;&#x96C6;&#x4E4B;&#x524D;&#x4E4B;&#x540E;&#x4FE1;&#x606F;&#x53D1;&#x751F;&#x7684;&#x53D8;&#x5316;&#xFF0C;&#x8BA1;&#x7B97;&#x6BCF;&#x4E2A;&#x7279;&#x5F81;&#x503C;&#x5212;&#x5206;&#x6570;&#x636E;&#x96C6;&#x83B7;&#x5F97;&#x7684;&#x4FE1;&#x606F;&#x589E;&#x76CA;&#xFF0C;&#x83B7;&#x5F97;&#x4FE1;&#x606F;&#x589E;&#x76CA;&#x6700;&#x9AD8;&#x7684;&#x7279;&#x5F81;&#x5C31;&#x662F;&#x6700;&#x597D;&#x7684;&#x9009;&#x62E9;&#x3002;</p>
+<p>&#x5B9A;&#x4E49;&#x5C5E;&#x6027;A&#x5BF9;&#x6570;&#x636E;&#x96C6;D&#x7684;&#x4FE1;&#x606F;&#x589E;&#x76CA;&#x4E3A;infoGain(D|A)&#xFF0C;&#x5B83;&#x7B49;&#x4E8E;D&#x672C;&#x8EAB;&#x7684;&#x71B5;&#xFF0C;&#x51CF;&#x53BB; &#x7ED9;&#x5B9A;A&#x7684;&#x6761;&#x4EF6;&#x4E0B;D&#x7684;&#x6761;&#x4EF6;&#x71B5;&#xFF0C;&#x5373;&#xFF1A;<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240102175743098.png" alt="image-20240102175743098"></p>
 </li>
 <li>
 <ul>
-<li><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240102170758340.png" alt="image-20240102170758340"></li>
+<li><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240102170758340.png" alt="image-20240102170758340"></li>
 </ul>
 </li>
 </ul>
-<h3 id="C4-5：信息增益比">C4.5：信息增益比</h3>
-<p>信息增益比: 信息增益/该属性的熵</p>
-<p>信息增益准则对可取值数目较多的属性有所偏好</p>
-<h3 id="CART-Gini指数">CART: Gini指数</h3>
-<p>Gini指数: 模型的纯度，越小越好，越小纯度越高</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240102191401786.png" alt="image-20240102191401786"></p>
-<h1>集成学习</h1>
-<p>监督学习</p>
-<p>集成学习的原理，怎么不同的弱分类器结合成强分类器</p>
-<h2 id="特点-分类">特点(分类)</h2>
+<h3 id="C4-5&#xFF1A;&#x4FE1;&#x606F;&#x589E;&#x76CA;&#x6BD4;">C4.5&#xFF1A;&#x4FE1;&#x606F;&#x589E;&#x76CA;&#x6BD4;</h3>
+<p>&#x4FE1;&#x606F;&#x589E;&#x76CA;&#x6BD4;: &#x4FE1;&#x606F;&#x589E;&#x76CA;/&#x8BE5;&#x5C5E;&#x6027;&#x7684;&#x71B5;</p>
+<p>&#x4FE1;&#x606F;&#x589E;&#x76CA;&#x51C6;&#x5219;&#x5BF9;&#x53EF;&#x53D6;&#x503C;&#x6570;&#x76EE;&#x8F83;&#x591A;&#x7684;&#x5C5E;&#x6027;&#x6709;&#x6240;&#x504F;&#x597D;</p>
+<h3 id="CART-Gini&#x6307;&#x6570;">CART: Gini&#x6307;&#x6570;</h3>
+<p>Gini&#x6307;&#x6570;: &#x6A21;&#x578B;&#x7684;&#x7EAF;&#x5EA6;&#xFF0C;&#x8D8A;&#x5C0F;&#x8D8A;&#x597D;&#xFF0C;&#x8D8A;&#x5C0F;&#x7EAF;&#x5EA6;&#x8D8A;&#x9AD8;</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240102191401786.png" alt="image-20240102191401786"></p>
+<h1>&#x96C6;&#x6210;&#x5B66;&#x4E60;</h1>
+<p>&#x76D1;&#x7763;&#x5B66;&#x4E60;</p>
+<p>&#x96C6;&#x6210;&#x5B66;&#x4E60;&#x7684;&#x539F;&#x7406;&#xFF0C;&#x600E;&#x4E48;&#x4E0D;&#x540C;&#x7684;&#x5F31;&#x5206;&#x7C7B;&#x5668;&#x7ED3;&#x5408;&#x6210;&#x5F3A;&#x5206;&#x7C7B;&#x5668;</p>
+<h2 id="&#x7279;&#x70B9;-&#x5206;&#x7C7B;">&#x7279;&#x70B9;(&#x5206;&#x7C7B;)</h2>
 <ul>
-<li>多个分类器集成在一起，以提高分类准确率</li>
-<li>由训练数据构建基分类器，然后根据预测结果进行投票</li>
-<li>集成学习本身不是一种分类器，而是分类器结合方法</li>
-<li>通常集成分类器性能会好于单个分类器</li>
+<li>&#x591A;&#x4E2A;&#x5206;&#x7C7B;&#x5668;&#x96C6;&#x6210;&#x5728;&#x4E00;&#x8D77;&#xFF0C;&#x4EE5;&#x63D0;&#x9AD8;&#x5206;&#x7C7B;&#x51C6;&#x786E;&#x7387;</li>
+<li>&#x7531;&#x8BAD;&#x7EC3;&#x6570;&#x636E;&#x6784;&#x5EFA;&#x57FA;&#x5206;&#x7C7B;&#x5668;&#xFF0C;&#x7136;&#x540E;&#x6839;&#x636E;&#x9884;&#x6D4B;&#x7ED3;&#x679C;&#x8FDB;&#x884C;&#x6295;&#x7968;</li>
+<li>&#x96C6;&#x6210;&#x5B66;&#x4E60;&#x672C;&#x8EAB;&#x4E0D;&#x662F;&#x4E00;&#x79CD;&#x5206;&#x7C7B;&#x5668;&#xFF0C;&#x800C;&#x662F;&#x5206;&#x7C7B;&#x5668;&#x7ED3;&#x5408;&#x65B9;&#x6CD5;</li>
+<li>&#x901A;&#x5E38;&#x96C6;&#x6210;&#x5206;&#x7C7B;&#x5668;&#x6027;&#x80FD;&#x4F1A;&#x597D;&#x4E8E;&#x5355;&#x4E2A;&#x5206;&#x7C7B;&#x5668;</li>
 </ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240102185427868.png" alt="image-20240102185427868"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240102185427868.png" alt="image-20240102185427868"></p>
 <h2 id="Bias-Variance-tradeoff">Bias-Variance tradeoff</h2>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240102185112582.png" alt="image-20240102185112582"></p>
-<h2 id="结合策略">结合策略</h2>
-<h3 id="平均法-回归问题）">平均法(回归问题）</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240102185112582.png" alt="image-20240102185112582"></p>
+<h2 id="&#x7ED3;&#x5408;&#x7B56;&#x7565;">&#x7ED3;&#x5408;&#x7B56;&#x7565;</h2>
+<h3 id="&#x5E73;&#x5747;&#x6CD5;-&#x56DE;&#x5F52;&#x95EE;&#x9898;&#xFF09;">&#x5E73;&#x5747;&#x6CD5;(&#x56DE;&#x5F52;&#x95EE;&#x9898;&#xFF09;</h3>
 <ul>
-<li>简单平均</li>
-<li>加权平均</li>
+<li>&#x7B80;&#x5355;&#x5E73;&#x5747;</li>
+<li>&#x52A0;&#x6743;&#x5E73;&#x5747;</li>
 </ul>
-<h3 id="投票法-分类问题）">投票法(分类问题）</h3>
+<h3 id="&#x6295;&#x7968;&#x6CD5;-&#x5206;&#x7C7B;&#x95EE;&#x9898;&#xFF09;">&#x6295;&#x7968;&#x6CD5;(&#x5206;&#x7C7B;&#x95EE;&#x9898;&#xFF09;</h3>
 <ul>
-<li>绝对多数</li>
-<li>相对多数</li>
-<li>加权投票</li>
+<li>&#x7EDD;&#x5BF9;&#x591A;&#x6570;</li>
+<li>&#x76F8;&#x5BF9;&#x591A;&#x6570;</li>
+<li>&#x52A0;&#x6743;&#x6295;&#x7968;</li>
 </ul>
 <h2 id="Bagging">Bagging</h2>
-<p>有放回采样方法。统计上的目的是得到统计量分布以及置信区间</p>
-<p>并行式集成学习，降低分类器方差，改善泛化</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240102194707308.png" alt="image-20240102194707308"></p>
-<h3 id="代表性算法-随机森林">代表性算法:随机森林</h3>
+<p>&#x6709;&#x653E;&#x56DE;&#x91C7;&#x6837;&#x65B9;&#x6CD5;&#x3002;&#x7EDF;&#x8BA1;&#x4E0A;&#x7684;&#x76EE;&#x7684;&#x662F;&#x5F97;&#x5230;&#x7EDF;&#x8BA1;&#x91CF;&#x5206;&#x5E03;&#x4EE5;&#x53CA;&#x7F6E;&#x4FE1;&#x533A;&#x95F4;</p>
+<p>&#x5E76;&#x884C;&#x5F0F;&#x96C6;&#x6210;&#x5B66;&#x4E60;&#xFF0C;&#x964D;&#x4F4E;&#x5206;&#x7C7B;&#x5668;&#x65B9;&#x5DEE;&#xFF0C;&#x6539;&#x5584;&#x6CDB;&#x5316;</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240102194707308.png" alt="image-20240102194707308"></p>
+<h3 id="&#x4EE3;&#x8868;&#x6027;&#x7B97;&#x6CD5;-&#x968F;&#x673A;&#x68EE;&#x6797;">&#x4EE3;&#x8868;&#x6027;&#x7B97;&#x6CD5;:&#x968F;&#x673A;&#x68EE;&#x6797;</h3>
 <ul>
-<li>用N来表示训练用例 (本) 的个数，M表示特征数目;</li>
-<li>输入特征数目m，用于确定决策树上一个结点的决策结果;其中m应远小于M。</li>
-<li>从N个训练用例(样本)中以<strong>有放回抽样</strong>的方式，取样N次，形成一个训练集(即bagging取样)，并用未抽到的用例(样本)作预测，评估其误差</li>
-<li>对于每一个结点，<strong>随机选择m个特征</strong>(通常为M的均方根logz M)，根据这m个特征，计算其最佳的分裂方式。</li>
-<li>每棵树都会完整成长而不会剪枝，这有可能在建完一棵正常树状分类器后会被采用。</li>
-<li>以上过程做充分多次，以产生足够多的随机树</li>
+<li>&#x7528;N&#x6765;&#x8868;&#x793A;&#x8BAD;&#x7EC3;&#x7528;&#x4F8B; (&#x672C;) &#x7684;&#x4E2A;&#x6570;&#xFF0C;M&#x8868;&#x793A;&#x7279;&#x5F81;&#x6570;&#x76EE;;</li>
+<li>&#x8F93;&#x5165;&#x7279;&#x5F81;&#x6570;&#x76EE;m&#xFF0C;&#x7528;&#x4E8E;&#x786E;&#x5B9A;&#x51B3;&#x7B56;&#x6811;&#x4E0A;&#x4E00;&#x4E2A;&#x7ED3;&#x70B9;&#x7684;&#x51B3;&#x7B56;&#x7ED3;&#x679C;;&#x5176;&#x4E2D;m&#x5E94;&#x8FDC;&#x5C0F;&#x4E8E;M&#x3002;</li>
+<li>&#x4ECE;N&#x4E2A;&#x8BAD;&#x7EC3;&#x7528;&#x4F8B;(&#x6837;&#x672C;)&#x4E2D;&#x4EE5;<strong>&#x6709;&#x653E;&#x56DE;&#x62BD;&#x6837;</strong>&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x53D6;&#x6837;N&#x6B21;&#xFF0C;&#x5F62;&#x6210;&#x4E00;&#x4E2A;&#x8BAD;&#x7EC3;&#x96C6;(&#x5373;bagging&#x53D6;&#x6837;)&#xFF0C;&#x5E76;&#x7528;&#x672A;&#x62BD;&#x5230;&#x7684;&#x7528;&#x4F8B;(&#x6837;&#x672C;)&#x4F5C;&#x9884;&#x6D4B;&#xFF0C;&#x8BC4;&#x4F30;&#x5176;&#x8BEF;&#x5DEE;</li>
+<li>&#x5BF9;&#x4E8E;&#x6BCF;&#x4E00;&#x4E2A;&#x7ED3;&#x70B9;&#xFF0C;<strong>&#x968F;&#x673A;&#x9009;&#x62E9;m&#x4E2A;&#x7279;&#x5F81;</strong>(&#x901A;&#x5E38;&#x4E3A;M&#x7684;&#x5747;&#x65B9;&#x6839;logz M)&#xFF0C;&#x6839;&#x636E;&#x8FD9;m&#x4E2A;&#x7279;&#x5F81;&#xFF0C;&#x8BA1;&#x7B97;&#x5176;&#x6700;&#x4F73;&#x7684;&#x5206;&#x88C2;&#x65B9;&#x5F0F;&#x3002;</li>
+<li>&#x6BCF;&#x68F5;&#x6811;&#x90FD;&#x4F1A;&#x5B8C;&#x6574;&#x6210;&#x957F;&#x800C;&#x4E0D;&#x4F1A;&#x526A;&#x679D;&#xFF0C;&#x8FD9;&#x6709;&#x53EF;&#x80FD;&#x5728;&#x5EFA;&#x5B8C;&#x4E00;&#x68F5;&#x6B63;&#x5E38;&#x6811;&#x72B6;&#x5206;&#x7C7B;&#x5668;&#x540E;&#x4F1A;&#x88AB;&#x91C7;&#x7528;&#x3002;</li>
+<li>&#x4EE5;&#x4E0A;&#x8FC7;&#x7A0B;&#x505A;&#x5145;&#x5206;&#x591A;&#x6B21;&#xFF0C;&#x4EE5;&#x4EA7;&#x751F;&#x8DB3;&#x591F;&#x591A;&#x7684;&#x968F;&#x673A;&#x6811;</li>
 </ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240102195519802.png" alt="image-20240102195519802"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240102195519802.png" alt="image-20240102195519802"></p>
 <h2 id="Boosting">Boosting</h2>
 <ul>
-<li>强可学习 (strongly learnable) :在PAC框架中，一个概念 (类)，如果存在一个多项式的学习算法能够学习它，并且正确率很高，那么就称这个概念是强可学习的:</li>
-<li>弱可学习 (weakly learnable) :在PAC框架中，一个概念 (类) ，如果存在一个多项式的学习算法能够学习它，学习的正确率仅比随机猜测略好，那么就称这个概念是弱可学习的</li>
+<li>&#x5F3A;&#x53EF;&#x5B66;&#x4E60; (strongly learnable) :&#x5728;PAC&#x6846;&#x67B6;&#x4E2D;&#xFF0C;&#x4E00;&#x4E2A;&#x6982;&#x5FF5; (&#x7C7B;)&#xFF0C;&#x5982;&#x679C;&#x5B58;&#x5728;&#x4E00;&#x4E2A;&#x591A;&#x9879;&#x5F0F;&#x7684;&#x5B66;&#x4E60;&#x7B97;&#x6CD5;&#x80FD;&#x591F;&#x5B66;&#x4E60;&#x5B83;&#xFF0C;&#x5E76;&#x4E14;&#x6B63;&#x786E;&#x7387;&#x5F88;&#x9AD8;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x79F0;&#x8FD9;&#x4E2A;&#x6982;&#x5FF5;&#x662F;&#x5F3A;&#x53EF;&#x5B66;&#x4E60;&#x7684;:</li>
+<li>&#x5F31;&#x53EF;&#x5B66;&#x4E60; (weakly learnable) :&#x5728;PAC&#x6846;&#x67B6;&#x4E2D;&#xFF0C;&#x4E00;&#x4E2A;&#x6982;&#x5FF5; (&#x7C7B;) &#xFF0C;&#x5982;&#x679C;&#x5B58;&#x5728;&#x4E00;&#x4E2A;&#x591A;&#x9879;&#x5F0F;&#x7684;&#x5B66;&#x4E60;&#x7B97;&#x6CD5;&#x80FD;&#x591F;&#x5B66;&#x4E60;&#x5B83;&#xFF0C;&#x5B66;&#x4E60;&#x7684;&#x6B63;&#x786E;&#x7387;&#x4EC5;&#x6BD4;&#x968F;&#x673A;&#x731C;&#x6D4B;&#x7565;&#x597D;&#xFF0C;&#x90A3;&#x4E48;&#x5C31;&#x79F0;&#x8FD9;&#x4E2A;&#x6982;&#x5FF5;&#x662F;&#x5F31;&#x53EF;&#x5B66;&#x4E60;&#x7684;</li>
 </ul>
-<p>PAC学习理论(Kearns&amp;Valiant,1984)</p>
+<p>PAC&#x5B66;&#x4E60;&#x7406;&#x8BBA;(Kearns&amp;Valiant,1984)</p>
 <ul>
-<li>强学习器与弱学习器是等价的(Robert E.Schapire,1990)</li>
-<li>一个概念是强可学习的充分必要条件是这个概念是弱可学习的</li>
-<li>可通过提升方法(Boosting)将弱学习器转为强学习器</li>
+<li>&#x5F3A;&#x5B66;&#x4E60;&#x5668;&#x4E0E;&#x5F31;&#x5B66;&#x4E60;&#x5668;&#x662F;&#x7B49;&#x4EF7;&#x7684;(Robert E.Schapire,1990)</li>
+<li>&#x4E00;&#x4E2A;&#x6982;&#x5FF5;&#x662F;&#x5F3A;&#x53EF;&#x5B66;&#x4E60;&#x7684;&#x5145;&#x5206;&#x5FC5;&#x8981;&#x6761;&#x4EF6;&#x662F;&#x8FD9;&#x4E2A;&#x6982;&#x5FF5;&#x662F;&#x5F31;&#x53EF;&#x5B66;&#x4E60;&#x7684;</li>
+<li>&#x53EF;&#x901A;&#x8FC7;&#x63D0;&#x5347;&#x65B9;&#x6CD5;(Boosting)&#x5C06;&#x5F31;&#x5B66;&#x4E60;&#x5668;&#x8F6C;&#x4E3A;&#x5F3A;&#x5B66;&#x4E60;&#x5668;</li>
 </ul>
-<h3 id="代表性算法-Adaptive-Boost">代表性算法: Adaptive Boost</h3>
-<p>思想: 从弱学习算法出发，通过改变训练数据的概率分布 (权值<br>
-分布)，反复学习，得到一系列弱分类器，然后进行组合，构成<br>
-一个强分类器。</p>
-<h2 id="Boosting提升树">Boosting提升树</h2>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/84139957">深入理解提升树（Boosting tree）算法 - 知乎 (zhihu.com)</a>直接看计算</p>
-<h1>概率学习</h1>
+<h3 id="&#x4EE3;&#x8868;&#x6027;&#x7B97;&#x6CD5;-Adaptive-Boost">&#x4EE3;&#x8868;&#x6027;&#x7B97;&#x6CD5;: Adaptive Boost</h3>
+<p>&#x601D;&#x60F3;: &#x4ECE;&#x5F31;&#x5B66;&#x4E60;&#x7B97;&#x6CD5;&#x51FA;&#x53D1;&#xFF0C;&#x901A;&#x8FC7;&#x6539;&#x53D8;&#x8BAD;&#x7EC3;&#x6570;&#x636E;&#x7684;&#x6982;&#x7387;&#x5206;&#x5E03; (&#x6743;&#x503C;<br>
+&#x5206;&#x5E03;)&#xFF0C;&#x53CD;&#x590D;&#x5B66;&#x4E60;&#xFF0C;&#x5F97;&#x5230;&#x4E00;&#x7CFB;&#x5217;&#x5F31;&#x5206;&#x7C7B;&#x5668;&#xFF0C;&#x7136;&#x540E;&#x8FDB;&#x884C;&#x7EC4;&#x5408;&#xFF0C;&#x6784;&#x6210;<br>
+&#x4E00;&#x4E2A;&#x5F3A;&#x5206;&#x7C7B;&#x5668;&#x3002;</p>
+<h2 id="Boosting&#x63D0;&#x5347;&#x6811;">Boosting&#x63D0;&#x5347;&#x6811;</h2>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/84139957">&#x6DF1;&#x5165;&#x7406;&#x89E3;&#x63D0;&#x5347;&#x6811;&#xFF08;Boosting tree&#xFF09;&#x7B97;&#x6CD5; - &#x77E5;&#x4E4E; (zhihu.com)</a>&#x76F4;&#x63A5;&#x770B;&#x8BA1;&#x7B97;</p>
+<h1>&#x6982;&#x7387;&#x5B66;&#x4E60;</h1>
 <ul>
-<li>高斯混合模型</li>
-<li>基本概念
+<li>&#x9AD8;&#x65AF;&#x6DF7;&#x5408;&#x6A21;&#x578B;</li>
+<li>&#x57FA;&#x672C;&#x6982;&#x5FF5;
 <ul>
-<li>带约束的数学优化问题</li>
-<li>不带约束的最小二乘优化问题</li>
+<li>&#x5E26;&#x7EA6;&#x675F;&#x7684;&#x6570;&#x5B66;&#x4F18;&#x5316;&#x95EE;&#x9898;</li>
+<li>&#x4E0D;&#x5E26;&#x7EA6;&#x675F;&#x7684;&#x6700;&#x5C0F;&#x4E8C;&#x4E58;&#x4F18;&#x5316;&#x95EE;&#x9898;</li>
 </ul>
 </li>
 </ul>
-<p>最大似然估计，期望最大化<br>
-理论推导不要求</p>
+<p>&#x6700;&#x5927;&#x4F3C;&#x7136;&#x4F30;&#x8BA1;&#xFF0C;&#x671F;&#x671B;&#x6700;&#x5927;&#x5316;<br>
+&#x7406;&#x8BBA;&#x63A8;&#x5BFC;&#x4E0D;&#x8981;&#x6C42;</p>
 <h1>SVM</h1>
-<p>监督学习</p>
-<p>支持向量机support vector machine</p>
-<p>传统机器学习里最代表性的算法<br>
-不会考推导</p>
-<p>除了二分类、线性，非线性也需要了解</p>
-<h2 id="二分类">二分类</h2>
-<p>二分类问题可以看作是在特征空间上对类别进行划分的任务</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240103194109389.png" alt="image-20240103194109389"></p>
-<p>正中间的: 鲁棒性最好，泛化能力最强</p>
-<h3 id="间隔与支持向量">间隔与支持向量</h3>
+<p>&#x76D1;&#x7763;&#x5B66;&#x4E60;</p>
+<p>&#x652F;&#x6301;&#x5411;&#x91CF;&#x673A;support vector machine</p>
+<p>&#x4F20;&#x7EDF;&#x673A;&#x5668;&#x5B66;&#x4E60;&#x91CC;&#x6700;&#x4EE3;&#x8868;&#x6027;&#x7684;&#x7B97;&#x6CD5;<br>
+&#x4E0D;&#x4F1A;&#x8003;&#x63A8;&#x5BFC;</p>
+<p>&#x9664;&#x4E86;&#x4E8C;&#x5206;&#x7C7B;&#x3001;&#x7EBF;&#x6027;&#xFF0C;&#x975E;&#x7EBF;&#x6027;&#x4E5F;&#x9700;&#x8981;&#x4E86;&#x89E3;</p>
+<h2 id="&#x4E8C;&#x5206;&#x7C7B;">&#x4E8C;&#x5206;&#x7C7B;</h2>
+<p>&#x4E8C;&#x5206;&#x7C7B;&#x95EE;&#x9898;&#x53EF;&#x4EE5;&#x770B;&#x4F5C;&#x662F;&#x5728;&#x7279;&#x5F81;&#x7A7A;&#x95F4;&#x4E0A;&#x5BF9;&#x7C7B;&#x522B;&#x8FDB;&#x884C;&#x5212;&#x5206;&#x7684;&#x4EFB;&#x52A1;</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240103194109389.png" alt="image-20240103194109389"></p>
+<p>&#x6B63;&#x4E2D;&#x95F4;&#x7684;: &#x9C81;&#x68D2;&#x6027;&#x6700;&#x597D;&#xFF0C;&#x6CDB;&#x5316;&#x80FD;&#x529B;&#x6700;&#x5F3A;</p>
+<h3 id="&#x95F4;&#x9694;&#x4E0E;&#x652F;&#x6301;&#x5411;&#x91CF;">&#x95F4;&#x9694;&#x4E0E;&#x652F;&#x6301;&#x5411;&#x91CF;</h3>
 <ul>
-<li>一个点(样例)对应的<code>“间隔”margin</code>是其到分界<strong>超平面</strong>的<strong>垂直距离</strong></li>
-<li>SVM最大化(所有训练本的) 最小间隔margin</li>
+<li>&#x4E00;&#x4E2A;&#x70B9;(&#x6837;&#x4F8B;)&#x5BF9;&#x5E94;&#x7684;<code>&#x201C;&#x95F4;&#x9694;&#x201D;margin</code>&#x662F;&#x5176;&#x5230;&#x5206;&#x754C;<strong>&#x8D85;&#x5E73;&#x9762;</strong>&#x7684;<strong>&#x5782;&#x76F4;&#x8DDD;&#x79BB;</strong></li>
+<li>SVM&#x6700;&#x5927;&#x5316;(&#x6240;&#x6709;&#x8BAD;&#x7EC3;&#x672C;&#x7684;) &#x6700;&#x5C0F;&#x95F4;&#x9694;margin</li>
 <li><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://chillcharlie-img.oss-cn-hangzhou.aliyuncs.com/image%2F2023%2F10%2F31%2Fc8b73d3ef4d015deee061644405f9d3c_20231031191039.png" alt="image.png"></li>
-<li><strong>具有最小间隔的点称为支持向量(support vectors)</strong>
+<li><strong>&#x5177;&#x6709;&#x6700;&#x5C0F;&#x95F4;&#x9694;&#x7684;&#x70B9;&#x79F0;&#x4E3A;&#x652F;&#x6301;&#x5411;&#x91CF;(support vectors)</strong>
 <ul>
-<li>所以叫支持向量机support vector machine</li>
+<li>&#x6240;&#x4EE5;&#x53EB;&#x652F;&#x6301;&#x5411;&#x91CF;&#x673A;support vector machine</li>
 </ul>
 </li>
 </ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240103194325785.png" alt="image-20240103194325785"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240103194325785.png" alt="image-20240103194325785"></p>
 <ul>
-<li>如何分类
+<li>&#x5982;&#x4F55;&#x5206;&#x7C7B;
 <ul>
-<li>$f(x)&gt;0$分为正类,$f(x)&lt;0$分为负类</li>
+<li>$f(x)&gt;0$&#x5206;&#x4E3A;&#x6B63;&#x7C7B;,$f(x)&lt;0$&#x5206;&#x4E3A;&#x8D1F;&#x7C7B;</li>
 </ul>
 </li>
-<li>对于任何一个样例,如何判断预测对错? ($y_i=-1,1$)
+<li>&#x5BF9;&#x4E8E;&#x4EFB;&#x4F55;&#x4E00;&#x4E2A;&#x6837;&#x4F8B;,&#x5982;&#x4F55;&#x5224;&#x65AD;&#x9884;&#x6D4B;&#x5BF9;&#x9519;? ($y_i=-1,1$)
 <ul>
-<li>$y_if(x_i)&gt;0$分类正确,$y_if(x_i)&lt;0$分类错误</li>
-<li>如果<strong>我们假设能完全分开</strong>,并且$|y_i|=1$,那么$y_if(x_i)=|f(x_i)|$</li>
+<li>$y_if(x_i)&gt;0$&#x5206;&#x7C7B;&#x6B63;&#x786E;,$y_if(x_i)&lt;0$&#x5206;&#x7C7B;&#x9519;&#x8BEF;</li>
+<li>&#x5982;&#x679C;<strong>&#x6211;&#x4EEC;&#x5047;&#x8BBE;&#x80FD;&#x5B8C;&#x5168;&#x5206;&#x5F00;</strong>,&#x5E76;&#x4E14;$|y_i|=1$,&#x90A3;&#x4E48;$y_if(x_i)=|f(x_i)|$</li>
 </ul>
 </li>
 </ul>
-<h3 id="总结">总结</h3>
+<h3 id="&#x603B;&#x7ED3;">&#x603B;&#x7ED3;</h3>
 <ul>
-<li>分类器是一个分离超平面（separating hyperplane）</li>
-<li>最重要的训练样本是“支持向量”，它们定义了超平面，而其他训练样本被忽略了。二次优化算法可以识别哪些样本是具有非零朗格朗日乘子a;的支持向量</li>
-<li>对偶问题中，训练样本只以内积形式出现</li>
+<li>&#x5206;&#x7C7B;&#x5668;&#x662F;&#x4E00;&#x4E2A;&#x5206;&#x79BB;&#x8D85;&#x5E73;&#x9762;&#xFF08;separating hyperplane&#xFF09;</li>
+<li>&#x6700;&#x91CD;&#x8981;&#x7684;&#x8BAD;&#x7EC3;&#x6837;&#x672C;&#x662F;&#x201C;&#x652F;&#x6301;&#x5411;&#x91CF;&#x201D;&#xFF0C;&#x5B83;&#x4EEC;&#x5B9A;&#x4E49;&#x4E86;&#x8D85;&#x5E73;&#x9762;&#xFF0C;&#x800C;&#x5176;&#x4ED6;&#x8BAD;&#x7EC3;&#x6837;&#x672C;&#x88AB;&#x5FFD;&#x7565;&#x4E86;&#x3002;&#x4E8C;&#x6B21;&#x4F18;&#x5316;&#x7B97;&#x6CD5;&#x53EF;&#x4EE5;&#x8BC6;&#x522B;&#x54EA;&#x4E9B;&#x6837;&#x672C;&#x662F;&#x5177;&#x6709;&#x975E;&#x96F6;&#x6717;&#x683C;&#x6717;&#x65E5;&#x4E58;&#x5B50;a;&#x7684;&#x652F;&#x6301;&#x5411;&#x91CF;</li>
+<li>&#x5BF9;&#x5076;&#x95EE;&#x9898;&#x4E2D;&#xFF0C;&#x8BAD;&#x7EC3;&#x6837;&#x672C;&#x53EA;&#x4EE5;&#x5185;&#x79EF;&#x5F62;&#x5F0F;&#x51FA;&#x73B0;</li>
 </ul>
-<h2 id="非线性支持向量机">非线性支持向量机</h2>
-<p>把数据映射到高纬空间里</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240103195109290.png" alt="image-20240103195109290"></p>
-<p><strong>矩阵 K 是对称半正定的，满足Mercer定理，所以这个函数是核函数</strong></p>
-<p><strong>根据Mercer定理，任何半正定的函数都可以作为核函数。</strong></p>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/30009055">机器学习笔记029 | 核函数 - 知乎 (zhihu.com)</a></p>
-<h1>神经元</h1>
-<h2 id="MP神经元基本结构">MP神经元基本结构</h2>
+<h2 id="&#x975E;&#x7EBF;&#x6027;&#x652F;&#x6301;&#x5411;&#x91CF;&#x673A;">&#x975E;&#x7EBF;&#x6027;&#x652F;&#x6301;&#x5411;&#x91CF;&#x673A;</h2>
+<p>&#x628A;&#x6570;&#x636E;&#x6620;&#x5C04;&#x5230;&#x9AD8;&#x7EAC;&#x7A7A;&#x95F4;&#x91CC;</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240103195109290.png" alt="image-20240103195109290"></p>
+<p><strong>&#x77E9;&#x9635; K &#x662F;&#x5BF9;&#x79F0;&#x534A;&#x6B63;&#x5B9A;&#x7684;&#xFF0C;&#x6EE1;&#x8DB3;Mercer&#x5B9A;&#x7406;&#xFF0C;&#x6240;&#x4EE5;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x662F;&#x6838;&#x51FD;&#x6570;</strong></p>
+<p><strong>&#x6839;&#x636E;Mercer&#x5B9A;&#x7406;&#xFF0C;&#x4EFB;&#x4F55;&#x534A;&#x6B63;&#x5B9A;&#x7684;&#x51FD;&#x6570;&#x90FD;&#x53EF;&#x4EE5;&#x4F5C;&#x4E3A;&#x6838;&#x51FD;&#x6570;&#x3002;</strong></p>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/30009055">&#x673A;&#x5668;&#x5B66;&#x4E60;&#x7B14;&#x8BB0;029 | &#x6838;&#x51FD;&#x6570; - &#x77E5;&#x4E4E; (zhihu.com)</a></p>
+<h1>&#x795E;&#x7ECF;&#x5143;</h1>
+<h2 id="MP&#x795E;&#x7ECF;&#x5143;&#x57FA;&#x672C;&#x7ED3;&#x6784;">MP&#x795E;&#x7ECF;&#x5143;&#x57FA;&#x672C;&#x7ED3;&#x6784;</h2>
 <ul>
-<li>输入X = [x1,X2, x3, …]</li>
-<li>权值W =[W1, W2, W3,…]</li>
-<li>激活函数f(net) = f(Σ(wi * xi))</li>
-<li>偏置单元 (bias unit) x0，其对应权值为wo</li>
+<li>&#x8F93;&#x5165;X = [x1,X2, x3, &#x2026;]</li>
+<li>&#x6743;&#x503C;W =[W1, W2, W3,&#x2026;]</li>
+<li>&#x6FC0;&#x6D3B;&#x51FD;&#x6570;f(net) = f(&#x3A3;(wi * xi))</li>
+<li>&#x504F;&#x7F6E;&#x5355;&#x5143; (bias unit) x0&#xFF0C;&#x5176;&#x5BF9;&#x5E94;&#x6743;&#x503C;&#x4E3A;wo</li>
 </ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240103201933670.png" alt="image-20240103201933670"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240103201933670.png" alt="image-20240103201933670"></p>
 <ul>
-<li>一组输入加权w;相当于突触</li>
-<li>一个加法器把输入信号相加(与收集电荷的细胞膜等价)</li>
-<li>一个激活函数(最初是一个闻值函数) 决定细胞对于当前的输入是否激活 (“放电”)</li>
+<li>&#x4E00;&#x7EC4;&#x8F93;&#x5165;&#x52A0;&#x6743;w;&#x76F8;&#x5F53;&#x4E8E;&#x7A81;&#x89E6;</li>
+<li>&#x4E00;&#x4E2A;&#x52A0;&#x6CD5;&#x5668;&#x628A;&#x8F93;&#x5165;&#x4FE1;&#x53F7;&#x76F8;&#x52A0;(&#x4E0E;&#x6536;&#x96C6;&#x7535;&#x8377;&#x7684;&#x7EC6;&#x80DE;&#x819C;&#x7B49;&#x4EF7;)</li>
+<li>&#x4E00;&#x4E2A;&#x6FC0;&#x6D3B;&#x51FD;&#x6570;(&#x6700;&#x521D;&#x662F;&#x4E00;&#x4E2A;&#x95FB;&#x503C;&#x51FD;&#x6570;) &#x51B3;&#x5B9A;&#x7EC6;&#x80DE;&#x5BF9;&#x4E8E;&#x5F53;&#x524D;&#x7684;&#x8F93;&#x5165;&#x662F;&#x5426;&#x6FC0;&#x6D3B; (&#x201C;&#x653E;&#x7535;&#x201D;)</li>
 </ul>
-<h2 id="感知机">感知机</h2>
-<p>最简单形式的前馈式人工神经网络，一种二元线性分类器，使用特征向量作为输入，把矩阵上的输入x(实数值向量) 映射到输出值f(x)上(一个二元的值)</p>
-<h3 id="结构">结构</h3>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240103203628136.png" alt="image-20240103203628136"></p>
-<h3 id="感知机的学习算法">感知机的学习算法</h3>
+<h2 id="&#x611F;&#x77E5;&#x673A;">&#x611F;&#x77E5;&#x673A;</h2>
+<p>&#x6700;&#x7B80;&#x5355;&#x5F62;&#x5F0F;&#x7684;&#x524D;&#x9988;&#x5F0F;&#x4EBA;&#x5DE5;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#xFF0C;&#x4E00;&#x79CD;&#x4E8C;&#x5143;&#x7EBF;&#x6027;&#x5206;&#x7C7B;&#x5668;&#xFF0C;&#x4F7F;&#x7528;&#x7279;&#x5F81;&#x5411;&#x91CF;&#x4F5C;&#x4E3A;&#x8F93;&#x5165;&#xFF0C;&#x628A;&#x77E9;&#x9635;&#x4E0A;&#x7684;&#x8F93;&#x5165;x(&#x5B9E;&#x6570;&#x503C;&#x5411;&#x91CF;) &#x6620;&#x5C04;&#x5230;&#x8F93;&#x51FA;&#x503C;f(x)&#x4E0A;(&#x4E00;&#x4E2A;&#x4E8C;&#x5143;&#x7684;&#x503C;)</p>
+<h3 id="&#x7ED3;&#x6784;">&#x7ED3;&#x6784;</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240103203628136.png" alt="image-20240103203628136"></p>
+<h3 id="&#x611F;&#x77E5;&#x673A;&#x7684;&#x5B66;&#x4E60;&#x7B97;&#x6CD5;">&#x611F;&#x77E5;&#x673A;&#x7684;&#x5B66;&#x4E60;&#x7B97;&#x6CD5;</h3>
 <ol>
-<li>权值初始化</li>
-<li>输入样本对</li>
-<li>计算输出</li>
-<li>根据感知机学习规则调整权重</li>
-<li>返回步骤2，输入下一对样本，直至对所有样本的实<br>
-际输出与期望输出相等</li>
+<li>&#x6743;&#x503C;&#x521D;&#x59CB;&#x5316;</li>
+<li>&#x8F93;&#x5165;&#x6837;&#x672C;&#x5BF9;</li>
+<li>&#x8BA1;&#x7B97;&#x8F93;&#x51FA;</li>
+<li>&#x6839;&#x636E;&#x611F;&#x77E5;&#x673A;&#x5B66;&#x4E60;&#x89C4;&#x5219;&#x8C03;&#x6574;&#x6743;&#x91CD;</li>
+<li>&#x8FD4;&#x56DE;&#x6B65;&#x9AA4;2&#xFF0C;&#x8F93;&#x5165;&#x4E0B;&#x4E00;&#x5BF9;&#x6837;&#x672C;&#xFF0C;&#x76F4;&#x81F3;&#x5BF9;&#x6240;&#x6709;&#x6837;&#x672C;&#x7684;&#x5B9E;<br>
+&#x9645;&#x8F93;&#x51FA;&#x4E0E;&#x671F;&#x671B;&#x8F93;&#x51FA;&#x76F8;&#x7B49;</li>
 </ol>
-<h4 id="调整权重的算法">调整权重的算法</h4>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240103204121077.png" alt="image-20240103204121077"></p>
-<h4 id="计算实例">计算实例</h4>
-<p>xo是偏置单元，通常取1</p>
-<p><strong>大$X_i$代表的是$[x_0, x_1, x_2]$</strong></p>
-<p><strong>大$W_i$代表的是$[w_0, w_1, w_2]$</strong></p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240103204411794.png" alt=""></p>
-<h3 id="不足">不足</h3>
-<p>感知机学习一定可以收敛吗?</p>
+<h4 id="&#x8C03;&#x6574;&#x6743;&#x91CD;&#x7684;&#x7B97;&#x6CD5;">&#x8C03;&#x6574;&#x6743;&#x91CD;&#x7684;&#x7B97;&#x6CD5;</h4>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240103204121077.png" alt="image-20240103204121077"></p>
+<h4 id="&#x8BA1;&#x7B97;&#x5B9E;&#x4F8B;">&#x8BA1;&#x7B97;&#x5B9E;&#x4F8B;</h4>
+<p>xo&#x662F;&#x504F;&#x7F6E;&#x5355;&#x5143;&#xFF0C;&#x901A;&#x5E38;&#x53D6;1</p>
+<p><strong>&#x5927;$X_i$&#x4EE3;&#x8868;&#x7684;&#x662F;$[x_0, x_1, x_2]$</strong></p>
+<p><strong>&#x5927;$W_i$&#x4EE3;&#x8868;&#x7684;&#x662F;$[w_0, w_1, w_2]$</strong></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240103204411794.png" alt></p>
+<h3 id="&#x4E0D;&#x8DB3;">&#x4E0D;&#x8DB3;</h3>
+<p>&#x611F;&#x77E5;&#x673A;&#x5B66;&#x4E60;&#x4E00;&#x5B9A;&#x53EF;&#x4EE5;&#x6536;&#x655B;&#x5417;?</p>
 <ul>
-<li>前提是训练样例必须是线性可分的! !</li>
+<li>&#x524D;&#x63D0;&#x662F;&#x8BAD;&#x7EC3;&#x6837;&#x4F8B;&#x5FC5;&#x987B;&#x662F;&#x7EBF;&#x6027;&#x53EF;&#x5206;&#x7684;! !</li>
 </ul>
-<p>如果训练样例不是线性可分的，怎么办?</p>
+<p>&#x5982;&#x679C;&#x8BAD;&#x7EC3;&#x6837;&#x4F8B;&#x4E0D;&#x662F;&#x7EBF;&#x6027;&#x53EF;&#x5206;&#x7684;&#xFF0C;&#x600E;&#x4E48;&#x529E;?</p>
 <ul>
-<li>只能去找一个学习方法，去收敛到目标概念的最佳近似</li>
+<li>&#x53EA;&#x80FD;&#x53BB;&#x627E;&#x4E00;&#x4E2A;&#x5B66;&#x4E60;&#x65B9;&#x6CD5;&#xFF0C;&#x53BB;&#x6536;&#x655B;&#x5230;&#x76EE;&#x6807;&#x6982;&#x5FF5;&#x7684;&#x6700;&#x4F73;&#x8FD1;&#x4F3C;</li>
 </ul>
-<p>感知机学习方法只适用在单层网络!</p>
-<h1>神经网络</h1>
-<p>神经网络需要深入掌握</p>
-<p>输入，隐藏层，输出层</p>
-<p><strong>前向，反向传播计算</strong></p>
-<h2 id="误差的反向传播">误差的反向传播</h2>
-<h3 id="误差定义">误差定义</h3>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240103214122668.png" alt="image-20240103214122668"></p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240105093344393.png" alt="image-20240105093344393"></p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240105093435057.png" alt="image-20240105093435057"></p>
-<h3 id="delta规则">delta规则</h3>
-<p>学习常数c对delta规则的性能有很重要的影响，c决定了在一<br>
-步学习过程中权值变化的快慢</p>
+<p>&#x611F;&#x77E5;&#x673A;&#x5B66;&#x4E60;&#x65B9;&#x6CD5;&#x53EA;&#x9002;&#x7528;&#x5728;&#x5355;&#x5C42;&#x7F51;&#x7EDC;!</p>
+<h1>&#x795E;&#x7ECF;&#x7F51;&#x7EDC;</h1>
+<p>&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x9700;&#x8981;&#x6DF1;&#x5165;&#x638C;&#x63E1;</p>
+<p>&#x8F93;&#x5165;&#xFF0C;&#x9690;&#x85CF;&#x5C42;&#xFF0C;&#x8F93;&#x51FA;&#x5C42;</p>
+<p><strong>&#x524D;&#x5411;&#xFF0C;&#x53CD;&#x5411;&#x4F20;&#x64AD;&#x8BA1;&#x7B97;</strong></p>
+<h2 id="&#x8BEF;&#x5DEE;&#x7684;&#x53CD;&#x5411;&#x4F20;&#x64AD;">&#x8BEF;&#x5DEE;&#x7684;&#x53CD;&#x5411;&#x4F20;&#x64AD;</h2>
+<h3 id="&#x8BEF;&#x5DEE;&#x5B9A;&#x4E49;">&#x8BEF;&#x5DEE;&#x5B9A;&#x4E49;</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240103214122668.png" alt="image-20240103214122668"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240105093344393.png" alt="image-20240105093344393"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240105093435057.png" alt="image-20240105093435057"></p>
+<h3 id="delta&#x89C4;&#x5219;">delta&#x89C4;&#x5219;</h3>
+<p>&#x5B66;&#x4E60;&#x5E38;&#x6570;c&#x5BF9;delta&#x89C4;&#x5219;&#x7684;&#x6027;&#x80FD;&#x6709;&#x5F88;&#x91CD;&#x8981;&#x7684;&#x5F71;&#x54CD;&#xFF0C;c&#x51B3;&#x5B9A;&#x4E86;&#x5728;&#x4E00;<br>
+&#x6B65;&#x5B66;&#x4E60;&#x8FC7;&#x7A0B;&#x4E2D;&#x6743;&#x503C;&#x53D8;&#x5316;&#x7684;&#x5FEB;&#x6162;</p>
 <ul>
-<li>c越大，权值朝最优值移动的速度越快。</li>
-<li>然而，c过大会越过最优值或在最优值附近震荡</li>
+<li>c&#x8D8A;&#x5927;&#xFF0C;&#x6743;&#x503C;&#x671D;&#x6700;&#x4F18;&#x503C;&#x79FB;&#x52A8;&#x7684;&#x901F;&#x5EA6;&#x8D8A;&#x5FEB;&#x3002;</li>
+<li>&#x7136;&#x800C;&#xFF0C;c&#x8FC7;&#x5927;&#x4F1A;&#x8D8A;&#x8FC7;&#x6700;&#x4F18;&#x503C;&#x6216;&#x5728;&#x6700;&#x4F18;&#x503C;&#x9644;&#x8FD1;&#x9707;&#x8361;</li>
 </ul>
-<h3 id="反向传播算法">反向传播算法</h3>
+<h3 id="&#x53CD;&#x5411;&#x4F20;&#x64AD;&#x7B97;&#x6CD5;">&#x53CD;&#x5411;&#x4F20;&#x64AD;&#x7B97;&#x6CD5;</h3>
 <ul>
-<li>前向阶段: 网络突触的权值固定，输入信号在网络中正向一层一层传播，直到到达输出端，获得网络的输出</li>
-<li>反向阶段: 通过比较网络的输出与期望输出，产生一个误差信号。误差信号通过网络反向一层一层传播，在传播过程中对网络突触的权值进行修正</li>
+<li>&#x524D;&#x5411;&#x9636;&#x6BB5;: &#x7F51;&#x7EDC;&#x7A81;&#x89E6;&#x7684;&#x6743;&#x503C;&#x56FA;&#x5B9A;&#xFF0C;&#x8F93;&#x5165;&#x4FE1;&#x53F7;&#x5728;&#x7F51;&#x7EDC;&#x4E2D;&#x6B63;&#x5411;&#x4E00;&#x5C42;&#x4E00;&#x5C42;&#x4F20;&#x64AD;&#xFF0C;&#x76F4;&#x5230;&#x5230;&#x8FBE;&#x8F93;&#x51FA;&#x7AEF;&#xFF0C;&#x83B7;&#x5F97;&#x7F51;&#x7EDC;&#x7684;&#x8F93;&#x51FA;</li>
+<li>&#x53CD;&#x5411;&#x9636;&#x6BB5;: &#x901A;&#x8FC7;&#x6BD4;&#x8F83;&#x7F51;&#x7EDC;&#x7684;&#x8F93;&#x51FA;&#x4E0E;&#x671F;&#x671B;&#x8F93;&#x51FA;&#xFF0C;&#x4EA7;&#x751F;&#x4E00;&#x4E2A;&#x8BEF;&#x5DEE;&#x4FE1;&#x53F7;&#x3002;&#x8BEF;&#x5DEE;&#x4FE1;&#x53F7;&#x901A;&#x8FC7;&#x7F51;&#x7EDC;&#x53CD;&#x5411;&#x4E00;&#x5C42;&#x4E00;&#x5C42;&#x4F20;&#x64AD;&#xFF0C;&#x5728;&#x4F20;&#x64AD;&#x8FC7;&#x7A0B;&#x4E2D;&#x5BF9;&#x7F51;&#x7EDC;&#x7A81;&#x89E6;&#x7684;&#x6743;&#x503C;&#x8FDB;&#x884C;&#x4FEE;&#x6B63;</li>
 </ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/f3b36683-20d6-424e-b774-49163d1905bc.png" alt="f3b36683-20d6-424e-b774-49163d1905bc"></p>
-<h2 id="BP神经网络">BP神经网络</h2>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240103214518185.png" alt="image-20240103214518185"></p>
-<h2 id="激活函数">激活函数</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/f3b36683-20d6-424e-b774-49163d1905bc.png" alt="f3b36683-20d6-424e-b774-49163d1905bc"></p>
+<h2 id="BP&#x795E;&#x7ECF;&#x7F51;&#x7EDC;">BP&#x795E;&#x7ECF;&#x7F51;&#x7EDC;</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240103214518185.png" alt="image-20240103214518185"></p>
+<h2 id="&#x6FC0;&#x6D3B;&#x51FD;&#x6570;">&#x6FC0;&#x6D3B;&#x51FD;&#x6570;</h2>
 <h3 id="ReLU">ReLU</h3>
-<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_41929524/article/details/112253138">深入理解ReLU函数（ReLU函数的可解释性）-CSDN博客</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_41929524/article/details/112253138">&#x6DF1;&#x5165;&#x7406;&#x89E3;ReLU&#x51FD;&#x6570;&#xFF08;ReLU&#x51FD;&#x6570;&#x7684;&#x53EF;&#x89E3;&#x91CA;&#x6027;&#xFF09;-CSDN&#x535A;&#x5BA2;</a></p>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://img-blog.csdnimg.cn/20210106110219329.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTkyOTUyNA==,size_16,color_FFFFFF,t_70#pic_center" alt="img"></p>
 <h3 id="Sigmoid">Sigmoid</h3>
-<p>Sigmoid函数是一个在生物学中常见的S型函数，也称为S型生长曲线。在深度学习中，由于其单增以及反函数单增等性质，Sigmoid函数常被用作神经网络的激活函数，将变量映射到[ 0 , 1 ]之间。<br>
-<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240104201106524.png" alt="image-20240104201106524"></p>
-<p>Sigmoid函数的导数可以用其自身表示：<br>
-<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240104201111299.png" alt="image-20240104201111299"></p>
-<p>Sigmoid函数的特性与优缺点：</p>
-<p>Sigmoid函数的输出范围是0到1。由于输出值限定在0到1，因此它对<strong>每个神经元的输出进行了归一化。</strong></p>
-<p>用于将预测概率作为输出的模型。由于概率的取值范围是0到1，因此Sigmoid函数非常合适</p>
-<p><strong>梯度平滑</strong>，避免跳跃的输出值</p>
-<p><strong>函数是可微</strong>的。这意味着可以找到任意两个点的Sigmoid曲线的斜率</p>
-<p><strong>明确的预测，即非常接近1或0。</strong></p>
-<p>函数输出不是以0为中心的，这会降低权重更新的效率</p>
-<p>Sigmoid函数执行指数运算，计算机运行得较慢。</p>
-<p>Sigmoid函数及其导数的图像：</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://img-blog.csdnimg.cn/9e015fa8100a4bcf9c92b58e4d7ec21c.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAdm9uICBOZXVtYW5u,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Sigmoid函数及其导数的图像"></p>
-<p>原文链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/hy592070616/article/details/120617176">https://blog.csdn.net/hy592070616/article/details/120617176</a></p>
-<h2 id="计算实例-2">计算实例</h2>
-<p>==<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/40378224">Back Propagation（梯度反向传播）实例讲解 - 知乎 (zhihu.com)</a>==</p>
-<p>==这篇文章讲的很清楚==</p>
-<h1>卷积神经网络</h1>
-<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/156926543">机器学习算法之——卷积神经网络(CNN)原理讲解 - 知乎 (zhihu.com)</a></p>
+<p>Sigmoid&#x51FD;&#x6570;&#x662F;&#x4E00;&#x4E2A;&#x5728;&#x751F;&#x7269;&#x5B66;&#x4E2D;&#x5E38;&#x89C1;&#x7684;S&#x578B;&#x51FD;&#x6570;&#xFF0C;&#x4E5F;&#x79F0;&#x4E3A;S&#x578B;&#x751F;&#x957F;&#x66F2;&#x7EBF;&#x3002;&#x5728;&#x6DF1;&#x5EA6;&#x5B66;&#x4E60;&#x4E2D;&#xFF0C;&#x7531;&#x4E8E;&#x5176;&#x5355;&#x589E;&#x4EE5;&#x53CA;&#x53CD;&#x51FD;&#x6570;&#x5355;&#x589E;&#x7B49;&#x6027;&#x8D28;&#xFF0C;Sigmoid&#x51FD;&#x6570;&#x5E38;&#x88AB;&#x7528;&#x4F5C;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x7684;&#x6FC0;&#x6D3B;&#x51FD;&#x6570;&#xFF0C;&#x5C06;&#x53D8;&#x91CF;&#x6620;&#x5C04;&#x5230;[ 0 , 1 ]&#x4E4B;&#x95F4;&#x3002;<br>
+<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240104201106524.png" alt="image-20240104201106524"></p>
+<p>Sigmoid&#x51FD;&#x6570;&#x7684;&#x5BFC;&#x6570;&#x53EF;&#x4EE5;&#x7528;&#x5176;&#x81EA;&#x8EAB;&#x8868;&#x793A;&#xFF1A;<br>
+<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240104201111299.png" alt="image-20240104201111299"></p>
+<p>Sigmoid&#x51FD;&#x6570;&#x7684;&#x7279;&#x6027;&#x4E0E;&#x4F18;&#x7F3A;&#x70B9;&#xFF1A;</p>
+<p>Sigmoid&#x51FD;&#x6570;&#x7684;&#x8F93;&#x51FA;&#x8303;&#x56F4;&#x662F;0&#x5230;1&#x3002;&#x7531;&#x4E8E;&#x8F93;&#x51FA;&#x503C;&#x9650;&#x5B9A;&#x5728;0&#x5230;1&#xFF0C;&#x56E0;&#x6B64;&#x5B83;&#x5BF9;<strong>&#x6BCF;&#x4E2A;&#x795E;&#x7ECF;&#x5143;&#x7684;&#x8F93;&#x51FA;&#x8FDB;&#x884C;&#x4E86;&#x5F52;&#x4E00;&#x5316;&#x3002;</strong></p>
+<p>&#x7528;&#x4E8E;&#x5C06;&#x9884;&#x6D4B;&#x6982;&#x7387;&#x4F5C;&#x4E3A;&#x8F93;&#x51FA;&#x7684;&#x6A21;&#x578B;&#x3002;&#x7531;&#x4E8E;&#x6982;&#x7387;&#x7684;&#x53D6;&#x503C;&#x8303;&#x56F4;&#x662F;0&#x5230;1&#xFF0C;&#x56E0;&#x6B64;Sigmoid&#x51FD;&#x6570;&#x975E;&#x5E38;&#x5408;&#x9002;</p>
+<p><strong>&#x68AF;&#x5EA6;&#x5E73;&#x6ED1;</strong>&#xFF0C;&#x907F;&#x514D;&#x8DF3;&#x8DC3;&#x7684;&#x8F93;&#x51FA;&#x503C;</p>
+<p><strong>&#x51FD;&#x6570;&#x662F;&#x53EF;&#x5FAE;</strong>&#x7684;&#x3002;&#x8FD9;&#x610F;&#x5473;&#x7740;&#x53EF;&#x4EE5;&#x627E;&#x5230;&#x4EFB;&#x610F;&#x4E24;&#x4E2A;&#x70B9;&#x7684;Sigmoid&#x66F2;&#x7EBF;&#x7684;&#x659C;&#x7387;</p>
+<p><strong>&#x660E;&#x786E;&#x7684;&#x9884;&#x6D4B;&#xFF0C;&#x5373;&#x975E;&#x5E38;&#x63A5;&#x8FD1;1&#x6216;0&#x3002;</strong></p>
+<p>&#x51FD;&#x6570;&#x8F93;&#x51FA;&#x4E0D;&#x662F;&#x4EE5;0&#x4E3A;&#x4E2D;&#x5FC3;&#x7684;&#xFF0C;&#x8FD9;&#x4F1A;&#x964D;&#x4F4E;&#x6743;&#x91CD;&#x66F4;&#x65B0;&#x7684;&#x6548;&#x7387;</p>
+<p>Sigmoid&#x51FD;&#x6570;&#x6267;&#x884C;&#x6307;&#x6570;&#x8FD0;&#x7B97;&#xFF0C;&#x8BA1;&#x7B97;&#x673A;&#x8FD0;&#x884C;&#x5F97;&#x8F83;&#x6162;&#x3002;</p>
+<p>Sigmoid&#x51FD;&#x6570;&#x53CA;&#x5176;&#x5BFC;&#x6570;&#x7684;&#x56FE;&#x50CF;&#xFF1A;</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://img-blog.csdnimg.cn/9e015fa8100a4bcf9c92b58e4d7ec21c.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAdm9uICBOZXVtYW5u,size_20,color_FFFFFF,t_70,g_se,x_16" alt="Sigmoid&#x51FD;&#x6570;&#x53CA;&#x5176;&#x5BFC;&#x6570;&#x7684;&#x56FE;&#x50CF;"></p>
+<p>&#x539F;&#x6587;&#x94FE;&#x63A5;&#xFF1A;<a target="_blank" rel="noopener" href="https://blog.csdn.net/hy592070616/article/details/120617176">https://blog.csdn.net/hy592070616/article/details/120617176</a></p>
+<h2 id="&#x8BA1;&#x7B97;&#x5B9E;&#x4F8B;-2">&#x8BA1;&#x7B97;&#x5B9E;&#x4F8B;</h2>
+<p>==<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/40378224">Back Propagation&#xFF08;&#x68AF;&#x5EA6;&#x53CD;&#x5411;&#x4F20;&#x64AD;&#xFF09;&#x5B9E;&#x4F8B;&#x8BB2;&#x89E3; - &#x77E5;&#x4E4E; (zhihu.com)</a>==</p>
+<p>==&#x8FD9;&#x7BC7;&#x6587;&#x7AE0;&#x8BB2;&#x7684;&#x5F88;&#x6E05;&#x695A;==</p>
+<h1>&#x5377;&#x79EF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;</h1>
+<p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/156926543">&#x673A;&#x5668;&#x5B66;&#x4E60;&#x7B97;&#x6CD5;&#x4E4B;&#x2014;&#x2014;&#x5377;&#x79EF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;(CNN)&#x539F;&#x7406;&#x8BB2;&#x89E3; - &#x77E5;&#x4E4E; (zhihu.com)</a></p>
 <p>Convolutional Neural Networks</p>
-<p>近现代的<strong>卷积</strong></p>
-<p>核心概念，关键模块</p>
-<p>一个卷积神经网络主要由以下5层组成：</p>
+<p>&#x8FD1;&#x73B0;&#x4EE3;&#x7684;<strong>&#x5377;&#x79EF;</strong></p>
+<p>&#x6838;&#x5FC3;&#x6982;&#x5FF5;&#xFF0C;&#x5173;&#x952E;&#x6A21;&#x5757;</p>
+<p>&#x4E00;&#x4E2A;&#x5377;&#x79EF;&#x795E;&#x7ECF;&#x7F51;&#x7EDC;&#x4E3B;&#x8981;&#x7531;&#x4EE5;&#x4E0B;5&#x5C42;&#x7EC4;&#x6210;&#xFF1A;</p>
 <ul>
-<li>数据输入层/ Input layer</li>
-<li>卷积计算层/ CONV layer</li>
-<li>ReLU激励层 / ReLU layer</li>
-<li>池化层 / Pooling layer</li>
-<li>全连接层 / FC layer</li>
+<li>&#x6570;&#x636E;&#x8F93;&#x5165;&#x5C42;/ Input layer</li>
+<li>&#x5377;&#x79EF;&#x8BA1;&#x7B97;&#x5C42;/ CONV layer</li>
+<li>ReLU&#x6FC0;&#x52B1;&#x5C42; / ReLU layer</li>
+<li>&#x6C60;&#x5316;&#x5C42; / Pooling layer</li>
+<li>&#x5168;&#x8FDE;&#x63A5;&#x5C42; / FC layer</li>
 </ul>
-<h2 id="卷积Convolution">卷积Convolution</h2>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240103221144241.png" alt="image-20240103221144241"></p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240103221153946.png" alt="image-20240103221153946"></p>
-<h2 id="数据预处理">数据预处理</h2>
-<p>该层要做的处理主要是对原始图像数据进行预处理，其中包括：</p>
+<h2 id="&#x5377;&#x79EF;Convolution">&#x5377;&#x79EF;Convolution</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240103221144241.png" alt="image-20240103221144241"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240103221153946.png" alt="image-20240103221153946"></p>
+<h2 id="&#x6570;&#x636E;&#x9884;&#x5904;&#x7406;">&#x6570;&#x636E;&#x9884;&#x5904;&#x7406;</h2>
+<p>&#x8BE5;&#x5C42;&#x8981;&#x505A;&#x7684;&#x5904;&#x7406;&#x4E3B;&#x8981;&#x662F;&#x5BF9;&#x539F;&#x59CB;&#x56FE;&#x50CF;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x9884;&#x5904;&#x7406;&#xFF0C;&#x5176;&#x4E2D;&#x5305;&#x62EC;&#xFF1A;</p>
 <ul>
-<li><strong>去均值</strong>：把输入数据各个维度都中心化为0，如下图所示，其目的就是把样本的中心拉回到坐标系原点上。</li>
-<li><strong>归一化</strong>：幅度归一化到同样的范围，如下所示，即减少各维度数据取值范围的差异而带来的干扰，比如，我们有两个维度的特征A和B，A范围是0到10，而B范围是0到10000，如果直接使用这两个特征是有问题的，好的做法就是归一化，即A和B的数据都变为0到1的范围。</li>
-<li><strong>PCA/白化</strong>：用PCA降维；白化是对数据各个特征轴上的幅度归一化</li>
+<li><strong>&#x53BB;&#x5747;&#x503C;</strong>&#xFF1A;&#x628A;&#x8F93;&#x5165;&#x6570;&#x636E;&#x5404;&#x4E2A;&#x7EF4;&#x5EA6;&#x90FD;&#x4E2D;&#x5FC3;&#x5316;&#x4E3A;0&#xFF0C;&#x5982;&#x4E0B;&#x56FE;&#x6240;&#x793A;&#xFF0C;&#x5176;&#x76EE;&#x7684;&#x5C31;&#x662F;&#x628A;&#x6837;&#x672C;&#x7684;&#x4E2D;&#x5FC3;&#x62C9;&#x56DE;&#x5230;&#x5750;&#x6807;&#x7CFB;&#x539F;&#x70B9;&#x4E0A;&#x3002;</li>
+<li><strong>&#x5F52;&#x4E00;&#x5316;</strong>&#xFF1A;&#x5E45;&#x5EA6;&#x5F52;&#x4E00;&#x5316;&#x5230;&#x540C;&#x6837;&#x7684;&#x8303;&#x56F4;&#xFF0C;&#x5982;&#x4E0B;&#x6240;&#x793A;&#xFF0C;&#x5373;&#x51CF;&#x5C11;&#x5404;&#x7EF4;&#x5EA6;&#x6570;&#x636E;&#x53D6;&#x503C;&#x8303;&#x56F4;&#x7684;&#x5DEE;&#x5F02;&#x800C;&#x5E26;&#x6765;&#x7684;&#x5E72;&#x6270;&#xFF0C;&#x6BD4;&#x5982;&#xFF0C;&#x6211;&#x4EEC;&#x6709;&#x4E24;&#x4E2A;&#x7EF4;&#x5EA6;&#x7684;&#x7279;&#x5F81;A&#x548C;B&#xFF0C;A&#x8303;&#x56F4;&#x662F;0&#x5230;10&#xFF0C;&#x800C;B&#x8303;&#x56F4;&#x662F;0&#x5230;10000&#xFF0C;&#x5982;&#x679C;&#x76F4;&#x63A5;&#x4F7F;&#x7528;&#x8FD9;&#x4E24;&#x4E2A;&#x7279;&#x5F81;&#x662F;&#x6709;&#x95EE;&#x9898;&#x7684;&#xFF0C;&#x597D;&#x7684;&#x505A;&#x6CD5;&#x5C31;&#x662F;&#x5F52;&#x4E00;&#x5316;&#xFF0C;&#x5373;A&#x548C;B&#x7684;&#x6570;&#x636E;&#x90FD;&#x53D8;&#x4E3A;0&#x5230;1&#x7684;&#x8303;&#x56F4;&#x3002;</li>
+<li><strong>PCA/&#x767D;&#x5316;</strong>&#xFF1A;&#x7528;PCA&#x964D;&#x7EF4;&#xFF1B;&#x767D;&#x5316;&#x662F;&#x5BF9;&#x6570;&#x636E;&#x5404;&#x4E2A;&#x7279;&#x5F81;&#x8F74;&#x4E0A;&#x7684;&#x5E45;&#x5EA6;&#x5F52;&#x4E00;&#x5316;</li>
 </ul>
-<p>去均值与归一化效果图：</p>
+<p>&#x53BB;&#x5747;&#x503C;&#x4E0E;&#x5F52;&#x4E00;&#x5316;&#x6548;&#x679C;&#x56FE;&#xFF1A;</p>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://pic1.zhimg.com/80/v2-4c3b00f07cce0c7dccf2e4ba5e167e30_720w.webp" alt="img"></p>
-<p>去相关与白化效果图：</p>
+<p>&#x53BB;&#x76F8;&#x5173;&#x4E0E;&#x767D;&#x5316;&#x6548;&#x679C;&#x56FE;&#xFF1A;</p>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://pic2.zhimg.com/80/v2-229a2c9828a26d594dc854b659cfc8a5_720w.webp" alt="img"></p>
-<h2 id="卷积层">卷积层</h2>
-<p>有两个关键操作：</p>
+<h2 id="&#x5377;&#x79EF;&#x5C42;">&#x5377;&#x79EF;&#x5C42;</h2>
+<p>&#x6709;&#x4E24;&#x4E2A;&#x5173;&#x952E;&#x64CD;&#x4F5C;&#xFF1A;</p>
 <ul>
-<li><strong>局部关联</strong>。每个神经元看做一个<strong>滤波器(filter)</strong></li>
-<li><strong>窗口(receptive field)滑动</strong>， filter对局部数据计算</li>
+<li><strong>&#x5C40;&#x90E8;&#x5173;&#x8054;</strong>&#x3002;&#x6BCF;&#x4E2A;&#x795E;&#x7ECF;&#x5143;&#x770B;&#x505A;&#x4E00;&#x4E2A;<strong>&#x6EE4;&#x6CE2;&#x5668;(filter)</strong></li>
+<li><strong>&#x7A97;&#x53E3;(receptive field)&#x6ED1;&#x52A8;</strong>&#xFF0C; filter&#x5BF9;&#x5C40;&#x90E8;&#x6570;&#x636E;&#x8BA1;&#x7B97;</li>
 </ul>
-<p>先介绍卷积层遇到的几个名词：</p>
+<p>&#x5148;&#x4ECB;&#x7ECD;&#x5377;&#x79EF;&#x5C42;&#x9047;&#x5230;&#x7684;&#x51E0;&#x4E2A;&#x540D;&#x8BCD;&#xFF1A;</p>
 <ul>
-<li><strong>深度/depth</strong>（解释见下图）</li>
-<li><strong>步幅/stride</strong> （窗口一次滑动的长度）</li>
-<li><strong>填充值/zero-padding</strong></li>
+<li><strong>&#x6DF1;&#x5EA6;/depth</strong>&#xFF08;&#x89E3;&#x91CA;&#x89C1;&#x4E0B;&#x56FE;&#xFF09;</li>
+<li><strong>&#x6B65;&#x5E45;/stride</strong> &#xFF08;&#x7A97;&#x53E3;&#x4E00;&#x6B21;&#x6ED1;&#x52A8;&#x7684;&#x957F;&#x5EA6;&#xFF09;</li>
+<li><strong>&#x586B;&#x5145;&#x503C;/zero-padding</strong></li>
 </ul>
-<h3 id="步幅">步幅</h3>
+<h3 id="&#x6B65;&#x5E45;">&#x6B65;&#x5E45;</h3>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://pic3.zhimg.com/80/v2-821048bfaee14d8c03cc5044e04fe336_720w.webp" alt="img"></p>
-<p>步幅控制着过滤器围绕输入内容进行卷积计算的方式。在第一部分我们举的例子中，过滤器通过每次移动一个单元的方式对输入内容进行卷积。过滤器移动的距离就是步幅。</p>
-<p>让我们看一个例子。想象一个 7 x 7 的输入图像，一个 3 x 3 过滤器（简单起见不考虑第三个维度），步幅为 1。这是一种惯常的情况。</p>
+<p>&#x6B65;&#x5E45;&#x63A7;&#x5236;&#x7740;&#x8FC7;&#x6EE4;&#x5668;&#x56F4;&#x7ED5;&#x8F93;&#x5165;&#x5185;&#x5BB9;&#x8FDB;&#x884C;&#x5377;&#x79EF;&#x8BA1;&#x7B97;&#x7684;&#x65B9;&#x5F0F;&#x3002;&#x5728;&#x7B2C;&#x4E00;&#x90E8;&#x5206;&#x6211;&#x4EEC;&#x4E3E;&#x7684;&#x4F8B;&#x5B50;&#x4E2D;&#xFF0C;&#x8FC7;&#x6EE4;&#x5668;&#x901A;&#x8FC7;&#x6BCF;&#x6B21;&#x79FB;&#x52A8;&#x4E00;&#x4E2A;&#x5355;&#x5143;&#x7684;&#x65B9;&#x5F0F;&#x5BF9;&#x8F93;&#x5165;&#x5185;&#x5BB9;&#x8FDB;&#x884C;&#x5377;&#x79EF;&#x3002;&#x8FC7;&#x6EE4;&#x5668;&#x79FB;&#x52A8;&#x7684;&#x8DDD;&#x79BB;&#x5C31;&#x662F;&#x6B65;&#x5E45;&#x3002;</p>
+<p>&#x8BA9;&#x6211;&#x4EEC;&#x770B;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;&#x3002;&#x60F3;&#x8C61;&#x4E00;&#x4E2A; 7 x 7 &#x7684;&#x8F93;&#x5165;&#x56FE;&#x50CF;&#xFF0C;&#x4E00;&#x4E2A; 3 x 3 &#x8FC7;&#x6EE4;&#x5668;&#xFF08;&#x7B80;&#x5355;&#x8D77;&#x89C1;&#x4E0D;&#x8003;&#x8651;&#x7B2C;&#x4E09;&#x4E2A;&#x7EF4;&#x5EA6;&#xFF09;&#xFF0C;&#x6B65;&#x5E45;&#x4E3A; 1&#x3002;&#x8FD9;&#x662F;&#x4E00;&#x79CD;&#x60EF;&#x5E38;&#x7684;&#x60C5;&#x51B5;&#x3002;</p>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://pic4.zhimg.com/80/v2-485011463ab17396223ce79ceba0030f_720w.webp" alt="img"></p>
-<p>如果步幅增加到 2，输出内容会怎么样。</p>
+<p>&#x5982;&#x679C;&#x6B65;&#x5E45;&#x589E;&#x52A0;&#x5230; 2&#xFF0C;&#x8F93;&#x51FA;&#x5185;&#x5BB9;&#x4F1A;&#x600E;&#x4E48;&#x6837;&#x3002;</p>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://pic4.zhimg.com/80/v2-6b81b4032ecb28ece404e344c173481b_720w.webp" alt="img"></p>
-<p>正常情况下，程序员如果想让接受域重叠得更少并且想要更小的空间维度（spatial dimensions）时，他们会增加步幅。</p>
-<h3 id="填充值">填充值</h3>
-<p>当你把 5 x 5 x 3 的过滤器用在 32 x 32 x 3 的输入上时，会发生什么？输出的大小会是 28 x 28 x 3。</p>
-<p>注意，这里空间维度减小了。</p>
-<p>如果我们继续用卷积层，尺寸减小的速度就会超过我们的期望。在网络的早期层中，我们想要尽可能多地保留原始输入内容的信息，这样我们就能提取出那些低层的特征。</p>
-<p>比如说我们想要应用同样的卷积层，但又想让输出量维持为 32 x 32 x 3 。为做到这点，我们可以对这个层应用大小为 2 的零填充（zero padding）。零填充在输入内容的边界周围补充零。如果我们用两个零填充，就会得到一个 36 x 36 x 3 的输入卷。</p>
+<p>&#x6B63;&#x5E38;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x7A0B;&#x5E8F;&#x5458;&#x5982;&#x679C;&#x60F3;&#x8BA9;&#x63A5;&#x53D7;&#x57DF;&#x91CD;&#x53E0;&#x5F97;&#x66F4;&#x5C11;&#x5E76;&#x4E14;&#x60F3;&#x8981;&#x66F4;&#x5C0F;&#x7684;&#x7A7A;&#x95F4;&#x7EF4;&#x5EA6;&#xFF08;spatial dimensions&#xFF09;&#x65F6;&#xFF0C;&#x4ED6;&#x4EEC;&#x4F1A;&#x589E;&#x52A0;&#x6B65;&#x5E45;&#x3002;</p>
+<h3 id="&#x586B;&#x5145;&#x503C;">&#x586B;&#x5145;&#x503C;</h3>
+<p>&#x5F53;&#x4F60;&#x628A; 5 x 5 x 3 &#x7684;&#x8FC7;&#x6EE4;&#x5668;&#x7528;&#x5728; 32 x 32 x 3 &#x7684;&#x8F93;&#x5165;&#x4E0A;&#x65F6;&#xFF0C;&#x4F1A;&#x53D1;&#x751F;&#x4EC0;&#x4E48;&#xFF1F;&#x8F93;&#x51FA;&#x7684;&#x5927;&#x5C0F;&#x4F1A;&#x662F; 28 x 28 x 3&#x3002;</p>
+<p>&#x6CE8;&#x610F;&#xFF0C;&#x8FD9;&#x91CC;&#x7A7A;&#x95F4;&#x7EF4;&#x5EA6;&#x51CF;&#x5C0F;&#x4E86;&#x3002;</p>
+<p>&#x5982;&#x679C;&#x6211;&#x4EEC;&#x7EE7;&#x7EED;&#x7528;&#x5377;&#x79EF;&#x5C42;&#xFF0C;&#x5C3A;&#x5BF8;&#x51CF;&#x5C0F;&#x7684;&#x901F;&#x5EA6;&#x5C31;&#x4F1A;&#x8D85;&#x8FC7;&#x6211;&#x4EEC;&#x7684;&#x671F;&#x671B;&#x3002;&#x5728;&#x7F51;&#x7EDC;&#x7684;&#x65E9;&#x671F;&#x5C42;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x60F3;&#x8981;&#x5C3D;&#x53EF;&#x80FD;&#x591A;&#x5730;&#x4FDD;&#x7559;&#x539F;&#x59CB;&#x8F93;&#x5165;&#x5185;&#x5BB9;&#x7684;&#x4FE1;&#x606F;&#xFF0C;&#x8FD9;&#x6837;&#x6211;&#x4EEC;&#x5C31;&#x80FD;&#x63D0;&#x53D6;&#x51FA;&#x90A3;&#x4E9B;&#x4F4E;&#x5C42;&#x7684;&#x7279;&#x5F81;&#x3002;</p>
+<p>&#x6BD4;&#x5982;&#x8BF4;&#x6211;&#x4EEC;&#x60F3;&#x8981;&#x5E94;&#x7528;&#x540C;&#x6837;&#x7684;&#x5377;&#x79EF;&#x5C42;&#xFF0C;&#x4F46;&#x53C8;&#x60F3;&#x8BA9;&#x8F93;&#x51FA;&#x91CF;&#x7EF4;&#x6301;&#x4E3A; 32 x 32 x 3 &#x3002;&#x4E3A;&#x505A;&#x5230;&#x8FD9;&#x70B9;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5BF9;&#x8FD9;&#x4E2A;&#x5C42;&#x5E94;&#x7528;&#x5927;&#x5C0F;&#x4E3A; 2 &#x7684;&#x96F6;&#x586B;&#x5145;&#xFF08;zero padding&#xFF09;&#x3002;&#x96F6;&#x586B;&#x5145;&#x5728;&#x8F93;&#x5165;&#x5185;&#x5BB9;&#x7684;&#x8FB9;&#x754C;&#x5468;&#x56F4;&#x8865;&#x5145;&#x96F6;&#x3002;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x7528;&#x4E24;&#x4E2A;&#x96F6;&#x586B;&#x5145;&#xFF0C;&#x5C31;&#x4F1A;&#x5F97;&#x5230;&#x4E00;&#x4E2A; 36 x 36 x 3 &#x7684;&#x8F93;&#x5165;&#x5377;&#x3002;</p>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://pic1.zhimg.com/80/v2-08fc41b67409cb6c61ecb6af72bcea30_720w.webp" alt="img"></p>
-<p>如果你的步幅为 1，而且把零填充设置为</p>
+<p>&#x5982;&#x679C;&#x4F60;&#x7684;&#x6B65;&#x5E45;&#x4E3A; 1&#xFF0C;&#x800C;&#x4E14;&#x628A;&#x96F6;&#x586B;&#x5145;&#x8BBE;&#x7F6E;&#x4E3A;</p>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://pic3.zhimg.com/80/v2-96a40f41090b4bb5e7ebbf0a0e186d9a_720w.webp" alt="img"></p>
-<p>K 是过滤器尺寸，那么输入和输出内容就总能保持一致的空间维度。</p>
-<h3 id="卷积的计算">卷积的计算</h3>
-<p>注意，下面蓝色矩阵周围有一圈灰色的框，那些就是上面所说到的填充值）</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240103222047615.png" alt="image-20240103222047615"></p>
-<p>这里的蓝色矩阵就是输入的图像，粉色矩阵就是卷积层的神经元，这里表示了有两个神经元（w0,w1）。绿色矩阵就是经过卷积运算后的输出矩阵，这里的步长设置为2。</p>
+<p>K &#x662F;&#x8FC7;&#x6EE4;&#x5668;&#x5C3A;&#x5BF8;&#xFF0C;&#x90A3;&#x4E48;&#x8F93;&#x5165;&#x548C;&#x8F93;&#x51FA;&#x5185;&#x5BB9;&#x5C31;&#x603B;&#x80FD;&#x4FDD;&#x6301;&#x4E00;&#x81F4;&#x7684;&#x7A7A;&#x95F4;&#x7EF4;&#x5EA6;&#x3002;</p>
+<h3 id="&#x5377;&#x79EF;&#x7684;&#x8BA1;&#x7B97;">&#x5377;&#x79EF;&#x7684;&#x8BA1;&#x7B97;</h3>
+<p>&#x6CE8;&#x610F;&#xFF0C;&#x4E0B;&#x9762;&#x84DD;&#x8272;&#x77E9;&#x9635;&#x5468;&#x56F4;&#x6709;&#x4E00;&#x5708;&#x7070;&#x8272;&#x7684;&#x6846;&#xFF0C;&#x90A3;&#x4E9B;&#x5C31;&#x662F;&#x4E0A;&#x9762;&#x6240;&#x8BF4;&#x5230;&#x7684;&#x586B;&#x5145;&#x503C;&#xFF09;</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240103222047615.png" alt="image-20240103222047615"></p>
+<p>&#x8FD9;&#x91CC;&#x7684;&#x84DD;&#x8272;&#x77E9;&#x9635;&#x5C31;&#x662F;&#x8F93;&#x5165;&#x7684;&#x56FE;&#x50CF;&#xFF0C;&#x7C89;&#x8272;&#x77E9;&#x9635;&#x5C31;&#x662F;&#x5377;&#x79EF;&#x5C42;&#x7684;&#x795E;&#x7ECF;&#x5143;&#xFF0C;&#x8FD9;&#x91CC;&#x8868;&#x793A;&#x4E86;&#x6709;&#x4E24;&#x4E2A;&#x795E;&#x7ECF;&#x5143;&#xFF08;w0,w1&#xFF09;&#x3002;&#x7EFF;&#x8272;&#x77E9;&#x9635;&#x5C31;&#x662F;&#x7ECF;&#x8FC7;&#x5377;&#x79EF;&#x8FD0;&#x7B97;&#x540E;&#x7684;&#x8F93;&#x51FA;&#x77E9;&#x9635;&#xFF0C;&#x8FD9;&#x91CC;&#x7684;&#x6B65;&#x957F;&#x8BBE;&#x7F6E;&#x4E3A;2&#x3002;</p>
 <p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://pic1.zhimg.com/80/v2-af58e27acdf63325dda676ac5fc03b3c_720w.webp" alt="img"></p>
-<h1>演化学习</h1>
-<h2 id="遗传算法-genetic-algorithms">遗传算法(genetic algorithms)</h2>
-<h3 id="遗传算法GA">遗传算法GA</h3>
-<p>受生物进化启发的学习算法</p>
-<p>假设搜索:一般假设模型到特殊假设模型? 简单假设模型到复杂假设模型?</p>
-<p><strong>通过对当前最好的假设模型重组来产生后续假设模型</strong></p>
-<p>生成并测试(generate-and-test)的柱状搜索(beam-search)</p>
-<p>假设的各个部分相互作用，每一部分对总体的影响难以建模</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240104205849529.png" alt="image-20240104205849529"></p>
-<h3 id="种群">种群</h3>
-<p>一组染色体及其所计算的适应度</p>
-<p>GA工作在每一代的种群上。第0代种群中的染色体随机生成</p>
-<h3 id="产生后代-选择父母">产生后代:选择父母</h3>
-<h4 id="基于适应度函数的选择">基于适应度函数的选择</h4>
+<h1>&#x6F14;&#x5316;&#x5B66;&#x4E60;</h1>
+<h2 id="&#x9057;&#x4F20;&#x7B97;&#x6CD5;-genetic-algorithms">&#x9057;&#x4F20;&#x7B97;&#x6CD5;(genetic algorithms)</h2>
+<h3 id="&#x9057;&#x4F20;&#x7B97;&#x6CD5;GA">&#x9057;&#x4F20;&#x7B97;&#x6CD5;GA</h3>
+<p>&#x53D7;&#x751F;&#x7269;&#x8FDB;&#x5316;&#x542F;&#x53D1;&#x7684;&#x5B66;&#x4E60;&#x7B97;&#x6CD5;</p>
+<p>&#x5047;&#x8BBE;&#x641C;&#x7D22;:&#x4E00;&#x822C;&#x5047;&#x8BBE;&#x6A21;&#x578B;&#x5230;&#x7279;&#x6B8A;&#x5047;&#x8BBE;&#x6A21;&#x578B;? &#x7B80;&#x5355;&#x5047;&#x8BBE;&#x6A21;&#x578B;&#x5230;&#x590D;&#x6742;&#x5047;&#x8BBE;&#x6A21;&#x578B;?</p>
+<p><strong>&#x901A;&#x8FC7;&#x5BF9;&#x5F53;&#x524D;&#x6700;&#x597D;&#x7684;&#x5047;&#x8BBE;&#x6A21;&#x578B;&#x91CD;&#x7EC4;&#x6765;&#x4EA7;&#x751F;&#x540E;&#x7EED;&#x5047;&#x8BBE;&#x6A21;&#x578B;</strong></p>
+<p>&#x751F;&#x6210;&#x5E76;&#x6D4B;&#x8BD5;(generate-and-test)&#x7684;&#x67F1;&#x72B6;&#x641C;&#x7D22;(beam-search)</p>
+<p>&#x5047;&#x8BBE;&#x7684;&#x5404;&#x4E2A;&#x90E8;&#x5206;&#x76F8;&#x4E92;&#x4F5C;&#x7528;&#xFF0C;&#x6BCF;&#x4E00;&#x90E8;&#x5206;&#x5BF9;&#x603B;&#x4F53;&#x7684;&#x5F71;&#x54CD;&#x96BE;&#x4EE5;&#x5EFA;&#x6A21;</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240104205849529.png" alt="image-20240104205849529"></p>
+<h3 id="&#x79CD;&#x7FA4;">&#x79CD;&#x7FA4;</h3>
+<p>&#x4E00;&#x7EC4;&#x67D3;&#x8272;&#x4F53;&#x53CA;&#x5176;&#x6240;&#x8BA1;&#x7B97;&#x7684;&#x9002;&#x5E94;&#x5EA6;</p>
+<p>GA&#x5DE5;&#x4F5C;&#x5728;&#x6BCF;&#x4E00;&#x4EE3;&#x7684;&#x79CD;&#x7FA4;&#x4E0A;&#x3002;&#x7B2C;0&#x4EE3;&#x79CD;&#x7FA4;&#x4E2D;&#x7684;&#x67D3;&#x8272;&#x4F53;&#x968F;&#x673A;&#x751F;&#x6210;</p>
+<h3 id="&#x4EA7;&#x751F;&#x540E;&#x4EE3;-&#x9009;&#x62E9;&#x7236;&#x6BCD;">&#x4EA7;&#x751F;&#x540E;&#x4EE3;:&#x9009;&#x62E9;&#x7236;&#x6BCD;</h3>
+<h4 id="&#x57FA;&#x4E8E;&#x9002;&#x5E94;&#x5EA6;&#x51FD;&#x6570;&#x7684;&#x9009;&#x62E9;">&#x57FA;&#x4E8E;&#x9002;&#x5E94;&#x5EA6;&#x51FD;&#x6570;&#x7684;&#x9009;&#x62E9;</h4>
 <ul>
-<li>锦标赛选择 (tournament selection)
+<li>&#x9526;&#x6807;&#x8D5B;&#x9009;&#x62E9; (tournament selection)
 <ul>
-<li>每次从种群中取出一定(N数量个体(放回抽样)，然后选择其中最好的一个(M)进入子代种群</li>
-<li>重复该操作，直到新的种群规模达到原来的种群规模</li>
+<li>&#x6BCF;&#x6B21;&#x4ECE;&#x79CD;&#x7FA4;&#x4E2D;&#x53D6;&#x51FA;&#x4E00;&#x5B9A;(N&#x6570;&#x91CF;&#x4E2A;&#x4F53;(&#x653E;&#x56DE;&#x62BD;&#x6837;)&#xFF0C;&#x7136;&#x540E;&#x9009;&#x62E9;&#x5176;&#x4E2D;&#x6700;&#x597D;&#x7684;&#x4E00;&#x4E2A;(M)&#x8FDB;&#x5165;&#x5B50;&#x4EE3;&#x79CD;&#x7FA4;</li>
+<li>&#x91CD;&#x590D;&#x8BE5;&#x64CD;&#x4F5C;&#xFF0C;&#x76F4;&#x5230;&#x65B0;&#x7684;&#x79CD;&#x7FA4;&#x89C4;&#x6A21;&#x8FBE;&#x5230;&#x539F;&#x6765;&#x7684;&#x79CD;&#x7FA4;&#x89C4;&#x6A21;</li>
 </ul>
 </li>
-<li>截断选择(Truncation selection
+<li>&#x622A;&#x65AD;&#x9009;&#x62E9;(Truncation selection
 <ul>
-<li>根据适应度排序,前f个染色体进入下一代种群</li>
-<li>对染色体进行复制，填充至种群规模达到原来的种群规模</li>
+<li>&#x6839;&#x636E;&#x9002;&#x5E94;&#x5EA6;&#x6392;&#x5E8F;,&#x524D;f&#x4E2A;&#x67D3;&#x8272;&#x4F53;&#x8FDB;&#x5165;&#x4E0B;&#x4E00;&#x4EE3;&#x79CD;&#x7FA4;</li>
+<li>&#x5BF9;&#x67D3;&#x8272;&#x4F53;&#x8FDB;&#x884C;&#x590D;&#x5236;&#xFF0C;&#x586B;&#x5145;&#x81F3;&#x79CD;&#x7FA4;&#x89C4;&#x6A21;&#x8FBE;&#x5230;&#x539F;&#x6765;&#x7684;&#x79CD;&#x7FA4;&#x89C4;&#x6A21;</li>
 </ul>
 </li>
-<li>选择的作用:优胜劣汰，适者生存</li>
+<li>&#x9009;&#x62E9;&#x7684;&#x4F5C;&#x7528;:&#x4F18;&#x80DC;&#x52A3;&#x6C70;&#xFF0C;&#x9002;&#x8005;&#x751F;&#x5B58;</li>
 </ul>
-<h3 id="遗传算子-GA-operator">遗传算子(GA operator)</h3>
-<p>对从当前群体中选择的染色体进行重组，以产生后代</p>
-<h4 id="交叉-Crossover">交叉(Crossover)</h4>
-<p>选择两个候选个体，分解每一个个体，然后交换分量形成<br>
-两个新的候选个体</p>
+<h3 id="&#x9057;&#x4F20;&#x7B97;&#x5B50;-GA-operator">&#x9057;&#x4F20;&#x7B97;&#x5B50;(GA operator)</h3>
+<p>&#x5BF9;&#x4ECE;&#x5F53;&#x524D;&#x7FA4;&#x4F53;&#x4E2D;&#x9009;&#x62E9;&#x7684;&#x67D3;&#x8272;&#x4F53;&#x8FDB;&#x884C;&#x91CD;&#x7EC4;&#xFF0C;&#x4EE5;&#x4EA7;&#x751F;&#x540E;&#x4EE3;</p>
+<h4 id="&#x4EA4;&#x53C9;-Crossover">&#x4EA4;&#x53C9;(Crossover)</h4>
+<p>&#x9009;&#x62E9;&#x4E24;&#x4E2A;&#x5019;&#x9009;&#x4E2A;&#x4F53;&#xFF0C;&#x5206;&#x89E3;&#x6BCF;&#x4E00;&#x4E2A;&#x4E2A;&#x4F53;&#xFF0C;&#x7136;&#x540E;&#x4EA4;&#x6362;&#x5206;&#x91CF;&#x5F62;&#x6210;<br>
+&#x4E24;&#x4E2A;&#x65B0;&#x7684;&#x5019;&#x9009;&#x4E2A;&#x4F53;</p>
 <ul>
-<li>单点交叉</li>
-<li>两点交叉</li>
-<li>均匀交叉</li>
+<li>&#x5355;&#x70B9;&#x4EA4;&#x53C9;</li>
+<li>&#x4E24;&#x70B9;&#x4EA4;&#x53C9;</li>
+<li>&#x5747;&#x5300;&#x4EA4;&#x53C9;</li>
 </ul>
-<h4 id="变异-Mutation">变异(Mutation)</h4>
-<p>选择一个候选个体，随机的选择一位，然后取反</p>
-<p>常以小概率<strong>p ~ 1/L(L是染色体长度)</strong> 发生变异</p>
-<h3 id="演化">演化</h3>
-<h4 id="简易方案">简易方案</h4>
-<p>后代染色体直接替代父代染色体(与自然吻合)</p>
-<p>易丢失优秀解</p>
-<h4 id="精英法-Elitism">精英法(Elitism)</h4>
-<p>每一代保留上一代最优的染色体，丢弃掉最差个体<br>
-往往与选择算子混用</p>
-<h4 id="锦标赛法-Tournaments">锦标赛法(Tournaments)</h4>
-<p>让父母染色体与后代染色体参与竞争，胜者放入下一代种群</p>
-<h4 id="小生境法-Niching）">小生境法(Niching）</h4>
-<p>小生境的作用</p>
-<p>门当户对，并行演化</p>
+<h4 id="&#x53D8;&#x5F02;-Mutation">&#x53D8;&#x5F02;(Mutation)</h4>
+<p>&#x9009;&#x62E9;&#x4E00;&#x4E2A;&#x5019;&#x9009;&#x4E2A;&#x4F53;&#xFF0C;&#x968F;&#x673A;&#x7684;&#x9009;&#x62E9;&#x4E00;&#x4F4D;&#xFF0C;&#x7136;&#x540E;&#x53D6;&#x53CD;</p>
+<p>&#x5E38;&#x4EE5;&#x5C0F;&#x6982;&#x7387;<strong>p ~ 1/L(L&#x662F;&#x67D3;&#x8272;&#x4F53;&#x957F;&#x5EA6;)</strong> &#x53D1;&#x751F;&#x53D8;&#x5F02;</p>
+<h3 id="&#x6F14;&#x5316;">&#x6F14;&#x5316;</h3>
+<h4 id="&#x7B80;&#x6613;&#x65B9;&#x6848;">&#x7B80;&#x6613;&#x65B9;&#x6848;</h4>
+<p>&#x540E;&#x4EE3;&#x67D3;&#x8272;&#x4F53;&#x76F4;&#x63A5;&#x66FF;&#x4EE3;&#x7236;&#x4EE3;&#x67D3;&#x8272;&#x4F53;(&#x4E0E;&#x81EA;&#x7136;&#x543B;&#x5408;)</p>
+<p>&#x6613;&#x4E22;&#x5931;&#x4F18;&#x79C0;&#x89E3;</p>
+<h4 id="&#x7CBE;&#x82F1;&#x6CD5;-Elitism">&#x7CBE;&#x82F1;&#x6CD5;(Elitism)</h4>
+<p>&#x6BCF;&#x4E00;&#x4EE3;&#x4FDD;&#x7559;&#x4E0A;&#x4E00;&#x4EE3;&#x6700;&#x4F18;&#x7684;&#x67D3;&#x8272;&#x4F53;&#xFF0C;&#x4E22;&#x5F03;&#x6389;&#x6700;&#x5DEE;&#x4E2A;&#x4F53;<br>
+&#x5F80;&#x5F80;&#x4E0E;&#x9009;&#x62E9;&#x7B97;&#x5B50;&#x6DF7;&#x7528;</p>
+<h4 id="&#x9526;&#x6807;&#x8D5B;&#x6CD5;-Tournaments">&#x9526;&#x6807;&#x8D5B;&#x6CD5;(Tournaments)</h4>
+<p>&#x8BA9;&#x7236;&#x6BCD;&#x67D3;&#x8272;&#x4F53;&#x4E0E;&#x540E;&#x4EE3;&#x67D3;&#x8272;&#x4F53;&#x53C2;&#x4E0E;&#x7ADE;&#x4E89;&#xFF0C;&#x80DC;&#x8005;&#x653E;&#x5165;&#x4E0B;&#x4E00;&#x4EE3;&#x79CD;&#x7FA4;</p>
+<h4 id="&#x5C0F;&#x751F;&#x5883;&#x6CD5;-Niching&#xFF09;">&#x5C0F;&#x751F;&#x5883;&#x6CD5;(Niching&#xFF09;</h4>
+<p>&#x5C0F;&#x751F;&#x5883;&#x7684;&#x4F5C;&#x7528;</p>
+<p>&#x95E8;&#x5F53;&#x6237;&#x5BF9;&#xFF0C;&#x5E76;&#x884C;&#x6F14;&#x5316;</p>
 <ul>
-<li>将每一代个体划分为若干类</li>
-<li>每个类中选出若干适应度较大的个体作为一个类的优秀代表组成一个群</li>
-<li>再在种群中，以及不同种群中之间，杂交，变异产生新一代个体群</li>
+<li>&#x5C06;&#x6BCF;&#x4E00;&#x4EE3;&#x4E2A;&#x4F53;&#x5212;&#x5206;&#x4E3A;&#x82E5;&#x5E72;&#x7C7B;</li>
+<li>&#x6BCF;&#x4E2A;&#x7C7B;&#x4E2D;&#x9009;&#x51FA;&#x82E5;&#x5E72;&#x9002;&#x5E94;&#x5EA6;&#x8F83;&#x5927;&#x7684;&#x4E2A;&#x4F53;&#x4F5C;&#x4E3A;&#x4E00;&#x4E2A;&#x7C7B;&#x7684;&#x4F18;&#x79C0;&#x4EE3;&#x8868;&#x7EC4;&#x6210;&#x4E00;&#x4E2A;&#x7FA4;</li>
+<li>&#x518D;&#x5728;&#x79CD;&#x7FA4;&#x4E2D;&#xFF0C;&#x4EE5;&#x53CA;&#x4E0D;&#x540C;&#x79CD;&#x7FA4;&#x4E2D;&#x4E4B;&#x95F4;&#xFF0C;&#x6742;&#x4EA4;&#xFF0C;&#x53D8;&#x5F02;&#x4EA7;&#x751F;&#x65B0;&#x4E00;&#x4EE3;&#x4E2A;&#x4F53;&#x7FA4;</li>
 </ul>
-<h5 id="小生境中的选择机制">小生境中的选择机制</h5>
+<h5 id="&#x5C0F;&#x751F;&#x5883;&#x4E2D;&#x7684;&#x9009;&#x62E9;&#x673A;&#x5236;">&#x5C0F;&#x751F;&#x5883;&#x4E2D;&#x7684;&#x9009;&#x62E9;&#x673A;&#x5236;</h5>
 <ul>
-<li>预选择机制:只用高适应度子代替换父代</li>
-<li>排挤机制:预定义原型。所产生的子代要保持和原型的模式不一致，模式相似的个体被替换</li>
-<li>共享机制:计算适应度和模式的关联关系，然后共享这种模式</li>
+<li>&#x9884;&#x9009;&#x62E9;&#x673A;&#x5236;:&#x53EA;&#x7528;&#x9AD8;&#x9002;&#x5E94;&#x5EA6;&#x5B50;&#x4EE3;&#x66FF;&#x6362;&#x7236;&#x4EE3;</li>
+<li>&#x6392;&#x6324;&#x673A;&#x5236;:&#x9884;&#x5B9A;&#x4E49;&#x539F;&#x578B;&#x3002;&#x6240;&#x4EA7;&#x751F;&#x7684;&#x5B50;&#x4EE3;&#x8981;&#x4FDD;&#x6301;&#x548C;&#x539F;&#x578B;&#x7684;&#x6A21;&#x5F0F;&#x4E0D;&#x4E00;&#x81F4;&#xFF0C;&#x6A21;&#x5F0F;&#x76F8;&#x4F3C;&#x7684;&#x4E2A;&#x4F53;&#x88AB;&#x66FF;&#x6362;</li>
+<li>&#x5171;&#x4EAB;&#x673A;&#x5236;:&#x8BA1;&#x7B97;&#x9002;&#x5E94;&#x5EA6;&#x548C;&#x6A21;&#x5F0F;&#x7684;&#x5173;&#x8054;&#x5173;&#x7CFB;&#xFF0C;&#x7136;&#x540E;&#x5171;&#x4EAB;&#x8FD9;&#x79CD;&#x6A21;&#x5F0F;</li>
 </ul>
-<h1>维度约简 降维算法</h1>
-<h2 id="线性判别分析-LDA">线性判别分析 LDA</h2>
-<p>有监督的特征降维方法:Linear Discriminant Analysis</p>
-<p>给定标注了类别的高维数据集，投影到低维的超平面，使得样本点的按类别尽最大可能区分开</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240104211239177.png" alt="image-20240104211239177"></p>
-<p>类别内的点距离越近越好,类别间的点越远越好</p>
-<h3 id="算法流程-2">算法流程</h3>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240104211317829.png" alt="image-20240104211317829"></p>
-<h3 id="主成分分析-PCA">主成分分析 PCA</h3>
-<p>无监督的特征降维方法:Principal Components Analysis</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240104211514332.png" alt="image-20240104211514332"></p>
-<h3 id="独立成分分析-ICA">独立成分分析 ICA</h3>
-<h1>强化学习</h1>
-<p>一定会出现</p>
+<h1>&#x7EF4;&#x5EA6;&#x7EA6;&#x7B80; &#x964D;&#x7EF4;&#x7B97;&#x6CD5;</h1>
+<h2 id="&#x7EBF;&#x6027;&#x5224;&#x522B;&#x5206;&#x6790;-LDA">&#x7EBF;&#x6027;&#x5224;&#x522B;&#x5206;&#x6790; LDA</h2>
+<p>&#x6709;&#x76D1;&#x7763;&#x7684;&#x7279;&#x5F81;&#x964D;&#x7EF4;&#x65B9;&#x6CD5;:Linear Discriminant Analysis</p>
+<p>&#x7ED9;&#x5B9A;&#x6807;&#x6CE8;&#x4E86;&#x7C7B;&#x522B;&#x7684;&#x9AD8;&#x7EF4;&#x6570;&#x636E;&#x96C6;&#xFF0C;&#x6295;&#x5F71;&#x5230;&#x4F4E;&#x7EF4;&#x7684;&#x8D85;&#x5E73;&#x9762;&#xFF0C;&#x4F7F;&#x5F97;&#x6837;&#x672C;&#x70B9;&#x7684;&#x6309;&#x7C7B;&#x522B;&#x5C3D;&#x6700;&#x5927;&#x53EF;&#x80FD;&#x533A;&#x5206;&#x5F00;</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240104211239177.png" alt="image-20240104211239177"></p>
+<p>&#x7C7B;&#x522B;&#x5185;&#x7684;&#x70B9;&#x8DDD;&#x79BB;&#x8D8A;&#x8FD1;&#x8D8A;&#x597D;,&#x7C7B;&#x522B;&#x95F4;&#x7684;&#x70B9;&#x8D8A;&#x8FDC;&#x8D8A;&#x597D;</p>
+<h3 id="&#x7B97;&#x6CD5;&#x6D41;&#x7A0B;-2">&#x7B97;&#x6CD5;&#x6D41;&#x7A0B;</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240104211317829.png" alt="image-20240104211317829"></p>
+<h3 id="&#x4E3B;&#x6210;&#x5206;&#x5206;&#x6790;-PCA">&#x4E3B;&#x6210;&#x5206;&#x5206;&#x6790; PCA</h3>
+<p>&#x65E0;&#x76D1;&#x7763;&#x7684;&#x7279;&#x5F81;&#x964D;&#x7EF4;&#x65B9;&#x6CD5;:Principal Components Analysis</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240104211514332.png" alt="image-20240104211514332"></p>
+<h3 id="&#x72EC;&#x7ACB;&#x6210;&#x5206;&#x5206;&#x6790;-ICA">&#x72EC;&#x7ACB;&#x6210;&#x5206;&#x5206;&#x6790; ICA</h3>
+<h1>&#x5F3A;&#x5316;&#x5B66;&#x4E60;</h1>
+<p>&#x4E00;&#x5B9A;&#x4F1A;&#x51FA;&#x73B0;</p>
 <p><strong>MDP</strong><br>
-动态规划</p>
-<p>探索<br>
-值函数、奖赏、测略</p>
-<p>基于模型，不基于模型</p>
-<p>Morte Carle方法<br>
-时间差分</p>
+&#x52A8;&#x6001;&#x89C4;&#x5212;</p>
+<p>&#x63A2;&#x7D22;<br>
+&#x503C;&#x51FD;&#x6570;&#x3001;&#x5956;&#x8D4F;&#x3001;&#x6D4B;&#x7565;</p>
+<p>&#x57FA;&#x4E8E;&#x6A21;&#x578B;&#xFF0C;&#x4E0D;&#x57FA;&#x4E8E;&#x6A21;&#x578B;</p>
+<p>Morte Carle&#x65B9;&#x6CD5;<br>
+&#x65F6;&#x95F4;&#x5DEE;&#x5206;</p>
 <p>Bootsraps<br>
 Sampling</p>
 <p>Q-learning<br>
 TD</p>
-<p>epsiode的概念</p>
-<h2 id="MDP模型">MDP模型</h2>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240104212411083.png" alt="image-20240104212411083"></p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240104212357878.png" alt="image-20240104212357878"></p>
-<h3 id="MDP模型-动作选择">MDP模型-动作选择</h3>
-<p>目标：最大化期望奖赏(单状态下)</p>
-<p>策略 单状态学习问题 状态到动作的映射(: S&gt;A)</p>
-<p>给定模型:采用贪心动作 Greedy action)</p>
-<p>通常返回函数是即时奖赏值的线性组合</p>
-<h2 id="动态规划">动态规划</h2>
-<p>给定一个完全已知的MDP模型</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240104214407021.png" alt="image-20240104214407021"></p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240104214356276.png" alt="image-20240104214356276"></p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E5%A4%8D%E4%B9%A0/image-20240104214450119.png" alt="image-20240104214450119"></p>
-<p>V(s) = r + η * (ΣΠV(s’))</p>
-<p>跳到他们身上的概率*他们的V</p>
-<p>你都列出来以后，解这个矩阵就可以了</p>
-<p>你所有的V都算出来了 要求一个最优控制 那你只需要把Q都求出来就可以了</p>
-<p>然后做决策时候选择Q最大的就好了</p>
+<p>epsiode&#x7684;&#x6982;&#x5FF5;</p>
+<h2 id="MDP&#x6A21;&#x578B;">MDP&#x6A21;&#x578B;</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240104212411083.png" alt="image-20240104212411083"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240104212357878.png" alt="image-20240104212357878"></p>
+<h3 id="MDP&#x6A21;&#x578B;-&#x52A8;&#x4F5C;&#x9009;&#x62E9;">MDP&#x6A21;&#x578B;-&#x52A8;&#x4F5C;&#x9009;&#x62E9;</h3>
+<p>&#x76EE;&#x6807;&#xFF1A;&#x6700;&#x5927;&#x5316;&#x671F;&#x671B;&#x5956;&#x8D4F;(&#x5355;&#x72B6;&#x6001;&#x4E0B;)</p>
+<p>&#x7B56;&#x7565; &#x5355;&#x72B6;&#x6001;&#x5B66;&#x4E60;&#x95EE;&#x9898; &#x72B6;&#x6001;&#x5230;&#x52A8;&#x4F5C;&#x7684;&#x6620;&#x5C04;(: S&gt;A)</p>
+<p>&#x7ED9;&#x5B9A;&#x6A21;&#x578B;:&#x91C7;&#x7528;&#x8D2A;&#x5FC3;&#x52A8;&#x4F5C; Greedy action)</p>
+<p>&#x901A;&#x5E38;&#x8FD4;&#x56DE;&#x51FD;&#x6570;&#x662F;&#x5373;&#x65F6;&#x5956;&#x8D4F;&#x503C;&#x7684;&#x7EBF;&#x6027;&#x7EC4;&#x5408;</p>
+<h2 id="&#x52A8;&#x6001;&#x89C4;&#x5212;">&#x52A8;&#x6001;&#x89C4;&#x5212;</h2>
+<p>&#x7ED9;&#x5B9A;&#x4E00;&#x4E2A;&#x5B8C;&#x5168;&#x5DF2;&#x77E5;&#x7684;MDP&#x6A21;&#x578B;</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240104214407021.png" alt="image-20240104214407021"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240104214356276.png" alt="image-20240104214356276"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/image-20240104214450119.png" alt="image-20240104214450119"></p>
+<p>V(s) = r + &#x3B7; * (&#x3A3;&#x3A0;V(s&#x2019;))</p>
+<p>&#x8DF3;&#x5230;&#x4ED6;&#x4EEC;&#x8EAB;&#x4E0A;&#x7684;&#x6982;&#x7387;*&#x4ED6;&#x4EEC;&#x7684;V</p>
+<p>&#x4F60;&#x90FD;&#x5217;&#x51FA;&#x6765;&#x4EE5;&#x540E;&#xFF0C;&#x89E3;&#x8FD9;&#x4E2A;&#x77E9;&#x9635;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;</p>
+<p>&#x4F60;&#x6240;&#x6709;&#x7684;V&#x90FD;&#x7B97;&#x51FA;&#x6765;&#x4E86; &#x8981;&#x6C42;&#x4E00;&#x4E2A;&#x6700;&#x4F18;&#x63A7;&#x5236; &#x90A3;&#x4F60;&#x53EA;&#x9700;&#x8981;&#x628A;Q&#x90FD;&#x6C42;&#x51FA;&#x6765;&#x5C31;&#x53EF;&#x4EE5;&#x4E86;</p>
+<p>&#x7136;&#x540E;&#x505A;&#x51B3;&#x7B56;&#x65F6;&#x5019;&#x9009;&#x62E9;Q&#x6700;&#x5927;&#x7684;&#x5C31;&#x597D;&#x4E86;</p>
 
 <div class="article-footer fs14">
     <section id="license">

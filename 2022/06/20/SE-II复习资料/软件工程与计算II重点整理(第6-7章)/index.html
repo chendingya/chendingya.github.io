@@ -20,29 +20,29 @@
   <title>SE-II-软件工程与计算II重点整理(第6-7章) - Asimov's Blog</title>
 
   
-    <meta name="description" content="软件工程与计算II重点整理(第6-7章) 1.建立用例图 四要素：用例（椭圆）、参与者（小人）、关系（连线）、边界（方框）  参与者是与开发的系统进行交互的用户或其他系统等角色。 用例图中一个单一的参与者可以代表多个用户（或系统），一个单一的用户（或系统）可能扮演多种角色。 参与者不一定是人，例如，需要从当前系统获取信息的外部系统也是参与者。 步骤： 1）目标分析与解决方向确定 2）寻找参与者 3">
+    <meta name="description" content="&#x8F6F;&#x4EF6;&#x5DE5;&#x7A0B;&#x4E0E;&#x8BA1;&#x7B97;II&#x91CD;&#x70B9;&#x6574;&#x7406;(&#x7B2C;6-7&#x7AE0;) 1.&#x5EFA;&#x7ACB;&#x7528;&#x4F8B;&#x56FE; &#x56DB;&#x8981;&#x7D20;&#xFF1A;&#x7528;&amp;#x4F">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SE-II-软件工程与计算II重点整理(第6-7章)">
 <meta property="og:url" content="https://chendingya.github.io/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/index.html">
 <meta property="og:site_name" content="Asimov&#39;s Blog">
-<meta property="og:description" content="软件工程与计算II重点整理(第6-7章) 1.建立用例图 四要素：用例（椭圆）、参与者（小人）、关系（连线）、边界（方框）  参与者是与开发的系统进行交互的用户或其他系统等角色。 用例图中一个单一的参与者可以代表多个用户（或系统），一个单一的用户（或系统）可能扮演多种角色。 参与者不一定是人，例如，需要从当前系统获取信息的外部系统也是参与者。 步骤： 1）目标分析与解决方向确定 2）寻找参与者 3">
+<meta property="og:description" content="&#x8F6F;&#x4EF6;&#x5DE5;&#x7A0B;&#x4E0E;&#x8BA1;&#x7B97;II&#x91CD;&#x70B9;&#x6574;&#x7406;(&#x7B2C;6-7&#x7AE0;) 1.&#x5EFA;&#x7ACB;&#x7528;&#x4F8B;&#x56FE; &#x56DB;&#x8981;&#x7D20;&#xFF1A;&#x7528;&amp;#x4F">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://chendingya.github.io/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/image-20230616145545772.png">
-<meta property="og:image" content="https://chendingya.github.io/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/image-20230616145646089.png">
-<meta property="og:image" content="https://chendingya.github.io/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/image-20230616145704404.png">
-<meta property="og:image" content="https://chendingya.github.io/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/image-20230616145741461.png">
-<meta property="og:image" content="https://chendingya.github.io/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/image-20230616145820828.png">
-<meta property="og:image" content="https://chendingya.github.io/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/image-20230616145847178.png">
-<meta property="og:image" content="https://chendingya.github.io/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/image-20230616145921830.png">
-<meta property="og:image" content="https://chendingya.github.io/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/image-20230616145947322.png">
-<meta property="og:image" content="https://chendingya.github.io/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/image-20230616150059982.png">
-<meta property="og:image" content="https://chendingya.github.io/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/image-20230616150117987.png">
+<meta property="og:image" content="https://chendingya.github.io/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/image-20230616145545772.png">
+<meta property="og:image" content="https://chendingya.github.io/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/image-20230616145646089.png">
+<meta property="og:image" content="https://chendingya.github.io/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/image-20230616145704404.png">
+<meta property="og:image" content="https://chendingya.github.io/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/image-20230616145741461.png">
+<meta property="og:image" content="https://chendingya.github.io/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/image-20230616145820828.png">
+<meta property="og:image" content="https://chendingya.github.io/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/image-20230616145847178.png">
+<meta property="og:image" content="https://chendingya.github.io/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/image-20230616145921830.png">
+<meta property="og:image" content="https://chendingya.github.io/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/image-20230616145947322.png">
+<meta property="og:image" content="https://chendingya.github.io/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/image-20230616150059982.png">
+<meta property="og:image" content="https://chendingya.github.io/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/image-20230616150117987.png">
 <meta property="article:published_time" content="2022-06-20T08:02:34.000Z">
 <meta property="article:modified_time" content="2023-09-17T08:06:38.350Z">
 <meta property="article:author" content="Asimov">
 <meta property="article:tag" content="软件工程与计算II">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://chendingya.github.io/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/image-20230616145545772.png">
+<meta name="twitter:image" content="https://chendingya.github.io/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/image-20230616145545772.png">
   
   
   
@@ -75,7 +75,7 @@
 <div class="widgets">
 
 
-<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2024/05/02/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%842/"><span class="title">系统架构2-质量属性Quality Attributes</span></a><a class="item title" href="/2024/05/01/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%841/"><span class="title">系统架构1-Intro</span></a><a class="item title" href="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/"><span class="title">软件测试-期末复习</span></a><a class="item title" href="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/"><span class="title">机器学习-期末复习</span></a><a class="item title" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/"><span class="title">服务端-ch17-k8s使用</span></a><a class="item title" href="/2023/12/30/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch16-%E5%AE%B9%E5%99%A8%E9%95%9C%E5%83%8F%E6%9E%84%E5%BB%BA%E4%B8%8E%E7%BC%96%E6%8E%92/"><span class="title">服务端-ch16-容器镜像构建与编排</span></a><a class="item title" href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/"><span class="title">服务端-ch15-Docker</span></a><a class="item title" href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/"><span class="title">服务端-ch14-Spring WebFlux</span></a><a class="item title" href="/2023/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch13-%E5%8F%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"><span class="title">服务端-ch13-反应式编程基础</span></a><a class="item title" href="/2023/11/23/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch12-Spring%20Integration/"><span class="title">服务端-ch12-Spring Integration</span></a></div></widget>
+<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2022/10/25/hello-world/"><span class="title">Hello World</span></a><a class="item title" href="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/"><span class="title">软件测试-期末复习</span></a><a class="item title" href="/2024/05/02/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%842/"><span class="title">系统架构2-质量属性Quality Attributes</span></a><a class="item title" href="/2024/05/01/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%841/"><span class="title">系统架构1-Intro</span></a><a class="item title" href="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/"><span class="title">机器学习-期末复习</span></a><a class="item title" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/"><span class="title">服务端-ch17-k8s使用</span></a><a class="item title" href="/2023/12/30/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch16-%E5%AE%B9%E5%99%A8%E9%95%9C%E5%83%8F%E6%9E%84%E5%BB%BA%E4%B8%8E%E7%BC%96%E6%8E%92/"><span class="title">服务端-ch16-容器镜像构建与编排</span></a><a class="item title" href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/"><span class="title">服务端-ch15-Docker</span></a><a class="item title" href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/"><span class="title">服务端-ch14-Spring WebFlux</span></a><a class="item title" href="/2023/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch13-%E5%8F%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"><span class="title">服务端-ch13-反应式编程基础</span></a></div></widget>
 </div>
 <footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/chendingya?tab=repositories" target="_blank" rel="external nofollow noopener noreferrer"><img no-lazy src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" / onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a></div></footer>
 </div></aside><div class="l_main" id="main">
@@ -99,203 +99,203 @@
     </div>
     
   </div>
-  </div><article class="md-text content"><h1>软件工程与计算II重点整理(第6-7章)</h1>
-<h2 id="1-建立用例图">1.建立用例图</h2>
-<p>四要素：用例（椭圆）、参与者（小人）、关系（连线）、边界（方框）</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/image-20230616145545772.png" alt=""></p>
-<p>参与者是与开发的系统进行交互的用户或其他系统等角色。</p>
-<p>用例图中一个单一的参与者可以代表多个用户（或系统），一个单一的用户（或系统）可能扮演多种角色。</p>
-<p>参与者不一定是人，例如，需要从当前系统获取信息的外部系统也是参与者。</p>
-<p>步骤：</p>
-<p>1）目标分析与解决方向确定</p>
-<p>2）寻找参与者</p>
-<p>3）寻找用例</p>
-<p>4）细化用例</p>
+  </div><article class="md-text content"><h1>&#x8F6F;&#x4EF6;&#x5DE5;&#x7A0B;&#x4E0E;&#x8BA1;&#x7B97;II&#x91CD;&#x70B9;&#x6574;&#x7406;(&#x7B2C;6-7&#x7AE0;)</h1>
+<h2 id="1-&#x5EFA;&#x7ACB;&#x7528;&#x4F8B;&#x56FE;">1.&#x5EFA;&#x7ACB;&#x7528;&#x4F8B;&#x56FE;</h2>
+<p>&#x56DB;&#x8981;&#x7D20;&#xFF1A;&#x7528;&#x4F8B;&#xFF08;&#x692D;&#x5706;&#xFF09;&#x3001;&#x53C2;&#x4E0E;&#x8005;&#xFF08;&#x5C0F;&#x4EBA;&#xFF09;&#x3001;&#x5173;&#x7CFB;&#xFF08;&#x8FDE;&#x7EBF;&#xFF09;&#x3001;&#x8FB9;&#x754C;&#xFF08;&#x65B9;&#x6846;&#xFF09;</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/image-20230616145545772.png" alt></p>
+<p>&#x53C2;&#x4E0E;&#x8005;&#x662F;&#x4E0E;&#x5F00;&#x53D1;&#x7684;&#x7CFB;&#x7EDF;&#x8FDB;&#x884C;&#x4EA4;&#x4E92;&#x7684;&#x7528;&#x6237;&#x6216;&#x5176;&#x4ED6;&#x7CFB;&#x7EDF;&#x7B49;&#x89D2;&#x8272;&#x3002;</p>
+<p>&#x7528;&#x4F8B;&#x56FE;&#x4E2D;&#x4E00;&#x4E2A;&#x5355;&#x4E00;&#x7684;&#x53C2;&#x4E0E;&#x8005;&#x53EF;&#x4EE5;&#x4EE3;&#x8868;&#x591A;&#x4E2A;&#x7528;&#x6237;&#xFF08;&#x6216;&#x7CFB;&#x7EDF;&#xFF09;&#xFF0C;&#x4E00;&#x4E2A;&#x5355;&#x4E00;&#x7684;&#x7528;&#x6237;&#xFF08;&#x6216;&#x7CFB;&#x7EDF;&#xFF09;&#x53EF;&#x80FD;&#x626E;&#x6F14;&#x591A;&#x79CD;&#x89D2;&#x8272;&#x3002;</p>
+<p>&#x53C2;&#x4E0E;&#x8005;&#x4E0D;&#x4E00;&#x5B9A;&#x662F;&#x4EBA;&#xFF0C;&#x4F8B;&#x5982;&#xFF0C;&#x9700;&#x8981;&#x4ECE;&#x5F53;&#x524D;&#x7CFB;&#x7EDF;&#x83B7;&#x53D6;&#x4FE1;&#x606F;&#x7684;&#x5916;&#x90E8;&#x7CFB;&#x7EDF;&#x4E5F;&#x662F;&#x53C2;&#x4E0E;&#x8005;&#x3002;</p>
+<p>&#x6B65;&#x9AA4;&#xFF1A;</p>
+<p>1&#xFF09;&#x76EE;&#x6807;&#x5206;&#x6790;&#x4E0E;&#x89E3;&#x51B3;&#x65B9;&#x5411;&#x786E;&#x5B9A;</p>
+<p>2&#xFF09;&#x5BFB;&#x627E;&#x53C2;&#x4E0E;&#x8005;</p>
+<p>3&#xFF09;&#x5BFB;&#x627E;&#x7528;&#x4F8B;</p>
+<p>4&#xFF09;&#x7EC6;&#x5316;&#x7528;&#x4F8B;</p>
 <blockquote>
-<p>【示例1】×××连锁商店是一家刚刚发展起来的小型连锁商店，其前身是一家独立的小百货门面店。</p>
+<p>&#x3010;&#x793A;&#x4F8B;1&#x3011;&#xD7;&#xD7;&#xD7;&#x8FDE;&#x9501;&#x5546;&#x5E97;&#x662F;&#x4E00;&#x5BB6;&#x521A;&#x521A;&#x53D1;&#x5C55;&#x8D77;&#x6765;&#x7684;&#x5C0F;&#x578B;&#x8FDE;&#x9501;&#x5546;&#x5E97;&#xFF0C;&#x5176;&#x524D;&#x8EAB;&#x662F;&#x4E00;&#x5BB6;&#x72EC;&#x7ACB;&#x7684;&#x5C0F;&#x767E;&#x8D27;&#x95E8;&#x9762;&#x5E97;&#x3002;</p>
 </blockquote>
 <blockquote>
-<p>首先是随着商店规模的扩大，顾客量大幅增长，手工作业销售迟缓，顾客购物排队现象严重，导致流失客源。其次是商店的商品品种增多，无法准确掌握库存，商品积压、缺货和报废的现象上升明显。再次是商店面临的竞争比以前更大，希望在降低成本，吸引顾客，增强竞争力的同时，保持盈利水平。</p>
+<p>&#x9996;&#x5148;&#x662F;&#x968F;&#x7740;&#x5546;&#x5E97;&#x89C4;&#x6A21;&#x7684;&#x6269;&#x5927;&#xFF0C;&#x987E;&#x5BA2;&#x91CF;&#x5927;&#x5E45;&#x589E;&#x957F;&#xFF0C;&#x624B;&#x5DE5;&#x4F5C;&#x4E1A;&#x9500;&#x552E;&#x8FDF;&#x7F13;&#xFF0C;&#x987E;&#x5BA2;&#x8D2D;&#x7269;&#x6392;&#x961F;&#x73B0;&#x8C61;&#x4E25;&#x91CD;&#xFF0C;&#x5BFC;&#x81F4;&#x6D41;&#x5931;&#x5BA2;&#x6E90;&#x3002;&#x5176;&#x6B21;&#x662F;&#x5546;&#x5E97;&#x7684;&#x5546;&#x54C1;&#x54C1;&#x79CD;&#x589E;&#x591A;&#xFF0C;&#x65E0;&#x6CD5;&#x51C6;&#x786E;&#x638C;&#x63E1;&#x5E93;&#x5B58;&#xFF0C;&#x5546;&#x54C1;&#x79EF;&#x538B;&#x3001;&#x7F3A;&#x8D27;&#x548C;&#x62A5;&#x5E9F;&#x7684;&#x73B0;&#x8C61;&#x4E0A;&#x5347;&#x660E;&#x663E;&#x3002;&#x518D;&#x6B21;&#x662F;&#x5546;&#x5E97;&#x9762;&#x4E34;&#x7684;&#x7ADE;&#x4E89;&#x6BD4;&#x4EE5;&#x524D;&#x66F4;&#x5927;&#xFF0C;&#x5E0C;&#x671B;&#x5728;&#x964D;&#x4F4E;&#x6210;&#x672C;&#xFF0C;&#x5438;&#x5F15;&#x987E;&#x5BA2;&#xFF0C;&#x589E;&#x5F3A;&#x7ADE;&#x4E89;&#x529B;&#x7684;&#x540C;&#x65F6;&#xFF0C;&#x4FDD;&#x6301;&#x76C8;&#x5229;&#x6C34;&#x5E73;&#x3002;</p>
 </blockquote>
 <blockquote>
-<p>BR1：在系统使用6个月后，商品积压、缺货和报废的现象要减少50%</p>
-<p>BR2：在系统使用3个月后，销售人员工作效率提高50%</p>
-<p>BR3：在系统使用6个月后，运营成本要降低15%范围：人力成本和库存成本，度量：检查平均员工数量和平均每10,000元销售额的库存成本</p>
-<p>BR4：在系统使用6个月后，销售额度要提高20%，</p>
-<p>最好情况：40%，最可能情况：20%，最坏情况：10%</p>
+<p>BR1&#xFF1A;&#x5728;&#x7CFB;&#x7EDF;&#x4F7F;&#x7528;6&#x4E2A;&#x6708;&#x540E;&#xFF0C;&#x5546;&#x54C1;&#x79EF;&#x538B;&#x3001;&#x7F3A;&#x8D27;&#x548C;&#x62A5;&#x5E9F;&#x7684;&#x73B0;&#x8C61;&#x8981;&#x51CF;&#x5C11;50%</p>
+<p>BR2&#xFF1A;&#x5728;&#x7CFB;&#x7EDF;&#x4F7F;&#x7528;3&#x4E2A;&#x6708;&#x540E;&#xFF0C;&#x9500;&#x552E;&#x4EBA;&#x5458;&#x5DE5;&#x4F5C;&#x6548;&#x7387;&#x63D0;&#x9AD8;50%</p>
+<p>BR3&#xFF1A;&#x5728;&#x7CFB;&#x7EDF;&#x4F7F;&#x7528;6&#x4E2A;&#x6708;&#x540E;&#xFF0C;&#x8FD0;&#x8425;&#x6210;&#x672C;&#x8981;&#x964D;&#x4F4E;15%&#x8303;&#x56F4;&#xFF1A;&#x4EBA;&#x529B;&#x6210;&#x672C;&#x548C;&#x5E93;&#x5B58;&#x6210;&#x672C;&#xFF0C;&#x5EA6;&#x91CF;&#xFF1A;&#x68C0;&#x67E5;&#x5E73;&#x5747;&#x5458;&#x5DE5;&#x6570;&#x91CF;&#x548C;&#x5E73;&#x5747;&#x6BCF;10,000&#x5143;&#x9500;&#x552E;&#x989D;&#x7684;&#x5E93;&#x5B58;&#x6210;&#x672C;</p>
+<p>BR4&#xFF1A;&#x5728;&#x7CFB;&#x7EDF;&#x4F7F;&#x7528;6&#x4E2A;&#x6708;&#x540E;&#xFF0C;&#x9500;&#x552E;&#x989D;&#x5EA6;&#x8981;&#x63D0;&#x9AD8;20%&#xFF0C;</p>
+<p>&#x6700;&#x597D;&#x60C5;&#x51B5;&#xFF1A;40%&#xFF0C;&#x6700;&#x53EF;&#x80FD;&#x60C5;&#x51B5;&#xFF1A;20%&#xFF0C;&#x6700;&#x574F;&#x60C5;&#x51B5;&#xFF1A;10%</p>
 </blockquote>
 <blockquote>
-<p>SF1：分析商品库存，发现可能的商品积压、缺货和报废现象</p>
-<p>SF2：根据市场变化调整销售的商品</p>
-<p>SF3：制定促销手段，处理积压商品</p>
-<p>SF4：与生产厂家联合进行商品促销</p>
-<p>SF5：制定促销手段进行销售竞争</p>
-<p>SF6：掌握员工变动和授权情况</p>
-<p>SF7：处理商品入库与出库</p>
-<p>SF8：发展会员，提高顾客回头率</p>
-<p>SF9：允许积分兑换商品和赠送吸引会员的礼品，提高会员满意度</p>
-<p>SF10：帮助收银员处理销售与退货任务</p>
+<p>SF1&#xFF1A;&#x5206;&#x6790;&#x5546;&#x54C1;&#x5E93;&#x5B58;&#xFF0C;&#x53D1;&#x73B0;&#x53EF;&#x80FD;&#x7684;&#x5546;&#x54C1;&#x79EF;&#x538B;&#x3001;&#x7F3A;&#x8D27;&#x548C;&#x62A5;&#x5E9F;&#x73B0;&#x8C61;</p>
+<p>SF2&#xFF1A;&#x6839;&#x636E;&#x5E02;&#x573A;&#x53D8;&#x5316;&#x8C03;&#x6574;&#x9500;&#x552E;&#x7684;&#x5546;&#x54C1;</p>
+<p>SF3&#xFF1A;&#x5236;&#x5B9A;&#x4FC3;&#x9500;&#x624B;&#x6BB5;&#xFF0C;&#x5904;&#x7406;&#x79EF;&#x538B;&#x5546;&#x54C1;</p>
+<p>SF4&#xFF1A;&#x4E0E;&#x751F;&#x4EA7;&#x5382;&#x5BB6;&#x8054;&#x5408;&#x8FDB;&#x884C;&#x5546;&#x54C1;&#x4FC3;&#x9500;</p>
+<p>SF5&#xFF1A;&#x5236;&#x5B9A;&#x4FC3;&#x9500;&#x624B;&#x6BB5;&#x8FDB;&#x884C;&#x9500;&#x552E;&#x7ADE;&#x4E89;</p>
+<p>SF6&#xFF1A;&#x638C;&#x63E1;&#x5458;&#x5DE5;&#x53D8;&#x52A8;&#x548C;&#x6388;&#x6743;&#x60C5;&#x51B5;</p>
+<p>SF7&#xFF1A;&#x5904;&#x7406;&#x5546;&#x54C1;&#x5165;&#x5E93;&#x4E0E;&#x51FA;&#x5E93;</p>
+<p>SF8&#xFF1A;&#x53D1;&#x5C55;&#x4F1A;&#x5458;&#xFF0C;&#x63D0;&#x9AD8;&#x987E;&#x5BA2;&#x56DE;&#x5934;&#x7387;</p>
+<p>SF9&#xFF1A;&#x5141;&#x8BB8;&#x79EF;&#x5206;&#x5151;&#x6362;&#x5546;&#x54C1;&#x548C;&#x8D60;&#x9001;&#x5438;&#x5F15;&#x4F1A;&#x5458;&#x7684;&#x793C;&#x54C1;&#xFF0C;&#x63D0;&#x9AD8;&#x4F1A;&#x5458;&#x6EE1;&#x610F;&#x5EA6;</p>
+<p>SF10&#xFF1A;&#x5E2E;&#x52A9;&#x6536;&#x94F6;&#x5458;&#x5904;&#x7406;&#x9500;&#x552E;&#x4E0E;&#x9000;&#x8D27;&#x4EFB;&#x52A1;</p>
 </blockquote>
 <blockquote>
-<p>从上述特性可以发现涉及的用户类别：总经理，客户经理，收银员，</p>
-<p>管理员总经理的目标有：产品调整（增删改产品信息），特价策略制定（增删改特价策略），赠送策略制定（增删改赠送策略），库存分析；（分析可能的商品积压）</p>
-<p>客户经理的目标有：会员管理；（会员发展、礼品赠送），库存管理；（商品入库、出库和库存分析）</p>
-<p>收银员的目标有：销售处理（销售），退货；（退货）</p>
-<p>管理员的目标有：用户管理（增删改用户信息）</p>
+<p>&#x4ECE;&#x4E0A;&#x8FF0;&#x7279;&#x6027;&#x53EF;&#x4EE5;&#x53D1;&#x73B0;&#x6D89;&#x53CA;&#x7684;&#x7528;&#x6237;&#x7C7B;&#x522B;&#xFF1A;&#x603B;&#x7ECF;&#x7406;&#xFF0C;&#x5BA2;&#x6237;&#x7ECF;&#x7406;&#xFF0C;&#x6536;&#x94F6;&#x5458;&#xFF0C;</p>
+<p>&#x7BA1;&#x7406;&#x5458;&#x603B;&#x7ECF;&#x7406;&#x7684;&#x76EE;&#x6807;&#x6709;&#xFF1A;&#x4EA7;&#x54C1;&#x8C03;&#x6574;&#xFF08;&#x589E;&#x5220;&#x6539;&#x4EA7;&#x54C1;&#x4FE1;&#x606F;&#xFF09;&#xFF0C;&#x7279;&#x4EF7;&#x7B56;&#x7565;&#x5236;&#x5B9A;&#xFF08;&#x589E;&#x5220;&#x6539;&#x7279;&#x4EF7;&#x7B56;&#x7565;&#xFF09;&#xFF0C;&#x8D60;&#x9001;&#x7B56;&#x7565;&#x5236;&#x5B9A;&#xFF08;&#x589E;&#x5220;&#x6539;&#x8D60;&#x9001;&#x7B56;&#x7565;&#xFF09;&#xFF0C;&#x5E93;&#x5B58;&#x5206;&#x6790;&#xFF1B;&#xFF08;&#x5206;&#x6790;&#x53EF;&#x80FD;&#x7684;&#x5546;&#x54C1;&#x79EF;&#x538B;&#xFF09;</p>
+<p>&#x5BA2;&#x6237;&#x7ECF;&#x7406;&#x7684;&#x76EE;&#x6807;&#x6709;&#xFF1A;&#x4F1A;&#x5458;&#x7BA1;&#x7406;&#xFF1B;&#xFF08;&#x4F1A;&#x5458;&#x53D1;&#x5C55;&#x3001;&#x793C;&#x54C1;&#x8D60;&#x9001;&#xFF09;&#xFF0C;&#x5E93;&#x5B58;&#x7BA1;&#x7406;&#xFF1B;&#xFF08;&#x5546;&#x54C1;&#x5165;&#x5E93;&#x3001;&#x51FA;&#x5E93;&#x548C;&#x5E93;&#x5B58;&#x5206;&#x6790;&#xFF09;</p>
+<p>&#x6536;&#x94F6;&#x5458;&#x7684;&#x76EE;&#x6807;&#x6709;&#xFF1A;&#x9500;&#x552E;&#x5904;&#x7406;&#xFF08;&#x9500;&#x552E;&#xFF09;&#xFF0C;&#x9000;&#x8D27;&#xFF1B;&#xFF08;&#x9000;&#x8D27;&#xFF09;</p>
+<p>&#x7BA1;&#x7406;&#x5458;&#x7684;&#x76EE;&#x6807;&#x6709;&#xFF1A;&#x7528;&#x6237;&#x7BA1;&#x7406;&#xFF08;&#x589E;&#x5220;&#x6539;&#x7528;&#x6237;&#x4FE1;&#x606F;&#xFF09;</p>
 </blockquote>
-<p>如果用例的粒度不合适就需要进行细化和调整。</p>
-<p>判断标准是：用例描述了为应对一个业务事件，由一个用户发起，并在一个连续时间段内完成，<strong>可以增加业务价值</strong>的任务。<br>
-<strong>不要将没有业务价值（而是技术实现需要）的事件作为用例（例如，登录（安全性需求）、输入/输入数据检查（数据需求或者业务规则）、连接数据库、网络传输等等）</strong><br>
-<strong>不要将没有独立业务价值的单个操作（仅仅是技术实现上独立）作为用例，例如删除、增加、修改、保存</strong></p>
+<p>&#x5982;&#x679C;&#x7528;&#x4F8B;&#x7684;&#x7C92;&#x5EA6;&#x4E0D;&#x5408;&#x9002;&#x5C31;&#x9700;&#x8981;&#x8FDB;&#x884C;&#x7EC6;&#x5316;&#x548C;&#x8C03;&#x6574;&#x3002;</p>
+<p>&#x5224;&#x65AD;&#x6807;&#x51C6;&#x662F;&#xFF1A;&#x7528;&#x4F8B;&#x63CF;&#x8FF0;&#x4E86;&#x4E3A;&#x5E94;&#x5BF9;&#x4E00;&#x4E2A;&#x4E1A;&#x52A1;&#x4E8B;&#x4EF6;&#xFF0C;&#x7531;&#x4E00;&#x4E2A;&#x7528;&#x6237;&#x53D1;&#x8D77;&#xFF0C;&#x5E76;&#x5728;&#x4E00;&#x4E2A;&#x8FDE;&#x7EED;&#x65F6;&#x95F4;&#x6BB5;&#x5185;&#x5B8C;&#x6210;&#xFF0C;<strong>&#x53EF;&#x4EE5;&#x589E;&#x52A0;&#x4E1A;&#x52A1;&#x4EF7;&#x503C;</strong>&#x7684;&#x4EFB;&#x52A1;&#x3002;<br>
+<strong>&#x4E0D;&#x8981;&#x5C06;&#x6CA1;&#x6709;&#x4E1A;&#x52A1;&#x4EF7;&#x503C;&#xFF08;&#x800C;&#x662F;&#x6280;&#x672F;&#x5B9E;&#x73B0;&#x9700;&#x8981;&#xFF09;&#x7684;&#x4E8B;&#x4EF6;&#x4F5C;&#x4E3A;&#x7528;&#x4F8B;&#xFF08;&#x4F8B;&#x5982;&#xFF0C;&#x767B;&#x5F55;&#xFF08;&#x5B89;&#x5168;&#x6027;&#x9700;&#x6C42;&#xFF09;&#x3001;&#x8F93;&#x5165;/&#x8F93;&#x5165;&#x6570;&#x636E;&#x68C0;&#x67E5;&#xFF08;&#x6570;&#x636E;&#x9700;&#x6C42;&#x6216;&#x8005;&#x4E1A;&#x52A1;&#x89C4;&#x5219;&#xFF09;&#x3001;&#x8FDE;&#x63A5;&#x6570;&#x636E;&#x5E93;&#x3001;&#x7F51;&#x7EDC;&#x4F20;&#x8F93;&#x7B49;&#x7B49;&#xFF09;</strong><br>
+<strong>&#x4E0D;&#x8981;&#x5C06;&#x6CA1;&#x6709;&#x72EC;&#x7ACB;&#x4E1A;&#x52A1;&#x4EF7;&#x503C;&#x7684;&#x5355;&#x4E2A;&#x64CD;&#x4F5C;&#xFF08;&#x4EC5;&#x4EC5;&#x662F;&#x6280;&#x672F;&#x5B9E;&#x73B0;&#x4E0A;&#x72EC;&#x7ACB;&#xFF09;&#x4F5C;&#x4E3A;&#x7528;&#x4F8B;&#xFF0C;&#x4F8B;&#x5982;&#x5220;&#x9664;&#x3001;&#x589E;&#x52A0;&#x3001;&#x4FEE;&#x6539;&#x3001;&#x4FDD;&#x5B58;</strong></p>
 <blockquote>
-<p>总经理的目标有：特价策略制定、赠送策略制定两个用例的业务目的、发起源和过程基本相同，仅仅是业务数据不同，所以可以合并为一个用例销售策略制定。</p>
-<p>客户经理的目标有：会员管理用例有两个明显不同的业务事件，可以被细化为发展会员和礼品赠送2个更细粒度的用例。</p>
-<p>客户经理的库存管理用例也有三个不同的业务目标：出库、入库和库存分析，所以也应该细化为三个用例商品出库、商品入库和库存分析，其中库存分析用例与总经理的库存分析用例相同。</p>
+<p>&#x603B;&#x7ECF;&#x7406;&#x7684;&#x76EE;&#x6807;&#x6709;&#xFF1A;&#x7279;&#x4EF7;&#x7B56;&#x7565;&#x5236;&#x5B9A;&#x3001;&#x8D60;&#x9001;&#x7B56;&#x7565;&#x5236;&#x5B9A;&#x4E24;&#x4E2A;&#x7528;&#x4F8B;&#x7684;&#x4E1A;&#x52A1;&#x76EE;&#x7684;&#x3001;&#x53D1;&#x8D77;&#x6E90;&#x548C;&#x8FC7;&#x7A0B;&#x57FA;&#x672C;&#x76F8;&#x540C;&#xFF0C;&#x4EC5;&#x4EC5;&#x662F;&#x4E1A;&#x52A1;&#x6570;&#x636E;&#x4E0D;&#x540C;&#xFF0C;&#x6240;&#x4EE5;&#x53EF;&#x4EE5;&#x5408;&#x5E76;&#x4E3A;&#x4E00;&#x4E2A;&#x7528;&#x4F8B;&#x9500;&#x552E;&#x7B56;&#x7565;&#x5236;&#x5B9A;&#x3002;</p>
+<p>&#x5BA2;&#x6237;&#x7ECF;&#x7406;&#x7684;&#x76EE;&#x6807;&#x6709;&#xFF1A;&#x4F1A;&#x5458;&#x7BA1;&#x7406;&#x7528;&#x4F8B;&#x6709;&#x4E24;&#x4E2A;&#x660E;&#x663E;&#x4E0D;&#x540C;&#x7684;&#x4E1A;&#x52A1;&#x4E8B;&#x4EF6;&#xFF0C;&#x53EF;&#x4EE5;&#x88AB;&#x7EC6;&#x5316;&#x4E3A;&#x53D1;&#x5C55;&#x4F1A;&#x5458;&#x548C;&#x793C;&#x54C1;&#x8D60;&#x9001;2&#x4E2A;&#x66F4;&#x7EC6;&#x7C92;&#x5EA6;&#x7684;&#x7528;&#x4F8B;&#x3002;</p>
+<p>&#x5BA2;&#x6237;&#x7ECF;&#x7406;&#x7684;&#x5E93;&#x5B58;&#x7BA1;&#x7406;&#x7528;&#x4F8B;&#x4E5F;&#x6709;&#x4E09;&#x4E2A;&#x4E0D;&#x540C;&#x7684;&#x4E1A;&#x52A1;&#x76EE;&#x6807;&#xFF1A;&#x51FA;&#x5E93;&#x3001;&#x5165;&#x5E93;&#x548C;&#x5E93;&#x5B58;&#x5206;&#x6790;&#xFF0C;&#x6240;&#x4EE5;&#x4E5F;&#x5E94;&#x8BE5;&#x7EC6;&#x5316;&#x4E3A;&#x4E09;&#x4E2A;&#x7528;&#x4F8B;&#x5546;&#x54C1;&#x51FA;&#x5E93;&#x3001;&#x5546;&#x54C1;&#x5165;&#x5E93;&#x548C;&#x5E93;&#x5B58;&#x5206;&#x6790;&#xFF0C;&#x5176;&#x4E2D;&#x5E93;&#x5B58;&#x5206;&#x6790;&#x7528;&#x4F8B;&#x4E0E;&#x603B;&#x7ECF;&#x7406;&#x7684;&#x5E93;&#x5B58;&#x5206;&#x6790;&#x7528;&#x4F8B;&#x76F8;&#x540C;&#x3002;</p>
 </blockquote>
-<p>【常见错误】不要将用例细化为单个操作不要将单个步骤细化为用例不要将片面的一个方面细化为用例</p>
-<p><strong>不要将“登录”、“数据验证”、“连接数据库”等没有业务价值的内容作为用例</strong></p>
+<p>&#x3010;&#x5E38;&#x89C1;&#x9519;&#x8BEF;&#x3011;&#x4E0D;&#x8981;&#x5C06;&#x7528;&#x4F8B;&#x7EC6;&#x5316;&#x4E3A;&#x5355;&#x4E2A;&#x64CD;&#x4F5C;&#x4E0D;&#x8981;&#x5C06;&#x5355;&#x4E2A;&#x6B65;&#x9AA4;&#x7EC6;&#x5316;&#x4E3A;&#x7528;&#x4F8B;&#x4E0D;&#x8981;&#x5C06;&#x7247;&#x9762;&#x7684;&#x4E00;&#x4E2A;&#x65B9;&#x9762;&#x7EC6;&#x5316;&#x4E3A;&#x7528;&#x4F8B;</p>
+<p><strong>&#x4E0D;&#x8981;&#x5C06;&#x201C;&#x767B;&#x5F55;&#x201D;&#x3001;&#x201C;&#x6570;&#x636E;&#x9A8C;&#x8BC1;&#x201D;&#x3001;&#x201C;&#x8FDE;&#x63A5;&#x6570;&#x636E;&#x5E93;&#x201D;&#x7B49;&#x6CA1;&#x6709;&#x4E1A;&#x52A1;&#x4EF7;&#x503C;&#x7684;&#x5185;&#x5BB9;&#x4F5C;&#x4E3A;&#x7528;&#x4F8B;</strong></p>
 <blockquote>
-<p>【示例2】网上书店系统（OBS）是一个基于web的应用程序，允许用户浏览和购买网上产品。该应用程序支持网上购物车的概念，类似于其他网上零售商，<a target="_blank" rel="noopener" href="http://xn--Amazon-hh4k.com">如Amazon.com</a>,。该系统的结账功能将集成信用卡交易处理以及内部计费系统。该系统还提供管理员视图，允许授权的员工查看和管理产品、用户和订单。用户：购买、浏览 员工：查看用户、订单、产品 管理管理员：授权信用卡：结账 内部计费：结账</p>
-</blockquote>
-<blockquote>
-<p>注意：内部计费指的是单位内部，而不是系统内部</p>
-</blockquote>
-<p>示例</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/image-20230616145646089.png" alt=""></p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/image-20230616145704404.png" alt=""></p>
-<h2 id="2-建立分析类图（概念类图／领域模型）">2.建立分析类图（概念类图／领域模型）</h2>
-<p>注意：与设计类图有所不同，<strong>分析类图关注现实世界问题域，而不是软件系统的内部构造机制</strong>；</p>
-<p>类型、方法、可见性等复杂的软件构造细节不会在概念类图中，不允许出现与现实无关的内容对象：标识（对象自治、对象请求协作）、状态（存储数据，如密码、名称……）、行为（利用数据做什么）链接：对象间交互的路径（a拥有b的引用——a拥有b的可见性——a可以导航到b）</p>
-<p>类：对象的集合</p>
-<p>关联：潜在的链接抽象</p>
-<p>要写出分析的步骤：</p>
-<p>1）识别候选类（名词分析法）</p>
-<p>2）确定概念类 （<strong>看是否满足既有状态又有行为</strong>）<strong>既需要维持一定的状态，又需要依据状态表现一定的行为</strong></p>
-<p>——确定为一个概念类如只需要维护状态，不需要表现行为</p>
-<p>——其他概念类的属性不需要维护状态，却需要表现行为</p>
-<p>——首先重新审视需求是否有遗漏，<strong>因为没有状态支持的对象无法表现行为</strong>；</p>
-<p>如果确定没有需求的遗漏，就需要剔除该候选类，并将行为转交给具备状态支持能力的其他概念类既不需要维护状态，又不需要表现行为——应该被完全剔除</p>
-<p>3）识别关联（文本中提取出“名词＋动词＋名词”的结构）</p>
-<p>第一标准是满足需求的要求，第二标准是现实状况</p>
-<p>4）识别重要属性<br>
-概念类图只需要用到四种关系线：聚合关系不必可以使用，但是组合关系要适当的使用</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/image-20230616145741461.png" alt=""></p>
-<p>继承关系、组合关系、聚合关系、普通关联</p>
-<p>组合：整体的生命周期结束也就意味着部分的生命周期结束</p>
-<p>聚合：聚合的整体和部分之间在生命周期上没有什么必然的联系，部分对象可以在整体对象创建之前创建，也可以在整体对象销毁之后销毁。</p>
-<p>关联：在java语言中，关联关系一般表现为被关联类B以类属性的形式出现在关联类A中，也可能是关联类A引用了一个类型为被关联类B的全局变量；</p>
-<p><strong>组合&gt;聚合&gt;关联&gt;依赖</strong></p>
-<blockquote>
-<p>【示例1】</p>
-<p>1、如果是会员，收银员输入客户编号（属性、无行为）</p>
-<p>2、系统显示会员信息（就是会员），包括姓名（属性、无行为）与积分（属性、无行为）</p>
-<p>3、收银员输入商品标识（商品属性、无行为）</p>
-<p>4、系统记录并显示商品信息（有状态、有行为），商品信息包括商品标识、描述、数量、价格、特价（如果有商品特价策略的话）和本项商品总价（商品属性）</p>
-<p>5、系统显示已购入的商品清单（有状态、有行为），商品清单包括商品标识、描述、数量、价格、特价、各项商品总价和所有品总价（商品属性）</p>
-<p>收银员重复3-5步，直到完成所有商品的输入</p>
-<p>6、收银员结束输入，系统计算并显示总价（存储在账单中，有行为），计算根据总额特价策略（有状态、有行为）进行</p>
-<p>7、系统根据商品赠送策略和总额赠送策略计算并显示赠品清单（要），赠品清单包括各项赠品的标识、描述与数量（不要）</p>
-<p>8、收银员请顾客（就是会员）支付账单（有状态、有行为）</p>
-<p>9、顾客支付，收银员输入收取的现金数额（有属性、无行为、不要）</p>
-<p>10、系统给出应找的余额（有属性、无行为、不要），收银员找零</p>
-<p>11、收银员结束销售，系统记录销售信息（有状态、有行为）、商品清单、赠品清单和账单信息，并更新库存（有状态、有行为）</p>
-<p>12、系统打印收据（根据需求，如果是一次性就无状态无行为，如果是丢了还可以打印就有状态有行为）</p>
+<p>&#x3010;&#x793A;&#x4F8B;2&#x3011;&#x7F51;&#x4E0A;&#x4E66;&#x5E97;&#x7CFB;&#x7EDF;&#xFF08;OBS&#xFF09;&#x662F;&#x4E00;&#x4E2A;&#x57FA;&#x4E8E;web&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#xFF0C;&#x5141;&#x8BB8;&#x7528;&#x6237;&#x6D4F;&#x89C8;&#x548C;&#x8D2D;&#x4E70;&#x7F51;&#x4E0A;&#x4EA7;&#x54C1;&#x3002;&#x8BE5;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x652F;&#x6301;&#x7F51;&#x4E0A;&#x8D2D;&#x7269;&#x8F66;&#x7684;&#x6982;&#x5FF5;&#xFF0C;&#x7C7B;&#x4F3C;&#x4E8E;&#x5176;&#x4ED6;&#x7F51;&#x4E0A;&#x96F6;&#x552E;&#x5546;&#xFF0C;<a target="_blank" rel="noopener" href="http://xn--Amazon-hh4k.com">&#x5982;Amazon.com</a>,&#x3002;&#x8BE5;&#x7CFB;&#x7EDF;&#x7684;&#x7ED3;&#x8D26;&#x529F;&#x80FD;&#x5C06;&#x96C6;&#x6210;&#x4FE1;&#x7528;&#x5361;&#x4EA4;&#x6613;&#x5904;&#x7406;&#x4EE5;&#x53CA;&#x5185;&#x90E8;&#x8BA1;&#x8D39;&#x7CFB;&#x7EDF;&#x3002;&#x8BE5;&#x7CFB;&#x7EDF;&#x8FD8;&#x63D0;&#x4F9B;&#x7BA1;&#x7406;&#x5458;&#x89C6;&#x56FE;&#xFF0C;&#x5141;&#x8BB8;&#x6388;&#x6743;&#x7684;&#x5458;&#x5DE5;&#x67E5;&#x770B;&#x548C;&#x7BA1;&#x7406;&#x4EA7;&#x54C1;&#x3001;&#x7528;&#x6237;&#x548C;&#x8BA2;&#x5355;&#x3002;&#x7528;&#x6237;&#xFF1A;&#x8D2D;&#x4E70;&#x3001;&#x6D4F;&#x89C8; &#x5458;&#x5DE5;&#xFF1A;&#x67E5;&#x770B;&#x7528;&#x6237;&#x3001;&#x8BA2;&#x5355;&#x3001;&#x4EA7;&#x54C1; &#x7BA1;&#x7406;&#x7BA1;&#x7406;&#x5458;&#xFF1A;&#x6388;&#x6743;&#x4FE1;&#x7528;&#x5361;&#xFF1A;&#x7ED3;&#x8D26; &#x5185;&#x90E8;&#x8BA1;&#x8D39;&#xFF1A;&#x7ED3;&#x8D26;</p>
 </blockquote>
 <blockquote>
-<p>注意：一切看需求。</p>
-<p>（1）若商品ID必须符合标准，则ID有状态、有行为</p>
-<p>（2）若商品数量单位不同，则单位换算的职责交给数量，有状态、有行为</p>
-<p>（3）若商品价格按照国际汇率有不同定位，则价格有状态、有行为</p>
+<p>&#x6CE8;&#x610F;&#xFF1A;&#x5185;&#x90E8;&#x8BA1;&#x8D39;&#x6307;&#x7684;&#x662F;&#x5355;&#x4F4D;&#x5185;&#x90E8;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x7CFB;&#x7EDF;&#x5185;&#x90E8;</p>
+</blockquote>
+<p>&#x793A;&#x4F8B;</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/image-20230616145646089.png" alt></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/image-20230616145704404.png" alt></p>
+<h2 id="2-&#x5EFA;&#x7ACB;&#x5206;&#x6790;&#x7C7B;&#x56FE;&#xFF08;&#x6982;&#x5FF5;&#x7C7B;&#x56FE;&#xFF0F;&#x9886;&#x57DF;&#x6A21;&#x578B;&#xFF09;">2.&#x5EFA;&#x7ACB;&#x5206;&#x6790;&#x7C7B;&#x56FE;&#xFF08;&#x6982;&#x5FF5;&#x7C7B;&#x56FE;&#xFF0F;&#x9886;&#x57DF;&#x6A21;&#x578B;&#xFF09;</h2>
+<p>&#x6CE8;&#x610F;&#xFF1A;&#x4E0E;&#x8BBE;&#x8BA1;&#x7C7B;&#x56FE;&#x6709;&#x6240;&#x4E0D;&#x540C;&#xFF0C;<strong>&#x5206;&#x6790;&#x7C7B;&#x56FE;&#x5173;&#x6CE8;&#x73B0;&#x5B9E;&#x4E16;&#x754C;&#x95EE;&#x9898;&#x57DF;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x8F6F;&#x4EF6;&#x7CFB;&#x7EDF;&#x7684;&#x5185;&#x90E8;&#x6784;&#x9020;&#x673A;&#x5236;</strong>&#xFF1B;</p>
+<p>&#x7C7B;&#x578B;&#x3001;&#x65B9;&#x6CD5;&#x3001;&#x53EF;&#x89C1;&#x6027;&#x7B49;&#x590D;&#x6742;&#x7684;&#x8F6F;&#x4EF6;&#x6784;&#x9020;&#x7EC6;&#x8282;&#x4E0D;&#x4F1A;&#x5728;&#x6982;&#x5FF5;&#x7C7B;&#x56FE;&#x4E2D;&#xFF0C;&#x4E0D;&#x5141;&#x8BB8;&#x51FA;&#x73B0;&#x4E0E;&#x73B0;&#x5B9E;&#x65E0;&#x5173;&#x7684;&#x5185;&#x5BB9;&#x5BF9;&#x8C61;&#xFF1A;&#x6807;&#x8BC6;&#xFF08;&#x5BF9;&#x8C61;&#x81EA;&#x6CBB;&#x3001;&#x5BF9;&#x8C61;&#x8BF7;&#x6C42;&#x534F;&#x4F5C;&#xFF09;&#x3001;&#x72B6;&#x6001;&#xFF08;&#x5B58;&#x50A8;&#x6570;&#x636E;&#xFF0C;&#x5982;&#x5BC6;&#x7801;&#x3001;&#x540D;&#x79F0;&#x2026;&#x2026;&#xFF09;&#x3001;&#x884C;&#x4E3A;&#xFF08;&#x5229;&#x7528;&#x6570;&#x636E;&#x505A;&#x4EC0;&#x4E48;&#xFF09;&#x94FE;&#x63A5;&#xFF1A;&#x5BF9;&#x8C61;&#x95F4;&#x4EA4;&#x4E92;&#x7684;&#x8DEF;&#x5F84;&#xFF08;a&#x62E5;&#x6709;b&#x7684;&#x5F15;&#x7528;&#x2014;&#x2014;a&#x62E5;&#x6709;b&#x7684;&#x53EF;&#x89C1;&#x6027;&#x2014;&#x2014;a&#x53EF;&#x4EE5;&#x5BFC;&#x822A;&#x5230;b&#xFF09;</p>
+<p>&#x7C7B;&#xFF1A;&#x5BF9;&#x8C61;&#x7684;&#x96C6;&#x5408;</p>
+<p>&#x5173;&#x8054;&#xFF1A;&#x6F5C;&#x5728;&#x7684;&#x94FE;&#x63A5;&#x62BD;&#x8C61;</p>
+<p>&#x8981;&#x5199;&#x51FA;&#x5206;&#x6790;&#x7684;&#x6B65;&#x9AA4;&#xFF1A;</p>
+<p>1&#xFF09;&#x8BC6;&#x522B;&#x5019;&#x9009;&#x7C7B;&#xFF08;&#x540D;&#x8BCD;&#x5206;&#x6790;&#x6CD5;&#xFF09;</p>
+<p>2&#xFF09;&#x786E;&#x5B9A;&#x6982;&#x5FF5;&#x7C7B; &#xFF08;<strong>&#x770B;&#x662F;&#x5426;&#x6EE1;&#x8DB3;&#x65E2;&#x6709;&#x72B6;&#x6001;&#x53C8;&#x6709;&#x884C;&#x4E3A;</strong>&#xFF09;<strong>&#x65E2;&#x9700;&#x8981;&#x7EF4;&#x6301;&#x4E00;&#x5B9A;&#x7684;&#x72B6;&#x6001;&#xFF0C;&#x53C8;&#x9700;&#x8981;&#x4F9D;&#x636E;&#x72B6;&#x6001;&#x8868;&#x73B0;&#x4E00;&#x5B9A;&#x7684;&#x884C;&#x4E3A;</strong></p>
+<p>&#x2014;&#x2014;&#x786E;&#x5B9A;&#x4E3A;&#x4E00;&#x4E2A;&#x6982;&#x5FF5;&#x7C7B;&#x5982;&#x53EA;&#x9700;&#x8981;&#x7EF4;&#x62A4;&#x72B6;&#x6001;&#xFF0C;&#x4E0D;&#x9700;&#x8981;&#x8868;&#x73B0;&#x884C;&#x4E3A;</p>
+<p>&#x2014;&#x2014;&#x5176;&#x4ED6;&#x6982;&#x5FF5;&#x7C7B;&#x7684;&#x5C5E;&#x6027;&#x4E0D;&#x9700;&#x8981;&#x7EF4;&#x62A4;&#x72B6;&#x6001;&#xFF0C;&#x5374;&#x9700;&#x8981;&#x8868;&#x73B0;&#x884C;&#x4E3A;</p>
+<p>&#x2014;&#x2014;&#x9996;&#x5148;&#x91CD;&#x65B0;&#x5BA1;&#x89C6;&#x9700;&#x6C42;&#x662F;&#x5426;&#x6709;&#x9057;&#x6F0F;&#xFF0C;<strong>&#x56E0;&#x4E3A;&#x6CA1;&#x6709;&#x72B6;&#x6001;&#x652F;&#x6301;&#x7684;&#x5BF9;&#x8C61;&#x65E0;&#x6CD5;&#x8868;&#x73B0;&#x884C;&#x4E3A;</strong>&#xFF1B;</p>
+<p>&#x5982;&#x679C;&#x786E;&#x5B9A;&#x6CA1;&#x6709;&#x9700;&#x6C42;&#x7684;&#x9057;&#x6F0F;&#xFF0C;&#x5C31;&#x9700;&#x8981;&#x5254;&#x9664;&#x8BE5;&#x5019;&#x9009;&#x7C7B;&#xFF0C;&#x5E76;&#x5C06;&#x884C;&#x4E3A;&#x8F6C;&#x4EA4;&#x7ED9;&#x5177;&#x5907;&#x72B6;&#x6001;&#x652F;&#x6301;&#x80FD;&#x529B;&#x7684;&#x5176;&#x4ED6;&#x6982;&#x5FF5;&#x7C7B;&#x65E2;&#x4E0D;&#x9700;&#x8981;&#x7EF4;&#x62A4;&#x72B6;&#x6001;&#xFF0C;&#x53C8;&#x4E0D;&#x9700;&#x8981;&#x8868;&#x73B0;&#x884C;&#x4E3A;&#x2014;&#x2014;&#x5E94;&#x8BE5;&#x88AB;&#x5B8C;&#x5168;&#x5254;&#x9664;</p>
+<p>3&#xFF09;&#x8BC6;&#x522B;&#x5173;&#x8054;&#xFF08;&#x6587;&#x672C;&#x4E2D;&#x63D0;&#x53D6;&#x51FA;&#x201C;&#x540D;&#x8BCD;&#xFF0B;&#x52A8;&#x8BCD;&#xFF0B;&#x540D;&#x8BCD;&#x201D;&#x7684;&#x7ED3;&#x6784;&#xFF09;</p>
+<p>&#x7B2C;&#x4E00;&#x6807;&#x51C6;&#x662F;&#x6EE1;&#x8DB3;&#x9700;&#x6C42;&#x7684;&#x8981;&#x6C42;&#xFF0C;&#x7B2C;&#x4E8C;&#x6807;&#x51C6;&#x662F;&#x73B0;&#x5B9E;&#x72B6;&#x51B5;</p>
+<p>4&#xFF09;&#x8BC6;&#x522B;&#x91CD;&#x8981;&#x5C5E;&#x6027;<br>
+&#x6982;&#x5FF5;&#x7C7B;&#x56FE;&#x53EA;&#x9700;&#x8981;&#x7528;&#x5230;&#x56DB;&#x79CD;&#x5173;&#x7CFB;&#x7EBF;&#xFF1A;&#x805A;&#x5408;&#x5173;&#x7CFB;&#x4E0D;&#x5FC5;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#xFF0C;&#x4F46;&#x662F;&#x7EC4;&#x5408;&#x5173;&#x7CFB;&#x8981;&#x9002;&#x5F53;&#x7684;&#x4F7F;&#x7528;</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/image-20230616145741461.png" alt></p>
+<p>&#x7EE7;&#x627F;&#x5173;&#x7CFB;&#x3001;&#x7EC4;&#x5408;&#x5173;&#x7CFB;&#x3001;&#x805A;&#x5408;&#x5173;&#x7CFB;&#x3001;&#x666E;&#x901A;&#x5173;&#x8054;</p>
+<p>&#x7EC4;&#x5408;&#xFF1A;&#x6574;&#x4F53;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x7ED3;&#x675F;&#x4E5F;&#x5C31;&#x610F;&#x5473;&#x7740;&#x90E8;&#x5206;&#x7684;&#x751F;&#x547D;&#x5468;&#x671F;&#x7ED3;&#x675F;</p>
+<p>&#x805A;&#x5408;&#xFF1A;&#x805A;&#x5408;&#x7684;&#x6574;&#x4F53;&#x548C;&#x90E8;&#x5206;&#x4E4B;&#x95F4;&#x5728;&#x751F;&#x547D;&#x5468;&#x671F;&#x4E0A;&#x6CA1;&#x6709;&#x4EC0;&#x4E48;&#x5FC5;&#x7136;&#x7684;&#x8054;&#x7CFB;&#xFF0C;&#x90E8;&#x5206;&#x5BF9;&#x8C61;&#x53EF;&#x4EE5;&#x5728;&#x6574;&#x4F53;&#x5BF9;&#x8C61;&#x521B;&#x5EFA;&#x4E4B;&#x524D;&#x521B;&#x5EFA;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x5728;&#x6574;&#x4F53;&#x5BF9;&#x8C61;&#x9500;&#x6BC1;&#x4E4B;&#x540E;&#x9500;&#x6BC1;&#x3002;</p>
+<p>&#x5173;&#x8054;&#xFF1A;&#x5728;java&#x8BED;&#x8A00;&#x4E2D;&#xFF0C;&#x5173;&#x8054;&#x5173;&#x7CFB;&#x4E00;&#x822C;&#x8868;&#x73B0;&#x4E3A;&#x88AB;&#x5173;&#x8054;&#x7C7B;B&#x4EE5;&#x7C7B;&#x5C5E;&#x6027;&#x7684;&#x5F62;&#x5F0F;&#x51FA;&#x73B0;&#x5728;&#x5173;&#x8054;&#x7C7B;A&#x4E2D;&#xFF0C;&#x4E5F;&#x53EF;&#x80FD;&#x662F;&#x5173;&#x8054;&#x7C7B;A&#x5F15;&#x7528;&#x4E86;&#x4E00;&#x4E2A;&#x7C7B;&#x578B;&#x4E3A;&#x88AB;&#x5173;&#x8054;&#x7C7B;B&#x7684;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#xFF1B;</p>
+<p><strong>&#x7EC4;&#x5408;&gt;&#x805A;&#x5408;&gt;&#x5173;&#x8054;&gt;&#x4F9D;&#x8D56;</strong></p>
+<blockquote>
+<p>&#x3010;&#x793A;&#x4F8B;1&#x3011;</p>
+<p>1&#x3001;&#x5982;&#x679C;&#x662F;&#x4F1A;&#x5458;&#xFF0C;&#x6536;&#x94F6;&#x5458;&#x8F93;&#x5165;&#x5BA2;&#x6237;&#x7F16;&#x53F7;&#xFF08;&#x5C5E;&#x6027;&#x3001;&#x65E0;&#x884C;&#x4E3A;&#xFF09;</p>
+<p>2&#x3001;&#x7CFB;&#x7EDF;&#x663E;&#x793A;&#x4F1A;&#x5458;&#x4FE1;&#x606F;&#xFF08;&#x5C31;&#x662F;&#x4F1A;&#x5458;&#xFF09;&#xFF0C;&#x5305;&#x62EC;&#x59D3;&#x540D;&#xFF08;&#x5C5E;&#x6027;&#x3001;&#x65E0;&#x884C;&#x4E3A;&#xFF09;&#x4E0E;&#x79EF;&#x5206;&#xFF08;&#x5C5E;&#x6027;&#x3001;&#x65E0;&#x884C;&#x4E3A;&#xFF09;</p>
+<p>3&#x3001;&#x6536;&#x94F6;&#x5458;&#x8F93;&#x5165;&#x5546;&#x54C1;&#x6807;&#x8BC6;&#xFF08;&#x5546;&#x54C1;&#x5C5E;&#x6027;&#x3001;&#x65E0;&#x884C;&#x4E3A;&#xFF09;</p>
+<p>4&#x3001;&#x7CFB;&#x7EDF;&#x8BB0;&#x5F55;&#x5E76;&#x663E;&#x793A;&#x5546;&#x54C1;&#x4FE1;&#x606F;&#xFF08;&#x6709;&#x72B6;&#x6001;&#x3001;&#x6709;&#x884C;&#x4E3A;&#xFF09;&#xFF0C;&#x5546;&#x54C1;&#x4FE1;&#x606F;&#x5305;&#x62EC;&#x5546;&#x54C1;&#x6807;&#x8BC6;&#x3001;&#x63CF;&#x8FF0;&#x3001;&#x6570;&#x91CF;&#x3001;&#x4EF7;&#x683C;&#x3001;&#x7279;&#x4EF7;&#xFF08;&#x5982;&#x679C;&#x6709;&#x5546;&#x54C1;&#x7279;&#x4EF7;&#x7B56;&#x7565;&#x7684;&#x8BDD;&#xFF09;&#x548C;&#x672C;&#x9879;&#x5546;&#x54C1;&#x603B;&#x4EF7;&#xFF08;&#x5546;&#x54C1;&#x5C5E;&#x6027;&#xFF09;</p>
+<p>5&#x3001;&#x7CFB;&#x7EDF;&#x663E;&#x793A;&#x5DF2;&#x8D2D;&#x5165;&#x7684;&#x5546;&#x54C1;&#x6E05;&#x5355;&#xFF08;&#x6709;&#x72B6;&#x6001;&#x3001;&#x6709;&#x884C;&#x4E3A;&#xFF09;&#xFF0C;&#x5546;&#x54C1;&#x6E05;&#x5355;&#x5305;&#x62EC;&#x5546;&#x54C1;&#x6807;&#x8BC6;&#x3001;&#x63CF;&#x8FF0;&#x3001;&#x6570;&#x91CF;&#x3001;&#x4EF7;&#x683C;&#x3001;&#x7279;&#x4EF7;&#x3001;&#x5404;&#x9879;&#x5546;&#x54C1;&#x603B;&#x4EF7;&#x548C;&#x6240;&#x6709;&#x54C1;&#x603B;&#x4EF7;&#xFF08;&#x5546;&#x54C1;&#x5C5E;&#x6027;&#xFF09;</p>
+<p>&#x6536;&#x94F6;&#x5458;&#x91CD;&#x590D;3-5&#x6B65;&#xFF0C;&#x76F4;&#x5230;&#x5B8C;&#x6210;&#x6240;&#x6709;&#x5546;&#x54C1;&#x7684;&#x8F93;&#x5165;</p>
+<p>6&#x3001;&#x6536;&#x94F6;&#x5458;&#x7ED3;&#x675F;&#x8F93;&#x5165;&#xFF0C;&#x7CFB;&#x7EDF;&#x8BA1;&#x7B97;&#x5E76;&#x663E;&#x793A;&#x603B;&#x4EF7;&#xFF08;&#x5B58;&#x50A8;&#x5728;&#x8D26;&#x5355;&#x4E2D;&#xFF0C;&#x6709;&#x884C;&#x4E3A;&#xFF09;&#xFF0C;&#x8BA1;&#x7B97;&#x6839;&#x636E;&#x603B;&#x989D;&#x7279;&#x4EF7;&#x7B56;&#x7565;&#xFF08;&#x6709;&#x72B6;&#x6001;&#x3001;&#x6709;&#x884C;&#x4E3A;&#xFF09;&#x8FDB;&#x884C;</p>
+<p>7&#x3001;&#x7CFB;&#x7EDF;&#x6839;&#x636E;&#x5546;&#x54C1;&#x8D60;&#x9001;&#x7B56;&#x7565;&#x548C;&#x603B;&#x989D;&#x8D60;&#x9001;&#x7B56;&#x7565;&#x8BA1;&#x7B97;&#x5E76;&#x663E;&#x793A;&#x8D60;&#x54C1;&#x6E05;&#x5355;&#xFF08;&#x8981;&#xFF09;&#xFF0C;&#x8D60;&#x54C1;&#x6E05;&#x5355;&#x5305;&#x62EC;&#x5404;&#x9879;&#x8D60;&#x54C1;&#x7684;&#x6807;&#x8BC6;&#x3001;&#x63CF;&#x8FF0;&#x4E0E;&#x6570;&#x91CF;&#xFF08;&#x4E0D;&#x8981;&#xFF09;</p>
+<p>8&#x3001;&#x6536;&#x94F6;&#x5458;&#x8BF7;&#x987E;&#x5BA2;&#xFF08;&#x5C31;&#x662F;&#x4F1A;&#x5458;&#xFF09;&#x652F;&#x4ED8;&#x8D26;&#x5355;&#xFF08;&#x6709;&#x72B6;&#x6001;&#x3001;&#x6709;&#x884C;&#x4E3A;&#xFF09;</p>
+<p>9&#x3001;&#x987E;&#x5BA2;&#x652F;&#x4ED8;&#xFF0C;&#x6536;&#x94F6;&#x5458;&#x8F93;&#x5165;&#x6536;&#x53D6;&#x7684;&#x73B0;&#x91D1;&#x6570;&#x989D;&#xFF08;&#x6709;&#x5C5E;&#x6027;&#x3001;&#x65E0;&#x884C;&#x4E3A;&#x3001;&#x4E0D;&#x8981;&#xFF09;</p>
+<p>10&#x3001;&#x7CFB;&#x7EDF;&#x7ED9;&#x51FA;&#x5E94;&#x627E;&#x7684;&#x4F59;&#x989D;&#xFF08;&#x6709;&#x5C5E;&#x6027;&#x3001;&#x65E0;&#x884C;&#x4E3A;&#x3001;&#x4E0D;&#x8981;&#xFF09;&#xFF0C;&#x6536;&#x94F6;&#x5458;&#x627E;&#x96F6;</p>
+<p>11&#x3001;&#x6536;&#x94F6;&#x5458;&#x7ED3;&#x675F;&#x9500;&#x552E;&#xFF0C;&#x7CFB;&#x7EDF;&#x8BB0;&#x5F55;&#x9500;&#x552E;&#x4FE1;&#x606F;&#xFF08;&#x6709;&#x72B6;&#x6001;&#x3001;&#x6709;&#x884C;&#x4E3A;&#xFF09;&#x3001;&#x5546;&#x54C1;&#x6E05;&#x5355;&#x3001;&#x8D60;&#x54C1;&#x6E05;&#x5355;&#x548C;&#x8D26;&#x5355;&#x4FE1;&#x606F;&#xFF0C;&#x5E76;&#x66F4;&#x65B0;&#x5E93;&#x5B58;&#xFF08;&#x6709;&#x72B6;&#x6001;&#x3001;&#x6709;&#x884C;&#x4E3A;&#xFF09;</p>
+<p>12&#x3001;&#x7CFB;&#x7EDF;&#x6253;&#x5370;&#x6536;&#x636E;&#xFF08;&#x6839;&#x636E;&#x9700;&#x6C42;&#xFF0C;&#x5982;&#x679C;&#x662F;&#x4E00;&#x6B21;&#x6027;&#x5C31;&#x65E0;&#x72B6;&#x6001;&#x65E0;&#x884C;&#x4E3A;&#xFF0C;&#x5982;&#x679C;&#x662F;&#x4E22;&#x4E86;&#x8FD8;&#x53EF;&#x4EE5;&#x6253;&#x5370;&#x5C31;&#x6709;&#x72B6;&#x6001;&#x6709;&#x884C;&#x4E3A;&#xFF09;</p>
 </blockquote>
 <blockquote>
-<p>【示例2】ATM系统通过显示屏，输入键盘（有数字和特殊输入按键），银行卡读卡器，存款插槽，收据打印机等与用户交互。客户使用ATM机存款，取款，余额查询，对账户的更新交由账户系统的一个接口来处理。安全系统将为每个客户分配一个PIN码和安全级别。每次事物执行之前都需要验证PIN码。将来，银行计划使用ATM机支持一些常规操作，例如使用地址和电话号码修改。<br>
-分析：显示器、按键、读卡器、存款插槽、收据打印机 不属于</p>
-<p>现实世界客户：属性：PIN、地址、电话号码、安全级别账户：余额   交易</p>
+<p>&#x6CE8;&#x610F;&#xFF1A;&#x4E00;&#x5207;&#x770B;&#x9700;&#x6C42;&#x3002;</p>
+<p>&#xFF08;1&#xFF09;&#x82E5;&#x5546;&#x54C1;ID&#x5FC5;&#x987B;&#x7B26;&#x5408;&#x6807;&#x51C6;&#xFF0C;&#x5219;ID&#x6709;&#x72B6;&#x6001;&#x3001;&#x6709;&#x884C;&#x4E3A;</p>
+<p>&#xFF08;2&#xFF09;&#x82E5;&#x5546;&#x54C1;&#x6570;&#x91CF;&#x5355;&#x4F4D;&#x4E0D;&#x540C;&#xFF0C;&#x5219;&#x5355;&#x4F4D;&#x6362;&#x7B97;&#x7684;&#x804C;&#x8D23;&#x4EA4;&#x7ED9;&#x6570;&#x91CF;&#xFF0C;&#x6709;&#x72B6;&#x6001;&#x3001;&#x6709;&#x884C;&#x4E3A;</p>
+<p>&#xFF08;3&#xFF09;&#x82E5;&#x5546;&#x54C1;&#x4EF7;&#x683C;&#x6309;&#x7167;&#x56FD;&#x9645;&#x6C47;&#x7387;&#x6709;&#x4E0D;&#x540C;&#x5B9A;&#x4F4D;&#xFF0C;&#x5219;&#x4EF7;&#x683C;&#x6709;&#x72B6;&#x6001;&#x3001;&#x6709;&#x884C;&#x4E3A;</p>
 </blockquote>
-<p>【示例3】</p>
+<blockquote>
+<p>&#x3010;&#x793A;&#x4F8B;2&#x3011;ATM&#x7CFB;&#x7EDF;&#x901A;&#x8FC7;&#x663E;&#x793A;&#x5C4F;&#xFF0C;&#x8F93;&#x5165;&#x952E;&#x76D8;&#xFF08;&#x6709;&#x6570;&#x5B57;&#x548C;&#x7279;&#x6B8A;&#x8F93;&#x5165;&#x6309;&#x952E;&#xFF09;&#xFF0C;&#x94F6;&#x884C;&#x5361;&#x8BFB;&#x5361;&#x5668;&#xFF0C;&#x5B58;&#x6B3E;&#x63D2;&#x69FD;&#xFF0C;&#x6536;&#x636E;&#x6253;&#x5370;&#x673A;&#x7B49;&#x4E0E;&#x7528;&#x6237;&#x4EA4;&#x4E92;&#x3002;&#x5BA2;&#x6237;&#x4F7F;&#x7528;ATM&#x673A;&#x5B58;&#x6B3E;&#xFF0C;&#x53D6;&#x6B3E;&#xFF0C;&#x4F59;&#x989D;&#x67E5;&#x8BE2;&#xFF0C;&#x5BF9;&#x8D26;&#x6237;&#x7684;&#x66F4;&#x65B0;&#x4EA4;&#x7531;&#x8D26;&#x6237;&#x7CFB;&#x7EDF;&#x7684;&#x4E00;&#x4E2A;&#x63A5;&#x53E3;&#x6765;&#x5904;&#x7406;&#x3002;&#x5B89;&#x5168;&#x7CFB;&#x7EDF;&#x5C06;&#x4E3A;&#x6BCF;&#x4E2A;&#x5BA2;&#x6237;&#x5206;&#x914D;&#x4E00;&#x4E2A;PIN&#x7801;&#x548C;&#x5B89;&#x5168;&#x7EA7;&#x522B;&#x3002;&#x6BCF;&#x6B21;&#x4E8B;&#x7269;&#x6267;&#x884C;&#x4E4B;&#x524D;&#x90FD;&#x9700;&#x8981;&#x9A8C;&#x8BC1;PIN&#x7801;&#x3002;&#x5C06;&#x6765;&#xFF0C;&#x94F6;&#x884C;&#x8BA1;&#x5212;&#x4F7F;&#x7528;ATM&#x673A;&#x652F;&#x6301;&#x4E00;&#x4E9B;&#x5E38;&#x89C4;&#x64CD;&#x4F5C;&#xFF0C;&#x4F8B;&#x5982;&#x4F7F;&#x7528;&#x5730;&#x5740;&#x548C;&#x7535;&#x8BDD;&#x53F7;&#x7801;&#x4FEE;&#x6539;&#x3002;<br>
+&#x5206;&#x6790;&#xFF1A;&#x663E;&#x793A;&#x5668;&#x3001;&#x6309;&#x952E;&#x3001;&#x8BFB;&#x5361;&#x5668;&#x3001;&#x5B58;&#x6B3E;&#x63D2;&#x69FD;&#x3001;&#x6536;&#x636E;&#x6253;&#x5370;&#x673A; &#x4E0D;&#x5C5E;&#x4E8E;</p>
+<p>&#x73B0;&#x5B9E;&#x4E16;&#x754C;&#x5BA2;&#x6237;&#xFF1A;&#x5C5E;&#x6027;&#xFF1A;PIN&#x3001;&#x5730;&#x5740;&#x3001;&#x7535;&#x8BDD;&#x53F7;&#x7801;&#x3001;&#x5B89;&#x5168;&#x7EA7;&#x522B;&#x8D26;&#x6237;&#xFF1A;&#x4F59;&#x989D;   &#x4EA4;&#x6613;</p>
+</blockquote>
+<p>&#x3010;&#x793A;&#x4F8B;3&#x3011;</p>
 <blockquote>
 <ol>
 <li>
-<p>顾客向系统提起查询请求</p>
+<p>&#x987E;&#x5BA2;&#x5411;&#x7CFB;&#x7EDF;&#x63D0;&#x8D77;&#x67E5;&#x8BE2;&#x8BF7;&#x6C42;</p>
 </li>
 <li>
-<p>系统根据请求为顾客提供一个CD的推荐列表</p>
+<p>&#x7CFB;&#x7EDF;&#x6839;&#x636E;&#x8BF7;&#x6C42;&#x4E3A;&#x987E;&#x5BA2;&#x63D0;&#x4F9B;&#x4E00;&#x4E2A;CD&#x7684;&#x63A8;&#x8350;&#x5217;&#x8868;</p>
 </li>
 <li>
-<p>顾客在推荐列表中选定一个CD，然后要求查看更详细的信息</p>
+<p>&#x987E;&#x5BA2;&#x5728;&#x63A8;&#x8350;&#x5217;&#x8868;&#x4E2D;&#x9009;&#x5B9A;&#x4E00;&#x4E2A;CD&#xFF0C;&#x7136;&#x540E;&#x8981;&#x6C42;&#x67E5;&#x770B;&#x66F4;&#x8BE6;&#x7EC6;&#x7684;&#x4FE1;&#x606F;</p>
 </li>
 <li>
-<p>系统为顾客提供选定CD的详细信息</p>
+<p>&#x7CFB;&#x7EDF;&#x4E3A;&#x987E;&#x5BA2;&#x63D0;&#x4F9B;&#x9009;&#x5B9A;CD&#x7684;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;</p>
 </li>
 <li>
-<p>顾客购买选定CD.</p>
+<p>&#x987E;&#x5BA2;&#x8D2D;&#x4E70;&#x9009;&#x5B9A;CD.</p>
 </li>
 <li>
-<p>顾客离开</p>
+<p>&#x987E;&#x5BA2;&#x79BB;&#x5F00;</p>
 </li>
 <li>
-<p>分析：</p>
-<p>查询请求：有状态、有行为</p>
-<p>顾客和CD：看需求，不确定是否存储详细信息</p>
-<p>推荐列表：有状态、有行为（增删改）</p>
+<p>&#x5206;&#x6790;&#xFF1A;</p>
+<p>&#x67E5;&#x8BE2;&#x8BF7;&#x6C42;&#xFF1A;&#x6709;&#x72B6;&#x6001;&#x3001;&#x6709;&#x884C;&#x4E3A;</p>
+<p>&#x987E;&#x5BA2;&#x548C;CD&#xFF1A;&#x770B;&#x9700;&#x6C42;&#xFF0C;&#x4E0D;&#x786E;&#x5B9A;&#x662F;&#x5426;&#x5B58;&#x50A8;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;</p>
+<p>&#x63A8;&#x8350;&#x5217;&#x8868;&#xFF1A;&#x6709;&#x72B6;&#x6001;&#x3001;&#x6709;&#x884C;&#x4E3A;&#xFF08;&#x589E;&#x5220;&#x6539;&#xFF09;</p>
 </li>
 </ol>
 </blockquote>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/image-20230616145820828.png" alt=""></p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/image-20230616145847178.png" alt=""></p>
-<h2 id="3-建立系统顺序图（交互图）">3.建立系统顺序图（交互图）</h2>
-<p>步骤：</p>
-<p>1）确定上下文环境</p>
-<p>2）根据用例描述找到交互对象</p>
-<p>3）按照用例描述中的流程顺序逐步添加消息同步消息、异步消息、返回消息</p>
-<p>注意：</p>
-<p>（1）异步消息的箭头无论是从用户到系统还是从系统到用户都是一样的</p>
-<p>（2）opt标签表示可选；</p>
-<p>​	loop标签表示循环，要在旁边用［］内写循环条件；</p>
-<p>​	alt标签表示候选（基本上只会放一次返回消息），每一种可选分支之间要用虚线分割，而且在表示执行态的圆柱上面要写监护条件，放在［］里面。</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/image-20230616145921830.png" alt=""></p>
-<h2 id="4-建立状态图">4.建立状态图</h2>
-<p>状态: 一组观察到的情况，在一个给定的时间描述系统行为状态转换: 从一个状态到另一个状态的转移事件: 导致系统表现出可预测行为的事件活动:</p>
-<p>作为产生转换的结果而发生的过程步骤：</p>
-<p>1）确定上下文环境</p>
-<p>2）识别状态</p>
-<p>3）建立状态转换</p>
-<p>4）补充详细信息，完善状态图</p>
-<p>注意：并不是所有的状态图都有开始态和结束态，<strong>开始态通常只有一个，结束态可以有多个</strong></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/image-20230616145820828.png" alt></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/image-20230616145847178.png" alt></p>
+<h2 id="3-&#x5EFA;&#x7ACB;&#x7CFB;&#x7EDF;&#x987A;&#x5E8F;&#x56FE;&#xFF08;&#x4EA4;&#x4E92;&#x56FE;&#xFF09;">3.&#x5EFA;&#x7ACB;&#x7CFB;&#x7EDF;&#x987A;&#x5E8F;&#x56FE;&#xFF08;&#x4EA4;&#x4E92;&#x56FE;&#xFF09;</h2>
+<p>&#x6B65;&#x9AA4;&#xFF1A;</p>
+<p>1&#xFF09;&#x786E;&#x5B9A;&#x4E0A;&#x4E0B;&#x6587;&#x73AF;&#x5883;</p>
+<p>2&#xFF09;&#x6839;&#x636E;&#x7528;&#x4F8B;&#x63CF;&#x8FF0;&#x627E;&#x5230;&#x4EA4;&#x4E92;&#x5BF9;&#x8C61;</p>
+<p>3&#xFF09;&#x6309;&#x7167;&#x7528;&#x4F8B;&#x63CF;&#x8FF0;&#x4E2D;&#x7684;&#x6D41;&#x7A0B;&#x987A;&#x5E8F;&#x9010;&#x6B65;&#x6DFB;&#x52A0;&#x6D88;&#x606F;&#x540C;&#x6B65;&#x6D88;&#x606F;&#x3001;&#x5F02;&#x6B65;&#x6D88;&#x606F;&#x3001;&#x8FD4;&#x56DE;&#x6D88;&#x606F;</p>
+<p>&#x6CE8;&#x610F;&#xFF1A;</p>
+<p>&#xFF08;1&#xFF09;&#x5F02;&#x6B65;&#x6D88;&#x606F;&#x7684;&#x7BAD;&#x5934;&#x65E0;&#x8BBA;&#x662F;&#x4ECE;&#x7528;&#x6237;&#x5230;&#x7CFB;&#x7EDF;&#x8FD8;&#x662F;&#x4ECE;&#x7CFB;&#x7EDF;&#x5230;&#x7528;&#x6237;&#x90FD;&#x662F;&#x4E00;&#x6837;&#x7684;</p>
+<p>&#xFF08;2&#xFF09;opt&#x6807;&#x7B7E;&#x8868;&#x793A;&#x53EF;&#x9009;&#xFF1B;</p>
+<p>&#x200B;	loop&#x6807;&#x7B7E;&#x8868;&#x793A;&#x5FAA;&#x73AF;&#xFF0C;&#x8981;&#x5728;&#x65C1;&#x8FB9;&#x7528;&#xFF3B;&#xFF3D;&#x5185;&#x5199;&#x5FAA;&#x73AF;&#x6761;&#x4EF6;&#xFF1B;</p>
+<p>&#x200B;	alt&#x6807;&#x7B7E;&#x8868;&#x793A;&#x5019;&#x9009;&#xFF08;&#x57FA;&#x672C;&#x4E0A;&#x53EA;&#x4F1A;&#x653E;&#x4E00;&#x6B21;&#x8FD4;&#x56DE;&#x6D88;&#x606F;&#xFF09;&#xFF0C;&#x6BCF;&#x4E00;&#x79CD;&#x53EF;&#x9009;&#x5206;&#x652F;&#x4E4B;&#x95F4;&#x8981;&#x7528;&#x865A;&#x7EBF;&#x5206;&#x5272;&#xFF0C;&#x800C;&#x4E14;&#x5728;&#x8868;&#x793A;&#x6267;&#x884C;&#x6001;&#x7684;&#x5706;&#x67F1;&#x4E0A;&#x9762;&#x8981;&#x5199;&#x76D1;&#x62A4;&#x6761;&#x4EF6;&#xFF0C;&#x653E;&#x5728;&#xFF3B;&#xFF3D;&#x91CC;&#x9762;&#x3002;</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/image-20230616145921830.png" alt></p>
+<h2 id="4-&#x5EFA;&#x7ACB;&#x72B6;&#x6001;&#x56FE;">4.&#x5EFA;&#x7ACB;&#x72B6;&#x6001;&#x56FE;</h2>
+<p>&#x72B6;&#x6001;: &#x4E00;&#x7EC4;&#x89C2;&#x5BDF;&#x5230;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x5728;&#x4E00;&#x4E2A;&#x7ED9;&#x5B9A;&#x7684;&#x65F6;&#x95F4;&#x63CF;&#x8FF0;&#x7CFB;&#x7EDF;&#x884C;&#x4E3A;&#x72B6;&#x6001;&#x8F6C;&#x6362;: &#x4ECE;&#x4E00;&#x4E2A;&#x72B6;&#x6001;&#x5230;&#x53E6;&#x4E00;&#x4E2A;&#x72B6;&#x6001;&#x7684;&#x8F6C;&#x79FB;&#x4E8B;&#x4EF6;: &#x5BFC;&#x81F4;&#x7CFB;&#x7EDF;&#x8868;&#x73B0;&#x51FA;&#x53EF;&#x9884;&#x6D4B;&#x884C;&#x4E3A;&#x7684;&#x4E8B;&#x4EF6;&#x6D3B;&#x52A8;:</p>
+<p>&#x4F5C;&#x4E3A;&#x4EA7;&#x751F;&#x8F6C;&#x6362;&#x7684;&#x7ED3;&#x679C;&#x800C;&#x53D1;&#x751F;&#x7684;&#x8FC7;&#x7A0B;&#x6B65;&#x9AA4;&#xFF1A;</p>
+<p>1&#xFF09;&#x786E;&#x5B9A;&#x4E0A;&#x4E0B;&#x6587;&#x73AF;&#x5883;</p>
+<p>2&#xFF09;&#x8BC6;&#x522B;&#x72B6;&#x6001;</p>
+<p>3&#xFF09;&#x5EFA;&#x7ACB;&#x72B6;&#x6001;&#x8F6C;&#x6362;</p>
+<p>4&#xFF09;&#x8865;&#x5145;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;&#xFF0C;&#x5B8C;&#x5584;&#x72B6;&#x6001;&#x56FE;</p>
+<p>&#x6CE8;&#x610F;&#xFF1A;&#x5E76;&#x4E0D;&#x662F;&#x6240;&#x6709;&#x7684;&#x72B6;&#x6001;&#x56FE;&#x90FD;&#x6709;&#x5F00;&#x59CB;&#x6001;&#x548C;&#x7ED3;&#x675F;&#x6001;&#xFF0C;<strong>&#x5F00;&#x59CB;&#x6001;&#x901A;&#x5E38;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#xFF0C;&#x7ED3;&#x675F;&#x6001;&#x53EF;&#x4EE5;&#x6709;&#x591A;&#x4E2A;</strong></p>
 <blockquote>
-<p>【示例】明确状态图的主体：用例UC1销售处理。</p>
-<p>空闲状态（开始状态）：收银员已经登录和获得授权，但并没有请求开始销售工作的状态；</p>
-<p>销售开始状态：开始一个新销售事务，系统开始执行一个销售任务的状态；</p>
-<p>会员信息显示状态：输入了客户编号，系统显示该会员信息的状态；</p>
-<p>商品信息显示状态：刚刚输入了一个物品项，显示该物品（和赠品）描述信息的状态；</p>
-<p>列表显示状态：以列表方式显示所有已输入物品项（和赠品）信息的状态；</p>
-<p>错误提示状态：输入信息错误的状态；</p>
-<p>账单处理状态：输入结束，系统显示账单信息，收银员进行结帐处理的状态。</p>
-<p>销售结束状态：更新信息，打印收据的状态。</p>
+<p>&#x3010;&#x793A;&#x4F8B;&#x3011;&#x660E;&#x786E;&#x72B6;&#x6001;&#x56FE;&#x7684;&#x4E3B;&#x4F53;&#xFF1A;&#x7528;&#x4F8B;UC1&#x9500;&#x552E;&#x5904;&#x7406;&#x3002;</p>
+<p>&#x7A7A;&#x95F2;&#x72B6;&#x6001;&#xFF08;&#x5F00;&#x59CB;&#x72B6;&#x6001;&#xFF09;&#xFF1A;&#x6536;&#x94F6;&#x5458;&#x5DF2;&#x7ECF;&#x767B;&#x5F55;&#x548C;&#x83B7;&#x5F97;&#x6388;&#x6743;&#xFF0C;&#x4F46;&#x5E76;&#x6CA1;&#x6709;&#x8BF7;&#x6C42;&#x5F00;&#x59CB;&#x9500;&#x552E;&#x5DE5;&#x4F5C;&#x7684;&#x72B6;&#x6001;&#xFF1B;</p>
+<p>&#x9500;&#x552E;&#x5F00;&#x59CB;&#x72B6;&#x6001;&#xFF1A;&#x5F00;&#x59CB;&#x4E00;&#x4E2A;&#x65B0;&#x9500;&#x552E;&#x4E8B;&#x52A1;&#xFF0C;&#x7CFB;&#x7EDF;&#x5F00;&#x59CB;&#x6267;&#x884C;&#x4E00;&#x4E2A;&#x9500;&#x552E;&#x4EFB;&#x52A1;&#x7684;&#x72B6;&#x6001;&#xFF1B;</p>
+<p>&#x4F1A;&#x5458;&#x4FE1;&#x606F;&#x663E;&#x793A;&#x72B6;&#x6001;&#xFF1A;&#x8F93;&#x5165;&#x4E86;&#x5BA2;&#x6237;&#x7F16;&#x53F7;&#xFF0C;&#x7CFB;&#x7EDF;&#x663E;&#x793A;&#x8BE5;&#x4F1A;&#x5458;&#x4FE1;&#x606F;&#x7684;&#x72B6;&#x6001;&#xFF1B;</p>
+<p>&#x5546;&#x54C1;&#x4FE1;&#x606F;&#x663E;&#x793A;&#x72B6;&#x6001;&#xFF1A;&#x521A;&#x521A;&#x8F93;&#x5165;&#x4E86;&#x4E00;&#x4E2A;&#x7269;&#x54C1;&#x9879;&#xFF0C;&#x663E;&#x793A;&#x8BE5;&#x7269;&#x54C1;&#xFF08;&#x548C;&#x8D60;&#x54C1;&#xFF09;&#x63CF;&#x8FF0;&#x4FE1;&#x606F;&#x7684;&#x72B6;&#x6001;&#xFF1B;</p>
+<p>&#x5217;&#x8868;&#x663E;&#x793A;&#x72B6;&#x6001;&#xFF1A;&#x4EE5;&#x5217;&#x8868;&#x65B9;&#x5F0F;&#x663E;&#x793A;&#x6240;&#x6709;&#x5DF2;&#x8F93;&#x5165;&#x7269;&#x54C1;&#x9879;&#xFF08;&#x548C;&#x8D60;&#x54C1;&#xFF09;&#x4FE1;&#x606F;&#x7684;&#x72B6;&#x6001;&#xFF1B;</p>
+<p>&#x9519;&#x8BEF;&#x63D0;&#x793A;&#x72B6;&#x6001;&#xFF1A;&#x8F93;&#x5165;&#x4FE1;&#x606F;&#x9519;&#x8BEF;&#x7684;&#x72B6;&#x6001;&#xFF1B;</p>
+<p>&#x8D26;&#x5355;&#x5904;&#x7406;&#x72B6;&#x6001;&#xFF1A;&#x8F93;&#x5165;&#x7ED3;&#x675F;&#xFF0C;&#x7CFB;&#x7EDF;&#x663E;&#x793A;&#x8D26;&#x5355;&#x4FE1;&#x606F;&#xFF0C;&#x6536;&#x94F6;&#x5458;&#x8FDB;&#x884C;&#x7ED3;&#x5E10;&#x5904;&#x7406;&#x7684;&#x72B6;&#x6001;&#x3002;</p>
+<p>&#x9500;&#x552E;&#x7ED3;&#x675F;&#x72B6;&#x6001;&#xFF1A;&#x66F4;&#x65B0;&#x4FE1;&#x606F;&#xFF0C;&#x6253;&#x5370;&#x6536;&#x636E;&#x7684;&#x72B6;&#x6001;&#x3002;</p>
 </blockquote>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/image-20230616145947322.png" alt=""></p>
-<h2 id="第七章-需求文档化与验证">第七章 需求文档化与验证</h2>
-<h2 id="1-为什么需要需求规格说明？">1.为什么需要需求规格说明？</h2>
-<p>（1）软件开发过程中，子任务与人员之间存在错综复杂的关系，存在大量的沟通和交流，所以要编写软件开发中要编写不同类型的文档，每种文档都是针对项目中需要广泛交流的内容。</p>
-<p><strong>因为软件需求需要进行广泛交流，所以要把需求文档化。</strong></p>
-<p>（2）需求规格说明是在软件产品的角度以系统级需求列表的方式描述软件系统解决方案。<br>
-<strong>用例侧重于交互流程，规格（解决方案）侧重于独立需求</strong><br>
-<strong>用例以一次交互为基础，规格需求以一次交互中的软件系统处理细节为基础</strong></p>
-<h2 id="2-对给定的需求规格说明示例，判定并修正其错误。">2.对给定的需求规格说明示例，判定并修正其错误。</h2>
-<p>首先了解需求文档化要点：</p>
-<p>1）技术文档写作要点（<strong>简洁，精确，易读，易修改</strong>）；</p>
-<p>2）需求书写要点（<strong>使用用户术语，可验证，可行性</strong>）；</p>
-<p>3）需求规格说明文档书写要点（<strong>充分利用标准的文档模板</strong>，保持所有内容位置得当；<strong>保持文档内的需求集具有完备性和一致性；为需求划分优先级</strong>）</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/image-20230616145947322.png" alt></p>
+<h2 id="&#x7B2C;&#x4E03;&#x7AE0;-&#x9700;&#x6C42;&#x6587;&#x6863;&#x5316;&#x4E0E;&#x9A8C;&#x8BC1;">&#x7B2C;&#x4E03;&#x7AE0; &#x9700;&#x6C42;&#x6587;&#x6863;&#x5316;&#x4E0E;&#x9A8C;&#x8BC1;</h2>
+<h2 id="1-&#x4E3A;&#x4EC0;&#x4E48;&#x9700;&#x8981;&#x9700;&#x6C42;&#x89C4;&#x683C;&#x8BF4;&#x660E;&#xFF1F;">1.&#x4E3A;&#x4EC0;&#x4E48;&#x9700;&#x8981;&#x9700;&#x6C42;&#x89C4;&#x683C;&#x8BF4;&#x660E;&#xFF1F;</h2>
+<p>&#xFF08;1&#xFF09;&#x8F6F;&#x4EF6;&#x5F00;&#x53D1;&#x8FC7;&#x7A0B;&#x4E2D;&#xFF0C;&#x5B50;&#x4EFB;&#x52A1;&#x4E0E;&#x4EBA;&#x5458;&#x4E4B;&#x95F4;&#x5B58;&#x5728;&#x9519;&#x7EFC;&#x590D;&#x6742;&#x7684;&#x5173;&#x7CFB;&#xFF0C;&#x5B58;&#x5728;&#x5927;&#x91CF;&#x7684;&#x6C9F;&#x901A;&#x548C;&#x4EA4;&#x6D41;&#xFF0C;&#x6240;&#x4EE5;&#x8981;&#x7F16;&#x5199;&#x8F6F;&#x4EF6;&#x5F00;&#x53D1;&#x4E2D;&#x8981;&#x7F16;&#x5199;&#x4E0D;&#x540C;&#x7C7B;&#x578B;&#x7684;&#x6587;&#x6863;&#xFF0C;&#x6BCF;&#x79CD;&#x6587;&#x6863;&#x90FD;&#x662F;&#x9488;&#x5BF9;&#x9879;&#x76EE;&#x4E2D;&#x9700;&#x8981;&#x5E7F;&#x6CDB;&#x4EA4;&#x6D41;&#x7684;&#x5185;&#x5BB9;&#x3002;</p>
+<p><strong>&#x56E0;&#x4E3A;&#x8F6F;&#x4EF6;&#x9700;&#x6C42;&#x9700;&#x8981;&#x8FDB;&#x884C;&#x5E7F;&#x6CDB;&#x4EA4;&#x6D41;&#xFF0C;&#x6240;&#x4EE5;&#x8981;&#x628A;&#x9700;&#x6C42;&#x6587;&#x6863;&#x5316;&#x3002;</strong></p>
+<p>&#xFF08;2&#xFF09;&#x9700;&#x6C42;&#x89C4;&#x683C;&#x8BF4;&#x660E;&#x662F;&#x5728;&#x8F6F;&#x4EF6;&#x4EA7;&#x54C1;&#x7684;&#x89D2;&#x5EA6;&#x4EE5;&#x7CFB;&#x7EDF;&#x7EA7;&#x9700;&#x6C42;&#x5217;&#x8868;&#x7684;&#x65B9;&#x5F0F;&#x63CF;&#x8FF0;&#x8F6F;&#x4EF6;&#x7CFB;&#x7EDF;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x3002;<br>
+<strong>&#x7528;&#x4F8B;&#x4FA7;&#x91CD;&#x4E8E;&#x4EA4;&#x4E92;&#x6D41;&#x7A0B;&#xFF0C;&#x89C4;&#x683C;&#xFF08;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#xFF09;&#x4FA7;&#x91CD;&#x4E8E;&#x72EC;&#x7ACB;&#x9700;&#x6C42;</strong><br>
+<strong>&#x7528;&#x4F8B;&#x4EE5;&#x4E00;&#x6B21;&#x4EA4;&#x4E92;&#x4E3A;&#x57FA;&#x7840;&#xFF0C;&#x89C4;&#x683C;&#x9700;&#x6C42;&#x4EE5;&#x4E00;&#x6B21;&#x4EA4;&#x4E92;&#x4E2D;&#x7684;&#x8F6F;&#x4EF6;&#x7CFB;&#x7EDF;&#x5904;&#x7406;&#x7EC6;&#x8282;&#x4E3A;&#x57FA;&#x7840;</strong></p>
+<h2 id="2-&#x5BF9;&#x7ED9;&#x5B9A;&#x7684;&#x9700;&#x6C42;&#x89C4;&#x683C;&#x8BF4;&#x660E;&#x793A;&#x4F8B;&#xFF0C;&#x5224;&#x5B9A;&#x5E76;&#x4FEE;&#x6B63;&#x5176;&#x9519;&#x8BEF;&#x3002;">2.&#x5BF9;&#x7ED9;&#x5B9A;&#x7684;&#x9700;&#x6C42;&#x89C4;&#x683C;&#x8BF4;&#x660E;&#x793A;&#x4F8B;&#xFF0C;&#x5224;&#x5B9A;&#x5E76;&#x4FEE;&#x6B63;&#x5176;&#x9519;&#x8BEF;&#x3002;</h2>
+<p>&#x9996;&#x5148;&#x4E86;&#x89E3;&#x9700;&#x6C42;&#x6587;&#x6863;&#x5316;&#x8981;&#x70B9;&#xFF1A;</p>
+<p>1&#xFF09;&#x6280;&#x672F;&#x6587;&#x6863;&#x5199;&#x4F5C;&#x8981;&#x70B9;&#xFF08;<strong>&#x7B80;&#x6D01;&#xFF0C;&#x7CBE;&#x786E;&#xFF0C;&#x6613;&#x8BFB;&#xFF0C;&#x6613;&#x4FEE;&#x6539;</strong>&#xFF09;&#xFF1B;</p>
+<p>2&#xFF09;&#x9700;&#x6C42;&#x4E66;&#x5199;&#x8981;&#x70B9;&#xFF08;<strong>&#x4F7F;&#x7528;&#x7528;&#x6237;&#x672F;&#x8BED;&#xFF0C;&#x53EF;&#x9A8C;&#x8BC1;&#xFF0C;&#x53EF;&#x884C;&#x6027;</strong>&#xFF09;&#xFF1B;</p>
+<p>3&#xFF09;&#x9700;&#x6C42;&#x89C4;&#x683C;&#x8BF4;&#x660E;&#x6587;&#x6863;&#x4E66;&#x5199;&#x8981;&#x70B9;&#xFF08;<strong>&#x5145;&#x5206;&#x5229;&#x7528;&#x6807;&#x51C6;&#x7684;&#x6587;&#x6863;&#x6A21;&#x677F;</strong>&#xFF0C;&#x4FDD;&#x6301;&#x6240;&#x6709;&#x5185;&#x5BB9;&#x4F4D;&#x7F6E;&#x5F97;&#x5F53;&#xFF1B;<strong>&#x4FDD;&#x6301;&#x6587;&#x6863;&#x5185;&#x7684;&#x9700;&#x6C42;&#x96C6;&#x5177;&#x6709;&#x5B8C;&#x5907;&#x6027;&#x548C;&#x4E00;&#x81F4;&#x6027;&#xFF1B;&#x4E3A;&#x9700;&#x6C42;&#x5212;&#x5206;&#x4F18;&#x5148;&#x7EA7;</strong>&#xFF09;</p>
 <blockquote>
-<p>【错误示例】付款过程完成后，相关信息应被添加到日志文件<br>
-该系统应被构造成将来很容易添加新功能计算<br>
-购买的汽油的价格：该类汽油每加仑的价格乘以购买的加仑数（使用两位小数点表示加仑小数部分）<br>
-该系统一周7天，一天24小时都可用</p>
+<p>&#x3010;&#x9519;&#x8BEF;&#x793A;&#x4F8B;&#x3011;&#x4ED8;&#x6B3E;&#x8FC7;&#x7A0B;&#x5B8C;&#x6210;&#x540E;&#xFF0C;&#x76F8;&#x5173;&#x4FE1;&#x606F;&#x5E94;&#x88AB;&#x6DFB;&#x52A0;&#x5230;&#x65E5;&#x5FD7;&#x6587;&#x4EF6;<br>
+&#x8BE5;&#x7CFB;&#x7EDF;&#x5E94;&#x88AB;&#x6784;&#x9020;&#x6210;&#x5C06;&#x6765;&#x5F88;&#x5BB9;&#x6613;&#x6DFB;&#x52A0;&#x65B0;&#x529F;&#x80FD;&#x8BA1;&#x7B97;<br>
+&#x8D2D;&#x4E70;&#x7684;&#x6C7D;&#x6CB9;&#x7684;&#x4EF7;&#x683C;&#xFF1A;&#x8BE5;&#x7C7B;&#x6C7D;&#x6CB9;&#x6BCF;&#x52A0;&#x4ED1;&#x7684;&#x4EF7;&#x683C;&#x4E58;&#x4EE5;&#x8D2D;&#x4E70;&#x7684;&#x52A0;&#x4ED1;&#x6570;&#xFF08;&#x4F7F;&#x7528;&#x4E24;&#x4F4D;&#x5C0F;&#x6570;&#x70B9;&#x8868;&#x793A;&#x52A0;&#x4ED1;&#x5C0F;&#x6570;&#x90E8;&#x5206;&#xFF09;<br>
+&#x8BE5;&#x7CFB;&#x7EDF;&#x4E00;&#x5468;7&#x5929;&#xFF0C;&#x4E00;&#x5929;24&#x5C0F;&#x65F6;&#x90FD;&#x53EF;&#x7528;</p>
 </blockquote>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/image-20230616150059982.png" alt=""></p>
-<h2 id="3-给定的需求示例，设计功能测试用例">3.给定的需求示例，设计功能测试用例</h2>
-<p>结合测试方法</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/image-20230616150117987.png" alt=""></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/image-20230616150059982.png" alt></p>
+<h2 id="3-&#x7ED9;&#x5B9A;&#x7684;&#x9700;&#x6C42;&#x793A;&#x4F8B;&#xFF0C;&#x8BBE;&#x8BA1;&#x529F;&#x80FD;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;">3.&#x7ED9;&#x5B9A;&#x7684;&#x9700;&#x6C42;&#x793A;&#x4F8B;&#xFF0C;&#x8BBE;&#x8BA1;&#x529F;&#x80FD;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;</h2>
+<p>&#x7ED3;&#x5408;&#x6D4B;&#x8BD5;&#x65B9;&#x6CD5;</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2022/06/20/SE-II%E5%A4%8D%E4%B9%A0%E8%B5%84%E6%96%99/%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E4%B8%8E%E8%AE%A1%E7%AE%97II%E9%87%8D%E7%82%B9%E6%95%B4%E7%90%86(%E7%AC%AC6-7%E7%AB%A0)/image-20230616150117987.png" alt></p>
 
 <div class="article-footer fs14">
     <section id="license">

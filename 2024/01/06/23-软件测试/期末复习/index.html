@@ -20,63 +20,63 @@
   <title>软件测试-期末复习 - Asimov's Blog</title>
 
   
-    <meta name="description" content="自动化测试 测试的局限性  输入空间庞大 无法穷举所有输入 实现逻辑复杂  无法想到所有场景 测试预言未知 无法判定测试的预期输出  随机测试 大数定律 测试执行次数够多 测试数据随机生成 概率低的偶然现象发生 模糊测试 通过异常的输入自动化发现待 测程序缺陷的技术。  三个组件 输入生成组件（Input Generator） 测试执行组件 （Test Executor） 输出分析组件（Outpu">
+    <meta name="description" content="&#x81EA;&#x52A8;&#x5316;&#x6D4B;&#x8BD5; &#x6D4B;&#x8BD5;&#x7684;&#x5C40;&#x9650;&#x6027;  &#x8F93;&#x5165;&#x7A7A;&#x95F4;&#x5E9E;&#x5927; &#x65E0;&#x6CD5;&#x7A77;&#x4E3E;&#x6240;&#x6709;&#x8F93;&amp;#x5">
 <meta property="og:type" content="article">
 <meta property="og:title" content="软件测试-期末复习">
 <meta property="og:url" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/index.html">
 <meta property="og:site_name" content="Asimov&#39;s Blog">
-<meta property="og:description" content="自动化测试 测试的局限性  输入空间庞大 无法穷举所有输入 实现逻辑复杂  无法想到所有场景 测试预言未知 无法判定测试的预期输出  随机测试 大数定律 测试执行次数够多 测试数据随机生成 概率低的偶然现象发生 模糊测试 通过异常的输入自动化发现待 测程序缺陷的技术。  三个组件 输入生成组件（Input Generator） 测试执行组件 （Test Executor） 输出分析组件（Outpu">
+<meta property="og:description" content="&#x81EA;&#x52A8;&#x5316;&#x6D4B;&#x8BD5; &#x6D4B;&#x8BD5;&#x7684;&#x5C40;&#x9650;&#x6027;  &#x8F93;&#x5165;&#x7A7A;&#x95F4;&#x5E9E;&#x5927; &#x65E0;&#x6CD5;&#x7A77;&#x4E3E;&#x6240;&#x6709;&#x8F93;&amp;#x5">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106195255535.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106204541569.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106204822670.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106211248817.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106195337129.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106201717276.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106202621753.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106202947994.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106215343774.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109134502083.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109140523221.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109140707165.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109140913265.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109140926391.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109140935119.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109141043172.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109141635902.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109141922437.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109141943465.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109141700025.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109141720827.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109141748701.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109141817915.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109141958418.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109142059124.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109142207437.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109142329303.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106195424999.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109142900083.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109142908293.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109142934328.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109142950041.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109143018218.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109143037499.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109143057171.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106195444002.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109143243794.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109143253753.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109143305702.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109143736557.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109143755649.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109143948439.png">
-<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109144519652.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106195255535.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106204541569.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106204822670.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106211248817.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106195337129.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106201717276.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106202621753.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106202947994.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106215343774.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109134502083.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109140523221.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109140707165.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109140913265.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109140926391.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109140935119.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109141043172.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109141635902.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109141922437.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109141943465.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109141700025.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109141720827.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109141748701.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109141817915.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109141958418.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109142059124.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109142207437.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109142329303.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106195424999.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109142900083.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109142908293.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109142934328.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109142950041.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109143018218.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109143037499.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109143057171.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106195444002.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109143243794.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109143253753.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109143305702.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109143736557.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109143755649.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109143948439.png">
+<meta property="og:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109144519652.png">
 <meta property="article:published_time" content="2024-01-06T10:32:34.000Z">
-<meta property="article:modified_time" content="2024-01-09T06:45:53.587Z">
+<meta property="article:modified_time" content="2024-05-04T08:26:45.798Z">
 <meta property="article:author" content="Asimov">
 <meta property="article:tag" content="期末复习">
 <meta property="article:tag" content="测试">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106195255535.png">
+<meta name="twitter:image" content="https://chendingya.github.io/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106195255535.png">
   
   
   
@@ -109,7 +109,7 @@
 <div class="widgets">
 
 
-<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2024/05/02/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%842/"><span class="title">系统架构2-质量属性Quality Attributes</span></a><a class="item title" href="/2024/05/01/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%841/"><span class="title">系统架构1-Intro</span></a><a class="item title" href="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/"><span class="title">软件测试-期末复习</span></a><a class="item title" href="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/"><span class="title">机器学习-期末复习</span></a><a class="item title" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/"><span class="title">服务端-ch17-k8s使用</span></a><a class="item title" href="/2023/12/30/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch16-%E5%AE%B9%E5%99%A8%E9%95%9C%E5%83%8F%E6%9E%84%E5%BB%BA%E4%B8%8E%E7%BC%96%E6%8E%92/"><span class="title">服务端-ch16-容器镜像构建与编排</span></a><a class="item title" href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/"><span class="title">服务端-ch15-Docker</span></a><a class="item title" href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/"><span class="title">服务端-ch14-Spring WebFlux</span></a><a class="item title" href="/2023/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch13-%E5%8F%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"><span class="title">服务端-ch13-反应式编程基础</span></a><a class="item title" href="/2023/11/23/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch12-Spring%20Integration/"><span class="title">服务端-ch12-Spring Integration</span></a></div></widget>
+<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2022/10/25/hello-world/"><span class="title">Hello World</span></a><a class="item title" href="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/"><span class="title">软件测试-期末复习</span></a><a class="item title" href="/2024/05/02/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%842/"><span class="title">系统架构2-质量属性Quality Attributes</span></a><a class="item title" href="/2024/05/01/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%841/"><span class="title">系统架构1-Intro</span></a><a class="item title" href="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/"><span class="title">机器学习-期末复习</span></a><a class="item title" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/"><span class="title">服务端-ch17-k8s使用</span></a><a class="item title" href="/2023/12/30/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch16-%E5%AE%B9%E5%99%A8%E9%95%9C%E5%83%8F%E6%9E%84%E5%BB%BA%E4%B8%8E%E7%BC%96%E6%8E%92/"><span class="title">服务端-ch16-容器镜像构建与编排</span></a><a class="item title" href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/"><span class="title">服务端-ch15-Docker</span></a><a class="item title" href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/"><span class="title">服务端-ch14-Spring WebFlux</span></a><a class="item title" href="/2023/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch13-%E5%8F%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"><span class="title">服务端-ch13-反应式编程基础</span></a></div></widget>
 </div>
 <footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/chendingya?tab=repositories" target="_blank" rel="external nofollow noopener noreferrer"><img no-lazy src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" / onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a></div></footer>
 </div></aside><div class="l_main" id="main">
@@ -122,7 +122,7 @@
   <div class="content">
     <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
 <span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/">软件测试</a></div>
-<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2024-01-06T10:32:34.000Z">2024-01-06</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2024-01-09T06:45:53.587Z">2024-01-09</time></span></div></div></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2024-01-06T10:32:34.000Z">2024-01-06</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2024-05-04T08:26:45.798Z">2024-05-04</time></span></div></div></div>
     
     <div class="bottom only-title">
       
@@ -133,686 +133,686 @@
     </div>
     
   </div>
-  </div><article class="md-text content"><h1>自动化测试</h1>
-<h2 id="测试的局限性">测试的局限性</h2>
+  </div><article class="md-text content"><h1>&#x81EA;&#x52A8;&#x5316;&#x6D4B;&#x8BD5;</h1>
+<h2 id="&#x6D4B;&#x8BD5;&#x7684;&#x5C40;&#x9650;&#x6027;">&#x6D4B;&#x8BD5;&#x7684;&#x5C40;&#x9650;&#x6027;</h2>
 <ul>
-<li>输入空间庞大 无法穷举所有输入</li>
-<li>实现逻辑复杂  无法想到所有场景</li>
-<li>测试预言未知 无法判定测试的预期输出</li>
+<li>&#x8F93;&#x5165;&#x7A7A;&#x95F4;&#x5E9E;&#x5927; &#x65E0;&#x6CD5;&#x7A77;&#x4E3E;&#x6240;&#x6709;&#x8F93;&#x5165;</li>
+<li>&#x5B9E;&#x73B0;&#x903B;&#x8F91;&#x590D;&#x6742;  &#x65E0;&#x6CD5;&#x60F3;&#x5230;&#x6240;&#x6709;&#x573A;&#x666F;</li>
+<li>&#x6D4B;&#x8BD5;&#x9884;&#x8A00;&#x672A;&#x77E5; &#x65E0;&#x6CD5;&#x5224;&#x5B9A;&#x6D4B;&#x8BD5;&#x7684;&#x9884;&#x671F;&#x8F93;&#x51FA;</li>
 </ul>
-<h3 id="随机测试">随机测试</h3>
-<p>大数定律</p>
-<p>测试执行次数够多</p>
-<p>测试数据随机生成</p>
-<p>概率低的偶然现象发生</p>
-<h1>模糊测试</h1>
-<p>通过异常的输入自动化发现待 测程序缺陷的技术。</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106195255535.png" alt="image-20240106195255535"></p>
-<h2 id="三个组件">三个组件</h2>
-<p>输入生成组件（Input Generator）</p>
-<p>测试执行组件 （Test Executor）</p>
-<p>输出分析组件（Output Analyzer）</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106204541569.png" alt="image-20240106204541569"></p>
-<h3 id="测试输入（Test-Input）">测试输入（Test Input）</h3>
-<p>测试输入是一组用于驱动待测程序执行的数据</p>
-<h3 id="测试用例（Test-Case）">测试用例（Test Case）</h3>
-<p>测试用例是一组用于确定应用软件或软件系统是否能够正确工作的条件或变量</p>
-<p>输入 + 逻辑（调用序列） + 预言</p>
-<h3 id="种子输入（Seed-Input）">种子输入（Seed Input）</h3>
-<p>种子输入是一个或一组在模糊测试过程中<strong>为输入生成（Input Generation）提供基准的测试输入</strong>，简称种子（Seed）。</p>
-<h2 id="框架">框架</h2>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106204822670.png" alt="image-20240106204822670"></p>
-<h2 id="分类">分类</h2>
-<p>根据组件核心或技术贡献进行分类</p>
+<h3 id="&#x968F;&#x673A;&#x6D4B;&#x8BD5;">&#x968F;&#x673A;&#x6D4B;&#x8BD5;</h3>
+<p>&#x5927;&#x6570;&#x5B9A;&#x5F8B;</p>
+<p>&#x6D4B;&#x8BD5;&#x6267;&#x884C;&#x6B21;&#x6570;&#x591F;&#x591A;</p>
+<p>&#x6D4B;&#x8BD5;&#x6570;&#x636E;&#x968F;&#x673A;&#x751F;&#x6210;</p>
+<p>&#x6982;&#x7387;&#x4F4E;&#x7684;&#x5076;&#x7136;&#x73B0;&#x8C61;&#x53D1;&#x751F;</p>
+<h1>&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;</h1>
+<p>&#x901A;&#x8FC7;&#x5F02;&#x5E38;&#x7684;&#x8F93;&#x5165;&#x81EA;&#x52A8;&#x5316;&#x53D1;&#x73B0;&#x5F85; &#x6D4B;&#x7A0B;&#x5E8F;&#x7F3A;&#x9677;&#x7684;&#x6280;&#x672F;&#x3002;</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106195255535.png" alt="image-20240106195255535"></p>
+<h2 id="&#x4E09;&#x4E2A;&#x7EC4;&#x4EF6;">&#x4E09;&#x4E2A;&#x7EC4;&#x4EF6;</h2>
+<p>&#x8F93;&#x5165;&#x751F;&#x6210;&#x7EC4;&#x4EF6;&#xFF08;Input Generator&#xFF09;</p>
+<p>&#x6D4B;&#x8BD5;&#x6267;&#x884C;&#x7EC4;&#x4EF6; &#xFF08;Test Executor&#xFF09;</p>
+<p>&#x8F93;&#x51FA;&#x5206;&#x6790;&#x7EC4;&#x4EF6;&#xFF08;Output Analyzer&#xFF09;</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106204541569.png" alt="image-20240106204541569"></p>
+<h3 id="&#x6D4B;&#x8BD5;&#x8F93;&#x5165;&#xFF08;Test-Input&#xFF09;">&#x6D4B;&#x8BD5;&#x8F93;&#x5165;&#xFF08;Test Input&#xFF09;</h3>
+<p>&#x6D4B;&#x8BD5;&#x8F93;&#x5165;&#x662F;&#x4E00;&#x7EC4;&#x7528;&#x4E8E;&#x9A71;&#x52A8;&#x5F85;&#x6D4B;&#x7A0B;&#x5E8F;&#x6267;&#x884C;&#x7684;&#x6570;&#x636E;</p>
+<h3 id="&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#xFF08;Test-Case&#xFF09;">&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#xFF08;Test Case&#xFF09;</h3>
+<p>&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x662F;&#x4E00;&#x7EC4;&#x7528;&#x4E8E;&#x786E;&#x5B9A;&#x5E94;&#x7528;&#x8F6F;&#x4EF6;&#x6216;&#x8F6F;&#x4EF6;&#x7CFB;&#x7EDF;&#x662F;&#x5426;&#x80FD;&#x591F;&#x6B63;&#x786E;&#x5DE5;&#x4F5C;&#x7684;&#x6761;&#x4EF6;&#x6216;&#x53D8;&#x91CF;</p>
+<p>&#x8F93;&#x5165; + &#x903B;&#x8F91;&#xFF08;&#x8C03;&#x7528;&#x5E8F;&#x5217;&#xFF09; + &#x9884;&#x8A00;</p>
+<h3 id="&#x79CD;&#x5B50;&#x8F93;&#x5165;&#xFF08;Seed-Input&#xFF09;">&#x79CD;&#x5B50;&#x8F93;&#x5165;&#xFF08;Seed Input&#xFF09;</h3>
+<p>&#x79CD;&#x5B50;&#x8F93;&#x5165;&#x662F;&#x4E00;&#x4E2A;&#x6216;&#x4E00;&#x7EC4;&#x5728;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x8FC7;&#x7A0B;&#x4E2D;<strong>&#x4E3A;&#x8F93;&#x5165;&#x751F;&#x6210;&#xFF08;Input Generation&#xFF09;&#x63D0;&#x4F9B;&#x57FA;&#x51C6;&#x7684;&#x6D4B;&#x8BD5;&#x8F93;&#x5165;</strong>&#xFF0C;&#x7B80;&#x79F0;&#x79CD;&#x5B50;&#xFF08;Seed&#xFF09;&#x3002;</p>
+<h2 id="&#x6846;&#x67B6;">&#x6846;&#x67B6;</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106204822670.png" alt="image-20240106204822670"></p>
+<h2 id="&#x5206;&#x7C7B;">&#x5206;&#x7C7B;</h2>
+<p>&#x6839;&#x636E;&#x7EC4;&#x4EF6;&#x6838;&#x5FC3;&#x6216;&#x6280;&#x672F;&#x8D21;&#x732E;&#x8FDB;&#x884C;&#x5206;&#x7C7B;</p>
 <ul>
-<li>按照采用的运行时信息：黑盒、灰盒、白盒</li>
-<li>按照输入生成的策略：Mutation-based, Generation-based</li>
-<li>按照引导过程：Search-based（一些启发式算法），Gradient-based（梯度下降）</li>
-<li>按照测试目标：定向、非定向、某一类缺陷</li>
-<li>按照应用领域：网络协议、Compiler、DNN、IoT、内核</li>
-<li>按照优化角度：种子调度、变异策略、能量调度、过程建模</li>
+<li>&#x6309;&#x7167;&#x91C7;&#x7528;&#x7684;&#x8FD0;&#x884C;&#x65F6;&#x4FE1;&#x606F;&#xFF1A;&#x9ED1;&#x76D2;&#x3001;&#x7070;&#x76D2;&#x3001;&#x767D;&#x76D2;</li>
+<li>&#x6309;&#x7167;&#x8F93;&#x5165;&#x751F;&#x6210;&#x7684;&#x7B56;&#x7565;&#xFF1A;Mutation-based, Generation-based</li>
+<li>&#x6309;&#x7167;&#x5F15;&#x5BFC;&#x8FC7;&#x7A0B;&#xFF1A;Search-based&#xFF08;&#x4E00;&#x4E9B;&#x542F;&#x53D1;&#x5F0F;&#x7B97;&#x6CD5;&#xFF09;&#xFF0C;Gradient-based&#xFF08;&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#xFF09;</li>
+<li>&#x6309;&#x7167;&#x6D4B;&#x8BD5;&#x76EE;&#x6807;&#xFF1A;&#x5B9A;&#x5411;&#x3001;&#x975E;&#x5B9A;&#x5411;&#x3001;&#x67D0;&#x4E00;&#x7C7B;&#x7F3A;&#x9677;</li>
+<li>&#x6309;&#x7167;&#x5E94;&#x7528;&#x9886;&#x57DF;&#xFF1A;&#x7F51;&#x7EDC;&#x534F;&#x8BAE;&#x3001;Compiler&#x3001;DNN&#x3001;IoT&#x3001;&#x5185;&#x6838;</li>
+<li>&#x6309;&#x7167;&#x4F18;&#x5316;&#x89D2;&#x5EA6;&#xFF1A;&#x79CD;&#x5B50;&#x8C03;&#x5EA6;&#x3001;&#x53D8;&#x5F02;&#x7B56;&#x7565;&#x3001;&#x80FD;&#x91CF;&#x8C03;&#x5EA6;&#x3001;&#x8FC7;&#x7A0B;&#x5EFA;&#x6A21;</li>
 </ul>
-<h3 id="黑盒（Blackbox）模糊测试">黑盒（Blackbox）模糊测试</h3>
+<h3 id="&#x9ED1;&#x76D2;&#xFF08;Blackbox&#xFF09;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;">&#x9ED1;&#x76D2;&#xFF08;Blackbox&#xFF09;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;</h3>
 <ul>
-<li>特点：不监控执行过程，也不使用执行过程中产生的任何信息， 仅从输入和输出端入手优化模糊测试</li>
-<li>引导方式：<strong>利用输入格式或输出状态引导测试执行</strong></li>
-<li>优缺点：<strong>效率高，但引导的有效性上面有所欠缺</strong></li>
-<li>代表性工作：KIF 2 、IoTFuzzer 3 、CodeAlchemist 4</li>
+<li>&#x7279;&#x70B9;&#xFF1A;&#x4E0D;&#x76D1;&#x63A7;&#x6267;&#x884C;&#x8FC7;&#x7A0B;&#xFF0C;&#x4E5F;&#x4E0D;&#x4F7F;&#x7528;&#x6267;&#x884C;&#x8FC7;&#x7A0B;&#x4E2D;&#x4EA7;&#x751F;&#x7684;&#x4EFB;&#x4F55;&#x4FE1;&#x606F;&#xFF0C; &#x4EC5;&#x4ECE;&#x8F93;&#x5165;&#x548C;&#x8F93;&#x51FA;&#x7AEF;&#x5165;&#x624B;&#x4F18;&#x5316;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;</li>
+<li>&#x5F15;&#x5BFC;&#x65B9;&#x5F0F;&#xFF1A;<strong>&#x5229;&#x7528;&#x8F93;&#x5165;&#x683C;&#x5F0F;&#x6216;&#x8F93;&#x51FA;&#x72B6;&#x6001;&#x5F15;&#x5BFC;&#x6D4B;&#x8BD5;&#x6267;&#x884C;</strong></li>
+<li>&#x4F18;&#x7F3A;&#x70B9;&#xFF1A;<strong>&#x6548;&#x7387;&#x9AD8;&#xFF0C;&#x4F46;&#x5F15;&#x5BFC;&#x7684;&#x6709;&#x6548;&#x6027;&#x4E0A;&#x9762;&#x6709;&#x6240;&#x6B20;&#x7F3A;</strong></li>
+<li>&#x4EE3;&#x8868;&#x6027;&#x5DE5;&#x4F5C;&#xFF1A;KIF 2 &#x3001;IoTFuzzer 3 &#x3001;CodeAlchemist 4</li>
 </ul>
-<h3 id="白盒（Whitebox）模糊测试">白盒（Whitebox）模糊测试</h3>
+<h3 id="&#x767D;&#x76D2;&#xFF08;Whitebox&#xFF09;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;">&#x767D;&#x76D2;&#xFF08;Whitebox&#xFF09;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;</h3>
 <ul>
-<li>特点：使用混合执行、污点分析（Taint Analysis）等<strong>比较昂贵</strong> 的白盒分析技术优化模糊测试过程</li>
-<li>引导方式：<strong>利用详细的程序分析结果引导测试执行</strong></li>
-<li>优缺点：<strong>反馈更加有效，但是效率不高</strong>、适配性较差</li>
-<li>代表性工作：Driller2、QSYM3、CONFETTI4</li>
+<li>&#x7279;&#x70B9;&#xFF1A;&#x4F7F;&#x7528;&#x6DF7;&#x5408;&#x6267;&#x884C;&#x3001;&#x6C61;&#x70B9;&#x5206;&#x6790;&#xFF08;Taint Analysis&#xFF09;&#x7B49;<strong>&#x6BD4;&#x8F83;&#x6602;&#x8D35;</strong> &#x7684;&#x767D;&#x76D2;&#x5206;&#x6790;&#x6280;&#x672F;&#x4F18;&#x5316;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x8FC7;&#x7A0B;</li>
+<li>&#x5F15;&#x5BFC;&#x65B9;&#x5F0F;&#xFF1A;<strong>&#x5229;&#x7528;&#x8BE6;&#x7EC6;&#x7684;&#x7A0B;&#x5E8F;&#x5206;&#x6790;&#x7ED3;&#x679C;&#x5F15;&#x5BFC;&#x6D4B;&#x8BD5;&#x6267;&#x884C;</strong></li>
+<li>&#x4F18;&#x7F3A;&#x70B9;&#xFF1A;<strong>&#x53CD;&#x9988;&#x66F4;&#x52A0;&#x6709;&#x6548;&#xFF0C;&#x4F46;&#x662F;&#x6548;&#x7387;&#x4E0D;&#x9AD8;</strong>&#x3001;&#x9002;&#x914D;&#x6027;&#x8F83;&#x5DEE;</li>
+<li>&#x4EE3;&#x8868;&#x6027;&#x5DE5;&#x4F5C;&#xFF1A;Driller2&#x3001;QSYM3&#x3001;CONFETTI4</li>
 </ul>
-<h3 id="灰盒（Greybox）模糊测试">灰盒（Greybox）模糊测试</h3>
+<h3 id="&#x7070;&#x76D2;&#xFF08;Greybox&#xFF09;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;">&#x7070;&#x76D2;&#xFF08;Greybox&#xFF09;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;</h3>
 <ul>
 <li>Coverage-based Greybox Fuzzing, CGF</li>
-<li>特点：采用轻量级插装对程序进行监控，在执行过程中收集各类信息，如分支覆盖、线程执行、堆栈状态等</li>
-<li>引导方式：利用收集到的执行信息（内部状态）引导测试执行</li>
-<li>代表性工作：AFL、AFLGo、EcoFuzz、Zest、BeDivFuzz</li>
+<li>&#x7279;&#x70B9;&#xFF1A;&#x91C7;&#x7528;&#x8F7B;&#x91CF;&#x7EA7;&#x63D2;&#x88C5;&#x5BF9;&#x7A0B;&#x5E8F;&#x8FDB;&#x884C;&#x76D1;&#x63A7;&#xFF0C;&#x5728;&#x6267;&#x884C;&#x8FC7;&#x7A0B;&#x4E2D;&#x6536;&#x96C6;&#x5404;&#x7C7B;&#x4FE1;&#x606F;&#xFF0C;&#x5982;&#x5206;&#x652F;&#x8986;&#x76D6;&#x3001;&#x7EBF;&#x7A0B;&#x6267;&#x884C;&#x3001;&#x5806;&#x6808;&#x72B6;&#x6001;&#x7B49;</li>
+<li>&#x5F15;&#x5BFC;&#x65B9;&#x5F0F;&#xFF1A;&#x5229;&#x7528;&#x6536;&#x96C6;&#x5230;&#x7684;&#x6267;&#x884C;&#x4FE1;&#x606F;&#xFF08;&#x5185;&#x90E8;&#x72B6;&#x6001;&#xFF09;&#x5F15;&#x5BFC;&#x6D4B;&#x8BD5;&#x6267;&#x884C;</li>
+<li>&#x4EE3;&#x8868;&#x6027;&#x5DE5;&#x4F5C;&#xFF1A;AFL&#x3001;AFLGo&#x3001;EcoFuzz&#x3001;Zest&#x3001;BeDivFuzz</li>
 </ul>
-<h2 id="基于变异的模糊测试">基于变异的模糊测试</h2>
-<p>Mutation-based：基于随机变异或启发式变异策略</p>
+<h2 id="&#x57FA;&#x4E8E;&#x53D8;&#x5F02;&#x7684;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;">&#x57FA;&#x4E8E;&#x53D8;&#x5F02;&#x7684;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;</h2>
+<p>Mutation-based&#xFF1A;&#x57FA;&#x4E8E;&#x968F;&#x673A;&#x53D8;&#x5F02;&#x6216;&#x542F;&#x53D1;&#x5F0F;&#x53D8;&#x5F02;&#x7B56;&#x7565;</p>
 <ul>
-<li>本质：将<strong>种子输入转换为比特串（Bits），对比特串进行变换</strong></li>
-<li>优点：可拓展性强，易于泛化，理论上可用于任意输入（图 片、文本、音视频）</li>
-<li>缺点：容易破坏输入的结构、产生无效输入（Invalid  Input）；生成的大部分输入都无法通过语义检查 （Semantic Checking），很难探测深层次的程序状态和程序元素（Program Elements</li>
+<li>&#x672C;&#x8D28;&#xFF1A;&#x5C06;<strong>&#x79CD;&#x5B50;&#x8F93;&#x5165;&#x8F6C;&#x6362;&#x4E3A;&#x6BD4;&#x7279;&#x4E32;&#xFF08;Bits&#xFF09;&#xFF0C;&#x5BF9;&#x6BD4;&#x7279;&#x4E32;&#x8FDB;&#x884C;&#x53D8;&#x6362;</strong></li>
+<li>&#x4F18;&#x70B9;&#xFF1A;&#x53EF;&#x62D3;&#x5C55;&#x6027;&#x5F3A;&#xFF0C;&#x6613;&#x4E8E;&#x6CDB;&#x5316;&#xFF0C;&#x7406;&#x8BBA;&#x4E0A;&#x53EF;&#x7528;&#x4E8E;&#x4EFB;&#x610F;&#x8F93;&#x5165;&#xFF08;&#x56FE; &#x7247;&#x3001;&#x6587;&#x672C;&#x3001;&#x97F3;&#x89C6;&#x9891;&#xFF09;</li>
+<li>&#x7F3A;&#x70B9;&#xFF1A;&#x5BB9;&#x6613;&#x7834;&#x574F;&#x8F93;&#x5165;&#x7684;&#x7ED3;&#x6784;&#x3001;&#x4EA7;&#x751F;&#x65E0;&#x6548;&#x8F93;&#x5165;&#xFF08;Invalid  Input&#xFF09;&#xFF1B;&#x751F;&#x6210;&#x7684;&#x5927;&#x90E8;&#x5206;&#x8F93;&#x5165;&#x90FD;&#x65E0;&#x6CD5;&#x901A;&#x8FC7;&#x8BED;&#x4E49;&#x68C0;&#x67E5; &#xFF08;Semantic Checking&#xFF09;&#xFF0C;&#x5F88;&#x96BE;&#x63A2;&#x6D4B;&#x6DF1;&#x5C42;&#x6B21;&#x7684;&#x7A0B;&#x5E8F;&#x72B6;&#x6001;&#x548C;&#x7A0B;&#x5E8F;&#x5143;&#x7D20;&#xFF08;Program Elements</li>
 </ul>
-<h3 id="AFL变异算子">AFL变异算子</h3>
+<h3 id="AFL&#x53D8;&#x5F02;&#x7B97;&#x5B50;">AFL&#x53D8;&#x5F02;&#x7B97;&#x5B50;</h3>
 <ul>
-<li>bitflip L/S ：以S为增量，每次翻转L位</li>
-<li>arith L/8：加/减长度为L的小整数</li>
-<li>interest L/8：翻转“有趣”字节位</li>
-<li>havoc：对输入进行大肆破坏</li>
-<li>splice：随机拼接两个种子输入</li>
+<li>bitflip L/S &#xFF1A;&#x4EE5;S&#x4E3A;&#x589E;&#x91CF;&#xFF0C;&#x6BCF;&#x6B21;&#x7FFB;&#x8F6C;L&#x4F4D;</li>
+<li>arith L/8&#xFF1A;&#x52A0;/&#x51CF;&#x957F;&#x5EA6;&#x4E3A;L&#x7684;&#x5C0F;&#x6574;&#x6570;</li>
+<li>interest L/8&#xFF1A;&#x7FFB;&#x8F6C;&#x201C;&#x6709;&#x8DA3;&#x201D;&#x5B57;&#x8282;&#x4F4D;</li>
+<li>havoc&#xFF1A;&#x5BF9;&#x8F93;&#x5165;&#x8FDB;&#x884C;&#x5927;&#x8086;&#x7834;&#x574F;</li>
+<li>splice&#xFF1A;&#x968F;&#x673A;&#x62FC;&#x63A5;&#x4E24;&#x4E2A;&#x79CD;&#x5B50;&#x8F93;&#x5165;</li>
 </ul>
-<h2 id="基于生成的模糊测试">基于生成的模糊测试</h2>
-<p>Generation-based：基于一定的文法规则/结构信息</p>
+<h2 id="&#x57FA;&#x4E8E;&#x751F;&#x6210;&#x7684;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;">&#x57FA;&#x4E8E;&#x751F;&#x6210;&#x7684;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;</h2>
+<p>Generation-based&#xFF1A;&#x57FA;&#x4E8E;&#x4E00;&#x5B9A;&#x7684;&#x6587;&#x6CD5;&#x89C4;&#x5219;/&#x7ED3;&#x6784;&#x4FE1;&#x606F;</p>
 <ul>
-<li>本质：利用给定的、或者挖掘/学习得到的文法规则，来构建能够通过（语法）检查的结构化输入</li>
-<li>优点：<strong>容易生成合法、有效输入（Valid Inputs），适用于对输入结构性要求较高的场景</strong>，如针对解析器（Parser）、解释器（Interpreter）以及编译器（Compiler）的测试</li>
-<li>缺点：需要人工赋予一定的领域知识。在没有人工指定文法 的情况下，很难得到完整的文法规则</li>
+<li>&#x672C;&#x8D28;&#xFF1A;&#x5229;&#x7528;&#x7ED9;&#x5B9A;&#x7684;&#x3001;&#x6216;&#x8005;&#x6316;&#x6398;/&#x5B66;&#x4E60;&#x5F97;&#x5230;&#x7684;&#x6587;&#x6CD5;&#x89C4;&#x5219;&#xFF0C;&#x6765;&#x6784;&#x5EFA;&#x80FD;&#x591F;&#x901A;&#x8FC7;&#xFF08;&#x8BED;&#x6CD5;&#xFF09;&#x68C0;&#x67E5;&#x7684;&#x7ED3;&#x6784;&#x5316;&#x8F93;&#x5165;</li>
+<li>&#x4F18;&#x70B9;&#xFF1A;<strong>&#x5BB9;&#x6613;&#x751F;&#x6210;&#x5408;&#x6CD5;&#x3001;&#x6709;&#x6548;&#x8F93;&#x5165;&#xFF08;Valid Inputs&#xFF09;&#xFF0C;&#x9002;&#x7528;&#x4E8E;&#x5BF9;&#x8F93;&#x5165;&#x7ED3;&#x6784;&#x6027;&#x8981;&#x6C42;&#x8F83;&#x9AD8;&#x7684;&#x573A;&#x666F;</strong>&#xFF0C;&#x5982;&#x9488;&#x5BF9;&#x89E3;&#x6790;&#x5668;&#xFF08;Parser&#xFF09;&#x3001;&#x89E3;&#x91CA;&#x5668;&#xFF08;Interpreter&#xFF09;&#x4EE5;&#x53CA;&#x7F16;&#x8BD1;&#x5668;&#xFF08;Compiler&#xFF09;&#x7684;&#x6D4B;&#x8BD5;</li>
+<li>&#x7F3A;&#x70B9;&#xFF1A;&#x9700;&#x8981;&#x4EBA;&#x5DE5;&#x8D4B;&#x4E88;&#x4E00;&#x5B9A;&#x7684;&#x9886;&#x57DF;&#x77E5;&#x8BC6;&#x3002;&#x5728;&#x6CA1;&#x6709;&#x4EBA;&#x5DE5;&#x6307;&#x5B9A;&#x6587;&#x6CD5; &#x7684;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x5F88;&#x96BE;&#x5F97;&#x5230;&#x5B8C;&#x6574;&#x7684;&#x6587;&#x6CD5;&#x89C4;&#x5219;</li>
 </ul>
-<h2 id="基于搜索的模糊测试">基于搜索的模糊测试</h2>
-<p>Search-based：Fuzzing as Search Problem</p>
+<h2 id="&#x57FA;&#x4E8E;&#x641C;&#x7D22;&#x7684;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;">&#x57FA;&#x4E8E;&#x641C;&#x7D22;&#x7684;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;</h2>
+<p>Search-based&#xFF1A;Fuzzing as Search Problem</p>
 <ul>
-<li>核心：将模糊测试过程建模为搜索问题，根据模型构造启发式算法（Heuristic）解决问题</li>
-<li>启发式：遗传算法-AFL1、马尔科夫链-AFLFast2、信息熵Entropic3、多臂老虎机问题-EcoFuzz</li>
+<li>&#x6838;&#x5FC3;&#xFF1A;&#x5C06;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x8FC7;&#x7A0B;&#x5EFA;&#x6A21;&#x4E3A;&#x641C;&#x7D22;&#x95EE;&#x9898;&#xFF0C;&#x6839;&#x636E;&#x6A21;&#x578B;&#x6784;&#x9020;&#x542F;&#x53D1;&#x5F0F;&#x7B97;&#x6CD5;&#xFF08;Heuristic&#xFF09;&#x89E3;&#x51B3;&#x95EE;&#x9898;</li>
+<li>&#x542F;&#x53D1;&#x5F0F;&#xFF1A;&#x9057;&#x4F20;&#x7B97;&#x6CD5;-AFL1&#x3001;&#x9A6C;&#x5C14;&#x79D1;&#x592B;&#x94FE;-AFLFast2&#x3001;&#x4FE1;&#x606F;&#x71B5;Entropic3&#x3001;&#x591A;&#x81C2;&#x8001;&#x864E;&#x673A;&#x95EE;&#x9898;-EcoFuzz</li>
 </ul>
-<h2 id="基于梯度的模糊测试">基于梯度的模糊测试</h2>
-<p>Gradient-based：Fuzzing as Optimization Problem</p>
+<h2 id="&#x57FA;&#x4E8E;&#x68AF;&#x5EA6;&#x7684;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;">&#x57FA;&#x4E8E;&#x68AF;&#x5EA6;&#x7684;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;</h2>
+<p>Gradient-based&#xFF1A;Fuzzing as Optimization Problem</p>
 <ul>
-<li>核心：将模糊测试过程建模为优化问题，问题的目标是最大化缺陷发掘数量，<strong>利用梯度下降算法持续求解最优解</strong></li>
-<li>目标退阶：缺陷离散分布且无法预知 替换为代码覆盖 •</li>
-<li>应用DL技术-Neuzz1 &amp; MTFuzz2；利用梯度下降取代符号执行的约束求解过程-Angora3</li>
+<li>&#x6838;&#x5FC3;&#xFF1A;&#x5C06;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#x8FC7;&#x7A0B;&#x5EFA;&#x6A21;&#x4E3A;&#x4F18;&#x5316;&#x95EE;&#x9898;&#xFF0C;&#x95EE;&#x9898;&#x7684;&#x76EE;&#x6807;&#x662F;&#x6700;&#x5927;&#x5316;&#x7F3A;&#x9677;&#x53D1;&#x6398;&#x6570;&#x91CF;&#xFF0C;<strong>&#x5229;&#x7528;&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#x7B97;&#x6CD5;&#x6301;&#x7EED;&#x6C42;&#x89E3;&#x6700;&#x4F18;&#x89E3;</strong></li>
+<li>&#x76EE;&#x6807;&#x9000;&#x9636;&#xFF1A;&#x7F3A;&#x9677;&#x79BB;&#x6563;&#x5206;&#x5E03;&#x4E14;&#x65E0;&#x6CD5;&#x9884;&#x77E5; &#x66FF;&#x6362;&#x4E3A;&#x4EE3;&#x7801;&#x8986;&#x76D6; &#x2022;</li>
+<li>&#x5E94;&#x7528;DL&#x6280;&#x672F;-Neuzz1 &amp; MTFuzz2&#xFF1B;&#x5229;&#x7528;&#x68AF;&#x5EA6;&#x4E0B;&#x964D;&#x53D6;&#x4EE3;&#x7B26;&#x53F7;&#x6267;&#x884C;&#x7684;&#x7EA6;&#x675F;&#x6C42;&#x89E3;&#x8FC7;&#x7A0B;-Angora3</li>
 </ul>
-<h2 id="定向灰盒模糊测试">定向灰盒模糊测试</h2>
-<p>AFLGo1：定向灰盒模糊测试</p>
-<p>基本思路：Distance + Annealing-based Scheduling，为 更靠近目标位置的种子分配更多的能量</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106211248817.png" alt="image-20240106211248817"></p>
-<h1>变异测试</h1>
-<p>变异测试旨在找出有效的测试用例，发现程序中真正的错误。</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106195337129.png" alt="image-20240106195337129"></p>
-<h2 id="变异体">变异体</h2>
-<p>基于一定的语法（Syntax）变换规则，通过对源程序进行程 序变换（Program Transformation）得到的一系列变体</p>
-<p>假设</p>
+<h2 id="&#x5B9A;&#x5411;&#x7070;&#x76D2;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;">&#x5B9A;&#x5411;&#x7070;&#x76D2;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;</h2>
+<p>AFLGo1&#xFF1A;&#x5B9A;&#x5411;&#x7070;&#x76D2;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;</p>
+<p>&#x57FA;&#x672C;&#x601D;&#x8DEF;&#xFF1A;Distance + Annealing-based Scheduling&#xFF0C;&#x4E3A; &#x66F4;&#x9760;&#x8FD1;&#x76EE;&#x6807;&#x4F4D;&#x7F6E;&#x7684;&#x79CD;&#x5B50;&#x5206;&#x914D;&#x66F4;&#x591A;&#x7684;&#x80FD;&#x91CF;</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106211248817.png" alt="image-20240106211248817"></p>
+<h1>&#x53D8;&#x5F02;&#x6D4B;&#x8BD5;</h1>
+<p>&#x53D8;&#x5F02;&#x6D4B;&#x8BD5;&#x65E8;&#x5728;&#x627E;&#x51FA;&#x6709;&#x6548;&#x7684;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#xFF0C;&#x53D1;&#x73B0;&#x7A0B;&#x5E8F;&#x4E2D;&#x771F;&#x6B63;&#x7684;&#x9519;&#x8BEF;&#x3002;</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106195337129.png" alt="image-20240106195337129"></p>
+<h2 id="&#x53D8;&#x5F02;&#x4F53;">&#x53D8;&#x5F02;&#x4F53;</h2>
+<p>&#x57FA;&#x4E8E;&#x4E00;&#x5B9A;&#x7684;&#x8BED;&#x6CD5;&#xFF08;Syntax&#xFF09;&#x53D8;&#x6362;&#x89C4;&#x5219;&#xFF0C;&#x901A;&#x8FC7;&#x5BF9;&#x6E90;&#x7A0B;&#x5E8F;&#x8FDB;&#x884C;&#x7A0B; &#x5E8F;&#x53D8;&#x6362;&#xFF08;Program Transformation&#xFF09;&#x5F97;&#x5230;&#x7684;&#x4E00;&#x7CFB;&#x5217;&#x53D8;&#x4F53;</p>
+<p>&#x5047;&#x8BBE;</p>
 <ul>
-<li>源程序不包含缺陷 现有的测试套件没有发现缺陷</li>
-<li>变异体表达了某种缺陷  人工缺陷（Artificial Defect）</li>
+<li>&#x6E90;&#x7A0B;&#x5E8F;&#x4E0D;&#x5305;&#x542B;&#x7F3A;&#x9677; &#x73B0;&#x6709;&#x7684;&#x6D4B;&#x8BD5;&#x5957;&#x4EF6;&#x6CA1;&#x6709;&#x53D1;&#x73B0;&#x7F3A;&#x9677;</li>
+<li>&#x53D8;&#x5F02;&#x4F53;&#x8868;&#x8FBE;&#x4E86;&#x67D0;&#x79CD;&#x7F3A;&#x9677;  &#x4EBA;&#x5DE5;&#x7F3A;&#x9677;&#xFF08;Artificial Defect&#xFF09;</li>
 </ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106201717276.png" alt="image-20240106201717276"></p>
-<h2 id="变异得分（Mutation-Score）">变异得分（Mutation Score）</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106201717276.png" alt="image-20240106201717276"></p>
+<h2 id="&#x53D8;&#x5F02;&#x5F97;&#x5206;&#xFF08;Mutation-Score&#xFF09;">&#x53D8;&#x5F02;&#x5F97;&#x5206;&#xFF08;Mutation Score&#xFF09;</h2>
 <ul>
 <li>
-<p>变异测试对测试套件错误检测能力的量化</p>
+<p>&#x53D8;&#x5F02;&#x6D4B;&#x8BD5;&#x5BF9;&#x6D4B;&#x8BD5;&#x5957;&#x4EF6;&#x9519;&#x8BEF;&#x68C0;&#x6D4B;&#x80FD;&#x529B;&#x7684;&#x91CF;&#x5316;</p>
 </li>
 <li>
-<p>杀死与存活：<strong>变异体是否导致某个测试用例运行失败</strong>；测试 用例是否“检测”到某个变异体</p>
+<p>&#x6740;&#x6B7B;&#x4E0E;&#x5B58;&#x6D3B;&#xFF1A;<strong>&#x53D8;&#x5F02;&#x4F53;&#x662F;&#x5426;&#x5BFC;&#x81F4;&#x67D0;&#x4E2A;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x8FD0;&#x884C;&#x5931;&#x8D25;</strong>&#xFF1B;&#x6D4B;&#x8BD5; &#x7528;&#x4F8B;&#x662F;&#x5426;&#x201C;&#x68C0;&#x6D4B;&#x201D;&#x5230;&#x67D0;&#x4E2A;&#x53D8;&#x5F02;&#x4F53;</p>
 <ul>
-<li>检测到：变体被杀死（Killed）</li>
-<li>未检测到：变体存活（Survived）</li>
+<li>&#x68C0;&#x6D4B;&#x5230;&#xFF1A;&#x53D8;&#x4F53;&#x88AB;&#x6740;&#x6B7B;&#xFF08;Killed&#xFF09;</li>
+<li>&#x672A;&#x68C0;&#x6D4B;&#x5230;&#xFF1A;&#x53D8;&#x4F53;&#x5B58;&#x6D3B;&#xFF08;Survived&#xFF09;</li>
 </ul>
 </li>
 <li>
-<p>计算公式</p>
+<p>&#x8BA1;&#x7B97;&#x516C;&#x5F0F;</p>
 <p>$score =  \frac{mut _k}{mut_s + mut_k}* 100%$</p>
 </li>
 </ul>
-<h2 id="变异体的分类">变异体的分类</h2>
+<h2 id="&#x53D8;&#x5F02;&#x4F53;&#x7684;&#x5206;&#x7C7B;">&#x53D8;&#x5F02;&#x4F53;&#x7684;&#x5206;&#x7C7B;</h2>
 <ul>
-<li>有效变异体
+<li>&#x6709;&#x6548;&#x53D8;&#x5F02;&#x4F53;
 <ul>
-<li>夭折变异体（Stillborn Mutant）</li>
-<li>等价变异体（Equivalent Mutant）</li>
-<li>冗余变异体（Redundant Mutant）
+<li>&#x592D;&#x6298;&#x53D8;&#x5F02;&#x4F53;&#xFF08;Stillborn Mutant&#xFF09;</li>
+<li>&#x7B49;&#x4EF7;&#x53D8;&#x5F02;&#x4F53;&#xFF08;Equivalent Mutant&#xFF09;</li>
+<li>&#x5197;&#x4F59;&#x53D8;&#x5F02;&#x4F53;&#xFF08;Redundant Mutant&#xFF09;
 <ul>
-<li>重复变异体（Duplicated Mutant）</li>
-<li>蕴含变异体（Subsumed Mutant）</li>
+<li>&#x91CD;&#x590D;&#x53D8;&#x5F02;&#x4F53;&#xFF08;Duplicated Mutant&#xFF09;</li>
+<li>&#x8574;&#x542B;&#x53D8;&#x5F02;&#x4F53;&#xFF08;Subsumed Mutant&#xFF09;</li>
 </ul>
 </li>
 </ul>
 </li>
 </ul>
-<h3 id="等价">等价</h3>
+<h3 id="&#x7B49;&#x4EF7;">&#x7B49;&#x4EF7;</h3>
 <ul>
-<li>对于待测程序p的变体mut，如果mut和p的语法不同、语义相同，则称mut是p的等价变异体</li>
-<li>语义相同：对于给定输入，两个程序总能给出相同的输出</li>
+<li>&#x5BF9;&#x4E8E;&#x5F85;&#x6D4B;&#x7A0B;&#x5E8F;p&#x7684;&#x53D8;&#x4F53;mut&#xFF0C;&#x5982;&#x679C;mut&#x548C;p&#x7684;&#x8BED;&#x6CD5;&#x4E0D;&#x540C;&#x3001;&#x8BED;&#x4E49;&#x76F8;&#x540C;&#xFF0C;&#x5219;&#x79F0;mut&#x662F;p&#x7684;&#x7B49;&#x4EF7;&#x53D8;&#x5F02;&#x4F53;</li>
+<li>&#x8BED;&#x4E49;&#x76F8;&#x540C;&#xFF1A;&#x5BF9;&#x4E8E;&#x7ED9;&#x5B9A;&#x8F93;&#x5165;&#xFF0C;&#x4E24;&#x4E2A;&#x7A0B;&#x5E8F;&#x603B;&#x80FD;&#x7ED9;&#x51FA;&#x76F8;&#x540C;&#x7684;&#x8F93;&#x51FA;</li>
 </ul>
-<h3 id="蕴含">蕴含</h3>
+<h3 id="&#x8574;&#x542B;">&#x8574;&#x542B;</h3>
 <ul>
-<li>对于两个变体$mut_1$和$mut_2$，如果∀杀死$mut_1$的测试用例t都可以杀死$mut_2$，则称$mut_1$蕴含$mut_2$</li>
+<li>&#x5BF9;&#x4E8E;&#x4E24;&#x4E2A;&#x53D8;&#x4F53;$mut_1$&#x548C;$mut_2$&#xFF0C;&#x5982;&#x679C;&#x2200;&#x6740;&#x6B7B;$mut_1$&#x7684;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;t&#x90FD;&#x53EF;&#x4EE5;&#x6740;&#x6B7B;$mut_2$&#xFF0C;&#x5219;&#x79F0;$mut_1$&#x8574;&#x542B;$mut_2$</li>
 </ul>
-<h2 id="变异算子（Mutation-Operator）">变异算子（Mutation Operator）</h2>
+<h2 id="&#x53D8;&#x5F02;&#x7B97;&#x5B50;&#xFF08;Mutation-Operator&#xFF09;">&#x53D8;&#x5F02;&#x7B97;&#x5B50;&#xFF08;Mutation Operator&#xFF09;</h2>
 <ul>
-<li>一系列语法变换规则（Syntactic Transformation Rule）</li>
-<li>变异（Mutate）的依据，反映了测试人员关注的缺陷种类</li>
-<li>基本形式
+<li>&#x4E00;&#x7CFB;&#x5217;&#x8BED;&#x6CD5;&#x53D8;&#x6362;&#x89C4;&#x5219;&#xFF08;Syntactic Transformation Rule&#xFF09;</li>
+<li>&#x53D8;&#x5F02;&#xFF08;Mutate&#xFF09;&#x7684;&#x4F9D;&#x636E;&#xFF0C;&#x53CD;&#x6620;&#x4E86;&#x6D4B;&#x8BD5;&#x4EBA;&#x5458;&#x5173;&#x6CE8;&#x7684;&#x7F3A;&#x9677;&#x79CD;&#x7C7B;</li>
+<li>&#x57FA;&#x672C;&#x5F62;&#x5F0F;
 <ul>
-<li>对程序的源代码进行变换（Source Code Level）</li>
-<li>对程序的编译结果（中间表示）进行变换，例如：针对Java  Bytecode的程序变换算子</li>
-<li>元变异（Meta-mutation）</li>
-</ul>
-</li>
-</ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106202621753.png" alt="image-20240106202621753"></p>
-<h2 id="变异测试为什么有效">变异测试为什么有效</h2>
-<ul>
-<li>假设1：缺陷是简单的、可模拟的
-<ul>
-<li>变异体能够模拟测试人员关注的缺陷类型，即：最常出现的 缺陷类型；</li>
-<li>能够在变异测试中暴露这些人工缺陷的测试套件一定能检测出待测程序中潜在的同类缺陷</li>
-<li>老练程序员假设：一个老练程序员编写的错误程序与正确程序相差不大</li>
-</ul>
-</li>
-<li>假设2：缺陷可叠加
-<ul>
-<li>复杂变异体可以通过耦合简单变异体得到</li>
-<li>能够杀死简单变异体的测试用例可以杀死复杂变异体</li>
-</ul>
-</li>
-<li>假设3：缺陷检测有效性
-<ul>
-<li>缺陷检测能力是测试用例最重要的属性</li>
-<li>变异得分能够有效地反映测试用例/套件的错误检测能力</li>
-<li>传递性假设：能够杀死变异体（暴露人工缺陷）的测试用例 也能有效发现真实世界的缺陷</li>
+<li>&#x5BF9;&#x7A0B;&#x5E8F;&#x7684;&#x6E90;&#x4EE3;&#x7801;&#x8FDB;&#x884C;&#x53D8;&#x6362;&#xFF08;Source Code Level&#xFF09;</li>
+<li>&#x5BF9;&#x7A0B;&#x5E8F;&#x7684;&#x7F16;&#x8BD1;&#x7ED3;&#x679C;&#xFF08;&#x4E2D;&#x95F4;&#x8868;&#x793A;&#xFF09;&#x8FDB;&#x884C;&#x53D8;&#x6362;&#xFF0C;&#x4F8B;&#x5982;&#xFF1A;&#x9488;&#x5BF9;Java  Bytecode&#x7684;&#x7A0B;&#x5E8F;&#x53D8;&#x6362;&#x7B97;&#x5B50;</li>
+<li>&#x5143;&#x53D8;&#x5F02;&#xFF08;Meta-mutation&#xFF09;</li>
 </ul>
 </li>
 </ul>
-<h2 id="变异测试流程">变异测试流程</h2>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106202947994.png" alt="image-20240106202947994"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106202621753.png" alt="image-20240106202621753"></p>
+<h2 id="&#x53D8;&#x5F02;&#x6D4B;&#x8BD5;&#x4E3A;&#x4EC0;&#x4E48;&#x6709;&#x6548;">&#x53D8;&#x5F02;&#x6D4B;&#x8BD5;&#x4E3A;&#x4EC0;&#x4E48;&#x6709;&#x6548;</h2>
 <ul>
-<li>变异分析：1，2，3，5，6</li>
-<li>变异应用：4，7，10</li>
-</ul>
-<h3 id="如何设计有效的变异算子？">如何设计有效的变异算子？</h3>
-<p>设计原则</p>
+<li>&#x5047;&#x8BBE;1&#xFF1A;&#x7F3A;&#x9677;&#x662F;&#x7B80;&#x5355;&#x7684;&#x3001;&#x53EF;&#x6A21;&#x62DF;&#x7684;
 <ul>
-<li>根据编程语言：Java，C#，C/C++，JS，AspectJ •</li>
-<li>根据语言设计原则：OO，AOP</li>
-<li>根据应用场景：Web，Android，Ajax</li>
-<li>根据Bug类型：安全漏洞、内存缺陷、交互错误</li>
-</ul>
-<h3 id="变异体约减">变异体约减</h3>
-<p>变异体约减旨在从变异体全集中选出具有代表性变异体子集</p>
-<h4 id="约减策略">约减策略</h4>
-<ul>
-<li>随机选取1：选取总量的10%~60%，缺陷丢失率为6%~26%</li>
-<li>基于类型2：某些类型的变异体可能要更加重要</li>
-<li>基于分布3：利用AST选取更加分散的变异体</li>
-</ul>
-<h3 id="变异体生成">变异体生成</h3>
-<p>变异体生成技术</p>
-<ul>
-<li>元变异（Meta-mutation）</li>
-<li>基于字节码操作（Bytecode Manipulation</li>
-<li>热替换（Hot-Swap, Just-In-Time）</li>
-</ul>
-<h3 id="变异体优化">变异体优化</h3>
-<h4 id="去除有等价和无效变异体">去除有等价和无效变异体</h4>
-<p><strong>通过静态分析的方式，识别并移除有问题的变异</strong></p>
-<h4 id="识别等价变异体">识别等价变异体</h4>
-<p>常用技术</p>
-<ul>
-<li>代码优化（Code optimization）。对源代码和变异体进行优化， 移除优化后与源代码相同的变异体</li>
-<li>静态数据流分析，如值分析（Value Analysis）。等价变异体汇 总存在特定的数据流模板，可以由此识别等价变异体</li>
-</ul>
-<h3 id="变异体执行">变异体执行</h3>
-<h4 id="变异体矩阵">变异体矩阵</h4>
-<p>记录每个测试用例对每个变异体的执行情况</p>
-<p>m*n维矩阵：m为变异体个数，n为测试用例个数</p>
-<h2 id="应用">应用</h2>
-<ul>
-<li>评估作用：利用变异得分度量测试的充分性</li>
-<li>引导作用：利用变异测试/分析的结果来引导测试过程</li>
-<li>传统应用：应用于确定性系统
-<ul>
-<li>测试生成（Test Generation）</li>
-<li>预言生成（Oracle Problem）</li>
-<li>测试优化（排序 &amp; 选择）</li>
-<li>Debug引导 （缺陷定位 &amp; 自动修复</li>
+<li>&#x53D8;&#x5F02;&#x4F53;&#x80FD;&#x591F;&#x6A21;&#x62DF;&#x6D4B;&#x8BD5;&#x4EBA;&#x5458;&#x5173;&#x6CE8;&#x7684;&#x7F3A;&#x9677;&#x7C7B;&#x578B;&#xFF0C;&#x5373;&#xFF1A;&#x6700;&#x5E38;&#x51FA;&#x73B0;&#x7684; &#x7F3A;&#x9677;&#x7C7B;&#x578B;&#xFF1B;</li>
+<li>&#x80FD;&#x591F;&#x5728;&#x53D8;&#x5F02;&#x6D4B;&#x8BD5;&#x4E2D;&#x66B4;&#x9732;&#x8FD9;&#x4E9B;&#x4EBA;&#x5DE5;&#x7F3A;&#x9677;&#x7684;&#x6D4B;&#x8BD5;&#x5957;&#x4EF6;&#x4E00;&#x5B9A;&#x80FD;&#x68C0;&#x6D4B;&#x51FA;&#x5F85;&#x6D4B;&#x7A0B;&#x5E8F;&#x4E2D;&#x6F5C;&#x5728;&#x7684;&#x540C;&#x7C7B;&#x7F3A;&#x9677;</li>
+<li>&#x8001;&#x7EC3;&#x7A0B;&#x5E8F;&#x5458;&#x5047;&#x8BBE;&#xFF1A;&#x4E00;&#x4E2A;&#x8001;&#x7EC3;&#x7A0B;&#x5E8F;&#x5458;&#x7F16;&#x5199;&#x7684;&#x9519;&#x8BEF;&#x7A0B;&#x5E8F;&#x4E0E;&#x6B63;&#x786E;&#x7A0B;&#x5E8F;&#x76F8;&#x5DEE;&#x4E0D;&#x5927;</li>
 </ul>
 </li>
-<li>变异 &amp; AI：应用于非确定性系统（DNN）</li>
+<li>&#x5047;&#x8BBE;2&#xFF1A;&#x7F3A;&#x9677;&#x53EF;&#x53E0;&#x52A0;
+<ul>
+<li>&#x590D;&#x6742;&#x53D8;&#x5F02;&#x4F53;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x8026;&#x5408;&#x7B80;&#x5355;&#x53D8;&#x5F02;&#x4F53;&#x5F97;&#x5230;</li>
+<li>&#x80FD;&#x591F;&#x6740;&#x6B7B;&#x7B80;&#x5355;&#x53D8;&#x5F02;&#x4F53;&#x7684;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x53EF;&#x4EE5;&#x6740;&#x6B7B;&#x590D;&#x6742;&#x53D8;&#x5F02;&#x4F53;</li>
 </ul>
-<h1>回归测试</h1>
-<h2 id="回归测试研究框架">回归测试研究框架</h2>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106215343774.png" alt="image-20240106215343774"></p>
-<h2 id="回归测试优化">回归测试优化</h2>
+</li>
+<li>&#x5047;&#x8BBE;3&#xFF1A;&#x7F3A;&#x9677;&#x68C0;&#x6D4B;&#x6709;&#x6548;&#x6027;
+<ul>
+<li>&#x7F3A;&#x9677;&#x68C0;&#x6D4B;&#x80FD;&#x529B;&#x662F;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x6700;&#x91CD;&#x8981;&#x7684;&#x5C5E;&#x6027;</li>
+<li>&#x53D8;&#x5F02;&#x5F97;&#x5206;&#x80FD;&#x591F;&#x6709;&#x6548;&#x5730;&#x53CD;&#x6620;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;/&#x5957;&#x4EF6;&#x7684;&#x9519;&#x8BEF;&#x68C0;&#x6D4B;&#x80FD;&#x529B;</li>
+<li>&#x4F20;&#x9012;&#x6027;&#x5047;&#x8BBE;&#xFF1A;&#x80FD;&#x591F;&#x6740;&#x6B7B;&#x53D8;&#x5F02;&#x4F53;&#xFF08;&#x66B4;&#x9732;&#x4EBA;&#x5DE5;&#x7F3A;&#x9677;&#xFF09;&#x7684;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B; &#x4E5F;&#x80FD;&#x6709;&#x6548;&#x53D1;&#x73B0;&#x771F;&#x5B9E;&#x4E16;&#x754C;&#x7684;&#x7F3A;&#x9677;</li>
+</ul>
+</li>
+</ul>
+<h2 id="&#x53D8;&#x5F02;&#x6D4B;&#x8BD5;&#x6D41;&#x7A0B;">&#x53D8;&#x5F02;&#x6D4B;&#x8BD5;&#x6D41;&#x7A0B;</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106202947994.png" alt="image-20240106202947994"></p>
+<ul>
+<li>&#x53D8;&#x5F02;&#x5206;&#x6790;&#xFF1A;1&#xFF0C;2&#xFF0C;3&#xFF0C;5&#xFF0C;6</li>
+<li>&#x53D8;&#x5F02;&#x5E94;&#x7528;&#xFF1A;4&#xFF0C;7&#xFF0C;10</li>
+</ul>
+<h3 id="&#x5982;&#x4F55;&#x8BBE;&#x8BA1;&#x6709;&#x6548;&#x7684;&#x53D8;&#x5F02;&#x7B97;&#x5B50;&#xFF1F;">&#x5982;&#x4F55;&#x8BBE;&#x8BA1;&#x6709;&#x6548;&#x7684;&#x53D8;&#x5F02;&#x7B97;&#x5B50;&#xFF1F;</h3>
+<p>&#x8BBE;&#x8BA1;&#x539F;&#x5219;</p>
+<ul>
+<li>&#x6839;&#x636E;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&#xFF1A;Java&#xFF0C;C#&#xFF0C;C/C++&#xFF0C;JS&#xFF0C;AspectJ &#x2022;</li>
+<li>&#x6839;&#x636E;&#x8BED;&#x8A00;&#x8BBE;&#x8BA1;&#x539F;&#x5219;&#xFF1A;OO&#xFF0C;AOP</li>
+<li>&#x6839;&#x636E;&#x5E94;&#x7528;&#x573A;&#x666F;&#xFF1A;Web&#xFF0C;Android&#xFF0C;Ajax</li>
+<li>&#x6839;&#x636E;Bug&#x7C7B;&#x578B;&#xFF1A;&#x5B89;&#x5168;&#x6F0F;&#x6D1E;&#x3001;&#x5185;&#x5B58;&#x7F3A;&#x9677;&#x3001;&#x4EA4;&#x4E92;&#x9519;&#x8BEF;</li>
+</ul>
+<h3 id="&#x53D8;&#x5F02;&#x4F53;&#x7EA6;&#x51CF;">&#x53D8;&#x5F02;&#x4F53;&#x7EA6;&#x51CF;</h3>
+<p>&#x53D8;&#x5F02;&#x4F53;&#x7EA6;&#x51CF;&#x65E8;&#x5728;&#x4ECE;&#x53D8;&#x5F02;&#x4F53;&#x5168;&#x96C6;&#x4E2D;&#x9009;&#x51FA;&#x5177;&#x6709;&#x4EE3;&#x8868;&#x6027;&#x53D8;&#x5F02;&#x4F53;&#x5B50;&#x96C6;</p>
+<h4 id="&#x7EA6;&#x51CF;&#x7B56;&#x7565;">&#x7EA6;&#x51CF;&#x7B56;&#x7565;</h4>
+<ul>
+<li>&#x968F;&#x673A;&#x9009;&#x53D6;1&#xFF1A;&#x9009;&#x53D6;&#x603B;&#x91CF;&#x7684;10%~60%&#xFF0C;&#x7F3A;&#x9677;&#x4E22;&#x5931;&#x7387;&#x4E3A;6%~26%</li>
+<li>&#x57FA;&#x4E8E;&#x7C7B;&#x578B;2&#xFF1A;&#x67D0;&#x4E9B;&#x7C7B;&#x578B;&#x7684;&#x53D8;&#x5F02;&#x4F53;&#x53EF;&#x80FD;&#x8981;&#x66F4;&#x52A0;&#x91CD;&#x8981;</li>
+<li>&#x57FA;&#x4E8E;&#x5206;&#x5E03;3&#xFF1A;&#x5229;&#x7528;AST&#x9009;&#x53D6;&#x66F4;&#x52A0;&#x5206;&#x6563;&#x7684;&#x53D8;&#x5F02;&#x4F53;</li>
+</ul>
+<h3 id="&#x53D8;&#x5F02;&#x4F53;&#x751F;&#x6210;">&#x53D8;&#x5F02;&#x4F53;&#x751F;&#x6210;</h3>
+<p>&#x53D8;&#x5F02;&#x4F53;&#x751F;&#x6210;&#x6280;&#x672F;</p>
+<ul>
+<li>&#x5143;&#x53D8;&#x5F02;&#xFF08;Meta-mutation&#xFF09;</li>
+<li>&#x57FA;&#x4E8E;&#x5B57;&#x8282;&#x7801;&#x64CD;&#x4F5C;&#xFF08;Bytecode Manipulation</li>
+<li>&#x70ED;&#x66FF;&#x6362;&#xFF08;Hot-Swap, Just-In-Time&#xFF09;</li>
+</ul>
+<h3 id="&#x53D8;&#x5F02;&#x4F53;&#x4F18;&#x5316;">&#x53D8;&#x5F02;&#x4F53;&#x4F18;&#x5316;</h3>
+<h4 id="&#x53BB;&#x9664;&#x6709;&#x7B49;&#x4EF7;&#x548C;&#x65E0;&#x6548;&#x53D8;&#x5F02;&#x4F53;">&#x53BB;&#x9664;&#x6709;&#x7B49;&#x4EF7;&#x548C;&#x65E0;&#x6548;&#x53D8;&#x5F02;&#x4F53;</h4>
+<p><strong>&#x901A;&#x8FC7;&#x9759;&#x6001;&#x5206;&#x6790;&#x7684;&#x65B9;&#x5F0F;&#xFF0C;&#x8BC6;&#x522B;&#x5E76;&#x79FB;&#x9664;&#x6709;&#x95EE;&#x9898;&#x7684;&#x53D8;&#x5F02;</strong></p>
+<h4 id="&#x8BC6;&#x522B;&#x7B49;&#x4EF7;&#x53D8;&#x5F02;&#x4F53;">&#x8BC6;&#x522B;&#x7B49;&#x4EF7;&#x53D8;&#x5F02;&#x4F53;</h4>
+<p>&#x5E38;&#x7528;&#x6280;&#x672F;</p>
+<ul>
+<li>&#x4EE3;&#x7801;&#x4F18;&#x5316;&#xFF08;Code optimization&#xFF09;&#x3002;&#x5BF9;&#x6E90;&#x4EE3;&#x7801;&#x548C;&#x53D8;&#x5F02;&#x4F53;&#x8FDB;&#x884C;&#x4F18;&#x5316;&#xFF0C; &#x79FB;&#x9664;&#x4F18;&#x5316;&#x540E;&#x4E0E;&#x6E90;&#x4EE3;&#x7801;&#x76F8;&#x540C;&#x7684;&#x53D8;&#x5F02;&#x4F53;</li>
+<li>&#x9759;&#x6001;&#x6570;&#x636E;&#x6D41;&#x5206;&#x6790;&#xFF0C;&#x5982;&#x503C;&#x5206;&#x6790;&#xFF08;Value Analysis&#xFF09;&#x3002;&#x7B49;&#x4EF7;&#x53D8;&#x5F02;&#x4F53;&#x6C47; &#x603B;&#x5B58;&#x5728;&#x7279;&#x5B9A;&#x7684;&#x6570;&#x636E;&#x6D41;&#x6A21;&#x677F;&#xFF0C;&#x53EF;&#x4EE5;&#x7531;&#x6B64;&#x8BC6;&#x522B;&#x7B49;&#x4EF7;&#x53D8;&#x5F02;&#x4F53;</li>
+</ul>
+<h3 id="&#x53D8;&#x5F02;&#x4F53;&#x6267;&#x884C;">&#x53D8;&#x5F02;&#x4F53;&#x6267;&#x884C;</h3>
+<h4 id="&#x53D8;&#x5F02;&#x4F53;&#x77E9;&#x9635;">&#x53D8;&#x5F02;&#x4F53;&#x77E9;&#x9635;</h4>
+<p>&#x8BB0;&#x5F55;&#x6BCF;&#x4E2A;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x5BF9;&#x6BCF;&#x4E2A;&#x53D8;&#x5F02;&#x4F53;&#x7684;&#x6267;&#x884C;&#x60C5;&#x51B5;</p>
+<p>m*n&#x7EF4;&#x77E9;&#x9635;&#xFF1A;m&#x4E3A;&#x53D8;&#x5F02;&#x4F53;&#x4E2A;&#x6570;&#xFF0C;n&#x4E3A;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x4E2A;&#x6570;</p>
+<h2 id="&#x5E94;&#x7528;">&#x5E94;&#x7528;</h2>
+<ul>
+<li>&#x8BC4;&#x4F30;&#x4F5C;&#x7528;&#xFF1A;&#x5229;&#x7528;&#x53D8;&#x5F02;&#x5F97;&#x5206;&#x5EA6;&#x91CF;&#x6D4B;&#x8BD5;&#x7684;&#x5145;&#x5206;&#x6027;</li>
+<li>&#x5F15;&#x5BFC;&#x4F5C;&#x7528;&#xFF1A;&#x5229;&#x7528;&#x53D8;&#x5F02;&#x6D4B;&#x8BD5;/&#x5206;&#x6790;&#x7684;&#x7ED3;&#x679C;&#x6765;&#x5F15;&#x5BFC;&#x6D4B;&#x8BD5;&#x8FC7;&#x7A0B;</li>
+<li>&#x4F20;&#x7EDF;&#x5E94;&#x7528;&#xFF1A;&#x5E94;&#x7528;&#x4E8E;&#x786E;&#x5B9A;&#x6027;&#x7CFB;&#x7EDF;
+<ul>
+<li>&#x6D4B;&#x8BD5;&#x751F;&#x6210;&#xFF08;Test Generation&#xFF09;</li>
+<li>&#x9884;&#x8A00;&#x751F;&#x6210;&#xFF08;Oracle Problem&#xFF09;</li>
+<li>&#x6D4B;&#x8BD5;&#x4F18;&#x5316;&#xFF08;&#x6392;&#x5E8F; &amp; &#x9009;&#x62E9;&#xFF09;</li>
+<li>Debug&#x5F15;&#x5BFC; &#xFF08;&#x7F3A;&#x9677;&#x5B9A;&#x4F4D; &amp; &#x81EA;&#x52A8;&#x4FEE;&#x590D;</li>
+</ul>
+</li>
+<li>&#x53D8;&#x5F02; &amp; AI&#xFF1A;&#x5E94;&#x7528;&#x4E8E;&#x975E;&#x786E;&#x5B9A;&#x6027;&#x7CFB;&#x7EDF;&#xFF08;DNN&#xFF09;</li>
+</ul>
+<h1>&#x56DE;&#x5F52;&#x6D4B;&#x8BD5;</h1>
+<h2 id="&#x56DE;&#x5F52;&#x6D4B;&#x8BD5;&#x7814;&#x7A76;&#x6846;&#x67B6;">&#x56DE;&#x5F52;&#x6D4B;&#x8BD5;&#x7814;&#x7A76;&#x6846;&#x67B6;</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106215343774.png" alt="image-20240106215343774"></p>
+<h2 id="&#x56DE;&#x5F52;&#x6D4B;&#x8BD5;&#x4F18;&#x5316;">&#x56DE;&#x5F52;&#x6D4B;&#x8BD5;&#x4F18;&#x5316;</h2>
 <ul>
 <li>
-<p>测试用例修复 [1]：识别出因相关模块的外部接口或内在语义发生变更为失效的用例，并其进行修复。</p>
+<p>&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x4FEE;&#x590D; [1]&#xFF1A;&#x8BC6;&#x522B;&#x51FA;&#x56E0;&#x76F8;&#x5173;&#x6A21;&#x5757;&#x7684;&#x5916;&#x90E8;&#x63A5;&#x53E3;&#x6216;&#x5185;&#x5728;&#x8BED;&#x4E49;&#x53D1;&#x751F;&#x53D8;&#x66F4;&#x4E3A;&#x5931;&#x6548;&#x7684;&#x7528;&#x4F8B;&#xFF0C;&#x5E76;&#x5176;&#x8FDB;&#x884C;&#x4FEE;&#x590D;&#x3002;</p>
 </li>
 <li>
-<p>测试用例选择 [2]：通过分析代码修改，从已有测试用例中选择出所 有可检测代码修改的测试用例，并确保未被选择的测试用例在修改前后程序上的执行行为保持一致。</p>
+<p>&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x9009;&#x62E9; [2]&#xFF1A;&#x901A;&#x8FC7;&#x5206;&#x6790;&#x4EE3;&#x7801;&#x4FEE;&#x6539;&#xFF0C;&#x4ECE;&#x5DF2;&#x6709;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x4E2D;&#x9009;&#x62E9;&#x51FA;&#x6240; &#x6709;&#x53EF;&#x68C0;&#x6D4B;&#x4EE3;&#x7801;&#x4FEE;&#x6539;&#x7684;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#xFF0C;&#x5E76;&#x786E;&#x4FDD;&#x672A;&#x88AB;&#x9009;&#x62E9;&#x7684;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x5728;&#x4FEE;&#x6539;&#x524D;&#x540E;&#x7A0B;&#x5E8F;&#x4E0A;&#x7684;&#x6267;&#x884C;&#x884C;&#x4E3A;&#x4FDD;&#x6301;&#x4E00;&#x81F4;&#x3002;</p>
 </li>
 <li>
-<p>测试用例扩充 [3] ：在代码修改影响分析基础上，对已有测试用例集 的充分性进行评估，若不充分则设计新的测试用例以确保对代码修改的充分测试</p>
+<p>&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x6269;&#x5145; [3] &#xFF1A;&#x5728;&#x4EE3;&#x7801;&#x4FEE;&#x6539;&#x5F71;&#x54CD;&#x5206;&#x6790;&#x57FA;&#x7840;&#x4E0A;&#xFF0C;&#x5BF9;&#x5DF2;&#x6709;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x96C6; &#x7684;&#x5145;&#x5206;&#x6027;&#x8FDB;&#x884C;&#x8BC4;&#x4F30;&#xFF0C;&#x82E5;&#x4E0D;&#x5145;&#x5206;&#x5219;&#x8BBE;&#x8BA1;&#x65B0;&#x7684;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x4EE5;&#x786E;&#x4FDD;&#x5BF9;&#x4EE3;&#x7801;&#x4FEE;&#x6539;&#x7684;&#x5145;&#x5206;&#x6D4B;&#x8BD5;</p>
 </li>
 <li>
-<p>测试用例缩减 [4]：在满足指定测试需求覆盖前提下，识别并移除冗 余测试用例来降低回归测试用例集规模。</p>
+<p>&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x7F29;&#x51CF; [4]&#xFF1A;&#x5728;&#x6EE1;&#x8DB3;&#x6307;&#x5B9A;&#x6D4B;&#x8BD5;&#x9700;&#x6C42;&#x8986;&#x76D6;&#x524D;&#x63D0;&#x4E0B;&#xFF0C;&#x8BC6;&#x522B;&#x5E76;&#x79FB;&#x9664;&#x5197; &#x4F59;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x6765;&#x964D;&#x4F4E;&#x56DE;&#x5F52;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x96C6;&#x89C4;&#x6A21;&#x3002;</p>
 </li>
 <li>
-<p>测试用例优先级 [5]：当测试预算不足以执行完所有测试用例时，可 以基于特定优先级准则，对测试用例进行优先级排序以优化其执行次 序，旨在最大化优先级目标，例如测试用例集的缺陷检测速率。</p>
+<p>&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x4F18;&#x5148;&#x7EA7; [5]&#xFF1A;&#x5F53;&#x6D4B;&#x8BD5;&#x9884;&#x7B97;&#x4E0D;&#x8DB3;&#x4EE5;&#x6267;&#x884C;&#x5B8C;&#x6240;&#x6709;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x65F6;&#xFF0C;&#x53EF; &#x4EE5;&#x57FA;&#x4E8E;&#x7279;&#x5B9A;&#x4F18;&#x5148;&#x7EA7;&#x51C6;&#x5219;&#xFF0C;&#x5BF9;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x8FDB;&#x884C;&#x4F18;&#x5148;&#x7EA7;&#x6392;&#x5E8F;&#x4EE5;&#x4F18;&#x5316;&#x5176;&#x6267;&#x884C;&#x6B21; &#x5E8F;&#xFF0C;&#x65E8;&#x5728;&#x6700;&#x5927;&#x5316;&#x4F18;&#x5148;&#x7EA7;&#x76EE;&#x6807;&#xFF0C;&#x4F8B;&#x5982;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x96C6;&#x7684;&#x7F3A;&#x9677;&#x68C0;&#x6D4B;&#x901F;&#x7387;&#x3002;</p>
 </li>
 </ul>
-<h1>web测试</h1>
-<p>功能测试 Functional Testing 根据产品特性和设计 需求，验证一个产品 的特性和行为是否满 足设计需求</p>
-<h2 id="功能测试常用步骤">功能测试常用步骤</h2>
+<h1>web&#x6D4B;&#x8BD5;</h1>
+<p>&#x529F;&#x80FD;&#x6D4B;&#x8BD5; Functional Testing &#x6839;&#x636E;&#x4EA7;&#x54C1;&#x7279;&#x6027;&#x548C;&#x8BBE;&#x8BA1; &#x9700;&#x6C42;&#xFF0C;&#x9A8C;&#x8BC1;&#x4E00;&#x4E2A;&#x4EA7;&#x54C1; &#x7684;&#x7279;&#x6027;&#x548C;&#x884C;&#x4E3A;&#x662F;&#x5426;&#x6EE1; &#x8DB3;&#x8BBE;&#x8BA1;&#x9700;&#x6C42;</p>
+<h2 id="&#x529F;&#x80FD;&#x6D4B;&#x8BD5;&#x5E38;&#x7528;&#x6B65;&#x9AA4;">&#x529F;&#x80FD;&#x6D4B;&#x8BD5;&#x5E38;&#x7528;&#x6B65;&#x9AA4;</h2>
 <ol>
-<li>根据需求来细分功能点</li>
-<li>根据功能点派生测试需求</li>
-<li>根据测试需求设计功能测试用例</li>
-<li>逐项执行功能测试用例验证产品</li>
+<li>&#x6839;&#x636E;&#x9700;&#x6C42;&#x6765;&#x7EC6;&#x5206;&#x529F;&#x80FD;&#x70B9;</li>
+<li>&#x6839;&#x636E;&#x529F;&#x80FD;&#x70B9;&#x6D3E;&#x751F;&#x6D4B;&#x8BD5;&#x9700;&#x6C42;</li>
+<li>&#x6839;&#x636E;&#x6D4B;&#x8BD5;&#x9700;&#x6C42;&#x8BBE;&#x8BA1;&#x529F;&#x80FD;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;</li>
+<li>&#x9010;&#x9879;&#x6267;&#x884C;&#x529F;&#x80FD;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x9A8C;&#x8BC1;&#x4EA7;&#x54C1;</li>
 </ol>
-<h2 id="相关的测试类型">相关的测试类型</h2>
+<h2 id="&#x76F8;&#x5173;&#x7684;&#x6D4B;&#x8BD5;&#x7C7B;&#x578B;">&#x76F8;&#x5173;&#x7684;&#x6D4B;&#x8BD5;&#x7C7B;&#x578B;</h2>
 <ul>
-<li>正确性
+<li>&#x6B63;&#x786E;&#x6027;
 <ul>
-<li>产品功能是否与需求和设计文档一致</li>
+<li>&#x4EA7;&#x54C1;&#x529F;&#x80FD;&#x662F;&#x5426;&#x4E0E;&#x9700;&#x6C42;&#x548C;&#x8BBE;&#x8BA1;&#x6587;&#x6863;&#x4E00;&#x81F4;</li>
 </ul>
 </li>
-<li>可靠性
+<li>&#x53EF;&#x9760;&#x6027;
 <ul>
-<li>用户交互是否引发软件崩溃和其它异常</li>
+<li>&#x7528;&#x6237;&#x4EA4;&#x4E92;&#x662F;&#x5426;&#x5F15;&#x53D1;&#x8F6F;&#x4EF6;&#x5D29;&#x6E83;&#x548C;&#x5176;&#x5B83;&#x5F02;&#x5E38;</li>
 </ul>
 </li>
-<li>易用性
+<li>&#x6613;&#x7528;&#x6027;
 <ul>
-<li>软件产品完成特定任务的难易程度</li>
-</ul>
-</li>
-</ul>
-<h2 id="功能测试示例">功能测试示例</h2>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109134502083.png" alt="image-20240109134502083"></p>
-<h2 id="性能测试度量方法">性能测试度量方法</h2>
-<ul>
-<li>不同的关注对象采用不同的性能的度量方法</li>
-<li>服务端性能采用CPU、内存等使用率来度量</li>
-<li>客户端性能通常根据系统处理特定用户请求的响 应时间来度量</li>
-</ul>
-<h3 id="性能测试度量对象">性能测试度量对象</h3>
-<ul>
-<li>响应时间</li>
-<li>并发用户数</li>
-<li>吞吐量</li>
-<li>性能计数器</li>
-</ul>
-<h2 id="负载测试">负载测试</h2>
-<ul>
-<li>负载测试用于验证应用系统在正常负载条件下的行为</li>
-<li>性能行为通过一些性能指标体现</li>
-<li>两种方式：
-<ul>
-<li>直接到达负载数（如并发用户数，事务数等）</li>
-<li>逐步增加负载数（如并发用户数，事务数等）</li>
+<li>&#x8F6F;&#x4EF6;&#x4EA7;&#x54C1;&#x5B8C;&#x6210;&#x7279;&#x5B9A;&#x4EFB;&#x52A1;&#x7684;&#x96BE;&#x6613;&#x7A0B;&#x5EA6;</li>
 </ul>
 </li>
 </ul>
-<h2 id="压力测试">压力测试</h2>
+<h2 id="&#x529F;&#x80FD;&#x6D4B;&#x8BD5;&#x793A;&#x4F8B;">&#x529F;&#x80FD;&#x6D4B;&#x8BD5;&#x793A;&#x4F8B;</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109134502083.png" alt="image-20240109134502083"></p>
+<h2 id="&#x6027;&#x80FD;&#x6D4B;&#x8BD5;&#x5EA6;&#x91CF;&#x65B9;&#x6CD5;">&#x6027;&#x80FD;&#x6D4B;&#x8BD5;&#x5EA6;&#x91CF;&#x65B9;&#x6CD5;</h2>
 <ul>
-<li>压力测试是评估应用系统处于或超过预期负 载时的行为</li>
-<li>压力测试关注的行为不一定是性能行为，<strong>可能是某种Bug，比如同步问题，内存泄露等</strong></li>
-<li>在压力级别逐渐增加时，系统性能应该按照预期缓慢下降，但是不应该崩溃</li>
-<li>压力测试还可以发现系统崩溃的临界点，从而发现系统中的薄弱环节</li>
+<li>&#x4E0D;&#x540C;&#x7684;&#x5173;&#x6CE8;&#x5BF9;&#x8C61;&#x91C7;&#x7528;&#x4E0D;&#x540C;&#x7684;&#x6027;&#x80FD;&#x7684;&#x5EA6;&#x91CF;&#x65B9;&#x6CD5;</li>
+<li>&#x670D;&#x52A1;&#x7AEF;&#x6027;&#x80FD;&#x91C7;&#x7528;CPU&#x3001;&#x5185;&#x5B58;&#x7B49;&#x4F7F;&#x7528;&#x7387;&#x6765;&#x5EA6;&#x91CF;</li>
+<li>&#x5BA2;&#x6237;&#x7AEF;&#x6027;&#x80FD;&#x901A;&#x5E38;&#x6839;&#x636E;&#x7CFB;&#x7EDF;&#x5904;&#x7406;&#x7279;&#x5B9A;&#x7528;&#x6237;&#x8BF7;&#x6C42;&#x7684;&#x54CD; &#x5E94;&#x65F6;&#x95F4;&#x6765;&#x5EA6;&#x91CF;</li>
 </ul>
-<h2 id="Web功能测试方法">Web功能测试方法</h2>
+<h3 id="&#x6027;&#x80FD;&#x6D4B;&#x8BD5;&#x5EA6;&#x91CF;&#x5BF9;&#x8C61;">&#x6027;&#x80FD;&#x6D4B;&#x8BD5;&#x5EA6;&#x91CF;&#x5BF9;&#x8C61;</h3>
+<ul>
+<li>&#x54CD;&#x5E94;&#x65F6;&#x95F4;</li>
+<li>&#x5E76;&#x53D1;&#x7528;&#x6237;&#x6570;</li>
+<li>&#x541E;&#x5410;&#x91CF;</li>
+<li>&#x6027;&#x80FD;&#x8BA1;&#x6570;&#x5668;</li>
+</ul>
+<h2 id="&#x8D1F;&#x8F7D;&#x6D4B;&#x8BD5;">&#x8D1F;&#x8F7D;&#x6D4B;&#x8BD5;</h2>
+<ul>
+<li>&#x8D1F;&#x8F7D;&#x6D4B;&#x8BD5;&#x7528;&#x4E8E;&#x9A8C;&#x8BC1;&#x5E94;&#x7528;&#x7CFB;&#x7EDF;&#x5728;&#x6B63;&#x5E38;&#x8D1F;&#x8F7D;&#x6761;&#x4EF6;&#x4E0B;&#x7684;&#x884C;&#x4E3A;</li>
+<li>&#x6027;&#x80FD;&#x884C;&#x4E3A;&#x901A;&#x8FC7;&#x4E00;&#x4E9B;&#x6027;&#x80FD;&#x6307;&#x6807;&#x4F53;&#x73B0;</li>
+<li>&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#xFF1A;
+<ul>
+<li>&#x76F4;&#x63A5;&#x5230;&#x8FBE;&#x8D1F;&#x8F7D;&#x6570;&#xFF08;&#x5982;&#x5E76;&#x53D1;&#x7528;&#x6237;&#x6570;&#xFF0C;&#x4E8B;&#x52A1;&#x6570;&#x7B49;&#xFF09;</li>
+<li>&#x9010;&#x6B65;&#x589E;&#x52A0;&#x8D1F;&#x8F7D;&#x6570;&#xFF08;&#x5982;&#x5E76;&#x53D1;&#x7528;&#x6237;&#x6570;&#xFF0C;&#x4E8B;&#x52A1;&#x6570;&#x7B49;&#xFF09;</li>
+</ul>
+</li>
+</ul>
+<h2 id="&#x538B;&#x529B;&#x6D4B;&#x8BD5;">&#x538B;&#x529B;&#x6D4B;&#x8BD5;</h2>
+<ul>
+<li>&#x538B;&#x529B;&#x6D4B;&#x8BD5;&#x662F;&#x8BC4;&#x4F30;&#x5E94;&#x7528;&#x7CFB;&#x7EDF;&#x5904;&#x4E8E;&#x6216;&#x8D85;&#x8FC7;&#x9884;&#x671F;&#x8D1F; &#x8F7D;&#x65F6;&#x7684;&#x884C;&#x4E3A;</li>
+<li>&#x538B;&#x529B;&#x6D4B;&#x8BD5;&#x5173;&#x6CE8;&#x7684;&#x884C;&#x4E3A;&#x4E0D;&#x4E00;&#x5B9A;&#x662F;&#x6027;&#x80FD;&#x884C;&#x4E3A;&#xFF0C;<strong>&#x53EF;&#x80FD;&#x662F;&#x67D0;&#x79CD;Bug&#xFF0C;&#x6BD4;&#x5982;&#x540C;&#x6B65;&#x95EE;&#x9898;&#xFF0C;&#x5185;&#x5B58;&#x6CC4;&#x9732;&#x7B49;</strong></li>
+<li>&#x5728;&#x538B;&#x529B;&#x7EA7;&#x522B;&#x9010;&#x6E10;&#x589E;&#x52A0;&#x65F6;&#xFF0C;&#x7CFB;&#x7EDF;&#x6027;&#x80FD;&#x5E94;&#x8BE5;&#x6309;&#x7167;&#x9884;&#x671F;&#x7F13;&#x6162;&#x4E0B;&#x964D;&#xFF0C;&#x4F46;&#x662F;&#x4E0D;&#x5E94;&#x8BE5;&#x5D29;&#x6E83;</li>
+<li>&#x538B;&#x529B;&#x6D4B;&#x8BD5;&#x8FD8;&#x53EF;&#x4EE5;&#x53D1;&#x73B0;&#x7CFB;&#x7EDF;&#x5D29;&#x6E83;&#x7684;&#x4E34;&#x754C;&#x70B9;&#xFF0C;&#x4ECE;&#x800C;&#x53D1;&#x73B0;&#x7CFB;&#x7EDF;&#x4E2D;&#x7684;&#x8584;&#x5F31;&#x73AF;&#x8282;</li>
+</ul>
+<h2 id="Web&#x529F;&#x80FD;&#x6D4B;&#x8BD5;&#x65B9;&#x6CD5;">Web&#x529F;&#x80FD;&#x6D4B;&#x8BD5;&#x65B9;&#x6CD5;</h2>
 <ul>
 <li>
-<p>功能相关性</p>
+<p>&#x529F;&#x80FD;&#x76F8;&#x5173;&#x6027;</p>
 </li>
 <li>
-<p>数据相关性</p>
+<p>&#x6570;&#x636E;&#x76F8;&#x5173;&#x6027;</p>
 </li>
 <li>
-<p>检查按钮的功能是否正确</p>
+<p>&#x68C0;&#x67E5;&#x6309;&#x94AE;&#x7684;&#x529F;&#x80FD;&#x662F;&#x5426;&#x6B63;&#x786E;</p>
 </li>
 <li>
-<p>字符串长度检查</p>
+<p>&#x5B57;&#x7B26;&#x4E32;&#x957F;&#x5EA6;&#x68C0;&#x67E5;</p>
 </li>
 <li>
-<p>字符类型检查</p>
+<p>&#x5B57;&#x7B26;&#x7C7B;&#x578B;&#x68C0;&#x67E5;</p>
 </li>
 <li>
-<p>标点符号检查</p>
+<p>&#x6807;&#x70B9;&#x7B26;&#x53F7;&#x68C0;&#x67E5;</p>
 </li>
 <li>
-<p>特殊字符检查</p>
+<p>&#x7279;&#x6B8A;&#x5B57;&#x7B26;&#x68C0;&#x67E5;</p>
 </li>
 <li>
-<p>中文字符处理</p>
+<p>&#x4E2D;&#x6587;&#x5B57;&#x7B26;&#x5904;&#x7406;</p>
 </li>
 <li>
-<p>检查信息的完整性</p>
+<p>&#x68C0;&#x67E5;&#x4FE1;&#x606F;&#x7684;&#x5B8C;&#x6574;&#x6027;</p>
 </li>
 <li>
-<p>信息重复</p>
+<p>&#x4FE1;&#x606F;&#x91CD;&#x590D;</p>
 </li>
 <li>
-<p>检查删除功能</p>
+<p>&#x68C0;&#x67E5;&#x5220;&#x9664;&#x529F;&#x80FD;</p>
 </li>
 <li>
-<p>检查添加和修改是否一致</p>
+<p>&#x68C0;&#x67E5;&#x6DFB;&#x52A0;&#x548C;&#x4FEE;&#x6539;&#x662F;&#x5426;&#x4E00;&#x81F4;</p>
 </li>
 <li>
-<p>重复提交表单</p>
-<p>…</p>
+<p>&#x91CD;&#x590D;&#x63D0;&#x4EA4;&#x8868;&#x5355;</p>
+<p>&#x2026;</p>
 </li>
 </ul>
-<h2 id="探索式测试方法">探索式测试方法</h2>
-<p>探索式测试(ET)是一种帮助测试人员如何在需求不完善的情况下 尽早发现更多软件质量风险的测试手段。</p>
-<p><strong>它是一种测试风格，测试思维，而不是具体的测试技术</strong></p>
-<h3 id="产生过程">产生过程</h3>
-<p>目前缺陷的检测有两种方式：自动化测试 和 手工测试。</p>
+<h2 id="&#x63A2;&#x7D22;&#x5F0F;&#x6D4B;&#x8BD5;&#x65B9;&#x6CD5;">&#x63A2;&#x7D22;&#x5F0F;&#x6D4B;&#x8BD5;&#x65B9;&#x6CD5;</h2>
+<p>&#x63A2;&#x7D22;&#x5F0F;&#x6D4B;&#x8BD5;(ET)&#x662F;&#x4E00;&#x79CD;&#x5E2E;&#x52A9;&#x6D4B;&#x8BD5;&#x4EBA;&#x5458;&#x5982;&#x4F55;&#x5728;&#x9700;&#x6C42;&#x4E0D;&#x5B8C;&#x5584;&#x7684;&#x60C5;&#x51B5;&#x4E0B; &#x5C3D;&#x65E9;&#x53D1;&#x73B0;&#x66F4;&#x591A;&#x8F6F;&#x4EF6;&#x8D28;&#x91CF;&#x98CE;&#x9669;&#x7684;&#x6D4B;&#x8BD5;&#x624B;&#x6BB5;&#x3002;</p>
+<p><strong>&#x5B83;&#x662F;&#x4E00;&#x79CD;&#x6D4B;&#x8BD5;&#x98CE;&#x683C;&#xFF0C;&#x6D4B;&#x8BD5;&#x601D;&#x7EF4;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x5177;&#x4F53;&#x7684;&#x6D4B;&#x8BD5;&#x6280;&#x672F;</strong></p>
+<h3 id="&#x4EA7;&#x751F;&#x8FC7;&#x7A0B;">&#x4EA7;&#x751F;&#x8FC7;&#x7A0B;</h3>
+<p>&#x76EE;&#x524D;&#x7F3A;&#x9677;&#x7684;&#x68C0;&#x6D4B;&#x6709;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#xFF1A;&#x81EA;&#x52A8;&#x5316;&#x6D4B;&#x8BD5; &#x548C; &#x624B;&#x5DE5;&#x6D4B;&#x8BD5;&#x3002;</p>
 <ul>
-<li>自动化测试：
+<li>&#x81EA;&#x52A8;&#x5316;&#x6D4B;&#x8BD5;&#xFF1A;
 <ul>
-<li>a、有代码维护成本、学习成本，而且测试程序本身也存在问题。</li>
-<li>b、只要能在合理的场景中使用自动化还是能提高效率的，并不是所有的测试都 适合自动化。</li>
+<li>a&#x3001;&#x6709;&#x4EE3;&#x7801;&#x7EF4;&#x62A4;&#x6210;&#x672C;&#x3001;&#x5B66;&#x4E60;&#x6210;&#x672C;&#xFF0C;&#x800C;&#x4E14;&#x6D4B;&#x8BD5;&#x7A0B;&#x5E8F;&#x672C;&#x8EAB;&#x4E5F;&#x5B58;&#x5728;&#x95EE;&#x9898;&#x3002;</li>
+<li>b&#x3001;&#x53EA;&#x8981;&#x80FD;&#x5728;&#x5408;&#x7406;&#x7684;&#x573A;&#x666F;&#x4E2D;&#x4F7F;&#x7528;&#x81EA;&#x52A8;&#x5316;&#x8FD8;&#x662F;&#x80FD;&#x63D0;&#x9AD8;&#x6548;&#x7387;&#x7684;&#xFF0C;&#x5E76;&#x4E0D;&#x662F;&#x6240;&#x6709;&#x7684;&#x6D4B;&#x8BD5;&#x90FD; &#x9002;&#x5408;&#x81EA;&#x52A8;&#x5316;&#x3002;</li>
 </ul>
 </li>
-<li>手工测试：
+<li>&#x624B;&#x5DE5;&#x6D4B;&#x8BD5;&#xFF1A;
 <ul>
-<li>需手脑并用，发挥聪明才智，才能设计出导致软件失效或符合软件设计效果的 真实场景。如果想发现与应用程序业务逻辑相关的缺陷手工测试是最佳选择。</li>
-<li>缺点：
+<li>&#x9700;&#x624B;&#x8111;&#x5E76;&#x7528;&#xFF0C;&#x53D1;&#x6325;&#x806A;&#x660E;&#x624D;&#x667A;&#xFF0C;&#x624D;&#x80FD;&#x8BBE;&#x8BA1;&#x51FA;&#x5BFC;&#x81F4;&#x8F6F;&#x4EF6;&#x5931;&#x6548;&#x6216;&#x7B26;&#x5408;&#x8F6F;&#x4EF6;&#x8BBE;&#x8BA1;&#x6548;&#x679C;&#x7684; &#x771F;&#x5B9E;&#x573A;&#x666F;&#x3002;&#x5982;&#x679C;&#x60F3;&#x53D1;&#x73B0;&#x4E0E;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x76F8;&#x5173;&#x7684;&#x7F3A;&#x9677;&#x624B;&#x5DE5;&#x6D4B;&#x8BD5;&#x662F;&#x6700;&#x4F73;&#x9009;&#x62E9;&#x3002;</li>
+<li>&#x7F3A;&#x70B9;&#xFF1A;
 <ul>
-<li>a、慢</li>
-<li>b、无规律</li>
-<li>c、不易复现</li>
-<li>d、不可反复使用</li>
-<li>e、无可借鉴的经验</li>
-</ul>
-</li>
-</ul>
-</li>
-<li>基于以上缺点诞生了手工测试的技术 ------ 探索式测试</li>
-</ul>
-<h3 id="指导方法">指导方法</h3>
-<ul>
-<li>局部探索式测试法（小范围的，比如一个对话框等）
-<ul>
-<li>在运行任何一个测试用例时都都需要作出很多细微的战术层面决定</li>
-</ul>
-</li>
-<li>全局探索式测试法（总体测试，整个程序功能）
-<ul>
-<li>基于“漫游”概念，如同一个导游带领旅游团队参观大都市中的一系列 著名景点，漫游测试法提供的路线可以指导测试人员如何探索软件的方 方面面。</li>
-<li>全局测试法对于制定完整的测试策略给出了指导意义</li>
-</ul>
-</li>
-<li>混合探索式测试法（把探索式测试的实质和使用脚本的手工测试 合并起来）
-<ul>
-<li>使用正式脚本可以为探索式测试设立一个明确框架范围，探索式测试可 以提高脚本测试的有效性，为脚本中的测试用例提供更多种多样的变化</li>
+<li>a&#x3001;&#x6162;</li>
+<li>b&#x3001;&#x65E0;&#x89C4;&#x5F8B;</li>
+<li>c&#x3001;&#x4E0D;&#x6613;&#x590D;&#x73B0;</li>
+<li>d&#x3001;&#x4E0D;&#x53EF;&#x53CD;&#x590D;&#x4F7F;&#x7528;</li>
+<li>e&#x3001;&#x65E0;&#x53EF;&#x501F;&#x9274;&#x7684;&#x7ECF;&#x9A8C;</li>
 </ul>
 </li>
 </ul>
-<h1>众包测试</h1>
-<p>众包：利用群体力量来完成传统方法中成本高昂或耗时的大规模任务， 是Howe Jeff于2006年在美国《连线》杂志上首次提出的一种商业模式。</p>
-<h2 id="众包测试流程">众包测试流程</h2>
-<ul>
-<li><strong>申请上传</strong>：用户将自己的应用程序上传到 众测平台， 并指定相应的测试任务和酬劳信息。</li>
-<li><strong>任务选择和环境设置</strong>：众测人员自由选择他们想要完 成的任务。选择后测试人员从平台上下载应用程序进 行测试。</li>
-<li><strong>提交报告</strong>：众测人员根据选择的待测应用，对测试到 的缺陷提交缺陷报告。</li>
-<li>**生成最终测试报告：**平台收集补充信息，生成最终的 缺陷报告，包括：一般信息、设备信息、操作路径等。</li>
-<li><strong>报告验证</strong>：客户将验证所有最终的缺陷报告，并决定 如何酬劳每个提交报告的众包测试人员</li>
+</li>
+<li>&#x57FA;&#x4E8E;&#x4EE5;&#x4E0A;&#x7F3A;&#x70B9;&#x8BDE;&#x751F;&#x4E86;&#x624B;&#x5DE5;&#x6D4B;&#x8BD5;&#x7684;&#x6280;&#x672F; ------ &#x63A2;&#x7D22;&#x5F0F;&#x6D4B;&#x8BD5;</li>
 </ul>
-<h2 id="众包测试的优势">众包测试的优势</h2>
+<h3 id="&#x6307;&#x5BFC;&#x65B9;&#x6CD5;">&#x6307;&#x5BFC;&#x65B9;&#x6CD5;</h3>
 <ul>
-<li>更充分的测试时间</li>
-<li>更广泛的测试方法</li>
-<li>更多样的测试环境</li>
-<li>更全面的测试方法</li>
+<li>&#x5C40;&#x90E8;&#x63A2;&#x7D22;&#x5F0F;&#x6D4B;&#x8BD5;&#x6CD5;&#xFF08;&#x5C0F;&#x8303;&#x56F4;&#x7684;&#xFF0C;&#x6BD4;&#x5982;&#x4E00;&#x4E2A;&#x5BF9;&#x8BDD;&#x6846;&#x7B49;&#xFF09;
+<ul>
+<li>&#x5728;&#x8FD0;&#x884C;&#x4EFB;&#x4F55;&#x4E00;&#x4E2A;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x65F6;&#x90FD;&#x90FD;&#x9700;&#x8981;&#x4F5C;&#x51FA;&#x5F88;&#x591A;&#x7EC6;&#x5FAE;&#x7684;&#x6218;&#x672F;&#x5C42;&#x9762;&#x51B3;&#x5B9A;</li>
 </ul>
-<h2 id="众包测试中的缺陷类型">众包测试中的缺陷类型</h2>
+</li>
+<li>&#x5168;&#x5C40;&#x63A2;&#x7D22;&#x5F0F;&#x6D4B;&#x8BD5;&#x6CD5;&#xFF08;&#x603B;&#x4F53;&#x6D4B;&#x8BD5;&#xFF0C;&#x6574;&#x4E2A;&#x7A0B;&#x5E8F;&#x529F;&#x80FD;&#xFF09;
 <ul>
-<li>功能缺陷</li>
-<li>显示问题</li>
-<li>性能问题</li>
-<li>布局问题</li>
-<li>应用崩溃</li>
-<li>错误提示</li>
-<li>空白屏</li>
+<li>&#x57FA;&#x4E8E;&#x201C;&#x6F2B;&#x6E38;&#x201D;&#x6982;&#x5FF5;&#xFF0C;&#x5982;&#x540C;&#x4E00;&#x4E2A;&#x5BFC;&#x6E38;&#x5E26;&#x9886;&#x65C5;&#x6E38;&#x56E2;&#x961F;&#x53C2;&#x89C2;&#x5927;&#x90FD;&#x5E02;&#x4E2D;&#x7684;&#x4E00;&#x7CFB;&#x5217; &#x8457;&#x540D;&#x666F;&#x70B9;&#xFF0C;&#x6F2B;&#x6E38;&#x6D4B;&#x8BD5;&#x6CD5;&#x63D0;&#x4F9B;&#x7684;&#x8DEF;&#x7EBF;&#x53EF;&#x4EE5;&#x6307;&#x5BFC;&#x6D4B;&#x8BD5;&#x4EBA;&#x5458;&#x5982;&#x4F55;&#x63A2;&#x7D22;&#x8F6F;&#x4EF6;&#x7684;&#x65B9; &#x65B9;&#x9762;&#x9762;&#x3002;</li>
+<li>&#x5168;&#x5C40;&#x6D4B;&#x8BD5;&#x6CD5;&#x5BF9;&#x4E8E;&#x5236;&#x5B9A;&#x5B8C;&#x6574;&#x7684;&#x6D4B;&#x8BD5;&#x7B56;&#x7565;&#x7ED9;&#x51FA;&#x4E86;&#x6307;&#x5BFC;&#x610F;&#x4E49;</li>
 </ul>
-<h2 id="众包测试面临的挑战">众包测试面临的挑战</h2>
+</li>
+<li>&#x6DF7;&#x5408;&#x63A2;&#x7D22;&#x5F0F;&#x6D4B;&#x8BD5;&#x6CD5;&#xFF08;&#x628A;&#x63A2;&#x7D22;&#x5F0F;&#x6D4B;&#x8BD5;&#x7684;&#x5B9E;&#x8D28;&#x548C;&#x4F7F;&#x7528;&#x811A;&#x672C;&#x7684;&#x624B;&#x5DE5;&#x6D4B;&#x8BD5; &#x5408;&#x5E76;&#x8D77;&#x6765;&#xFF09;
 <ul>
-<li>任务分配</li>
-<li>任务奖励</li>
-<li>众测过程引导</li>
-<li>测试报告质量控制</li>
+<li>&#x4F7F;&#x7528;&#x6B63;&#x5F0F;&#x811A;&#x672C;&#x53EF;&#x4EE5;&#x4E3A;&#x63A2;&#x7D22;&#x5F0F;&#x6D4B;&#x8BD5;&#x8BBE;&#x7ACB;&#x4E00;&#x4E2A;&#x660E;&#x786E;&#x6846;&#x67B6;&#x8303;&#x56F4;&#xFF0C;&#x63A2;&#x7D22;&#x5F0F;&#x6D4B;&#x8BD5;&#x53EF; &#x4EE5;&#x63D0;&#x9AD8;&#x811A;&#x672C;&#x6D4B;&#x8BD5;&#x7684;&#x6709;&#x6548;&#x6027;&#xFF0C;&#x4E3A;&#x811A;&#x672C;&#x4E2D;&#x7684;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x63D0;&#x4F9B;&#x66F4;&#x591A;&#x79CD;&#x591A;&#x6837;&#x7684;&#x53D8;&#x5316;</li>
 </ul>
-<h2 id="协作式众包测试">协作式众包测试</h2>
-<ul>
-<li>信息共享：用户在提交报告时进行实时相似报告推荐，避免重复报告提交。</li>
-<li>任务分配：审核页面推荐待审核的报告列表，测试页面推荐待测页面。</li>
-<li>协作方式：点赞点踩操作：利用用户的交叉审核，验证报告有效性。</li>
-<li>一键Fork：Fork他人结果后进行修改，利用多人协作提升报告质量。</li>
+</li>
 </ul>
-<h2 id="测试报告">测试报告</h2>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109140523221.png" alt="image-20240109140523221"></p>
-<p>众测报告信息</p>
+<h1>&#x4F17;&#x5305;&#x6D4B;&#x8BD5;</h1>
+<p>&#x4F17;&#x5305;&#xFF1A;&#x5229;&#x7528;&#x7FA4;&#x4F53;&#x529B;&#x91CF;&#x6765;&#x5B8C;&#x6210;&#x4F20;&#x7EDF;&#x65B9;&#x6CD5;&#x4E2D;&#x6210;&#x672C;&#x9AD8;&#x6602;&#x6216;&#x8017;&#x65F6;&#x7684;&#x5927;&#x89C4;&#x6A21;&#x4EFB;&#x52A1;&#xFF0C; &#x662F;Howe Jeff&#x4E8E;2006&#x5E74;&#x5728;&#x7F8E;&#x56FD;&#x300A;&#x8FDE;&#x7EBF;&#x300B;&#x6742;&#x5FD7;&#x4E0A;&#x9996;&#x6B21;&#x63D0;&#x51FA;&#x7684;&#x4E00;&#x79CD;&#x5546;&#x4E1A;&#x6A21;&#x5F0F;&#x3002;</p>
+<h2 id="&#x4F17;&#x5305;&#x6D4B;&#x8BD5;&#x6D41;&#x7A0B;">&#x4F17;&#x5305;&#x6D4B;&#x8BD5;&#x6D41;&#x7A0B;</h2>
 <ul>
-<li>缺陷截图</li>
-<li>文本描述</li>
-<li>缺陷行为描述、复现步骤、期望行为</li>
-<li>测试环境信息</li>
+<li><strong>&#x7533;&#x8BF7;&#x4E0A;&#x4F20;</strong>&#xFF1A;&#x7528;&#x6237;&#x5C06;&#x81EA;&#x5DF1;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x4E0A;&#x4F20;&#x5230; &#x4F17;&#x6D4B;&#x5E73;&#x53F0;&#xFF0C; &#x5E76;&#x6307;&#x5B9A;&#x76F8;&#x5E94;&#x7684;&#x6D4B;&#x8BD5;&#x4EFB;&#x52A1;&#x548C;&#x916C;&#x52B3;&#x4FE1;&#x606F;&#x3002;</li>
+<li><strong>&#x4EFB;&#x52A1;&#x9009;&#x62E9;&#x548C;&#x73AF;&#x5883;&#x8BBE;&#x7F6E;</strong>&#xFF1A;&#x4F17;&#x6D4B;&#x4EBA;&#x5458;&#x81EA;&#x7531;&#x9009;&#x62E9;&#x4ED6;&#x4EEC;&#x60F3;&#x8981;&#x5B8C; &#x6210;&#x7684;&#x4EFB;&#x52A1;&#x3002;&#x9009;&#x62E9;&#x540E;&#x6D4B;&#x8BD5;&#x4EBA;&#x5458;&#x4ECE;&#x5E73;&#x53F0;&#x4E0A;&#x4E0B;&#x8F7D;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x8FDB; &#x884C;&#x6D4B;&#x8BD5;&#x3002;</li>
+<li><strong>&#x63D0;&#x4EA4;&#x62A5;&#x544A;</strong>&#xFF1A;&#x4F17;&#x6D4B;&#x4EBA;&#x5458;&#x6839;&#x636E;&#x9009;&#x62E9;&#x7684;&#x5F85;&#x6D4B;&#x5E94;&#x7528;&#xFF0C;&#x5BF9;&#x6D4B;&#x8BD5;&#x5230; &#x7684;&#x7F3A;&#x9677;&#x63D0;&#x4EA4;&#x7F3A;&#x9677;&#x62A5;&#x544A;&#x3002;</li>
+<li>**&#x751F;&#x6210;&#x6700;&#x7EC8;&#x6D4B;&#x8BD5;&#x62A5;&#x544A;&#xFF1A;**&#x5E73;&#x53F0;&#x6536;&#x96C6;&#x8865;&#x5145;&#x4FE1;&#x606F;&#xFF0C;&#x751F;&#x6210;&#x6700;&#x7EC8;&#x7684; &#x7F3A;&#x9677;&#x62A5;&#x544A;&#xFF0C;&#x5305;&#x62EC;&#xFF1A;&#x4E00;&#x822C;&#x4FE1;&#x606F;&#x3001;&#x8BBE;&#x5907;&#x4FE1;&#x606F;&#x3001;&#x64CD;&#x4F5C;&#x8DEF;&#x5F84;&#x7B49;&#x3002;</li>
+<li><strong>&#x62A5;&#x544A;&#x9A8C;&#x8BC1;</strong>&#xFF1A;&#x5BA2;&#x6237;&#x5C06;&#x9A8C;&#x8BC1;&#x6240;&#x6709;&#x6700;&#x7EC8;&#x7684;&#x7F3A;&#x9677;&#x62A5;&#x544A;&#xFF0C;&#x5E76;&#x51B3;&#x5B9A; &#x5982;&#x4F55;&#x916C;&#x52B3;&#x6BCF;&#x4E2A;&#x63D0;&#x4EA4;&#x62A5;&#x544A;&#x7684;&#x4F17;&#x5305;&#x6D4B;&#x8BD5;&#x4EBA;&#x5458;</li>
 </ul>
-<h2 id="众测报告聚合">众测报告聚合</h2>
-<p>大量的测试报告——较多的重复数据</p>
+<h2 id="&#x4F17;&#x5305;&#x6D4B;&#x8BD5;&#x7684;&#x4F18;&#x52BF;">&#x4F17;&#x5305;&#x6D4B;&#x8BD5;&#x7684;&#x4F18;&#x52BF;</h2>
 <ul>
-<li>懒惰和缺乏经验的用户。</li>
-<li>测试报告搜索功能较差。</li>
-<li>偶然的重复——由于网络等原因不小心提交了多次</li>
-<li>给开发者增加了许多工作量。</li>
-<li>不同的信息可以使开发者对Bug有一个更全面的了解。</li>
+<li>&#x66F4;&#x5145;&#x5206;&#x7684;&#x6D4B;&#x8BD5;&#x65F6;&#x95F4;</li>
+<li>&#x66F4;&#x5E7F;&#x6CDB;&#x7684;&#x6D4B;&#x8BD5;&#x65B9;&#x6CD5;</li>
+<li>&#x66F4;&#x591A;&#x6837;&#x7684;&#x6D4B;&#x8BD5;&#x73AF;&#x5883;</li>
+<li>&#x66F4;&#x5168;&#x9762;&#x7684;&#x6D4B;&#x8BD5;&#x65B9;&#x6CD5;</li>
+</ul>
+<h2 id="&#x4F17;&#x5305;&#x6D4B;&#x8BD5;&#x4E2D;&#x7684;&#x7F3A;&#x9677;&#x7C7B;&#x578B;">&#x4F17;&#x5305;&#x6D4B;&#x8BD5;&#x4E2D;&#x7684;&#x7F3A;&#x9677;&#x7C7B;&#x578B;</h2>
+<ul>
+<li>&#x529F;&#x80FD;&#x7F3A;&#x9677;</li>
+<li>&#x663E;&#x793A;&#x95EE;&#x9898;</li>
+<li>&#x6027;&#x80FD;&#x95EE;&#x9898;</li>
+<li>&#x5E03;&#x5C40;&#x95EE;&#x9898;</li>
+<li>&#x5E94;&#x7528;&#x5D29;&#x6E83;</li>
+<li>&#x9519;&#x8BEF;&#x63D0;&#x793A;</li>
+<li>&#x7A7A;&#x767D;&#x5C4F;</li>
+</ul>
+<h2 id="&#x4F17;&#x5305;&#x6D4B;&#x8BD5;&#x9762;&#x4E34;&#x7684;&#x6311;&#x6218;">&#x4F17;&#x5305;&#x6D4B;&#x8BD5;&#x9762;&#x4E34;&#x7684;&#x6311;&#x6218;</h2>
+<ul>
+<li>&#x4EFB;&#x52A1;&#x5206;&#x914D;</li>
+<li>&#x4EFB;&#x52A1;&#x5956;&#x52B1;</li>
+<li>&#x4F17;&#x6D4B;&#x8FC7;&#x7A0B;&#x5F15;&#x5BFC;</li>
+<li>&#x6D4B;&#x8BD5;&#x62A5;&#x544A;&#x8D28;&#x91CF;&#x63A7;&#x5236;</li>
+</ul>
+<h2 id="&#x534F;&#x4F5C;&#x5F0F;&#x4F17;&#x5305;&#x6D4B;&#x8BD5;">&#x534F;&#x4F5C;&#x5F0F;&#x4F17;&#x5305;&#x6D4B;&#x8BD5;</h2>
+<ul>
+<li>&#x4FE1;&#x606F;&#x5171;&#x4EAB;&#xFF1A;&#x7528;&#x6237;&#x5728;&#x63D0;&#x4EA4;&#x62A5;&#x544A;&#x65F6;&#x8FDB;&#x884C;&#x5B9E;&#x65F6;&#x76F8;&#x4F3C;&#x62A5;&#x544A;&#x63A8;&#x8350;&#xFF0C;&#x907F;&#x514D;&#x91CD;&#x590D;&#x62A5;&#x544A;&#x63D0;&#x4EA4;&#x3002;</li>
+<li>&#x4EFB;&#x52A1;&#x5206;&#x914D;&#xFF1A;&#x5BA1;&#x6838;&#x9875;&#x9762;&#x63A8;&#x8350;&#x5F85;&#x5BA1;&#x6838;&#x7684;&#x62A5;&#x544A;&#x5217;&#x8868;&#xFF0C;&#x6D4B;&#x8BD5;&#x9875;&#x9762;&#x63A8;&#x8350;&#x5F85;&#x6D4B;&#x9875;&#x9762;&#x3002;</li>
+<li>&#x534F;&#x4F5C;&#x65B9;&#x5F0F;&#xFF1A;&#x70B9;&#x8D5E;&#x70B9;&#x8E29;&#x64CD;&#x4F5C;&#xFF1A;&#x5229;&#x7528;&#x7528;&#x6237;&#x7684;&#x4EA4;&#x53C9;&#x5BA1;&#x6838;&#xFF0C;&#x9A8C;&#x8BC1;&#x62A5;&#x544A;&#x6709;&#x6548;&#x6027;&#x3002;</li>
+<li>&#x4E00;&#x952E;Fork&#xFF1A;Fork&#x4ED6;&#x4EBA;&#x7ED3;&#x679C;&#x540E;&#x8FDB;&#x884C;&#x4FEE;&#x6539;&#xFF0C;&#x5229;&#x7528;&#x591A;&#x4EBA;&#x534F;&#x4F5C;&#x63D0;&#x5347;&#x62A5;&#x544A;&#x8D28;&#x91CF;&#x3002;</li>
+</ul>
+<h2 id="&#x6D4B;&#x8BD5;&#x62A5;&#x544A;">&#x6D4B;&#x8BD5;&#x62A5;&#x544A;</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109140523221.png" alt="image-20240109140523221"></p>
+<p>&#x4F17;&#x6D4B;&#x62A5;&#x544A;&#x4FE1;&#x606F;</p>
+<ul>
+<li>&#x7F3A;&#x9677;&#x622A;&#x56FE;</li>
+<li>&#x6587;&#x672C;&#x63CF;&#x8FF0;</li>
+<li>&#x7F3A;&#x9677;&#x884C;&#x4E3A;&#x63CF;&#x8FF0;&#x3001;&#x590D;&#x73B0;&#x6B65;&#x9AA4;&#x3001;&#x671F;&#x671B;&#x884C;&#x4E3A;</li>
+<li>&#x6D4B;&#x8BD5;&#x73AF;&#x5883;&#x4FE1;&#x606F;</li>
+</ul>
+<h2 id="&#x4F17;&#x6D4B;&#x62A5;&#x544A;&#x805A;&#x5408;">&#x4F17;&#x6D4B;&#x62A5;&#x544A;&#x805A;&#x5408;</h2>
+<p>&#x5927;&#x91CF;&#x7684;&#x6D4B;&#x8BD5;&#x62A5;&#x544A;&#x2014;&#x2014;&#x8F83;&#x591A;&#x7684;&#x91CD;&#x590D;&#x6570;&#x636E;</p>
+<ul>
+<li>&#x61D2;&#x60F0;&#x548C;&#x7F3A;&#x4E4F;&#x7ECF;&#x9A8C;&#x7684;&#x7528;&#x6237;&#x3002;</li>
+<li>&#x6D4B;&#x8BD5;&#x62A5;&#x544A;&#x641C;&#x7D22;&#x529F;&#x80FD;&#x8F83;&#x5DEE;&#x3002;</li>
+<li>&#x5076;&#x7136;&#x7684;&#x91CD;&#x590D;&#x2014;&#x2014;&#x7531;&#x4E8E;&#x7F51;&#x7EDC;&#x7B49;&#x539F;&#x56E0;&#x4E0D;&#x5C0F;&#x5FC3;&#x63D0;&#x4EA4;&#x4E86;&#x591A;&#x6B21;</li>
+<li>&#x7ED9;&#x5F00;&#x53D1;&#x8005;&#x589E;&#x52A0;&#x4E86;&#x8BB8;&#x591A;&#x5DE5;&#x4F5C;&#x91CF;&#x3002;</li>
+<li>&#x4E0D;&#x540C;&#x7684;&#x4FE1;&#x606F;&#x53EF;&#x4EE5;&#x4F7F;&#x5F00;&#x53D1;&#x8005;&#x5BF9;Bug&#x6709;&#x4E00;&#x4E2A;&#x66F4;&#x5168;&#x9762;&#x7684;&#x4E86;&#x89E3;&#x3002;</li>
 </ul>
 <h3 id="Aggregator">Aggregator</h3>
 <ol>
-<li>截屏集合的距离矩阵DS计算</li>
-<li>文本集合的距离矩阵DT计算</li>
-<li>距离矩阵的合并–Balanced Distance的计算
+<li>&#x622A;&#x5C4F;&#x96C6;&#x5408;&#x7684;&#x8DDD;&#x79BB;&#x77E9;&#x9635;DS&#x8BA1;&#x7B97;</li>
+<li>&#x6587;&#x672C;&#x96C6;&#x5408;&#x7684;&#x8DDD;&#x79BB;&#x77E9;&#x9635;DT&#x8BA1;&#x7B97;</li>
+<li>&#x8DDD;&#x79BB;&#x77E9;&#x9635;&#x7684;&#x5408;&#x5E76;&#x2013;Balanced Distance&#x7684;&#x8BA1;&#x7B97;
 <ul>
-<li>若文本完全相同，则认为<strong>平衡距离为0</strong></li>
-<li>若截屏完全相同，则平衡距离为<strong>加权的文本距离</strong></li>
-<li>文本和截屏均不相同时，使用<strong>二者的调和平均数</strong></li>
+<li>&#x82E5;&#x6587;&#x672C;&#x5B8C;&#x5168;&#x76F8;&#x540C;&#xFF0C;&#x5219;&#x8BA4;&#x4E3A;<strong>&#x5E73;&#x8861;&#x8DDD;&#x79BB;&#x4E3A;0</strong></li>
+<li>&#x82E5;&#x622A;&#x5C4F;&#x5B8C;&#x5168;&#x76F8;&#x540C;&#xFF0C;&#x5219;&#x5E73;&#x8861;&#x8DDD;&#x79BB;&#x4E3A;<strong>&#x52A0;&#x6743;&#x7684;&#x6587;&#x672C;&#x8DDD;&#x79BB;</strong></li>
+<li>&#x6587;&#x672C;&#x548C;&#x622A;&#x5C4F;&#x5747;&#x4E0D;&#x76F8;&#x540C;&#x65F6;&#xFF0C;&#x4F7F;&#x7528;<strong>&#x4E8C;&#x8005;&#x7684;&#x8C03;&#x548C;&#x5E73;&#x5747;&#x6570;</strong></li>
 </ul>
 </li>
-<li>合成层次聚类( Agglomerative Hirarchical Clustering )
+<li>&#x5408;&#x6210;&#x5C42;&#x6B21;&#x805A;&#x7C7B;( Agglomerative Hirarchical Clustering )
 <ul>
-<li>将所有样本点各自归为一类，两两类别计算距离</li>
-<li>将距离最短的两个类合成一个类，计算新类与旧类的距离</li>
-<li>重复操作</li>
-<li>直至所有样本点都归于一类</li>
+<li>&#x5C06;&#x6240;&#x6709;&#x6837;&#x672C;&#x70B9;&#x5404;&#x81EA;&#x5F52;&#x4E3A;&#x4E00;&#x7C7B;&#xFF0C;&#x4E24;&#x4E24;&#x7C7B;&#x522B;&#x8BA1;&#x7B97;&#x8DDD;&#x79BB;</li>
+<li>&#x5C06;&#x8DDD;&#x79BB;&#x6700;&#x77ED;&#x7684;&#x4E24;&#x4E2A;&#x7C7B;&#x5408;&#x6210;&#x4E00;&#x4E2A;&#x7C7B;&#xFF0C;&#x8BA1;&#x7B97;&#x65B0;&#x7C7B;&#x4E0E;&#x65E7;&#x7C7B;&#x7684;&#x8DDD;&#x79BB;</li>
+<li>&#x91CD;&#x590D;&#x64CD;&#x4F5C;</li>
+<li>&#x76F4;&#x81F3;&#x6240;&#x6709;&#x6837;&#x672C;&#x70B9;&#x90FD;&#x5F52;&#x4E8E;&#x4E00;&#x7C7B;</li>
 </ul>
 </li>
 </ol>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109140707165.png" alt="image-20240109140707165"></p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109140913265.png" alt="image-20240109140913265"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109140707165.png" alt="image-20240109140707165"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109140913265.png" alt="image-20240109140913265"></p>
 <h3 id="Summarizer">Summarizer</h3>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109140926391.png" alt="image-20240109140926391"></p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109140935119.png" alt="image-20240109140935119"></p>
-<h2 id="众测报告排序">众测报告排序</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109140926391.png" alt="image-20240109140926391"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109140935119.png" alt="image-20240109140935119"></p>
+<h2 id="&#x4F17;&#x6D4B;&#x62A5;&#x544A;&#x6392;&#x5E8F;">&#x4F17;&#x6D4B;&#x62A5;&#x544A;&#x6392;&#x5E8F;</h2>
 <ul>
-<li>使用文本+图片结合分析的方法</li>
-<li>通过自然语言处理算法计算文本的相似度</li>
-<li>通过SPM算法（Spatial Pyramid Matching）识别缺陷截图相似度</li>
-<li>通过使用一种多目标的优化算法结合文本与截图相似度完成针对测试报告的相似度比较</li>
+<li>&#x4F7F;&#x7528;&#x6587;&#x672C;+&#x56FE;&#x7247;&#x7ED3;&#x5408;&#x5206;&#x6790;&#x7684;&#x65B9;&#x6CD5;</li>
+<li>&#x901A;&#x8FC7;&#x81EA;&#x7136;&#x8BED;&#x8A00;&#x5904;&#x7406;&#x7B97;&#x6CD5;&#x8BA1;&#x7B97;&#x6587;&#x672C;&#x7684;&#x76F8;&#x4F3C;&#x5EA6;</li>
+<li>&#x901A;&#x8FC7;SPM&#x7B97;&#x6CD5;&#xFF08;Spatial Pyramid Matching&#xFF09;&#x8BC6;&#x522B;&#x7F3A;&#x9677;&#x622A;&#x56FE;&#x76F8;&#x4F3C;&#x5EA6;</li>
+<li>&#x901A;&#x8FC7;&#x4F7F;&#x7528;&#x4E00;&#x79CD;&#x591A;&#x76EE;&#x6807;&#x7684;&#x4F18;&#x5316;&#x7B97;&#x6CD5;&#x7ED3;&#x5408;&#x6587;&#x672C;&#x4E0E;&#x622A;&#x56FE;&#x76F8;&#x4F3C;&#x5EA6;&#x5B8C;&#x6210;&#x9488;&#x5BF9;&#x6D4B;&#x8BD5;&#x62A5;&#x544A;&#x7684;&#x76F8;&#x4F3C;&#x5EA6;&#x6BD4;&#x8F83;</li>
 </ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109141043172.png" alt="image-20240109141043172"></p>
-<p>处理截图主要涉及三个操作：</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109141043172.png" alt="image-20240109141043172"></p>
+<p>&#x5904;&#x7406;&#x622A;&#x56FE;&#x4E3B;&#x8981;&#x6D89;&#x53CA;&#x4E09;&#x4E2A;&#x64CD;&#x4F5C;&#xFF1A;</p>
 <ul>
-<li>建立特征直方图</li>
-<li>计算截图之间的距离</li>
-<li>计算截图集合之间的距离</li>
-<li>将图片转化为特征向量便于计算</li>
+<li>&#x5EFA;&#x7ACB;&#x7279;&#x5F81;&#x76F4;&#x65B9;&#x56FE;</li>
+<li>&#x8BA1;&#x7B97;&#x622A;&#x56FE;&#x4E4B;&#x95F4;&#x7684;&#x8DDD;&#x79BB;</li>
+<li>&#x8BA1;&#x7B97;&#x622A;&#x56FE;&#x96C6;&#x5408;&#x4E4B;&#x95F4;&#x7684;&#x8DDD;&#x79BB;</li>
+<li>&#x5C06;&#x56FE;&#x7247;&#x8F6C;&#x5316;&#x4E3A;&#x7279;&#x5F81;&#x5411;&#x91CF;&#x4FBF;&#x4E8E;&#x8BA1;&#x7B97;</li>
 </ul>
-<p>处理文本主要涉及两个操作：</p>
+<p>&#x5904;&#x7406;&#x6587;&#x672C;&#x4E3B;&#x8981;&#x6D89;&#x53CA;&#x4E24;&#x4E2A;&#x64CD;&#x4F5C;&#xFF1A;</p>
 <ul>
-<li>关键词的提取  过滤无用词汇：这些词会对文本距离计算产生消极影响</li>
-<li>文本距离的计算 使用Jaccard距离计算测试报告集 中文本描述间距离</li>
+<li>&#x5173;&#x952E;&#x8BCD;&#x7684;&#x63D0;&#x53D6;  &#x8FC7;&#x6EE4;&#x65E0;&#x7528;&#x8BCD;&#x6C47;&#xFF1A;&#x8FD9;&#x4E9B;&#x8BCD;&#x4F1A;&#x5BF9;&#x6587;&#x672C;&#x8DDD;&#x79BB;&#x8BA1;&#x7B97;&#x4EA7;&#x751F;&#x6D88;&#x6781;&#x5F71;&#x54CD;</li>
+<li>&#x6587;&#x672C;&#x8DDD;&#x79BB;&#x7684;&#x8BA1;&#x7B97; &#x4F7F;&#x7528;Jaccard&#x8DDD;&#x79BB;&#x8BA1;&#x7B97;&#x6D4B;&#x8BD5;&#x62A5;&#x544A;&#x96C6; &#x4E2D;&#x6587;&#x672C;&#x63CF;&#x8FF0;&#x95F4;&#x8DDD;&#x79BB;</li>
 </ul>
-<h1>移动应用自动化 GUI 测试</h1>
-<p><strong>GUI测试 = 控件定位 / 匹配 + 操作执行</strong></p>
-<h2 id="自动化测试框架">自动化测试框架</h2>
+<h1>&#x79FB;&#x52A8;&#x5E94;&#x7528;&#x81EA;&#x52A8;&#x5316; GUI &#x6D4B;&#x8BD5;</h1>
+<p><strong>GUI&#x6D4B;&#x8BD5; = &#x63A7;&#x4EF6;&#x5B9A;&#x4F4D; / &#x5339;&#x914D; + &#x64CD;&#x4F5C;&#x6267;&#x884C;</strong></p>
+<h2 id="&#x81EA;&#x52A8;&#x5316;&#x6D4B;&#x8BD5;&#x6846;&#x67B6;">&#x81EA;&#x52A8;&#x5316;&#x6D4B;&#x8BD5;&#x6846;&#x67B6;</h2>
 <ul>
 <li>
 <p>Selenium</p>
 <ul>
-<li>Selenium 是一个开源的自动化测试工具，专门用于自动化网 页浏览器的操作。</li>
-<li>Selenium 允许测试人员使用多种编程语言编写测试脚本（如 Java、C#、Python、Ruby、JavaScript 等），以模拟用户 对网页的各种操作，如点击、填写表单、导航等</li>
+<li>Selenium &#x662F;&#x4E00;&#x4E2A;&#x5F00;&#x6E90;&#x7684;&#x81EA;&#x52A8;&#x5316;&#x6D4B;&#x8BD5;&#x5DE5;&#x5177;&#xFF0C;&#x4E13;&#x95E8;&#x7528;&#x4E8E;&#x81EA;&#x52A8;&#x5316;&#x7F51; &#x9875;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#x64CD;&#x4F5C;&#x3002;</li>
+<li>Selenium &#x5141;&#x8BB8;&#x6D4B;&#x8BD5;&#x4EBA;&#x5458;&#x4F7F;&#x7528;&#x591A;&#x79CD;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&#x7F16;&#x5199;&#x6D4B;&#x8BD5;&#x811A;&#x672C;&#xFF08;&#x5982; Java&#x3001;C#&#x3001;Python&#x3001;Ruby&#x3001;JavaScript &#x7B49;&#xFF09;&#xFF0C;&#x4EE5;&#x6A21;&#x62DF;&#x7528;&#x6237; &#x5BF9;&#x7F51;&#x9875;&#x7684;&#x5404;&#x79CD;&#x64CD;&#x4F5C;&#xFF0C;&#x5982;&#x70B9;&#x51FB;&#x3001;&#x586B;&#x5199;&#x8868;&#x5355;&#x3001;&#x5BFC;&#x822A;&#x7B49;</li>
 </ul>
 </li>
 <li>
 <p>Appium</p>
 <ul>
-<li>Appium 是一个扩展了 Selenium 的 WebDriver 协议来支持移 动应用自动化的工具，允许使用 Selenium 的客户端库来编写 适用于 iOS 和 Android 应用的测试脚本</li>
+<li>Appium &#x662F;&#x4E00;&#x4E2A;&#x6269;&#x5C55;&#x4E86; Selenium &#x7684; WebDriver &#x534F;&#x8BAE;&#x6765;&#x652F;&#x6301;&#x79FB; &#x52A8;&#x5E94;&#x7528;&#x81EA;&#x52A8;&#x5316;&#x7684;&#x5DE5;&#x5177;&#xFF0C;&#x5141;&#x8BB8;&#x4F7F;&#x7528; Selenium &#x7684;&#x5BA2;&#x6237;&#x7AEF;&#x5E93;&#x6765;&#x7F16;&#x5199; &#x9002;&#x7528;&#x4E8E; iOS &#x548C; Android &#x5E94;&#x7528;&#x7684;&#x6D4B;&#x8BD5;&#x811A;&#x672C;</li>
 </ul>
 </li>
 </ul>
-<p>人工录制 + 自动化回放</p>
-<p>基于模型的自动化测试技术</p>
-<h2 id="基于图像的简单控件定位">基于图像的简单控件定位</h2>
-<p>Sikuli 来自 MIT 的 Sikuli 通过图像 匹配算法来完成对 GUI 元素 的识别和定位。</p>
-<p>Airtest 来自网易的 Airtest 连接到某个窗 口或移动设备上，然后进行 GUI  测试脚本的编写。</p>
-<h3 id="存在的问题">存在的问题</h3>
+<p>&#x4EBA;&#x5DE5;&#x5F55;&#x5236; + &#x81EA;&#x52A8;&#x5316;&#x56DE;&#x653E;</p>
+<p>&#x57FA;&#x4E8E;&#x6A21;&#x578B;&#x7684;&#x81EA;&#x52A8;&#x5316;&#x6D4B;&#x8BD5;&#x6280;&#x672F;</p>
+<h2 id="&#x57FA;&#x4E8E;&#x56FE;&#x50CF;&#x7684;&#x7B80;&#x5355;&#x63A7;&#x4EF6;&#x5B9A;&#x4F4D;">&#x57FA;&#x4E8E;&#x56FE;&#x50CF;&#x7684;&#x7B80;&#x5355;&#x63A7;&#x4EF6;&#x5B9A;&#x4F4D;</h2>
+<p>Sikuli &#x6765;&#x81EA; MIT &#x7684; Sikuli &#x901A;&#x8FC7;&#x56FE;&#x50CF; &#x5339;&#x914D;&#x7B97;&#x6CD5;&#x6765;&#x5B8C;&#x6210;&#x5BF9; GUI &#x5143;&#x7D20; &#x7684;&#x8BC6;&#x522B;&#x548C;&#x5B9A;&#x4F4D;&#x3002;</p>
+<p>Airtest &#x6765;&#x81EA;&#x7F51;&#x6613;&#x7684; Airtest &#x8FDE;&#x63A5;&#x5230;&#x67D0;&#x4E2A;&#x7A97; &#x53E3;&#x6216;&#x79FB;&#x52A8;&#x8BBE;&#x5907;&#x4E0A;&#xFF0C;&#x7136;&#x540E;&#x8FDB;&#x884C; GUI  &#x6D4B;&#x8BD5;&#x811A;&#x672C;&#x7684;&#x7F16;&#x5199;&#x3002;</p>
+<h3 id="&#x5B58;&#x5728;&#x7684;&#x95EE;&#x9898;">&#x5B58;&#x5728;&#x7684;&#x95EE;&#x9898;</h3>
 <ul>
 <li>
-<p>测试脚本的执行仍依赖于操作系统接口，如 Android 的 ADB</p>
+<p>&#x6D4B;&#x8BD5;&#x811A;&#x672C;&#x7684;&#x6267;&#x884C;&#x4ECD;&#x4F9D;&#x8D56;&#x4E8E;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x63A5;&#x53E3;&#xFF0C;&#x5982; Android &#x7684; ADB</p>
 </li>
 <li>
-<p>使用像素级方式定位控件的方式难以应对复杂场景，如不同分辨率的设备</p>
+<p>&#x4F7F;&#x7528;&#x50CF;&#x7D20;&#x7EA7;&#x65B9;&#x5F0F;&#x5B9A;&#x4F4D;&#x63A7;&#x4EF6;&#x7684;&#x65B9;&#x5F0F;&#x96BE;&#x4EE5;&#x5E94;&#x5BF9;&#x590D;&#x6742;&#x573A;&#x666F;&#xFF0C;&#x5982;&#x4E0D;&#x540C;&#x5206;&#x8FA8;&#x7387;&#x7684;&#x8BBE;&#x5907;</p>
 </li>
 <li>
-<p>仍面临人工编写和维护脚本的成本</p>
+<p>&#x4ECD;&#x9762;&#x4E34;&#x4EBA;&#x5DE5;&#x7F16;&#x5199;&#x548C;&#x7EF4;&#x62A4;&#x811A;&#x672C;&#x7684;&#x6210;&#x672C;</p>
 </li>
 </ul>
-<h3 id="深度图像理解（控件提取）">深度图像理解（控件提取）</h3>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109141635902.png" alt="image-20240109141635902"></p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109141922437.png" alt="image-20240109141922437"></p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109141943465.png" alt="image-20240109141943465"></p>
-<h3 id="深度图像理解（文字识别-）">深度图像理解（文字识别 ）</h3>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109141700025.png" alt="image-20240109141700025"></p>
-<h3 id="深度图像理解（界面理解）">深度图像理解（界面理解）</h3>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109141720827.png" alt="image-20240109141720827"></p>
-<h3 id="基于深度图像理解的自动化探索工具">基于深度图像理解的自动化探索工具</h3>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109141748701.png" alt="image-20240109141748701"></p>
+<h3 id="&#x6DF1;&#x5EA6;&#x56FE;&#x50CF;&#x7406;&#x89E3;&#xFF08;&#x63A7;&#x4EF6;&#x63D0;&#x53D6;&#xFF09;">&#x6DF1;&#x5EA6;&#x56FE;&#x50CF;&#x7406;&#x89E3;&#xFF08;&#x63A7;&#x4EF6;&#x63D0;&#x53D6;&#xFF09;</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109141635902.png" alt="image-20240109141635902"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109141922437.png" alt="image-20240109141922437"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109141943465.png" alt="image-20240109141943465"></p>
+<h3 id="&#x6DF1;&#x5EA6;&#x56FE;&#x50CF;&#x7406;&#x89E3;&#xFF08;&#x6587;&#x5B57;&#x8BC6;&#x522B;-&#xFF09;">&#x6DF1;&#x5EA6;&#x56FE;&#x50CF;&#x7406;&#x89E3;&#xFF08;&#x6587;&#x5B57;&#x8BC6;&#x522B; &#xFF09;</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109141700025.png" alt="image-20240109141700025"></p>
+<h3 id="&#x6DF1;&#x5EA6;&#x56FE;&#x50CF;&#x7406;&#x89E3;&#xFF08;&#x754C;&#x9762;&#x7406;&#x89E3;&#xFF09;">&#x6DF1;&#x5EA6;&#x56FE;&#x50CF;&#x7406;&#x89E3;&#xFF08;&#x754C;&#x9762;&#x7406;&#x89E3;&#xFF09;</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109141720827.png" alt="image-20240109141720827"></p>
+<h3 id="&#x57FA;&#x4E8E;&#x6DF1;&#x5EA6;&#x56FE;&#x50CF;&#x7406;&#x89E3;&#x7684;&#x81EA;&#x52A8;&#x5316;&#x63A2;&#x7D22;&#x5DE5;&#x5177;">&#x57FA;&#x4E8E;&#x6DF1;&#x5EA6;&#x56FE;&#x50CF;&#x7406;&#x89E3;&#x7684;&#x81EA;&#x52A8;&#x5316;&#x63A2;&#x7D22;&#x5DE5;&#x5177;</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109141748701.png" alt="image-20240109141748701"></p>
 <ol>
-<li>无法感知异形屏幕对 UI 控件的遮挡</li>
-<li>难以模拟真实场景下人的交互操作</li>
-<li>仍依赖操作系统接口执行测试操作</li>
+<li>&#x65E0;&#x6CD5;&#x611F;&#x77E5;&#x5F02;&#x5F62;&#x5C4F;&#x5E55;&#x5BF9; UI &#x63A7;&#x4EF6;&#x7684;&#x906E;&#x6321;</li>
+<li>&#x96BE;&#x4EE5;&#x6A21;&#x62DF;&#x771F;&#x5B9E;&#x573A;&#x666F;&#x4E0B;&#x4EBA;&#x7684;&#x4EA4;&#x4E92;&#x64CD;&#x4F5C;</li>
+<li>&#x4ECD;&#x4F9D;&#x8D56;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x63A5;&#x53E3;&#x6267;&#x884C;&#x6D4B;&#x8BD5;&#x64CD;&#x4F5C;</li>
 </ol>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109141817915.png" alt="image-20240109141817915"></p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109141958418.png" alt="image-20240109141958418"></p>
-<h1>测试预言问题</h1>
-<h2 id="测试预言">测试预言</h2>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109142059124.png" alt="image-20240109142059124"></p>
-<h2 id="测试预言定义（Test-Oracle）">测试预言定义（Test Oracle）</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109141817915.png" alt="image-20240109141817915"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109141958418.png" alt="image-20240109141958418"></p>
+<h1>&#x6D4B;&#x8BD5;&#x9884;&#x8A00;&#x95EE;&#x9898;</h1>
+<h2 id="&#x6D4B;&#x8BD5;&#x9884;&#x8A00;">&#x6D4B;&#x8BD5;&#x9884;&#x8A00;</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109142059124.png" alt="image-20240109142059124"></p>
+<h2 id="&#x6D4B;&#x8BD5;&#x9884;&#x8A00;&#x5B9A;&#x4E49;&#xFF08;Test-Oracle&#xFF09;">&#x6D4B;&#x8BD5;&#x9884;&#x8A00;&#x5B9A;&#x4E49;&#xFF08;Test Oracle&#xFF09;</h2>
 <ul>
-<li>是文档：体现被测单元的预期功能1（Intended Functionality）</li>
-<li>被测单元：模块、类、方法、函数、语句</li>
-<li>是机制：验证待测程序的行为是否符合预期</li>
-<li>是程序：判定程序的执行是否违反了某种正确性政策</li>
-<li>是约束：</li>
-<li>是映射：</li>
+<li>&#x662F;&#x6587;&#x6863;&#xFF1A;&#x4F53;&#x73B0;&#x88AB;&#x6D4B;&#x5355;&#x5143;&#x7684;&#x9884;&#x671F;&#x529F;&#x80FD;1&#xFF08;Intended Functionality&#xFF09;</li>
+<li>&#x88AB;&#x6D4B;&#x5355;&#x5143;&#xFF1A;&#x6A21;&#x5757;&#x3001;&#x7C7B;&#x3001;&#x65B9;&#x6CD5;&#x3001;&#x51FD;&#x6570;&#x3001;&#x8BED;&#x53E5;</li>
+<li>&#x662F;&#x673A;&#x5236;&#xFF1A;&#x9A8C;&#x8BC1;&#x5F85;&#x6D4B;&#x7A0B;&#x5E8F;&#x7684;&#x884C;&#x4E3A;&#x662F;&#x5426;&#x7B26;&#x5408;&#x9884;&#x671F;</li>
+<li>&#x662F;&#x7A0B;&#x5E8F;&#xFF1A;&#x5224;&#x5B9A;&#x7A0B;&#x5E8F;&#x7684;&#x6267;&#x884C;&#x662F;&#x5426;&#x8FDD;&#x53CD;&#x4E86;&#x67D0;&#x79CD;&#x6B63;&#x786E;&#x6027;&#x653F;&#x7B56;</li>
+<li>&#x662F;&#x7EA6;&#x675F;&#xFF1A;</li>
+<li>&#x662F;&#x6620;&#x5C04;&#xFF1A;</li>
 </ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109142207437.png" alt="image-20240109142207437"></p>
-<h2 id="测试预言分类">测试预言分类</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109142207437.png" alt="image-20240109142207437"></p>
+<h2 id="&#x6D4B;&#x8BD5;&#x9884;&#x8A00;&#x5206;&#x7C7B;">&#x6D4B;&#x8BD5;&#x9884;&#x8A00;&#x5206;&#x7C7B;</h2>
 <ul>
-<li><strong>隐式预言</strong>：用于检测**显著缺陷（Obvious Bug）**的测试预言。例如， 预期外的程序崩溃（Crash）就是一种典型的显著缺陷。</li>
-<li>显式预言：根据软件的预期功能提取得到的预言，一般用于检测<strong>功能性缺陷（Functional Bug）。</strong></li>
+<li><strong>&#x9690;&#x5F0F;&#x9884;&#x8A00;</strong>&#xFF1A;&#x7528;&#x4E8E;&#x68C0;&#x6D4B;**&#x663E;&#x8457;&#x7F3A;&#x9677;&#xFF08;Obvious Bug&#xFF09;**&#x7684;&#x6D4B;&#x8BD5;&#x9884;&#x8A00;&#x3002;&#x4F8B;&#x5982;&#xFF0C; &#x9884;&#x671F;&#x5916;&#x7684;&#x7A0B;&#x5E8F;&#x5D29;&#x6E83;&#xFF08;Crash&#xFF09;&#x5C31;&#x662F;&#x4E00;&#x79CD;&#x5178;&#x578B;&#x7684;&#x663E;&#x8457;&#x7F3A;&#x9677;&#x3002;</li>
+<li>&#x663E;&#x5F0F;&#x9884;&#x8A00;&#xFF1A;&#x6839;&#x636E;&#x8F6F;&#x4EF6;&#x7684;&#x9884;&#x671F;&#x529F;&#x80FD;&#x63D0;&#x53D6;&#x5F97;&#x5230;&#x7684;&#x9884;&#x8A00;&#xFF0C;&#x4E00;&#x822C;&#x7528;&#x4E8E;&#x68C0;&#x6D4B;<strong>&#x529F;&#x80FD;&#x6027;&#x7F3A;&#x9677;&#xFF08;Functional Bug&#xFF09;&#x3002;</strong></li>
 </ul>
-<p>显式预言如上图举例</p>
-<p>隐式预言如下图</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109142329303.png" alt="image-20240109142329303"></p>
-<h2 id="预言问题：">预言问题：</h2>
-<p>给定系统的输入，<strong>如何找到能够正确辨别出符合期望的 正确行为与发现潜在的不正确行为</strong>测试预言的挑战性难题。</p>
-<p>预言问题具有挑战性的原因</p>
+<p>&#x663E;&#x5F0F;&#x9884;&#x8A00;&#x5982;&#x4E0A;&#x56FE;&#x4E3E;&#x4F8B;</p>
+<p>&#x9690;&#x5F0F;&#x9884;&#x8A00;&#x5982;&#x4E0B;&#x56FE;</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109142329303.png" alt="image-20240109142329303"></p>
+<h2 id="&#x9884;&#x8A00;&#x95EE;&#x9898;&#xFF1A;">&#x9884;&#x8A00;&#x95EE;&#x9898;&#xFF1A;</h2>
+<p>&#x7ED9;&#x5B9A;&#x7CFB;&#x7EDF;&#x7684;&#x8F93;&#x5165;&#xFF0C;<strong>&#x5982;&#x4F55;&#x627E;&#x5230;&#x80FD;&#x591F;&#x6B63;&#x786E;&#x8FA8;&#x522B;&#x51FA;&#x7B26;&#x5408;&#x671F;&#x671B;&#x7684; &#x6B63;&#x786E;&#x884C;&#x4E3A;&#x4E0E;&#x53D1;&#x73B0;&#x6F5C;&#x5728;&#x7684;&#x4E0D;&#x6B63;&#x786E;&#x884C;&#x4E3A;</strong>&#x6D4B;&#x8BD5;&#x9884;&#x8A00;&#x7684;&#x6311;&#x6218;&#x6027;&#x96BE;&#x9898;&#x3002;</p>
+<p>&#x9884;&#x8A00;&#x95EE;&#x9898;&#x5177;&#x6709;&#x6311;&#x6218;&#x6027;&#x7684;&#x539F;&#x56E0;</p>
 <ul>
-<li>缺少清晰的规格：文档通常用自然语言编写，而自然语言存在二义性</li>
-<li>软件的动态特征：网络问题导致的问题、线程调度产生的并发问题</li>
-<li>优先的测试资源：测试预言空间和测试输入空间一样无法穷尽</li>
+<li>&#x7F3A;&#x5C11;&#x6E05;&#x6670;&#x7684;&#x89C4;&#x683C;&#xFF1A;&#x6587;&#x6863;&#x901A;&#x5E38;&#x7528;&#x81EA;&#x7136;&#x8BED;&#x8A00;&#x7F16;&#x5199;&#xFF0C;&#x800C;&#x81EA;&#x7136;&#x8BED;&#x8A00;&#x5B58;&#x5728;&#x4E8C;&#x4E49;&#x6027;</li>
+<li>&#x8F6F;&#x4EF6;&#x7684;&#x52A8;&#x6001;&#x7279;&#x5F81;&#xFF1A;&#x7F51;&#x7EDC;&#x95EE;&#x9898;&#x5BFC;&#x81F4;&#x7684;&#x95EE;&#x9898;&#x3001;&#x7EBF;&#x7A0B;&#x8C03;&#x5EA6;&#x4EA7;&#x751F;&#x7684;&#x5E76;&#x53D1;&#x95EE;&#x9898;</li>
+<li>&#x4F18;&#x5148;&#x7684;&#x6D4B;&#x8BD5;&#x8D44;&#x6E90;&#xFF1A;&#x6D4B;&#x8BD5;&#x9884;&#x8A00;&#x7A7A;&#x95F4;&#x548C;&#x6D4B;&#x8BD5;&#x8F93;&#x5165;&#x7A7A;&#x95F4;&#x4E00;&#x6837;&#x65E0;&#x6CD5;&#x7A77;&#x5C3D;</li>
 </ul>
-<h2 id="预言问题现状">预言问题现状</h2>
-<p>复杂的预言难以构建，容易构建的预言效果差</p>
-<h2 id="预言问题解决方案">预言问题解决方案</h2>
-<p>利用静态程序分析手段自动化构建测试预言</p>
+<h2 id="&#x9884;&#x8A00;&#x95EE;&#x9898;&#x73B0;&#x72B6;">&#x9884;&#x8A00;&#x95EE;&#x9898;&#x73B0;&#x72B6;</h2>
+<p>&#x590D;&#x6742;&#x7684;&#x9884;&#x8A00;&#x96BE;&#x4EE5;&#x6784;&#x5EFA;&#xFF0C;&#x5BB9;&#x6613;&#x6784;&#x5EFA;&#x7684;&#x9884;&#x8A00;&#x6548;&#x679C;&#x5DEE;</p>
+<h2 id="&#x9884;&#x8A00;&#x95EE;&#x9898;&#x89E3;&#x51B3;&#x65B9;&#x6848;">&#x9884;&#x8A00;&#x95EE;&#x9898;&#x89E3;&#x51B3;&#x65B9;&#x6848;</h2>
+<p>&#x5229;&#x7528;&#x9759;&#x6001;&#x7A0B;&#x5E8F;&#x5206;&#x6790;&#x624B;&#x6BB5;&#x81EA;&#x52A8;&#x5316;&#x6784;&#x5EFA;&#x6D4B;&#x8BD5;&#x9884;&#x8A00;</p>
 <ul>
-<li>从文本文档/注释中自动提取（Specification Mining）</li>
-<li>设计形式化的文档语言：体系结构设计语言（ADL）</li>
-<li>使用不完全测试预言（Partial Test Oracle）
+<li>&#x4ECE;&#x6587;&#x672C;&#x6587;&#x6863;/&#x6CE8;&#x91CA;&#x4E2D;&#x81EA;&#x52A8;&#x63D0;&#x53D6;&#xFF08;Specification Mining&#xFF09;</li>
+<li>&#x8BBE;&#x8BA1;&#x5F62;&#x5F0F;&#x5316;&#x7684;&#x6587;&#x6863;&#x8BED;&#x8A00;&#xFF1A;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x8BBE;&#x8BA1;&#x8BED;&#x8A00;&#xFF08;ADL&#xFF09;</li>
+<li>&#x4F7F;&#x7528;&#x4E0D;&#x5B8C;&#x5168;&#x6D4B;&#x8BD5;&#x9884;&#x8A00;&#xFF08;Partial Test Oracle&#xFF09;
 <ul>
-<li>蜕变测试（Metamorphic Testing）</li>
-<li>差分测试（Differential Testing）</li>
-</ul>
-</li>
-</ul>
-<h1>蜕变测试</h1>
-<p>蜕变关系(Metamorphic Relation, MR) 是指多次执行目标程序时，<strong>输入与输出之间期望遵循的关系。</strong></p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106195424999.png" alt="image-20240106195424999"></p>
-<p>应对（自动化）软件测试中的两大难题</p>
-<ul>
-<li>可靠测试集问题（Reliable Test Set Problem） <strong>测试生成/扩增</strong></li>
-<li>预言问题（Oracle Problem）<strong>正确性验证</strong></li>
-</ul>
-<p>蜕变测试本质：<strong>充分利用成功测试用例</strong></p>
-<ul>
-<li>对成功测试用例表现出的必要属性（Necessary Properties） 的复用；</li>
-<li>必要属性：从相关成功测试用例的集合和程序规格中提取出的、 <strong>待测软件必须遵守的属性</strong>；</li>
-<li>属性的必要性：<strong>违反必要属性的测试一定发现了某种软件缺陷。</strong></li>
-</ul>
-<h2 id="三要素">三要素</h2>
-<h3 id="蜕变关系（MR-Metamorphic-Relation）">蜕变关系（MR, Metamorphic Relation）</h3>
-<p>一组待测算法/功能 的必要属性，蜕变测试的核心</p>
-<p>蜕变关系可以是非等式关系</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109142900083.png" alt="image-20240109142900083"></p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109142908293.png" alt="image-20240109142908293"></p>
-<h3 id="蜕变集合（Metamorphic-Group）">蜕变集合（Metamorphic Group）</h3>
-<p>由表达了蜕变关系的一组测试输入组成的集合</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109142934328.png" alt="image-20240109142934328"></p>
-<h3 id="蜕变测试过程">蜕变测试过程</h3>
-<p>应用蜕变关系和蜕变集合进行测试的一般流程</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109142950041.png" alt="image-20240109142950041"></p>
-<h2 id="例子">例子</h2>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109143018218.png" alt="image-20240109143018218"></p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109143037499.png" alt="image-20240109143037499"></p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109143057171.png" alt="image-20240109143057171"></p>
-<h1>差分测试</h1>
-<p>基本思想：通过将同一测试用例运行到一系列相似功能的应用中观察执行差异来检测bug。</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106195444002.png" alt="image-20240106195444002"></p>
-<h2 id="定义">定义</h2>
-<p>差分测试（Differential Testing）也称为差分模糊测试，是 一种常用的软件测试技术，通过向一系列类似的应用程序 （或同一应用程序的不同实现）提供相同的输入，根据这些相似程序执行结 果是否存在差异来判定是否检测到缺陷1,2。</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109143243794.png" alt="image-20240109143243794"></p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109143253753.png" alt="image-20240109143253753"></p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109143305702.png" alt="image-20240109143305702"></p>
-<h2 id="蜕变和差分测试的辨析">蜕变和差分测试的辨析</h2>
-<ul>
-<li>相同点：
-<ul>
-<li>都利用了待测程序中的必要属性（Necessary Property）；</li>
-<li>都是黑盒测试技术</li>
-</ul>
-</li>
-<li>不同点
-<ul>
-<li>必要属性的类型不同：
-<ul>
-<li>蜕变测试利用了<strong>单一待测程序的必要属性</strong>；</li>
-<li>差分 测试则利用了<strong>多个相似待测程序间的必要属性</strong>；</li>
-</ul>
-</li>
-<li>正确性验证的准则不同：
-<ul>
-<li>蜕变测试的正确性验证准则是可变的，由蜕变关系决定；</li>
-<li>差分测试的正确性准则是固定的，即不同相似待测程序在同 一测试输入上的输出结果应该相同</li>
+<li>&#x8715;&#x53D8;&#x6D4B;&#x8BD5;&#xFF08;Metamorphic Testing&#xFF09;</li>
+<li>&#x5DEE;&#x5206;&#x6D4B;&#x8BD5;&#xFF08;Differential Testing&#xFF09;</li>
 </ul>
 </li>
 </ul>
+<h1>&#x8715;&#x53D8;&#x6D4B;&#x8BD5;</h1>
+<p>&#x8715;&#x53D8;&#x5173;&#x7CFB;(Metamorphic Relation, MR) &#x662F;&#x6307;&#x591A;&#x6B21;&#x6267;&#x884C;&#x76EE;&#x6807;&#x7A0B;&#x5E8F;&#x65F6;&#xFF0C;<strong>&#x8F93;&#x5165;&#x4E0E;&#x8F93;&#x51FA;&#x4E4B;&#x95F4;&#x671F;&#x671B;&#x9075;&#x5FAA;&#x7684;&#x5173;&#x7CFB;&#x3002;</strong></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106195424999.png" alt="image-20240106195424999"></p>
+<p>&#x5E94;&#x5BF9;&#xFF08;&#x81EA;&#x52A8;&#x5316;&#xFF09;&#x8F6F;&#x4EF6;&#x6D4B;&#x8BD5;&#x4E2D;&#x7684;&#x4E24;&#x5927;&#x96BE;&#x9898;</p>
+<ul>
+<li>&#x53EF;&#x9760;&#x6D4B;&#x8BD5;&#x96C6;&#x95EE;&#x9898;&#xFF08;Reliable Test Set Problem&#xFF09; <strong>&#x6D4B;&#x8BD5;&#x751F;&#x6210;/&#x6269;&#x589E;</strong></li>
+<li>&#x9884;&#x8A00;&#x95EE;&#x9898;&#xFF08;Oracle Problem&#xFF09;<strong>&#x6B63;&#x786E;&#x6027;&#x9A8C;&#x8BC1;</strong></li>
+</ul>
+<p>&#x8715;&#x53D8;&#x6D4B;&#x8BD5;&#x672C;&#x8D28;&#xFF1A;<strong>&#x5145;&#x5206;&#x5229;&#x7528;&#x6210;&#x529F;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;</strong></p>
+<ul>
+<li>&#x5BF9;&#x6210;&#x529F;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x8868;&#x73B0;&#x51FA;&#x7684;&#x5FC5;&#x8981;&#x5C5E;&#x6027;&#xFF08;Necessary Properties&#xFF09; &#x7684;&#x590D;&#x7528;&#xFF1B;</li>
+<li>&#x5FC5;&#x8981;&#x5C5E;&#x6027;&#xFF1A;&#x4ECE;&#x76F8;&#x5173;&#x6210;&#x529F;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x7684;&#x96C6;&#x5408;&#x548C;&#x7A0B;&#x5E8F;&#x89C4;&#x683C;&#x4E2D;&#x63D0;&#x53D6;&#x51FA;&#x7684;&#x3001; <strong>&#x5F85;&#x6D4B;&#x8F6F;&#x4EF6;&#x5FC5;&#x987B;&#x9075;&#x5B88;&#x7684;&#x5C5E;&#x6027;</strong>&#xFF1B;</li>
+<li>&#x5C5E;&#x6027;&#x7684;&#x5FC5;&#x8981;&#x6027;&#xFF1A;<strong>&#x8FDD;&#x53CD;&#x5FC5;&#x8981;&#x5C5E;&#x6027;&#x7684;&#x6D4B;&#x8BD5;&#x4E00;&#x5B9A;&#x53D1;&#x73B0;&#x4E86;&#x67D0;&#x79CD;&#x8F6F;&#x4EF6;&#x7F3A;&#x9677;&#x3002;</strong></li>
+</ul>
+<h2 id="&#x4E09;&#x8981;&#x7D20;">&#x4E09;&#x8981;&#x7D20;</h2>
+<h3 id="&#x8715;&#x53D8;&#x5173;&#x7CFB;&#xFF08;MR-Metamorphic-Relation&#xFF09;">&#x8715;&#x53D8;&#x5173;&#x7CFB;&#xFF08;MR, Metamorphic Relation&#xFF09;</h3>
+<p>&#x4E00;&#x7EC4;&#x5F85;&#x6D4B;&#x7B97;&#x6CD5;/&#x529F;&#x80FD; &#x7684;&#x5FC5;&#x8981;&#x5C5E;&#x6027;&#xFF0C;&#x8715;&#x53D8;&#x6D4B;&#x8BD5;&#x7684;&#x6838;&#x5FC3;</p>
+<p>&#x8715;&#x53D8;&#x5173;&#x7CFB;&#x53EF;&#x4EE5;&#x662F;&#x975E;&#x7B49;&#x5F0F;&#x5173;&#x7CFB;</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109142900083.png" alt="image-20240109142900083"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109142908293.png" alt="image-20240109142908293"></p>
+<h3 id="&#x8715;&#x53D8;&#x96C6;&#x5408;&#xFF08;Metamorphic-Group&#xFF09;">&#x8715;&#x53D8;&#x96C6;&#x5408;&#xFF08;Metamorphic Group&#xFF09;</h3>
+<p>&#x7531;&#x8868;&#x8FBE;&#x4E86;&#x8715;&#x53D8;&#x5173;&#x7CFB;&#x7684;&#x4E00;&#x7EC4;&#x6D4B;&#x8BD5;&#x8F93;&#x5165;&#x7EC4;&#x6210;&#x7684;&#x96C6;&#x5408;</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109142934328.png" alt="image-20240109142934328"></p>
+<h3 id="&#x8715;&#x53D8;&#x6D4B;&#x8BD5;&#x8FC7;&#x7A0B;">&#x8715;&#x53D8;&#x6D4B;&#x8BD5;&#x8FC7;&#x7A0B;</h3>
+<p>&#x5E94;&#x7528;&#x8715;&#x53D8;&#x5173;&#x7CFB;&#x548C;&#x8715;&#x53D8;&#x96C6;&#x5408;&#x8FDB;&#x884C;&#x6D4B;&#x8BD5;&#x7684;&#x4E00;&#x822C;&#x6D41;&#x7A0B;</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109142950041.png" alt="image-20240109142950041"></p>
+<h2 id="&#x4F8B;&#x5B50;">&#x4F8B;&#x5B50;</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109143018218.png" alt="image-20240109143018218"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109143037499.png" alt="image-20240109143037499"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109143057171.png" alt="image-20240109143057171"></p>
+<h1>&#x5DEE;&#x5206;&#x6D4B;&#x8BD5;</h1>
+<p>&#x57FA;&#x672C;&#x601D;&#x60F3;&#xFF1A;&#x901A;&#x8FC7;&#x5C06;&#x540C;&#x4E00;&#x6D4B;&#x8BD5;&#x7528;&#x4F8B;&#x8FD0;&#x884C;&#x5230;&#x4E00;&#x7CFB;&#x5217;&#x76F8;&#x4F3C;&#x529F;&#x80FD;&#x7684;&#x5E94;&#x7528;&#x4E2D;&#x89C2;&#x5BDF;&#x6267;&#x884C;&#x5DEE;&#x5F02;&#x6765;&#x68C0;&#x6D4B;bug&#x3002;</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240106195444002.png" alt="image-20240106195444002"></p>
+<h2 id="&#x5B9A;&#x4E49;">&#x5B9A;&#x4E49;</h2>
+<p>&#x5DEE;&#x5206;&#x6D4B;&#x8BD5;&#xFF08;Differential Testing&#xFF09;&#x4E5F;&#x79F0;&#x4E3A;&#x5DEE;&#x5206;&#x6A21;&#x7CCA;&#x6D4B;&#x8BD5;&#xFF0C;&#x662F; &#x4E00;&#x79CD;&#x5E38;&#x7528;&#x7684;&#x8F6F;&#x4EF6;&#x6D4B;&#x8BD5;&#x6280;&#x672F;&#xFF0C;&#x901A;&#x8FC7;&#x5411;&#x4E00;&#x7CFB;&#x5217;&#x7C7B;&#x4F3C;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F; &#xFF08;&#x6216;&#x540C;&#x4E00;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7684;&#x4E0D;&#x540C;&#x5B9E;&#x73B0;&#xFF09;&#x63D0;&#x4F9B;&#x76F8;&#x540C;&#x7684;&#x8F93;&#x5165;&#xFF0C;&#x6839;&#x636E;&#x8FD9;&#x4E9B;&#x76F8;&#x4F3C;&#x7A0B;&#x5E8F;&#x6267;&#x884C;&#x7ED3; &#x679C;&#x662F;&#x5426;&#x5B58;&#x5728;&#x5DEE;&#x5F02;&#x6765;&#x5224;&#x5B9A;&#x662F;&#x5426;&#x68C0;&#x6D4B;&#x5230;&#x7F3A;&#x9677;1,2&#x3002;</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109143243794.png" alt="image-20240109143243794"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109143253753.png" alt="image-20240109143253753"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109143305702.png" alt="image-20240109143305702"></p>
+<h2 id="&#x8715;&#x53D8;&#x548C;&#x5DEE;&#x5206;&#x6D4B;&#x8BD5;&#x7684;&#x8FA8;&#x6790;">&#x8715;&#x53D8;&#x548C;&#x5DEE;&#x5206;&#x6D4B;&#x8BD5;&#x7684;&#x8FA8;&#x6790;</h2>
+<ul>
+<li>&#x76F8;&#x540C;&#x70B9;&#xFF1A;
+<ul>
+<li>&#x90FD;&#x5229;&#x7528;&#x4E86;&#x5F85;&#x6D4B;&#x7A0B;&#x5E8F;&#x4E2D;&#x7684;&#x5FC5;&#x8981;&#x5C5E;&#x6027;&#xFF08;Necessary Property&#xFF09;&#xFF1B;</li>
+<li>&#x90FD;&#x662F;&#x9ED1;&#x76D2;&#x6D4B;&#x8BD5;&#x6280;&#x672F;</li>
+</ul>
+</li>
+<li>&#x4E0D;&#x540C;&#x70B9;
+<ul>
+<li>&#x5FC5;&#x8981;&#x5C5E;&#x6027;&#x7684;&#x7C7B;&#x578B;&#x4E0D;&#x540C;&#xFF1A;
+<ul>
+<li>&#x8715;&#x53D8;&#x6D4B;&#x8BD5;&#x5229;&#x7528;&#x4E86;<strong>&#x5355;&#x4E00;&#x5F85;&#x6D4B;&#x7A0B;&#x5E8F;&#x7684;&#x5FC5;&#x8981;&#x5C5E;&#x6027;</strong>&#xFF1B;</li>
+<li>&#x5DEE;&#x5206; &#x6D4B;&#x8BD5;&#x5219;&#x5229;&#x7528;&#x4E86;<strong>&#x591A;&#x4E2A;&#x76F8;&#x4F3C;&#x5F85;&#x6D4B;&#x7A0B;&#x5E8F;&#x95F4;&#x7684;&#x5FC5;&#x8981;&#x5C5E;&#x6027;</strong>&#xFF1B;</li>
+</ul>
+</li>
+<li>&#x6B63;&#x786E;&#x6027;&#x9A8C;&#x8BC1;&#x7684;&#x51C6;&#x5219;&#x4E0D;&#x540C;&#xFF1A;
+<ul>
+<li>&#x8715;&#x53D8;&#x6D4B;&#x8BD5;&#x7684;&#x6B63;&#x786E;&#x6027;&#x9A8C;&#x8BC1;&#x51C6;&#x5219;&#x662F;&#x53EF;&#x53D8;&#x7684;&#xFF0C;&#x7531;&#x8715;&#x53D8;&#x5173;&#x7CFB;&#x51B3;&#x5B9A;&#xFF1B;</li>
+<li>&#x5DEE;&#x5206;&#x6D4B;&#x8BD5;&#x7684;&#x6B63;&#x786E;&#x6027;&#x51C6;&#x5219;&#x662F;&#x56FA;&#x5B9A;&#x7684;&#xFF0C;&#x5373;&#x4E0D;&#x540C;&#x76F8;&#x4F3C;&#x5F85;&#x6D4B;&#x7A0B;&#x5E8F;&#x5728;&#x540C; &#x4E00;&#x6D4B;&#x8BD5;&#x8F93;&#x5165;&#x4E0A;&#x7684;&#x8F93;&#x51FA;&#x7ED3;&#x679C;&#x5E94;&#x8BE5;&#x76F8;&#x540C;</li>
+</ul>
 </li>
 </ul>
-<h1>智能软件测试</h1>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109143736557.png" alt="image-20240109143736557"></p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109143755649.png" alt="image-20240109143755649"></p>
-<h2 id="测试标准">测试标准</h2>
+</li>
+</ul>
+<h1>&#x667A;&#x80FD;&#x8F6F;&#x4EF6;&#x6D4B;&#x8BD5;</h1>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109143736557.png" alt="image-20240109143736557"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109143755649.png" alt="image-20240109143755649"></p>
+<h2 id="&#x6D4B;&#x8BD5;&#x6807;&#x51C6;">&#x6D4B;&#x8BD5;&#x6807;&#x51C6;</h2>
 <ul>
 <li>Neuron Coverage</li>
 <li>k-Multisection Neuron Coverage</li>
@@ -820,20 +820,20 @@
 <li>Strong Neuron Activation Coverage</li>
 <li>Top-k Neuron Coverage</li>
 </ul>
-<h2 id="数据扩增">数据扩增</h2>
-<p>数据扩增：通过轻微变换现有数据或创建新的合成图像来得到新数 据的技术。应用领域有图像扩增、文本扩增、雷达扩增……</p>
-<h2 id="突变测试">突变测试</h2>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109143948439.png" alt="image-20240109143948439"></p>
-<h2 id="标准">标准</h2>
+<h2 id="&#x6570;&#x636E;&#x6269;&#x589E;">&#x6570;&#x636E;&#x6269;&#x589E;</h2>
+<p>&#x6570;&#x636E;&#x6269;&#x589E;&#xFF1A;&#x901A;&#x8FC7;&#x8F7B;&#x5FAE;&#x53D8;&#x6362;&#x73B0;&#x6709;&#x6570;&#x636E;&#x6216;&#x521B;&#x5EFA;&#x65B0;&#x7684;&#x5408;&#x6210;&#x56FE;&#x50CF;&#x6765;&#x5F97;&#x5230;&#x65B0;&#x6570; &#x636E;&#x7684;&#x6280;&#x672F;&#x3002;&#x5E94;&#x7528;&#x9886;&#x57DF;&#x6709;&#x56FE;&#x50CF;&#x6269;&#x589E;&#x3001;&#x6587;&#x672C;&#x6269;&#x589E;&#x3001;&#x96F7;&#x8FBE;&#x6269;&#x589E;&#x2026;&#x2026;</p>
+<h2 id="&#x7A81;&#x53D8;&#x6D4B;&#x8BD5;">&#x7A81;&#x53D8;&#x6D4B;&#x8BD5;</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109143948439.png" alt="image-20240109143948439"></p>
+<h2 id="&#x6807;&#x51C6;">&#x6807;&#x51C6;</h2>
 <ul>
-<li>鲁棒性</li>
-<li>后门攻击</li>
-<li>公平性</li>
-<li>可解释性AI</li>
-<li>隐私性</li>
+<li>&#x9C81;&#x68D2;&#x6027;</li>
+<li>&#x540E;&#x95E8;&#x653B;&#x51FB;</li>
+<li>&#x516C;&#x5E73;&#x6027;</li>
+<li>&#x53EF;&#x89E3;&#x91CA;&#x6027;AI</li>
+<li>&#x9690;&#x79C1;&#x6027;</li>
 </ul>
 <h2 id="Framework-Library-Testing">Framework / Library Testing</h2>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109144519652.png" alt="image-20240109144519652"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/image-20240109144519652.png" alt="image-20240109144519652"></p>
 
 <div class="article-footer fs14">
     <section id="license">

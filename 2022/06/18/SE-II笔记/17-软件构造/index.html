@@ -20,12 +20,12 @@
   <title>SE-II-ch17-软件构造 - Asimov's Blog</title>
 
   
-    <meta name="description" content="软件构造   1. 部分名词解释 2. 什么是软件构造?  2.1. SWEBOK2004 2.2. McConnell2004 2.3. Reeves 1992:软件构造是设计的延续   3. 软件构造活动 重要  3.1. 详细设计 3.2. 编程  3.2.1. 程序代码的典型质量 3.2.2. 编程的主要技术   3.3. 测试 3.4. 调试  3.4.1. 重现问题的方法 3.4.2.">
+    <meta name="description" content="&#x8F6F;&#x4EF6;&#x6784;&#x9020;   1. &#x90E8;&#x5206;&#x540D;&#x8BCD;&#x89E3;&#x91CA; 2. &#x4EC0;&#x4E48;&#x662F;&#x8F6F;&#x4EF6;&#x6784;&#x9020;?  2.1. SWEBOK2004 2.2. McConnell2004 2.3. Reeves 1992">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SE-II-ch17-软件构造">
 <meta property="og:url" content="https://chendingya.github.io/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/17-%E8%BD%AF%E4%BB%B6%E6%9E%84%E9%80%A0/index.html">
 <meta property="og:site_name" content="Asimov&#39;s Blog">
-<meta property="og:description" content="软件构造   1. 部分名词解释 2. 什么是软件构造?  2.1. SWEBOK2004 2.2. McConnell2004 2.3. Reeves 1992:软件构造是设计的延续   3. 软件构造活动 重要  3.1. 详细设计 3.2. 编程  3.2.1. 程序代码的典型质量 3.2.2. 编程的主要技术   3.3. 测试 3.4. 调试  3.4.1. 重现问题的方法 3.4.2.">
+<meta property="og:description" content="&#x8F6F;&#x4EF6;&#x6784;&#x9020;   1. &#x90E8;&#x5206;&#x540D;&#x8BCD;&#x89E3;&#x91CA; 2. &#x4EC0;&#x4E48;&#x662F;&#x8F6F;&#x4EF6;&#x6784;&#x9020;?  2.1. SWEBOK2004 2.2. McConnell2004 2.3. Reeves 1992">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt17/1.png">
 <meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt17/2.png">
@@ -89,7 +89,7 @@
 <div class="widgets">
 
 
-<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2024/05/02/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%842/"><span class="title">系统架构2-质量属性Quality Attributes</span></a><a class="item title" href="/2024/05/01/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%841/"><span class="title">系统架构1-Intro</span></a><a class="item title" href="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/"><span class="title">软件测试-期末复习</span></a><a class="item title" href="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/"><span class="title">机器学习-期末复习</span></a><a class="item title" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/"><span class="title">服务端-ch17-k8s使用</span></a><a class="item title" href="/2023/12/30/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch16-%E5%AE%B9%E5%99%A8%E9%95%9C%E5%83%8F%E6%9E%84%E5%BB%BA%E4%B8%8E%E7%BC%96%E6%8E%92/"><span class="title">服务端-ch16-容器镜像构建与编排</span></a><a class="item title" href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/"><span class="title">服务端-ch15-Docker</span></a><a class="item title" href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/"><span class="title">服务端-ch14-Spring WebFlux</span></a><a class="item title" href="/2023/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch13-%E5%8F%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"><span class="title">服务端-ch13-反应式编程基础</span></a><a class="item title" href="/2023/11/23/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch12-Spring%20Integration/"><span class="title">服务端-ch12-Spring Integration</span></a></div></widget>
+<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2022/10/25/hello-world/"><span class="title">Hello World</span></a><a class="item title" href="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/"><span class="title">软件测试-期末复习</span></a><a class="item title" href="/2024/05/02/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%842/"><span class="title">系统架构2-质量属性Quality Attributes</span></a><a class="item title" href="/2024/05/01/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%841/"><span class="title">系统架构1-Intro</span></a><a class="item title" href="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/"><span class="title">机器学习-期末复习</span></a><a class="item title" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/"><span class="title">服务端-ch17-k8s使用</span></a><a class="item title" href="/2023/12/30/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch16-%E5%AE%B9%E5%99%A8%E9%95%9C%E5%83%8F%E6%9E%84%E5%BB%BA%E4%B8%8E%E7%BC%96%E6%8E%92/"><span class="title">服务端-ch16-容器镜像构建与编排</span></a><a class="item title" href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/"><span class="title">服务端-ch15-Docker</span></a><a class="item title" href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/"><span class="title">服务端-ch14-Spring WebFlux</span></a><a class="item title" href="/2023/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch13-%E5%8F%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"><span class="title">服务端-ch13-反应式编程基础</span></a></div></widget>
 </div>
 <footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/chendingya?tab=repositories" target="_blank" rel="external nofollow noopener noreferrer"><img no-lazy src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" / onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a></div></footer>
 </div></aside><div class="l_main" id="main">
@@ -113,499 +113,499 @@
     </div>
     
   </div>
-  </div><article class="md-text content"><h2 id="软件构造">软件构造</h2>
+  </div><article class="md-text content"><h2 id="&#x8F6F;&#x4EF6;&#x6784;&#x9020;">&#x8F6F;&#x4EF6;&#x6784;&#x9020;</h2>
 <!-- TOC -->
 <ul>
-<li><a href="#1-%E9%83%A8%E5%88%86%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A">1. 部分名词解释</a></li>
-<li><a href="#2-%E4%BB%80%E4%B9%88%E6%98%AF%E8%BD%AF%E4%BB%B6%E6%9E%84%E9%80%A0">2. 什么是软件构造?</a>
+<li><a href="#1-%E9%83%A8%E5%88%86%E5%90%8D%E8%AF%8D%E8%A7%A3%E9%87%8A">1. &#x90E8;&#x5206;&#x540D;&#x8BCD;&#x89E3;&#x91CA;</a></li>
+<li><a href="#2-%E4%BB%80%E4%B9%88%E6%98%AF%E8%BD%AF%E4%BB%B6%E6%9E%84%E9%80%A0">2. &#x4EC0;&#x4E48;&#x662F;&#x8F6F;&#x4EF6;&#x6784;&#x9020;?</a>
 <ul>
 <li><a href="#21-swebok2004">2.1. SWEBOK2004</a></li>
 <li><a href="#22-mcconnell2004">2.2. McConnell2004</a></li>
-<li><a href="#23-reeves-1992%E8%BD%AF%E4%BB%B6%E6%9E%84%E9%80%A0%E6%98%AF%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%BB%B6%E7%BB%AD">2.3. Reeves 1992:软件构造是设计的延续</a></li>
+<li><a href="#23-reeves-1992%E8%BD%AF%E4%BB%B6%E6%9E%84%E9%80%A0%E6%98%AF%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%BB%B6%E7%BB%AD">2.3. Reeves 1992:&#x8F6F;&#x4EF6;&#x6784;&#x9020;&#x662F;&#x8BBE;&#x8BA1;&#x7684;&#x5EF6;&#x7EED;</a></li>
 </ul>
 </li>
-<li><a href="#3-%E8%BD%AF%E4%BB%B6%E6%9E%84%E9%80%A0%E6%B4%BB%E5%8A%A8-%E9%87%8D%E8%A6%81">3. 软件构造活动 重要</a>
+<li><a href="#3-%E8%BD%AF%E4%BB%B6%E6%9E%84%E9%80%A0%E6%B4%BB%E5%8A%A8-%E9%87%8D%E8%A6%81">3. &#x8F6F;&#x4EF6;&#x6784;&#x9020;&#x6D3B;&#x52A8; &#x91CD;&#x8981;</a>
 <ul>
-<li><a href="#31-%E8%AF%A6%E7%BB%86%E8%AE%BE%E8%AE%A1">3.1. 详细设计</a></li>
-<li><a href="#32-%E7%BC%96%E7%A8%8B">3.2. 编程</a>
+<li><a href="#31-%E8%AF%A6%E7%BB%86%E8%AE%BE%E8%AE%A1">3.1. &#x8BE6;&#x7EC6;&#x8BBE;&#x8BA1;</a></li>
+<li><a href="#32-%E7%BC%96%E7%A8%8B">3.2. &#x7F16;&#x7A0B;</a>
 <ul>
-<li><a href="#321-%E7%A8%8B%E5%BA%8F%E4%BB%A3%E7%A0%81%E7%9A%84%E5%85%B8%E5%9E%8B%E8%B4%A8%E9%87%8F">3.2.1. 程序代码的典型质量</a></li>
-<li><a href="#322-%E7%BC%96%E7%A8%8B%E7%9A%84%E4%B8%BB%E8%A6%81%E6%8A%80%E6%9C%AF">3.2.2. 编程的主要技术</a></li>
+<li><a href="#321-%E7%A8%8B%E5%BA%8F%E4%BB%A3%E7%A0%81%E7%9A%84%E5%85%B8%E5%9E%8B%E8%B4%A8%E9%87%8F">3.2.1. &#x7A0B;&#x5E8F;&#x4EE3;&#x7801;&#x7684;&#x5178;&#x578B;&#x8D28;&#x91CF;</a></li>
+<li><a href="#322-%E7%BC%96%E7%A8%8B%E7%9A%84%E4%B8%BB%E8%A6%81%E6%8A%80%E6%9C%AF">3.2.2. &#x7F16;&#x7A0B;&#x7684;&#x4E3B;&#x8981;&#x6280;&#x672F;</a></li>
 </ul>
 </li>
-<li><a href="#33-%E6%B5%8B%E8%AF%95">3.3. 测试</a></li>
-<li><a href="#34-%E8%B0%83%E8%AF%95">3.4. 调试</a>
+<li><a href="#33-%E6%B5%8B%E8%AF%95">3.3. &#x6D4B;&#x8BD5;</a></li>
+<li><a href="#34-%E8%B0%83%E8%AF%95">3.4. &#x8C03;&#x8BD5;</a>
 <ul>
-<li><a href="#341-%E9%87%8D%E7%8E%B0%E9%97%AE%E9%A2%98%E7%9A%84%E6%96%B9%E6%B3%95">3.4.1. 重现问题的方法</a></li>
-<li><a href="#342-%E5%AF%BB%E6%89%BE%E5%92%8C%E5%AE%9A%E4%BD%8D%E7%BC%BA%E9%99%B7%E7%9A%84%E6%96%B9%E6%B3%95">3.4.2. 寻找和定位缺陷的方法</a></li>
-<li><a href="#343-%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF">3.4.3. 常见错误</a></li>
-<li><a href="#344-%E4%BF%AE%E5%A4%8D%E7%BC%BA%E9%99%B7%E7%9A%84%E6%B3%A8%E6%84%8F%E7%82%B9">3.4.4. 修复缺陷的注意点</a></li>
+<li><a href="#341-%E9%87%8D%E7%8E%B0%E9%97%AE%E9%A2%98%E7%9A%84%E6%96%B9%E6%B3%95">3.4.1. &#x91CD;&#x73B0;&#x95EE;&#x9898;&#x7684;&#x65B9;&#x6CD5;</a></li>
+<li><a href="#342-%E5%AF%BB%E6%89%BE%E5%92%8C%E5%AE%9A%E4%BD%8D%E7%BC%BA%E9%99%B7%E7%9A%84%E6%96%B9%E6%B3%95">3.4.2. &#x5BFB;&#x627E;&#x548C;&#x5B9A;&#x4F4D;&#x7F3A;&#x9677;&#x7684;&#x65B9;&#x6CD5;</a></li>
+<li><a href="#343-%E5%B8%B8%E8%A7%81%E9%94%99%E8%AF%AF">3.4.3. &#x5E38;&#x89C1;&#x9519;&#x8BEF;</a></li>
+<li><a href="#344-%E4%BF%AE%E5%A4%8D%E7%BC%BA%E9%99%B7%E7%9A%84%E6%B3%A8%E6%84%8F%E7%82%B9">3.4.4. &#x4FEE;&#x590D;&#x7F3A;&#x9677;&#x7684;&#x6CE8;&#x610F;&#x70B9;</a></li>
 </ul>
 </li>
-<li><a href="#35-%E4%BB%A3%E7%A0%81%E8%AF%84%E5%AE%A1">3.5. 代码评审</a>
+<li><a href="#35-%E4%BB%A3%E7%A0%81%E8%AF%84%E5%AE%A1">3.5. &#x4EE3;&#x7801;&#x8BC4;&#x5BA1;</a>
 <ul>
-<li><a href="#351-%E5%AE%9E%E8%B7%B5%E7%BB%8F%E9%AA%8C">3.5.1. 实践经验</a></li>
+<li><a href="#351-%E5%AE%9E%E8%B7%B5%E7%BB%8F%E9%AA%8C">3.5.1. &#x5B9E;&#x8DF5;&#x7ECF;&#x9A8C;</a></li>
 <li><a href="#352-checklist">3.5.2. CheckList</a></li>
 </ul>
 </li>
-<li><a href="#36-%E9%9B%86%E6%88%90%E4%B8%8E%E6%9E%84%E5%BB%BA">3.6. 集成与构建</a></li>
-<li><a href="#37-%E6%9E%84%E9%80%A0%E7%AE%A1%E7%90%86">3.7. 构造管理</a></li>
+<li><a href="#36-%E9%9B%86%E6%88%90%E4%B8%8E%E6%9E%84%E5%BB%BA">3.6. &#x96C6;&#x6210;&#x4E0E;&#x6784;&#x5EFA;</a></li>
+<li><a href="#37-%E6%9E%84%E9%80%A0%E7%AE%A1%E7%90%86">3.7. &#x6784;&#x9020;&#x7BA1;&#x7406;</a></li>
 </ul>
 </li>
-<li><a href="#4-%E5%AE%9E%E8%B7%B5%E6%96%B9%E6%B3%95">4. 实践方法</a>
+<li><a href="#4-%E5%AE%9E%E8%B7%B5%E6%96%B9%E6%B3%95">4. &#x5B9E;&#x8DF5;&#x65B9;&#x6CD5;</a>
 <ul>
-<li><a href="#41-%E9%87%8D%E6%9E%84">4.1. 重构</a></li>
-<li><a href="#42-%E4%BB%A3%E7%A0%81%E7%9A%84%E5%9D%8F%E5%91%B3%E9%81%93">4.2. 代码的坏味道</a>
+<li><a href="#41-%E9%87%8D%E6%9E%84">4.1. &#x91CD;&#x6784;</a></li>
+<li><a href="#42-%E4%BB%A3%E7%A0%81%E7%9A%84%E5%9D%8F%E5%91%B3%E9%81%93">4.2. &#x4EE3;&#x7801;&#x7684;&#x574F;&#x5473;&#x9053;</a>
 <ul>
-<li><a href="#421-%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9">4.2.1. 注意事项</a></li>
+<li><a href="#421-%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9">4.2.1. &#x6CE8;&#x610F;&#x4E8B;&#x9879;</a></li>
 </ul>
 </li>
-<li><a href="#43-%E6%B5%8B%E8%AF%95%E9%A9%B1%E5%8A%A8%E5%BC%80%E5%8F%91">4.3. 测试驱动开发</a>
+<li><a href="#43-%E6%B5%8B%E8%AF%95%E9%A9%B1%E5%8A%A8%E5%BC%80%E5%8F%91">4.3. &#x6D4B;&#x8BD5;&#x9A71;&#x52A8;&#x5F00;&#x53D1;</a>
 <ul>
-<li><a href="#431-%E6%B5%8B%E8%AF%95%E9%A9%B1%E5%8A%A8%E5%BC%80%E5%8F%91%E7%9A%84%E8%BF%87%E7%A8%8B">4.3.1. 测试驱动开发的过程</a></li>
-<li><a href="#432-%E6%B5%8B%E8%AF%95%E5%90%AF%E5%8A%A8%E5%BC%80%E5%8F%91%E7%A4%BA%E4%BE%8B">4.3.2. 测试启动开发示例</a></li>
+<li><a href="#431-%E6%B5%8B%E8%AF%95%E9%A9%B1%E5%8A%A8%E5%BC%80%E5%8F%91%E7%9A%84%E8%BF%87%E7%A8%8B">4.3.1. &#x6D4B;&#x8BD5;&#x9A71;&#x52A8;&#x5F00;&#x53D1;&#x7684;&#x8FC7;&#x7A0B;</a></li>
+<li><a href="#432-%E6%B5%8B%E8%AF%95%E5%90%AF%E5%8A%A8%E5%BC%80%E5%8F%91%E7%A4%BA%E4%BE%8B">4.3.2. &#x6D4B;&#x8BD5;&#x542F;&#x52A8;&#x5F00;&#x53D1;&#x793A;&#x4F8B;</a></li>
 </ul>
 </li>
-<li><a href="#44-%E7%BB%93%E5%AF%B9%E7%BC%96%E7%A8%8B-%E6%A6%82%E5%BF%B5">4.4. 结对编程 概念</a>
+<li><a href="#44-%E7%BB%93%E5%AF%B9%E7%BC%96%E7%A8%8B-%E6%A6%82%E5%BF%B5">4.4. &#x7ED3;&#x5BF9;&#x7F16;&#x7A0B; &#x6982;&#x5FF5;</a>
 <ul>
-<li><a href="#441-%E4%B8%BA%E4%BB%80%E4%B9%88%E7%BB%93%E5%AF%B9%E7%BC%96%E7%A8%8B%E6%9C%89%E6%95%88">4.4.1. 为什么结对编程有效？</a></li>
-<li><a href="#442-%E5%B7%A5%E4%BD%9C%E5%8C%BA%E5%9F%9F%E5%B1%82">4.4.2. 工作区域层</a></li>
+<li><a href="#441-%E4%B8%BA%E4%BB%80%E4%B9%88%E7%BB%93%E5%AF%B9%E7%BC%96%E7%A8%8B%E6%9C%89%E6%95%88">4.4.1. &#x4E3A;&#x4EC0;&#x4E48;&#x7ED3;&#x5BF9;&#x7F16;&#x7A0B;&#x6709;&#x6548;&#xFF1F;</a></li>
+<li><a href="#442-%E5%B7%A5%E4%BD%9C%E5%8C%BA%E5%9F%9F%E5%B1%82">4.4.2. &#x5DE5;&#x4F5C;&#x533A;&#x57DF;&#x5C42;</a></li>
 </ul>
 </li>
-<li><a href="#45-%E9%85%8D%E5%AF%B9%E9%80%89%E6%8B%A9">4.5. 配对选择</a></li>
+<li><a href="#45-%E9%85%8D%E5%AF%B9%E9%80%89%E6%8B%A9">4.5. &#x914D;&#x5BF9;&#x9009;&#x62E9;</a></li>
 </ul>
 </li>
-<li><a href="#5-%E6%9C%89%E5%BB%BA%E8%AE%BE%E6%80%A7%E7%9A%84%E6%83%B3%E6%B3%95">5. 有建设性的想法</a>
+<li><a href="#5-%E6%9C%89%E5%BB%BA%E8%AE%BE%E6%80%A7%E7%9A%84%E6%83%B3%E6%B3%95">5. &#x6709;&#x5EFA;&#x8BBE;&#x6027;&#x7684;&#x60F3;&#x6CD5;</a>
 <ul>
-<li><a href="#51-%E5%8D%81%E5%B9%B4%E7%9A%84%E8%BD%AF%E4%BB%B6%E5%BB%BA%E8%AE%BE%E8%BF%9B%E5%B1%95">5.1. 十年的软件建设进展</a>
+<li><a href="#51-%E5%8D%81%E5%B9%B4%E7%9A%84%E8%BD%AF%E4%BB%B6%E5%BB%BA%E8%AE%BE%E8%BF%9B%E5%B1%95">5.1. &#x5341;&#x5E74;&#x7684;&#x8F6F;&#x4EF6;&#x5EFA;&#x8BBE;&#x8FDB;&#x5C55;</a>
 <ul>
-<li><a href="#511-%E8%AE%BE%E8%AE%A1%E5%B7%B2%E6%8F%90%E9%AB%98%E5%88%B0%E4%B8%80%E4%B8%AA%E6%B0%B4%E5%B9%B3">5.1.1. 设计已提高到一个水平</a></li>
-<li><a href="#512-%E6%AF%8F%E6%97%A5%E6%9E%84%E5%BB%BA%E5%92%8C%E5%86%92%E7%83%9F%E6%B5%8B%E8%AF%95">5.1.2. 每日构建和冒烟测试</a></li>
-<li><a href="#513-%E6%A0%87%E5%87%86%E5%BA%93">5.1.3. 标准库</a></li>
+<li><a href="#511-%E8%AE%BE%E8%AE%A1%E5%B7%B2%E6%8F%90%E9%AB%98%E5%88%B0%E4%B8%80%E4%B8%AA%E6%B0%B4%E5%B9%B3">5.1.1. &#x8BBE;&#x8BA1;&#x5DF2;&#x63D0;&#x9AD8;&#x5230;&#x4E00;&#x4E2A;&#x6C34;&#x5E73;</a></li>
+<li><a href="#512-%E6%AF%8F%E6%97%A5%E6%9E%84%E5%BB%BA%E5%92%8C%E5%86%92%E7%83%9F%E6%B5%8B%E8%AF%95">5.1.2. &#x6BCF;&#x65E5;&#x6784;&#x5EFA;&#x548C;&#x5192;&#x70DF;&#x6D4B;&#x8BD5;</a></li>
+<li><a href="#513-%E6%A0%87%E5%87%86%E5%BA%93">5.1.3. &#x6807;&#x51C6;&#x5E93;</a></li>
 <li><a href="#514-visual-basic">5.1.4. Visual Basic</a></li>
-<li><a href="#515-%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6">5.1.5. 开源软件</a></li>
-<li><a href="#516-%E7%BD%91%E7%BB%9C%E7%94%A8%E4%BA%8E%E7%A0%94%E7%A9%B6">5.1.6. 网络，用于研究</a></li>
-<li><a href="#517-%E5%A2%9E%E9%87%8F%E5%BC%80%E5%8F%91%E7%9A%84%E5%B9%BF%E6%B3%9B%E5%BA%94%E7%94%A8">5.1.7. 增量开发的广泛应用</a></li>
-<li><a href="#518-%E6%B5%8B%E8%AF%95%E4%BC%98%E5%85%88%E5%BC%80%E5%8F%91">5.1.8. 测试优先开发</a></li>
-<li><a href="#519-%E9%87%8D%E6%9E%84%E4%B8%BA%E5%AD%A6%E7%A7%91">5.1.9. 重构为学科</a></li>
-<li><a href="#5110-%E6%9B%B4%E5%BF%AB%E7%9A%84%E8%AE%A1%E7%AE%97%E6%9C%BA">5.1.10. 更快的计算机</a></li>
+<li><a href="#515-%E5%BC%80%E6%BA%90%E8%BD%AF%E4%BB%B6">5.1.5. &#x5F00;&#x6E90;&#x8F6F;&#x4EF6;</a></li>
+<li><a href="#516-%E7%BD%91%E7%BB%9C%E7%94%A8%E4%BA%8E%E7%A0%94%E7%A9%B6">5.1.6. &#x7F51;&#x7EDC;&#xFF0C;&#x7528;&#x4E8E;&#x7814;&#x7A76;</a></li>
+<li><a href="#517-%E5%A2%9E%E9%87%8F%E5%BC%80%E5%8F%91%E7%9A%84%E5%B9%BF%E6%B3%9B%E5%BA%94%E7%94%A8">5.1.7. &#x589E;&#x91CF;&#x5F00;&#x53D1;&#x7684;&#x5E7F;&#x6CDB;&#x5E94;&#x7528;</a></li>
+<li><a href="#518-%E6%B5%8B%E8%AF%95%E4%BC%98%E5%85%88%E5%BC%80%E5%8F%91">5.1.8. &#x6D4B;&#x8BD5;&#x4F18;&#x5148;&#x5F00;&#x53D1;</a></li>
+<li><a href="#519-%E9%87%8D%E6%9E%84%E4%B8%BA%E5%AD%A6%E7%A7%91">5.1.9. &#x91CD;&#x6784;&#x4E3A;&#x5B66;&#x79D1;</a></li>
+<li><a href="#5110-%E6%9B%B4%E5%BF%AB%E7%9A%84%E8%AE%A1%E7%AE%97%E6%9C%BA">5.1.10. &#x66F4;&#x5FEB;&#x7684;&#x8BA1;&#x7B97;&#x673A;</a></li>
 </ul>
 </li>
-<li><a href="#52-%E7%8E%B0%E4%BB%A3%E8%BD%AF%E4%BB%B6%E5%BB%BA%E8%AE%BE%E7%9A%84%E5%8D%81%E4%B8%AA%E7%8E%B0%E5%AE%9E">5.2. 现代软件建设的十个现实</a>
+<li><a href="#52-%E7%8E%B0%E4%BB%A3%E8%BD%AF%E4%BB%B6%E5%BB%BA%E8%AE%BE%E7%9A%84%E5%8D%81%E4%B8%AA%E7%8E%B0%E5%AE%9E">5.2. &#x73B0;&#x4EE3;&#x8F6F;&#x4EF6;&#x5EFA;&#x8BBE;&#x7684;&#x5341;&#x4E2A;&#x73B0;&#x5B9E;</a>
 <ul>
-<li><a href="#521--1-%E6%9E%84%E9%80%A0%E6%98%AF%E6%AD%A3%E5%BD%93%E7%9A%84%E8%AF%9D%E9%A2%98">5.2.1. -1-&quot;构造&quot;是正当的话题</a></li>
-<li><a href="#522--2-%E4%B8%AA%E4%BA%BA%E5%B7%AE%E5%BC%82%E5%BE%88%E5%A4%A7">5.2.2. -2-个人差异很大</a></li>
-<li><a href="#523--3-%E4%B8%AA%E4%BA%BA%E7%BA%AA%E5%BE%8B%E4%BA%8B%E9%A1%B9">5.2.3. -3-个人纪律事项</a></li>
-<li><a href="#524--4-%E4%B8%93%E6%B3%A8%E4%BA%8E%E7%AE%80%E5%8D%95%E6%AF%94%E4%B8%93%E6%B3%A8%E4%BA%8E%E5%A4%8D%E6%9D%82%E6%80%A7%E6%9B%B4%E5%A5%BD">5.2.4. -4-专注于简单比专注于复杂性更好</a></li>
-<li><a href="#525--5-%E7%BC%BA%E9%99%B7%E6%88%90%E6%9C%AC%E5%A2%9E%E9%95%BF%E4%BE%9D%E7%84%B6%E6%9C%89%E6%95%88">5.2.5. -5-缺陷成本增长依然有效</a></li>
-<li><a href="#526--6-%E8%AE%BE%E8%AE%A1%E7%9A%84%E9%87%8D%E8%A6%81%E6%80%A7">5.2.6. -6-设计的重要性</a></li>
-<li><a href="#527--7-%E6%8A%80%E6%9C%AF%E6%B5%AA%E6%BD%AE%E5%BD%B1%E5%93%8D%E6%96%BD%E5%B7%A5%E5%AE%9E%E8%B7%B5">5.2.7. -7-技术浪潮影响施工实践</a></li>
-<li><a href="#528--8%E5%A2%9E%E9%87%8F%E6%96%B9%E6%B3%95%E6%95%88%E6%9E%9C%E6%9C%80%E4%BD%B3">5.2.8. -8增量方法效果最佳</a></li>
-<li><a href="#529--9-%E5%B7%A5%E5%85%B7%E7%AE%B1%E7%9A%84%E9%9A%90%E5%96%BB%E7%BB%A7%E7%BB%AD%E5%8F%91%E4%BA%AE">5.2.9. -9-工具箱的隐喻继续发亮</a></li>
-<li><a href="#5210--10-%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%BC%A0%E5%8A%9B">5.2.10. -10-软件的基本张力</a></li>
+<li><a href="#521--1-%E6%9E%84%E9%80%A0%E6%98%AF%E6%AD%A3%E5%BD%93%E7%9A%84%E8%AF%9D%E9%A2%98">5.2.1. -1-&quot;&#x6784;&#x9020;&quot;&#x662F;&#x6B63;&#x5F53;&#x7684;&#x8BDD;&#x9898;</a></li>
+<li><a href="#522--2-%E4%B8%AA%E4%BA%BA%E5%B7%AE%E5%BC%82%E5%BE%88%E5%A4%A7">5.2.2. -2-&#x4E2A;&#x4EBA;&#x5DEE;&#x5F02;&#x5F88;&#x5927;</a></li>
+<li><a href="#523--3-%E4%B8%AA%E4%BA%BA%E7%BA%AA%E5%BE%8B%E4%BA%8B%E9%A1%B9">5.2.3. -3-&#x4E2A;&#x4EBA;&#x7EAA;&#x5F8B;&#x4E8B;&#x9879;</a></li>
+<li><a href="#524--4-%E4%B8%93%E6%B3%A8%E4%BA%8E%E7%AE%80%E5%8D%95%E6%AF%94%E4%B8%93%E6%B3%A8%E4%BA%8E%E5%A4%8D%E6%9D%82%E6%80%A7%E6%9B%B4%E5%A5%BD">5.2.4. -4-&#x4E13;&#x6CE8;&#x4E8E;&#x7B80;&#x5355;&#x6BD4;&#x4E13;&#x6CE8;&#x4E8E;&#x590D;&#x6742;&#x6027;&#x66F4;&#x597D;</a></li>
+<li><a href="#525--5-%E7%BC%BA%E9%99%B7%E6%88%90%E6%9C%AC%E5%A2%9E%E9%95%BF%E4%BE%9D%E7%84%B6%E6%9C%89%E6%95%88">5.2.5. -5-&#x7F3A;&#x9677;&#x6210;&#x672C;&#x589E;&#x957F;&#x4F9D;&#x7136;&#x6709;&#x6548;</a></li>
+<li><a href="#526--6-%E8%AE%BE%E8%AE%A1%E7%9A%84%E9%87%8D%E8%A6%81%E6%80%A7">5.2.6. -6-&#x8BBE;&#x8BA1;&#x7684;&#x91CD;&#x8981;&#x6027;</a></li>
+<li><a href="#527--7-%E6%8A%80%E6%9C%AF%E6%B5%AA%E6%BD%AE%E5%BD%B1%E5%93%8D%E6%96%BD%E5%B7%A5%E5%AE%9E%E8%B7%B5">5.2.7. -7-&#x6280;&#x672F;&#x6D6A;&#x6F6E;&#x5F71;&#x54CD;&#x65BD;&#x5DE5;&#x5B9E;&#x8DF5;</a></li>
+<li><a href="#528--8%E5%A2%9E%E9%87%8F%E6%96%B9%E6%B3%95%E6%95%88%E6%9E%9C%E6%9C%80%E4%BD%B3">5.2.8. -8&#x589E;&#x91CF;&#x65B9;&#x6CD5;&#x6548;&#x679C;&#x6700;&#x4F73;</a></li>
+<li><a href="#529--9-%E5%B7%A5%E5%85%B7%E7%AE%B1%E7%9A%84%E9%9A%90%E5%96%BB%E7%BB%A7%E7%BB%AD%E5%8F%91%E4%BA%AE">5.2.9. -9-&#x5DE5;&#x5177;&#x7BB1;&#x7684;&#x9690;&#x55BB;&#x7EE7;&#x7EED;&#x53D1;&#x4EAE;</a></li>
+<li><a href="#5210--10-%E8%BD%AF%E4%BB%B6%E7%9A%84%E5%9F%BA%E6%9C%AC%E5%BC%A0%E5%8A%9B">5.2.10. -10-&#x8F6F;&#x4EF6;&#x7684;&#x57FA;&#x672C;&#x5F20;&#x529B;</a></li>
 </ul>
 </li>
-<li><a href="#53-1990%E5%B9%B4%E4%BB%A3%E5%92%8C2000%E5%B9%B4%E4%BB%A3%E6%9C%80%E7%B3%9F%E7%B3%95%E7%9A%84%E5%BB%BA%E7%AD%91%E6%80%9D%E6%83%B3">5.3. 1990年代和2000年代最糟糕的建筑思想</a></li>
+<li><a href="#53-1990%E5%B9%B4%E4%BB%A3%E5%92%8C2000%E5%B9%B4%E4%BB%A3%E6%9C%80%E7%B3%9F%E7%B3%95%E7%9A%84%E5%BB%BA%E7%AD%91%E6%80%9D%E6%83%B3">5.3. 1990&#x5E74;&#x4EE3;&#x548C;2000&#x5E74;&#x4EE3;&#x6700;&#x7CDF;&#x7CD5;&#x7684;&#x5EFA;&#x7B51;&#x601D;&#x60F3;</a></li>
 </ul>
 </li>
 </ul>
 <!-- /TOC -->
-<h1>1. 部分名词解释</h1>
+<h1>1. &#x90E8;&#x5206;&#x540D;&#x8BCD;&#x89E3;&#x91CA;</h1>
 <ol>
-<li>测试驱动开发：测试驱动开发要求程序员在编写一段代码之前，优先完成该段代码的测试代码。并在编程中重复执行测试代码，以验证程序的正确性。</li>
-<li>结对编程：两个程序员挨着坐在一起，共同协作进行软件构造活动。</li>
+<li>&#x6D4B;&#x8BD5;&#x9A71;&#x52A8;&#x5F00;&#x53D1;&#xFF1A;&#x6D4B;&#x8BD5;&#x9A71;&#x52A8;&#x5F00;&#x53D1;&#x8981;&#x6C42;&#x7A0B;&#x5E8F;&#x5458;&#x5728;&#x7F16;&#x5199;&#x4E00;&#x6BB5;&#x4EE3;&#x7801;&#x4E4B;&#x524D;&#xFF0C;&#x4F18;&#x5148;&#x5B8C;&#x6210;&#x8BE5;&#x6BB5;&#x4EE3;&#x7801;&#x7684;&#x6D4B;&#x8BD5;&#x4EE3;&#x7801;&#x3002;&#x5E76;&#x5728;&#x7F16;&#x7A0B;&#x4E2D;&#x91CD;&#x590D;&#x6267;&#x884C;&#x6D4B;&#x8BD5;&#x4EE3;&#x7801;&#xFF0C;&#x4EE5;&#x9A8C;&#x8BC1;&#x7A0B;&#x5E8F;&#x7684;&#x6B63;&#x786E;&#x6027;&#x3002;</li>
+<li>&#x7ED3;&#x5BF9;&#x7F16;&#x7A0B;&#xFF1A;&#x4E24;&#x4E2A;&#x7A0B;&#x5E8F;&#x5458;&#x6328;&#x7740;&#x5750;&#x5728;&#x4E00;&#x8D77;&#xFF0C;&#x5171;&#x540C;&#x534F;&#x4F5C;&#x8FDB;&#x884C;&#x8F6F;&#x4EF6;&#x6784;&#x9020;&#x6D3B;&#x52A8;&#x3002;</li>
 </ol>
-<h1>2. 什么是软件构造?</h1>
+<h1>2. &#x4EC0;&#x4E48;&#x662F;&#x8F6F;&#x4EF6;&#x6784;&#x9020;?</h1>
 <h2 id="2-1-SWEBOK2004">2.1. SWEBOK2004</h2>
 <ol>
-<li>通过编码、验证、单元测试、集成测试和调试等工作的集合，生产可工作的、有意义的软件的详细创建过程。</li>
+<li>&#x901A;&#x8FC7;&#x7F16;&#x7801;&#x3001;&#x9A8C;&#x8BC1;&#x3001;&#x5355;&#x5143;&#x6D4B;&#x8BD5;&#x3001;&#x96C6;&#x6210;&#x6D4B;&#x8BD5;&#x548C;&#x8C03;&#x8BD5;&#x7B49;&#x5DE5;&#x4F5C;&#x7684;&#x96C6;&#x5408;&#xFF0C;&#x751F;&#x4EA7;&#x53EF;&#x5DE5;&#x4F5C;&#x7684;&#x3001;&#x6709;&#x610F;&#x4E49;&#x7684;&#x8F6F;&#x4EF6;&#x7684;&#x8BE6;&#x7EC6;&#x521B;&#x5EFA;&#x8FC7;&#x7A0B;&#x3002;</li>
 </ol>
 <h2 id="2-2-McConnell2004">2.2. McConnell2004</h2>
 <ol>
-<li>软件构造除了核心的编程任务之外，还涉及详细设计(数据结构与算法设计)、单元测试、集成与集成测试、以及其他活动。</li>
+<li>&#x8F6F;&#x4EF6;&#x6784;&#x9020;&#x9664;&#x4E86;&#x6838;&#x5FC3;&#x7684;&#x7F16;&#x7A0B;&#x4EFB;&#x52A1;&#x4E4B;&#x5916;&#xFF0C;&#x8FD8;&#x6D89;&#x53CA;&#x8BE6;&#x7EC6;&#x8BBE;&#x8BA1;(&#x6570;&#x636E;&#x7ED3;&#x6784;&#x4E0E;&#x7B97;&#x6CD5;&#x8BBE;&#x8BA1;)&#x3001;&#x5355;&#x5143;&#x6D4B;&#x8BD5;&#x3001;&#x96C6;&#x6210;&#x4E0E;&#x96C6;&#x6210;&#x6D4B;&#x8BD5;&#x3001;&#x4EE5;&#x53CA;&#x5176;&#x4ED6;&#x6D3B;&#x52A8;&#x3002;</li>
 </ol>
-<h2 id="2-3-Reeves-1992-软件构造是设计的延续">2.3. Reeves 1992:软件构造是设计的延续</h2>
+<h2 id="2-3-Reeves-1992-&#x8F6F;&#x4EF6;&#x6784;&#x9020;&#x662F;&#x8BBE;&#x8BA1;&#x7684;&#x5EF6;&#x7EED;">2.3. Reeves 1992:&#x8F6F;&#x4EF6;&#x6784;&#x9020;&#x662F;&#x8BBE;&#x8BA1;&#x7684;&#x5EF6;&#x7EED;</h2>
 <ol>
-<li>设计是<strong>规划软件构造方法</strong>的过程，实现是依据<strong>规划的软件构造方案建造真正产品</strong>的过程</li>
-<li>源程序是软件构建方案的<strong>最后一个规划</strong>，不是产品本身，真正的产品是运行于计算机上的由二进制代码组成的可执行程序。</li>
-<li>源程序的生产过程-编程，属于设计活动，编译器完成的编译和链接才是依据规划建造软件产品的实现活动。</li>
-<li><strong>编程不是一个简单的活动，核心是编码的设计</strong>。</li>
+<li>&#x8BBE;&#x8BA1;&#x662F;<strong>&#x89C4;&#x5212;&#x8F6F;&#x4EF6;&#x6784;&#x9020;&#x65B9;&#x6CD5;</strong>&#x7684;&#x8FC7;&#x7A0B;&#xFF0C;&#x5B9E;&#x73B0;&#x662F;&#x4F9D;&#x636E;<strong>&#x89C4;&#x5212;&#x7684;&#x8F6F;&#x4EF6;&#x6784;&#x9020;&#x65B9;&#x6848;&#x5EFA;&#x9020;&#x771F;&#x6B63;&#x4EA7;&#x54C1;</strong>&#x7684;&#x8FC7;&#x7A0B;</li>
+<li>&#x6E90;&#x7A0B;&#x5E8F;&#x662F;&#x8F6F;&#x4EF6;&#x6784;&#x5EFA;&#x65B9;&#x6848;&#x7684;<strong>&#x6700;&#x540E;&#x4E00;&#x4E2A;&#x89C4;&#x5212;</strong>&#xFF0C;&#x4E0D;&#x662F;&#x4EA7;&#x54C1;&#x672C;&#x8EAB;&#xFF0C;&#x771F;&#x6B63;&#x7684;&#x4EA7;&#x54C1;&#x662F;&#x8FD0;&#x884C;&#x4E8E;&#x8BA1;&#x7B97;&#x673A;&#x4E0A;&#x7684;&#x7531;&#x4E8C;&#x8FDB;&#x5236;&#x4EE3;&#x7801;&#x7EC4;&#x6210;&#x7684;&#x53EF;&#x6267;&#x884C;&#x7A0B;&#x5E8F;&#x3002;</li>
+<li>&#x6E90;&#x7A0B;&#x5E8F;&#x7684;&#x751F;&#x4EA7;&#x8FC7;&#x7A0B;-&#x7F16;&#x7A0B;&#xFF0C;&#x5C5E;&#x4E8E;&#x8BBE;&#x8BA1;&#x6D3B;&#x52A8;&#xFF0C;&#x7F16;&#x8BD1;&#x5668;&#x5B8C;&#x6210;&#x7684;&#x7F16;&#x8BD1;&#x548C;&#x94FE;&#x63A5;&#x624D;&#x662F;&#x4F9D;&#x636E;&#x89C4;&#x5212;&#x5EFA;&#x9020;&#x8F6F;&#x4EF6;&#x4EA7;&#x54C1;&#x7684;&#x5B9E;&#x73B0;&#x6D3B;&#x52A8;&#x3002;</li>
+<li><strong>&#x7F16;&#x7A0B;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x7B80;&#x5355;&#x7684;&#x6D3B;&#x52A8;&#xFF0C;&#x6838;&#x5FC3;&#x662F;&#x7F16;&#x7801;&#x7684;&#x8BBE;&#x8BA1;</strong>&#x3002;</li>
 </ol>
-<h1>3. 软件构造活动 重要</h1>
-<p>包含详细设计、编程、测试、调试、代码评审、集成与构建、构造与管理。</p>
-<h2 id="3-1-详细设计">3.1. 详细设计</h2>
+<h1>3. &#x8F6F;&#x4EF6;&#x6784;&#x9020;&#x6D3B;&#x52A8; &#x91CD;&#x8981;</h1>
+<p>&#x5305;&#x542B;&#x8BE6;&#x7EC6;&#x8BBE;&#x8BA1;&#x3001;&#x7F16;&#x7A0B;&#x3001;&#x6D4B;&#x8BD5;&#x3001;&#x8C03;&#x8BD5;&#x3001;&#x4EE3;&#x7801;&#x8BC4;&#x5BA1;&#x3001;&#x96C6;&#x6210;&#x4E0E;&#x6784;&#x5EFA;&#x3001;&#x6784;&#x9020;&#x4E0E;&#x7BA1;&#x7406;&#x3002;</p>
+<h2 id="3-1-&#x8BE6;&#x7EC6;&#x8BBE;&#x8BA1;">3.1. &#x8BE6;&#x7EC6;&#x8BBE;&#x8BA1;</h2>
 <ol>
-<li>有些项目会将主要的详细设计工作分配在软件构造阶段完成。</li>
-<li>无论是哪种项目，在软件构造阶段都不可避免的会涉及到详细设计的调整工作。因为编程语言是软件设计的一个重要约束，随着编程工作的进行和约束，人们可能会发现与预想不一致的情况和更多的约束，这个时候就需要在软件构造阶段修改详细设计方案。</li>
-<li>软件构造阶段详细设计使用的方法与技术与软件设计阶段是一样的，只是应用在<strong>更小</strong>的规模上。</li>
-<li>详细设计已经包含实际的代码实现了，不同编程语言的代码行数不同。</li>
+<li>&#x6709;&#x4E9B;&#x9879;&#x76EE;&#x4F1A;&#x5C06;&#x4E3B;&#x8981;&#x7684;&#x8BE6;&#x7EC6;&#x8BBE;&#x8BA1;&#x5DE5;&#x4F5C;&#x5206;&#x914D;&#x5728;&#x8F6F;&#x4EF6;&#x6784;&#x9020;&#x9636;&#x6BB5;&#x5B8C;&#x6210;&#x3002;</li>
+<li>&#x65E0;&#x8BBA;&#x662F;&#x54EA;&#x79CD;&#x9879;&#x76EE;&#xFF0C;&#x5728;&#x8F6F;&#x4EF6;&#x6784;&#x9020;&#x9636;&#x6BB5;&#x90FD;&#x4E0D;&#x53EF;&#x907F;&#x514D;&#x7684;&#x4F1A;&#x6D89;&#x53CA;&#x5230;&#x8BE6;&#x7EC6;&#x8BBE;&#x8BA1;&#x7684;&#x8C03;&#x6574;&#x5DE5;&#x4F5C;&#x3002;&#x56E0;&#x4E3A;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&#x662F;&#x8F6F;&#x4EF6;&#x8BBE;&#x8BA1;&#x7684;&#x4E00;&#x4E2A;&#x91CD;&#x8981;&#x7EA6;&#x675F;&#xFF0C;&#x968F;&#x7740;&#x7F16;&#x7A0B;&#x5DE5;&#x4F5C;&#x7684;&#x8FDB;&#x884C;&#x548C;&#x7EA6;&#x675F;&#xFF0C;&#x4EBA;&#x4EEC;&#x53EF;&#x80FD;&#x4F1A;&#x53D1;&#x73B0;&#x4E0E;&#x9884;&#x60F3;&#x4E0D;&#x4E00;&#x81F4;&#x7684;&#x60C5;&#x51B5;&#x548C;&#x66F4;&#x591A;&#x7684;&#x7EA6;&#x675F;&#xFF0C;&#x8FD9;&#x4E2A;&#x65F6;&#x5019;&#x5C31;&#x9700;&#x8981;&#x5728;&#x8F6F;&#x4EF6;&#x6784;&#x9020;&#x9636;&#x6BB5;&#x4FEE;&#x6539;&#x8BE6;&#x7EC6;&#x8BBE;&#x8BA1;&#x65B9;&#x6848;&#x3002;</li>
+<li>&#x8F6F;&#x4EF6;&#x6784;&#x9020;&#x9636;&#x6BB5;&#x8BE6;&#x7EC6;&#x8BBE;&#x8BA1;&#x4F7F;&#x7528;&#x7684;&#x65B9;&#x6CD5;&#x4E0E;&#x6280;&#x672F;&#x4E0E;&#x8F6F;&#x4EF6;&#x8BBE;&#x8BA1;&#x9636;&#x6BB5;&#x662F;&#x4E00;&#x6837;&#x7684;&#xFF0C;&#x53EA;&#x662F;&#x5E94;&#x7528;&#x5728;<strong>&#x66F4;&#x5C0F;</strong>&#x7684;&#x89C4;&#x6A21;&#x4E0A;&#x3002;</li>
+<li>&#x8BE6;&#x7EC6;&#x8BBE;&#x8BA1;&#x5DF2;&#x7ECF;&#x5305;&#x542B;&#x5B9E;&#x9645;&#x7684;&#x4EE3;&#x7801;&#x5B9E;&#x73B0;&#x4E86;&#xFF0C;&#x4E0D;&#x540C;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&#x7684;&#x4EE3;&#x7801;&#x884C;&#x6570;&#x4E0D;&#x540C;&#x3002;</li>
 </ol>
-<h2 id="3-2-编程">3.2. 编程</h2>
-<h3 id="3-2-1-程序代码的典型质量">3.2.1. 程序代码的典型质量</h3>
+<h2 id="3-2-&#x7F16;&#x7A0B;">3.2. &#x7F16;&#x7A0B;</h2>
+<h3 id="3-2-1-&#x7A0B;&#x5E8F;&#x4EE3;&#x7801;&#x7684;&#x5178;&#x578B;&#x8D28;&#x91CF;">3.2.1. &#x7A0B;&#x5E8F;&#x4EE3;&#x7801;&#x7684;&#x5178;&#x578B;&#x8D28;&#x91CF;</h3>
 <ol>
-<li><strong>易读性</strong>:让软件更容易开发，尤其是易于调试；可以使得程序更加容易维护，减少理解代码的难度和成本：降低交流的成本，自己写完之后要修正代码使其易读。</li>
-<li><strong>易维护性</strong>:
+<li><strong>&#x6613;&#x8BFB;&#x6027;</strong>:&#x8BA9;&#x8F6F;&#x4EF6;&#x66F4;&#x5BB9;&#x6613;&#x5F00;&#x53D1;&#xFF0C;&#x5C24;&#x5176;&#x662F;&#x6613;&#x4E8E;&#x8C03;&#x8BD5;&#xFF1B;&#x53EF;&#x4EE5;&#x4F7F;&#x5F97;&#x7A0B;&#x5E8F;&#x66F4;&#x52A0;&#x5BB9;&#x6613;&#x7EF4;&#x62A4;&#xFF0C;&#x51CF;&#x5C11;&#x7406;&#x89E3;&#x4EE3;&#x7801;&#x7684;&#x96BE;&#x5EA6;&#x548C;&#x6210;&#x672C;&#xFF1A;&#x964D;&#x4F4E;&#x4EA4;&#x6D41;&#x7684;&#x6210;&#x672C;&#xFF0C;&#x81EA;&#x5DF1;&#x5199;&#x5B8C;&#x4E4B;&#x540E;&#x8981;&#x4FEE;&#x6B63;&#x4EE3;&#x7801;&#x4F7F;&#x5176;&#x6613;&#x8BFB;&#x3002;</li>
+<li><strong>&#x6613;&#x7EF4;&#x62A4;&#x6027;</strong>:
 <ol>
-<li>要求代码易读、易修改，增量开发。</li>
-<li>关键业务流程应该是易于扩展的。</li>
+<li>&#x8981;&#x6C42;&#x4EE3;&#x7801;&#x6613;&#x8BFB;&#x3001;&#x6613;&#x4FEE;&#x6539;&#xFF0C;&#x589E;&#x91CF;&#x5F00;&#x53D1;&#x3002;</li>
+<li>&#x5173;&#x952E;&#x4E1A;&#x52A1;&#x6D41;&#x7A0B;&#x5E94;&#x8BE5;&#x662F;&#x6613;&#x4E8E;&#x6269;&#x5C55;&#x7684;&#x3002;</li>
 </ol>
 </li>
-<li><strong>可靠性</strong>:程序代码必须是可靠的，执行正确的，并能妥善处理故障。</li>
-<li><strong>性能</strong>:高性能，包括时间性能和空间性能，需要设计数据结构和算法设计。
+<li><strong>&#x53EF;&#x9760;&#x6027;</strong>:&#x7A0B;&#x5E8F;&#x4EE3;&#x7801;&#x5FC5;&#x987B;&#x662F;&#x53EF;&#x9760;&#x7684;&#xFF0C;&#x6267;&#x884C;&#x6B63;&#x786E;&#x7684;&#xFF0C;&#x5E76;&#x80FD;&#x59A5;&#x5584;&#x5904;&#x7406;&#x6545;&#x969C;&#x3002;</li>
+<li><strong>&#x6027;&#x80FD;</strong>:&#x9AD8;&#x6027;&#x80FD;&#xFF0C;&#x5305;&#x62EC;&#x65F6;&#x95F4;&#x6027;&#x80FD;&#x548C;&#x7A7A;&#x95F4;&#x6027;&#x80FD;&#xFF0C;&#x9700;&#x8981;&#x8BBE;&#x8BA1;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x548C;&#x7B97;&#x6CD5;&#x8BBE;&#x8BA1;&#x3002;
 <ol>
-<li>快排在实际上应用的更多。</li>
-<li>利用多核的操作。</li>
+<li>&#x5FEB;&#x6392;&#x5728;&#x5B9E;&#x9645;&#x4E0A;&#x5E94;&#x7528;&#x7684;&#x66F4;&#x591A;&#x3002;</li>
+<li>&#x5229;&#x7528;&#x591A;&#x6838;&#x7684;&#x64CD;&#x4F5C;&#x3002;</li>
 </ol>
 </li>
-<li><strong>安全性</strong>:不留系统漏洞，不出现重要信息的泄露(内存数据区泄露)，别的程序可以嗅探到。</li>
-<li>上面的五个要求，是有顺序的，做好前面才可以去做下面的。</li>
+<li><strong>&#x5B89;&#x5168;&#x6027;</strong>:&#x4E0D;&#x7559;&#x7CFB;&#x7EDF;&#x6F0F;&#x6D1E;&#xFF0C;&#x4E0D;&#x51FA;&#x73B0;&#x91CD;&#x8981;&#x4FE1;&#x606F;&#x7684;&#x6CC4;&#x9732;(&#x5185;&#x5B58;&#x6570;&#x636E;&#x533A;&#x6CC4;&#x9732;)&#xFF0C;&#x522B;&#x7684;&#x7A0B;&#x5E8F;&#x53EF;&#x4EE5;&#x55C5;&#x63A2;&#x5230;&#x3002;</li>
+<li>&#x4E0A;&#x9762;&#x7684;&#x4E94;&#x4E2A;&#x8981;&#x6C42;&#xFF0C;&#x662F;&#x6709;&#x987A;&#x5E8F;&#x7684;&#xFF0C;&#x505A;&#x597D;&#x524D;&#x9762;&#x624D;&#x53EF;&#x4EE5;&#x53BB;&#x505A;&#x4E0B;&#x9762;&#x7684;&#x3002;</li>
 </ol>
-<h3 id="3-2-2-编程的主要技术">3.2.2. 编程的主要技术</h3>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt17/1.png" alt=""></p>
+<h3 id="3-2-2-&#x7F16;&#x7A0B;&#x7684;&#x4E3B;&#x8981;&#x6280;&#x672F;">3.2.2. &#x7F16;&#x7A0B;&#x7684;&#x4E3B;&#x8981;&#x6280;&#x672F;</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt17/1.png" alt></p>
 <ul>
-<li>什么才是好的代码?</li>
-<li>for循环带来运行代价(谨慎使用控制结构):串行代码无法并行</li>
-<li>Java的异常处理：try…catch的使用</li>
-<li>代码级的安全泄露:C和C++中会出现</li>
-<li>进程线程和数据库锁:互斥机制会带来性能消耗</li>
-<li>代码文档:进行一些DOC和注释</li>
+<li>&#x4EC0;&#x4E48;&#x624D;&#x662F;&#x597D;&#x7684;&#x4EE3;&#x7801;?</li>
+<li>for&#x5FAA;&#x73AF;&#x5E26;&#x6765;&#x8FD0;&#x884C;&#x4EE3;&#x4EF7;(&#x8C28;&#x614E;&#x4F7F;&#x7528;&#x63A7;&#x5236;&#x7ED3;&#x6784;):&#x4E32;&#x884C;&#x4EE3;&#x7801;&#x65E0;&#x6CD5;&#x5E76;&#x884C;</li>
+<li>Java&#x7684;&#x5F02;&#x5E38;&#x5904;&#x7406;&#xFF1A;try&#x2026;catch&#x7684;&#x4F7F;&#x7528;</li>
+<li>&#x4EE3;&#x7801;&#x7EA7;&#x7684;&#x5B89;&#x5168;&#x6CC4;&#x9732;:C&#x548C;C++&#x4E2D;&#x4F1A;&#x51FA;&#x73B0;</li>
+<li>&#x8FDB;&#x7A0B;&#x7EBF;&#x7A0B;&#x548C;&#x6570;&#x636E;&#x5E93;&#x9501;:&#x4E92;&#x65A5;&#x673A;&#x5236;&#x4F1A;&#x5E26;&#x6765;&#x6027;&#x80FD;&#x6D88;&#x8017;</li>
+<li>&#x4EE3;&#x7801;&#x6587;&#x6863;:&#x8FDB;&#x884C;&#x4E00;&#x4E9B;DOC&#x548C;&#x6CE8;&#x91CA;</li>
 </ul>
-<h2 id="3-3-测试">3.3. 测试</h2>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt17/2.png" alt=""></p>
+<h2 id="3-3-&#x6D4B;&#x8BD5;">3.3. &#x6D4B;&#x8BD5;</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt17/2.png" alt></p>
 <ul>
-<li>保证写的程序是正确的</li>
-<li>写完一次就进行一次单元测试</li>
-<li>写的时候就要进行单元测试进行检测</li>
-<li>集成测试是在单元测试之后才进行的操作。</li>
+<li>&#x4FDD;&#x8BC1;&#x5199;&#x7684;&#x7A0B;&#x5E8F;&#x662F;&#x6B63;&#x786E;&#x7684;</li>
+<li>&#x5199;&#x5B8C;&#x4E00;&#x6B21;&#x5C31;&#x8FDB;&#x884C;&#x4E00;&#x6B21;&#x5355;&#x5143;&#x6D4B;&#x8BD5;</li>
+<li>&#x5199;&#x7684;&#x65F6;&#x5019;&#x5C31;&#x8981;&#x8FDB;&#x884C;&#x5355;&#x5143;&#x6D4B;&#x8BD5;&#x8FDB;&#x884C;&#x68C0;&#x6D4B;</li>
+<li>&#x96C6;&#x6210;&#x6D4B;&#x8BD5;&#x662F;&#x5728;&#x5355;&#x5143;&#x6D4B;&#x8BD5;&#x4E4B;&#x540E;&#x624D;&#x8FDB;&#x884C;&#x7684;&#x64CD;&#x4F5C;&#x3002;</li>
 </ul>
-<h2 id="3-4-调试">3.4. 调试</h2>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt17/3.png" alt=""></p>
+<h2 id="3-4-&#x8C03;&#x8BD5;">3.4. &#x8C03;&#x8BD5;</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt17/3.png" alt></p>
 <ul>
-<li>测试发现了问题之后我们要进行调试，通过重现和调试来完成。</li>
+<li>&#x6D4B;&#x8BD5;&#x53D1;&#x73B0;&#x4E86;&#x95EE;&#x9898;&#x4E4B;&#x540E;&#x6211;&#x4EEC;&#x8981;&#x8FDB;&#x884C;&#x8C03;&#x8BD5;&#xFF0C;&#x901A;&#x8FC7;&#x91CD;&#x73B0;&#x548C;&#x8C03;&#x8BD5;&#x6765;&#x5B8C;&#x6210;&#x3002;</li>
 </ul>
-<h3 id="3-4-1-重现问题的方法">3.4.1. 重现问题的方法</h3>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt17/4.png" alt=""></p>
+<h3 id="3-4-1-&#x91CD;&#x73B0;&#x95EE;&#x9898;&#x7684;&#x65B9;&#x6CD5;">3.4.1. &#x91CD;&#x73B0;&#x95EE;&#x9898;&#x7684;&#x65B9;&#x6CD5;</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt17/4.png" alt></p>
 <ul>
-<li>控制输入:缺陷和控制相关等</li>
-<li>控制环境:和具体的机器、操作系统、数据库管理系统等，关机重启，内存问题减少。(和队友看看)</li>
+<li>&#x63A7;&#x5236;&#x8F93;&#x5165;:&#x7F3A;&#x9677;&#x548C;&#x63A7;&#x5236;&#x76F8;&#x5173;&#x7B49;</li>
+<li>&#x63A7;&#x5236;&#x73AF;&#x5883;:&#x548C;&#x5177;&#x4F53;&#x7684;&#x673A;&#x5668;&#x3001;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x3001;&#x6570;&#x636E;&#x5E93;&#x7BA1;&#x7406;&#x7CFB;&#x7EDF;&#x7B49;&#xFF0C;&#x5173;&#x673A;&#x91CD;&#x542F;&#xFF0C;&#x5185;&#x5B58;&#x95EE;&#x9898;&#x51CF;&#x5C11;&#x3002;(&#x548C;&#x961F;&#x53CB;&#x770B;&#x770B;)</li>
 </ul>
-<h3 id="3-4-2-寻找和定位缺陷的方法">3.4.2. 寻找和定位缺陷的方法</h3>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt17/5.png" alt=""></p>
+<h3 id="3-4-2-&#x5BFB;&#x627E;&#x548C;&#x5B9A;&#x4F4D;&#x7F3A;&#x9677;&#x7684;&#x65B9;&#x6CD5;">3.4.2. &#x5BFB;&#x627E;&#x548C;&#x5B9A;&#x4F4D;&#x7F3A;&#x9677;&#x7684;&#x65B9;&#x6CD5;</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt17/5.png" alt></p>
 <ul>
-<li>路径debug，检查刚刚写了的部分的代码</li>
+<li>&#x8DEF;&#x5F84;debug&#xFF0C;&#x68C0;&#x67E5;&#x521A;&#x521A;&#x5199;&#x4E86;&#x7684;&#x90E8;&#x5206;&#x7684;&#x4EE3;&#x7801;</li>
 </ul>
-<h3 id="3-4-3-常见错误">3.4.3. 常见错误</h3>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt17/6.png" alt=""></p>
+<h3 id="3-4-3-&#x5E38;&#x89C1;&#x9519;&#x8BEF;">3.4.3. &#x5E38;&#x89C1;&#x9519;&#x8BEF;</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt17/6.png" alt></p>
 <ul>
-<li>Java对象如果用不到了就重置为NULL，然后把对象交给GC处理</li>
-<li>降低控制的复杂程度</li>
-<li>多线程的错误(同步的问题)</li>
-<li>多线程的定时问题</li>
-<li>存储错误(磁盘已经满了)</li>
-<li>字符集编码问题</li>
-<li>版本缺陷，对以前不兼容。</li>
+<li>Java&#x5BF9;&#x8C61;&#x5982;&#x679C;&#x7528;&#x4E0D;&#x5230;&#x4E86;&#x5C31;&#x91CD;&#x7F6E;&#x4E3A;NULL&#xFF0C;&#x7136;&#x540E;&#x628A;&#x5BF9;&#x8C61;&#x4EA4;&#x7ED9;GC&#x5904;&#x7406;</li>
+<li>&#x964D;&#x4F4E;&#x63A7;&#x5236;&#x7684;&#x590D;&#x6742;&#x7A0B;&#x5EA6;</li>
+<li>&#x591A;&#x7EBF;&#x7A0B;&#x7684;&#x9519;&#x8BEF;(&#x540C;&#x6B65;&#x7684;&#x95EE;&#x9898;)</li>
+<li>&#x591A;&#x7EBF;&#x7A0B;&#x7684;&#x5B9A;&#x65F6;&#x95EE;&#x9898;</li>
+<li>&#x5B58;&#x50A8;&#x9519;&#x8BEF;(&#x78C1;&#x76D8;&#x5DF2;&#x7ECF;&#x6EE1;&#x4E86;)</li>
+<li>&#x5B57;&#x7B26;&#x96C6;&#x7F16;&#x7801;&#x95EE;&#x9898;</li>
+<li>&#x7248;&#x672C;&#x7F3A;&#x9677;&#xFF0C;&#x5BF9;&#x4EE5;&#x524D;&#x4E0D;&#x517C;&#x5BB9;&#x3002;</li>
 </ul>
-<h3 id="3-4-4-修复缺陷的注意点">3.4.4. 修复缺陷的注意点</h3>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt17/7.png" alt=""></p>
-<h2 id="3-5-代码评审">3.5. 代码评审</h2>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt17/8.png" alt=""></p>
+<h3 id="3-4-4-&#x4FEE;&#x590D;&#x7F3A;&#x9677;&#x7684;&#x6CE8;&#x610F;&#x70B9;">3.4.4. &#x4FEE;&#x590D;&#x7F3A;&#x9677;&#x7684;&#x6CE8;&#x610F;&#x70B9;</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt17/7.png" alt></p>
+<h2 id="3-5-&#x4EE3;&#x7801;&#x8BC4;&#x5BA1;">3.5. &#x4EE3;&#x7801;&#x8BC4;&#x5BA1;</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt17/8.png" alt></p>
 <ol>
-<li>重新回到软件构造的过程中去<br>
-2. 让别人发现你的问题，<strong>更多使用轻量级的代码评审</strong></li>
+<li>&#x91CD;&#x65B0;&#x56DE;&#x5230;&#x8F6F;&#x4EF6;&#x6784;&#x9020;&#x7684;&#x8FC7;&#x7A0B;&#x4E2D;&#x53BB;<br>
+2. &#x8BA9;&#x522B;&#x4EBA;&#x53D1;&#x73B0;&#x4F60;&#x7684;&#x95EE;&#x9898;&#xFF0C;<strong>&#x66F4;&#x591A;&#x4F7F;&#x7528;&#x8F7B;&#x91CF;&#x7EA7;&#x7684;&#x4EE3;&#x7801;&#x8BC4;&#x5BA1;</strong></li>
 </ol>
-<h3 id="3-5-1-实践经验">3.5.1. 实践经验</h3>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt17/9.png" alt=""></p>
+<h3 id="3-5-1-&#x5B9E;&#x8DF5;&#x7ECF;&#x9A8C;">3.5.1. &#x5B9E;&#x8DF5;&#x7ECF;&#x9A8C;</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt17/9.png" alt></p>
 <h3 id="3-5-2-CheckList">3.5.2. CheckList</h3>
-<p>课本287页</p>
-<h2 id="3-6-集成与构建">3.6. 集成与构建</h2>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt17/10.png" alt=""></p>
-<h2 id="3-7-构造管理">3.7. 构造管理</h2>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt17/11.png" alt=""></p>
+<p>&#x8BFE;&#x672C;287&#x9875;</p>
+<h2 id="3-6-&#x96C6;&#x6210;&#x4E0E;&#x6784;&#x5EFA;">3.6. &#x96C6;&#x6210;&#x4E0E;&#x6784;&#x5EFA;</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt17/10.png" alt></p>
+<h2 id="3-7-&#x6784;&#x9020;&#x7BA1;&#x7406;">3.7. &#x6784;&#x9020;&#x7BA1;&#x7406;</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt17/11.png" alt></p>
 <ol>
-<li>度量和配置管理的详细描述见课本288页</li>
+<li>&#x5EA6;&#x91CF;&#x548C;&#x914D;&#x7F6E;&#x7BA1;&#x7406;&#x7684;&#x8BE6;&#x7EC6;&#x63CF;&#x8FF0;&#x89C1;&#x8BFE;&#x672C;288&#x9875;</li>
 </ol>
-<h1>4. 实践方法</h1>
-<p>重构、测试驱动开发和结对编程</p>
-<h2 id="4-1-重构">4.1. 重构</h2>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt17/12.png" alt=""></p>
+<h1>4. &#x5B9E;&#x8DF5;&#x65B9;&#x6CD5;</h1>
+<p>&#x91CD;&#x6784;&#x3001;&#x6D4B;&#x8BD5;&#x9A71;&#x52A8;&#x5F00;&#x53D1;&#x548C;&#x7ED3;&#x5BF9;&#x7F16;&#x7A0B;</p>
+<h2 id="4-1-&#x91CD;&#x6784;">4.1. &#x91CD;&#x6784;</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt17/12.png" alt></p>
 <ol>
-<li>保留业务功能，避免出现问题</li>
+<li>&#x4FDD;&#x7559;&#x4E1A;&#x52A1;&#x529F;&#x80FD;&#xFF0C;&#x907F;&#x514D;&#x51FA;&#x73B0;&#x95EE;&#x9898;</li>
 </ol>
-<h2 id="4-2-代码的坏味道">4.2. 代码的坏味道</h2>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt17/13.png" alt=""></p>
+<h2 id="4-2-&#x4EE3;&#x7801;&#x7684;&#x574F;&#x5473;&#x9053;">4.2. &#x4EE3;&#x7801;&#x7684;&#x574F;&#x5473;&#x9053;</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt17/13.png" alt></p>
 <ul>
-<li>太长的方法:一个方法里面有太多的行为。</li>
-<li>太大的类:一个类不是单一职责的</li>
+<li>&#x592A;&#x957F;&#x7684;&#x65B9;&#x6CD5;:&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#x91CC;&#x9762;&#x6709;&#x592A;&#x591A;&#x7684;&#x884C;&#x4E3A;&#x3002;</li>
+<li>&#x592A;&#x5927;&#x7684;&#x7C7B;:&#x4E00;&#x4E2A;&#x7C7B;&#x4E0D;&#x662F;&#x5355;&#x4E00;&#x804C;&#x8D23;&#x7684;</li>
 </ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt17/14.png" alt=""></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt17/14.png" alt></p>
 <ul>
-<li>上图中(课本17-3):name和point不要分开</li>
+<li>&#x4E0A;&#x56FE;&#x4E2D;(&#x8BFE;&#x672C;17-3):name&#x548C;point&#x4E0D;&#x8981;&#x5206;&#x5F00;</li>
 </ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt17/15.png" alt=""></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt17/15.png" alt></p>
 <ul>
-<li>使用PO来传递参数，而不是通过过多的参数。</li>
+<li>&#x4F7F;&#x7528;PO&#x6765;&#x4F20;&#x9012;&#x53C2;&#x6570;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x901A;&#x8FC7;&#x8FC7;&#x591A;&#x7684;&#x53C2;&#x6570;&#x3002;</li>
 </ul>
-<h3 id="4-2-1-注意事项">4.2.1. 注意事项</h3>
+<h3 id="4-2-1-&#x6CE8;&#x610F;&#x4E8B;&#x9879;">4.2.1. &#x6CE8;&#x610F;&#x4E8B;&#x9879;</h3>
 <ol>
-<li>详见课本290页。</li>
-<li><strong>重构是基于已有代码的设计改进，不是开发新代码的方法。</strong></li>
-<li>重构要防止副作用。</li>
-<li>重构的重点是改进详细设计结构。</li>
-<li><strong>重构并不是为了让代码更简单，如上面的重构，会使得代码的量更大，但是结构更清晰</strong></li>
+<li>&#x8BE6;&#x89C1;&#x8BFE;&#x672C;290&#x9875;&#x3002;</li>
+<li><strong>&#x91CD;&#x6784;&#x662F;&#x57FA;&#x4E8E;&#x5DF2;&#x6709;&#x4EE3;&#x7801;&#x7684;&#x8BBE;&#x8BA1;&#x6539;&#x8FDB;&#xFF0C;&#x4E0D;&#x662F;&#x5F00;&#x53D1;&#x65B0;&#x4EE3;&#x7801;&#x7684;&#x65B9;&#x6CD5;&#x3002;</strong></li>
+<li>&#x91CD;&#x6784;&#x8981;&#x9632;&#x6B62;&#x526F;&#x4F5C;&#x7528;&#x3002;</li>
+<li>&#x91CD;&#x6784;&#x7684;&#x91CD;&#x70B9;&#x662F;&#x6539;&#x8FDB;&#x8BE6;&#x7EC6;&#x8BBE;&#x8BA1;&#x7ED3;&#x6784;&#x3002;</li>
+<li><strong>&#x91CD;&#x6784;&#x5E76;&#x4E0D;&#x662F;&#x4E3A;&#x4E86;&#x8BA9;&#x4EE3;&#x7801;&#x66F4;&#x7B80;&#x5355;&#xFF0C;&#x5982;&#x4E0A;&#x9762;&#x7684;&#x91CD;&#x6784;&#xFF0C;&#x4F1A;&#x4F7F;&#x5F97;&#x4EE3;&#x7801;&#x7684;&#x91CF;&#x66F4;&#x5927;&#xFF0C;&#x4F46;&#x662F;&#x7ED3;&#x6784;&#x66F4;&#x6E05;&#x6670;</strong></li>
 </ol>
-<h2 id="4-3-测试驱动开发">4.3. 测试驱动开发</h2>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt17/16.png" alt=""></p>
-<h3 id="4-3-1-测试驱动开发的过程">4.3.1. 测试驱动开发的过程</h3>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt17/17.png" alt=""></p>
+<h2 id="4-3-&#x6D4B;&#x8BD5;&#x9A71;&#x52A8;&#x5F00;&#x53D1;">4.3. &#x6D4B;&#x8BD5;&#x9A71;&#x52A8;&#x5F00;&#x53D1;</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt17/16.png" alt></p>
+<h3 id="4-3-1-&#x6D4B;&#x8BD5;&#x9A71;&#x52A8;&#x5F00;&#x53D1;&#x7684;&#x8FC7;&#x7A0B;">4.3.1. &#x6D4B;&#x8BD5;&#x9A71;&#x52A8;&#x5F00;&#x53D1;&#x7684;&#x8FC7;&#x7A0B;</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt17/17.png" alt></p>
 <ul>
-<li>常见的过程</li>
+<li>&#x5E38;&#x89C1;&#x7684;&#x8FC7;&#x7A0B;</li>
 </ul>
-<h3 id="4-3-2-测试启动开发示例">4.3.2. 测试启动开发示例</h3>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt17/18.png" alt=""><br>
-<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt17/19.png" alt=""><br>
-<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt17/20.png" alt=""><br>
-<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt17/21.png" alt=""></p>
+<h3 id="4-3-2-&#x6D4B;&#x8BD5;&#x542F;&#x52A8;&#x5F00;&#x53D1;&#x793A;&#x4F8B;">4.3.2. &#x6D4B;&#x8BD5;&#x542F;&#x52A8;&#x5F00;&#x53D1;&#x793A;&#x4F8B;</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt17/18.png" alt><br>
+<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt17/19.png" alt><br>
+<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt17/20.png" alt><br>
+<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt17/21.png" alt></p>
 <ul>
-<li>详见课本292页</li>
+<li>&#x8BE6;&#x89C1;&#x8BFE;&#x672C;292&#x9875;</li>
 </ul>
-<h2 id="4-4-结对编程-概念">4.4. 结对编程 概念</h2>
+<h2 id="4-4-&#x7ED3;&#x5BF9;&#x7F16;&#x7A0B;-&#x6982;&#x5FF5;">4.4. &#x7ED3;&#x5BF9;&#x7F16;&#x7A0B; &#x6982;&#x5FF5;</h2>
 <ol>
-<li>两位程序员并排工作，在相同的设计，算法，代码或测试上进行协作</li>
-<li>一个程序员(驱动程序)可以控制键盘/鼠标并主动执行程序</li>
-<li>另一个程序员(观察员)不断观察驾驶员的工作，以发现战术上的(语法上的，拼写的等)缺陷，并从战略上考虑工作的方向</li>
-<li>根据需要，两位程序员可以集思广益解决任何难题</li>
-<li>两位程序员定期切换角色，他们平等地合作开发软件</li>
+<li>&#x4E24;&#x4F4D;&#x7A0B;&#x5E8F;&#x5458;&#x5E76;&#x6392;&#x5DE5;&#x4F5C;&#xFF0C;&#x5728;&#x76F8;&#x540C;&#x7684;&#x8BBE;&#x8BA1;&#xFF0C;&#x7B97;&#x6CD5;&#xFF0C;&#x4EE3;&#x7801;&#x6216;&#x6D4B;&#x8BD5;&#x4E0A;&#x8FDB;&#x884C;&#x534F;&#x4F5C;</li>
+<li>&#x4E00;&#x4E2A;&#x7A0B;&#x5E8F;&#x5458;(&#x9A71;&#x52A8;&#x7A0B;&#x5E8F;)&#x53EF;&#x4EE5;&#x63A7;&#x5236;&#x952E;&#x76D8;/&#x9F20;&#x6807;&#x5E76;&#x4E3B;&#x52A8;&#x6267;&#x884C;&#x7A0B;&#x5E8F;</li>
+<li>&#x53E6;&#x4E00;&#x4E2A;&#x7A0B;&#x5E8F;&#x5458;(&#x89C2;&#x5BDF;&#x5458;)&#x4E0D;&#x65AD;&#x89C2;&#x5BDF;&#x9A7E;&#x9A76;&#x5458;&#x7684;&#x5DE5;&#x4F5C;&#xFF0C;&#x4EE5;&#x53D1;&#x73B0;&#x6218;&#x672F;&#x4E0A;&#x7684;(&#x8BED;&#x6CD5;&#x4E0A;&#x7684;&#xFF0C;&#x62FC;&#x5199;&#x7684;&#x7B49;)&#x7F3A;&#x9677;&#xFF0C;&#x5E76;&#x4ECE;&#x6218;&#x7565;&#x4E0A;&#x8003;&#x8651;&#x5DE5;&#x4F5C;&#x7684;&#x65B9;&#x5411;</li>
+<li>&#x6839;&#x636E;&#x9700;&#x8981;&#xFF0C;&#x4E24;&#x4F4D;&#x7A0B;&#x5E8F;&#x5458;&#x53EF;&#x4EE5;&#x96C6;&#x601D;&#x5E7F;&#x76CA;&#x89E3;&#x51B3;&#x4EFB;&#x4F55;&#x96BE;&#x9898;</li>
+<li>&#x4E24;&#x4F4D;&#x7A0B;&#x5E8F;&#x5458;&#x5B9A;&#x671F;&#x5207;&#x6362;&#x89D2;&#x8272;&#xFF0C;&#x4ED6;&#x4EEC;&#x5E73;&#x7B49;&#x5730;&#x5408;&#x4F5C;&#x5F00;&#x53D1;&#x8F6F;&#x4EF6;</li>
 </ol>
-<h3 id="4-4-1-为什么结对编程有效？">4.4.1. 为什么结对编程有效？</h3>
+<h3 id="4-4-1-&#x4E3A;&#x4EC0;&#x4E48;&#x7ED3;&#x5BF9;&#x7F16;&#x7A0B;&#x6709;&#x6548;&#xFF1F;">4.4.1. &#x4E3A;&#x4EC0;&#x4E48;&#x7ED3;&#x5BF9;&#x7F16;&#x7A0B;&#x6709;&#x6548;&#xFF1F;</h3>
 <ol>
-<li>双压力：彼此保持专注并专注于任务</li>
-<li>配对思考：为任务带来不同的先前经验</li>
-<li>配对中继：每个人依次为自己的知识和能力做出最大贡献，然后坐下来思考，而他们的伴侣继续奋斗</li>
-<li>配对审查
+<li>&#x53CC;&#x538B;&#x529B;&#xFF1A;&#x5F7C;&#x6B64;&#x4FDD;&#x6301;&#x4E13;&#x6CE8;&#x5E76;&#x4E13;&#x6CE8;&#x4E8E;&#x4EFB;&#x52A1;</li>
+<li>&#x914D;&#x5BF9;&#x601D;&#x8003;&#xFF1A;&#x4E3A;&#x4EFB;&#x52A1;&#x5E26;&#x6765;&#x4E0D;&#x540C;&#x7684;&#x5148;&#x524D;&#x7ECF;&#x9A8C;</li>
+<li>&#x914D;&#x5BF9;&#x4E2D;&#x7EE7;&#xFF1A;&#x6BCF;&#x4E2A;&#x4EBA;&#x4F9D;&#x6B21;&#x4E3A;&#x81EA;&#x5DF1;&#x7684;&#x77E5;&#x8BC6;&#x548C;&#x80FD;&#x529B;&#x505A;&#x51FA;&#x6700;&#x5927;&#x8D21;&#x732E;&#xFF0C;&#x7136;&#x540E;&#x5750;&#x4E0B;&#x6765;&#x601D;&#x8003;&#xFF0C;&#x800C;&#x4ED6;&#x4EEC;&#x7684;&#x4F34;&#x4FA3;&#x7EE7;&#x7EED;&#x594B;&#x6597;</li>
+<li>&#x914D;&#x5BF9;&#x5BA1;&#x67E5;
 <ol>
-<li>持续的设计和代码审查</li>
-<li>极高的缺陷去除效率</li>
-<li>消除程序员对评论的厌恶</li>
-<li>在所有(单独)程序员中，有80％都不定期或根本不这样做</li>
-<li>预防缺陷总是比消除缺陷更有效</li>
+<li>&#x6301;&#x7EED;&#x7684;&#x8BBE;&#x8BA1;&#x548C;&#x4EE3;&#x7801;&#x5BA1;&#x67E5;</li>
+<li>&#x6781;&#x9AD8;&#x7684;&#x7F3A;&#x9677;&#x53BB;&#x9664;&#x6548;&#x7387;</li>
+<li>&#x6D88;&#x9664;&#x7A0B;&#x5E8F;&#x5458;&#x5BF9;&#x8BC4;&#x8BBA;&#x7684;&#x538C;&#x6076;</li>
+<li>&#x5728;&#x6240;&#x6709;(&#x5355;&#x72EC;)&#x7A0B;&#x5E8F;&#x5458;&#x4E2D;&#xFF0C;&#x6709;80&#xFF05;&#x90FD;&#x4E0D;&#x5B9A;&#x671F;&#x6216;&#x6839;&#x672C;&#x4E0D;&#x8FD9;&#x6837;&#x505A;</li>
+<li>&#x9884;&#x9632;&#x7F3A;&#x9677;&#x603B;&#x662F;&#x6BD4;&#x6D88;&#x9664;&#x7F3A;&#x9677;&#x66F4;&#x6709;&#x6548;</li>
 </ol>
 </li>
-<li>配对调试：成对谈论问题可能会导致解决方案变得显而易见</li>
-<li>配对学习：持续审核-&gt;向合作伙伴学习技术，语言知识，领域等。</li>
+<li>&#x914D;&#x5BF9;&#x8C03;&#x8BD5;&#xFF1A;&#x6210;&#x5BF9;&#x8C08;&#x8BBA;&#x95EE;&#x9898;&#x53EF;&#x80FD;&#x4F1A;&#x5BFC;&#x81F4;&#x89E3;&#x51B3;&#x65B9;&#x6848;&#x53D8;&#x5F97;&#x663E;&#x800C;&#x6613;&#x89C1;</li>
+<li>&#x914D;&#x5BF9;&#x5B66;&#x4E60;&#xFF1A;&#x6301;&#x7EED;&#x5BA1;&#x6838;-&gt;&#x5411;&#x5408;&#x4F5C;&#x4F19;&#x4F34;&#x5B66;&#x4E60;&#x6280;&#x672F;&#xFF0C;&#x8BED;&#x8A00;&#x77E5;&#x8BC6;&#xFF0C;&#x9886;&#x57DF;&#x7B49;&#x3002;</li>
 </ol>
-<h3 id="4-4-2-工作区域层">4.4.2. 工作区域层</h3>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt17/22.png" alt=""></p>
-<h2 id="4-5-配对选择">4.5. 配对选择</h2>
+<h3 id="4-4-2-&#x5DE5;&#x4F5C;&#x533A;&#x57DF;&#x5C42;">4.4.2. &#x5DE5;&#x4F5C;&#x533A;&#x57DF;&#x5C42;</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt17/22.png" alt></p>
+<h2 id="4-5-&#x914D;&#x5BF9;&#x9009;&#x62E9;">4.5. &#x914D;&#x5BF9;&#x9009;&#x62E9;</h2>
 <ol>
-<li>简化员工培训和过渡</li>
-<li>知识管理/降低产品风险</li>
-<li>加强团队建设</li>
+<li>&#x7B80;&#x5316;&#x5458;&#x5DE5;&#x57F9;&#x8BAD;&#x548C;&#x8FC7;&#x6E21;</li>
+<li>&#x77E5;&#x8BC6;&#x7BA1;&#x7406;/&#x964D;&#x4F4E;&#x4EA7;&#x54C1;&#x98CE;&#x9669;</li>
+<li>&#x52A0;&#x5F3A;&#x56E2;&#x961F;&#x5EFA;&#x8BBE;</li>
 </ol>
-<h1>5. 有建设性的想法</h1>
+<h1>5. &#x6709;&#x5EFA;&#x8BBE;&#x6027;&#x7684;&#x60F3;&#x6CD5;</h1>
 <ol>
-<li>十年的软件建设进展</li>
-<li>现代软件建设的十个实践</li>
-<li>1990年代和2000年代最糟糕的建筑思想</li>
+<li>&#x5341;&#x5E74;&#x7684;&#x8F6F;&#x4EF6;&#x5EFA;&#x8BBE;&#x8FDB;&#x5C55;</li>
+<li>&#x73B0;&#x4EE3;&#x8F6F;&#x4EF6;&#x5EFA;&#x8BBE;&#x7684;&#x5341;&#x4E2A;&#x5B9E;&#x8DF5;</li>
+<li>1990&#x5E74;&#x4EE3;&#x548C;2000&#x5E74;&#x4EE3;&#x6700;&#x7CDF;&#x7CD5;&#x7684;&#x5EFA;&#x7B51;&#x601D;&#x60F3;</li>
 </ol>
-<h2 id="5-1-十年的软件建设进展">5.1. 十年的软件建设进展</h2>
-<h3 id="5-1-1-设计已提高到一个水平">5.1.1. 设计已提高到一个水平</h3>
+<h2 id="5-1-&#x5341;&#x5E74;&#x7684;&#x8F6F;&#x4EF6;&#x5EFA;&#x8BBE;&#x8FDB;&#x5C55;">5.1. &#x5341;&#x5E74;&#x7684;&#x8F6F;&#x4EF6;&#x5EFA;&#x8BBE;&#x8FDB;&#x5C55;</h2>
+<h3 id="5-1-1-&#x8BBE;&#x8BA1;&#x5DF2;&#x63D0;&#x9AD8;&#x5230;&#x4E00;&#x4E2A;&#x6C34;&#x5E73;">5.1.1. &#x8BBE;&#x8BA1;&#x5DF2;&#x63D0;&#x9AD8;&#x5230;&#x4E00;&#x4E2A;&#x6C34;&#x5E73;</h3>
 <ol>
-<li>编程通过创建更大的代码聚合而变得先进
+<li>&#x7F16;&#x7A0B;&#x901A;&#x8FC7;&#x521B;&#x5EFA;&#x66F4;&#x5927;&#x7684;&#x4EE3;&#x7801;&#x805A;&#x5408;&#x800C;&#x53D8;&#x5F97;&#x5148;&#x8FDB;
 <ol>
-<li>语句</li>
-<li>过程</li>
-<li>类</li>
-<li>包</li>
+<li>&#x8BED;&#x53E5;</li>
+<li>&#x8FC7;&#x7A0B;</li>
+<li>&#x7C7B;</li>
+<li>&#x5305;</li>
 </ol>
 </li>
-<li>OO的真正意义可能是更大的聚合</li>
+<li>OO&#x7684;&#x771F;&#x6B63;&#x610F;&#x4E49;&#x53EF;&#x80FD;&#x662F;&#x66F4;&#x5927;&#x7684;&#x805A;&#x5408;</li>
 </ol>
-<h3 id="5-1-2-每日构建和冒烟测试">5.1.2. 每日构建和冒烟测试</h3>
+<h3 id="5-1-2-&#x6BCF;&#x65E5;&#x6784;&#x5EFA;&#x548C;&#x5192;&#x70DF;&#x6D4B;&#x8BD5;">5.1.2. &#x6BCF;&#x65E5;&#x6784;&#x5EFA;&#x548C;&#x5192;&#x70DF;&#x6D4B;&#x8BD5;</h3>
 <ol>
-<li>将增量集成制度化</li>
-<li>最小化以前很常见的严重集成问题</li>
-<li>还有很多其他好处</li>
-<li>冒烟测试:对比较重要/主要的功能进行测试</li>
+<li>&#x5C06;&#x589E;&#x91CF;&#x96C6;&#x6210;&#x5236;&#x5EA6;&#x5316;</li>
+<li>&#x6700;&#x5C0F;&#x5316;&#x4EE5;&#x524D;&#x5F88;&#x5E38;&#x89C1;&#x7684;&#x4E25;&#x91CD;&#x96C6;&#x6210;&#x95EE;&#x9898;</li>
+<li>&#x8FD8;&#x6709;&#x5F88;&#x591A;&#x5176;&#x4ED6;&#x597D;&#x5904;</li>
+<li>&#x5192;&#x70DF;&#x6D4B;&#x8BD5;:&#x5BF9;&#x6BD4;&#x8F83;&#x91CD;&#x8981;/&#x4E3B;&#x8981;&#x7684;&#x529F;&#x80FD;&#x8FDB;&#x884C;&#x6D4B;&#x8BD5;</li>
 </ol>
-<h3 id="5-1-3-标准库">5.1.3. 标准库</h3>
+<h3 id="5-1-3-&#x6807;&#x51C6;&#x5E93;">5.1.3. &#x6807;&#x51C6;&#x5E93;</h3>
 <ol>
-<li>优秀的程序员一直使用库</li>
-<li>现在提供了语言(Java，C ++ 、. NET)</li>
+<li>&#x4F18;&#x79C0;&#x7684;&#x7A0B;&#x5E8F;&#x5458;&#x4E00;&#x76F4;&#x4F7F;&#x7528;&#x5E93;</li>
+<li>&#x73B0;&#x5728;&#x63D0;&#x4F9B;&#x4E86;&#x8BED;&#x8A00;(Java&#xFF0C;C ++ &#x3001;. NET)</li>
 </ol>
 <h3 id="5-1-4-Visual-Basic">5.1.4. Visual Basic</h3>
 <ol>
-<li>视觉编程创新</li>
-<li>第一个广泛使用COTS组件的开发环境</li>
-<li>唯一可以学习Ada语法课程的语言(case语句，control语句等)</li>
-<li>高度集成的环境</li>
-<li>集成大量的商业组件。</li>
+<li>&#x89C6;&#x89C9;&#x7F16;&#x7A0B;&#x521B;&#x65B0;</li>
+<li>&#x7B2C;&#x4E00;&#x4E2A;&#x5E7F;&#x6CDB;&#x4F7F;&#x7528;COTS&#x7EC4;&#x4EF6;&#x7684;&#x5F00;&#x53D1;&#x73AF;&#x5883;</li>
+<li>&#x552F;&#x4E00;&#x53EF;&#x4EE5;&#x5B66;&#x4E60;Ada&#x8BED;&#x6CD5;&#x8BFE;&#x7A0B;&#x7684;&#x8BED;&#x8A00;(case&#x8BED;&#x53E5;&#xFF0C;control&#x8BED;&#x53E5;&#x7B49;)</li>
+<li>&#x9AD8;&#x5EA6;&#x96C6;&#x6210;&#x7684;&#x73AF;&#x5883;</li>
+<li>&#x96C6;&#x6210;&#x5927;&#x91CF;&#x7684;&#x5546;&#x4E1A;&#x7EC4;&#x4EF6;&#x3002;</li>
 </ol>
-<h3 id="5-1-5-开源软件">5.1.5. 开源软件</h3>
+<h3 id="5-1-5-&#x5F00;&#x6E90;&#x8F6F;&#x4EF6;">5.1.5. &#x5F00;&#x6E90;&#x8F6F;&#x4EF6;</h3>
 <ol>
-<li>在开发过程中对程序员的极大帮助</li>
-<li>减少提供代码的障碍</li>
-<li>从可用代码中学习的机会</li>
-<li>提高了读取代码的能力</li>
-<li>好的程序员&quot;社区&quot;</li>
-<li>开源 不等于 免费，鲲鹏社区，Github上Star比较高的项目</li>
+<li>&#x5728;&#x5F00;&#x53D1;&#x8FC7;&#x7A0B;&#x4E2D;&#x5BF9;&#x7A0B;&#x5E8F;&#x5458;&#x7684;&#x6781;&#x5927;&#x5E2E;&#x52A9;</li>
+<li>&#x51CF;&#x5C11;&#x63D0;&#x4F9B;&#x4EE3;&#x7801;&#x7684;&#x969C;&#x788D;</li>
+<li>&#x4ECE;&#x53EF;&#x7528;&#x4EE3;&#x7801;&#x4E2D;&#x5B66;&#x4E60;&#x7684;&#x673A;&#x4F1A;</li>
+<li>&#x63D0;&#x9AD8;&#x4E86;&#x8BFB;&#x53D6;&#x4EE3;&#x7801;&#x7684;&#x80FD;&#x529B;</li>
+<li>&#x597D;&#x7684;&#x7A0B;&#x5E8F;&#x5458;&quot;&#x793E;&#x533A;&quot;</li>
+<li>&#x5F00;&#x6E90; &#x4E0D;&#x7B49;&#x4E8E; &#x514D;&#x8D39;&#xFF0C;&#x9CB2;&#x9E4F;&#x793E;&#x533A;&#xFF0C;Github&#x4E0A;Star&#x6BD4;&#x8F83;&#x9AD8;&#x7684;&#x9879;&#x76EE;</li>
 </ol>
-<h3 id="5-1-6-网络，用于研究">5.1.6. 网络，用于研究</h3>
+<h3 id="5-1-6-&#x7F51;&#x7EDC;&#xFF0C;&#x7528;&#x4E8E;&#x7814;&#x7A76;">5.1.6. &#x7F51;&#x7EDC;&#xFF0C;&#x7528;&#x4E8E;&#x7814;&#x7A76;</h3>
 <ol>
 <li>FAQs</li>
-<li>讨论小组</li>
-<li>一般的可搜索性</li>
+<li>&#x8BA8;&#x8BBA;&#x5C0F;&#x7EC4;</li>
+<li>&#x4E00;&#x822C;&#x7684;&#x53EF;&#x641C;&#x7D22;&#x6027;</li>
 </ol>
-<h3 id="5-1-7-增量开发的广泛应用">5.1.7. 增量开发的广泛应用</h3>
+<h3 id="5-1-7-&#x589E;&#x91CF;&#x5F00;&#x53D1;&#x7684;&#x5E7F;&#x6CDB;&#x5E94;&#x7528;">5.1.7. &#x589E;&#x91CF;&#x5F00;&#x53D1;&#x7684;&#x5E7F;&#x6CDB;&#x5E94;&#x7528;</h3>
 <ol>
-<li>概念在1990年代众所周知</li>
-<li>实践在2000年代已确立</li>
+<li>&#x6982;&#x5FF5;&#x5728;1990&#x5E74;&#x4EE3;&#x4F17;&#x6240;&#x5468;&#x77E5;</li>
+<li>&#x5B9E;&#x8DF5;&#x5728;2000&#x5E74;&#x4EE3;&#x5DF2;&#x786E;&#x7ACB;</li>
 </ol>
-<h3 id="5-1-8-测试优先开发">5.1.8. 测试优先开发</h3>
+<h3 id="5-1-8-&#x6D4B;&#x8BD5;&#x4F18;&#x5148;&#x5F00;&#x53D1;">5.1.8. &#x6D4B;&#x8BD5;&#x4F18;&#x5148;&#x5F00;&#x53D1;</h3>
 <ol>
-<li>缩短缺陷检测时间</li>
-<li>增加个人纪律</li>
-<li>补充日常构建和冒烟测试</li>
+<li>&#x7F29;&#x77ED;&#x7F3A;&#x9677;&#x68C0;&#x6D4B;&#x65F6;&#x95F4;</li>
+<li>&#x589E;&#x52A0;&#x4E2A;&#x4EBA;&#x7EAA;&#x5F8B;</li>
+<li>&#x8865;&#x5145;&#x65E5;&#x5E38;&#x6784;&#x5EFA;&#x548C;&#x5192;&#x70DF;&#x6D4B;&#x8BD5;</li>
 </ol>
-<h3 id="5-1-9-重构为学科">5.1.9. 重构为学科</h3>
+<h3 id="5-1-9-&#x91CD;&#x6784;&#x4E3A;&#x5B66;&#x79D1;">5.1.9. &#x91CD;&#x6784;&#x4E3A;&#x5B66;&#x79D1;</h3>
 <ol>
-<li>提供进行变更的纪律</li>
-<li>不如整体设计策略</li>
-<li>增量主义的好例子</li>
+<li>&#x63D0;&#x4F9B;&#x8FDB;&#x884C;&#x53D8;&#x66F4;&#x7684;&#x7EAA;&#x5F8B;</li>
+<li>&#x4E0D;&#x5982;&#x6574;&#x4F53;&#x8BBE;&#x8BA1;&#x7B56;&#x7565;</li>
+<li>&#x589E;&#x91CF;&#x4E3B;&#x4E49;&#x7684;&#x597D;&#x4F8B;&#x5B50;</li>
 </ol>
-<h3 id="5-1-10-更快的计算机">5.1.10. 更快的计算机</h3>
+<h3 id="5-1-10-&#x66F4;&#x5FEB;&#x7684;&#x8BA1;&#x7B97;&#x673A;">5.1.10. &#x66F4;&#x5FEB;&#x7684;&#x8BA1;&#x7B97;&#x673A;</h3>
 <ol>
-<li>优化的意义</li>
-<li>对编程语言的影响</li>
-<li>对发展的影响</li>
+<li>&#x4F18;&#x5316;&#x7684;&#x610F;&#x4E49;</li>
+<li>&#x5BF9;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&#x7684;&#x5F71;&#x54CD;</li>
+<li>&#x5BF9;&#x53D1;&#x5C55;&#x7684;&#x5F71;&#x54CD;</li>
 </ol>
-<h2 id="5-2-现代软件建设的十个现实">5.2. 现代软件建设的十个现实</h2>
-<h3 id="5-2-1-1-构造-是正当的话题">5.2.1. -1-&quot;构造&quot;是正当的话题</h3>
+<h2 id="5-2-&#x73B0;&#x4EE3;&#x8F6F;&#x4EF6;&#x5EFA;&#x8BBE;&#x7684;&#x5341;&#x4E2A;&#x73B0;&#x5B9E;">5.2. &#x73B0;&#x4EE3;&#x8F6F;&#x4EF6;&#x5EFA;&#x8BBE;&#x7684;&#x5341;&#x4E2A;&#x73B0;&#x5B9E;</h2>
+<h3 id="5-2-1-1-&#x6784;&#x9020;-&#x662F;&#x6B63;&#x5F53;&#x7684;&#x8BDD;&#x9898;">5.2.1. -1-&quot;&#x6784;&#x9020;&quot;&#x662F;&#x6B63;&#x5F53;&#x7684;&#x8BDD;&#x9898;</h3>
 <ol>
-<li>软件&quot;构造&quot; –现在看起来像这样</li>
+<li>&#x8F6F;&#x4EF6;&quot;&#x6784;&#x9020;&quot; &#x2013;&#x73B0;&#x5728;&#x770B;&#x8D77;&#x6765;&#x50CF;&#x8FD9;&#x6837;</li>
 </ol>
-<h3 id="5-2-2-2-个人差异很大">5.2.2. -2-个人差异很大</h3>
+<h3 id="5-2-2-2-&#x4E2A;&#x4EBA;&#x5DEE;&#x5F02;&#x5F88;&#x5927;">5.2.2. -2-&#x4E2A;&#x4EBA;&#x5DEE;&#x5F02;&#x5F88;&#x5927;</h3>
 <ol>
-<li>变化在哪里存在？</li>
-<li>研究人员发现以下方面的变化范围是10倍至28倍：
+<li>&#x53D8;&#x5316;&#x5728;&#x54EA;&#x91CC;&#x5B58;&#x5728;&#xFF1F;</li>
+<li>&#x7814;&#x7A76;&#x4EBA;&#x5458;&#x53D1;&#x73B0;&#x4EE5;&#x4E0B;&#x65B9;&#x9762;&#x7684;&#x53D8;&#x5316;&#x8303;&#x56F4;&#x662F;10&#x500D;&#x81F3;28&#x500D;&#xFF1A;
 <ol>
-<li>编码速度</li>
-<li>调试速度</li>
-<li>发现缺陷的速度</li>
-<li>发现缺陷的百分比</li>
-<li>发现缺陷的百分比…</li>
-<li>设计品质</li>
-<li>设计生成的代码量</li>
-</ol>
-</li>
-</ol>
-<h3 id="5-2-3-3-个人纪律事项">5.2.3. -3-个人纪律事项</h3>
-<ol>
-<li>为什么个人纪律很重要
-<ol>
-<li>在预测未来时要现实</li>
-<li>纪律很重要的领域
-<ol>
-<li>重构</li>
-<li>原型制作</li>
-<li>优化</li>
-<li>最小复杂度的设计</li>
-<li>一般管理复杂性</li>
-</ol>
-</li>
-<li>端点—纪律和勇气
-<ol>
-<li>汉弗莱(PSP)</li>
-<li>贝克谈极限编程</li>
+<li>&#x7F16;&#x7801;&#x901F;&#x5EA6;</li>
+<li>&#x8C03;&#x8BD5;&#x901F;&#x5EA6;</li>
+<li>&#x53D1;&#x73B0;&#x7F3A;&#x9677;&#x7684;&#x901F;&#x5EA6;</li>
+<li>&#x53D1;&#x73B0;&#x7F3A;&#x9677;&#x7684;&#x767E;&#x5206;&#x6BD4;</li>
+<li>&#x53D1;&#x73B0;&#x7F3A;&#x9677;&#x7684;&#x767E;&#x5206;&#x6BD4;&#x2026;</li>
+<li>&#x8BBE;&#x8BA1;&#x54C1;&#x8D28;</li>
+<li>&#x8BBE;&#x8BA1;&#x751F;&#x6210;&#x7684;&#x4EE3;&#x7801;&#x91CF;</li>
 </ol>
 </li>
 </ol>
-</li>
-</ol>
-<h3 id="5-2-4-4-专注于简单比专注于复杂性更好">5.2.4. -4-专注于简单比专注于复杂性更好</h3>
+<h3 id="5-2-3-3-&#x4E2A;&#x4EBA;&#x7EAA;&#x5F8B;&#x4E8B;&#x9879;">5.2.3. -3-&#x4E2A;&#x4EBA;&#x7EAA;&#x5F8B;&#x4E8B;&#x9879;</h3>
 <ol>
-<li>专注于读取时间的方便，而不是写入时间的方便</li>
-<li>让别人更加任意的理解</li>
-</ol>
-<h3 id="5-2-5-5-缺陷成本增长依然有效">5.2.5. -5-缺陷成本增长依然有效</h3>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt17/23.png" alt=""></p>
+<li>&#x4E3A;&#x4EC0;&#x4E48;&#x4E2A;&#x4EBA;&#x7EAA;&#x5F8B;&#x5F88;&#x91CD;&#x8981;
 <ol>
-<li>指数增长的修复代价</li>
-</ol>
-<h3 id="5-2-6-6-设计的重要性">5.2.6. -6-设计的重要性</h3>
+<li>&#x5728;&#x9884;&#x6D4B;&#x672A;&#x6765;&#x65F6;&#x8981;&#x73B0;&#x5B9E;</li>
+<li>&#x7EAA;&#x5F8B;&#x5F88;&#x91CD;&#x8981;&#x7684;&#x9886;&#x57DF;
 <ol>
-<li>“无设计” —&quot;所有设计&quot;连续体上有很多有效的观点</li>
-<li>要点：极端情况通常没有生产力
-<ol>
-<li>全部预先设计与没有预先设计</li>
-<li>完全计划与完全即兴(迭代/增量)</li>
-<li>纯迭代与直序列</li>
-<li>所有结构与所有创意</li>
-<li>记录一切，什么都不记录</li>
+<li>&#x91CD;&#x6784;</li>
+<li>&#x539F;&#x578B;&#x5236;&#x4F5C;</li>
+<li>&#x4F18;&#x5316;</li>
+<li>&#x6700;&#x5C0F;&#x590D;&#x6742;&#x5EA6;&#x7684;&#x8BBE;&#x8BA1;</li>
+<li>&#x4E00;&#x822C;&#x7BA1;&#x7406;&#x590D;&#x6742;&#x6027;</li>
 </ol>
 </li>
-</ol>
-<h3 id="5-2-7-7-技术浪潮影响施工实践">5.2.7. -7-技术浪潮影响施工实践</h3>
+<li>&#x7AEF;&#x70B9;&#x2014;&#x7EAA;&#x5F8B;&#x548C;&#x52C7;&#x6C14;
 <ol>
-<li>技术浪潮对施工的影响
-<ol>
-<li>&quot;技术浪潮&quot;的定义
-<ol>
-<li>初潮特征</li>
-<li>成熟波特征</li>
-<li>后波特性</li>
-</ol>
-</li>
-<li>施工受技术的影响–比我想象的要多(哦！)</li>
-<li>可以根据一般原则解决技术</li>
-</ol>
-</li>
-</ol>
-<h3 id="5-2-8-8增量方法效果最佳">5.2.8. -8增量方法效果最佳</h3>
-<ol>
-<li>增量主义观点
-<ol>
-<li>纯瀑布模型完全不是增量模型或迭代模型，这就是为什么它不能很好地工作的原因</li>
-<li>螺旋发展具有高度的增量性和迭代性，这就是其运作良好的部分原因</li>
-<li>所有项目在某个时候都会经历迭代</li>
-<li>想一想在项目中何时何地获得增量主义—便宜还是昂贵？</li>
-</ol>
-</li>
-</ol>
-<h3 id="5-2-9-9-工具箱的隐喻继续发亮">5.2.9. -9-工具箱的隐喻继续发亮</h3>
-<ol>
-<li>工具箱隐喻
-<ol>
-<li>什么才好 敏捷？ XP？ Scrum？ CMM？</li>
-<li>工具箱说明没有一项适合每一项工作的工具</li>
-<li>不同的行业部门将具有不同的工具，甚至会有不同的工具箱</li>
-<li>软件工程工具箱中有什么？
-<ol>
-<li>最佳实践</li>
-<li>生命周期模型</li>
-<li>模板，清单，模式，示例</li>
-<li>软件工具</li>
+<li>&#x6C49;&#x5F17;&#x83B1;(PSP)</li>
+<li>&#x8D1D;&#x514B;&#x8C08;&#x6781;&#x9650;&#x7F16;&#x7A0B;</li>
 </ol>
 </li>
 </ol>
 </li>
 </ol>
-<h3 id="5-2-10-10-软件的基本张力">5.2.10. -10-软件的基本张力</h3>
+<h3 id="5-2-4-4-&#x4E13;&#x6CE8;&#x4E8E;&#x7B80;&#x5355;&#x6BD4;&#x4E13;&#x6CE8;&#x4E8E;&#x590D;&#x6742;&#x6027;&#x66F4;&#x597D;">5.2.4. -4-&#x4E13;&#x6CE8;&#x4E8E;&#x7B80;&#x5355;&#x6BD4;&#x4E13;&#x6CE8;&#x4E8E;&#x590D;&#x6742;&#x6027;&#x66F4;&#x597D;</h3>
 <ol>
-<li>多年来，软件的主要矛盾一直没有改变：
+<li>&#x4E13;&#x6CE8;&#x4E8E;&#x8BFB;&#x53D6;&#x65F6;&#x95F4;&#x7684;&#x65B9;&#x4FBF;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x5199;&#x5165;&#x65F6;&#x95F4;&#x7684;&#x65B9;&#x4FBF;</li>
+<li>&#x8BA9;&#x522B;&#x4EBA;&#x66F4;&#x52A0;&#x4EFB;&#x610F;&#x7684;&#x7406;&#x89E3;</li>
+</ol>
+<h3 id="5-2-5-5-&#x7F3A;&#x9677;&#x6210;&#x672C;&#x589E;&#x957F;&#x4F9D;&#x7136;&#x6709;&#x6548;">5.2.5. -5-&#x7F3A;&#x9677;&#x6210;&#x672C;&#x589E;&#x957F;&#x4F9D;&#x7136;&#x6709;&#x6548;</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt17/23.png" alt></p>
 <ol>
-<li>刚性计划与即兴创作</li>
-<li>规划与算命</li>
-<li>创意与结构</li>
-<li>纪律与灵活性</li>
-<li>定量与定性</li>
-<li>工艺与产品</li>
-<li>优化与满意</li>
+<li>&#x6307;&#x6570;&#x589E;&#x957F;&#x7684;&#x4FEE;&#x590D;&#x4EE3;&#x4EF7;</li>
+</ol>
+<h3 id="5-2-6-6-&#x8BBE;&#x8BA1;&#x7684;&#x91CD;&#x8981;&#x6027;">5.2.6. -6-&#x8BBE;&#x8BA1;&#x7684;&#x91CD;&#x8981;&#x6027;</h3>
+<ol>
+<li>&#x201C;&#x65E0;&#x8BBE;&#x8BA1;&#x201D; &#x2014;&quot;&#x6240;&#x6709;&#x8BBE;&#x8BA1;&quot;&#x8FDE;&#x7EED;&#x4F53;&#x4E0A;&#x6709;&#x5F88;&#x591A;&#x6709;&#x6548;&#x7684;&#x89C2;&#x70B9;</li>
+<li>&#x8981;&#x70B9;&#xFF1A;&#x6781;&#x7AEF;&#x60C5;&#x51B5;&#x901A;&#x5E38;&#x6CA1;&#x6709;&#x751F;&#x4EA7;&#x529B;
+<ol>
+<li>&#x5168;&#x90E8;&#x9884;&#x5148;&#x8BBE;&#x8BA1;&#x4E0E;&#x6CA1;&#x6709;&#x9884;&#x5148;&#x8BBE;&#x8BA1;</li>
+<li>&#x5B8C;&#x5168;&#x8BA1;&#x5212;&#x4E0E;&#x5B8C;&#x5168;&#x5373;&#x5174;(&#x8FED;&#x4EE3;/&#x589E;&#x91CF;)</li>
+<li>&#x7EAF;&#x8FED;&#x4EE3;&#x4E0E;&#x76F4;&#x5E8F;&#x5217;</li>
+<li>&#x6240;&#x6709;&#x7ED3;&#x6784;&#x4E0E;&#x6240;&#x6709;&#x521B;&#x610F;</li>
+<li>&#x8BB0;&#x5F55;&#x4E00;&#x5207;&#xFF0C;&#x4EC0;&#x4E48;&#x90FD;&#x4E0D;&#x8BB0;&#x5F55;</li>
 </ol>
 </li>
-<li>平衡摇杆，但基本张力是恒定的</li>
 </ol>
-<h2 id="5-3-1990年代和2000年代最糟糕的建筑思想">5.3. 1990年代和2000年代最糟糕的建筑思想</h2>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt17/24.png" alt=""></p>
+<h3 id="5-2-7-7-&#x6280;&#x672F;&#x6D6A;&#x6F6E;&#x5F71;&#x54CD;&#x65BD;&#x5DE5;&#x5B9E;&#x8DF5;">5.2.7. -7-&#x6280;&#x672F;&#x6D6A;&#x6F6E;&#x5F71;&#x54CD;&#x65BD;&#x5DE5;&#x5B9E;&#x8DF5;</h3>
+<ol>
+<li>&#x6280;&#x672F;&#x6D6A;&#x6F6E;&#x5BF9;&#x65BD;&#x5DE5;&#x7684;&#x5F71;&#x54CD;
+<ol>
+<li>&quot;&#x6280;&#x672F;&#x6D6A;&#x6F6E;&quot;&#x7684;&#x5B9A;&#x4E49;
+<ol>
+<li>&#x521D;&#x6F6E;&#x7279;&#x5F81;</li>
+<li>&#x6210;&#x719F;&#x6CE2;&#x7279;&#x5F81;</li>
+<li>&#x540E;&#x6CE2;&#x7279;&#x6027;</li>
+</ol>
+</li>
+<li>&#x65BD;&#x5DE5;&#x53D7;&#x6280;&#x672F;&#x7684;&#x5F71;&#x54CD;&#x2013;&#x6BD4;&#x6211;&#x60F3;&#x8C61;&#x7684;&#x8981;&#x591A;(&#x54E6;&#xFF01;)</li>
+<li>&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x4E00;&#x822C;&#x539F;&#x5219;&#x89E3;&#x51B3;&#x6280;&#x672F;</li>
+</ol>
+</li>
+</ol>
+<h3 id="5-2-8-8&#x589E;&#x91CF;&#x65B9;&#x6CD5;&#x6548;&#x679C;&#x6700;&#x4F73;">5.2.8. -8&#x589E;&#x91CF;&#x65B9;&#x6CD5;&#x6548;&#x679C;&#x6700;&#x4F73;</h3>
+<ol>
+<li>&#x589E;&#x91CF;&#x4E3B;&#x4E49;&#x89C2;&#x70B9;
+<ol>
+<li>&#x7EAF;&#x7011;&#x5E03;&#x6A21;&#x578B;&#x5B8C;&#x5168;&#x4E0D;&#x662F;&#x589E;&#x91CF;&#x6A21;&#x578B;&#x6216;&#x8FED;&#x4EE3;&#x6A21;&#x578B;&#xFF0C;&#x8FD9;&#x5C31;&#x662F;&#x4E3A;&#x4EC0;&#x4E48;&#x5B83;&#x4E0D;&#x80FD;&#x5F88;&#x597D;&#x5730;&#x5DE5;&#x4F5C;&#x7684;&#x539F;&#x56E0;</li>
+<li>&#x87BA;&#x65CB;&#x53D1;&#x5C55;&#x5177;&#x6709;&#x9AD8;&#x5EA6;&#x7684;&#x589E;&#x91CF;&#x6027;&#x548C;&#x8FED;&#x4EE3;&#x6027;&#xFF0C;&#x8FD9;&#x5C31;&#x662F;&#x5176;&#x8FD0;&#x4F5C;&#x826F;&#x597D;&#x7684;&#x90E8;&#x5206;&#x539F;&#x56E0;</li>
+<li>&#x6240;&#x6709;&#x9879;&#x76EE;&#x5728;&#x67D0;&#x4E2A;&#x65F6;&#x5019;&#x90FD;&#x4F1A;&#x7ECF;&#x5386;&#x8FED;&#x4EE3;</li>
+<li>&#x60F3;&#x4E00;&#x60F3;&#x5728;&#x9879;&#x76EE;&#x4E2D;&#x4F55;&#x65F6;&#x4F55;&#x5730;&#x83B7;&#x5F97;&#x589E;&#x91CF;&#x4E3B;&#x4E49;&#x2014;&#x4FBF;&#x5B9C;&#x8FD8;&#x662F;&#x6602;&#x8D35;&#xFF1F;</li>
+</ol>
+</li>
+</ol>
+<h3 id="5-2-9-9-&#x5DE5;&#x5177;&#x7BB1;&#x7684;&#x9690;&#x55BB;&#x7EE7;&#x7EED;&#x53D1;&#x4EAE;">5.2.9. -9-&#x5DE5;&#x5177;&#x7BB1;&#x7684;&#x9690;&#x55BB;&#x7EE7;&#x7EED;&#x53D1;&#x4EAE;</h3>
+<ol>
+<li>&#x5DE5;&#x5177;&#x7BB1;&#x9690;&#x55BB;
+<ol>
+<li>&#x4EC0;&#x4E48;&#x624D;&#x597D; &#x654F;&#x6377;&#xFF1F; XP&#xFF1F; Scrum&#xFF1F; CMM&#xFF1F;</li>
+<li>&#x5DE5;&#x5177;&#x7BB1;&#x8BF4;&#x660E;&#x6CA1;&#x6709;&#x4E00;&#x9879;&#x9002;&#x5408;&#x6BCF;&#x4E00;&#x9879;&#x5DE5;&#x4F5C;&#x7684;&#x5DE5;&#x5177;</li>
+<li>&#x4E0D;&#x540C;&#x7684;&#x884C;&#x4E1A;&#x90E8;&#x95E8;&#x5C06;&#x5177;&#x6709;&#x4E0D;&#x540C;&#x7684;&#x5DE5;&#x5177;&#xFF0C;&#x751A;&#x81F3;&#x4F1A;&#x6709;&#x4E0D;&#x540C;&#x7684;&#x5DE5;&#x5177;&#x7BB1;</li>
+<li>&#x8F6F;&#x4EF6;&#x5DE5;&#x7A0B;&#x5DE5;&#x5177;&#x7BB1;&#x4E2D;&#x6709;&#x4EC0;&#x4E48;&#xFF1F;
+<ol>
+<li>&#x6700;&#x4F73;&#x5B9E;&#x8DF5;</li>
+<li>&#x751F;&#x547D;&#x5468;&#x671F;&#x6A21;&#x578B;</li>
+<li>&#x6A21;&#x677F;&#xFF0C;&#x6E05;&#x5355;&#xFF0C;&#x6A21;&#x5F0F;&#xFF0C;&#x793A;&#x4F8B;</li>
+<li>&#x8F6F;&#x4EF6;&#x5DE5;&#x5177;</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+<h3 id="5-2-10-10-&#x8F6F;&#x4EF6;&#x7684;&#x57FA;&#x672C;&#x5F20;&#x529B;">5.2.10. -10-&#x8F6F;&#x4EF6;&#x7684;&#x57FA;&#x672C;&#x5F20;&#x529B;</h3>
+<ol>
+<li>&#x591A;&#x5E74;&#x6765;&#xFF0C;&#x8F6F;&#x4EF6;&#x7684;&#x4E3B;&#x8981;&#x77DB;&#x76FE;&#x4E00;&#x76F4;&#x6CA1;&#x6709;&#x6539;&#x53D8;&#xFF1A;
+<ol>
+<li>&#x521A;&#x6027;&#x8BA1;&#x5212;&#x4E0E;&#x5373;&#x5174;&#x521B;&#x4F5C;</li>
+<li>&#x89C4;&#x5212;&#x4E0E;&#x7B97;&#x547D;</li>
+<li>&#x521B;&#x610F;&#x4E0E;&#x7ED3;&#x6784;</li>
+<li>&#x7EAA;&#x5F8B;&#x4E0E;&#x7075;&#x6D3B;&#x6027;</li>
+<li>&#x5B9A;&#x91CF;&#x4E0E;&#x5B9A;&#x6027;</li>
+<li>&#x5DE5;&#x827A;&#x4E0E;&#x4EA7;&#x54C1;</li>
+<li>&#x4F18;&#x5316;&#x4E0E;&#x6EE1;&#x610F;</li>
+</ol>
+</li>
+<li>&#x5E73;&#x8861;&#x6447;&#x6746;&#xFF0C;&#x4F46;&#x57FA;&#x672C;&#x5F20;&#x529B;&#x662F;&#x6052;&#x5B9A;&#x7684;</li>
+</ol>
+<h2 id="5-3-1990&#x5E74;&#x4EE3;&#x548C;2000&#x5E74;&#x4EE3;&#x6700;&#x7CDF;&#x7CD5;&#x7684;&#x5EFA;&#x7B51;&#x601D;&#x60F3;">5.3. 1990&#x5E74;&#x4EE3;&#x548C;2000&#x5E74;&#x4EE3;&#x6700;&#x7CDF;&#x7CD5;&#x7684;&#x5EFA;&#x7B51;&#x601D;&#x60F3;</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt17/24.png" alt></p>
 
 <div class="article-footer fs14">
     <section id="license">
@@ -615,7 +615,7 @@
     </section>
     </div>
 </article>
-<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/16-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F/">SE-II-ch16-设计模式</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/18-%E4%BB%A3%E7%A0%81%E8%AE%BE%E8%AE%A1/">SE-II-ch18-代码设计</a></div></section></div>
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/14-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%A8%A1%E5%9D%97%E5%8C%96/">SE-II-ch14-面向对象的模块化</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/18-%E4%BB%A3%E7%A0%81%E8%AE%BE%E8%AE%A1/">SE-II-ch18-代码设计</a></div></section></div>
 
 
 

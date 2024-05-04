@@ -20,27 +20,27 @@
   <title>服务端-ch10-OAuth2 - Asimov's Blog</title>
 
   
-    <meta name="description" content="ch10-OAuth2 创建授权服务器 主Taco Cloud增加REST API  控制器实现：IngredientController  增加权限控制  POST：http:&#x2F;&#x2F;tacocloud:8080&#x2F;api&#x2F;ingredients DELETE ：http:&#x2F;&#x2F;tacocloud:8080 &#x2F;api&#x2F;ingredients&#x2F;* 两种方式 .antMatchers(HttpMethod.">
+    <meta name="description" content="ch10-OAuth2 &#x521B;&#x5EFA;&#x6388;&#x6743;&#x670D;&#x52A1;&#x5668; &#x4E3B;Taco Cloud&#x589E;&#x52A0;REST API  &#x63A7;&#x5236;&#x5668;&#x5B9E;&#x73B0;&#xFF1A;IngredientController  &#x589E;&#x52A0;&amp;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="服务端-ch10-OAuth2">
 <meta property="og:url" content="https://chendingya.github.io/2023/11/09/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch10-OAuth2/index.html">
 <meta property="og:site_name" content="Asimov&#39;s Blog">
-<meta property="og:description" content="ch10-OAuth2 创建授权服务器 主Taco Cloud增加REST API  控制器实现：IngredientController  增加权限控制  POST：http:&#x2F;&#x2F;tacocloud:8080&#x2F;api&#x2F;ingredients DELETE ：http:&#x2F;&#x2F;tacocloud:8080 &#x2F;api&#x2F;ingredients&#x2F;* 两种方式 .antMatchers(HttpMethod.">
+<meta property="og:description" content="ch10-OAuth2 &#x521B;&#x5EFA;&#x6388;&#x6743;&#x670D;&#x52A1;&#x5668; &#x4E3B;Taco Cloud&#x589E;&#x52A0;REST API  &#x63A7;&#x5236;&#x5668;&#x5B9E;&#x73B0;&#xFF1A;IngredientController  &#x589E;&#x52A0;&amp;">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="https://chendingya.github.io/2023/11/09/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch10-OAuth2/ch10-OAuth2/image-20231113210405704.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/11/09/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch10-OAuth2/ch10-OAuth2/image-20231113210432408.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/11/09/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch10-OAuth2/ch10-OAuth2/image-20231113215255975.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/11/09/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch10-OAuth2/ch10-OAuth2/image-20231113215404110.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/11/09/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch10-OAuth2/ch10-OAuth2/image-20231113215420688.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/11/09/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch10-OAuth2/ch10-OAuth2/image-20231114223132080.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/11/09/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch10-OAuth2/ch10-OAuth2/image-20231114223340534.png">
-<meta property="og:image" content="https://chendingya.github.io/2023/11/09/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch10-OAuth2/ch10-OAuth2/image-20231114223358616.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/11/09/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch10-OAuth2/image-20231113210405704.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/11/09/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch10-OAuth2/image-20231113210432408.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/11/09/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch10-OAuth2/image-20231113215255975.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/11/09/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch10-OAuth2/image-20231113215404110.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/11/09/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch10-OAuth2/image-20231113215420688.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/11/09/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch10-OAuth2/image-20231114223132080.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/11/09/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch10-OAuth2/image-20231114223340534.png">
+<meta property="og:image" content="https://chendingya.github.io/2023/11/09/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch10-OAuth2/image-20231114223358616.png">
 <meta property="article:published_time" content="2023-11-09T10:32:34.000Z">
 <meta property="article:modified_time" content="2024-01-04T09:26:17.591Z">
 <meta property="article:author" content="Asimov">
 <meta property="article:tag" content="springboot">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https://chendingya.github.io/2023/11/09/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch10-OAuth2/ch10-OAuth2/image-20231113210405704.png">
+<meta name="twitter:image" content="https://chendingya.github.io/2023/11/09/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch10-OAuth2/image-20231113210405704.png">
   
   
   
@@ -73,7 +73,7 @@
 <div class="widgets">
 
 
-<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2024/05/02/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%842/"><span class="title">系统架构2-质量属性Quality Attributes</span></a><a class="item title" href="/2024/05/01/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%841/"><span class="title">系统架构1-Intro</span></a><a class="item title" href="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/"><span class="title">软件测试-期末复习</span></a><a class="item title" href="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/"><span class="title">机器学习-期末复习</span></a><a class="item title" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/"><span class="title">服务端-ch17-k8s使用</span></a><a class="item title" href="/2023/12/30/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch16-%E5%AE%B9%E5%99%A8%E9%95%9C%E5%83%8F%E6%9E%84%E5%BB%BA%E4%B8%8E%E7%BC%96%E6%8E%92/"><span class="title">服务端-ch16-容器镜像构建与编排</span></a><a class="item title" href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/"><span class="title">服务端-ch15-Docker</span></a><a class="item title" href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/"><span class="title">服务端-ch14-Spring WebFlux</span></a><a class="item title" href="/2023/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch13-%E5%8F%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"><span class="title">服务端-ch13-反应式编程基础</span></a><a class="item title" href="/2023/11/23/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch12-Spring%20Integration/"><span class="title">服务端-ch12-Spring Integration</span></a></div></widget>
+<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2022/10/25/hello-world/"><span class="title">Hello World</span></a><a class="item title" href="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/"><span class="title">软件测试-期末复习</span></a><a class="item title" href="/2024/05/02/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%842/"><span class="title">系统架构2-质量属性Quality Attributes</span></a><a class="item title" href="/2024/05/01/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%841/"><span class="title">系统架构1-Intro</span></a><a class="item title" href="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/"><span class="title">机器学习-期末复习</span></a><a class="item title" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/"><span class="title">服务端-ch17-k8s使用</span></a><a class="item title" href="/2023/12/30/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch16-%E5%AE%B9%E5%99%A8%E9%95%9C%E5%83%8F%E6%9E%84%E5%BB%BA%E4%B8%8E%E7%BC%96%E6%8E%92/"><span class="title">服务端-ch16-容器镜像构建与编排</span></a><a class="item title" href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/"><span class="title">服务端-ch15-Docker</span></a><a class="item title" href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/"><span class="title">服务端-ch14-Spring WebFlux</span></a><a class="item title" href="/2023/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch13-%E5%8F%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"><span class="title">服务端-ch13-反应式编程基础</span></a></div></widget>
 </div>
 <footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/chendingya?tab=repositories" target="_blank" rel="external nofollow noopener noreferrer"><img no-lazy src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" / onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a></div></footer>
 </div></aside><div class="l_main" id="main">
@@ -98,176 +98,176 @@
     
   </div>
   </div><article class="md-text content"><h1>ch10-OAuth2</h1>
-<h1>创建授权服务器</h1>
-<h2 id="主Taco-Cloud增加REST-API">主Taco Cloud增加REST API</h2>
+<h1>&#x521B;&#x5EFA;&#x6388;&#x6743;&#x670D;&#x52A1;&#x5668;</h1>
+<h2 id="&#x4E3B;Taco-Cloud&#x589E;&#x52A0;REST-API">&#x4E3B;Taco Cloud&#x589E;&#x52A0;REST API</h2>
 <ul>
-<li>控制器实现：IngredientController</li>
+<li>&#x63A7;&#x5236;&#x5668;&#x5B9E;&#x73B0;&#xFF1A;IngredientController</li>
 </ul>
-<h2 id="增加权限控制">增加权限控制</h2>
+<h2 id="&#x589E;&#x52A0;&#x6743;&#x9650;&#x63A7;&#x5236;">&#x589E;&#x52A0;&#x6743;&#x9650;&#x63A7;&#x5236;</h2>
 <ul>
-<li>POST：<a target="_blank" rel="noopener" href="http://tacocloud:8080/api/ingredients">http://tacocloud:8080/api/ingredients</a></li>
-<li>DELETE ：<a target="_blank" rel="noopener" href="http://tacocloud:8080">http://tacocloud:8080</a> /api/ingredients/*</li>
-<li>两种方式</li>
-<li>.antMatchers(HttpMethod.POST, “/api/ingredients”).hasAuthority(“ROLE_USER”)</li>
-<li>@PreAuthorize(“hasAuthority(‘ROLE_USER’)”)</li>
+<li>POST&#xFF1A;<a target="_blank" rel="noopener" href="http://tacocloud:8080/api/ingredients">http://tacocloud:8080/api/ingredients</a></li>
+<li>DELETE &#xFF1A;<a target="_blank" rel="noopener" href="http://tacocloud:8080">http://tacocloud:8080</a> /api/ingredients/*</li>
+<li>&#x4E24;&#x79CD;&#x65B9;&#x5F0F;</li>
+<li>.antMatchers(HttpMethod.POST, &#x201C;/api/ingredients&#x201D;).hasAuthority(&#x201C;ROLE_USER&#x201D;)</li>
+<li>@PreAuthorize(&#x201C;hasAuthority(&#x2018;ROLE_USER&#x2019;)&#x201D;)</li>
 </ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="ch10-OAuth2/image-20231113210405704.png" alt="image-20231113210405704"></p>
-<h2 id="OAuth-2是一个安全规范（很重要，问答题）👍">OAuth 2是一个安全规范（很重要，问答题）👍</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/11/09/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch10-OAuth2/image-20231113210405704.png" alt="image-20231113210405704"></p>
+<h2 id="OAuth-2&#x662F;&#x4E00;&#x4E2A;&#x5B89;&#x5168;&#x89C4;&#x8303;&#xFF08;&#x5F88;&#x91CD;&#x8981;&#xFF0C;&#x95EE;&#x7B54;&#x9898;&#xFF09;&#x1F44D;">OAuth 2&#x662F;&#x4E00;&#x4E2A;&#x5B89;&#x5168;&#x89C4;&#x8303;&#xFF08;&#x5F88;&#x91CD;&#x8981;&#xFF0C;&#x95EE;&#x7B54;&#x9898;&#xFF09;&#x1F44D;</h2>
 <ul>
-<li>授仅码授权（authorization code grant）模式</li>
+<li>&#x6388;&#x4EC5;&#x7801;&#x6388;&#x6743;&#xFF08;authorization code grant&#xFF09;&#x6A21;&#x5F0F;</li>
 </ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="ch10-OAuth2/image-20231113210432408.png" alt="image-20231113210432408"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/11/09/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch10-OAuth2/image-20231113210432408.png" alt="image-20231113210432408"></p>
 <ul>
-<li>AS：授权服务器，授权认证在这</li>
-<li>RS：资源服务器，需要保护API</li>
-<li>客户app：客户端，需要用户从授权服务器授权</li>
-<li><strong>先有code再有token ：客户端程序其实并不知道用户id对应的密码，客户端后端一直维护密码，在向授权服务器换取token时才会使用密码，密码不会在浏览器中传来传去，别的程序拿到code但是没有密码的话没有办法获得token</strong></li>
-<li>授权服务器会用<strong>私钥</strong>给token签名，资源服务器用<strong>公钥</strong>验证token是否合法</li>
-<li>token不变时公钥也不变，只有第一次才需要向授权服务器索取公钥</li>
+<li>AS&#xFF1A;&#x6388;&#x6743;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x6388;&#x6743;&#x8BA4;&#x8BC1;&#x5728;&#x8FD9;</li>
+<li>RS&#xFF1A;&#x8D44;&#x6E90;&#x670D;&#x52A1;&#x5668;&#xFF0C;&#x9700;&#x8981;&#x4FDD;&#x62A4;API</li>
+<li>&#x5BA2;&#x6237;app&#xFF1A;&#x5BA2;&#x6237;&#x7AEF;&#xFF0C;&#x9700;&#x8981;&#x7528;&#x6237;&#x4ECE;&#x6388;&#x6743;&#x670D;&#x52A1;&#x5668;&#x6388;&#x6743;</li>
+<li><strong>&#x5148;&#x6709;code&#x518D;&#x6709;token &#xFF1A;&#x5BA2;&#x6237;&#x7AEF;&#x7A0B;&#x5E8F;&#x5176;&#x5B9E;&#x5E76;&#x4E0D;&#x77E5;&#x9053;&#x7528;&#x6237;id&#x5BF9;&#x5E94;&#x7684;&#x5BC6;&#x7801;&#xFF0C;&#x5BA2;&#x6237;&#x7AEF;&#x540E;&#x7AEF;&#x4E00;&#x76F4;&#x7EF4;&#x62A4;&#x5BC6;&#x7801;&#xFF0C;&#x5728;&#x5411;&#x6388;&#x6743;&#x670D;&#x52A1;&#x5668;&#x6362;&#x53D6;token&#x65F6;&#x624D;&#x4F1A;&#x4F7F;&#x7528;&#x5BC6;&#x7801;&#xFF0C;&#x5BC6;&#x7801;&#x4E0D;&#x4F1A;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;&#x4F20;&#x6765;&#x4F20;&#x53BB;&#xFF0C;&#x522B;&#x7684;&#x7A0B;&#x5E8F;&#x62FF;&#x5230;code&#x4F46;&#x662F;&#x6CA1;&#x6709;&#x5BC6;&#x7801;&#x7684;&#x8BDD;&#x6CA1;&#x6709;&#x529E;&#x6CD5;&#x83B7;&#x5F97;token</strong></li>
+<li>&#x6388;&#x6743;&#x670D;&#x52A1;&#x5668;&#x4F1A;&#x7528;<strong>&#x79C1;&#x94A5;</strong>&#x7ED9;token&#x7B7E;&#x540D;&#xFF0C;&#x8D44;&#x6E90;&#x670D;&#x52A1;&#x5668;&#x7528;<strong>&#x516C;&#x94A5;</strong>&#x9A8C;&#x8BC1;token&#x662F;&#x5426;&#x5408;&#x6CD5;</li>
+<li>token&#x4E0D;&#x53D8;&#x65F6;&#x516C;&#x94A5;&#x4E5F;&#x4E0D;&#x53D8;&#xFF0C;&#x53EA;&#x6709;&#x7B2C;&#x4E00;&#x6B21;&#x624D;&#x9700;&#x8981;&#x5411;&#x6388;&#x6743;&#x670D;&#x52A1;&#x5668;&#x7D22;&#x53D6;&#x516C;&#x94A5;</li>
 </ul>
-<h3 id="过程👍">过程👍</h3>
-<p>其中使用<strong>授权码授权模式</strong></p>
+<h3 id="&#x8FC7;&#x7A0B;&#x1F44D;">&#x8FC7;&#x7A0B;&#x1F44D;</h3>
+<p>&#x5176;&#x4E2D;&#x4F7F;&#x7528;<strong>&#x6388;&#x6743;&#x7801;&#x6388;&#x6743;&#x6A21;&#x5F0F;</strong></p>
 <ol>
 <li>
-<p>用户使用第三方的应用程序，也就是客户端应用程序</p>
+<p>&#x7528;&#x6237;&#x4F7F;&#x7528;&#x7B2C;&#x4E09;&#x65B9;&#x7684;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x5BA2;&#x6237;&#x7AEF;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;</p>
 </li>
 <li>
-<p>客户端发现用户未登录，将用户</p>
-<p>重定向</p>
-<p>到授权服务器</p>
+<p>&#x5BA2;&#x6237;&#x7AEF;&#x53D1;&#x73B0;&#x7528;&#x6237;&#x672A;&#x767B;&#x5F55;&#xFF0C;&#x5C06;&#x7528;&#x6237;</p>
+<p>&#x91CD;&#x5B9A;&#x5411;</p>
+<p>&#x5230;&#x6388;&#x6743;&#x670D;&#x52A1;&#x5668;</p>
 <ul>
-<li>授权服务器会维护合法的重定向地址，用于校验</li>
+<li>&#x6388;&#x6743;&#x670D;&#x52A1;&#x5668;&#x4F1A;&#x7EF4;&#x62A4;&#x5408;&#x6CD5;&#x7684;&#x91CD;&#x5B9A;&#x5411;&#x5730;&#x5740;&#xFF0C;&#x7528;&#x4E8E;&#x6821;&#x9A8C;</li>
 </ul>
 </li>
 <li>
-<p>授权服务器向用户索取用户名密码</p>
+<p>&#x6388;&#x6743;&#x670D;&#x52A1;&#x5668;&#x5411;&#x7528;&#x6237;&#x7D22;&#x53D6;&#x7528;&#x6237;&#x540D;&#x5BC6;&#x7801;</p>
 </li>
 <li>
-<p>用户名密码匹配，则授权服务器请求用户授权</p>
+<p>&#x7528;&#x6237;&#x540D;&#x5BC6;&#x7801;&#x5339;&#x914D;&#xFF0C;&#x5219;&#x6388;&#x6743;&#x670D;&#x52A1;&#x5668;&#x8BF7;&#x6C42;&#x7528;&#x6237;&#x6388;&#x6743;</p>
 </li>
 <li>
-<p>授权服务器给客户端程序返回code，重定向回到应用程序</p>
+<p>&#x6388;&#x6743;&#x670D;&#x52A1;&#x5668;&#x7ED9;&#x5BA2;&#x6237;&#x7AEF;&#x7A0B;&#x5E8F;&#x8FD4;&#x56DE;code&#xFF0C;&#x91CD;&#x5B9A;&#x5411;&#x56DE;&#x5230;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;</p>
 <ul>
-<li><strong>这里的code是和重定向URL一起返回给浏览器的，所以不安全</strong></li>
-<li>授权服务器返回的是重定向url+code</li>
+<li><strong>&#x8FD9;&#x91CC;&#x7684;code&#x662F;&#x548C;&#x91CD;&#x5B9A;&#x5411;URL&#x4E00;&#x8D77;&#x8FD4;&#x56DE;&#x7ED9;&#x6D4F;&#x89C8;&#x5668;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x4E0D;&#x5B89;&#x5168;</strong></li>
+<li>&#x6388;&#x6743;&#x670D;&#x52A1;&#x5668;&#x8FD4;&#x56DE;&#x7684;&#x662F;&#x91CD;&#x5B9A;&#x5411;url+code</li>
 </ul>
 </li>
 <li>
-<p>客户端应用程序用code向授权服务器索取token</p>
+<p>&#x5BA2;&#x6237;&#x7AEF;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x7528;code&#x5411;&#x6388;&#x6743;&#x670D;&#x52A1;&#x5668;&#x7D22;&#x53D6;token</p>
 <ul>
-<li>用code交换token，可能包含<strong>访问令牌（access token）和更新令牌（refresh token）</strong></li>
-<li><strong>token不过浏览器</strong>，在应用程序服务端和授权服务器之间处理</li>
+<li>&#x7528;code&#x4EA4;&#x6362;token&#xFF0C;&#x53EF;&#x80FD;&#x5305;&#x542B;<strong>&#x8BBF;&#x95EE;&#x4EE4;&#x724C;&#xFF08;access token&#xFF09;&#x548C;&#x66F4;&#x65B0;&#x4EE4;&#x724C;&#xFF08;refresh token&#xFF09;</strong></li>
+<li><strong>token&#x4E0D;&#x8FC7;&#x6D4F;&#x89C8;&#x5668;</strong>&#xFF0C;&#x5728;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#x670D;&#x52A1;&#x7AEF;&#x548C;&#x6388;&#x6743;&#x670D;&#x52A1;&#x5668;&#x4E4B;&#x95F4;&#x5904;&#x7406;</li>
 </ul>
 </li>
 <li>
-<p>客户端在请求头带上token调用资源服务器的API</p>
+<p>&#x5BA2;&#x6237;&#x7AEF;&#x5728;&#x8BF7;&#x6C42;&#x5934;&#x5E26;&#x4E0A;token&#x8C03;&#x7528;&#x8D44;&#x6E90;&#x670D;&#x52A1;&#x5668;&#x7684;API</p>
 </li>
 <li>
-<p>资源服务器验证token，返回结果</p>
+<p>&#x8D44;&#x6E90;&#x670D;&#x52A1;&#x5668;&#x9A8C;&#x8BC1;token&#xFF0C;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;</p>
 <ul>
-<li>第一次，资源服务器向授权服务器索取公钥，验证Token合法性</li>
-<li>Token过期时才会重新索取公钥</li>
+<li>&#x7B2C;&#x4E00;&#x6B21;&#xFF0C;&#x8D44;&#x6E90;&#x670D;&#x52A1;&#x5668;&#x5411;&#x6388;&#x6743;&#x670D;&#x52A1;&#x5668;&#x7D22;&#x53D6;&#x516C;&#x94A5;&#xFF0C;&#x9A8C;&#x8BC1;Token&#x5408;&#x6CD5;&#x6027;</li>
+<li>Token&#x8FC7;&#x671F;&#x65F6;&#x624D;&#x4F1A;&#x91CD;&#x65B0;&#x7D22;&#x53D6;&#x516C;&#x94A5;</li>
 </ul>
 </li>
 <li>
-<p>客户端程序把结果返回给用户</p>
+<p>&#x5BA2;&#x6237;&#x7AEF;&#x7A0B;&#x5E8F;&#x628A;&#x7ED3;&#x679C;&#x8FD4;&#x56DE;&#x7ED9;&#x7528;&#x6237;</p>
 </li>
 </ol>
-<p>密码没有在浏览器来回传送，但是如果没有密码即使拿到code也没用<br>
-用code向授权服务器换取token才需要密码</p>
-<p><a target="_blank" rel="noopener" href="https://chillcharlie357.github.io/posts/a0bd262e/">9-OAuth2 - Charlie’s Blog (chillcharlie357.github.io)</a></p>
-<h3 id="其他模式">其他模式</h3>
+<p>&#x5BC6;&#x7801;&#x6CA1;&#x6709;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x6765;&#x56DE;&#x4F20;&#x9001;&#xFF0C;&#x4F46;&#x662F;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x5BC6;&#x7801;&#x5373;&#x4F7F;&#x62FF;&#x5230;code&#x4E5F;&#x6CA1;&#x7528;<br>
+&#x7528;code&#x5411;&#x6388;&#x6743;&#x670D;&#x52A1;&#x5668;&#x6362;&#x53D6;token&#x624D;&#x9700;&#x8981;&#x5BC6;&#x7801;</p>
+<p><a target="_blank" rel="noopener" href="https://chillcharlie357.github.io/posts/a0bd262e/">9-OAuth2 - Charlie&#x2019;s Blog (chillcharlie357.github.io)</a></p>
+<h3 id="&#x5176;&#x4ED6;&#x6A21;&#x5F0F;">&#x5176;&#x4ED6;&#x6A21;&#x5F0F;</h3>
 <ul>
-<li>隐式授权（implicit grant），直接返回访问令牌，而不是授仅码</li>
-<li>用户凭证（或密码）授权（user credentials (password) grant）：用户凭证直接换取访问令牌，不经过浏览 器登录</li>
-<li>客户端凭证授权（client credentials grant）：客户端交换自己的凭证以获取访问令牌</li>
+<li>&#x9690;&#x5F0F;&#x6388;&#x6743;&#xFF08;implicit grant&#xFF09;&#xFF0C;&#x76F4;&#x63A5;&#x8FD4;&#x56DE;&#x8BBF;&#x95EE;&#x4EE4;&#x724C;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x6388;&#x4EC5;&#x7801;</li>
+<li>&#x7528;&#x6237;&#x51ED;&#x8BC1;&#xFF08;&#x6216;&#x5BC6;&#x7801;&#xFF09;&#x6388;&#x6743;&#xFF08;user credentials (password) grant&#xFF09;&#xFF1A;&#x7528;&#x6237;&#x51ED;&#x8BC1;&#x76F4;&#x63A5;&#x6362;&#x53D6;&#x8BBF;&#x95EE;&#x4EE4;&#x724C;&#xFF0C;&#x4E0D;&#x7ECF;&#x8FC7;&#x6D4F;&#x89C8; &#x5668;&#x767B;&#x5F55;</li>
+<li>&#x5BA2;&#x6237;&#x7AEF;&#x51ED;&#x8BC1;&#x6388;&#x6743;&#xFF08;client credentials grant&#xFF09;&#xFF1A;&#x5BA2;&#x6237;&#x7AEF;&#x4EA4;&#x6362;&#x81EA;&#x5DF1;&#x7684;&#x51ED;&#x8BC1;&#x4EE5;&#x83B7;&#x53D6;&#x8BBF;&#x95EE;&#x4EE4;&#x724C;</li>
 </ul>
-<h1>开发授权服务器</h1>
-<h2 id="授权服务器config">授权服务器config</h2>
+<h1>&#x5F00;&#x53D1;&#x6388;&#x6743;&#x670D;&#x52A1;&#x5668;</h1>
+<h2 id="&#x6388;&#x6743;&#x670D;&#x52A1;&#x5668;config">&#x6388;&#x6743;&#x670D;&#x52A1;&#x5668;config</h2>
 <ol>
-<li>注册第三方应用程序（客户端）</li>
-<li>指定资源服务器地址</li>
+<li>&#x6CE8;&#x518C;&#x7B2C;&#x4E09;&#x65B9;&#x5E94;&#x7528;&#x7A0B;&#x5E8F;&#xFF08;&#x5BA2;&#x6237;&#x7AEF;&#xFF09;</li>
+<li>&#x6307;&#x5B9A;&#x8D44;&#x6E90;&#x670D;&#x52A1;&#x5668;&#x5730;&#x5740;</li>
 <li>jwkSource</li>
 </ol>
-<h2 id="配置本地域名">配置本地域名</h2>
+<h2 id="&#x914D;&#x7F6E;&#x672C;&#x5730;&#x57DF;&#x540D;">&#x914D;&#x7F6E;&#x672C;&#x5730;&#x57DF;&#x540D;</h2>
 <ul>
-<li>Windows：C:\Windows\System32\drivers\etc\hosts</li>
-<li>Linux：/etc/hosts</li>
+<li>Windows&#xFF1A;C:\Windows\System32\drivers\etc\hosts</li>
+<li>Linux&#xFF1A;/etc/hosts</li>
 <li>127.0.0.1 tacocloud</li>
 <li>127.0.0.1 authserver</li>
 <li>127.0.0.1 clientadmin</li>
 </ul>
-<h2 id="创建授权服务器">创建授权服务器</h2>
+<h2 id="&#x521B;&#x5EFA;&#x6388;&#x6743;&#x670D;&#x52A1;&#x5668;">&#x521B;&#x5EFA;&#x6388;&#x6743;&#x670D;&#x52A1;&#x5668;</h2>
 <ul>
 <li>Spring Authorization Server</li>
-<li>OAuth2AuthorizationServerConfiguration默认配置</li>
-<li>客户端存储库，RegisteredClientRepository（接口），RegisteredClient， InMemoryRegisteredClientRepository</li>
-<li>OAuth 2 scope：writeIngredients、deleteIngredients</li>
+<li>OAuth2AuthorizationServerConfiguration&#x9ED8;&#x8BA4;&#x914D;&#x7F6E;</li>
+<li>&#x5BA2;&#x6237;&#x7AEF;&#x5B58;&#x50A8;&#x5E93;&#xFF0C;RegisteredClientRepository&#xFF08;&#x63A5;&#x53E3;&#xFF09;&#xFF0C;RegisteredClient&#xFF0C; InMemoryRegisteredClientRepository</li>
+<li>OAuth 2 scope&#xFF1A;writeIngredients&#x3001;deleteIngredients</li>
 </ul>
-<h2 id="重定向的例子">重定向的例子</h2>
+<h2 id="&#x91CD;&#x5B9A;&#x5411;&#x7684;&#x4F8B;&#x5B50;">&#x91CD;&#x5B9A;&#x5411;&#x7684;&#x4F8B;&#x5B50;</h2>
 <ul>
 <li><a target="_blank" rel="noopener" href="http://clientadmin:9090/login/oauth2/code/taco-admin-client?code=MGrX0ZgOoCpICZuGnhRGvsxBp3tV2DFlj9ScBIg1UGcla81haYuUjrpfGuZfsV3Od5a_gk7T6TZWspjCdEAkins4gE-fvWL_bhYmZO3D7KJ5NXHqNHNG1vMreI1p5-gz">http://clientadmin:9090/login/oauth2/code/taco-admin-client?code=MGrX0ZgOoCpICZuGnhRGvsxBp3tV2DFlj9ScBIg1UGcla81haYuUjrpfGuZfsV3Od5a_gk7T6TZWspjCdEAkins4gE-fvWL_bhYmZO3D7KJ5NXHqNHNG1vMreI1p5-gz</a></li>
 </ul>
 <h2 id="clientSettings-requireUserConsent-true">clientSettings.requireUserConsent(true)</h2>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="ch10-OAuth2/image-20231113215255975.png" alt="image-20231113215255975"></p>
-<h2 id="生成JWK">生成JWK</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/11/09/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch10-OAuth2/image-20231113215255975.png" alt="image-20231113215255975"></p>
+<h2 id="&#x751F;&#x6210;JWK">&#x751F;&#x6210;JWK</h2>
 <ul>
-<li>JSON web key，RSA密钥对（公䄴、私䄴），用于对令牌签名，令牌会用私钥签名，资源服务器会通过从授权 服务器获取到的公钥验证请求中收到的令牌是否有效</li>
+<li>JSON web key&#xFF0C;RSA&#x5BC6;&#x94A5;&#x5BF9;&#xFF08;&#x516C;&#x4134;&#x3001;&#x79C1;&#x4134;&#xFF09;&#xFF0C;&#x7528;&#x4E8E;&#x5BF9;&#x4EE4;&#x724C;&#x7B7E;&#x540D;&#xFF0C;&#x4EE4;&#x724C;&#x4F1A;&#x7528;&#x79C1;&#x94A5;&#x7B7E;&#x540D;&#xFF0C;&#x8D44;&#x6E90;&#x670D;&#x52A1;&#x5668;&#x4F1A;&#x901A;&#x8FC7;&#x4ECE;&#x6388;&#x6743; &#x670D;&#x52A1;&#x5668;&#x83B7;&#x53D6;&#x5230;&#x7684;&#x516C;&#x94A5;&#x9A8C;&#x8BC1;&#x8BF7;&#x6C42;&#x4E2D;&#x6536;&#x5230;&#x7684;&#x4EE4;&#x724C;&#x662F;&#x5426;&#x6709;&#x6548;</li>
 <li>interface JWKSource</li>
 <li>interface JwtDecoder</li>
 </ul>
-<h2 id="运行授权服务器">运行授权服务器</h2>
+<h2 id="&#x8FD0;&#x884C;&#x6388;&#x6743;&#x670D;&#x52A1;&#x5668;">&#x8FD0;&#x884C;&#x6388;&#x6743;&#x670D;&#x52A1;&#x5668;</h2>
 <ul>
-<li>获得授权码（浏览器访问）： <a target="_blank" rel="noopener" href="http://authserver:9000/oauth2/authorize?response_type=code&amp;client_id=taco-admin-client&amp;scope=writeIngredients+deleteIngredients&amp;redirect_uri=http://clientadmin:9090/login/oauth2/code/taco-admin-client">http://authserver:9000/oauth2/authorize?response_type=code&amp;client_id=taco-admin-client&amp;scope=writeIngredients+deleteIngredients&amp;redirect_uri=http://clientadmin:9090/login/oauth2/code/taco-admin-client</a></li>
-<li>获得token（postman访问） POST ： <a target="_blank" rel="noopener" href="http://authserver:9000/oauth2/token">http://authserver:9000/oauth2/token</a></li>
-<li>刷新token（postman访问）： <a target="_blank" rel="noopener" href="http://authserver:9000/oauth2/token">http://authserver:9000/oauth2/token</a></li>
+<li>&#x83B7;&#x5F97;&#x6388;&#x6743;&#x7801;&#xFF08;&#x6D4F;&#x89C8;&#x5668;&#x8BBF;&#x95EE;&#xFF09;&#xFF1A; <a target="_blank" rel="noopener" href="http://authserver:9000/oauth2/authorize?response_type=code&amp;client_id=taco-admin-client&amp;scope=writeIngredients+deleteIngredients&amp;redirect_uri=http://clientadmin:9090/login/oauth2/code/taco-admin-client">http://authserver:9000/oauth2/authorize?response_type=code&amp;client_id=taco-admin-client&amp;scope=writeIngredients+deleteIngredients&amp;redirect_uri=http://clientadmin:9090/login/oauth2/code/taco-admin-client</a></li>
+<li>&#x83B7;&#x5F97;token&#xFF08;postman&#x8BBF;&#x95EE;&#xFF09; POST &#xFF1A; <a target="_blank" rel="noopener" href="http://authserver:9000/oauth2/token">http://authserver:9000/oauth2/token</a></li>
+<li>&#x5237;&#x65B0;token&#xFF08;postman&#x8BBF;&#x95EE;&#xFF09;&#xFF1A; <a target="_blank" rel="noopener" href="http://authserver:9000/oauth2/token">http://authserver:9000/oauth2/token</a></li>
 </ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="ch10-OAuth2/image-20231113215404110.png" alt="image-20231113215404110"></p>
-<h2 id="jwt解码">jwt解码</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/11/09/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch10-OAuth2/image-20231113215404110.png" alt="image-20231113215404110"></p>
+<h2 id="jwt&#x89E3;&#x7801;">jwt&#x89E3;&#x7801;</h2>
 <ul>
 <li><a target="_blank" rel="noopener" href="https://jwt.io/">https://jwt.io/</a></li>
 </ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="ch10-OAuth2/image-20231113215420688.png" alt="image-20231113215420688"></p>
-<h1>创建资源服务器</h1>
-<h2 id="添加依赖">添加依赖</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/11/09/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch10-OAuth2/image-20231113215420688.png" alt="image-20231113215420688"></p>
+<h1>&#x521B;&#x5EFA;&#x8D44;&#x6E90;&#x670D;&#x52A1;&#x5668;</h1>
+<h2 id="&#x6DFB;&#x52A0;&#x4F9D;&#x8D56;">&#x6DFB;&#x52A0;&#x4F9D;&#x8D56;</h2>
 <ol>
-<li>添加依赖</li>
+<li>&#x6DFB;&#x52A0;&#x4F9D;&#x8D56;</li>
 </ol>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-oauth2-resource-server<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <ol start="2">
-<li>在过滤器中针对被保护的API添加权限控制</li>
+<li>&#x5728;&#x8FC7;&#x6EE4;&#x5668;&#x4E2D;&#x9488;&#x5BF9;&#x88AB;&#x4FDD;&#x62A4;&#x7684;API&#x6DFB;&#x52A0;&#x6743;&#x9650;&#x63A7;&#x5236;</li>
 </ol>
 <ul>
-<li>使用<code>SCOPE_</code>前缀</li>
-<li>开启API调用前的过滤器</li>
+<li>&#x4F7F;&#x7528;<code>SCOPE_</code>&#x524D;&#x7F00;</li>
+<li>&#x5F00;&#x542F;API&#x8C03;&#x7528;&#x524D;&#x7684;&#x8FC7;&#x6EE4;&#x5668;</li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">.antMatchers(HttpMethod.POST, <span class="string">&quot;/api/ingredients&quot;</span>).hasAuthority(<span class="string">&quot;SCOPE_writeIngredients&quot;</span>)</span><br><span class="line">.antMatchers(HttpMethod.DELETE, <span class="string">&quot;/api/ingredients/*&quot;</span>).hasAuthority(<span class="string">&quot;SCOPE_deleteIngredients&quot;</span>)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h2 id="开启调用API前的过滤器：">开启调用API前的过滤器：</h2>
+<h2 id="&#x5F00;&#x542F;&#x8C03;&#x7528;API&#x524D;&#x7684;&#x8FC7;&#x6EE4;&#x5668;&#xFF1A;">&#x5F00;&#x542F;&#x8C03;&#x7528;API&#x524D;&#x7684;&#x8FC7;&#x6EE4;&#x5668;&#xFF1A;</h2>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.and() .oauth2ResourceServer(oauth2 -&gt; oauth2.jwt())</span><br></pre></td></tr></table></figure>
-<h2 id="配置资源服务器从何处获取公钥">配置资源服务器从何处获取公钥</h2>
+<h2 id="&#x914D;&#x7F6E;&#x8D44;&#x6E90;&#x670D;&#x52A1;&#x5668;&#x4ECE;&#x4F55;&#x5904;&#x83B7;&#x53D6;&#x516C;&#x94A5;">&#x914D;&#x7F6E;&#x8D44;&#x6E90;&#x670D;&#x52A1;&#x5668;&#x4ECE;&#x4F55;&#x5904;&#x83B7;&#x53D6;&#x516C;&#x94A5;</h2>
 <figure class="highlight yml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">spring:</span></span><br><span class="line">	<span class="attr">security:</span></span><br><span class="line">		<span class="attr">oauth2:</span></span><br><span class="line">			<span class="attr">resourceserver:</span></span><br><span class="line">				<span class="attr">jwt:</span></span><br><span class="line">					<span class="attr">jwk-set-uri:</span> <span class="string">http://tacocloud:9000/oauth2/jwks</span></span><br></pre></td></tr></table></figure>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="ch10-OAuth2/image-20231114223132080.png" alt="image-20231114223132080"></p>
-<h2 id="从POSTMAN访问被保护资源">从POSTMAN访问被保护资源</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/11/09/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch10-OAuth2/image-20231114223132080.png" alt="image-20231114223132080"></p>
+<h2 id="&#x4ECE;POSTMAN&#x8BBF;&#x95EE;&#x88AB;&#x4FDD;&#x62A4;&#x8D44;&#x6E90;">&#x4ECE;POSTMAN&#x8BBF;&#x95EE;&#x88AB;&#x4FDD;&#x62A4;&#x8D44;&#x6E90;</h2>
 <ul>
-<li>带着token（Authorization属性）访问POST：<a target="_blank" rel="noopener" href="http://tacocloud:8080/api/ingredients">http://tacocloud:8080/api/ingredients</a></li>
-<li>带着token（Authorization属性）访问DELETE：<a target="_blank" rel="noopener" href="http://tacocloud:8080/api/ingredients/">http://tacocloud:8080/api/ingredients/</a>*</li>
+<li>&#x5E26;&#x7740;token&#xFF08;Authorization&#x5C5E;&#x6027;&#xFF09;&#x8BBF;&#x95EE;POST&#xFF1A;<a target="_blank" rel="noopener" href="http://tacocloud:8080/api/ingredients">http://tacocloud:8080/api/ingredients</a></li>
+<li>&#x5E26;&#x7740;token&#xFF08;Authorization&#x5C5E;&#x6027;&#xFF09;&#x8BBF;&#x95EE;DELETE&#xFF1A;<a target="_blank" rel="noopener" href="http://tacocloud:8080/api/ingredients/">http://tacocloud:8080/api/ingredients/</a>*</li>
 </ul>
-<h1>开发客户端应用</h1>
-<h2 id="添加依赖-2">添加依赖</h2>
+<h1>&#x5F00;&#x53D1;&#x5BA2;&#x6237;&#x7AEF;&#x5E94;&#x7528;</h1>
+<h2 id="&#x6DFB;&#x52A0;&#x4F9D;&#x8D56;-2">&#x6DFB;&#x52A0;&#x4F9D;&#x8D56;</h2>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-oauth2-client&lt;/artifactId&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
-<h2 id="代码配置">代码配置</h2>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line">SecurityFilterChain <span class="title function_">defaultSecurityFilterChain</span><span class="params">(HttpSecurity http)</span> <span class="keyword">throws</span> Exception &#123;</span><br><span class="line">    http</span><br><span class="line">    .authorizeRequests(</span><br><span class="line">    authorizeRequests -&gt; authorizeRequests.anyRequest().authenticated()</span><br><span class="line">    )</span><br><span class="line">    .oauth2Login(</span><br><span class="line">    oauth2Login -&gt;</span><br><span class="line">    oauth2Login.loginPage(<span class="string">&quot;/oauth2/authorization/taco-admin-client&quot;</span>))</span><br><span class="line">    .oauth2Client(withDefaults());</span><br><span class="line">    <span class="keyword">return</span> http.build();</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h2 id="属性配置">属性配置</h2>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">spring:</span><br><span class="line">security:</span><br><span class="line">oauth2:</span><br><span class="line">client:</span><br><span class="line">registration:</span><br><span class="line">taco-admin-client:</span><br><span class="line">provider: tacocloud</span><br><span class="line">client-id: taco-admin-client</span><br><span class="line">client-secret: secret</span><br><span class="line">authorization-grant-type: authorization_code</span><br><span class="line">redirect-uri: <span class="string">&quot;http://clientadmin:9090/login/oauth2/code/&#123;registrationId&#125;&quot;</span></span><br><span class="line">scope: writeIngredients,deleteIngredients,openid </span><br><span class="line">provider:</span><br><span class="line">tacocloud:</span><br><span class="line">issuer-uri: http:<span class="comment">//authserver:9000</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
-<h2 id="实现请求拦截器">实现请求拦截器</h2>
-<p>请求头增加属性：Authorization</p>
-<h2 id="访问">访问</h2>
+<h2 id="&#x4EE3;&#x7801;&#x914D;&#x7F6E;">&#x4EE3;&#x7801;&#x914D;&#x7F6E;</h2>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Bean</span></span><br><span class="line">SecurityFilterChain <span class="title function_">defaultSecurityFilterChain</span><span class="params">(HttpSecurity http)</span> <span class="keyword">throws</span> Exception {</span><br><span class="line">    http</span><br><span class="line">    .authorizeRequests(</span><br><span class="line">    authorizeRequests -&gt; authorizeRequests.anyRequest().authenticated()</span><br><span class="line">    )</span><br><span class="line">    .oauth2Login(</span><br><span class="line">    oauth2Login -&gt;</span><br><span class="line">    oauth2Login.loginPage(<span class="string">&quot;/oauth2/authorization/taco-admin-client&quot;</span>))</span><br><span class="line">    .oauth2Client(withDefaults());</span><br><span class="line">    <span class="keyword">return</span> http.build();</span><br><span class="line">}</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="&#x5C5E;&#x6027;&#x914D;&#x7F6E;">&#x5C5E;&#x6027;&#x914D;&#x7F6E;</h2>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">spring:</span><br><span class="line">security:</span><br><span class="line">oauth2:</span><br><span class="line">client:</span><br><span class="line">registration:</span><br><span class="line">taco-admin-client:</span><br><span class="line">provider: tacocloud</span><br><span class="line">client-id: taco-admin-client</span><br><span class="line">client-secret: secret</span><br><span class="line">authorization-grant-type: authorization_code</span><br><span class="line">redirect-uri: <span class="string">&quot;http://clientadmin:9090/login/oauth2/code/{registrationId}&quot;</span></span><br><span class="line">scope: writeIngredients,deleteIngredients,openid </span><br><span class="line">provider:</span><br><span class="line">tacocloud:</span><br><span class="line">issuer-uri: http:<span class="comment">//authserver:9000</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h2 id="&#x5B9E;&#x73B0;&#x8BF7;&#x6C42;&#x62E6;&#x622A;&#x5668;">&#x5B9E;&#x73B0;&#x8BF7;&#x6C42;&#x62E6;&#x622A;&#x5668;</h2>
+<p>&#x8BF7;&#x6C42;&#x5934;&#x589E;&#x52A0;&#x5C5E;&#x6027;&#xFF1A;Authorization</p>
+<h2 id="&#x8BBF;&#x95EE;">&#x8BBF;&#x95EE;</h2>
 <ul>
 <li><a target="_blank" rel="noopener" href="http://clientadmin:9090">http://clientadmin:9090</a></li>
 </ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="ch10-OAuth2/image-20231114223340534.png" alt="image-20231114223340534"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/11/09/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch10-OAuth2/image-20231114223340534.png" alt="image-20231114223340534"></p>
 <h3 id="http-authserver-9000-well-known-openid-configuration"><a target="_blank" rel="noopener" href="http://authserver:9000/.well-known/openid-configuration">http://authserver:9000/.well-known/openid-configuration</a></h3>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="ch10-OAuth2/image-20231114223358616.png" alt="image-20231114223358616"></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2023/11/09/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch10-OAuth2/image-20231114223358616.png" alt="image-20231114223358616"></p>
 
 <div class="article-footer fs14">
     <section id="license">

@@ -20,12 +20,12 @@
   <title>SE-II-ch13-详细设计中的模块化与信息隐藏 - Asimov's Blog</title>
 
   
-    <meta name="description" content="13-详细设计中的模块化与信息隐藏   1. 内聚和耦合 概念重要 2. 模块化与信息隐藏思想  2.1. 设计好的软件  2.1.1. Parnas 1972 2.1.2. Stevens 1974 2.1.3. Beohm 1976   2.2. 动机 2.3. 模块化与信息隐藏思想的发展  2.3.1. 背景 2.3.2. 历史发展 2.3.3. Wirth1971 - 萌芽 2.3.4.">
+    <meta name="description" content="13-&#x8BE6;&#x7EC6;&#x8BBE;&#x8BA1;&#x4E2D;&#x7684;&#x6A21;&#x5757;&#x5316;&#x4E0E;&#x4FE1;&#x606F;&#x9690;&#x85CF;   1. &#x5185;&#x805A;&#x548C;&#x8026;&#x5408; &#x6982;&#x5FF5;&#x91CD;&#x8981; 2. &amp;#">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SE-II-ch13-详细设计中的模块化与信息隐藏">
 <meta property="og:url" content="https://chendingya.github.io/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/13-%E6%A8%A1%E5%9D%97%E5%8C%96%E4%B8%8E%E4%BF%A1%E6%81%AF%E9%9A%90%E8%97%8F/index.html">
 <meta property="og:site_name" content="Asimov&#39;s Blog">
-<meta property="og:description" content="13-详细设计中的模块化与信息隐藏   1. 内聚和耦合 概念重要 2. 模块化与信息隐藏思想  2.1. 设计好的软件  2.1.1. Parnas 1972 2.1.2. Stevens 1974 2.1.3. Beohm 1976   2.2. 动机 2.3. 模块化与信息隐藏思想的发展  2.3.1. 背景 2.3.2. 历史发展 2.3.3. Wirth1971 - 萌芽 2.3.4.">
+<meta property="og:description" content="13-&#x8BE6;&#x7EC6;&#x8BBE;&#x8BA1;&#x4E2D;&#x7684;&#x6A21;&#x5757;&#x5316;&#x4E0E;&#x4FE1;&#x606F;&#x9690;&#x85CF;   1. &#x5185;&#x805A;&#x548C;&#x8026;&#x5408; &#x6982;&#x5FF5;&#x91CD;&#x8981; 2. &amp;#">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/1.png">
 <meta property="og:image" content="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/2.png">
@@ -110,7 +110,7 @@
 <div class="widgets">
 
 
-<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2024/05/02/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%842/"><span class="title">系统架构2-质量属性Quality Attributes</span></a><a class="item title" href="/2024/05/01/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%841/"><span class="title">系统架构1-Intro</span></a><a class="item title" href="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/"><span class="title">软件测试-期末复习</span></a><a class="item title" href="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/"><span class="title">机器学习-期末复习</span></a><a class="item title" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/"><span class="title">服务端-ch17-k8s使用</span></a><a class="item title" href="/2023/12/30/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch16-%E5%AE%B9%E5%99%A8%E9%95%9C%E5%83%8F%E6%9E%84%E5%BB%BA%E4%B8%8E%E7%BC%96%E6%8E%92/"><span class="title">服务端-ch16-容器镜像构建与编排</span></a><a class="item title" href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/"><span class="title">服务端-ch15-Docker</span></a><a class="item title" href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/"><span class="title">服务端-ch14-Spring WebFlux</span></a><a class="item title" href="/2023/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch13-%E5%8F%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"><span class="title">服务端-ch13-反应式编程基础</span></a><a class="item title" href="/2023/11/23/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch12-Spring%20Integration/"><span class="title">服务端-ch12-Spring Integration</span></a></div></widget>
+<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2022/10/25/hello-world/"><span class="title">Hello World</span></a><a class="item title" href="/2024/01/06/23-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95/%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/"><span class="title">软件测试-期末复习</span></a><a class="item title" href="/2024/05/02/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%842/"><span class="title">系统架构2-质量属性Quality Attributes</span></a><a class="item title" href="/2024/05/01/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%841/"><span class="title">系统架构1-Intro</span></a><a class="item title" href="/2024/01/02/23-%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/%E5%A4%8D%E4%B9%A0/"><span class="title">机器学习-期末复习</span></a><a class="item title" href="/2024/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch17-k8s%E4%BD%BF%E7%94%A8/"><span class="title">服务端-ch17-k8s使用</span></a><a class="item title" href="/2023/12/30/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch16-%E5%AE%B9%E5%99%A8%E9%95%9C%E5%83%8F%E6%9E%84%E5%BB%BA%E4%B8%8E%E7%BC%96%E6%8E%92/"><span class="title">服务端-ch16-容器镜像构建与编排</span></a><a class="item title" href="/2023/12/17/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch15-docker/"><span class="title">服务端-ch15-Docker</span></a><a class="item title" href="/2023/12/14/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch14-Spring%20WebFlux/"><span class="title">服务端-ch14-Spring WebFlux</span></a><a class="item title" href="/2023/01/04/23-%E6%9C%8D%E5%8A%A1%E7%AB%AF/ch13-%E5%8F%8D%E5%BA%94%E5%BC%8F%E7%BC%96%E7%A8%8B%E5%9F%BA%E7%A1%80/"><span class="title">服务端-ch13-反应式编程基础</span></a></div></widget>
 </div>
 <footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/chendingya?tab=repositories" target="_blank" rel="external nofollow noopener noreferrer"><img no-lazy src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" / onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a></div></footer>
 </div></aside><div class="l_main" id="main">
@@ -134,1127 +134,1127 @@
     </div>
     
   </div>
-  </div><article class="md-text content"><h2 id="13-详细设计中的模块化与信息隐藏">13-详细设计中的模块化与信息隐藏</h2>
+  </div><article class="md-text content"><h2 id="13-&#x8BE6;&#x7EC6;&#x8BBE;&#x8BA1;&#x4E2D;&#x7684;&#x6A21;&#x5757;&#x5316;&#x4E0E;&#x4FE1;&#x606F;&#x9690;&#x85CF;">13-&#x8BE6;&#x7EC6;&#x8BBE;&#x8BA1;&#x4E2D;&#x7684;&#x6A21;&#x5757;&#x5316;&#x4E0E;&#x4FE1;&#x606F;&#x9690;&#x85CF;</h2>
 <!-- TOC -->
 <ul>
-<li><a href="#1-%E5%86%85%E8%81%9A%E5%92%8C%E8%80%A6%E5%90%88-%E6%A6%82%E5%BF%B5%E9%87%8D%E8%A6%81">1. 内聚和耦合 概念重要</a></li>
-<li><a href="#2-%E6%A8%A1%E5%9D%97%E5%8C%96%E4%B8%8E%E4%BF%A1%E6%81%AF%E9%9A%90%E8%97%8F%E6%80%9D%E6%83%B3">2. 模块化与信息隐藏思想</a>
+<li><a href="#1-%E5%86%85%E8%81%9A%E5%92%8C%E8%80%A6%E5%90%88-%E6%A6%82%E5%BF%B5%E9%87%8D%E8%A6%81">1. &#x5185;&#x805A;&#x548C;&#x8026;&#x5408; &#x6982;&#x5FF5;&#x91CD;&#x8981;</a></li>
+<li><a href="#2-%E6%A8%A1%E5%9D%97%E5%8C%96%E4%B8%8E%E4%BF%A1%E6%81%AF%E9%9A%90%E8%97%8F%E6%80%9D%E6%83%B3">2. &#x6A21;&#x5757;&#x5316;&#x4E0E;&#x4FE1;&#x606F;&#x9690;&#x85CF;&#x601D;&#x60F3;</a>
 <ul>
-<li><a href="#21-%E8%AE%BE%E8%AE%A1%E5%A5%BD%E7%9A%84%E8%BD%AF%E4%BB%B6">2.1. 设计好的软件</a>
+<li><a href="#21-%E8%AE%BE%E8%AE%A1%E5%A5%BD%E7%9A%84%E8%BD%AF%E4%BB%B6">2.1. &#x8BBE;&#x8BA1;&#x597D;&#x7684;&#x8F6F;&#x4EF6;</a>
 <ul>
 <li><a href="#211-parnas-1972">2.1.1. Parnas 1972</a></li>
 <li><a href="#212-stevens-1974">2.1.2. Stevens 1974</a></li>
 <li><a href="#213-beohm-1976">2.1.3. Beohm 1976</a></li>
 </ul>
 </li>
-<li><a href="#22-%E5%8A%A8%E6%9C%BA">2.2. 动机</a></li>
-<li><a href="#23-%E6%A8%A1%E5%9D%97%E5%8C%96%E4%B8%8E%E4%BF%A1%E6%81%AF%E9%9A%90%E8%97%8F%E6%80%9D%E6%83%B3%E7%9A%84%E5%8F%91%E5%B1%95">2.3. 模块化与信息隐藏思想的发展</a>
+<li><a href="#22-%E5%8A%A8%E6%9C%BA">2.2. &#x52A8;&#x673A;</a></li>
+<li><a href="#23-%E6%A8%A1%E5%9D%97%E5%8C%96%E4%B8%8E%E4%BF%A1%E6%81%AF%E9%9A%90%E8%97%8F%E6%80%9D%E6%83%B3%E7%9A%84%E5%8F%91%E5%B1%95">2.3. &#x6A21;&#x5757;&#x5316;&#x4E0E;&#x4FE1;&#x606F;&#x9690;&#x85CF;&#x601D;&#x60F3;&#x7684;&#x53D1;&#x5C55;</a>
 <ul>
-<li><a href="#231-%E8%83%8C%E6%99%AF">2.3.1. 背景</a></li>
-<li><a href="#232-%E5%8E%86%E5%8F%B2%E5%8F%91%E5%B1%95">2.3.2. 历史发展</a></li>
-<li><a href="#233-wirth1971---%E8%90%8C%E8%8A%BD">2.3.3. Wirth1971 - 萌芽</a></li>
-<li><a href="#234-parnas-1972---%E8%90%8C%E8%8A%BD">2.3.4. Parnas 1972 - 萌芽</a></li>
-<li><a href="#235-stevens-1974---%E5%BD%A2%E6%88%90">2.3.5. Stevens 1974 - 形成</a></li>
-<li><a href="#236-stevens-1974-designing-the-structure-%E8%AE%BE%E8%AE%A1%E7%BB%93%E6%9E%84">2.3.6. Stevens 1974: Designing the structure 设计结构</a></li>
-<li><a href="#237-parnas-1978---%E5%BD%A2%E6%88%90">2.3.7. Parnas 1978 - 形成</a></li>
-<li><a href="#238-parnas-1985---%E5%BD%A2%E6%88%90">2.3.8. Parnas 1985 - 形成</a></li>
-<li><a href="#239-eder-1992---%E5%8F%91%E5%B1%95">2.3.9. Eder 1992 - 发展</a></li>
-<li><a href="#2310-hitz-1995---%E5%8F%91%E5%B1%95">2.3.10. Hitz 1995 - 发展</a></li>
-<li><a href="#2311-mcconnell-1996---%E5%8F%8D%E6%80%9D">2.3.11. McConnell 1996 - 反思</a></li>
-<li><a href="#2312-demarco2002---%E5%8F%8D%E6%80%9D">2.3.12. Demarco2002 - 反思</a></li>
+<li><a href="#231-%E8%83%8C%E6%99%AF">2.3.1. &#x80CC;&#x666F;</a></li>
+<li><a href="#232-%E5%8E%86%E5%8F%B2%E5%8F%91%E5%B1%95">2.3.2. &#x5386;&#x53F2;&#x53D1;&#x5C55;</a></li>
+<li><a href="#233-wirth1971---%E8%90%8C%E8%8A%BD">2.3.3. Wirth1971 - &#x840C;&#x82BD;</a></li>
+<li><a href="#234-parnas-1972---%E8%90%8C%E8%8A%BD">2.3.4. Parnas 1972 - &#x840C;&#x82BD;</a></li>
+<li><a href="#235-stevens-1974---%E5%BD%A2%E6%88%90">2.3.5. Stevens 1974 - &#x5F62;&#x6210;</a></li>
+<li><a href="#236-stevens-1974-designing-the-structure-%E8%AE%BE%E8%AE%A1%E7%BB%93%E6%9E%84">2.3.6. Stevens 1974: Designing the structure &#x8BBE;&#x8BA1;&#x7ED3;&#x6784;</a></li>
+<li><a href="#237-parnas-1978---%E5%BD%A2%E6%88%90">2.3.7. Parnas 1978 - &#x5F62;&#x6210;</a></li>
+<li><a href="#238-parnas-1985---%E5%BD%A2%E6%88%90">2.3.8. Parnas 1985 - &#x5F62;&#x6210;</a></li>
+<li><a href="#239-eder-1992---%E5%8F%91%E5%B1%95">2.3.9. Eder 1992 - &#x53D1;&#x5C55;</a></li>
+<li><a href="#2310-hitz-1995---%E5%8F%91%E5%B1%95">2.3.10. Hitz 1995 - &#x53D1;&#x5C55;</a></li>
+<li><a href="#2311-mcconnell-1996---%E5%8F%8D%E6%80%9D">2.3.11. McConnell 1996 - &#x53CD;&#x601D;</a></li>
+<li><a href="#2312-demarco2002---%E5%8F%8D%E6%80%9D">2.3.12. Demarco2002 - &#x53CD;&#x601D;</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#3-%E6%A8%A1%E5%9D%97%E5%8C%96">3. 模块化</a>
+<li><a href="#3-%E6%A8%A1%E5%9D%97%E5%8C%96">3. &#x6A21;&#x5757;&#x5316;</a>
 <ul>
-<li><a href="#31-%E4%BB%80%E4%B9%88%E6%98%AF%E6%A8%A1%E5%9D%97">3.1. 什么是模块？</a></li>
-<li><a href="#32-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%B0%86%E7%B3%BB%E7%BB%9F%E8%BF%9B%E8%A1%8C%E6%A8%A1%E5%9D%97%E5%8C%96">3.2. 为什么要将系统进行模块化？</a></li>
-<li><a href="#33-%E7%BB%93%E6%9E%84%E5%8C%96%E8%AE%BE%E8%AE%A1%E4%B8%AD%E7%9A%84%E8%80%A6%E5%90%88">3.3. 结构化设计中的耦合</a>
+<li><a href="#31-%E4%BB%80%E4%B9%88%E6%98%AF%E6%A8%A1%E5%9D%97">3.1. &#x4EC0;&#x4E48;&#x662F;&#x6A21;&#x5757;&#xFF1F;</a></li>
+<li><a href="#32-%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E5%B0%86%E7%B3%BB%E7%BB%9F%E8%BF%9B%E8%A1%8C%E6%A8%A1%E5%9D%97%E5%8C%96">3.2. &#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x5C06;&#x7CFB;&#x7EDF;&#x8FDB;&#x884C;&#x6A21;&#x5757;&#x5316;&#xFF1F;</a></li>
+<li><a href="#33-%E7%BB%93%E6%9E%84%E5%8C%96%E8%AE%BE%E8%AE%A1%E4%B8%AD%E7%9A%84%E8%80%A6%E5%90%88">3.3. &#x7ED3;&#x6784;&#x5316;&#x8BBE;&#x8BA1;&#x4E2D;&#x7684;&#x8026;&#x5408;</a>
 <ul>
-<li><a href="#331-%E6%A8%A1%E5%9D%97%E5%8C%96">3.3.1. 模块化</a></li>
-<li><a href="#332-%E6%A8%A1%E5%9D%97%E4%B9%8B%E9%97%B4">3.3.2. 模块之间</a></li>
-<li><a href="#333-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9A%84%E8%80%A6%E5%90%88">3.3.3. 结构化的耦合</a></li>
-<li><a href="#334-%E8%80%A6%E5%90%88%E7%9A%84%E5%BC%BA%E5%BA%A6-1---%E8%BF%9E%E6%8E%A5%E6%9C%89%E5%A4%9A%E5%A4%8D%E6%9D%82">3.3.4. 耦合的强度 1 - 连接有多复杂</a></li>
-<li><a href="#335-%E5%8E%9F%E5%88%99%E4%B8%80%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F%E6%98%AF%E8%A2%AB%E8%AE%A4%E4%B8%BA%E6%98%AF%E6%9C%89%E5%AE%B3%E7%9A%84">3.3.5. 原则一:全局变量是被认为是有害的</a></li>
-<li><a href="#336-%E8%BF%9E%E6%8E%A5%E5%88%B0%E5%85%A8%E5%B1%80%E7%8E%AF%E5%A2%83">3.3.6. 连接到全局环境</a></li>
-<li><a href="#337-%E5%B8%B8%E8%A7%81%E7%8E%AF%E5%A2%83%E7%9A%84%E7%BC%BA%E9%99%B7">3.3.7. 常见环境的缺陷</a></li>
-<li><a href="#338-%E5%8E%9F%E5%88%99%E4%BA%8C%E5%A6%82%E6%9E%9C%E6%B2%A1%E6%9C%89%E7%89%B9%E6%AE%8A%E8%A6%81%E6%B1%82%E8%AE%A9%E4%BB%A3%E7%A0%81%E6%B8%85%E6%99%B0%E4%B8%80%E7%82%B9">3.3.8. 原则二：如果没有特殊要求，让代码清晰一点</a></li>
-<li><a href="#339-%E6%98%8E%E7%A1%AE%E7%9A%84%E5%92%8C%E5%8F%AF%E4%BF%AE%E6%94%B9%E7%9A%84">3.3.9. 明确的和可修改的</a></li>
-<li><a href="#3310-%E5%8E%9F%E5%88%99%E4%B8%89%E4%B8%8D%E8%A6%81%E9%87%8D%E5%A4%8D">3.3.10. 原则三：不要重复</a></li>
-<li><a href="#3311-%E8%80%A6%E5%90%88%E7%9A%84%E5%BC%BA%E5%BA%A6-2---%E8%BF%9E%E6%8E%A5%E6%98%AF%E6%8C%87%E6%A8%A1%E5%9D%97%E6%9C%AC%E8%BA%AB%E8%BF%98%E6%98%AF%E6%A8%A1%E5%9D%97%E5%86%85%E9%83%A8%E7%9A%84%E4%B8%9C%E8%A5%BF">3.3.11. 耦合的强度 2 - 连接是指模块本身还是模块内部的东西</a></li>
-<li><a href="#3312-%E5%8E%9F%E5%88%99%E5%9B%9B%E9%9D%A2%E5%90%91%E6%8E%A5%E5%8F%A3%E7%BC%96%E7%A8%8B">3.3.12. 原则四：面向接口编程</a></li>
-<li><a href="#3313-%E7%BB%93%E6%9E%84%E8%89%AF%E5%A5%BD%E7%9A%84%E7%B3%BB%E7%BB%9F">3.3.13. 结构良好的系统</a></li>
-<li><a href="#3314-%E8%80%A6%E5%90%88%E7%9A%84%E5%BC%BA%E5%BA%A6-3---%E5%BA%94%E8%AF%A5%E5%AF%B9%E5%A4%96%E6%8F%90%E4%BE%9B%E4%BB%80%E4%B9%88%E5%92%8C%E6%8E%A5%E6%94%B6%E4%BB%80%E4%B9%88">3.3.14. 耦合的强度 3 - 应该对外提供什么和接收什么</a></li>
-<li><a href="#3315-%E6%9B%B4%E7%AE%80%E5%8D%95%E4%B8%80%E7%82%B9">3.3.15. 更简单一点</a></li>
-<li><a href="#3316-%E7%BB%93%E6%9E%84%E5%8C%96%E6%96%B9%E6%B3%95%E4%B8%AD%E7%9A%84%E8%80%A6%E5%90%88%E5%BA%A6">3.3.16. 结构化方法中的耦合度</a></li>
+<li><a href="#331-%E6%A8%A1%E5%9D%97%E5%8C%96">3.3.1. &#x6A21;&#x5757;&#x5316;</a></li>
+<li><a href="#332-%E6%A8%A1%E5%9D%97%E4%B9%8B%E9%97%B4">3.3.2. &#x6A21;&#x5757;&#x4E4B;&#x95F4;</a></li>
+<li><a href="#333-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9A%84%E8%80%A6%E5%90%88">3.3.3. &#x7ED3;&#x6784;&#x5316;&#x7684;&#x8026;&#x5408;</a></li>
+<li><a href="#334-%E8%80%A6%E5%90%88%E7%9A%84%E5%BC%BA%E5%BA%A6-1---%E8%BF%9E%E6%8E%A5%E6%9C%89%E5%A4%9A%E5%A4%8D%E6%9D%82">3.3.4. &#x8026;&#x5408;&#x7684;&#x5F3A;&#x5EA6; 1 - &#x8FDE;&#x63A5;&#x6709;&#x591A;&#x590D;&#x6742;</a></li>
+<li><a href="#335-%E5%8E%9F%E5%88%99%E4%B8%80%E5%85%A8%E5%B1%80%E5%8F%98%E9%87%8F%E6%98%AF%E8%A2%AB%E8%AE%A4%E4%B8%BA%E6%98%AF%E6%9C%89%E5%AE%B3%E7%9A%84">3.3.5. &#x539F;&#x5219;&#x4E00;:&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x662F;&#x88AB;&#x8BA4;&#x4E3A;&#x662F;&#x6709;&#x5BB3;&#x7684;</a></li>
+<li><a href="#336-%E8%BF%9E%E6%8E%A5%E5%88%B0%E5%85%A8%E5%B1%80%E7%8E%AF%E5%A2%83">3.3.6. &#x8FDE;&#x63A5;&#x5230;&#x5168;&#x5C40;&#x73AF;&#x5883;</a></li>
+<li><a href="#337-%E5%B8%B8%E8%A7%81%E7%8E%AF%E5%A2%83%E7%9A%84%E7%BC%BA%E9%99%B7">3.3.7. &#x5E38;&#x89C1;&#x73AF;&#x5883;&#x7684;&#x7F3A;&#x9677;</a></li>
+<li><a href="#338-%E5%8E%9F%E5%88%99%E4%BA%8C%E5%A6%82%E6%9E%9C%E6%B2%A1%E6%9C%89%E7%89%B9%E6%AE%8A%E8%A6%81%E6%B1%82%E8%AE%A9%E4%BB%A3%E7%A0%81%E6%B8%85%E6%99%B0%E4%B8%80%E7%82%B9">3.3.8. &#x539F;&#x5219;&#x4E8C;&#xFF1A;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x7279;&#x6B8A;&#x8981;&#x6C42;&#xFF0C;&#x8BA9;&#x4EE3;&#x7801;&#x6E05;&#x6670;&#x4E00;&#x70B9;</a></li>
+<li><a href="#339-%E6%98%8E%E7%A1%AE%E7%9A%84%E5%92%8C%E5%8F%AF%E4%BF%AE%E6%94%B9%E7%9A%84">3.3.9. &#x660E;&#x786E;&#x7684;&#x548C;&#x53EF;&#x4FEE;&#x6539;&#x7684;</a></li>
+<li><a href="#3310-%E5%8E%9F%E5%88%99%E4%B8%89%E4%B8%8D%E8%A6%81%E9%87%8D%E5%A4%8D">3.3.10. &#x539F;&#x5219;&#x4E09;&#xFF1A;&#x4E0D;&#x8981;&#x91CD;&#x590D;</a></li>
+<li><a href="#3311-%E8%80%A6%E5%90%88%E7%9A%84%E5%BC%BA%E5%BA%A6-2---%E8%BF%9E%E6%8E%A5%E6%98%AF%E6%8C%87%E6%A8%A1%E5%9D%97%E6%9C%AC%E8%BA%AB%E8%BF%98%E6%98%AF%E6%A8%A1%E5%9D%97%E5%86%85%E9%83%A8%E7%9A%84%E4%B8%9C%E8%A5%BF">3.3.11. &#x8026;&#x5408;&#x7684;&#x5F3A;&#x5EA6; 2 - &#x8FDE;&#x63A5;&#x662F;&#x6307;&#x6A21;&#x5757;&#x672C;&#x8EAB;&#x8FD8;&#x662F;&#x6A21;&#x5757;&#x5185;&#x90E8;&#x7684;&#x4E1C;&#x897F;</a></li>
+<li><a href="#3312-%E5%8E%9F%E5%88%99%E5%9B%9B%E9%9D%A2%E5%90%91%E6%8E%A5%E5%8F%A3%E7%BC%96%E7%A8%8B">3.3.12. &#x539F;&#x5219;&#x56DB;&#xFF1A;&#x9762;&#x5411;&#x63A5;&#x53E3;&#x7F16;&#x7A0B;</a></li>
+<li><a href="#3313-%E7%BB%93%E6%9E%84%E8%89%AF%E5%A5%BD%E7%9A%84%E7%B3%BB%E7%BB%9F">3.3.13. &#x7ED3;&#x6784;&#x826F;&#x597D;&#x7684;&#x7CFB;&#x7EDF;</a></li>
+<li><a href="#3314-%E8%80%A6%E5%90%88%E7%9A%84%E5%BC%BA%E5%BA%A6-3---%E5%BA%94%E8%AF%A5%E5%AF%B9%E5%A4%96%E6%8F%90%E4%BE%9B%E4%BB%80%E4%B9%88%E5%92%8C%E6%8E%A5%E6%94%B6%E4%BB%80%E4%B9%88">3.3.14. &#x8026;&#x5408;&#x7684;&#x5F3A;&#x5EA6; 3 - &#x5E94;&#x8BE5;&#x5BF9;&#x5916;&#x63D0;&#x4F9B;&#x4EC0;&#x4E48;&#x548C;&#x63A5;&#x6536;&#x4EC0;&#x4E48;</a></li>
+<li><a href="#3315-%E6%9B%B4%E7%AE%80%E5%8D%95%E4%B8%80%E7%82%B9">3.3.15. &#x66F4;&#x7B80;&#x5355;&#x4E00;&#x70B9;</a></li>
+<li><a href="#3316-%E7%BB%93%E6%9E%84%E5%8C%96%E6%96%B9%E6%B3%95%E4%B8%AD%E7%9A%84%E8%80%A6%E5%90%88%E5%BA%A6">3.3.16. &#x7ED3;&#x6784;&#x5316;&#x65B9;&#x6CD5;&#x4E2D;&#x7684;&#x8026;&#x5408;&#x5EA6;</a></li>
 </ul>
 </li>
-<li><a href="#34-%E7%BB%93%E6%9E%84%E5%8C%96%E8%AE%BE%E8%AE%A1%E4%B8%AD%E7%9A%84%E5%86%85%E8%81%9A">3.4. 结构化设计中的内聚</a>
+<li><a href="#34-%E7%BB%93%E6%9E%84%E5%8C%96%E8%AE%BE%E8%AE%A1%E4%B8%AD%E7%9A%84%E5%86%85%E8%81%9A">3.4. &#x7ED3;&#x6784;&#x5316;&#x8BBE;&#x8BA1;&#x4E2D;&#x7684;&#x5185;&#x805A;</a>
 <ul>
-<li><a href="#341-%E5%86%85%E8%81%9A">3.4.1. 内聚</a></li>
-<li><a href="#342-%E5%86%85%E8%81%9A%E5%BA%A6%E7%BB%91%E5%AE%9A%E7%B1%BB%E5%9E%8B">3.4.2. 内聚度(绑定类型)</a></li>
+<li><a href="#341-%E5%86%85%E8%81%9A">3.4.1. &#x5185;&#x805A;</a></li>
+<li><a href="#342-%E5%86%85%E8%81%9A%E5%BA%A6%E7%BB%91%E5%AE%9A%E7%B1%BB%E5%9E%8B">3.4.2. &#x5185;&#x805A;&#x5EA6;(&#x7ED1;&#x5B9A;&#x7C7B;&#x578B;)</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#4-kwic%E6%A1%88%E4%BE%8B">4. KWIC案例</a>
+<li><a href="#4-kwic%E6%A1%88%E4%BE%8B">4. KWIC&#x6848;&#x4F8B;</a>
 <ul>
 <li><a href="#41-kwic">4.1. KWIC</a></li>
-<li><a href="#42-kwic%E6%9D%A5%E5%AE%9E%E7%8E%B0%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%A8%A1%E5%9D%97%E5%8C%96">4.2. KWIC来实现系统的模块化</a></li>
-<li><a href="#43-%E6%A0%B9%E6%8D%AE%E5%8A%9F%E8%83%BD%E8%BF%9B%E8%A1%8C%E8%AE%BE%E8%AE%A1">4.3. 根据功能进行设计</a></li>
-<li><a href="#44-%E5%BE%AA%E7%8E%AF%E4%BD%8D%E7%A7%BB%E7%AE%97%E6%B3%95%E7%9A%84%E5%AE%9E%E7%8E%B0">4.4. 循环位移算法的实现</a></li>
-<li><a href="#45-%E4%BF%A1%E6%81%AF%E9%9A%90%E8%97%8F">4.5. 信息隐藏</a></li>
-<li><a href="#46-%E6%A0%B9%E6%8D%AE%E8%AE%BE%E8%AE%A1%E5%86%B3%E7%AD%96%E8%BF%9B%E8%A1%8C%E8%AE%BE%E8%AE%A1">4.6. 根据设计决策进行设计</a></li>
-<li><a href="#47-circularshifter%E7%9A%84%E5%AE%9A%E4%B9%89">4.7. CircularShifter的定义</a></li>
-<li><a href="#48-%E5%88%86%E8%A7%A3%E6%A0%87%E5%87%86">4.8. 分解标准</a></li>
-<li><a href="#49-%E5%8F%AF%E4%BF%AE%E6%94%B9%E6%80%A7%E6%AF%94%E8%BE%83">4.9. 可修改性比较</a></li>
-<li><a href="#410-%E7%8B%AC%E7%AB%8B%E7%9A%84%E5%8F%91%E5%B1%95">4.10. 独立的发展</a></li>
-<li><a href="#411-%E5%8F%AF%E7%90%86%E8%A7%A3%E6%80%A7">4.11. 可理解性</a></li>
-<li><a href="#412-%E6%A8%A1%E5%9D%97%E5%8C%96">4.12. 模块化</a></li>
-<li><a href="#413-%E7%BB%93%E8%AE%BA">4.13. 结论</a></li>
+<li><a href="#42-kwic%E6%9D%A5%E5%AE%9E%E7%8E%B0%E7%B3%BB%E7%BB%9F%E7%9A%84%E6%A8%A1%E5%9D%97%E5%8C%96">4.2. KWIC&#x6765;&#x5B9E;&#x73B0;&#x7CFB;&#x7EDF;&#x7684;&#x6A21;&#x5757;&#x5316;</a></li>
+<li><a href="#43-%E6%A0%B9%E6%8D%AE%E5%8A%9F%E8%83%BD%E8%BF%9B%E8%A1%8C%E8%AE%BE%E8%AE%A1">4.3. &#x6839;&#x636E;&#x529F;&#x80FD;&#x8FDB;&#x884C;&#x8BBE;&#x8BA1;</a></li>
+<li><a href="#44-%E5%BE%AA%E7%8E%AF%E4%BD%8D%E7%A7%BB%E7%AE%97%E6%B3%95%E7%9A%84%E5%AE%9E%E7%8E%B0">4.4. &#x5FAA;&#x73AF;&#x4F4D;&#x79FB;&#x7B97;&#x6CD5;&#x7684;&#x5B9E;&#x73B0;</a></li>
+<li><a href="#45-%E4%BF%A1%E6%81%AF%E9%9A%90%E8%97%8F">4.5. &#x4FE1;&#x606F;&#x9690;&#x85CF;</a></li>
+<li><a href="#46-%E6%A0%B9%E6%8D%AE%E8%AE%BE%E8%AE%A1%E5%86%B3%E7%AD%96%E8%BF%9B%E8%A1%8C%E8%AE%BE%E8%AE%A1">4.6. &#x6839;&#x636E;&#x8BBE;&#x8BA1;&#x51B3;&#x7B56;&#x8FDB;&#x884C;&#x8BBE;&#x8BA1;</a></li>
+<li><a href="#47-circularshifter%E7%9A%84%E5%AE%9A%E4%B9%89">4.7. CircularShifter&#x7684;&#x5B9A;&#x4E49;</a></li>
+<li><a href="#48-%E5%88%86%E8%A7%A3%E6%A0%87%E5%87%86">4.8. &#x5206;&#x89E3;&#x6807;&#x51C6;</a></li>
+<li><a href="#49-%E5%8F%AF%E4%BF%AE%E6%94%B9%E6%80%A7%E6%AF%94%E8%BE%83">4.9. &#x53EF;&#x4FEE;&#x6539;&#x6027;&#x6BD4;&#x8F83;</a></li>
+<li><a href="#410-%E7%8B%AC%E7%AB%8B%E7%9A%84%E5%8F%91%E5%B1%95">4.10. &#x72EC;&#x7ACB;&#x7684;&#x53D1;&#x5C55;</a></li>
+<li><a href="#411-%E5%8F%AF%E7%90%86%E8%A7%A3%E6%80%A7">4.11. &#x53EF;&#x7406;&#x89E3;&#x6027;</a></li>
+<li><a href="#412-%E6%A8%A1%E5%9D%97%E5%8C%96">4.12. &#x6A21;&#x5757;&#x5316;</a></li>
+<li><a href="#413-%E7%BB%93%E8%AE%BA">4.13. &#x7ED3;&#x8BBA;</a></li>
 </ul>
 </li>
-<li><a href="#5-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9A%84%E6%A8%A1%E5%9D%97%E5%8C%96">5. 结构化的模块化</a></li>
-<li><a href="#6-mscs%E4%B8%AD%E7%9A%84%E6%A8%A1%E5%9D%97%E6%80%9D%E6%83%B3%E7%9A%84%E5%BA%94%E7%94%A8">6. MSCS中的模块思想的应用</a>
+<li><a href="#5-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9A%84%E6%A8%A1%E5%9D%97%E5%8C%96">5. &#x7ED3;&#x6784;&#x5316;&#x7684;&#x6A21;&#x5757;&#x5316;</a></li>
+<li><a href="#6-mscs%E4%B8%AD%E7%9A%84%E6%A8%A1%E5%9D%97%E6%80%9D%E6%83%B3%E7%9A%84%E5%BA%94%E7%94%A8">6. MSCS&#x4E2D;&#x7684;&#x6A21;&#x5757;&#x601D;&#x60F3;&#x7684;&#x5E94;&#x7528;</a>
 <ul>
-<li><a href="#61-%E4%BD%8E%E8%80%A6%E5%90%88%E5%A4%84%E7%90%86">6.1. 低耦合处理</a></li>
-<li><a href="#62-%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E7%9A%84%E7%89%A9%E7%90%86%E5%8C%85%E8%AE%BE%E8%AE%A1%E4%B8%AD">6.2. 软件体系结构的物理包设计中</a></li>
-<li><a href="#63-%E8%AF%A6%E7%BB%86%E8%AE%BE%E8%AE%A1%E4%B8%AD%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA%E8%80%85%E7%9A%84%E9%80%89%E6%8B%A9">6.3. 详细设计中对象创建者的选择:</a></li>
-<li><a href="#64-%E8%AF%A6%E7%BB%86%E8%AE%BE%E8%AE%A1%E4%B8%AD%E9%80%89%E6%8B%A9%E6%8E%A7%E5%88%B6%E6%A0%BC">6.4. 详细设计中选择控制⻛格:</a></li>
-<li><a href="#65-%E9%AB%98%E5%86%85%E8%81%9A%E5%A4%84%E7%90%86">6.5. 高内聚处理</a></li>
+<li><a href="#61-%E4%BD%8E%E8%80%A6%E5%90%88%E5%A4%84%E7%90%86">6.1. &#x4F4E;&#x8026;&#x5408;&#x5904;&#x7406;</a></li>
+<li><a href="#62-%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E7%9A%84%E7%89%A9%E7%90%86%E5%8C%85%E8%AE%BE%E8%AE%A1%E4%B8%AD">6.2. &#x8F6F;&#x4EF6;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x7684;&#x7269;&#x7406;&#x5305;&#x8BBE;&#x8BA1;&#x4E2D;</a></li>
+<li><a href="#63-%E8%AF%A6%E7%BB%86%E8%AE%BE%E8%AE%A1%E4%B8%AD%E5%AF%B9%E8%B1%A1%E5%88%9B%E5%BB%BA%E8%80%85%E7%9A%84%E9%80%89%E6%8B%A9">6.3. &#x8BE6;&#x7EC6;&#x8BBE;&#x8BA1;&#x4E2D;&#x5BF9;&#x8C61;&#x521B;&#x5EFA;&#x8005;&#x7684;&#x9009;&#x62E9;:</a></li>
+<li><a href="#64-%E8%AF%A6%E7%BB%86%E8%AE%BE%E8%AE%A1%E4%B8%AD%E9%80%89%E6%8B%A9%E6%8E%A7%E5%88%B6%E6%A0%BC">6.4. &#x8BE6;&#x7EC6;&#x8BBE;&#x8BA1;&#x4E2D;&#x9009;&#x62E9;&#x63A7;&#x5236;&#x2EDB;&#x683C;:</a></li>
+<li><a href="#65-%E9%AB%98%E5%86%85%E8%81%9A%E5%A4%84%E7%90%86">6.5. &#x9AD8;&#x5185;&#x805A;&#x5904;&#x7406;</a></li>
 </ul>
 </li>
-<li><a href="#7-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9A%84%E4%BF%A1%E6%81%AF%E9%9A%90%E8%97%8F">7. 结构化的信息隐藏</a>
+<li><a href="#7-%E7%BB%93%E6%9E%84%E5%8C%96%E7%9A%84%E4%BF%A1%E6%81%AF%E9%9A%90%E8%97%8F">7. &#x7ED3;&#x6784;&#x5316;&#x7684;&#x4FE1;&#x606F;&#x9690;&#x85CF;</a>
 <ul>
-<li><a href="#71-information-%E4%BF%A1%E6%81%AF">7.1. Information 信息</a>
+<li><a href="#71-information-%E4%BF%A1%E6%81%AF">7.1. Information &#x4FE1;&#x606F;</a>
 <ul>
-<li><a href="#711-%E6%9C%80%E6%9C%89%E5%8F%AF%E8%83%BD%E4%BF%AE%E6%94%B9%E7%9A%84%E8%AE%BE%E8%AE%A1%E9%A2%86%E5%9F%9F">7.1.1. 最有可能修改的设计领域</a></li>
+<li><a href="#711-%E6%9C%80%E6%9C%89%E5%8F%AF%E8%83%BD%E4%BF%AE%E6%94%B9%E7%9A%84%E8%AE%BE%E8%AE%A1%E9%A2%86%E5%9F%9F">7.1.1. &#x6700;&#x6709;&#x53EF;&#x80FD;&#x4FEE;&#x6539;&#x7684;&#x8BBE;&#x8BA1;&#x9886;&#x57DF;</a></li>
 </ul>
 </li>
-<li><a href="#72-%E9%9A%90%E8%97%8F">7.2. 隐藏</a></li>
-<li><a href="#73-%E4%BF%A1%E6%81%AF%E9%9A%90%E8%97%8F">7.3. 信息隐藏</a>
+<li><a href="#72-%E9%9A%90%E8%97%8F">7.2. &#x9690;&#x85CF;</a></li>
+<li><a href="#73-%E4%BF%A1%E6%81%AF%E9%9A%90%E8%97%8F">7.3. &#x4FE1;&#x606F;&#x9690;&#x85CF;</a>
 <ul>
-<li><a href="#731-%E6%8E%A5%E5%8F%A3%E4%B8%8E%E5%AE%9E%E7%8E%B0">7.3.1. 接口与实现</a></li>
-<li><a href="#732-%E4%BB%80%E4%B9%88%E6%98%AF%E6%8E%A5%E5%8F%A3">7.3.2. 什么是接口</a></li>
-<li><a href="#733-%E8%BF%9B%E4%B8%80%E6%AD%A5%E5%8E%9F%E5%88%99">7.3.3. 进一步原则</a></li>
-<li><a href="#734-%E8%80%A6%E5%90%88%E4%B8%8E%E5%86%85%E8%81%9A">7.3.4. 耦合与内聚</a></li>
+<li><a href="#731-%E6%8E%A5%E5%8F%A3%E4%B8%8E%E5%AE%9E%E7%8E%B0">7.3.1. &#x63A5;&#x53E3;&#x4E0E;&#x5B9E;&#x73B0;</a></li>
+<li><a href="#732-%E4%BB%80%E4%B9%88%E6%98%AF%E6%8E%A5%E5%8F%A3">7.3.2. &#x4EC0;&#x4E48;&#x662F;&#x63A5;&#x53E3;</a></li>
+<li><a href="#733-%E8%BF%9B%E4%B8%80%E6%AD%A5%E5%8E%9F%E5%88%99">7.3.3. &#x8FDB;&#x4E00;&#x6B65;&#x539F;&#x5219;</a></li>
+<li><a href="#734-%E8%80%A6%E5%90%88%E4%B8%8E%E5%86%85%E8%81%9A">7.3.4. &#x8026;&#x5408;&#x4E0E;&#x5185;&#x805A;</a></li>
 </ul>
 </li>
 <li><a href="#74-module-guide">7.4. Module Guide</a>
 <ul>
-<li><a href="#741-%E6%A8%A1%E5%9D%97%E7%9A%84%E4%B8%BB%E8%A6%81%E7%A7%98%E5%AF%86">7.4.1. 模块的主要秘密</a></li>
-<li><a href="#742-%E6%A8%A1%E5%9D%97%E7%9A%84%E6%AC%A1%E8%A6%81%E7%A7%98%E5%AF%86">7.4.2. 模块的次要秘密</a></li>
-<li><a href="#743-%E6%A8%A1%E5%9D%97%E7%9A%84%E8%A7%92%E8%89%B2">7.4.3. 模块的角色</a></li>
-<li><a href="#744-%E6%A8%A1%E5%9D%97%E7%9A%84%E5%AF%B9%E5%A4%96%E6%8E%A5">7.4.4. 模块的对外接⼝</a></li>
-<li><a href="#745-%E5%BE%AA%E7%8E%AF%E4%BD%8D%E7%A7%BB%E6%A8%A1%E5%9D%97%E7%9A%84%E6%A8%A1%E5%9D%97%E8%AF%B4%E6%98%8E">7.4.5. 循环位移模块的模块说明</a></li>
-<li><a href="#746-%E5%A4%8D%E6%9D%82%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%BF%AB%E9%80%9F%E7%A4%BA%E4%BE%8B">7.4.6. 复杂系统的快速示例</a></li>
-<li><a href="#747-parnass-experience">7.4.7. Parnas’s Experience</a></li>
+<li><a href="#741-%E6%A8%A1%E5%9D%97%E7%9A%84%E4%B8%BB%E8%A6%81%E7%A7%98%E5%AF%86">7.4.1. &#x6A21;&#x5757;&#x7684;&#x4E3B;&#x8981;&#x79D8;&#x5BC6;</a></li>
+<li><a href="#742-%E6%A8%A1%E5%9D%97%E7%9A%84%E6%AC%A1%E8%A6%81%E7%A7%98%E5%AF%86">7.4.2. &#x6A21;&#x5757;&#x7684;&#x6B21;&#x8981;&#x79D8;&#x5BC6;</a></li>
+<li><a href="#743-%E6%A8%A1%E5%9D%97%E7%9A%84%E8%A7%92%E8%89%B2">7.4.3. &#x6A21;&#x5757;&#x7684;&#x89D2;&#x8272;</a></li>
+<li><a href="#744-%E6%A8%A1%E5%9D%97%E7%9A%84%E5%AF%B9%E5%A4%96%E6%8E%A5">7.4.4. &#x6A21;&#x5757;&#x7684;&#x5BF9;&#x5916;&#x63A5;&#x2F1D;</a></li>
+<li><a href="#745-%E5%BE%AA%E7%8E%AF%E4%BD%8D%E7%A7%BB%E6%A8%A1%E5%9D%97%E7%9A%84%E6%A8%A1%E5%9D%97%E8%AF%B4%E6%98%8E">7.4.5. &#x5FAA;&#x73AF;&#x4F4D;&#x79FB;&#x6A21;&#x5757;&#x7684;&#x6A21;&#x5757;&#x8BF4;&#x660E;</a></li>
+<li><a href="#746-%E5%A4%8D%E6%9D%82%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%BF%AB%E9%80%9F%E7%A4%BA%E4%BE%8B">7.4.6. &#x590D;&#x6742;&#x7CFB;&#x7EDF;&#x7684;&#x5FEB;&#x901F;&#x793A;&#x4F8B;</a></li>
+<li><a href="#747-parnass-experience">7.4.7. Parnas&#x2019;s Experience</a></li>
 </ul>
 </li>
-<li><a href="#75-%E6%80%9D%E6%83%B3%E7%9A%84%E5%BA%94%E7%94%A8%E4%BF%A1%E6%81%AF%E9%9A%90%E8%97%8F%E5%A4%84%E7%90%86">7.5. 思想的应用(信息隐藏处理)</a>
+<li><a href="#75-%E6%80%9D%E6%83%B3%E7%9A%84%E5%BA%94%E7%94%A8%E4%BF%A1%E6%81%AF%E9%9A%90%E8%97%8F%E5%A4%84%E7%90%86">7.5. &#x601D;&#x60F3;&#x7684;&#x5E94;&#x7528;(&#x4FE1;&#x606F;&#x9690;&#x85CF;&#x5904;&#x7406;)</a>
 <ul>
-<li><a href="#751-%E5%9C%A8%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%88%86%E5%B1%82%E8%AE%BE%E8%AE%A1%E4%B8%AD">7.5.1. 在软件体系结构设计的分层设计中:</a></li>
-<li><a href="#752-%E5%9C%A8%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1%E7%9A%84%E7%89%A9%E7%90%86%E5%8C%85%E8%AE%BE%E8%AE%A1%E4%B8%AD">7.5.2. 在软件体系结构设计的物理包设计中:</a></li>
-<li><a href="#753-%E5%9C%A8%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1%E7%9A%84%E7%89%A9%E7%90%86%E5%8C%85%E8%AE%BE%E8%AE%A1%E4%B8%AD">7.5.3. 在软件体系结构设计的物理包设计中:</a></li>
-<li><a href="#754-%E5%9C%A8%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E8%AF%A6%E7%BB%86%E8%AE%BE%E8%AE%A1%E4%B8%AD">7.5.4. 在软件体系结构设计与详细设计中:</a></li>
-<li><a href="#755-%E5%9C%A8%E8%AF%A6%E7%BB%86%E8%AE%BE%E8%AE%A1%E4%B8%AD%E4%BD%BF%E7%94%A8%E6%8E%A7%E5%88%B6%E9%A3%8E%E6%A0%BC">7.5.5. 在详细设计中使用控制风格:</a></li>
+<li><a href="#751-%E5%9C%A8%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1%E7%9A%84%E5%88%86%E5%B1%82%E8%AE%BE%E8%AE%A1%E4%B8%AD">7.5.1. &#x5728;&#x8F6F;&#x4EF6;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x8BBE;&#x8BA1;&#x7684;&#x5206;&#x5C42;&#x8BBE;&#x8BA1;&#x4E2D;:</a></li>
+<li><a href="#752-%E5%9C%A8%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1%E7%9A%84%E7%89%A9%E7%90%86%E5%8C%85%E8%AE%BE%E8%AE%A1%E4%B8%AD">7.5.2. &#x5728;&#x8F6F;&#x4EF6;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x8BBE;&#x8BA1;&#x7684;&#x7269;&#x7406;&#x5305;&#x8BBE;&#x8BA1;&#x4E2D;:</a></li>
+<li><a href="#753-%E5%9C%A8%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1%E7%9A%84%E7%89%A9%E7%90%86%E5%8C%85%E8%AE%BE%E8%AE%A1%E4%B8%AD">7.5.3. &#x5728;&#x8F6F;&#x4EF6;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x8BBE;&#x8BA1;&#x7684;&#x7269;&#x7406;&#x5305;&#x8BBE;&#x8BA1;&#x4E2D;:</a></li>
+<li><a href="#754-%E5%9C%A8%E8%BD%AF%E4%BB%B6%E4%BD%93%E7%B3%BB%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1%E4%B8%8E%E8%AF%A6%E7%BB%86%E8%AE%BE%E8%AE%A1%E4%B8%AD">7.5.4. &#x5728;&#x8F6F;&#x4EF6;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x8BBE;&#x8BA1;&#x4E0E;&#x8BE6;&#x7EC6;&#x8BBE;&#x8BA1;&#x4E2D;:</a></li>
+<li><a href="#755-%E5%9C%A8%E8%AF%A6%E7%BB%86%E8%AE%BE%E8%AE%A1%E4%B8%AD%E4%BD%BF%E7%94%A8%E6%8E%A7%E5%88%B6%E9%A3%8E%E6%A0%BC">7.5.5. &#x5728;&#x8BE6;&#x7EC6;&#x8BBE;&#x8BA1;&#x4E2D;&#x4F7F;&#x7528;&#x63A7;&#x5236;&#x98CE;&#x683C;:</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#8-%E5%86%85%E8%81%9A%E7%9A%84%E4%BE%8B%E5%AD%90">8. 内聚的例子</a>
+<li><a href="#8-%E5%86%85%E8%81%9A%E7%9A%84%E4%BE%8B%E5%AD%90">8. &#x5185;&#x805A;&#x7684;&#x4F8B;&#x5B50;</a>
 <ul>
-<li><a href="#81-%E5%81%B6%E7%84%B6%E5%86%85%E8%81%9A">8.1. 偶然内聚</a></li>
-<li><a href="#82-%E9%80%BB%E8%BE%91%E5%86%85%E8%81%9A">8.2. 逻辑内聚</a></li>
-<li><a href="#83-%E6%97%B6%E9%97%B4%E5%86%85%E8%81%9A">8.3. 时间内聚</a></li>
-<li><a href="#84-%E8%BF%87%E7%A8%8B%E5%86%85%E8%81%9A">8.4. 过程内聚</a></li>
-<li><a href="#85-%E9%80%9A%E4%BF%A1%E5%86%85%E8%81%9A">8.5. 通信内聚</a></li>
-<li><a href="#86-%E5%8A%9F%E8%83%BD%E5%86%85%E8%81%9A">8.6. 功能内聚</a></li>
-<li><a href="#87-%E4%BF%A1%E6%81%AF%E5%86%85%E8%81%9A">8.7. 信息内聚</a></li>
+<li><a href="#81-%E5%81%B6%E7%84%B6%E5%86%85%E8%81%9A">8.1. &#x5076;&#x7136;&#x5185;&#x805A;</a></li>
+<li><a href="#82-%E9%80%BB%E8%BE%91%E5%86%85%E8%81%9A">8.2. &#x903B;&#x8F91;&#x5185;&#x805A;</a></li>
+<li><a href="#83-%E6%97%B6%E9%97%B4%E5%86%85%E8%81%9A">8.3. &#x65F6;&#x95F4;&#x5185;&#x805A;</a></li>
+<li><a href="#84-%E8%BF%87%E7%A8%8B%E5%86%85%E8%81%9A">8.4. &#x8FC7;&#x7A0B;&#x5185;&#x805A;</a></li>
+<li><a href="#85-%E9%80%9A%E4%BF%A1%E5%86%85%E8%81%9A">8.5. &#x901A;&#x4FE1;&#x5185;&#x805A;</a></li>
+<li><a href="#86-%E5%8A%9F%E8%83%BD%E5%86%85%E8%81%9A">8.6. &#x529F;&#x80FD;&#x5185;&#x805A;</a></li>
+<li><a href="#87-%E4%BF%A1%E6%81%AF%E5%86%85%E8%81%9A">8.7. &#x4FE1;&#x606F;&#x5185;&#x805A;</a></li>
 </ul>
 </li>
-<li><a href="#9-%E8%80%A6%E5%90%88%E7%9A%84%E4%BE%8B%E5%AD%90">9. 耦合的例子</a>
+<li><a href="#9-%E8%80%A6%E5%90%88%E7%9A%84%E4%BE%8B%E5%AD%90">9. &#x8026;&#x5408;&#x7684;&#x4F8B;&#x5B50;</a>
 <ul>
-<li><a href="#91-%E6%95%B0%E6%8D%AE%E8%80%A6%E5%90%88">9.1. 数据耦合</a></li>
-<li><a href="#92-%E5%8D%B0%E8%AE%B0%E8%80%A6%E5%90%88">9.2. 印记耦合</a></li>
-<li><a href="#93-%E6%8E%A7%E5%88%B6%E8%80%A6%E5%90%88">9.3. 控制耦合</a></li>
-<li><a href="#94-%E9%87%8D%E5%A4%8D%E8%80%A6%E5%90%88">9.4. 重复耦合</a></li>
-<li><a href="#95-%E5%85%AC%E5%85%B1%E8%80%A6%E5%90%88">9.5. 公共耦合</a></li>
-<li><a href="#96-%E5%86%85%E5%AE%B9%E8%80%A6%E5%90%88">9.6. 内容耦合</a></li>
+<li><a href="#91-%E6%95%B0%E6%8D%AE%E8%80%A6%E5%90%88">9.1. &#x6570;&#x636E;&#x8026;&#x5408;</a></li>
+<li><a href="#92-%E5%8D%B0%E8%AE%B0%E8%80%A6%E5%90%88">9.2. &#x5370;&#x8BB0;&#x8026;&#x5408;</a></li>
+<li><a href="#93-%E6%8E%A7%E5%88%B6%E8%80%A6%E5%90%88">9.3. &#x63A7;&#x5236;&#x8026;&#x5408;</a></li>
+<li><a href="#94-%E9%87%8D%E5%A4%8D%E8%80%A6%E5%90%88">9.4. &#x91CD;&#x590D;&#x8026;&#x5408;</a></li>
+<li><a href="#95-%E5%85%AC%E5%85%B1%E8%80%A6%E5%90%88">9.5. &#x516C;&#x5171;&#x8026;&#x5408;</a></li>
+<li><a href="#96-%E5%86%85%E5%AE%B9%E8%80%A6%E5%90%88">9.6. &#x5185;&#x5BB9;&#x8026;&#x5408;</a></li>
 </ul>
 </li>
-<li><a href="#10-kwic%E7%9A%84%E5%9B%9B%E7%A7%8D%E4%B8%8D%E5%90%8C%E5%AE%9E%E7%8E%B0">10. KWIC的四种不同实现</a>
+<li><a href="#10-kwic%E7%9A%84%E5%9B%9B%E7%A7%8D%E4%B8%8D%E5%90%8C%E5%AE%9E%E7%8E%B0">10. KWIC&#x7684;&#x56DB;&#x79CD;&#x4E0D;&#x540C;&#x5B9E;&#x73B0;</a>
 <ul>
-<li><a href="#101-%E4%B8%BB%E7%A8%8B%E5%BA%8F%E5%92%8C%E5%AD%90%E7%A8%8B%E5%BA%8Fms">10.1. 主程序和子程序(MS)</a></li>
-<li><a href="#102-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1oo">10.2. 面向对象(OO)</a></li>
+<li><a href="#101-%E4%B8%BB%E7%A8%8B%E5%BA%8F%E5%92%8C%E5%AD%90%E7%A8%8B%E5%BA%8Fms">10.1. &#x4E3B;&#x7A0B;&#x5E8F;&#x548C;&#x5B50;&#x7A0B;&#x5E8F;(MS)</a></li>
+<li><a href="#102-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1oo">10.2. &#x9762;&#x5411;&#x5BF9;&#x8C61;(OO)</a></li>
 <li><a href="#103-pipe-filter">10.3. Pipe Filter</a></li>
-<li><a href="#104-%E5%9F%BA%E4%BA%8E%E4%BA%8B%E4%BB%B6">10.4. 基于事件</a></li>
+<li><a href="#104-%E5%9F%BA%E4%BA%8E%E4%BA%8B%E4%BB%B6">10.4. &#x57FA;&#x4E8E;&#x4E8B;&#x4EF6;</a></li>
 </ul>
 </li>
 </ul>
 <!-- /TOC -->
 <h1>Outline</h1>
-<p><strong>不同的编程范式都可以谈模块化和信息隐藏</strong>，本节介绍结构化的模块化和信息隐藏，下两节介绍面向对象的模块化和信息隐藏。这也是历史的发展顺序</p>
-<h1>1. 内聚和耦合 概念(重要)</h1>
+<p><strong>&#x4E0D;&#x540C;&#x7684;&#x7F16;&#x7A0B;&#x8303;&#x5F0F;&#x90FD;&#x53EF;&#x4EE5;&#x8C08;&#x6A21;&#x5757;&#x5316;&#x548C;&#x4FE1;&#x606F;&#x9690;&#x85CF;</strong>&#xFF0C;&#x672C;&#x8282;&#x4ECB;&#x7ECD;&#x7ED3;&#x6784;&#x5316;&#x7684;&#x6A21;&#x5757;&#x5316;&#x548C;&#x4FE1;&#x606F;&#x9690;&#x85CF;&#xFF0C;&#x4E0B;&#x4E24;&#x8282;&#x4ECB;&#x7ECD;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7684;&#x6A21;&#x5757;&#x5316;&#x548C;&#x4FE1;&#x606F;&#x9690;&#x85CF;&#x3002;&#x8FD9;&#x4E5F;&#x662F;&#x5386;&#x53F2;&#x7684;&#x53D1;&#x5C55;&#x987A;&#x5E8F;</p>
+<h1>1. &#x5185;&#x805A;&#x548C;&#x8026;&#x5408; &#x6982;&#x5FF5;(&#x91CD;&#x8981;)</h1>
 <ol>
-<li>内聚：<strong>内聚表达的是一个模块内部的联系的紧密性</strong>：包括信息内聚、功能内聚、通信内聚、过程内聚、时间内聚、逻辑内聚和偶然内聚。</li>
+<li>&#x5185;&#x805A;&#xFF1A;<strong>&#x5185;&#x805A;&#x8868;&#x8FBE;&#x7684;&#x662F;&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#x5185;&#x90E8;&#x7684;&#x8054;&#x7CFB;&#x7684;&#x7D27;&#x5BC6;&#x6027;</strong>&#xFF1A;&#x5305;&#x62EC;&#x4FE1;&#x606F;&#x5185;&#x805A;&#x3001;&#x529F;&#x80FD;&#x5185;&#x805A;&#x3001;&#x901A;&#x4FE1;&#x5185;&#x805A;&#x3001;&#x8FC7;&#x7A0B;&#x5185;&#x805A;&#x3001;&#x65F6;&#x95F4;&#x5185;&#x805A;&#x3001;&#x903B;&#x8F91;&#x5185;&#x805A;&#x548C;&#x5076;&#x7136;&#x5185;&#x805A;&#x3002;</li>
 </ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Rous</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">findPattern</span><span class="params">(String text,String pattern)</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">average</span><span class="params">(Vector numbers)</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> OutputStream <span class="title function_">openFile</span><span class="params">(String fileName)</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Rous</span>{</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">findPattern</span><span class="params">(String text,String pattern)</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="type">int</span> <span class="title function_">average</span><span class="params">(Vector numbers)</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> OutputStream <span class="title function_">openFile</span><span class="params">(String fileName)</span></span><br><span class="line">}</span><br></pre></td></tr></table></figure>
 <ol start="2">
-<li>耦合：<strong>耦合描述的是两个模块之间关系的复杂程度</strong>：包括内容耦合，公共耦合，重复耦合，控制耦合，印记耦合，数据耦合</li>
+<li>&#x8026;&#x5408;&#xFF1A;<strong>&#x8026;&#x5408;&#x63CF;&#x8FF0;&#x7684;&#x662F;&#x4E24;&#x4E2A;&#x6A21;&#x5757;&#x4E4B;&#x95F4;&#x5173;&#x7CFB;&#x7684;&#x590D;&#x6742;&#x7A0B;&#x5EA6;</strong>&#xFF1A;&#x5305;&#x62EC;&#x5185;&#x5BB9;&#x8026;&#x5408;&#xFF0C;&#x516C;&#x5171;&#x8026;&#x5408;&#xFF0C;&#x91CD;&#x590D;&#x8026;&#x5408;&#xFF0C;&#x63A7;&#x5236;&#x8026;&#x5408;&#xFF0C;&#x5370;&#x8BB0;&#x8026;&#x5408;&#xFF0C;&#x6570;&#x636E;&#x8026;&#x5408;</li>
 </ol>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Employee</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> String name,emailID;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Emailer</span>&#123;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">sendEmail</span><span class="params">(Employee e,String text)</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h1>2. 模块化与信息隐藏思想</h1>
-<h2 id="2-1-设计好的软件">2.1. 设计好的软件</h2>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Employee</span>{</span><br><span class="line">    <span class="keyword">public</span> String name,emailID;</span><br><span class="line">}</span><br><span class="line"><span class="keyword">public</span> <span class="keyword">class</span> <span class="title class_">Emailer</span>{</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">void</span> <span class="title function_">sendEmail</span><span class="params">(Employee e,String text)</span></span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<h1>2. &#x6A21;&#x5757;&#x5316;&#x4E0E;&#x4FE1;&#x606F;&#x9690;&#x85CF;&#x601D;&#x60F3;</h1>
+<h2 id="2-1-&#x8BBE;&#x8BA1;&#x597D;&#x7684;&#x8F6F;&#x4EF6;">2.1. &#x8BBE;&#x8BA1;&#x597D;&#x7684;&#x8F6F;&#x4EF6;</h2>
 <ol>
-<li>什么是好的软件所具有的？</li>
+<li>&#x4EC0;&#x4E48;&#x662F;&#x597D;&#x7684;&#x8F6F;&#x4EF6;&#x6240;&#x5177;&#x6709;&#x7684;&#xFF1F;</li>
 </ol>
 <h3 id="2-1-1-Parnas-1972">2.1.1. Parnas 1972</h3>
 <blockquote>
-<p>首先，Parnas提出了信息隐蔽原则：在概要设计时列出将来可能发生变化的因素，并在模块划分时将这些因素放到个别模块的内部。这样，在将来由于这些因素变化而需修改软件时，只需修改这些个别的模块，其它模块不受影响。</p>
+<p>&#x9996;&#x5148;&#xFF0C;Parnas&#x63D0;&#x51FA;&#x4E86;&#x4FE1;&#x606F;&#x9690;&#x853D;&#x539F;&#x5219;&#xFF1A;&#x5728;&#x6982;&#x8981;&#x8BBE;&#x8BA1;&#x65F6;&#x5217;&#x51FA;&#x5C06;&#x6765;&#x53EF;&#x80FD;&#x53D1;&#x751F;&#x53D8;&#x5316;&#x7684;&#x56E0;&#x7D20;&#xFF0C;&#x5E76;&#x5728;&#x6A21;&#x5757;&#x5212;&#x5206;&#x65F6;&#x5C06;&#x8FD9;&#x4E9B;&#x56E0;&#x7D20;&#x653E;&#x5230;&#x4E2A;&#x522B;&#x6A21;&#x5757;&#x7684;&#x5185;&#x90E8;&#x3002;&#x8FD9;&#x6837;&#xFF0C;&#x5728;&#x5C06;&#x6765;&#x7531;&#x4E8E;&#x8FD9;&#x4E9B;&#x56E0;&#x7D20;&#x53D8;&#x5316;&#x800C;&#x9700;&#x4FEE;&#x6539;&#x8F6F;&#x4EF6;&#x65F6;&#xFF0C;&#x53EA;&#x9700;&#x4FEE;&#x6539;&#x8FD9;&#x4E9B;&#x4E2A;&#x522B;&#x7684;&#x6A21;&#x5757;&#xFF0C;&#x5176;&#x5B83;&#x6A21;&#x5757;&#x4E0D;&#x53D7;&#x5F71;&#x54CD;&#x3002;</p>
 </blockquote>
 <ol>
-<li>管理人员(可管理性)</li>
-<li>产品灵活性(灵活性)</li>
-<li>可理解性(可理解性)</li>
-<li><strong>特征</strong>
+<li>&#x7BA1;&#x7406;&#x4EBA;&#x5458;(&#x53EF;&#x7BA1;&#x7406;&#x6027;)</li>
+<li>&#x4EA7;&#x54C1;&#x7075;&#x6D3B;&#x6027;(&#x7075;&#x6D3B;&#x6027;)</li>
+<li>&#x53EF;&#x7406;&#x89E3;&#x6027;(&#x53EF;&#x7406;&#x89E3;&#x6027;)</li>
+<li><strong>&#x7279;&#x5F81;</strong>
 <ol>
-<li>允许编写一个模块，而<strong>几乎不了解另一个模块中的代码</strong></li>
-<li>允许在不重新组装整个系统的情况下重新组装和更换模块。</li>
+<li>&#x5141;&#x8BB8;&#x7F16;&#x5199;&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#xFF0C;&#x800C;<strong>&#x51E0;&#x4E4E;&#x4E0D;&#x4E86;&#x89E3;&#x53E6;&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#x4E2D;&#x7684;&#x4EE3;&#x7801;</strong></li>
+<li>&#x5141;&#x8BB8;&#x5728;&#x4E0D;&#x91CD;&#x65B0;&#x7EC4;&#x88C5;&#x6574;&#x4E2A;&#x7CFB;&#x7EDF;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x91CD;&#x65B0;&#x7EC4;&#x88C5;&#x548C;&#x66F4;&#x6362;&#x6A21;&#x5757;&#x3002;</li>
 </ol>
 </li>
 </ol>
 <h3 id="2-1-2-Stevens-1974">2.1.2. Stevens 1974</h3>
 <ol>
-<li><strong>简洁性</strong>(Simplicity)
+<li><strong>&#x7B80;&#x6D01;&#x6027;</strong>(Simplicity)
 <ol>
-<li>易于调试</li>
-<li>易于分解</li>
+<li>&#x6613;&#x4E8E;&#x8C03;&#x8BD5;</li>
+<li>&#x6613;&#x4E8E;&#x5206;&#x89E3;</li>
 </ol>
 </li>
-<li><strong>可观察性</strong>(Observability)
+<li><strong>&#x53EF;&#x89C2;&#x5BDF;&#x6027;</strong>(Observability)
 <ol>
-<li>易于修改</li>
+<li>&#x6613;&#x4E8E;&#x4FEE;&#x6539;</li>
 </ol>
 </li>
 </ol>
 <h3 id="2-1-3-Beohm-1976">2.1.3. Beohm 1976</h3>
 <ol>
-<li>可维护性</li>
-<li>可扩展性</li>
-<li>可理解性</li>
-<li>可重用性</li>
+<li>&#x53EF;&#x7EF4;&#x62A4;&#x6027;</li>
+<li>&#x53EF;&#x6269;&#x5C55;&#x6027;</li>
+<li>&#x53EF;&#x7406;&#x89E3;&#x6027;</li>
+<li>&#x53EF;&#x91CD;&#x7528;&#x6027;</li>
 </ol>
-<h2 id="2-2-动机">2.2. 动机</h2>
+<h2 id="2-2-&#x52A8;&#x673A;">2.2. &#x52A8;&#x673A;</h2>
 <ol>
-<li>模块化是关于<strong>如何将软件程序划分(分解)为不同模块的思想</strong></li>
-<li>信息隐藏是<strong>更多地从模块的外部(抽象)来进行思考</strong></li>
+<li>&#x6A21;&#x5757;&#x5316;&#x662F;&#x5173;&#x4E8E;<strong>&#x5982;&#x4F55;&#x5C06;&#x8F6F;&#x4EF6;&#x7A0B;&#x5E8F;&#x5212;&#x5206;(&#x5206;&#x89E3;)&#x4E3A;&#x4E0D;&#x540C;&#x6A21;&#x5757;&#x7684;&#x601D;&#x60F3;</strong></li>
+<li>&#x4FE1;&#x606F;&#x9690;&#x85CF;&#x662F;<strong>&#x66F4;&#x591A;&#x5730;&#x4ECE;&#x6A21;&#x5757;&#x7684;&#x5916;&#x90E8;(&#x62BD;&#x8C61;)&#x6765;&#x8FDB;&#x884C;&#x601D;&#x8003;</strong></li>
 </ol>
-<h2 id="2-3-模块化与信息隐藏思想的发展">2.3. 模块化与信息隐藏思想的发展</h2>
-<h3 id="2-3-1-背景">2.3.1. 背景</h3>
+<h2 id="2-3-&#x6A21;&#x5757;&#x5316;&#x4E0E;&#x4FE1;&#x606F;&#x9690;&#x85CF;&#x601D;&#x60F3;&#x7684;&#x53D1;&#x5C55;">2.3. &#x6A21;&#x5757;&#x5316;&#x4E0E;&#x4FE1;&#x606F;&#x9690;&#x85CF;&#x601D;&#x60F3;&#x7684;&#x53D1;&#x5C55;</h2>
+<h3 id="2-3-1-&#x80CC;&#x666F;">2.3.1. &#x80CC;&#x666F;</h3>
 <ol>
 <li>1960s
 <ol>
-<li>软件和硬件不同</li>
-<li>软件制作</li>
+<li>&#x8F6F;&#x4EF6;&#x548C;&#x786C;&#x4EF6;&#x4E0D;&#x540C;</li>
+<li>&#x8F6F;&#x4EF6;&#x5236;&#x4F5C;</li>
 </ol>
 </li>
 <li>1970s
 <ol>
-<li>软件是数据 + 算法</li>
-<li>瀑布模型</li>
-<li>形式化方法</li>
+<li>&#x8F6F;&#x4EF6;&#x662F;&#x6570;&#x636E; + &#x7B97;&#x6CD5;</li>
+<li>&#x7011;&#x5E03;&#x6A21;&#x578B;</li>
+<li>&#x5F62;&#x5F0F;&#x5316;&#x65B9;&#x6CD5;</li>
 </ol>
 </li>
 <li>1980s
 <ol>
-<li>重用</li>
-<li>对象</li>
-<li>人件 peopleware</li>
+<li>&#x91CD;&#x7528;</li>
+<li>&#x5BF9;&#x8C61;</li>
+<li>&#x4EBA;&#x4EF6; peopleware</li>
 </ol>
 </li>
 </ol>
-<h3 id="2-3-2-历史发展">2.3.2. 历史发展</h3>
+<h3 id="2-3-2-&#x5386;&#x53F2;&#x53D1;&#x5C55;">2.3.2. &#x5386;&#x53F2;&#x53D1;&#x5C55;</h3>
 <ol>
-<li>萌芽：Wirth1971; Parnas1972;</li>
-<li>形成：Stevens1974; Parnas1978; Parnas1985;</li>
-<li>发展 [从面向对象角度]：Eder1992; Hitz1995;</li>
-<li>反思：McConnell1996; Demarco2002</li>
+<li>&#x840C;&#x82BD;&#xFF1A;Wirth1971; Parnas1972;</li>
+<li>&#x5F62;&#x6210;&#xFF1A;Stevens1974; Parnas1978; Parnas1985;</li>
+<li>&#x53D1;&#x5C55; [&#x4ECE;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x89D2;&#x5EA6;]&#xFF1A;Eder1992; Hitz1995;</li>
+<li>&#x53CD;&#x601D;&#xFF1A;McConnell1996; Demarco2002</li>
 </ol>
-<h3 id="2-3-3-Wirth1971-萌芽">2.3.3. Wirth1971 - 萌芽</h3>
+<h3 id="2-3-3-Wirth1971-&#x840C;&#x82BD;">2.3.3. Wirth1971 - &#x840C;&#x82BD;</h3>
 <ol>
-<li>软件通过逐步求精发展</li>
-<li><strong>核心思想:逐步求精</strong> <em>Stepwise Refinement</em></li>
-<li>程序是在一系列优化步骤中逐步开发的
+<li>&#x8F6F;&#x4EF6;&#x901A;&#x8FC7;&#x9010;&#x6B65;&#x6C42;&#x7CBE;&#x53D1;&#x5C55;</li>
+<li><strong>&#x6838;&#x5FC3;&#x601D;&#x60F3;:&#x9010;&#x6B65;&#x6C42;&#x7CBE;</strong> <em>Stepwise Refinement</em></li>
+<li>&#x7A0B;&#x5E8F;&#x662F;&#x5728;&#x4E00;&#x7CFB;&#x5217;&#x4F18;&#x5316;&#x6B65;&#x9AA4;&#x4E2D;&#x9010;&#x6B65;&#x5F00;&#x53D1;&#x7684;
 <ol>
-<li>尽可能<strong>分解</strong>决策</li>
-<li><strong>解开</strong>看似相互依赖的方面</li>
-<li>尽可能<strong>推迟</strong>有关展示细节的决策</li>
-</ol>
-</li>
-<li>对程序和数据结构的描述的修饰应<strong>并行</strong>进行。</li>
-<li>以这种方式获得的模块化程度将决定程序可以适应目的变化或扩展或环境变化的难易程度。</li>
-<li>每个优化都基于一组设计标准隐含了许多设计决策。</li>
-<li>仔细编程并不是一件容易的事。</li>
-</ol>
-<h3 id="2-3-4-Parnas-1972-萌芽">2.3.4. Parnas 1972 - 萌芽</h3>
-<ol>
-<li>关于将系统分解为模块的标准</li>
-<li>什么是模块化？
-<ol>
-<li>模块：<strong>成为职责分配而不是子程序</strong></li>
-<li>模块化：包括在独立模块上的工作开始之前必须做出的设计决策(&quot;系统级&quot;决策)</li>
+<li>&#x5C3D;&#x53EF;&#x80FD;<strong>&#x5206;&#x89E3;</strong>&#x51B3;&#x7B56;</li>
+<li><strong>&#x89E3;&#x5F00;</strong>&#x770B;&#x4F3C;&#x76F8;&#x4E92;&#x4F9D;&#x8D56;&#x7684;&#x65B9;&#x9762;</li>
+<li>&#x5C3D;&#x53EF;&#x80FD;<strong>&#x63A8;&#x8FDF;</strong>&#x6709;&#x5173;&#x5C55;&#x793A;&#x7EC6;&#x8282;&#x7684;&#x51B3;&#x7B56;</li>
 </ol>
 </li>
-<li>分解标准
+<li>&#x5BF9;&#x7A0B;&#x5E8F;&#x548C;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x7684;&#x63CF;&#x8FF0;&#x7684;&#x4FEE;&#x9970;&#x5E94;<strong>&#x5E76;&#x884C;</strong>&#x8FDB;&#x884C;&#x3002;</li>
+<li>&#x4EE5;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x83B7;&#x5F97;&#x7684;&#x6A21;&#x5757;&#x5316;&#x7A0B;&#x5EA6;&#x5C06;&#x51B3;&#x5B9A;&#x7A0B;&#x5E8F;&#x53EF;&#x4EE5;&#x9002;&#x5E94;&#x76EE;&#x7684;&#x53D8;&#x5316;&#x6216;&#x6269;&#x5C55;&#x6216;&#x73AF;&#x5883;&#x53D8;&#x5316;&#x7684;&#x96BE;&#x6613;&#x7A0B;&#x5EA6;&#x3002;</li>
+<li>&#x6BCF;&#x4E2A;&#x4F18;&#x5316;&#x90FD;&#x57FA;&#x4E8E;&#x4E00;&#x7EC4;&#x8BBE;&#x8BA1;&#x6807;&#x51C6;&#x9690;&#x542B;&#x4E86;&#x8BB8;&#x591A;&#x8BBE;&#x8BA1;&#x51B3;&#x7B56;&#x3002;</li>
+<li>&#x4ED4;&#x7EC6;&#x7F16;&#x7A0B;&#x5E76;&#x4E0D;&#x662F;&#x4E00;&#x4EF6;&#x5BB9;&#x6613;&#x7684;&#x4E8B;&#x3002;</li>
+</ol>
+<h3 id="2-3-4-Parnas-1972-&#x840C;&#x82BD;">2.3.4. Parnas 1972 - &#x840C;&#x82BD;</h3>
 <ol>
-<li>信息隐藏</li>
-<li>分解中的每个模块都以其对设计决策的了解为特征，而对其他所有决策则都不了解。</li>
+<li>&#x5173;&#x4E8E;&#x5C06;&#x7CFB;&#x7EDF;&#x5206;&#x89E3;&#x4E3A;&#x6A21;&#x5757;&#x7684;&#x6807;&#x51C6;</li>
+<li>&#x4EC0;&#x4E48;&#x662F;&#x6A21;&#x5757;&#x5316;&#xFF1F;
+<ol>
+<li>&#x6A21;&#x5757;&#xFF1A;<strong>&#x6210;&#x4E3A;&#x804C;&#x8D23;&#x5206;&#x914D;&#x800C;&#x4E0D;&#x662F;&#x5B50;&#x7A0B;&#x5E8F;</strong></li>
+<li>&#x6A21;&#x5757;&#x5316;&#xFF1A;&#x5305;&#x62EC;&#x5728;&#x72EC;&#x7ACB;&#x6A21;&#x5757;&#x4E0A;&#x7684;&#x5DE5;&#x4F5C;&#x5F00;&#x59CB;&#x4E4B;&#x524D;&#x5FC5;&#x987B;&#x505A;&#x51FA;&#x7684;&#x8BBE;&#x8BA1;&#x51B3;&#x7B56;(&quot;&#x7CFB;&#x7EDF;&#x7EA7;&quot;&#x51B3;&#x7B56;)</li>
 </ol>
 </li>
-<li>层次结构
+<li>&#x5206;&#x89E3;&#x6807;&#x51C6;
 <ol>
-<li>如果可以在模块或程序之间定义某种关系</li>
-<li>该关系是偏序的</li>
-<li>我们关注的关系是&quot;使用&quot;或&quot;依赖&quot;</li>
+<li>&#x4FE1;&#x606F;&#x9690;&#x85CF;</li>
+<li>&#x5206;&#x89E3;&#x4E2D;&#x7684;&#x6BCF;&#x4E2A;&#x6A21;&#x5757;&#x90FD;&#x4EE5;&#x5176;&#x5BF9;&#x8BBE;&#x8BA1;&#x51B3;&#x7B56;&#x7684;&#x4E86;&#x89E3;&#x4E3A;&#x7279;&#x5F81;&#xFF0C;&#x800C;&#x5BF9;&#x5176;&#x4ED6;&#x6240;&#x6709;&#x51B3;&#x7B56;&#x5219;&#x90FD;&#x4E0D;&#x4E86;&#x89E3;&#x3002;</li>
 </ol>
 </li>
-<li>数据结构，其内部链接，访问过程和修改过程是单个模块的一部分(封装的思想)</li>
-<li>操作系统和类似程序的队列中使用的控制块格式必须在&quot;控制块模块&quot;中隐藏</li>
-</ol>
-<p><strong>在此之前都是想法，而不是方法，之后才提出了真正可以实施的方法</strong></p>
-<h3 id="2-3-5-Stevens-1974-形成">2.3.5. Stevens 1974 - 形成</h3>
+<li>&#x5C42;&#x6B21;&#x7ED3;&#x6784;
 <ol>
-<li>“Structured design” 结构化设计</li>
-<li>模块：一组一个或多个连续的程序语句，其名称具有系统其他部分可以调用的名称，并且最好具有其自己独特的变量名称集</li>
-<li>耦合：通过一个模块到另一个模块的连接建立的关联强度的度量</li>
-<li>内聚：巧合;逻辑;沟通;顺序;功能性</li>
-<li>模块的控制范围</li>
-<li>决策的效力范围</li>
-<li>当决策的影响范围在包含决策的模块的控制范围内时，系统会更简单</li>
+<li>&#x5982;&#x679C;&#x53EF;&#x4EE5;&#x5728;&#x6A21;&#x5757;&#x6216;&#x7A0B;&#x5E8F;&#x4E4B;&#x95F4;&#x5B9A;&#x4E49;&#x67D0;&#x79CD;&#x5173;&#x7CFB;</li>
+<li>&#x8BE5;&#x5173;&#x7CFB;&#x662F;&#x504F;&#x5E8F;&#x7684;</li>
+<li>&#x6211;&#x4EEC;&#x5173;&#x6CE8;&#x7684;&#x5173;&#x7CFB;&#x662F;&quot;&#x4F7F;&#x7528;&quot;&#x6216;&quot;&#x4F9D;&#x8D56;&quot;</li>
 </ol>
-<h3 id="2-3-6-Stevens-1974-Designing-the-structure-设计结构">2.3.6. Stevens 1974: Designing the structure 设计结构</h3>
+</li>
+<li>&#x6570;&#x636E;&#x7ED3;&#x6784;&#xFF0C;&#x5176;&#x5185;&#x90E8;&#x94FE;&#x63A5;&#xFF0C;&#x8BBF;&#x95EE;&#x8FC7;&#x7A0B;&#x548C;&#x4FEE;&#x6539;&#x8FC7;&#x7A0B;&#x662F;&#x5355;&#x4E2A;&#x6A21;&#x5757;&#x7684;&#x4E00;&#x90E8;&#x5206;(&#x5C01;&#x88C5;&#x7684;&#x601D;&#x60F3;)</li>
+<li>&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF;&#x548C;&#x7C7B;&#x4F3C;&#x7A0B;&#x5E8F;&#x7684;&#x961F;&#x5217;&#x4E2D;&#x4F7F;&#x7528;&#x7684;&#x63A7;&#x5236;&#x5757;&#x683C;&#x5F0F;&#x5FC5;&#x987B;&#x5728;&quot;&#x63A7;&#x5236;&#x5757;&#x6A21;&#x5757;&quot;&#x4E2D;&#x9690;&#x85CF;</li>
+</ol>
+<p><strong>&#x5728;&#x6B64;&#x4E4B;&#x524D;&#x90FD;&#x662F;&#x60F3;&#x6CD5;&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x65B9;&#x6CD5;&#xFF0C;&#x4E4B;&#x540E;&#x624D;&#x63D0;&#x51FA;&#x4E86;&#x771F;&#x6B63;&#x53EF;&#x4EE5;&#x5B9E;&#x65BD;&#x7684;&#x65B9;&#x6CD5;</strong></p>
+<h3 id="2-3-5-Stevens-1974-&#x5F62;&#x6210;">2.3.5. Stevens 1974 - &#x5F62;&#x6210;</h3>
+<ol>
+<li>&#x201C;Structured design&#x201D; &#x7ED3;&#x6784;&#x5316;&#x8BBE;&#x8BA1;</li>
+<li>&#x6A21;&#x5757;&#xFF1A;&#x4E00;&#x7EC4;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&#x8FDE;&#x7EED;&#x7684;&#x7A0B;&#x5E8F;&#x8BED;&#x53E5;&#xFF0C;&#x5176;&#x540D;&#x79F0;&#x5177;&#x6709;&#x7CFB;&#x7EDF;&#x5176;&#x4ED6;&#x90E8;&#x5206;&#x53EF;&#x4EE5;&#x8C03;&#x7528;&#x7684;&#x540D;&#x79F0;&#xFF0C;&#x5E76;&#x4E14;&#x6700;&#x597D;&#x5177;&#x6709;&#x5176;&#x81EA;&#x5DF1;&#x72EC;&#x7279;&#x7684;&#x53D8;&#x91CF;&#x540D;&#x79F0;&#x96C6;</li>
+<li>&#x8026;&#x5408;&#xFF1A;&#x901A;&#x8FC7;&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#x5230;&#x53E6;&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#x7684;&#x8FDE;&#x63A5;&#x5EFA;&#x7ACB;&#x7684;&#x5173;&#x8054;&#x5F3A;&#x5EA6;&#x7684;&#x5EA6;&#x91CF;</li>
+<li>&#x5185;&#x805A;&#xFF1A;&#x5DE7;&#x5408;;&#x903B;&#x8F91;;&#x6C9F;&#x901A;;&#x987A;&#x5E8F;;&#x529F;&#x80FD;&#x6027;</li>
+<li>&#x6A21;&#x5757;&#x7684;&#x63A7;&#x5236;&#x8303;&#x56F4;</li>
+<li>&#x51B3;&#x7B56;&#x7684;&#x6548;&#x529B;&#x8303;&#x56F4;</li>
+<li>&#x5F53;&#x51B3;&#x7B56;&#x7684;&#x5F71;&#x54CD;&#x8303;&#x56F4;&#x5728;&#x5305;&#x542B;&#x51B3;&#x7B56;&#x7684;&#x6A21;&#x5757;&#x7684;&#x63A7;&#x5236;&#x8303;&#x56F4;&#x5185;&#x65F6;&#xFF0C;&#x7CFB;&#x7EDF;&#x4F1A;&#x66F4;&#x7B80;&#x5355;</li>
+</ol>
+<h3 id="2-3-6-Stevens-1974-Designing-the-structure-&#x8BBE;&#x8BA1;&#x7ED3;&#x6784;">2.3.6. Stevens 1974: Designing the structure &#x8BBE;&#x8BA1;&#x7ED3;&#x6784;</h3>
 <ul>
-<li>步骤1：勾画出问题的功能图</li>
+<li>&#x6B65;&#x9AA4;1&#xFF1A;&#x52FE;&#x753B;&#x51FA;&#x95EE;&#x9898;&#x7684;&#x529F;&#x80FD;&#x56FE;</li>
 </ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/1.png" alt=""></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/1.png" alt></p>
 <ul>
-<li>步骤2：确定外部概念性数据流。</li>
-<li>步骤3：确定问题中的主要外部概念数据流</li>
+<li>&#x6B65;&#x9AA4;2&#xFF1A;&#x786E;&#x5B9A;&#x5916;&#x90E8;&#x6982;&#x5FF5;&#x6027;&#x6570;&#x636E;&#x6D41;&#x3002;</li>
+<li>&#x6B65;&#x9AA4;3&#xFF1A;&#x786E;&#x5B9A;&#x95EE;&#x9898;&#x4E2D;&#x7684;&#x4E3B;&#x8981;&#x5916;&#x90E8;&#x6982;&#x5FF5;&#x6570;&#x636E;&#x6D41;</li>
 </ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/2.png" alt=""></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/2.png" alt></p>
 <ul>
-<li>步骤4：使用源模块针对每个概念输入流设计源结构，该模块存在于大多数抽象输入数据的位置；简单的下沉模块</li>
+<li>&#x6B65;&#x9AA4;4&#xFF1A;&#x4F7F;&#x7528;&#x6E90;&#x6A21;&#x5757;&#x9488;&#x5BF9;&#x6BCF;&#x4E2A;&#x6982;&#x5FF5;&#x8F93;&#x5165;&#x6D41;&#x8BBE;&#x8BA1;&#x6E90;&#x7ED3;&#x6784;&#xFF0C;&#x8BE5;&#x6A21;&#x5757;&#x5B58;&#x5728;&#x4E8E;&#x5927;&#x591A;&#x6570;&#x62BD;&#x8C61;&#x8F93;&#x5165;&#x6570;&#x636E;&#x7684;&#x4F4D;&#x7F6E;&#xFF1B;&#x7B80;&#x5355;&#x7684;&#x4E0B;&#x6C89;&#x6A21;&#x5757;</li>
 </ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/3.png" alt=""></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/3.png" alt></p>
 <ul>
-<li>步骤5：对于每个模块，确定产生该模块返回的表单所需的最后一次转换</li>
+<li>&#x6B65;&#x9AA4;5&#xFF1A;&#x5BF9;&#x4E8E;&#x6BCF;&#x4E2A;&#x6A21;&#x5757;&#xFF0C;&#x786E;&#x5B9A;&#x4EA7;&#x751F;&#x8BE5;&#x6A21;&#x5757;&#x8FD4;&#x56DE;&#x7684;&#x8868;&#x5355;&#x6240;&#x9700;&#x7684;&#x6700;&#x540E;&#x4E00;&#x6B21;&#x8F6C;&#x6362;</li>
 </ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/4.png" alt=""></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/4.png" alt></p>
 <ul>
-<li>担心的是一个地方的变更会导致其他部分的变更</li>
+<li>&#x62C5;&#x5FC3;&#x7684;&#x662F;&#x4E00;&#x4E2A;&#x5730;&#x65B9;&#x7684;&#x53D8;&#x66F4;&#x4F1A;&#x5BFC;&#x81F4;&#x5176;&#x4ED6;&#x90E8;&#x5206;&#x7684;&#x53D8;&#x66F4;</li>
 </ul>
-<h3 id="2-3-7-Parnas-1978-形成">2.3.7. Parnas 1978 - 形成</h3>
+<h3 id="2-3-7-Parnas-1978-&#x5F62;&#x6210;">2.3.7. Parnas 1978 - &#x5F62;&#x6210;</h3>
 <ol>
-<li>文章：“设计易于拓展的软件”</li>
-<li>迈向更好结构的步骤
+<li>&#x6587;&#x7AE0;&#xFF1A;&#x201C;&#x8BBE;&#x8BA1;&#x6613;&#x4E8E;&#x62D3;&#x5C55;&#x7684;&#x8F6F;&#x4EF6;&#x201D;</li>
+<li>&#x8FC8;&#x5411;&#x66F4;&#x597D;&#x7ED3;&#x6784;&#x7684;&#x6B65;&#x9AA4;
 <ol>
-<li>需求定义：首先确定子集</li>
-<li>信息隐藏：接口和模块定义</li>
-<li>虚拟机概念</li>
-<li>设计&quot;用途&quot;结构</li>
+<li>&#x9700;&#x6C42;&#x5B9A;&#x4E49;&#xFF1A;&#x9996;&#x5148;&#x786E;&#x5B9A;&#x5B50;&#x96C6;</li>
+<li>&#x4FE1;&#x606F;&#x9690;&#x85CF;&#xFF1A;&#x63A5;&#x53E3;&#x548C;&#x6A21;&#x5757;&#x5B9A;&#x4E49;</li>
+<li>&#x865A;&#x62DF;&#x673A;&#x6982;&#x5FF5;</li>
+<li>&#x8BBE;&#x8BA1;&quot;&#x7528;&#x9014;&quot;&#x7ED3;&#x6784;</li>
 </ol>
 </li>
-<li>&quot;依赖&quot;关系
+<li>&quot;&#x4F9D;&#x8D56;&quot;&#x5173;&#x7CFB;
 <ol>
-<li>如果A可能需要正确执行B才能完成A规范中描述的任务，则A使用B</li>
-<li>满足以下所有条件时，允许A&quot;使用&quot;B：
+<li>&#x5982;&#x679C;A&#x53EF;&#x80FD;&#x9700;&#x8981;&#x6B63;&#x786E;&#x6267;&#x884C;B&#x624D;&#x80FD;&#x5B8C;&#x6210;A&#x89C4;&#x8303;&#x4E2D;&#x63CF;&#x8FF0;&#x7684;&#x4EFB;&#x52A1;&#xFF0C;&#x5219;A&#x4F7F;&#x7528;B</li>
+<li>&#x6EE1;&#x8DB3;&#x4EE5;&#x4E0B;&#x6240;&#x6709;&#x6761;&#x4EF6;&#x65F6;&#xFF0C;&#x5141;&#x8BB8;A&quot;&#x4F7F;&#x7528;&quot;B&#xFF1A;
 <ol>
-<li>A本质上更简单，因为它使用B</li>
-<li>B实际上不复杂，因为它不允许使用A</li>
-<li>A 有一个有用的子集，包含B，不需要A</li>
-<li>没有可以想象的有用的子集包含A但不包含B</li>
-</ol>
-</li>
+<li>A&#x672C;&#x8D28;&#x4E0A;&#x66F4;&#x7B80;&#x5355;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4F7F;&#x7528;B</li>
+<li>B&#x5B9E;&#x9645;&#x4E0A;&#x4E0D;&#x590D;&#x6742;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x4E0D;&#x5141;&#x8BB8;&#x4F7F;&#x7528;A</li>
+<li>A &#x6709;&#x4E00;&#x4E2A;&#x6709;&#x7528;&#x7684;&#x5B50;&#x96C6;&#xFF0C;&#x5305;&#x542B;B&#xFF0C;&#x4E0D;&#x9700;&#x8981;A</li>
+<li>&#x6CA1;&#x6709;&#x53EF;&#x4EE5;&#x60F3;&#x8C61;&#x7684;&#x6709;&#x7528;&#x7684;&#x5B50;&#x96C6;&#x5305;&#x542B;A&#x4F46;&#x4E0D;&#x5305;&#x542B;B</li>
 </ol>
 </li>
 </ol>
-<h3 id="2-3-8-Parnas-1985-形成">2.3.8. Parnas 1985 - 形成</h3>
-<ol>
-<li>文章：“复杂系统的模块化结构”</li>
-<li>模块说明
-<ol>
-<li>主要隐藏</li>
-<li>角色</li>
-<li>分配模块特定职责的标准</li>
-</ol>
-</li>
-<li>模块层次结构
-<ol>
-<li>顶层分解</li>
-<li>二级分解</li>
-<li>第三级</li>
-</ol>
-</li>
-<li>隐藏
-<ol>
-<li>主要隐藏：模块中包含的隐藏信息。</li>
-<li>次要隐藏: 用于实施模块的实施决策。</li>
-</ol>
-</li>
-<li>顶层分解
-<ol>
-<li>硬件隐藏模块</li>
-<li>行为隐藏模块</li>
-<li>软件决策模块</li>
-</ol>
 </li>
 </ol>
-<h3 id="2-3-9-Eder-1992-发展">2.3.9. Eder 1992 - 发展</h3>
+<h3 id="2-3-8-Parnas-1985-&#x5F62;&#x6210;">2.3.8. Parnas 1985 - &#x5F62;&#x6210;</h3>
 <ol>
-<li>文章：“面向对象系统中的耦合和内聚”</li>
-<li>&quot;良好&quot;设计准则</li>
-<li>面向对象的耦合：相互作用耦合；组件耦合；继承耦合</li>
-<li>面向对象的内聚：方法内聚；类内聚；继承内聚</li>
+<li>&#x6587;&#x7AE0;&#xFF1A;&#x201C;&#x590D;&#x6742;&#x7CFB;&#x7EDF;&#x7684;&#x6A21;&#x5757;&#x5316;&#x7ED3;&#x6784;&#x201D;</li>
+<li>&#x6A21;&#x5757;&#x8BF4;&#x660E;
+<ol>
+<li>&#x4E3B;&#x8981;&#x9690;&#x85CF;</li>
+<li>&#x89D2;&#x8272;</li>
+<li>&#x5206;&#x914D;&#x6A21;&#x5757;&#x7279;&#x5B9A;&#x804C;&#x8D23;&#x7684;&#x6807;&#x51C6;</li>
 </ol>
-<h3 id="2-3-10-Hitz-1995-发展">2.3.10. Hitz 1995 - 发展</h3>
+</li>
+<li>&#x6A21;&#x5757;&#x5C42;&#x6B21;&#x7ED3;&#x6784;
 <ol>
-<li>文章：“在面向对象的系统中测量耦合和内聚”</li>
-<li>类级耦合</li>
-<li>对象级耦合</li>
-<li>耦合和内聚综合指标的框架</li>
-<li>定量分析面向对象系统</li>
+<li>&#x9876;&#x5C42;&#x5206;&#x89E3;</li>
+<li>&#x4E8C;&#x7EA7;&#x5206;&#x89E3;</li>
+<li>&#x7B2C;&#x4E09;&#x7EA7;</li>
 </ol>
-<h3 id="2-3-11-McConnell-1996-反思">2.3.11. McConnell 1996 - 反思</h3>
+</li>
+<li>&#x9690;&#x85CF;
 <ol>
-<li>文章：“缺少行动：信息隐藏”</li>
-<li>信息隐藏
+<li>&#x4E3B;&#x8981;&#x9690;&#x85CF;&#xFF1A;&#x6A21;&#x5757;&#x4E2D;&#x5305;&#x542B;&#x7684;&#x9690;&#x85CF;&#x4FE1;&#x606F;&#x3002;</li>
+<li>&#x6B21;&#x8981;&#x9690;&#x85CF;: &#x7528;&#x4E8E;&#x5B9E;&#x65BD;&#x6A21;&#x5757;&#x7684;&#x5B9E;&#x65BD;&#x51B3;&#x7B56;&#x3002;</li>
+</ol>
+</li>
+<li>&#x9876;&#x5C42;&#x5206;&#x89E3;
 <ol>
-<li>是软件工程研讨会的设计思路之一</li>
-<li>不需要或不依赖任何特定的设计方法</li>
-<li>其特点是&quot;隐藏&quot;</li>
-<li>最常见的隐藏是您认为可能会更改的设计决策</li>
-<li>询问需要隐藏哪些内容，可以支持所有级别的良好设计决策</li>
+<li>&#x786C;&#x4EF6;&#x9690;&#x85CF;&#x6A21;&#x5757;</li>
+<li>&#x884C;&#x4E3A;&#x9690;&#x85CF;&#x6A21;&#x5757;</li>
+<li>&#x8F6F;&#x4EF6;&#x51B3;&#x7B56;&#x6A21;&#x5757;</li>
 </ol>
 </li>
 </ol>
-<h3 id="2-3-12-Demarco-2002-反思">2.3.12. Demarco 2002 - 反思</h3>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/5.png" alt=""></p>
+<h3 id="2-3-9-Eder-1992-&#x53D1;&#x5C55;">2.3.9. Eder 1992 - &#x53D1;&#x5C55;</h3>
 <ol>
-<li>内容:描述了75年自己写的文章的10条内容，其中有几条到现在(2002)仍然是对的</li>
+<li>&#x6587;&#x7AE0;&#xFF1A;&#x201C;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7CFB;&#x7EDF;&#x4E2D;&#x7684;&#x8026;&#x5408;&#x548C;&#x5185;&#x805A;&#x201D;</li>
+<li>&quot;&#x826F;&#x597D;&quot;&#x8BBE;&#x8BA1;&#x51C6;&#x5219;</li>
+<li>&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7684;&#x8026;&#x5408;&#xFF1A;&#x76F8;&#x4E92;&#x4F5C;&#x7528;&#x8026;&#x5408;&#xFF1B;&#x7EC4;&#x4EF6;&#x8026;&#x5408;&#xFF1B;&#x7EE7;&#x627F;&#x8026;&#x5408;</li>
+<li>&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7684;&#x5185;&#x805A;&#xFF1A;&#x65B9;&#x6CD5;&#x5185;&#x805A;&#xFF1B;&#x7C7B;&#x5185;&#x805A;&#xFF1B;&#x7EE7;&#x627F;&#x5185;&#x805A;</li>
 </ol>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/6.png" alt=""></p>
+<h3 id="2-3-10-Hitz-1995-&#x53D1;&#x5C55;">2.3.10. Hitz 1995 - &#x53D1;&#x5C55;</h3>
+<ol>
+<li>&#x6587;&#x7AE0;&#xFF1A;&#x201C;&#x5728;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7684;&#x7CFB;&#x7EDF;&#x4E2D;&#x6D4B;&#x91CF;&#x8026;&#x5408;&#x548C;&#x5185;&#x805A;&#x201D;</li>
+<li>&#x7C7B;&#x7EA7;&#x8026;&#x5408;</li>
+<li>&#x5BF9;&#x8C61;&#x7EA7;&#x8026;&#x5408;</li>
+<li>&#x8026;&#x5408;&#x548C;&#x5185;&#x805A;&#x7EFC;&#x5408;&#x6307;&#x6807;&#x7684;&#x6846;&#x67B6;</li>
+<li>&#x5B9A;&#x91CF;&#x5206;&#x6790;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7CFB;&#x7EDF;</li>
+</ol>
+<h3 id="2-3-11-McConnell-1996-&#x53CD;&#x601D;">2.3.11. McConnell 1996 - &#x53CD;&#x601D;</h3>
+<ol>
+<li>&#x6587;&#x7AE0;&#xFF1A;&#x201C;&#x7F3A;&#x5C11;&#x884C;&#x52A8;&#xFF1A;&#x4FE1;&#x606F;&#x9690;&#x85CF;&#x201D;</li>
+<li>&#x4FE1;&#x606F;&#x9690;&#x85CF;
+<ol>
+<li>&#x662F;&#x8F6F;&#x4EF6;&#x5DE5;&#x7A0B;&#x7814;&#x8BA8;&#x4F1A;&#x7684;&#x8BBE;&#x8BA1;&#x601D;&#x8DEF;&#x4E4B;&#x4E00;</li>
+<li>&#x4E0D;&#x9700;&#x8981;&#x6216;&#x4E0D;&#x4F9D;&#x8D56;&#x4EFB;&#x4F55;&#x7279;&#x5B9A;&#x7684;&#x8BBE;&#x8BA1;&#x65B9;&#x6CD5;</li>
+<li>&#x5176;&#x7279;&#x70B9;&#x662F;&quot;&#x9690;&#x85CF;&quot;</li>
+<li>&#x6700;&#x5E38;&#x89C1;&#x7684;&#x9690;&#x85CF;&#x662F;&#x60A8;&#x8BA4;&#x4E3A;&#x53EF;&#x80FD;&#x4F1A;&#x66F4;&#x6539;&#x7684;&#x8BBE;&#x8BA1;&#x51B3;&#x7B56;</li>
+<li>&#x8BE2;&#x95EE;&#x9700;&#x8981;&#x9690;&#x85CF;&#x54EA;&#x4E9B;&#x5185;&#x5BB9;&#xFF0C;&#x53EF;&#x4EE5;&#x652F;&#x6301;&#x6240;&#x6709;&#x7EA7;&#x522B;&#x7684;&#x826F;&#x597D;&#x8BBE;&#x8BA1;&#x51B3;&#x7B56;</li>
+</ol>
+</li>
+</ol>
+<h3 id="2-3-12-Demarco-2002-&#x53CD;&#x601D;">2.3.12. Demarco 2002 - &#x53CD;&#x601D;</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/5.png" alt></p>
+<ol>
+<li>&#x5185;&#x5BB9;:&#x63CF;&#x8FF0;&#x4E86;75&#x5E74;&#x81EA;&#x5DF1;&#x5199;&#x7684;&#x6587;&#x7AE0;&#x7684;10&#x6761;&#x5185;&#x5BB9;&#xFF0C;&#x5176;&#x4E2D;&#x6709;&#x51E0;&#x6761;&#x5230;&#x73B0;&#x5728;(2002)&#x4ECD;&#x7136;&#x662F;&#x5BF9;&#x7684;</li>
+</ol>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/6.png" alt></p>
 <ol start="2">
-<li>第五条：接口隔离原则</li>
+<li>&#x7B2C;&#x4E94;&#x6761;&#xFF1A;&#x63A5;&#x53E3;&#x9694;&#x79BB;&#x539F;&#x5219;</li>
 </ol>
-<h1>3. 模块化</h1>
+<h1>3. &#x6A21;&#x5757;&#x5316;</h1>
 <ol>
-<li>计算机系统不是单体的：它们通常由多个交互模块组成。</li>
-<li>长期以来，模块化一直被视为廉价，高质量软件的关键。</li>
-<li>系统设计的目标是决定：
+<li>&#x8BA1;&#x7B97;&#x673A;&#x7CFB;&#x7EDF;&#x4E0D;&#x662F;&#x5355;&#x4F53;&#x7684;&#xFF1A;&#x5B83;&#x4EEC;&#x901A;&#x5E38;&#x7531;&#x591A;&#x4E2A;&#x4EA4;&#x4E92;&#x6A21;&#x5757;&#x7EC4;&#x6210;&#x3002;</li>
+<li>&#x957F;&#x671F;&#x4EE5;&#x6765;&#xFF0C;&#x6A21;&#x5757;&#x5316;&#x4E00;&#x76F4;&#x88AB;&#x89C6;&#x4E3A;&#x5EC9;&#x4EF7;&#xFF0C;&#x9AD8;&#x8D28;&#x91CF;&#x8F6F;&#x4EF6;&#x7684;&#x5173;&#x952E;&#x3002;</li>
+<li>&#x7CFB;&#x7EDF;&#x8BBE;&#x8BA1;&#x7684;&#x76EE;&#x6807;&#x662F;&#x51B3;&#x5B9A;&#xFF1A;
 <ol>
-<li><strong>什么是模块；</strong></li>
-<li><strong>模块应该是什么？</strong></li>
-<li><strong>模块之间如何交互。</strong></li>
+<li><strong>&#x4EC0;&#x4E48;&#x662F;&#x6A21;&#x5757;&#xFF1B;</strong></li>
+<li><strong>&#x6A21;&#x5757;&#x5E94;&#x8BE5;&#x662F;&#x4EC0;&#x4E48;&#xFF1F;</strong></li>
+<li><strong>&#x6A21;&#x5757;&#x4E4B;&#x95F4;&#x5982;&#x4F55;&#x4EA4;&#x4E92;&#x3002;</strong></li>
 </ol>
 </li>
 </ol>
-<h2 id="3-1-什么是模块？">3.1. 什么是模块？</h2>
+<h2 id="3-1-&#x4EC0;&#x4E48;&#x662F;&#x6A21;&#x5757;&#xFF1F;">3.1. &#x4EC0;&#x4E48;&#x662F;&#x6A21;&#x5757;&#xFF1F;</h2>
 <ol>
-<li>通用视图：一段代码。有局限性。</li>
-<li>编译单元，包括相关的声明和接口</li>
-<li>大卫·帕纳斯 Parnas：一个工作单元。</li>
-<li>编程单元(程序，类等)的集合
+<li>&#x901A;&#x7528;&#x89C6;&#x56FE;&#xFF1A;&#x4E00;&#x6BB5;&#x4EE3;&#x7801;&#x3002;&#x6709;&#x5C40;&#x9650;&#x6027;&#x3002;</li>
+<li>&#x7F16;&#x8BD1;&#x5355;&#x5143;&#xFF0C;&#x5305;&#x62EC;&#x76F8;&#x5173;&#x7684;&#x58F0;&#x660E;&#x548C;&#x63A5;&#x53E3;</li>
+<li>&#x5927;&#x536B;&#xB7;&#x5E15;&#x7EB3;&#x65AF; Parnas&#xFF1A;&#x4E00;&#x4E2A;&#x5DE5;&#x4F5C;&#x5355;&#x5143;&#x3002;</li>
+<li>&#x7F16;&#x7A0B;&#x5355;&#x5143;(&#x7A0B;&#x5E8F;&#xFF0C;&#x7C7B;&#x7B49;)&#x7684;&#x96C6;&#x5408;
 <ol>
-<li>在整个系统中具有明确定义的界面和目的，</li>
-<li>可以独立分配给开发人员</li>
+<li>&#x5728;&#x6574;&#x4E2A;&#x7CFB;&#x7EDF;&#x4E2D;&#x5177;&#x6709;&#x660E;&#x786E;&#x5B9A;&#x4E49;&#x7684;&#x754C;&#x9762;&#x548C;&#x76EE;&#x7684;&#xFF0C;</li>
+<li>&#x53EF;&#x4EE5;&#x72EC;&#x7ACB;&#x5206;&#x914D;&#x7ED9;&#x5F00;&#x53D1;&#x4EBA;&#x5458;</li>
 </ol>
 </li>
-<li>课本总结:<strong>模块是一个词汇上邻接的程序语句序列，由边界元素限制范围，有一个聚合标识符。</strong></li>
+<li>&#x8BFE;&#x672C;&#x603B;&#x7ED3;:<strong>&#x6A21;&#x5757;&#x662F;&#x4E00;&#x4E2A;&#x8BCD;&#x6C47;&#x4E0A;&#x90BB;&#x63A5;&#x7684;&#x7A0B;&#x5E8F;&#x8BED;&#x53E5;&#x5E8F;&#x5217;&#xFF0C;&#x7531;&#x8FB9;&#x754C;&#x5143;&#x7D20;&#x9650;&#x5236;&#x8303;&#x56F4;&#xFF0C;&#x6709;&#x4E00;&#x4E2A;&#x805A;&#x5408;&#x6807;&#x8BC6;&#x7B26;&#x3002;</strong></li>
 </ol>
-<h2 id="3-2-为什么要将系统进行模块化？">3.2. 为什么要将系统进行模块化？</h2>
+<h2 id="3-2-&#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x5C06;&#x7CFB;&#x7EDF;&#x8FDB;&#x884C;&#x6A21;&#x5757;&#x5316;&#xFF1F;">3.2. &#x4E3A;&#x4EC0;&#x4E48;&#x8981;&#x5C06;&#x7CFB;&#x7EDF;&#x8FDB;&#x884C;&#x6A21;&#x5757;&#x5316;&#xFF1F;</h2>
 <ol>
-<li><strong>管理</strong>：分而治之</li>
-<li><strong>演进</strong>：分离系统的各个部分，以便将一个部分的更改与其他部分的更改隔离开
+<li><strong>&#x7BA1;&#x7406;</strong>&#xFF1A;&#x5206;&#x800C;&#x6CBB;&#x4E4B;</li>
+<li><strong>&#x6F14;&#x8FDB;</strong>&#xFF1A;&#x5206;&#x79BB;&#x7CFB;&#x7EDF;&#x7684;&#x5404;&#x4E2A;&#x90E8;&#x5206;&#xFF0C;&#x4EE5;&#x4FBF;&#x5C06;&#x4E00;&#x4E2A;&#x90E8;&#x5206;&#x7684;&#x66F4;&#x6539;&#x4E0E;&#x5176;&#x4ED6;&#x90E8;&#x5206;&#x7684;&#x66F4;&#x6539;&#x9694;&#x79BB;&#x5F00;
 <ol>
-<li>直接性原则(将需求明确分配到模块，理想情况下一个需求(或多个)映射到一个模块)</li>
-<li>连续性/局部性原则(需求的微小变化仅触发对一个模块的更改)</li>
+<li>&#x76F4;&#x63A5;&#x6027;&#x539F;&#x5219;(&#x5C06;&#x9700;&#x6C42;&#x660E;&#x786E;&#x5206;&#x914D;&#x5230;&#x6A21;&#x5757;&#xFF0C;&#x7406;&#x60F3;&#x60C5;&#x51B5;&#x4E0B;&#x4E00;&#x4E2A;&#x9700;&#x6C42;(&#x6216;&#x591A;&#x4E2A;)&#x6620;&#x5C04;&#x5230;&#x4E00;&#x4E2A;&#x6A21;&#x5757;)</li>
+<li>&#x8FDE;&#x7EED;&#x6027;/&#x5C40;&#x90E8;&#x6027;&#x539F;&#x5219;(&#x9700;&#x6C42;&#x7684;&#x5FAE;&#x5C0F;&#x53D8;&#x5316;&#x4EC5;&#x89E6;&#x53D1;&#x5BF9;&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#x7684;&#x66F4;&#x6539;)</li>
 </ol>
 </li>
-<li><strong>理解</strong>：促使我们的系统更加容易被理解
+<li><strong>&#x7406;&#x89E3;</strong>&#xFF1A;&#x4FC3;&#x4F7F;&#x6211;&#x4EEC;&#x7684;&#x7CFB;&#x7EDF;&#x66F4;&#x52A0;&#x5BB9;&#x6613;&#x88AB;&#x7406;&#x89E3;
 <ol>
-<li>作为思维大小的块的组成，例如7±2规则</li>
-<li>一部分只有一个问题，例如本地性原则，封装，关注点分离</li>
+<li>&#x4F5C;&#x4E3A;&#x601D;&#x7EF4;&#x5927;&#x5C0F;&#x7684;&#x5757;&#x7684;&#x7EC4;&#x6210;&#xFF0C;&#x4F8B;&#x5982;7&#xB1;2&#x89C4;&#x5219;</li>
+<li>&#x4E00;&#x90E8;&#x5206;&#x53EA;&#x6709;&#x4E00;&#x4E2A;&#x95EE;&#x9898;&#xFF0C;&#x4F8B;&#x5982;&#x672C;&#x5730;&#x6027;&#x539F;&#x5219;&#xFF0C;&#x5C01;&#x88C5;&#xFF0C;&#x5173;&#x6CE8;&#x70B9;&#x5206;&#x79BB;</li>
 </ol>
 </li>
-<li>关键问题：模块化使用<strong>什么标准？-&gt;信息隐藏</strong></li>
+<li>&#x5173;&#x952E;&#x95EE;&#x9898;&#xFF1A;&#x6A21;&#x5757;&#x5316;&#x4F7F;&#x7528;<strong>&#x4EC0;&#x4E48;&#x6807;&#x51C6;&#xFF1F;-&gt;&#x4FE1;&#x606F;&#x9690;&#x85CF;</strong></li>
 </ol>
-<h2 id="3-3-结构化设计中的耦合">3.3. 结构化设计中的耦合</h2>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/15.png" alt=""></p>
-<h3 id="3-3-1-模块化">3.3.1. 模块化</h3>
+<h2 id="3-3-&#x7ED3;&#x6784;&#x5316;&#x8BBE;&#x8BA1;&#x4E2D;&#x7684;&#x8026;&#x5408;">3.3. &#x7ED3;&#x6784;&#x5316;&#x8BBE;&#x8BA1;&#x4E2D;&#x7684;&#x8026;&#x5408;</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/15.png" alt></p>
+<h3 id="3-3-1-&#x6A21;&#x5757;&#x5316;">3.3.1. &#x6A21;&#x5757;&#x5316;</h3>
 <ol>
-<li>两种思路</li>
+<li>&#x4E24;&#x79CD;&#x601D;&#x8DEF;</li>
 </ol>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/17.png" alt=""></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/17.png" alt></p>
 <ol start="2">
-<li>可以根据数据总线进行切割</li>
-<li>可以根据门电路进行划分</li>
+<li>&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x6570;&#x636E;&#x603B;&#x7EBF;&#x8FDB;&#x884C;&#x5207;&#x5272;</li>
+<li>&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x95E8;&#x7535;&#x8DEF;&#x8FDB;&#x884C;&#x5212;&#x5206;</li>
 </ol>
-<h3 id="3-3-2-模块之间">3.3.2. 模块之间</h3>
+<h3 id="3-3-2-&#x6A21;&#x5757;&#x4E4B;&#x95F4;">3.3.2. &#x6A21;&#x5757;&#x4E4B;&#x95F4;</h3>
 <ol>
-<li>连接：连接是对其他地方定义的某些标签或地址的引用</li>
-<li>联系(两个模块之间)的复杂度
+<li>&#x8FDE;&#x63A5;&#xFF1A;&#x8FDE;&#x63A5;&#x662F;&#x5BF9;&#x5176;&#x4ED6;&#x5730;&#x65B9;&#x5B9A;&#x4E49;&#x7684;&#x67D0;&#x4E9B;&#x6807;&#x7B7E;&#x6216;&#x5730;&#x5740;&#x7684;&#x5F15;&#x7528;</li>
+<li>&#x8054;&#x7CFB;(&#x4E24;&#x4E2A;&#x6A21;&#x5757;&#x4E4B;&#x95F4;)&#x7684;&#x590D;&#x6742;&#x5EA6;
 <ol>
-<li>数量</li>
-<li>程度</li>
-</ol>
-</li>
-</ol>
-<h3 id="3-3-3-结构化的耦合">3.3.3. 结构化的耦合</h3>
-<ol>
-<li>耦合是对从一个模块到另一个模块的连接所建立的关联强度的度量。
-<ol>
-<li>连接有多复杂</li>
-<li>连接是指模块本身还是模块内部的东西</li>
-<li>什么是正在发送或接收的内容</li>
+<li>&#x6570;&#x91CF;</li>
+<li>&#x7A0B;&#x5EA6;</li>
 </ol>
 </li>
 </ol>
-<h3 id="3-3-4-耦合的强度-1-连接有多复杂">3.3.4. 耦合的强度 1 - 连接有多复杂</h3>
+<h3 id="3-3-3-&#x7ED3;&#x6784;&#x5316;&#x7684;&#x8026;&#x5408;">3.3.3. &#x7ED3;&#x6784;&#x5316;&#x7684;&#x8026;&#x5408;</h3>
 <ol>
-<li>连接模块：对常见的环境：全局变量，范围</li>
-<li>对于其他模块</li>
+<li>&#x8026;&#x5408;&#x662F;&#x5BF9;&#x4ECE;&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#x5230;&#x53E6;&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#x7684;&#x8FDE;&#x63A5;&#x6240;&#x5EFA;&#x7ACB;&#x7684;&#x5173;&#x8054;&#x5F3A;&#x5EA6;&#x7684;&#x5EA6;&#x91CF;&#x3002;
+<ol>
+<li>&#x8FDE;&#x63A5;&#x6709;&#x591A;&#x590D;&#x6742;</li>
+<li>&#x8FDE;&#x63A5;&#x662F;&#x6307;&#x6A21;&#x5757;&#x672C;&#x8EAB;&#x8FD8;&#x662F;&#x6A21;&#x5757;&#x5185;&#x90E8;&#x7684;&#x4E1C;&#x897F;</li>
+<li>&#x4EC0;&#x4E48;&#x662F;&#x6B63;&#x5728;&#x53D1;&#x9001;&#x6216;&#x63A5;&#x6536;&#x7684;&#x5185;&#x5BB9;</li>
 </ol>
-<h3 id="3-3-5-原则一-全局变量是被认为是有害的">3.3.5. 原则一:全局变量是被认为是有害的</h3>
-<h3 id="3-3-6-连接到全局环境">3.3.6. 连接到全局环境</h3>
+</li>
+</ol>
+<h3 id="3-3-4-&#x8026;&#x5408;&#x7684;&#x5F3A;&#x5EA6;-1-&#x8FDE;&#x63A5;&#x6709;&#x591A;&#x590D;&#x6742;">3.3.4. &#x8026;&#x5408;&#x7684;&#x5F3A;&#x5EA6; 1 - &#x8FDE;&#x63A5;&#x6709;&#x591A;&#x590D;&#x6742;</h3>
 <ol>
-<li>假设N1 + N2 = N，M1 + M2 = M
+<li>&#x8FDE;&#x63A5;&#x6A21;&#x5757;&#xFF1A;&#x5BF9;&#x5E38;&#x89C1;&#x7684;&#x73AF;&#x5883;&#xFF1A;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#xFF0C;&#x8303;&#x56F4;</li>
+<li>&#x5BF9;&#x4E8E;&#x5176;&#x4ED6;&#x6A21;&#x5757;</li>
+</ol>
+<h3 id="3-3-5-&#x539F;&#x5219;&#x4E00;-&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x662F;&#x88AB;&#x8BA4;&#x4E3A;&#x662F;&#x6709;&#x5BB3;&#x7684;">3.3.5. &#x539F;&#x5219;&#x4E00;:&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x662F;&#x88AB;&#x8BA4;&#x4E3A;&#x662F;&#x6709;&#x5BB3;&#x7684;</h3>
+<h3 id="3-3-6-&#x8FDE;&#x63A5;&#x5230;&#x5168;&#x5C40;&#x73AF;&#x5883;">3.3.6. &#x8FDE;&#x63A5;&#x5230;&#x5168;&#x5C40;&#x73AF;&#x5883;</h3>
 <ol>
-<li>如果M个模块共享N个元素【<strong>全局变量</strong>】
+<li>&#x5047;&#x8BBE;N1 + N2 = N&#xFF0C;M1 + M2 = M
 <ol>
-<li>有潜在的N * M个连接</li>
+<li>&#x5982;&#x679C;M&#x4E2A;&#x6A21;&#x5757;&#x5171;&#x4EAB;N&#x4E2A;&#x5143;&#x7D20;&#x3010;<strong>&#x5168;&#x5C40;&#x53D8;&#x91CF;</strong>&#x3011;
+<ol>
+<li>&#x6709;&#x6F5C;&#x5728;&#x7684;N * M&#x4E2A;&#x8FDE;&#x63A5;</li>
 <li>(N1 + N2) * (M1 + M2)= N1 * M1 + N2 * M2 + N1 * M2 + N2 * M1</li>
 </ol>
 </li>
-<li>如果M1模块有N1个共享元素，而M2模块有N2个共享元素(也就是N1 对应 M1，而N2 对应M2)：存在潜在的(N1 * M1 + N2 * M2)连接</li>
+<li>&#x5982;&#x679C;M1&#x6A21;&#x5757;&#x6709;N1&#x4E2A;&#x5171;&#x4EAB;&#x5143;&#x7D20;&#xFF0C;&#x800C;M2&#x6A21;&#x5757;&#x6709;N2&#x4E2A;&#x5171;&#x4EAB;&#x5143;&#x7D20;(&#x4E5F;&#x5C31;&#x662F;N1 &#x5BF9;&#x5E94; M1&#xFF0C;&#x800C;N2 &#x5BF9;&#x5E94;M2)&#xFF1A;&#x5B58;&#x5728;&#x6F5C;&#x5728;&#x7684;(N1 * M1 + N2 * M2)&#x8FDE;&#x63A5;</li>
 </ol>
 </li>
-<li>封装减少耦合：抽象和分解
+<li>&#x5C01;&#x88C5;&#x51CF;&#x5C11;&#x8026;&#x5408;&#xFF1A;&#x62BD;&#x8C61;&#x548C;&#x5206;&#x89E3;
 <ol>
-<li>将潜在的共享元素细分成组</li>
-<li>将每个组的访问权限限制为最小的模块子集</li>
+<li>&#x5C06;&#x6F5C;&#x5728;&#x7684;&#x5171;&#x4EAB;&#x5143;&#x7D20;&#x7EC6;&#x5206;&#x6210;&#x7EC4;</li>
+<li>&#x5C06;&#x6BCF;&#x4E2A;&#x7EC4;&#x7684;&#x8BBF;&#x95EE;&#x6743;&#x9650;&#x9650;&#x5236;&#x4E3A;&#x6700;&#x5C0F;&#x7684;&#x6A21;&#x5757;&#x5B50;&#x96C6;</li>
 </ol>
 </li>
 </ol>
-<h3 id="3-3-7-常见环境的缺陷">3.3.7. 常见环境的缺陷</h3>
+<h3 id="3-3-7-&#x5E38;&#x89C1;&#x73AF;&#x5883;&#x7684;&#x7F3A;&#x9677;">3.3.7. &#x5E38;&#x89C1;&#x73AF;&#x5883;&#x7684;&#x7F3A;&#x9677;</h3>
 <ol>
-<li>连接将每个模块共享给每个其他这样的模块
+<li>&#x8FDE;&#x63A5;&#x5C06;&#x6BCF;&#x4E2A;&#x6A21;&#x5757;&#x5171;&#x4EAB;&#x7ED9;&#x6BCF;&#x4E2A;&#x5176;&#x4ED6;&#x8FD9;&#x6837;&#x7684;&#x6A21;&#x5757;
 <ol>
-<li><strong>一个模块中的错误和更改可以传播到其他模块</strong></li>
-<li>理解一个模块需要其他人的帮助</li>
-<li>更难于重用</li>
+<li><strong>&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#x4E2D;&#x7684;&#x9519;&#x8BEF;&#x548C;&#x66F4;&#x6539;&#x53EF;&#x4EE5;&#x4F20;&#x64AD;&#x5230;&#x5176;&#x4ED6;&#x6A21;&#x5757;</strong></li>
+<li>&#x7406;&#x89E3;&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#x9700;&#x8981;&#x5176;&#x4ED6;&#x4EBA;&#x7684;&#x5E2E;&#x52A9;</li>
+<li>&#x66F4;&#x96BE;&#x4E8E;&#x91CD;&#x7528;</li>
 </ol>
 </li>
-<li>通用环境中的每个元素都会增加整个系统的复杂性</li>
+<li>&#x901A;&#x7528;&#x73AF;&#x5883;&#x4E2D;&#x7684;&#x6BCF;&#x4E2A;&#x5143;&#x7D20;&#x90FD;&#x4F1A;&#x589E;&#x52A0;&#x6574;&#x4E2A;&#x7CFB;&#x7EDF;&#x7684;&#x590D;&#x6742;&#x6027;</li>
 </ol>
-<h3 id="3-3-8-原则二：如果没有特殊要求，让代码清晰一点-to-be-explicit">3.3.8. 原则二：如果没有特殊要求，让代码清晰一点 to be explicit</h3>
+<h3 id="3-3-8-&#x539F;&#x5219;&#x4E8C;&#xFF1A;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x7279;&#x6B8A;&#x8981;&#x6C42;&#xFF0C;&#x8BA9;&#x4EE3;&#x7801;&#x6E05;&#x6670;&#x4E00;&#x70B9;-to-be-explicit">3.3.8. &#x539F;&#x5219;&#x4E8C;&#xFF1A;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x7279;&#x6B8A;&#x8981;&#x6C42;&#xFF0C;&#x8BA9;&#x4EE3;&#x7801;&#x6E05;&#x6670;&#x4E00;&#x70B9; to be explicit</h3>
 <ol>
-<li>字典：可修改的</li>
+<li>&#x5B57;&#x5178;&#xFF1A;&#x53EF;&#x4FEE;&#x6539;&#x7684;</li>
 </ol>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/18.png" alt=""></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/18.png" alt></p>
 <ol start="2">
-<li>属性：明确的</li>
+<li>&#x5C5E;&#x6027;&#xFF1A;&#x660E;&#x786E;&#x7684;</li>
 </ol>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/19.png" alt=""></p>
-<h3 id="3-3-9-明确的和可修改的">3.3.9. 明确的和可修改的</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/19.png" alt></p>
+<h3 id="3-3-9-&#x660E;&#x786E;&#x7684;&#x548C;&#x53EF;&#x4FEE;&#x6539;&#x7684;">3.3.9. &#x660E;&#x786E;&#x7684;&#x548C;&#x53EF;&#x4FEE;&#x6539;&#x7684;</h3>
 <ol>
-<li>属性【明确的】和字典【可修改】</li>
-<li>明确的调用和事件</li>
-<li>显式子类和数据驱动的代码</li>
+<li>&#x5C5E;&#x6027;&#x3010;&#x660E;&#x786E;&#x7684;&#x3011;&#x548C;&#x5B57;&#x5178;&#x3010;&#x53EF;&#x4FEE;&#x6539;&#x3011;</li>
+<li>&#x660E;&#x786E;&#x7684;&#x8C03;&#x7528;&#x548C;&#x4E8B;&#x4EF6;</li>
+<li>&#x663E;&#x5F0F;&#x5B50;&#x7C7B;&#x548C;&#x6570;&#x636E;&#x9A71;&#x52A8;&#x7684;&#x4EE3;&#x7801;</li>
 </ol>
-<p><strong>如果没有特殊要求，那么选择属性这样的明确的代码</strong></p>
-<h3 id="3-3-10-原则三：不要重复">3.3.10. 原则三：不要重复</h3>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/20.png" alt=""></p>
+<p><strong>&#x5982;&#x679C;&#x6CA1;&#x6709;&#x7279;&#x6B8A;&#x8981;&#x6C42;&#xFF0C;&#x90A3;&#x4E48;&#x9009;&#x62E9;&#x5C5E;&#x6027;&#x8FD9;&#x6837;&#x7684;&#x660E;&#x786E;&#x7684;&#x4EE3;&#x7801;</strong></p>
+<h3 id="3-3-10-&#x539F;&#x5219;&#x4E09;&#xFF1A;&#x4E0D;&#x8981;&#x91CD;&#x590D;">3.3.10. &#x539F;&#x5219;&#x4E09;&#xFF1A;&#x4E0D;&#x8981;&#x91CD;&#x590D;</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/20.png" alt></p>
 <ul>
-<li>如何消除重复呢？先写接口</li>
+<li>&#x5982;&#x4F55;&#x6D88;&#x9664;&#x91CD;&#x590D;&#x5462;&#xFF1F;&#x5148;&#x5199;&#x63A5;&#x53E3;</li>
 </ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/21.png" alt=""></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/21.png" alt></p>
 <ul>
-<li>也就是我们只需要new一个printer就行</li>
+<li>&#x4E5F;&#x5C31;&#x662F;&#x6211;&#x4EEC;&#x53EA;&#x9700;&#x8981;new&#x4E00;&#x4E2A;printer&#x5C31;&#x884C;</li>
 </ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/22.png" alt=""></p>
-<h3 id="3-3-11-耦合的强度-2-连接是指模块本身还是模块内部的东西">3.3.11. 耦合的强度 2 - 连接是指模块本身还是模块内部的东西</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/22.png" alt></p>
+<h3 id="3-3-11-&#x8026;&#x5408;&#x7684;&#x5F3A;&#x5EA6;-2-&#x8FDE;&#x63A5;&#x662F;&#x6307;&#x6A21;&#x5757;&#x672C;&#x8EAB;&#x8FD8;&#x662F;&#x6A21;&#x5757;&#x5185;&#x90E8;&#x7684;&#x4E1C;&#x897F;">3.3.11. &#x8026;&#x5408;&#x7684;&#x5F3A;&#x5EA6; 2 - &#x8FDE;&#x63A5;&#x662F;&#x6307;&#x6A21;&#x5757;&#x672C;&#x8EAB;&#x8FD8;&#x662F;&#x6A21;&#x5757;&#x5185;&#x90E8;&#x7684;&#x4E1C;&#x897F;</h3>
 <ol>
-<li>Connections that address or refer to a module as a whole by its name yield lower coupling than connections referring to the internal elements of another module 以其名称寻址或整体引用一个模块的连接产生的耦合比引用另一个模块内部元素的连接产生的耦合低(<strong>整体连接的耦合程度低于模块内部元素连接的耦合</strong>)</li>
+<li>Connections that address or refer to a module as a whole by its name yield lower coupling than connections referring to the internal elements of another module &#x4EE5;&#x5176;&#x540D;&#x79F0;&#x5BFB;&#x5740;&#x6216;&#x6574;&#x4F53;&#x5F15;&#x7528;&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#x7684;&#x8FDE;&#x63A5;&#x4EA7;&#x751F;&#x7684;&#x8026;&#x5408;&#x6BD4;&#x5F15;&#x7528;&#x53E6;&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#x5185;&#x90E8;&#x5143;&#x7D20;&#x7684;&#x8FDE;&#x63A5;&#x4EA7;&#x751F;&#x7684;&#x8026;&#x5408;&#x4F4E;(<strong>&#x6574;&#x4F53;&#x8FDE;&#x63A5;&#x7684;&#x8026;&#x5408;&#x7A0B;&#x5EA6;&#x4F4E;&#x4E8E;&#x6A21;&#x5757;&#x5185;&#x90E8;&#x5143;&#x7D20;&#x8FDE;&#x63A5;&#x7684;&#x8026;&#x5408;</strong>)</li>
 </ol>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/23.png" alt=""></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/23.png" alt></p>
 <ol start="2">
-<li>关联到内部是不合适的，应该是关联到接口</li>
-<li>接口耦合度低，而如果是具体关联耦合度高</li>
+<li>&#x5173;&#x8054;&#x5230;&#x5185;&#x90E8;&#x662F;&#x4E0D;&#x5408;&#x9002;&#x7684;&#xFF0C;&#x5E94;&#x8BE5;&#x662F;&#x5173;&#x8054;&#x5230;&#x63A5;&#x53E3;</li>
+<li>&#x63A5;&#x53E3;&#x8026;&#x5408;&#x5EA6;&#x4F4E;&#xFF0C;&#x800C;&#x5982;&#x679C;&#x662F;&#x5177;&#x4F53;&#x5173;&#x8054;&#x8026;&#x5408;&#x5EA6;&#x9AD8;</li>
 </ol>
-<h3 id="3-3-12-原则四：面向接口编程">3.3.12. 原则四：面向接口编程</h3>
-<h3 id="3-3-13-结构良好的系统">3.3.13. 结构良好的系统</h3>
-<p>通过已定义的接口通过传递的参数进行通讯</p>
-<h3 id="3-3-14-耦合的强度-3-应该对外提供什么和接收什么">3.3.14. 耦合的强度 3 - 应该对外提供什么和接收什么</h3>
-<p>下面的是控制耦合的一个例子：</p>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/24.png" alt=""></p>
+<h3 id="3-3-12-&#x539F;&#x5219;&#x56DB;&#xFF1A;&#x9762;&#x5411;&#x63A5;&#x53E3;&#x7F16;&#x7A0B;">3.3.12. &#x539F;&#x5219;&#x56DB;&#xFF1A;&#x9762;&#x5411;&#x63A5;&#x53E3;&#x7F16;&#x7A0B;</h3>
+<h3 id="3-3-13-&#x7ED3;&#x6784;&#x826F;&#x597D;&#x7684;&#x7CFB;&#x7EDF;">3.3.13. &#x7ED3;&#x6784;&#x826F;&#x597D;&#x7684;&#x7CFB;&#x7EDF;</h3>
+<p>&#x901A;&#x8FC7;&#x5DF2;&#x5B9A;&#x4E49;&#x7684;&#x63A5;&#x53E3;&#x901A;&#x8FC7;&#x4F20;&#x9012;&#x7684;&#x53C2;&#x6570;&#x8FDB;&#x884C;&#x901A;&#x8BAF;</p>
+<h3 id="3-3-14-&#x8026;&#x5408;&#x7684;&#x5F3A;&#x5EA6;-3-&#x5E94;&#x8BE5;&#x5BF9;&#x5916;&#x63D0;&#x4F9B;&#x4EC0;&#x4E48;&#x548C;&#x63A5;&#x6536;&#x4EC0;&#x4E48;">3.3.14. &#x8026;&#x5408;&#x7684;&#x5F3A;&#x5EA6; 3 - &#x5E94;&#x8BE5;&#x5BF9;&#x5916;&#x63D0;&#x4F9B;&#x4EC0;&#x4E48;&#x548C;&#x63A5;&#x6536;&#x4EC0;&#x4E48;</h3>
+<p>&#x4E0B;&#x9762;&#x7684;&#x662F;&#x63A7;&#x5236;&#x8026;&#x5408;&#x7684;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;&#xFF1A;</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/24.png" alt></p>
 <blockquote>
-<p>上层将控制信息传递给下层，下层根据控制信息来switch</p>
+<p>&#x4E0A;&#x5C42;&#x5C06;&#x63A7;&#x5236;&#x4FE1;&#x606F;&#x4F20;&#x9012;&#x7ED9;&#x4E0B;&#x5C42;&#xFF0C;&#x4E0B;&#x5C42;&#x6839;&#x636E;&#x63A7;&#x5236;&#x4FE1;&#x606F;&#x6765;switch</p>
 </blockquote>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/25.png" alt=""></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/25.png" alt></p>
 <blockquote>
 <ol>
-<li>在上层已经处理好需要处理啥，把switch放在上层</li>
-<li><strong>不需要传递控制信号</strong>，直接调用要进行处理的下层</li>
+<li>&#x5728;&#x4E0A;&#x5C42;&#x5DF2;&#x7ECF;&#x5904;&#x7406;&#x597D;&#x9700;&#x8981;&#x5904;&#x7406;&#x5565;&#xFF0C;&#x628A;switch&#x653E;&#x5728;&#x4E0A;&#x5C42;</li>
+<li><strong>&#x4E0D;&#x9700;&#x8981;&#x4F20;&#x9012;&#x63A7;&#x5236;&#x4FE1;&#x53F7;</strong>&#xFF0C;&#x76F4;&#x63A5;&#x8C03;&#x7528;&#x8981;&#x8FDB;&#x884C;&#x5904;&#x7406;&#x7684;&#x4E0B;&#x5C42;</li>
 </ol>
 </blockquote>
-<h3 id="3-3-15-结构化方法中的耦合强度">3.3.15. 结构化方法中的耦合强度</h3>
-<p><strong>从上向下耦合度降低</strong></p>
+<h3 id="3-3-15-&#x7ED3;&#x6784;&#x5316;&#x65B9;&#x6CD5;&#x4E2D;&#x7684;&#x8026;&#x5408;&#x5F3A;&#x5EA6;">3.3.15. &#x7ED3;&#x6784;&#x5316;&#x65B9;&#x6CD5;&#x4E2D;&#x7684;&#x8026;&#x5408;&#x5F3A;&#x5EA6;</h3>
+<p><strong>&#x4ECE;&#x4E0A;&#x5411;&#x4E0B;&#x8026;&#x5408;&#x5EA6;&#x964D;&#x4F4E;</strong></p>
 <ol>
-<li>内容耦合：①另一个模块修改一个模块的代码【在以前的语言有的可以，现在不行】②一个模块依赖另一个模块的内容</li>
-<li>公共耦合：全局变量</li>
-<li>重复耦合：两个模块有相同的重复代码</li>
-<li>控制耦合：传递的人和接收的人都需要管理控制信号</li>
-<li>印记耦合：传递数据结构，但只用了其中的一部分</li>
-<li>数据耦合：传递必要数据的连接，发送数据正好</li>
-<li><strong>没有耦合是最好的：但是是做不到的，完全独立不能协作</strong></li>
-<li>几乎没有没有耦合的系统，只能降低耦合</li>
-<li><strong>重复耦合及以上不允许存在</strong></li>
-<li><strong>控制耦合和印记耦合都要尽量消除</strong></li>
-</ol>
-<blockquote>
-<p>注:内容耦合、重复耦合和公共耦合是不能接受的。数据耦合是最好的，而控制耦合和印记耦合是可以接受的</p>
-</blockquote>
-<h2 id="3-4-结构化设计中的内聚">3.4. 结构化设计中的内聚</h2>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/16.png" alt=""></p>
-<p><strong>从上到下内聚性增加</strong></p>
-<ol>
-<li>偶然内聚:没什么关系(<strong>避免</strong>)</li>
-<li>逻辑内聚:将一系列相关操作放在一起，由其他模块进行调用</li>
-<li>时间内聚:操作和时间有关系</li>
-<li>过程内聚:<strong>更强调</strong>按照一定步骤进行调用</li>
-<li>通信内聚:在过程内聚的基础上，对相同的数据进行操作</li>
-<li>功能内聚:只执行一个单一操作或实现一个单一的功能</li>
-<li>信息内聚:多个操作，相互相对独立，并且都在相同的数据结构上完成，比如ArrayList类</li>
-<li><strong>时间、过程、通信尽量做</strong></li>
-<li><strong>最好能做到功能、信息内聚</strong></li>
+<li>&#x5185;&#x5BB9;&#x8026;&#x5408;&#xFF1A;&#x2460;&#x53E6;&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#x4FEE;&#x6539;&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#x7684;&#x4EE3;&#x7801;&#x3010;&#x5728;&#x4EE5;&#x524D;&#x7684;&#x8BED;&#x8A00;&#x6709;&#x7684;&#x53EF;&#x4EE5;&#xFF0C;&#x73B0;&#x5728;&#x4E0D;&#x884C;&#x3011;&#x2461;&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#x4F9D;&#x8D56;&#x53E6;&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#x7684;&#x5185;&#x5BB9;</li>
+<li>&#x516C;&#x5171;&#x8026;&#x5408;&#xFF1A;&#x5168;&#x5C40;&#x53D8;&#x91CF;</li>
+<li>&#x91CD;&#x590D;&#x8026;&#x5408;&#xFF1A;&#x4E24;&#x4E2A;&#x6A21;&#x5757;&#x6709;&#x76F8;&#x540C;&#x7684;&#x91CD;&#x590D;&#x4EE3;&#x7801;</li>
+<li>&#x63A7;&#x5236;&#x8026;&#x5408;&#xFF1A;&#x4F20;&#x9012;&#x7684;&#x4EBA;&#x548C;&#x63A5;&#x6536;&#x7684;&#x4EBA;&#x90FD;&#x9700;&#x8981;&#x7BA1;&#x7406;&#x63A7;&#x5236;&#x4FE1;&#x53F7;</li>
+<li>&#x5370;&#x8BB0;&#x8026;&#x5408;&#xFF1A;&#x4F20;&#x9012;&#x6570;&#x636E;&#x7ED3;&#x6784;&#xFF0C;&#x4F46;&#x53EA;&#x7528;&#x4E86;&#x5176;&#x4E2D;&#x7684;&#x4E00;&#x90E8;&#x5206;</li>
+<li>&#x6570;&#x636E;&#x8026;&#x5408;&#xFF1A;&#x4F20;&#x9012;&#x5FC5;&#x8981;&#x6570;&#x636E;&#x7684;&#x8FDE;&#x63A5;&#xFF0C;&#x53D1;&#x9001;&#x6570;&#x636E;&#x6B63;&#x597D;</li>
+<li><strong>&#x6CA1;&#x6709;&#x8026;&#x5408;&#x662F;&#x6700;&#x597D;&#x7684;&#xFF1A;&#x4F46;&#x662F;&#x662F;&#x505A;&#x4E0D;&#x5230;&#x7684;&#xFF0C;&#x5B8C;&#x5168;&#x72EC;&#x7ACB;&#x4E0D;&#x80FD;&#x534F;&#x4F5C;</strong></li>
+<li>&#x51E0;&#x4E4E;&#x6CA1;&#x6709;&#x6CA1;&#x6709;&#x8026;&#x5408;&#x7684;&#x7CFB;&#x7EDF;&#xFF0C;&#x53EA;&#x80FD;&#x964D;&#x4F4E;&#x8026;&#x5408;</li>
+<li><strong>&#x91CD;&#x590D;&#x8026;&#x5408;&#x53CA;&#x4EE5;&#x4E0A;&#x4E0D;&#x5141;&#x8BB8;&#x5B58;&#x5728;</strong></li>
+<li><strong>&#x63A7;&#x5236;&#x8026;&#x5408;&#x548C;&#x5370;&#x8BB0;&#x8026;&#x5408;&#x90FD;&#x8981;&#x5C3D;&#x91CF;&#x6D88;&#x9664;</strong></li>
 </ol>
 <blockquote>
-<p>我们分离控制过程与具体功能的执行过程：</p>
-<p>负责控制过程（控制器对象）的模块可以是通信内聚、过程内聚、时间内聚的，<strong>因为它们需要控制任务的分配和执行的流程</strong></p>
-<p><strong>执行具体功能的模块应该是功能内聚或信息内聚的。</strong></p>
+<p>&#x6CE8;:&#x5185;&#x5BB9;&#x8026;&#x5408;&#x3001;&#x91CD;&#x590D;&#x8026;&#x5408;&#x548C;&#x516C;&#x5171;&#x8026;&#x5408;&#x662F;&#x4E0D;&#x80FD;&#x63A5;&#x53D7;&#x7684;&#x3002;&#x6570;&#x636E;&#x8026;&#x5408;&#x662F;&#x6700;&#x597D;&#x7684;&#xFF0C;&#x800C;&#x63A7;&#x5236;&#x8026;&#x5408;&#x548C;&#x5370;&#x8BB0;&#x8026;&#x5408;&#x662F;&#x53EF;&#x4EE5;&#x63A5;&#x53D7;&#x7684;</p>
 </blockquote>
-<h3 id="3-4-1-内聚">3.4.1. 内聚</h3>
+<h2 id="3-4-&#x7ED3;&#x6784;&#x5316;&#x8BBE;&#x8BA1;&#x4E2D;&#x7684;&#x5185;&#x805A;">3.4. &#x7ED3;&#x6784;&#x5316;&#x8BBE;&#x8BA1;&#x4E2D;&#x7684;&#x5185;&#x805A;</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/16.png" alt></p>
+<p><strong>&#x4ECE;&#x4E0A;&#x5230;&#x4E0B;&#x5185;&#x805A;&#x6027;&#x589E;&#x52A0;</strong></p>
 <ol>
-<li>实现独立模块的方式
+<li>&#x5076;&#x7136;&#x5185;&#x805A;:&#x6CA1;&#x4EC0;&#x4E48;&#x5173;&#x7CFB;(<strong>&#x907F;&#x514D;</strong>)</li>
+<li>&#x903B;&#x8F91;&#x5185;&#x805A;:&#x5C06;&#x4E00;&#x7CFB;&#x5217;&#x76F8;&#x5173;&#x64CD;&#x4F5C;&#x653E;&#x5728;&#x4E00;&#x8D77;&#xFF0C;&#x7531;&#x5176;&#x4ED6;&#x6A21;&#x5757;&#x8FDB;&#x884C;&#x8C03;&#x7528;</li>
+<li>&#x65F6;&#x95F4;&#x5185;&#x805A;:&#x64CD;&#x4F5C;&#x548C;&#x65F6;&#x95F4;&#x6709;&#x5173;&#x7CFB;</li>
+<li>&#x8FC7;&#x7A0B;&#x5185;&#x805A;:<strong>&#x66F4;&#x5F3A;&#x8C03;</strong>&#x6309;&#x7167;&#x4E00;&#x5B9A;&#x6B65;&#x9AA4;&#x8FDB;&#x884C;&#x8C03;&#x7528;</li>
+<li>&#x901A;&#x4FE1;&#x5185;&#x805A;:&#x5728;&#x8FC7;&#x7A0B;&#x5185;&#x805A;&#x7684;&#x57FA;&#x7840;&#x4E0A;&#xFF0C;&#x5BF9;&#x76F8;&#x540C;&#x7684;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x64CD;&#x4F5C;</li>
+<li>&#x529F;&#x80FD;&#x5185;&#x805A;:&#x53EA;&#x6267;&#x884C;&#x4E00;&#x4E2A;&#x5355;&#x4E00;&#x64CD;&#x4F5C;&#x6216;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x5355;&#x4E00;&#x7684;&#x529F;&#x80FD;</li>
+<li>&#x4FE1;&#x606F;&#x5185;&#x805A;:&#x591A;&#x4E2A;&#x64CD;&#x4F5C;&#xFF0C;&#x76F8;&#x4E92;&#x76F8;&#x5BF9;&#x72EC;&#x7ACB;&#xFF0C;&#x5E76;&#x4E14;&#x90FD;&#x5728;&#x76F8;&#x540C;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x4E0A;&#x5B8C;&#x6210;&#xFF0C;&#x6BD4;&#x5982;ArrayList&#x7C7B;</li>
+<li><strong>&#x65F6;&#x95F4;&#x3001;&#x8FC7;&#x7A0B;&#x3001;&#x901A;&#x4FE1;&#x5C3D;&#x91CF;&#x505A;</strong></li>
+<li><strong>&#x6700;&#x597D;&#x80FD;&#x505A;&#x5230;&#x529F;&#x80FD;&#x3001;&#x4FE1;&#x606F;&#x5185;&#x805A;</strong></li>
+</ol>
+<blockquote>
+<p>&#x6211;&#x4EEC;&#x5206;&#x79BB;&#x63A7;&#x5236;&#x8FC7;&#x7A0B;&#x4E0E;&#x5177;&#x4F53;&#x529F;&#x80FD;&#x7684;&#x6267;&#x884C;&#x8FC7;&#x7A0B;&#xFF1A;</p>
+<p>&#x8D1F;&#x8D23;&#x63A7;&#x5236;&#x8FC7;&#x7A0B;&#xFF08;&#x63A7;&#x5236;&#x5668;&#x5BF9;&#x8C61;&#xFF09;&#x7684;&#x6A21;&#x5757;&#x53EF;&#x4EE5;&#x662F;&#x901A;&#x4FE1;&#x5185;&#x805A;&#x3001;&#x8FC7;&#x7A0B;&#x5185;&#x805A;&#x3001;&#x65F6;&#x95F4;&#x5185;&#x805A;&#x7684;&#xFF0C;<strong>&#x56E0;&#x4E3A;&#x5B83;&#x4EEC;&#x9700;&#x8981;&#x63A7;&#x5236;&#x4EFB;&#x52A1;&#x7684;&#x5206;&#x914D;&#x548C;&#x6267;&#x884C;&#x7684;&#x6D41;&#x7A0B;</strong></p>
+<p><strong>&#x6267;&#x884C;&#x5177;&#x4F53;&#x529F;&#x80FD;&#x7684;&#x6A21;&#x5757;&#x5E94;&#x8BE5;&#x662F;&#x529F;&#x80FD;&#x5185;&#x805A;&#x6216;&#x4FE1;&#x606F;&#x5185;&#x805A;&#x7684;&#x3002;</strong></p>
+</blockquote>
+<h3 id="3-4-1-&#x5185;&#x805A;">3.4.1. &#x5185;&#x805A;</h3>
 <ol>
-<li>减少不在同一模块中的元素之间的关系</li>
-<li>增加同一模块中元素之间的关系</li>
+<li>&#x5B9E;&#x73B0;&#x72EC;&#x7ACB;&#x6A21;&#x5757;&#x7684;&#x65B9;&#x5F0F;
+<ol>
+<li>&#x51CF;&#x5C11;&#x4E0D;&#x5728;&#x540C;&#x4E00;&#x6A21;&#x5757;&#x4E2D;&#x7684;&#x5143;&#x7D20;&#x4E4B;&#x95F4;&#x7684;&#x5173;&#x7CFB;</li>
+<li>&#x589E;&#x52A0;&#x540C;&#x4E00;&#x6A21;&#x5757;&#x4E2D;&#x5143;&#x7D20;&#x4E4B;&#x95F4;&#x7684;&#x5173;&#x7CFB;</li>
 </ol>
 </li>
 </ol>
-<h1>4. KWIC案例</h1>
+<h1>4. KWIC&#x6848;&#x4F8B;</h1>
 <ol>
-<li>一共有4种Java的实现方式，注意复习</li>
+<li>&#x4E00;&#x5171;&#x6709;4&#x79CD;Java&#x7684;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;&#xFF0C;&#x6CE8;&#x610F;&#x590D;&#x4E60;</li>
 </ol>
 <h2 id="4-1-KWIC">4.1. KWIC</h2>
 <ol>
-<li>简称KWIC，⼜称上下⽂关键词索引，由IBM的卢恩首创，是最早出现的机编索引， 1960年首次用于美国化学文摘社出版的《化学题录》(Chemical Titles)。</li>
-<li>KWlC索引的的编制特点是：
+<li>&#x7B80;&#x79F0;KWIC&#xFF0C;&#x2F1C;&#x79F0;&#x4E0A;&#x4E0B;&#x2F42;&#x5173;&#x952E;&#x8BCD;&#x7D22;&#x5F15;&#xFF0C;&#x7531;IBM&#x7684;&#x5362;&#x6069;&#x9996;&#x521B;&#xFF0C;&#x662F;&#x6700;&#x65E9;&#x51FA;&#x73B0;&#x7684;&#x673A;&#x7F16;&#x7D22;&#x5F15;&#xFF0C; 1960&#x5E74;&#x9996;&#x6B21;&#x7528;&#x4E8E;&#x7F8E;&#x56FD;&#x5316;&#x5B66;&#x6587;&#x6458;&#x793E;&#x51FA;&#x7248;&#x7684;&#x300A;&#x5316;&#x5B66;&#x9898;&#x5F55;&#x300B;(Chemical Titles)&#x3002;</li>
+<li>KWlC&#x7D22;&#x5F15;&#x7684;&#x7684;&#x7F16;&#x5236;&#x7279;&#x70B9;&#x662F;&#xFF1A;
 <ol>
-<li>使用禁用词表选择标题中具有检索意义的词为关键词，并将其作为确定索引条目的依据；</li>
-<li>关键词的排检点设于标题的中部，所有索引条目按关键词的字顺竖向排列；</li>
-<li>保留文献篇名中关键词前后的上下文，如⽂献名称过长，可以以轮排的形式移至条目的前部或后部；款目后跟随该信息资源的位置。</li>
+<li>&#x4F7F;&#x7528;&#x7981;&#x7528;&#x8BCD;&#x8868;&#x9009;&#x62E9;&#x6807;&#x9898;&#x4E2D;&#x5177;&#x6709;&#x68C0;&#x7D22;&#x610F;&#x4E49;&#x7684;&#x8BCD;&#x4E3A;&#x5173;&#x952E;&#x8BCD;&#xFF0C;&#x5E76;&#x5C06;&#x5176;&#x4F5C;&#x4E3A;&#x786E;&#x5B9A;&#x7D22;&#x5F15;&#x6761;&#x76EE;&#x7684;&#x4F9D;&#x636E;&#xFF1B;</li>
+<li>&#x5173;&#x952E;&#x8BCD;&#x7684;&#x6392;&#x68C0;&#x70B9;&#x8BBE;&#x4E8E;&#x6807;&#x9898;&#x7684;&#x4E2D;&#x90E8;&#xFF0C;&#x6240;&#x6709;&#x7D22;&#x5F15;&#x6761;&#x76EE;&#x6309;&#x5173;&#x952E;&#x8BCD;&#x7684;&#x5B57;&#x987A;&#x7AD6;&#x5411;&#x6392;&#x5217;&#xFF1B;</li>
+<li>&#x4FDD;&#x7559;&#x6587;&#x732E;&#x7BC7;&#x540D;&#x4E2D;&#x5173;&#x952E;&#x8BCD;&#x524D;&#x540E;&#x7684;&#x4E0A;&#x4E0B;&#x6587;&#xFF0C;&#x5982;&#x2F42;&#x732E;&#x540D;&#x79F0;&#x8FC7;&#x957F;&#xFF0C;&#x53EF;&#x4EE5;&#x4EE5;&#x8F6E;&#x6392;&#x7684;&#x5F62;&#x5F0F;&#x79FB;&#x81F3;&#x6761;&#x76EE;&#x7684;&#x524D;&#x90E8;&#x6216;&#x540E;&#x90E8;&#xFF1B;&#x6B3E;&#x76EE;&#x540E;&#x8DDF;&#x968F;&#x8BE5;&#x4FE1;&#x606F;&#x8D44;&#x6E90;&#x7684;&#x4F4D;&#x7F6E;&#x3002;</li>
 </ol>
 </li>
-<li>上述条目均按关键词的字顺排列在相应位置，检索时先在检索入口处查找与检索课题有关的关键词，再通过阅读上下⽂寻找符合检索要求的文献。可以按排检点为中心对同⼀关键词有关的资源集中检索查找，是这⼀索引的优点；不足是将索引的排检点设置在中部不符合⽤户使⽤习惯。</li>
+<li>&#x4E0A;&#x8FF0;&#x6761;&#x76EE;&#x5747;&#x6309;&#x5173;&#x952E;&#x8BCD;&#x7684;&#x5B57;&#x987A;&#x6392;&#x5217;&#x5728;&#x76F8;&#x5E94;&#x4F4D;&#x7F6E;&#xFF0C;&#x68C0;&#x7D22;&#x65F6;&#x5148;&#x5728;&#x68C0;&#x7D22;&#x5165;&#x53E3;&#x5904;&#x67E5;&#x627E;&#x4E0E;&#x68C0;&#x7D22;&#x8BFE;&#x9898;&#x6709;&#x5173;&#x7684;&#x5173;&#x952E;&#x8BCD;&#xFF0C;&#x518D;&#x901A;&#x8FC7;&#x9605;&#x8BFB;&#x4E0A;&#x4E0B;&#x2F42;&#x5BFB;&#x627E;&#x7B26;&#x5408;&#x68C0;&#x7D22;&#x8981;&#x6C42;&#x7684;&#x6587;&#x732E;&#x3002;&#x53EF;&#x4EE5;&#x6309;&#x6392;&#x68C0;&#x70B9;&#x4E3A;&#x4E2D;&#x5FC3;&#x5BF9;&#x540C;&#x2F00;&#x5173;&#x952E;&#x8BCD;&#x6709;&#x5173;&#x7684;&#x8D44;&#x6E90;&#x96C6;&#x4E2D;&#x68C0;&#x7D22;&#x67E5;&#x627E;&#xFF0C;&#x662F;&#x8FD9;&#x2F00;&#x7D22;&#x5F15;&#x7684;&#x4F18;&#x70B9;&#xFF1B;&#x4E0D;&#x8DB3;&#x662F;&#x5C06;&#x7D22;&#x5F15;&#x7684;&#x6392;&#x68C0;&#x70B9;&#x8BBE;&#x7F6E;&#x5728;&#x4E2D;&#x90E8;&#x4E0D;&#x7B26;&#x5408;&#x2F64;&#x6237;&#x4F7F;&#x2F64;&#x4E60;&#x60EF;&#x3002;</li>
 </ol>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/7.png" alt=""></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/7.png" alt></p>
 <ol start="4">
-<li>对很多的关键词进行关键词排序</li>
+<li>&#x5BF9;&#x5F88;&#x591A;&#x7684;&#x5173;&#x952E;&#x8BCD;&#x8FDB;&#x884C;&#x5173;&#x952E;&#x8BCD;&#x6392;&#x5E8F;</li>
 </ol>
-<h2 id="4-2-KWIC来实现系统的模块化">4.2. KWIC来实现系统的模块化</h2>
+<h2 id="4-2-KWIC&#x6765;&#x5B9E;&#x73B0;&#x7CFB;&#x7EDF;&#x7684;&#x6A21;&#x5757;&#x5316;">4.2. KWIC&#x6765;&#x5B9E;&#x73B0;&#x7CFB;&#x7EDF;&#x7684;&#x6A21;&#x5757;&#x5316;</h2>
 <ol>
-<li>KWIC索引系统接受：
+<li>KWIC&#x7D22;&#x5F15;&#x7CFB;&#x7EDF;&#x63A5;&#x53D7;&#xFF1A;
 <ol>
-<li>一组有序的线</li>
-<li>每行是一组有序的单词</li>
-<li>每个单词都是一组有序的字符</li>
+<li>&#x4E00;&#x7EC4;&#x6709;&#x5E8F;&#x7684;&#x7EBF;</li>
+<li>&#x6BCF;&#x884C;&#x662F;&#x4E00;&#x7EC4;&#x6709;&#x5E8F;&#x7684;&#x5355;&#x8BCD;</li>
+<li>&#x6BCF;&#x4E2A;&#x5355;&#x8BCD;&#x90FD;&#x662F;&#x4E00;&#x7EC4;&#x6709;&#x5E8F;&#x7684;&#x5B57;&#x7B26;</li>
 </ol>
 </li>
-<li>每行都&quot;循环移位&quot;并通过以下方式复制：
+<li>&#x6BCF;&#x884C;&#x90FD;&quot;&#x5FAA;&#x73AF;&#x79FB;&#x4F4D;&quot;&#x5E76;&#x901A;&#x8FC7;&#x4EE5;&#x4E0B;&#x65B9;&#x5F0F;&#x590D;&#x5236;&#xFF1A;
 <ol>
-<li>反复删除第一个单词</li>
-<li>将其附加在行的末尾</li>
+<li>&#x53CD;&#x590D;&#x5220;&#x9664;&#x7B2C;&#x4E00;&#x4E2A;&#x5355;&#x8BCD;</li>
+<li>&#x5C06;&#x5176;&#x9644;&#x52A0;&#x5728;&#x884C;&#x7684;&#x672B;&#x5C3E;</li>
 </ol>
 </li>
-<li>输出按字母顺序排列的所有行的所有循环移位的列表</li>
+<li>&#x8F93;&#x51FA;&#x6309;&#x5B57;&#x6BCD;&#x987A;&#x5E8F;&#x6392;&#x5217;&#x7684;&#x6240;&#x6709;&#x884C;&#x7684;&#x6240;&#x6709;&#x5FAA;&#x73AF;&#x79FB;&#x4F4D;&#x7684;&#x5217;&#x8868;</li>
 </ol>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/8.png" alt=""></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/8.png" alt></p>
 <ol start="4">
-<li>通过下标就可以排序数组，下标是title的中间</li>
+<li>&#x901A;&#x8FC7;&#x4E0B;&#x6807;&#x5C31;&#x53EF;&#x4EE5;&#x6392;&#x5E8F;&#x6570;&#x7EC4;&#xFF0C;&#x4E0B;&#x6807;&#x662F;title&#x7684;&#x4E2D;&#x95F4;</li>
 </ol>
-<h2 id="4-3-根据功能进行设计">4.3. 根据功能进行设计</h2>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/9.png" alt=""></p>
-<h3 id="4-4-循环位移算法的实现">4.4. 循环位移算法的实现</h3>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/10.png" alt=""></p>
-<h2 id="4-5-信息隐藏">4.5. 信息隐藏</h2>
+<h2 id="4-3-&#x6839;&#x636E;&#x529F;&#x80FD;&#x8FDB;&#x884C;&#x8BBE;&#x8BA1;">4.3. &#x6839;&#x636E;&#x529F;&#x80FD;&#x8FDB;&#x884C;&#x8BBE;&#x8BA1;</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/9.png" alt></p>
+<h3 id="4-4-&#x5FAA;&#x73AF;&#x4F4D;&#x79FB;&#x7B97;&#x6CD5;&#x7684;&#x5B9E;&#x73B0;">4.4. &#x5FAA;&#x73AF;&#x4F4D;&#x79FB;&#x7B97;&#x6CD5;&#x7684;&#x5B9E;&#x73B0;</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/10.png" alt></p>
+<h2 id="4-5-&#x4FE1;&#x606F;&#x9690;&#x85CF;">4.5. &#x4FE1;&#x606F;&#x9690;&#x85CF;</h2>
 <ol>
-<li>基本思想：<strong>每个模块都隐藏了重要设计决策的实现，因此只有该模块的组成部分才知道详细信息</strong>：特别是如果存在所有可能的设计更改的列表-隐藏假设列表</li>
-<li>所有设计决策彼此独立</li>
-<li>两种常见的信息隐藏：
+<li>&#x57FA;&#x672C;&#x601D;&#x60F3;&#xFF1A;<strong>&#x6BCF;&#x4E2A;&#x6A21;&#x5757;&#x90FD;&#x9690;&#x85CF;&#x4E86;&#x91CD;&#x8981;&#x8BBE;&#x8BA1;&#x51B3;&#x7B56;&#x7684;&#x5B9E;&#x73B0;&#xFF0C;&#x56E0;&#x6B64;&#x53EA;&#x6709;&#x8BE5;&#x6A21;&#x5757;&#x7684;&#x7EC4;&#x6210;&#x90E8;&#x5206;&#x624D;&#x77E5;&#x9053;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;</strong>&#xFF1A;&#x7279;&#x522B;&#x662F;&#x5982;&#x679C;&#x5B58;&#x5728;&#x6240;&#x6709;&#x53EF;&#x80FD;&#x7684;&#x8BBE;&#x8BA1;&#x66F4;&#x6539;&#x7684;&#x5217;&#x8868;-&#x9690;&#x85CF;&#x5047;&#x8BBE;&#x5217;&#x8868;</li>
+<li>&#x6240;&#x6709;&#x8BBE;&#x8BA1;&#x51B3;&#x7B56;&#x5F7C;&#x6B64;&#x72EC;&#x7ACB;</li>
+<li>&#x4E24;&#x79CD;&#x5E38;&#x89C1;&#x7684;&#x4FE1;&#x606F;&#x9690;&#x85CF;&#xFF1A;
 <ol>
-<li><strong>一是根据需求分配的职责</strong>，因为实践表明，需求是经常变化的，频率和幅度都很大；</li>
-<li><strong>二是内部实现机制</strong>，常见的变化主题包括硬件依赖，输入输出形式，非标准语言特征和库，负责的设计和实现，复杂的数据结构，复杂的逻辑，全局变量。数据大小限制等。</li>
-</ol>
-</li>
-</ol>
-<h2 id="4-6-根据设计决策进行设计">4.6. 根据设计决策进行设计</h2>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/11.png" alt=""></p>
-<ol>
-<li>模块之间的交互是通过接口实现的</li>
-</ol>
-<h3 id="4-7-CircularShifter的定义">4.7. CircularShifter的定义</h3>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/12.png" alt=""></p>
-<ol>
-<li>有无更改调用的方法:不用</li>
-<li>有无更改调用的方法之中的实现:可能更改</li>
-</ol>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/13.png" alt=""></p>
-<h2 id="4-8-分解标准">4.8. 分解标准</h2>
-<ol>
-<li>第一种模块化：处理过程中的每个主要步骤都是一个模块</li>
-<li>第二种模块化：
-<ol>
-<li>信息隐藏：每个模块都有一个或多个&quot;隐藏&quot;
-<ol>
-<li>行：字符/行的存储方式</li>
-<li>循环位移：旋转算法，旋转存储</li>
-<li>字符表化：alpha的算法，alpha的惰性</li>
-<li>每个模块都以其对设计决策的了解为特征，而对其他所有决策则都不了解。</li>
+<li><strong>&#x4E00;&#x662F;&#x6839;&#x636E;&#x9700;&#x6C42;&#x5206;&#x914D;&#x7684;&#x804C;&#x8D23;</strong>&#xFF0C;&#x56E0;&#x4E3A;&#x5B9E;&#x8DF5;&#x8868;&#x660E;&#xFF0C;&#x9700;&#x6C42;&#x662F;&#x7ECF;&#x5E38;&#x53D8;&#x5316;&#x7684;&#xFF0C;&#x9891;&#x7387;&#x548C;&#x5E45;&#x5EA6;&#x90FD;&#x5F88;&#x5927;&#xFF1B;</li>
+<li><strong>&#x4E8C;&#x662F;&#x5185;&#x90E8;&#x5B9E;&#x73B0;&#x673A;&#x5236;</strong>&#xFF0C;&#x5E38;&#x89C1;&#x7684;&#x53D8;&#x5316;&#x4E3B;&#x9898;&#x5305;&#x62EC;&#x786C;&#x4EF6;&#x4F9D;&#x8D56;&#xFF0C;&#x8F93;&#x5165;&#x8F93;&#x51FA;&#x5F62;&#x5F0F;&#xFF0C;&#x975E;&#x6807;&#x51C6;&#x8BED;&#x8A00;&#x7279;&#x5F81;&#x548C;&#x5E93;&#xFF0C;&#x8D1F;&#x8D23;&#x7684;&#x8BBE;&#x8BA1;&#x548C;&#x5B9E;&#x73B0;&#xFF0C;&#x590D;&#x6742;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#xFF0C;&#x590D;&#x6742;&#x7684;&#x903B;&#x8F91;&#xFF0C;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#x3002;&#x6570;&#x636E;&#x5927;&#x5C0F;&#x9650;&#x5236;&#x7B49;&#x3002;</li>
 </ol>
 </li>
 </ol>
-</li>
-<li>预期不到的变更是无法进行规避的</li>
+<h2 id="4-6-&#x6839;&#x636E;&#x8BBE;&#x8BA1;&#x51B3;&#x7B56;&#x8FDB;&#x884C;&#x8BBE;&#x8BA1;">4.6. &#x6839;&#x636E;&#x8BBE;&#x8BA1;&#x51B3;&#x7B56;&#x8FDB;&#x884C;&#x8BBE;&#x8BA1;</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/11.png" alt></p>
+<ol>
+<li>&#x6A21;&#x5757;&#x4E4B;&#x95F4;&#x7684;&#x4EA4;&#x4E92;&#x662F;&#x901A;&#x8FC7;&#x63A5;&#x53E3;&#x5B9E;&#x73B0;&#x7684;</li>
 </ol>
-<h2 id="4-9-可修改性比较">4.9. 可修改性比较</h2>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/14.png" alt=""></p>
-<p>按照算法分解比按照决策分解的修改范围大的多</p>
-<p>两种方案类似主程序子程序和面向对象风格，但这是体系结构设计的风格，这里是详细设计角度上讲</p>
-<h2 id="4-10-独立的发展">4.10. 独立的发展</h2>
+<h3 id="4-7-CircularShifter&#x7684;&#x5B9A;&#x4E49;">4.7. CircularShifter&#x7684;&#x5B9A;&#x4E49;</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/12.png" alt></p>
 <ol>
-<li>模块化 1
-<ol>
-<li>必须先设计所有数据结构，然后才能进行并行工作</li>
-<li>需要复杂的描述</li>
+<li>&#x6709;&#x65E0;&#x66F4;&#x6539;&#x8C03;&#x7528;&#x7684;&#x65B9;&#x6CD5;:&#x4E0D;&#x7528;</li>
+<li>&#x6709;&#x65E0;&#x66F4;&#x6539;&#x8C03;&#x7528;&#x7684;&#x65B9;&#x6CD5;&#x4E4B;&#x4E2D;&#x7684;&#x5B9E;&#x73B0;:&#x53EF;&#x80FD;&#x66F4;&#x6539;</li>
 </ol>
-</li>
-<li>模块化 2
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/13.png" alt></p>
+<h2 id="4-8-&#x5206;&#x89E3;&#x6807;&#x51C6;">4.8. &#x5206;&#x89E3;&#x6807;&#x51C6;</h2>
 <ol>
-<li>必须先设计接口，然后才能开始并行工作</li>
-<li>仅简单描述</li>
-</ol>
-</li>
-</ol>
-<h2 id="4-11-可理解性">4.11. 可理解性</h2>
+<li>&#x7B2C;&#x4E00;&#x79CD;&#x6A21;&#x5757;&#x5316;&#xFF1A;&#x5904;&#x7406;&#x8FC7;&#x7A0B;&#x4E2D;&#x7684;&#x6BCF;&#x4E2A;&#x4E3B;&#x8981;&#x6B65;&#x9AA4;&#x90FD;&#x662F;&#x4E00;&#x4E2A;&#x6A21;&#x5757;</li>
+<li>&#x7B2C;&#x4E8C;&#x79CD;&#x6A21;&#x5757;&#x5316;&#xFF1A;
 <ol>
-<li>第二种模块化是更好的
+<li>&#x4FE1;&#x606F;&#x9690;&#x85CF;&#xFF1A;&#x6BCF;&#x4E2A;&#x6A21;&#x5757;&#x90FD;&#x6709;&#x4E00;&#x4E2A;&#x6216;&#x591A;&#x4E2A;&quot;&#x9690;&#x85CF;&quot;
 <ol>
-<li>主观性判断</li>
-<li>更低的模块之间的耦合：面向接口编程</li>
+<li>&#x884C;&#xFF1A;&#x5B57;&#x7B26;/&#x884C;&#x7684;&#x5B58;&#x50A8;&#x65B9;&#x5F0F;</li>
+<li>&#x5FAA;&#x73AF;&#x4F4D;&#x79FB;&#xFF1A;&#x65CB;&#x8F6C;&#x7B97;&#x6CD5;&#xFF0C;&#x65CB;&#x8F6C;&#x5B58;&#x50A8;</li>
+<li>&#x5B57;&#x7B26;&#x8868;&#x5316;&#xFF1A;alpha&#x7684;&#x7B97;&#x6CD5;&#xFF0C;alpha&#x7684;&#x60F0;&#x6027;</li>
+<li>&#x6BCF;&#x4E2A;&#x6A21;&#x5757;&#x90FD;&#x4EE5;&#x5176;&#x5BF9;&#x8BBE;&#x8BA1;&#x51B3;&#x7B56;&#x7684;&#x4E86;&#x89E3;&#x4E3A;&#x7279;&#x5F81;&#xFF0C;&#x800C;&#x5BF9;&#x5176;&#x4ED6;&#x6240;&#x6709;&#x51B3;&#x7B56;&#x5219;&#x90FD;&#x4E0D;&#x4E86;&#x89E3;&#x3002;</li>
 </ol>
 </li>
 </ol>
-<h2 id="4-12-模块化">4.12. 模块化</h2>
-<ol>
-<li>一个职责设计而不是一个子程序</li>
-<li>由特定于自己的设计决策表示，而其他模块则未知</li>
-<li>在实现上支持灵活性</li>
-<li>不要代表过程中的步骤</li>
-<li>低耦合，高内聚</li>
+</li>
+<li>&#x9884;&#x671F;&#x4E0D;&#x5230;&#x7684;&#x53D8;&#x66F4;&#x662F;&#x65E0;&#x6CD5;&#x8FDB;&#x884C;&#x89C4;&#x907F;&#x7684;</li>
 </ol>
-<h2 id="4-13-结论">4.13. 结论</h2>
+<h2 id="4-9-&#x53EF;&#x4FEE;&#x6539;&#x6027;&#x6BD4;&#x8F83;">4.9. &#x53EF;&#x4FEE;&#x6539;&#x6027;&#x6BD4;&#x8F83;</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/14.png" alt></p>
+<p>&#x6309;&#x7167;&#x7B97;&#x6CD5;&#x5206;&#x89E3;&#x6BD4;&#x6309;&#x7167;&#x51B3;&#x7B56;&#x5206;&#x89E3;&#x7684;&#x4FEE;&#x6539;&#x8303;&#x56F4;&#x5927;&#x7684;&#x591A;</p>
+<p>&#x4E24;&#x79CD;&#x65B9;&#x6848;&#x7C7B;&#x4F3C;&#x4E3B;&#x7A0B;&#x5E8F;&#x5B50;&#x7A0B;&#x5E8F;&#x548C;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x98CE;&#x683C;&#xFF0C;&#x4F46;&#x8FD9;&#x662F;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x8BBE;&#x8BA1;&#x7684;&#x98CE;&#x683C;&#xFF0C;&#x8FD9;&#x91CC;&#x662F;&#x8BE6;&#x7EC6;&#x8BBE;&#x8BA1;&#x89D2;&#x5EA6;&#x4E0A;&#x8BB2;</p>
+<h2 id="4-10-&#x72EC;&#x7ACB;&#x7684;&#x53D1;&#x5C55;">4.10. &#x72EC;&#x7ACB;&#x7684;&#x53D1;&#x5C55;</h2>
 <ol>
-<li>模块
+<li>&#x6A21;&#x5757;&#x5316; 1
+<ol>
+<li>&#x5FC5;&#x987B;&#x5148;&#x8BBE;&#x8BA1;&#x6240;&#x6709;&#x6570;&#x636E;&#x7ED3;&#x6784;&#xFF0C;&#x7136;&#x540E;&#x624D;&#x80FD;&#x8FDB;&#x884C;&#x5E76;&#x884C;&#x5DE5;&#x4F5C;</li>
+<li>&#x9700;&#x8981;&#x590D;&#x6742;&#x7684;&#x63CF;&#x8FF0;</li>
+</ol>
+</li>
+<li>&#x6A21;&#x5757;&#x5316; 2
+<ol>
+<li>&#x5FC5;&#x987B;&#x5148;&#x8BBE;&#x8BA1;&#x63A5;&#x53E3;&#xFF0C;&#x7136;&#x540E;&#x624D;&#x80FD;&#x5F00;&#x59CB;&#x5E76;&#x884C;&#x5DE5;&#x4F5C;</li>
+<li>&#x4EC5;&#x7B80;&#x5355;&#x63CF;&#x8FF0;</li>
+</ol>
+</li>
+</ol>
+<h2 id="4-11-&#x53EF;&#x7406;&#x89E3;&#x6027;">4.11. &#x53EF;&#x7406;&#x89E3;&#x6027;</h2>
+<ol>
+<li>&#x7B2C;&#x4E8C;&#x79CD;&#x6A21;&#x5757;&#x5316;&#x662F;&#x66F4;&#x597D;&#x7684;
+<ol>
+<li>&#x4E3B;&#x89C2;&#x6027;&#x5224;&#x65AD;</li>
+<li>&#x66F4;&#x4F4E;&#x7684;&#x6A21;&#x5757;&#x4E4B;&#x95F4;&#x7684;&#x8026;&#x5408;&#xFF1A;&#x9762;&#x5411;&#x63A5;&#x53E3;&#x7F16;&#x7A0B;</li>
+</ol>
+</li>
+</ol>
+<h2 id="4-12-&#x6A21;&#x5757;&#x5316;">4.12. &#x6A21;&#x5757;&#x5316;</h2>
+<ol>
+<li>&#x4E00;&#x4E2A;&#x804C;&#x8D23;&#x8BBE;&#x8BA1;&#x800C;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x5B50;&#x7A0B;&#x5E8F;</li>
+<li>&#x7531;&#x7279;&#x5B9A;&#x4E8E;&#x81EA;&#x5DF1;&#x7684;&#x8BBE;&#x8BA1;&#x51B3;&#x7B56;&#x8868;&#x793A;&#xFF0C;&#x800C;&#x5176;&#x4ED6;&#x6A21;&#x5757;&#x5219;&#x672A;&#x77E5;</li>
+<li>&#x5728;&#x5B9E;&#x73B0;&#x4E0A;&#x652F;&#x6301;&#x7075;&#x6D3B;&#x6027;</li>
+<li>&#x4E0D;&#x8981;&#x4EE3;&#x8868;&#x8FC7;&#x7A0B;&#x4E2D;&#x7684;&#x6B65;&#x9AA4;</li>
+<li>&#x4F4E;&#x8026;&#x5408;&#xFF0C;&#x9AD8;&#x5185;&#x805A;</li>
+</ol>
+<h2 id="4-13-&#x7ED3;&#x8BBA;">4.13. &#x7ED3;&#x8BBA;</h2>
+<ol>
+<li>&#x6A21;&#x5757;
 <ul>
-<li>可以被放置到一起的去形成一个完成系统的模块</li>
-<li>职责分配，子过程，内存加载，功能部分</li>
+<li>&#x53EF;&#x4EE5;&#x88AB;&#x653E;&#x7F6E;&#x5230;&#x4E00;&#x8D77;&#x7684;&#x53BB;&#x5F62;&#x6210;&#x4E00;&#x4E2A;&#x5B8C;&#x6210;&#x7CFB;&#x7EDF;&#x7684;&#x6A21;&#x5757;</li>
+<li>&#x804C;&#x8D23;&#x5206;&#x914D;&#xFF0C;&#x5B50;&#x8FC7;&#x7A0B;&#xFF0C;&#x5185;&#x5B58;&#x52A0;&#x8F7D;&#xFF0C;&#x529F;&#x80FD;&#x90E8;&#x5206;</li>
 </ul>
 </li>
-<li>模块化：设计独立的模块</li>
-<li>封装
+<li>&#x6A21;&#x5757;&#x5316;&#xFF1A;&#x8BBE;&#x8BA1;&#x72EC;&#x7ACB;&#x7684;&#x6A21;&#x5757;</li>
+<li>&#x5C01;&#x88C5;
 <ul>
-<li>语言便利性</li>
-<li>面向对象三大基本思想:数据和行为在一起，体现共同职责</li>
+<li>&#x8BED;&#x8A00;&#x4FBF;&#x5229;&#x6027;</li>
+<li>&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x4E09;&#x5927;&#x57FA;&#x672C;&#x601D;&#x60F3;:&#x6570;&#x636E;&#x548C;&#x884C;&#x4E3A;&#x5728;&#x4E00;&#x8D77;&#xFF0C;&#x4F53;&#x73B0;&#x5171;&#x540C;&#x804C;&#x8D23;</li>
 </ul>
 </li>
-<li>信息隐藏
+<li>&#x4FE1;&#x606F;&#x9690;&#x85CF;
 <ul>
-<li>设计原则</li>
-<li>信息隐藏是更高的设计原则</li>
-</ul>
-</li>
-</ol>
-<h1>5. 结构化的模块化</h1>
-<ol>
-<li>1-2道大题是关于设计模式的</li>
-</ol>
-<h1>6. MSCS中的模块化思想的应用</h1>
-<h2 id="6-1-低耦合处理">6.1. 低耦合处理</h2>
-<ol>
-<li>软件体系结构的分层设计中:
-<ul>
-<li>不同层的模块之间仅能通过程序调⽤与数据传递实现交互,不能共享数据(例如 Model 层建⽴⼀个数据对象并将引⽤传递给 Logic 层使⽤)否则会导致公共耦合。</li>
-</ul>
-</li>
-<li>软件体系结构的逻辑包设计中:
-<ul>
-<li>依据功能的特点将三个层次进⼀步划分为更⼩的包,⽽不是只使⽤ Presentation、Logic和 Model 三个包,可以通过包分割实现接⼝最⼩化,这能去除不必要的耦合。</li>
+<li>&#x8BBE;&#x8BA1;&#x539F;&#x5219;</li>
+<li>&#x4FE1;&#x606F;&#x9690;&#x85CF;&#x662F;&#x66F4;&#x9AD8;&#x7684;&#x8BBE;&#x8BA1;&#x539F;&#x5219;</li>
 </ul>
 </li>
 </ol>
-<h2 id="6-2-软件体系结构的物理包设计中">6.2. 软件体系结构的物理包设计中</h2>
+<h1>5. &#x7ED3;&#x6784;&#x5316;&#x7684;&#x6A21;&#x5757;&#x5316;</h1>
 <ol>
-<li>将不同包的重复内容独⽴为单独的包以消除重复,避免产生隐式的重复耦合;</li>
+<li>1-2&#x9053;&#x5927;&#x9898;&#x662F;&#x5173;&#x4E8E;&#x8BBE;&#x8BA1;&#x6A21;&#x5F0F;&#x7684;</li>
 </ol>
-<h2 id="6-3-详细设计中对象创建者的选择">6.3. 详细设计中对象创建者的选择:</h2>
+<h1>6. MSCS&#x4E2D;&#x7684;&#x6A21;&#x5757;&#x5316;&#x601D;&#x60F3;&#x7684;&#x5E94;&#x7528;</h1>
+<h2 id="6-1-&#x4F4E;&#x8026;&#x5408;&#x5904;&#x7406;">6.1. &#x4F4E;&#x8026;&#x5408;&#x5904;&#x7406;</h2>
 <ol>
-<li>如果两个对象 A、B 间已有比较高的耦合度了, 那么使⽤ A 创建 B 或者反之就不会带来额外的耦合度。这就是表 12-4 内容的核⼼思想——<strong>不增加新的耦合</strong>。</li>
-</ol>
-<h2 id="6-4-详细设计中选择控制风格">6.4. 详细设计中选择控制风格:</h2>
-<ol>
-<li>解除界面与逻辑对象的直接耦合。</li>
-</ol>
-<h2 id="6-5-高内聚处理">6.5. 高内聚处理</h2>
-<ol>
-<li>软件体系结构的分层设计中:
+<li>&#x8F6F;&#x4EF6;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x7684;&#x5206;&#x5C42;&#x8BBE;&#x8BA1;&#x4E2D;:
 <ul>
-<li>三个层次都是⾼内聚的,⼀个处理交互任务, ⼀个处理业务逻辑,⼀个处理数据持久化。</li>
+<li>&#x4E0D;&#x540C;&#x5C42;&#x7684;&#x6A21;&#x5757;&#x4E4B;&#x95F4;&#x4EC5;&#x80FD;&#x901A;&#x8FC7;&#x7A0B;&#x5E8F;&#x8C03;&#x2F64;&#x4E0E;&#x6570;&#x636E;&#x4F20;&#x9012;&#x5B9E;&#x73B0;&#x4EA4;&#x4E92;,&#x4E0D;&#x80FD;&#x5171;&#x4EAB;&#x6570;&#x636E;(&#x4F8B;&#x5982; Model &#x5C42;&#x5EFA;&#x2F74;&#x2F00;&#x4E2A;&#x6570;&#x636E;&#x5BF9;&#x8C61;&#x5E76;&#x5C06;&#x5F15;&#x2F64;&#x4F20;&#x9012;&#x7ED9; Logic &#x5C42;&#x4F7F;&#x2F64;)&#x5426;&#x5219;&#x4F1A;&#x5BFC;&#x81F4;&#x516C;&#x5171;&#x8026;&#x5408;&#x3002;</li>
 </ul>
 </li>
-<li>软件体系结构的逻辑包设计中:
+<li>&#x8F6F;&#x4EF6;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x7684;&#x903B;&#x8F91;&#x5305;&#x8BBE;&#x8BA1;&#x4E2D;:
 <ul>
-<li>将三个层次进⼀步划分为更⼩的包,可以实现每个更⼩的包都是⾼内聚的。</li>
-</ul>
-</li>
-<li>详细设计中抽象类的职责:
-<ul>
-<li>要求状态与⽅法紧密联系就是为了达到⾼内聚 (信息内聚)。</li>
-</ul>
-</li>
-<li>详细设计中使⽤控制⻛格:
-<ul>
-<li>控制⻛格分离了控制逻辑,可以实现业务逻辑对象的⾼内聚(功能内聚)。因为封装了控制逻辑,所以控制器对象承载了不可避免的顺序内聚、通信内聚和逻辑内聚,这就要求控制器对象必须是受控的,也是它们为什么倾向于对外委托⽽不是⾃⼰进⾏业务计算的原因。</li>
+<li>&#x4F9D;&#x636E;&#x529F;&#x80FD;&#x7684;&#x7279;&#x70B9;&#x5C06;&#x4E09;&#x4E2A;&#x5C42;&#x6B21;&#x8FDB;&#x2F00;&#x6B65;&#x5212;&#x5206;&#x4E3A;&#x66F4;&#x2F29;&#x7684;&#x5305;,&#x2F7D;&#x4E0D;&#x662F;&#x53EA;&#x4F7F;&#x2F64; Presentation&#x3001;Logic&#x548C; Model &#x4E09;&#x4E2A;&#x5305;,&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5305;&#x5206;&#x5272;&#x5B9E;&#x73B0;&#x63A5;&#x2F1D;&#x6700;&#x2F29;&#x5316;,&#x8FD9;&#x80FD;&#x53BB;&#x9664;&#x4E0D;&#x5FC5;&#x8981;&#x7684;&#x8026;&#x5408;&#x3002;</li>
 </ul>
 </li>
 </ol>
-<h1>7. 结构化的信息隐藏</h1>
-<p>信息隐藏其实就是<strong>利用了抽象的方法</strong>。抽象出每个类的<strong>关键细节</strong>，也就是<strong>模块的职责</strong>（什么是公开给其他人的，什么是隐藏在自己模块中的）。换句话说，<strong>抽象出来的就是接口， 隐藏的就是实现</strong>，它们共同体现了模块的职责。</p>
-<p>通过分别关注实现和接口，抽象可以使得面向对象方法拥有更好的效率和更多的灵活性。</p>
-<h2 id="7-1-Information-信息">7.1. Information 信息</h2>
+<h2 id="6-2-&#x8F6F;&#x4EF6;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x7684;&#x7269;&#x7406;&#x5305;&#x8BBE;&#x8BA1;&#x4E2D;">6.2. &#x8F6F;&#x4EF6;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x7684;&#x7269;&#x7406;&#x5305;&#x8BBE;&#x8BA1;&#x4E2D;</h2>
 <ol>
-<li>信息隐藏</li>
-<li>什么需要隐藏？变更
-<ol>
-<li>数据表示</li>
-<li>设备的属性(必需属性除外)</li>
-<li>实施世界模型</li>
-<li>支持政策的机制</li>
+<li>&#x5C06;&#x4E0D;&#x540C;&#x5305;&#x7684;&#x91CD;&#x590D;&#x5185;&#x5BB9;&#x72EC;&#x2F74;&#x4E3A;&#x5355;&#x72EC;&#x7684;&#x5305;&#x4EE5;&#x6D88;&#x9664;&#x91CD;&#x590D;,&#x907F;&#x514D;&#x4EA7;&#x751F;&#x9690;&#x5F0F;&#x7684;&#x91CD;&#x590D;&#x8026;&#x5408;;</li>
 </ol>
-</li>
-<li><strong>信息隐藏的核心是将每个模块都隐藏一个重要的设计决策</strong></li>
-</ol>
-<h3 id="7-1-1-最有可能修改的设计领域">7.1.1. 最有可能修改的设计领域</h3>
+<h2 id="6-3-&#x8BE6;&#x7EC6;&#x8BBE;&#x8BA1;&#x4E2D;&#x5BF9;&#x8C61;&#x521B;&#x5EFA;&#x8005;&#x7684;&#x9009;&#x62E9;">6.3. &#x8BE6;&#x7EC6;&#x8BBE;&#x8BA1;&#x4E2D;&#x5BF9;&#x8C61;&#x521B;&#x5EFA;&#x8005;&#x7684;&#x9009;&#x62E9;:</h2>
 <ol>
-<li>硬件依赖：外部软件系统</li>
-<li>输入输出格式：DB, Internet, UI, …</li>
-<li>非标准语言特性和依赖路径：Platform: os, middleware, framework…</li>
-<li>困难的设计和实现部分
-<ol>
-<li>通常是被设计的很不好的部分或者是需要被重新设计和重新实现的部分</li>
-<li>Complex…, monitor, exception, log, …</li>
+<li>&#x5982;&#x679C;&#x4E24;&#x4E2A;&#x5BF9;&#x8C61; A&#x3001;B &#x95F4;&#x5DF2;&#x6709;&#x6BD4;&#x8F83;&#x9AD8;&#x7684;&#x8026;&#x5408;&#x5EA6;&#x4E86;, &#x90A3;&#x4E48;&#x4F7F;&#x2F64; A &#x521B;&#x5EFA; B &#x6216;&#x8005;&#x53CD;&#x4E4B;&#x5C31;&#x4E0D;&#x4F1A;&#x5E26;&#x6765;&#x989D;&#x5916;&#x7684;&#x8026;&#x5408;&#x5EA6;&#x3002;&#x8FD9;&#x5C31;&#x662F;&#x8868; 12-4 &#x5185;&#x5BB9;&#x7684;&#x6838;&#x2F3C;&#x601D;&#x60F3;&#x2014;&#x2014;<strong>&#x4E0D;&#x589E;&#x52A0;&#x65B0;&#x7684;&#x8026;&#x5408;</strong>&#x3002;</li>
 </ol>
-</li>
-<li>复杂的数据结构，被多个类使用的数据结构，或者是不让你满意的数据结构
+<h2 id="6-4-&#x8BE6;&#x7EC6;&#x8BBE;&#x8BA1;&#x4E2D;&#x9009;&#x62E9;&#x63A7;&#x5236;&#x98CE;&#x683C;">6.4. &#x8BE6;&#x7EC6;&#x8BBE;&#x8BA1;&#x4E2D;&#x9009;&#x62E9;&#x63A7;&#x5236;&#x98CE;&#x683C;:</h2>
 <ol>
-<li>Separate model from logic 逻辑分块</li>
+<li>&#x89E3;&#x9664;&#x754C;&#x9762;&#x4E0E;&#x903B;&#x8F91;&#x5BF9;&#x8C61;&#x7684;&#x76F4;&#x63A5;&#x8026;&#x5408;&#x3002;</li>
 </ol>
-</li>
-<li><strong>复杂逻辑</strong>，他们被认为就像数据结构一样复杂。</li>
-<li><strong>算法，时间表</strong>，时间紧迫，实现紧迫</li>
-<li><strong>全局变量</strong>:常常并没有并真正使用，但是常常受益于权限访问的隐藏：Data Access Routines</li>
-<li>数组声明和循环限制。</li>
-<li>以及业务规则:比如法律、规则、正则和被转换成计算机系统的过程。</li>
-</ol>
-<h2 id="7-2-隐藏">7.2. 隐藏</h2>
+<h2 id="6-5-&#x9AD8;&#x5185;&#x805A;&#x5904;&#x7406;">6.5. &#x9AD8;&#x5185;&#x805A;&#x5904;&#x7406;</h2>
 <ol>
-<li>尝试本地化未来的变化 <em>try to localize future change</em>
-<ol>
-<li>隐藏可能会独立更改的系统详细信息</li>
-<li>分开可能具有不同变化频率的独立部分</li>
-<li>暴露接口一般不太可能改变</li>
-</ol>
-</li>
-<li><strong>容易变化的隐藏，不容易变化的展示</strong></li>
-</ol>
-<h2 id="7-3-信息隐藏">7.3. 信息隐藏</h2>
-<p>这里“信息”到底指的是什么？其实这里的信息就是指<strong>模块的秘密</strong>，就是对模块来说<strong>容易变化的地方</strong> [McConnell l 996b] 。模块的秘密主要分为两类 [Parnas 1985] ：</p>
-<ol>
-<li>一是根据需求分配的职责，因为实践表明需求是经常变化的，频率和幅度都很大（参见第 21 章）</li>
-<li>二是内部实现机制</li>
-</ol>
-<p>而“隐藏”就是希望把<strong>未来的改变限制在本地，只暴露出不容易变化的接口</strong>。</p>
-<h3 id="7-3-1-接口与实现">7.3.1. 接口与实现</h3>
-<ol>
-<li>模块的用户和实施者对此有不同的看法。</li>
-<li>界面：用户对模块的看法。</li>
-<li>仅描述用户使用模块需要知道的内容</li>
-<li>使其更易于理解和使用</li>
-<li>接口描述了该模块提供的服务，但没有描述如何提供这些服务</li>
-</ol>
-<h3 id="7-3-2-什么是接口">7.3.2. 什么是接口</h3>
-<ol>
-<li>作为合同的接口:模块发布的任何内容
+<li>&#x8F6F;&#x4EF6;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x7684;&#x5206;&#x5C42;&#x8BBE;&#x8BA1;&#x4E2D;:
 <ul>
-<li>提供的接口：模块的客户端可以依赖于</li>
-<li>所需的接口：该模块可以依赖于其他模块</li>
+<li>&#x4E09;&#x4E2A;&#x5C42;&#x6B21;&#x90FD;&#x662F;&#x2FBC;&#x5185;&#x805A;&#x7684;,&#x2F00;&#x4E2A;&#x5904;&#x7406;&#x4EA4;&#x4E92;&#x4EFB;&#x52A1;, &#x2F00;&#x4E2A;&#x5904;&#x7406;&#x4E1A;&#x52A1;&#x903B;&#x8F91;,&#x2F00;&#x4E2A;&#x5904;&#x7406;&#x6570;&#x636E;&#x6301;&#x4E45;&#x5316;&#x3002;</li>
 </ul>
 </li>
-<li>语法接口
+<li>&#x8F6F;&#x4EF6;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x7684;&#x903B;&#x8F91;&#x5305;&#x8BBE;&#x8BA1;&#x4E2D;:
+<ul>
+<li>&#x5C06;&#x4E09;&#x4E2A;&#x5C42;&#x6B21;&#x8FDB;&#x2F00;&#x6B65;&#x5212;&#x5206;&#x4E3A;&#x66F4;&#x2F29;&#x7684;&#x5305;,&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x6BCF;&#x4E2A;&#x66F4;&#x2F29;&#x7684;&#x5305;&#x90FD;&#x662F;&#x2FBC;&#x5185;&#x805A;&#x7684;&#x3002;</li>
+</ul>
+</li>
+<li>&#x8BE6;&#x7EC6;&#x8BBE;&#x8BA1;&#x4E2D;&#x62BD;&#x8C61;&#x7C7B;&#x7684;&#x804C;&#x8D23;:
+<ul>
+<li>&#x8981;&#x6C42;&#x72B6;&#x6001;&#x4E0E;&#x2F45;&#x6CD5;&#x7D27;&#x5BC6;&#x8054;&#x7CFB;&#x5C31;&#x662F;&#x4E3A;&#x4E86;&#x8FBE;&#x5230;&#x2FBC;&#x5185;&#x805A; (&#x4FE1;&#x606F;&#x5185;&#x805A;)&#x3002;</li>
+</ul>
+</li>
+<li>&#x8BE6;&#x7EC6;&#x8BBE;&#x8BA1;&#x4E2D;&#x4F7F;&#x2F64;&#x63A7;&#x5236;&#x2EDB;&#x683C;:
+<ul>
+<li>&#x63A7;&#x5236;&#x2EDB;&#x683C;&#x5206;&#x79BB;&#x4E86;&#x63A7;&#x5236;&#x903B;&#x8F91;,&#x53EF;&#x4EE5;&#x5B9E;&#x73B0;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x5BF9;&#x8C61;&#x7684;&#x2FBC;&#x5185;&#x805A;(&#x529F;&#x80FD;&#x5185;&#x805A;)&#x3002;&#x56E0;&#x4E3A;&#x5C01;&#x88C5;&#x4E86;&#x63A7;&#x5236;&#x903B;&#x8F91;,&#x6240;&#x4EE5;&#x63A7;&#x5236;&#x5668;&#x5BF9;&#x8C61;&#x627F;&#x8F7D;&#x4E86;&#x4E0D;&#x53EF;&#x907F;&#x514D;&#x7684;&#x987A;&#x5E8F;&#x5185;&#x805A;&#x3001;&#x901A;&#x4FE1;&#x5185;&#x805A;&#x548C;&#x903B;&#x8F91;&#x5185;&#x805A;,&#x8FD9;&#x5C31;&#x8981;&#x6C42;&#x63A7;&#x5236;&#x5668;&#x5BF9;&#x8C61;&#x5FC5;&#x987B;&#x662F;&#x53D7;&#x63A7;&#x7684;,&#x4E5F;&#x662F;&#x5B83;&#x4EEC;&#x4E3A;&#x4EC0;&#x4E48;&#x503E;&#x5411;&#x4E8E;&#x5BF9;&#x5916;&#x59D4;&#x6258;&#x2F7D;&#x4E0D;&#x662F;&#x2F83;&#x2F30;&#x8FDB;&#x2F8F;&#x4E1A;&#x52A1;&#x8BA1;&#x7B97;&#x7684;&#x539F;&#x56E0;&#x3002;</li>
+</ul>
+</li>
+</ol>
+<h1>7. &#x7ED3;&#x6784;&#x5316;&#x7684;&#x4FE1;&#x606F;&#x9690;&#x85CF;</h1>
+<p>&#x4FE1;&#x606F;&#x9690;&#x85CF;&#x5176;&#x5B9E;&#x5C31;&#x662F;<strong>&#x5229;&#x7528;&#x4E86;&#x62BD;&#x8C61;&#x7684;&#x65B9;&#x6CD5;</strong>&#x3002;&#x62BD;&#x8C61;&#x51FA;&#x6BCF;&#x4E2A;&#x7C7B;&#x7684;<strong>&#x5173;&#x952E;&#x7EC6;&#x8282;</strong>&#xFF0C;&#x4E5F;&#x5C31;&#x662F;<strong>&#x6A21;&#x5757;&#x7684;&#x804C;&#x8D23;</strong>&#xFF08;&#x4EC0;&#x4E48;&#x662F;&#x516C;&#x5F00;&#x7ED9;&#x5176;&#x4ED6;&#x4EBA;&#x7684;&#xFF0C;&#x4EC0;&#x4E48;&#x662F;&#x9690;&#x85CF;&#x5728;&#x81EA;&#x5DF1;&#x6A21;&#x5757;&#x4E2D;&#x7684;&#xFF09;&#x3002;&#x6362;&#x53E5;&#x8BDD;&#x8BF4;&#xFF0C;<strong>&#x62BD;&#x8C61;&#x51FA;&#x6765;&#x7684;&#x5C31;&#x662F;&#x63A5;&#x53E3;&#xFF0C; &#x9690;&#x85CF;&#x7684;&#x5C31;&#x662F;&#x5B9E;&#x73B0;</strong>&#xFF0C;&#x5B83;&#x4EEC;&#x5171;&#x540C;&#x4F53;&#x73B0;&#x4E86;&#x6A21;&#x5757;&#x7684;&#x804C;&#x8D23;&#x3002;</p>
+<p>&#x901A;&#x8FC7;&#x5206;&#x522B;&#x5173;&#x6CE8;&#x5B9E;&#x73B0;&#x548C;&#x63A5;&#x53E3;&#xFF0C;&#x62BD;&#x8C61;&#x53EF;&#x4EE5;&#x4F7F;&#x5F97;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x65B9;&#x6CD5;&#x62E5;&#x6709;&#x66F4;&#x597D;&#x7684;&#x6548;&#x7387;&#x548C;&#x66F4;&#x591A;&#x7684;&#x7075;&#x6D3B;&#x6027;&#x3002;</p>
+<h2 id="7-1-Information-&#x4FE1;&#x606F;">7.1. Information &#x4FE1;&#x606F;</h2>
 <ol>
-<li>如何调用操作
+<li>&#x4FE1;&#x606F;&#x9690;&#x85CF;</li>
+<li>&#x4EC0;&#x4E48;&#x9700;&#x8981;&#x9690;&#x85CF;&#xFF1F;&#x53D8;&#x66F4;
 <ol>
-<li>操作签名列表</li>
-<li>有时也是有效的呼叫操作命令</li>
+<li>&#x6570;&#x636E;&#x8868;&#x793A;</li>
+<li>&#x8BBE;&#x5907;&#x7684;&#x5C5E;&#x6027;(&#x5FC5;&#x9700;&#x5C5E;&#x6027;&#x9664;&#x5916;)</li>
+<li>&#x5B9E;&#x65BD;&#x4E16;&#x754C;&#x6A21;&#x578B;</li>
+<li>&#x652F;&#x6301;&#x653F;&#x7B56;&#x7684;&#x673A;&#x5236;</li>
+</ol>
+</li>
+<li><strong>&#x4FE1;&#x606F;&#x9690;&#x85CF;&#x7684;&#x6838;&#x5FC3;&#x662F;&#x5C06;&#x6BCF;&#x4E2A;&#x6A21;&#x5757;&#x90FD;&#x9690;&#x85CF;&#x4E00;&#x4E2A;&#x91CD;&#x8981;&#x7684;&#x8BBE;&#x8BA1;&#x51B3;&#x7B56;</strong></li>
+</ol>
+<h3 id="7-1-1-&#x6700;&#x6709;&#x53EF;&#x80FD;&#x4FEE;&#x6539;&#x7684;&#x8BBE;&#x8BA1;&#x9886;&#x57DF;">7.1.1. &#x6700;&#x6709;&#x53EF;&#x80FD;&#x4FEE;&#x6539;&#x7684;&#x8BBE;&#x8BA1;&#x9886;&#x57DF;</h3>
+<ol>
+<li>&#x786C;&#x4EF6;&#x4F9D;&#x8D56;&#xFF1A;&#x5916;&#x90E8;&#x8F6F;&#x4EF6;&#x7CFB;&#x7EDF;</li>
+<li>&#x8F93;&#x5165;&#x8F93;&#x51FA;&#x683C;&#x5F0F;&#xFF1A;DB, Internet, UI, &#x2026;</li>
+<li>&#x975E;&#x6807;&#x51C6;&#x8BED;&#x8A00;&#x7279;&#x6027;&#x548C;&#x4F9D;&#x8D56;&#x8DEF;&#x5F84;&#xFF1A;Platform: os, middleware, framework&#x2026;</li>
+<li>&#x56F0;&#x96BE;&#x7684;&#x8BBE;&#x8BA1;&#x548C;&#x5B9E;&#x73B0;&#x90E8;&#x5206;
+<ol>
+<li>&#x901A;&#x5E38;&#x662F;&#x88AB;&#x8BBE;&#x8BA1;&#x7684;&#x5F88;&#x4E0D;&#x597D;&#x7684;&#x90E8;&#x5206;&#x6216;&#x8005;&#x662F;&#x9700;&#x8981;&#x88AB;&#x91CD;&#x65B0;&#x8BBE;&#x8BA1;&#x548C;&#x91CD;&#x65B0;&#x5B9E;&#x73B0;&#x7684;&#x90E8;&#x5206;</li>
+<li>Complex&#x2026;, monitor, exception, log, &#x2026;</li>
+</ol>
+</li>
+<li>&#x590D;&#x6742;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#xFF0C;&#x88AB;&#x591A;&#x4E2A;&#x7C7B;&#x4F7F;&#x7528;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#xFF0C;&#x6216;&#x8005;&#x662F;&#x4E0D;&#x8BA9;&#x4F60;&#x6EE1;&#x610F;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;
+<ol>
+<li>Separate model from logic &#x903B;&#x8F91;&#x5206;&#x5757;</li>
+</ol>
+</li>
+<li><strong>&#x590D;&#x6742;&#x903B;&#x8F91;</strong>&#xFF0C;&#x4ED6;&#x4EEC;&#x88AB;&#x8BA4;&#x4E3A;&#x5C31;&#x50CF;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x4E00;&#x6837;&#x590D;&#x6742;&#x3002;</li>
+<li><strong>&#x7B97;&#x6CD5;&#xFF0C;&#x65F6;&#x95F4;&#x8868;</strong>&#xFF0C;&#x65F6;&#x95F4;&#x7D27;&#x8FEB;&#xFF0C;&#x5B9E;&#x73B0;&#x7D27;&#x8FEB;</li>
+<li><strong>&#x5168;&#x5C40;&#x53D8;&#x91CF;</strong>:&#x5E38;&#x5E38;&#x5E76;&#x6CA1;&#x6709;&#x5E76;&#x771F;&#x6B63;&#x4F7F;&#x7528;&#xFF0C;&#x4F46;&#x662F;&#x5E38;&#x5E38;&#x53D7;&#x76CA;&#x4E8E;&#x6743;&#x9650;&#x8BBF;&#x95EE;&#x7684;&#x9690;&#x85CF;&#xFF1A;Data Access Routines</li>
+<li>&#x6570;&#x7EC4;&#x58F0;&#x660E;&#x548C;&#x5FAA;&#x73AF;&#x9650;&#x5236;&#x3002;</li>
+<li>&#x4EE5;&#x53CA;&#x4E1A;&#x52A1;&#x89C4;&#x5219;:&#x6BD4;&#x5982;&#x6CD5;&#x5F8B;&#x3001;&#x89C4;&#x5219;&#x3001;&#x6B63;&#x5219;&#x548C;&#x88AB;&#x8F6C;&#x6362;&#x6210;&#x8BA1;&#x7B97;&#x673A;&#x7CFB;&#x7EDF;&#x7684;&#x8FC7;&#x7A0B;&#x3002;</li>
+</ol>
+<h2 id="7-2-&#x9690;&#x85CF;">7.2. &#x9690;&#x85CF;</h2>
+<ol>
+<li>&#x5C1D;&#x8BD5;&#x672C;&#x5730;&#x5316;&#x672A;&#x6765;&#x7684;&#x53D8;&#x5316; <em>try to localize future change</em>
+<ol>
+<li>&#x9690;&#x85CF;&#x53EF;&#x80FD;&#x4F1A;&#x72EC;&#x7ACB;&#x66F4;&#x6539;&#x7684;&#x7CFB;&#x7EDF;&#x8BE6;&#x7EC6;&#x4FE1;&#x606F;</li>
+<li>&#x5206;&#x5F00;&#x53EF;&#x80FD;&#x5177;&#x6709;&#x4E0D;&#x540C;&#x53D8;&#x5316;&#x9891;&#x7387;&#x7684;&#x72EC;&#x7ACB;&#x90E8;&#x5206;</li>
+<li>&#x66B4;&#x9732;&#x63A5;&#x53E3;&#x4E00;&#x822C;&#x4E0D;&#x592A;&#x53EF;&#x80FD;&#x6539;&#x53D8;</li>
+</ol>
+</li>
+<li><strong>&#x5BB9;&#x6613;&#x53D8;&#x5316;&#x7684;&#x9690;&#x85CF;&#xFF0C;&#x4E0D;&#x5BB9;&#x6613;&#x53D8;&#x5316;&#x7684;&#x5C55;&#x793A;</strong></li>
+</ol>
+<h2 id="7-3-&#x4FE1;&#x606F;&#x9690;&#x85CF;">7.3. &#x4FE1;&#x606F;&#x9690;&#x85CF;</h2>
+<p>&#x8FD9;&#x91CC;&#x201C;&#x4FE1;&#x606F;&#x201D;&#x5230;&#x5E95;&#x6307;&#x7684;&#x662F;&#x4EC0;&#x4E48;&#xFF1F;&#x5176;&#x5B9E;&#x8FD9;&#x91CC;&#x7684;&#x4FE1;&#x606F;&#x5C31;&#x662F;&#x6307;<strong>&#x6A21;&#x5757;&#x7684;&#x79D8;&#x5BC6;</strong>&#xFF0C;&#x5C31;&#x662F;&#x5BF9;&#x6A21;&#x5757;&#x6765;&#x8BF4;<strong>&#x5BB9;&#x6613;&#x53D8;&#x5316;&#x7684;&#x5730;&#x65B9;</strong> [McConnell l 996b] &#x3002;&#x6A21;&#x5757;&#x7684;&#x79D8;&#x5BC6;&#x4E3B;&#x8981;&#x5206;&#x4E3A;&#x4E24;&#x7C7B; [Parnas 1985] &#xFF1A;</p>
+<ol>
+<li>&#x4E00;&#x662F;&#x6839;&#x636E;&#x9700;&#x6C42;&#x5206;&#x914D;&#x7684;&#x804C;&#x8D23;&#xFF0C;&#x56E0;&#x4E3A;&#x5B9E;&#x8DF5;&#x8868;&#x660E;&#x9700;&#x6C42;&#x662F;&#x7ECF;&#x5E38;&#x53D8;&#x5316;&#x7684;&#xFF0C;&#x9891;&#x7387;&#x548C;&#x5E45;&#x5EA6;&#x90FD;&#x5F88;&#x5927;&#xFF08;&#x53C2;&#x89C1;&#x7B2C; 21 &#x7AE0;&#xFF09;</li>
+<li>&#x4E8C;&#x662F;&#x5185;&#x90E8;&#x5B9E;&#x73B0;&#x673A;&#x5236;</li>
+</ol>
+<p>&#x800C;&#x201C;&#x9690;&#x85CF;&#x201D;&#x5C31;&#x662F;&#x5E0C;&#x671B;&#x628A;<strong>&#x672A;&#x6765;&#x7684;&#x6539;&#x53D8;&#x9650;&#x5236;&#x5728;&#x672C;&#x5730;&#xFF0C;&#x53EA;&#x66B4;&#x9732;&#x51FA;&#x4E0D;&#x5BB9;&#x6613;&#x53D8;&#x5316;&#x7684;&#x63A5;&#x53E3;</strong>&#x3002;</p>
+<h3 id="7-3-1-&#x63A5;&#x53E3;&#x4E0E;&#x5B9E;&#x73B0;">7.3.1. &#x63A5;&#x53E3;&#x4E0E;&#x5B9E;&#x73B0;</h3>
+<ol>
+<li>&#x6A21;&#x5757;&#x7684;&#x7528;&#x6237;&#x548C;&#x5B9E;&#x65BD;&#x8005;&#x5BF9;&#x6B64;&#x6709;&#x4E0D;&#x540C;&#x7684;&#x770B;&#x6CD5;&#x3002;</li>
+<li>&#x754C;&#x9762;&#xFF1A;&#x7528;&#x6237;&#x5BF9;&#x6A21;&#x5757;&#x7684;&#x770B;&#x6CD5;&#x3002;</li>
+<li>&#x4EC5;&#x63CF;&#x8FF0;&#x7528;&#x6237;&#x4F7F;&#x7528;&#x6A21;&#x5757;&#x9700;&#x8981;&#x77E5;&#x9053;&#x7684;&#x5185;&#x5BB9;</li>
+<li>&#x4F7F;&#x5176;&#x66F4;&#x6613;&#x4E8E;&#x7406;&#x89E3;&#x548C;&#x4F7F;&#x7528;</li>
+<li>&#x63A5;&#x53E3;&#x63CF;&#x8FF0;&#x4E86;&#x8BE5;&#x6A21;&#x5757;&#x63D0;&#x4F9B;&#x7684;&#x670D;&#x52A1;&#xFF0C;&#x4F46;&#x6CA1;&#x6709;&#x63CF;&#x8FF0;&#x5982;&#x4F55;&#x63D0;&#x4F9B;&#x8FD9;&#x4E9B;&#x670D;&#x52A1;</li>
+</ol>
+<h3 id="7-3-2-&#x4EC0;&#x4E48;&#x662F;&#x63A5;&#x53E3;">7.3.2. &#x4EC0;&#x4E48;&#x662F;&#x63A5;&#x53E3;</h3>
+<ol>
+<li>&#x4F5C;&#x4E3A;&#x5408;&#x540C;&#x7684;&#x63A5;&#x53E3;:&#x6A21;&#x5757;&#x53D1;&#x5E03;&#x7684;&#x4EFB;&#x4F55;&#x5185;&#x5BB9;
+<ul>
+<li>&#x63D0;&#x4F9B;&#x7684;&#x63A5;&#x53E3;&#xFF1A;&#x6A21;&#x5757;&#x7684;&#x5BA2;&#x6237;&#x7AEF;&#x53EF;&#x4EE5;&#x4F9D;&#x8D56;&#x4E8E;</li>
+<li>&#x6240;&#x9700;&#x7684;&#x63A5;&#x53E3;&#xFF1A;&#x8BE5;&#x6A21;&#x5757;&#x53EF;&#x4EE5;&#x4F9D;&#x8D56;&#x4E8E;&#x5176;&#x4ED6;&#x6A21;&#x5757;</li>
+</ul>
+</li>
+<li>&#x8BED;&#x6CD5;&#x63A5;&#x53E3;
+<ol>
+<li>&#x5982;&#x4F55;&#x8C03;&#x7528;&#x64CD;&#x4F5C;
+<ol>
+<li>&#x64CD;&#x4F5C;&#x7B7E;&#x540D;&#x5217;&#x8868;</li>
+<li>&#x6709;&#x65F6;&#x4E5F;&#x662F;&#x6709;&#x6548;&#x7684;&#x547C;&#x53EB;&#x64CD;&#x4F5C;&#x547D;&#x4EE4;</li>
 </ol>
 </li>
 </ol>
 </li>
-<li>语义接口
+<li>&#x8BED;&#x4E49;&#x63A5;&#x53E3;
 <ol>
-<li>这些操作是做什么的，例如
+<li>&#x8FD9;&#x4E9B;&#x64CD;&#x4F5C;&#x662F;&#x505A;&#x4EC0;&#x4E48;&#x7684;&#xFF0C;&#x4F8B;&#x5982;
 <ol>
-<li>前置条件和后置条件</li>
-<li>用例</li>
+<li>&#x524D;&#x7F6E;&#x6761;&#x4EF6;&#x548C;&#x540E;&#x7F6E;&#x6761;&#x4EF6;</li>
+<li>&#x7528;&#x4F8B;</li>
 </ol>
 </li>
 </ol>
 </li>
 </ol>
-<h3 id="7-3-3-进一步原则">7.3.3. 进一步原则</h3>
+<h3 id="7-3-3-&#x8FDB;&#x4E00;&#x6B65;&#x539F;&#x5219;">7.3.3. &#x8FDB;&#x4E00;&#x6B65;&#x539F;&#x5219;</h3>
 <ol>
-<li>显式接口：使模块之间的所有依赖关系明确(无隐藏的耦合)</li>
-<li>低耦合-接口少：最小化模块之间的依赖性</li>
-<li>小接口
+<li>&#x663E;&#x5F0F;&#x63A5;&#x53E3;&#xFF1A;&#x4F7F;&#x6A21;&#x5757;&#x4E4B;&#x95F4;&#x7684;&#x6240;&#x6709;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;&#x660E;&#x786E;(&#x65E0;&#x9690;&#x85CF;&#x7684;&#x8026;&#x5408;)</li>
+<li>&#x4F4E;&#x8026;&#x5408;-&#x63A5;&#x53E3;&#x5C11;&#xFF1A;&#x6700;&#x5C0F;&#x5316;&#x6A21;&#x5757;&#x4E4B;&#x95F4;&#x7684;&#x4F9D;&#x8D56;&#x6027;</li>
+<li>&#x5C0F;&#x63A5;&#x53E3;
 <ol>
-<li>保障小接口
+<li>&#x4FDD;&#x969C;&#x5C0F;&#x63A5;&#x53E3;
 <ol>
-<li>将许多参数组合到结构/对象中</li>
-<li>将大型接口分为几个接口</li>
+<li>&#x5C06;&#x8BB8;&#x591A;&#x53C2;&#x6570;&#x7EC4;&#x5408;&#x5230;&#x7ED3;&#x6784;/&#x5BF9;&#x8C61;&#x4E2D;</li>
+<li>&#x5C06;&#x5927;&#x578B;&#x63A5;&#x53E3;&#x5206;&#x4E3A;&#x51E0;&#x4E2A;&#x63A5;&#x53E3;</li>
 </ol>
 </li>
-<li>面向接口编程</li>
+<li>&#x9762;&#x5411;&#x63A5;&#x53E3;&#x7F16;&#x7A0B;</li>
 </ol>
 </li>
-<li>高内聚：<strong>一个模块应该封装一些定义良好的，连贯的功能</strong>(稍后会详细介绍)</li>
+<li>&#x9AD8;&#x5185;&#x805A;&#xFF1A;<strong>&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#x5E94;&#x8BE5;&#x5C01;&#x88C5;&#x4E00;&#x4E9B;&#x5B9A;&#x4E49;&#x826F;&#x597D;&#x7684;&#xFF0C;&#x8FDE;&#x8D2F;&#x7684;&#x529F;&#x80FD;</strong>(&#x7A0D;&#x540E;&#x4F1A;&#x8BE6;&#x7EC6;&#x4ECB;&#x7ECD;)</li>
 </ol>
-<h3 id="7-3-4-耦合与内聚">7.3.4. 耦合与内聚</h3>
+<h3 id="7-3-4-&#x8026;&#x5408;&#x4E0E;&#x5185;&#x805A;">7.3.4. &#x8026;&#x5408;&#x4E0E;&#x5185;&#x805A;</h3>
 <ol>
-<li>内聚力是模块之间的一致性的度量。</li>
-<li>耦合是模块之间的交互程度。</li>
-<li>需要高内聚和低耦合。</li>
+<li>&#x5185;&#x805A;&#x529B;&#x662F;&#x6A21;&#x5757;&#x4E4B;&#x95F4;&#x7684;&#x4E00;&#x81F4;&#x6027;&#x7684;&#x5EA6;&#x91CF;&#x3002;</li>
+<li>&#x8026;&#x5408;&#x662F;&#x6A21;&#x5757;&#x4E4B;&#x95F4;&#x7684;&#x4EA4;&#x4E92;&#x7A0B;&#x5EA6;&#x3002;</li>
+<li>&#x9700;&#x8981;&#x9AD8;&#x5185;&#x805A;&#x548C;&#x4F4E;&#x8026;&#x5408;&#x3002;</li>
 </ol>
 <h2 id="7-4-Module-Guide">7.4. Module Guide</h2>
-<h3 id="7-4-1-模块的主要秘密">7.4.1. 模块的主要秘密</h3>
+<h3 id="7-4-1-&#x6A21;&#x5757;&#x7684;&#x4E3B;&#x8981;&#x79D8;&#x5BC6;">7.4.1. &#x6A21;&#x5757;&#x7684;&#x4E3B;&#x8981;&#x79D8;&#x5BC6;</h3>
 <ol>
-<li>主要秘密描述的是这个模块所要实现的<strong>用户需求</strong>。是设计者对⽤户需求的实现的⼀次职责分配。有了这个描述以后，我们可以利⽤它检查我们是否完成所有的⽤户需求，还可以利⽤它和需求优先级来决定开发的次序。</li>
+<li>&#x4E3B;&#x8981;&#x79D8;&#x5BC6;&#x63CF;&#x8FF0;&#x7684;&#x662F;&#x8FD9;&#x4E2A;&#x6A21;&#x5757;&#x6240;&#x8981;&#x5B9E;&#x73B0;&#x7684;<strong>&#x7528;&#x6237;&#x9700;&#x6C42;</strong>&#x3002;&#x662F;&#x8BBE;&#x8BA1;&#x8005;&#x5BF9;&#x2F64;&#x6237;&#x9700;&#x6C42;&#x7684;&#x5B9E;&#x73B0;&#x7684;&#x2F00;&#x6B21;&#x804C;&#x8D23;&#x5206;&#x914D;&#x3002;&#x6709;&#x4E86;&#x8FD9;&#x4E2A;&#x63CF;&#x8FF0;&#x4EE5;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5229;&#x2F64;&#x5B83;&#x68C0;&#x67E5;&#x6211;&#x4EEC;&#x662F;&#x5426;&#x5B8C;&#x6210;&#x6240;&#x6709;&#x7684;&#x2F64;&#x6237;&#x9700;&#x6C42;&#xFF0C;&#x8FD8;&#x53EF;&#x4EE5;&#x5229;&#x2F64;&#x5B83;&#x548C;&#x9700;&#x6C42;&#x4F18;&#x5148;&#x7EA7;&#x6765;&#x51B3;&#x5B9A;&#x5F00;&#x53D1;&#x7684;&#x6B21;&#x5E8F;&#x3002;</li>
 </ol>
-<h3 id="7-4-2-模块的次要秘密">7.4.2. 模块的次要秘密</h3>
+<h3 id="7-4-2-&#x6A21;&#x5757;&#x7684;&#x6B21;&#x8981;&#x79D8;&#x5BC6;">7.4.2. &#x6A21;&#x5757;&#x7684;&#x6B21;&#x8981;&#x79D8;&#x5BC6;</h3>
 <ol>
-<li>次要秘密描述的是这个模块在实现职责时候所涉及的具体的<strong>实现细节</strong>。包括数据结构，算法，硬件平台等信息。</li>
+<li>&#x6B21;&#x8981;&#x79D8;&#x5BC6;&#x63CF;&#x8FF0;&#x7684;&#x662F;&#x8FD9;&#x4E2A;&#x6A21;&#x5757;&#x5728;&#x5B9E;&#x73B0;&#x804C;&#x8D23;&#x65F6;&#x5019;&#x6240;&#x6D89;&#x53CA;&#x7684;&#x5177;&#x4F53;&#x7684;<strong>&#x5B9E;&#x73B0;&#x7EC6;&#x8282;</strong>&#x3002;&#x5305;&#x62EC;&#x6570;&#x636E;&#x7ED3;&#x6784;&#xFF0C;&#x7B97;&#x6CD5;&#xFF0C;&#x786C;&#x4EF6;&#x5E73;&#x53F0;&#x7B49;&#x4FE1;&#x606F;&#x3002;</li>
 </ol>
-<h3 id="7-4-3-模块的角色">7.4.3. 模块的角色</h3>
+<h3 id="7-4-3-&#x6A21;&#x5757;&#x7684;&#x89D2;&#x8272;">7.4.3. &#x6A21;&#x5757;&#x7684;&#x89D2;&#x8272;</h3>
 <ol>
-<li>描述了独⽴的模块在整个系统中所承担的⻆⾊，所起的作⽤。以及与哪些模块有相关联的关系。</li>
+<li>&#x63CF;&#x8FF0;&#x4E86;&#x72EC;&#x2F74;&#x7684;&#x6A21;&#x5757;&#x5728;&#x6574;&#x4E2A;&#x7CFB;&#x7EDF;&#x4E2D;&#x6240;&#x627F;&#x62C5;&#x7684;&#x2EC6;&#x2F8A;&#xFF0C;&#x6240;&#x8D77;&#x7684;&#x4F5C;&#x2F64;&#x3002;&#x4EE5;&#x53CA;&#x4E0E;&#x54EA;&#x4E9B;&#x6A21;&#x5757;&#x6709;&#x76F8;&#x5173;&#x8054;&#x7684;&#x5173;&#x7CFB;&#x3002;</li>
 </ol>
-<h3 id="7-4-4-模块的对外接⼝">7.4.4. 模块的对外接⼝</h3>
+<h3 id="7-4-4-&#x6A21;&#x5757;&#x7684;&#x5BF9;&#x5916;&#x63A5;&#x2F1D;">7.4.4. &#x6A21;&#x5757;&#x7684;&#x5BF9;&#x5916;&#x63A5;&#x2F1D;</h3>
 <ol>
-<li>模块提供给别的模块的接⼝。</li>
+<li>&#x6A21;&#x5757;&#x63D0;&#x4F9B;&#x7ED9;&#x522B;&#x7684;&#x6A21;&#x5757;&#x7684;&#x63A5;&#x2F1D;&#x3002;</li>
 </ol>
-<h3 id="7-4-5-循环位移模块的模块说明">7.4.5. 循环位移模块的模块说明</h3>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/28.png" alt=""></p>
-<h3 id="7-4-6-复杂系统的示例">7.4.6. 复杂系统的示例</h3>
+<h3 id="7-4-5-&#x5FAA;&#x73AF;&#x4F4D;&#x79FB;&#x6A21;&#x5757;&#x7684;&#x6A21;&#x5757;&#x8BF4;&#x660E;">7.4.5. &#x5FAA;&#x73AF;&#x4F4D;&#x79FB;&#x6A21;&#x5757;&#x7684;&#x6A21;&#x5757;&#x8BF4;&#x660E;</h3>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/28.png" alt></p>
+<h3 id="7-4-6-&#x590D;&#x6742;&#x7CFB;&#x7EDF;&#x7684;&#x793A;&#x4F8B;">7.4.6. &#x590D;&#x6742;&#x7CFB;&#x7EDF;&#x7684;&#x793A;&#x4F8B;</h3>
 <ol>
-<li>A-7E飞机</li>
-<li>极其复杂的机上飞行计划</li>
-<li>内存有限</li>
-<li>实时约束</li>
+<li>A-7E&#x98DE;&#x673A;</li>
+<li>&#x6781;&#x5176;&#x590D;&#x6742;&#x7684;&#x673A;&#x4E0A;&#x98DE;&#x884C;&#x8BA1;&#x5212;</li>
+<li>&#x5185;&#x5B58;&#x6709;&#x9650;</li>
+<li>&#x5B9E;&#x65F6;&#x7EA6;&#x675F;</li>
 </ol>
-<h3 id="7-4-7-Parnas’s-Experience">7.4.7. Parnas’s Experience</h3>
+<h3 id="7-4-7-Parnas&#x2019;s-Experience">7.4.7. Parnas&#x2019;s Experience</h3>
 <ol>
-<li>“当我们试图在没有指南的情况下工作时，……责任要么在两个模块要么没有。 有了模块指南，设计的进一步进展显示出相对较少的疏忽。”</li>
-<li>集成测试仅用了一周</li>
-<li>仅发现了9个错误。</li>
-<li>错误隔离到单个模块的位置。</li>
-<li>所有的bug都被很快的修复了</li>
+<li>&#x201C;&#x5F53;&#x6211;&#x4EEC;&#x8BD5;&#x56FE;&#x5728;&#x6CA1;&#x6709;&#x6307;&#x5357;&#x7684;&#x60C5;&#x51B5;&#x4E0B;&#x5DE5;&#x4F5C;&#x65F6;&#xFF0C;&#x2026;&#x2026;&#x8D23;&#x4EFB;&#x8981;&#x4E48;&#x5728;&#x4E24;&#x4E2A;&#x6A21;&#x5757;&#x8981;&#x4E48;&#x6CA1;&#x6709;&#x3002; &#x6709;&#x4E86;&#x6A21;&#x5757;&#x6307;&#x5357;&#xFF0C;&#x8BBE;&#x8BA1;&#x7684;&#x8FDB;&#x4E00;&#x6B65;&#x8FDB;&#x5C55;&#x663E;&#x793A;&#x51FA;&#x76F8;&#x5BF9;&#x8F83;&#x5C11;&#x7684;&#x758F;&#x5FFD;&#x3002;&#x201D;</li>
+<li>&#x96C6;&#x6210;&#x6D4B;&#x8BD5;&#x4EC5;&#x7528;&#x4E86;&#x4E00;&#x5468;</li>
+<li>&#x4EC5;&#x53D1;&#x73B0;&#x4E86;9&#x4E2A;&#x9519;&#x8BEF;&#x3002;</li>
+<li>&#x9519;&#x8BEF;&#x9694;&#x79BB;&#x5230;&#x5355;&#x4E2A;&#x6A21;&#x5757;&#x7684;&#x4F4D;&#x7F6E;&#x3002;</li>
+<li>&#x6240;&#x6709;&#x7684;bug&#x90FD;&#x88AB;&#x5F88;&#x5FEB;&#x7684;&#x4FEE;&#x590D;&#x4E86;</li>
 </ol>
-<h2 id="7-5-思想的应用-信息隐藏处理">7.5. 思想的应用(信息隐藏处理)</h2>
-<h3 id="7-5-1-在软件体系结构设计的分层设计中">7.5.1. 在软件体系结构设计的分层设计中:</h3>
+<h2 id="7-5-&#x601D;&#x60F3;&#x7684;&#x5E94;&#x7528;-&#x4FE1;&#x606F;&#x9690;&#x85CF;&#x5904;&#x7406;">7.5. &#x601D;&#x60F3;&#x7684;&#x5E94;&#x7528;(&#x4FE1;&#x606F;&#x9690;&#x85CF;&#x5904;&#x7406;)</h2>
+<h3 id="7-5-1-&#x5728;&#x8F6F;&#x4EF6;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x8BBE;&#x8BA1;&#x7684;&#x5206;&#x5C42;&#x8BBE;&#x8BA1;&#x4E2D;">7.5.1. &#x5728;&#x8F6F;&#x4EF6;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x8BBE;&#x8BA1;&#x7684;&#x5206;&#x5C42;&#x8BBE;&#x8BA1;&#x4E2D;:</h3>
 <ol>
-<li>经验表明软件系统的界⾯是最经常变化的, 其次是业务逻辑,最稳定的是业务数据。这就是分层⻛格建⽴ Prensentation、 Logic 和 Model 三个层次的原因,它们体现了决策变化的划分类型,它们之间的依赖关系符合各⾃的稳定性。</li>
+<li>&#x7ECF;&#x9A8C;&#x8868;&#x660E;&#x8F6F;&#x4EF6;&#x7CFB;&#x7EDF;&#x7684;&#x754C;&#x2FAF;&#x662F;&#x6700;&#x7ECF;&#x5E38;&#x53D8;&#x5316;&#x7684;, &#x5176;&#x6B21;&#x662F;&#x4E1A;&#x52A1;&#x903B;&#x8F91;,&#x6700;&#x7A33;&#x5B9A;&#x7684;&#x662F;&#x4E1A;&#x52A1;&#x6570;&#x636E;&#x3002;&#x8FD9;&#x5C31;&#x662F;&#x5206;&#x5C42;&#x2EDB;&#x683C;&#x5EFA;&#x2F74; Prensentation&#x3001; Logic &#x548C; Model &#x4E09;&#x4E2A;&#x5C42;&#x6B21;&#x7684;&#x539F;&#x56E0;,&#x5B83;&#x4EEC;&#x4F53;&#x73B0;&#x4E86;&#x51B3;&#x7B56;&#x53D8;&#x5316;&#x7684;&#x5212;&#x5206;&#x7C7B;&#x578B;,&#x5B83;&#x4EEC;&#x4E4B;&#x95F4;&#x7684;&#x4F9D;&#x8D56;&#x5173;&#x7CFB;&#x7B26;&#x5408;&#x5404;&#x2F83;&#x7684;&#x7A33;&#x5B9A;&#x6027;&#x3002;</li>
 </ol>
-<h3 id="7-5-2-在软件体系结构设计的物理包设计中">7.5.2. 在软件体系结构设计的物理包设计中:</h3>
+<h3 id="7-5-2-&#x5728;&#x8F6F;&#x4EF6;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x8BBE;&#x8BA1;&#x7684;&#x7269;&#x7406;&#x5305;&#x8BBE;&#x8BA1;&#x4E2D;">7.5.2. &#x5728;&#x8F6F;&#x4EF6;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x8BBE;&#x8BA1;&#x7684;&#x7269;&#x7406;&#x5305;&#x8BBE;&#x8BA1;&#x4E2D;:</h3>
 <ol>
-<li>消除重复可以避免重复耦合,同时可以避免同⼀个设计决策出现在多个地⽅—— 这意味着该决策没有被真正地隐藏 (这也是控制耦合【两个模块都知道了秘密】⽐数据耦合差的原因)。</li>
+<li>&#x6D88;&#x9664;&#x91CD;&#x590D;&#x53EF;&#x4EE5;&#x907F;&#x514D;&#x91CD;&#x590D;&#x8026;&#x5408;,&#x540C;&#x65F6;&#x53EF;&#x4EE5;&#x907F;&#x514D;&#x540C;&#x2F00;&#x4E2A;&#x8BBE;&#x8BA1;&#x51B3;&#x7B56;&#x51FA;&#x73B0;&#x5728;&#x591A;&#x4E2A;&#x5730;&#x2F45;&#x2014;&#x2014; &#x8FD9;&#x610F;&#x5473;&#x7740;&#x8BE5;&#x51B3;&#x7B56;&#x6CA1;&#x6709;&#x88AB;&#x771F;&#x6B63;&#x5730;&#x9690;&#x85CF; (&#x8FD9;&#x4E5F;&#x662F;&#x63A7;&#x5236;&#x8026;&#x5408;&#x3010;&#x4E24;&#x4E2A;&#x6A21;&#x5757;&#x90FD;&#x77E5;&#x9053;&#x4E86;&#x79D8;&#x5BC6;&#x3011;&#x2F50;&#x6570;&#x636E;&#x8026;&#x5408;&#x5DEE;&#x7684;&#x539F;&#x56E0;)&#x3002;</li>
 </ol>
-<h3 id="7-5-3-在软件体系结构设计的物理包设计中">7.5.3. 在软件体系结构设计的物理包设计中:</h3>
+<h3 id="7-5-3-&#x5728;&#x8F6F;&#x4EF6;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x8BBE;&#x8BA1;&#x7684;&#x7269;&#x7406;&#x5305;&#x8BBE;&#x8BA1;&#x4E2D;">7.5.3. &#x5728;&#x8F6F;&#x4EF6;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x8BBE;&#x8BA1;&#x7684;&#x7269;&#x7406;&#x5305;&#x8BBE;&#x8BA1;&#x4E2D;:</h3>
 <ol>
-<li>建⽴独⽴的安全包、通信包和数据库连接包,是为了封装各⾃的设计决策——安全处理、 ⽹络通信与数据库处理。</li>
+<li>&#x5EFA;&#x2F74;&#x72EC;&#x2F74;&#x7684;&#x5B89;&#x5168;&#x5305;&#x3001;&#x901A;&#x4FE1;&#x5305;&#x548C;&#x6570;&#x636E;&#x5E93;&#x8FDE;&#x63A5;&#x5305;,&#x662F;&#x4E3A;&#x4E86;&#x5C01;&#x88C5;&#x5404;&#x2F83;&#x7684;&#x8BBE;&#x8BA1;&#x51B3;&#x7B56;&#x2014;&#x2014;&#x5B89;&#x5168;&#x5904;&#x7406;&#x3001; &#x2F79;&#x7EDC;&#x901A;&#x4FE1;&#x4E0E;&#x6570;&#x636E;&#x5E93;&#x5904;&#x7406;&#x3002;</li>
 </ol>
-<h3 id="7-5-4-在软件体系结构设计与详细设计中">7.5.4. 在软件体系结构设计与详细设计中:</h3>
+<h3 id="7-5-4-&#x5728;&#x8F6F;&#x4EF6;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x8BBE;&#x8BA1;&#x4E0E;&#x8BE6;&#x7EC6;&#x8BBE;&#x8BA1;&#x4E2D;">7.5.4. &#x5728;&#x8F6F;&#x4EF6;&#x4F53;&#x7CFB;&#x7ED3;&#x6784;&#x8BBE;&#x8BA1;&#x4E0E;&#x8BE6;&#x7EC6;&#x8BBE;&#x8BA1;&#x4E2D;:</h3>
 <ol>
-<li>严格要求定义模块与类的接⼝,可以便利开发,更是为了实现信息隐藏。</li>
+<li>&#x4E25;&#x683C;&#x8981;&#x6C42;&#x5B9A;&#x4E49;&#x6A21;&#x5757;&#x4E0E;&#x7C7B;&#x7684;&#x63A5;&#x2F1D;,&#x53EF;&#x4EE5;&#x4FBF;&#x5229;&#x5F00;&#x53D1;,&#x66F4;&#x662F;&#x4E3A;&#x4E86;&#x5B9E;&#x73B0;&#x4FE1;&#x606F;&#x9690;&#x85CF;&#x3002;</li>
 </ol>
-<h3 id="7-5-5-在详细设计中使用控制风格">7.5.5. 在详细设计中使用控制风格:</h3>
+<h3 id="7-5-5-&#x5728;&#x8BE6;&#x7EC6;&#x8BBE;&#x8BA1;&#x4E2D;&#x4F7F;&#x7528;&#x63A7;&#x5236;&#x98CE;&#x683C;">7.5.5. &#x5728;&#x8BE6;&#x7EC6;&#x8BBE;&#x8BA1;&#x4E2D;&#x4F7F;&#x7528;&#x63A7;&#x5236;&#x98CE;&#x683C;:</h3>
 <ol>
-<li>专⻔⽤控制器对象封装关于业务逻辑的设计决策, ⽽不是将其拆散分布到整个对象⽹络中去。</li>
+<li>&#x4E13;&#x2ED4;&#x2F64;&#x63A7;&#x5236;&#x5668;&#x5BF9;&#x8C61;&#x5C01;&#x88C5;&#x5173;&#x4E8E;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x7684;&#x8BBE;&#x8BA1;&#x51B3;&#x7B56;, &#x2F7D;&#x4E0D;&#x662F;&#x5C06;&#x5176;&#x62C6;&#x6563;&#x5206;&#x5E03;&#x5230;&#x6574;&#x4E2A;&#x5BF9;&#x8C61;&#x2F79;&#x7EDC;&#x4E2D;&#x53BB;&#x3002;</li>
 </ol>
-<h1>8. 内聚的例子</h1>
+<h1>8. &#x5185;&#x805A;&#x7684;&#x4F8B;&#x5B50;</h1>
 <ol>
-<li>内聚程度从低到高如下</li>
+<li>&#x5185;&#x805A;&#x7A0B;&#x5EA6;&#x4ECE;&#x4F4E;&#x5230;&#x9AD8;&#x5982;&#x4E0B;</li>
 </ol>
-<h2 id="8-1-偶然内聚">8.1. 偶然内聚</h2>
+<h2 id="8-1-&#x5076;&#x7136;&#x5185;&#x805A;">8.1. &#x5076;&#x7136;&#x5185;&#x805A;</h2>
 <ol>
-<li>模块执行多个完全不相关的操作</li>
+<li>&#x6A21;&#x5757;&#x6267;&#x884C;&#x591A;&#x4E2A;&#x5B8C;&#x5168;&#x4E0D;&#x76F8;&#x5173;&#x7684;&#x64CD;&#x4F5C;</li>
 </ol>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/35.png" alt=""></p>
-<h2 id="8-2-逻辑内聚">8.2. 逻辑内聚</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/35.png" alt></p>
+<h2 id="8-2-&#x903B;&#x8F91;&#x5185;&#x805A;">8.2. &#x903B;&#x8F91;&#x5185;&#x805A;</h2>
 <ol>
-<li>模块执行一系列相关操作，每个操作的调用由其他模块来决定</li>
+<li>&#x6A21;&#x5757;&#x6267;&#x884C;&#x4E00;&#x7CFB;&#x5217;&#x76F8;&#x5173;&#x64CD;&#x4F5C;&#xFF0C;&#x6BCF;&#x4E2A;&#x64CD;&#x4F5C;&#x7684;&#x8C03;&#x7528;&#x7531;&#x5176;&#x4ED6;&#x6A21;&#x5757;&#x6765;&#x51B3;&#x5B9A;</li>
 </ol>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/36.png" alt=""></p>
-<h2 id="8-3-时间内聚">8.3. 时间内聚</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/36.png" alt></p>
+<h2 id="8-3-&#x65F6;&#x95F4;&#x5185;&#x805A;">8.3. &#x65F6;&#x95F4;&#x5185;&#x805A;</h2>
 <ol>
-<li>模块执行一系列与时间有关的操作</li>
+<li>&#x6A21;&#x5757;&#x6267;&#x884C;&#x4E00;&#x7CFB;&#x5217;&#x4E0E;&#x65F6;&#x95F4;&#x6709;&#x5173;&#x7684;&#x64CD;&#x4F5C;</li>
 </ol>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/37.png" alt=""></p>
-<h2 id="8-4-过程内聚">8.4. 过程内聚</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/37.png" alt></p>
+<h2 id="8-4-&#x8FC7;&#x7A0B;&#x5185;&#x805A;">8.4. &#x8FC7;&#x7A0B;&#x5185;&#x805A;</h2>
 <ol>
-<li>模块执行一些与步骤顺序有关的操作</li>
+<li>&#x6A21;&#x5757;&#x6267;&#x884C;&#x4E00;&#x4E9B;&#x4E0E;&#x6B65;&#x9AA4;&#x987A;&#x5E8F;&#x6709;&#x5173;&#x7684;&#x64CD;&#x4F5C;</li>
 </ol>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/38.png" alt=""></p>
-<h2 id="8-5-通信内聚">8.5. 通信内聚</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/38.png" alt></p>
+<h2 id="8-5-&#x901A;&#x4FE1;&#x5185;&#x805A;">8.5. &#x901A;&#x4FE1;&#x5185;&#x805A;</h2>
 <ol>
-<li>模块执行一系列与步骤有关的操作，并且这些操作在相同的数据上进行</li>
-<li>和过程内聚的唯一不同:是否在同一块数据结构上操作</li>
+<li>&#x6A21;&#x5757;&#x6267;&#x884C;&#x4E00;&#x7CFB;&#x5217;&#x4E0E;&#x6B65;&#x9AA4;&#x6709;&#x5173;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x5E76;&#x4E14;&#x8FD9;&#x4E9B;&#x64CD;&#x4F5C;&#x5728;&#x76F8;&#x540C;&#x7684;&#x6570;&#x636E;&#x4E0A;&#x8FDB;&#x884C;</li>
+<li>&#x548C;&#x8FC7;&#x7A0B;&#x5185;&#x805A;&#x7684;&#x552F;&#x4E00;&#x4E0D;&#x540C;:&#x662F;&#x5426;&#x5728;&#x540C;&#x4E00;&#x5757;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x4E0A;&#x64CD;&#x4F5C;</li>
 </ol>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/29.png" alt=""><br>
-<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/39.png" alt=""></p>
-<h2 id="8-6-功能内聚">8.6. 功能内聚</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/29.png" alt><br>
+<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/39.png" alt></p>
+<h2 id="8-6-&#x529F;&#x80FD;&#x5185;&#x805A;">8.6. &#x529F;&#x80FD;&#x5185;&#x805A;</h2>
 <ol>
-<li>模块只执行一个操作或达到一个单一目的</li>
+<li>&#x6A21;&#x5757;&#x53EA;&#x6267;&#x884C;&#x4E00;&#x4E2A;&#x64CD;&#x4F5C;&#x6216;&#x8FBE;&#x5230;&#x4E00;&#x4E2A;&#x5355;&#x4E00;&#x76EE;&#x7684;</li>
 </ol>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/40.png" alt=""></p>
-<h2 id="8-7-信息内聚">8.7. 信息内聚</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/40.png" alt></p>
+<h2 id="8-7-&#x4FE1;&#x606F;&#x5185;&#x805A;">8.7. &#x4FE1;&#x606F;&#x5185;&#x805A;</h2>
 <ol>
-<li>模块进行许多操作，各个都有各自的入口点</li>
-<li>每个操作的代码都相互独立</li>
-<li>所有操作都在相同的数据结构上完成</li>
+<li>&#x6A21;&#x5757;&#x8FDB;&#x884C;&#x8BB8;&#x591A;&#x64CD;&#x4F5C;&#xFF0C;&#x5404;&#x4E2A;&#x90FD;&#x6709;&#x5404;&#x81EA;&#x7684;&#x5165;&#x53E3;&#x70B9;</li>
+<li>&#x6BCF;&#x4E2A;&#x64CD;&#x4F5C;&#x7684;&#x4EE3;&#x7801;&#x90FD;&#x76F8;&#x4E92;&#x72EC;&#x7ACB;</li>
+<li>&#x6240;&#x6709;&#x64CD;&#x4F5C;&#x90FD;&#x5728;&#x76F8;&#x540C;&#x7684;&#x6570;&#x636E;&#x7ED3;&#x6784;&#x4E0A;&#x5B8C;&#x6210;</li>
 </ol>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/41.png" alt=""></p>
-<h1>9. 耦合的例子</h1>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/41.png" alt></p>
+<h1>9. &#x8026;&#x5408;&#x7684;&#x4F8B;&#x5B50;</h1>
 <ol>
-<li>耦合程度从低到高如下</li>
+<li>&#x8026;&#x5408;&#x7A0B;&#x5EA6;&#x4ECE;&#x4F4E;&#x5230;&#x9AD8;&#x5982;&#x4E0B;</li>
 </ol>
-<h2 id="9-1-数据耦合">9.1. 数据耦合</h2>
+<h2 id="9-1-&#x6570;&#x636E;&#x8026;&#x5408;">9.1. &#x6570;&#x636E;&#x8026;&#x5408;</h2>
 <ol>
-<li>两个模块的所有参数是同类型的数据项</li>
+<li>&#x4E24;&#x4E2A;&#x6A21;&#x5757;&#x7684;&#x6240;&#x6709;&#x53C2;&#x6570;&#x662F;&#x540C;&#x7C7B;&#x578B;&#x7684;&#x6570;&#x636E;&#x9879;</li>
 </ol>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/45.png" alt=""></p>
-<h2 id="9-2-印记耦合">9.2. 印记耦合</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/45.png" alt></p>
+<h2 id="9-2-&#x5370;&#x8BB0;&#x8026;&#x5408;">9.2. &#x5370;&#x8BB0;&#x8026;&#x5408;</h2>
 <ol>
-<li>共享一个数据结构，但是却只用了其中一部分</li>
+<li>&#x5171;&#x4EAB;&#x4E00;&#x4E2A;&#x6570;&#x636E;&#x7ED3;&#x6784;&#xFF0C;&#x4F46;&#x662F;&#x5374;&#x53EA;&#x7528;&#x4E86;&#x5176;&#x4E2D;&#x4E00;&#x90E8;&#x5206;</li>
 </ol>
 <ul>
-<li>下面传递d.month就行</li>
+<li>&#x4E0B;&#x9762;&#x4F20;&#x9012;d.month&#x5C31;&#x884C;</li>
 </ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/29.png" alt=""></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/29.png" alt></p>
 <ul>
-<li>传递i.date.month就行</li>
+<li>&#x4F20;&#x9012;i.date.month&#x5C31;&#x884C;</li>
 </ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/30.png" alt=""></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/30.png" alt></p>
 <ul>
-<li>其实只需要emailID即可</li>
+<li>&#x5176;&#x5B9E;&#x53EA;&#x9700;&#x8981;emailID&#x5373;&#x53EF;</li>
 </ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/44.png" alt=""></p>
-<h2 id="9-3-控制耦合">9.3. 控制耦合</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/44.png" alt></p>
+<h2 id="9-3-&#x63A7;&#x5236;&#x8026;&#x5408;">9.3. &#x63A7;&#x5236;&#x8026;&#x5408;</h2>
 <ol>
-<li>一个模块给另一个模块传递控制信息</li>
+<li>&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#x7ED9;&#x53E6;&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#x4F20;&#x9012;&#x63A7;&#x5236;&#x4FE1;&#x606F;</li>
 </ol>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/31.png" alt=""></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/31.png" alt></p>
 <ol start="2">
-<li>一个方法调用下面的方法，并且传递了控制信息，正确的应该是调用者直接自己根据command判断</li>
+<li>&#x4E00;&#x4E2A;&#x65B9;&#x6CD5;&#x8C03;&#x7528;&#x4E0B;&#x9762;&#x7684;&#x65B9;&#x6CD5;&#xFF0C;&#x5E76;&#x4E14;&#x4F20;&#x9012;&#x4E86;&#x63A7;&#x5236;&#x4FE1;&#x606F;&#xFF0C;&#x6B63;&#x786E;&#x7684;&#x5E94;&#x8BE5;&#x662F;&#x8C03;&#x7528;&#x8005;&#x76F4;&#x63A5;&#x81EA;&#x5DF1;&#x6839;&#x636E;command&#x5224;&#x65AD;</li>
 </ol>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/43.png" alt=""></p>
-<h2 id="9-4-重复耦合">9.4. 重复耦合</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/43.png" alt></p>
+<h2 id="9-4-&#x91CD;&#x590D;&#x8026;&#x5408;">9.4. &#x91CD;&#x590D;&#x8026;&#x5408;</h2>
 <ol>
-<li>模块之间有同样(逻辑上同样)的重复代码</li>
+<li>&#x6A21;&#x5757;&#x4E4B;&#x95F4;&#x6709;&#x540C;&#x6837;(&#x903B;&#x8F91;&#x4E0A;&#x540C;&#x6837;)&#x7684;&#x91CD;&#x590D;&#x4EE3;&#x7801;</li>
 </ol>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/34.png" alt=""></p>
-<h2 id="9-5-公共耦合">9.5. 公共耦合</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/34.png" alt></p>
+<h2 id="9-5-&#x516C;&#x5171;&#x8026;&#x5408;">9.5. &#x516C;&#x5171;&#x8026;&#x5408;</h2>
 <ol>
-<li>模块之间共享全局的数据(全局变量，全局数据结构)</li>
+<li>&#x6A21;&#x5757;&#x4E4B;&#x95F4;&#x5171;&#x4EAB;&#x5168;&#x5C40;&#x7684;&#x6570;&#x636E;(&#x5168;&#x5C40;&#x53D8;&#x91CF;&#xFF0C;&#x5168;&#x5C40;&#x6570;&#x636E;&#x7ED3;&#x6784;)</li>
 </ol>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/32.png" alt=""><br>
-<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/46.png" alt=""></p>
-<h2 id="9-6-内容耦合">9.6. 内容耦合</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/32.png" alt><br>
+<img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/46.png" alt></p>
+<h2 id="9-6-&#x5185;&#x5BB9;&#x8026;&#x5408;">9.6. &#x5185;&#x5BB9;&#x8026;&#x5408;</h2>
 <ol>
-<li>一个模块直接修改或者依赖于另一个模块的内容</li>
+<li>&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#x76F4;&#x63A5;&#x4FEE;&#x6539;&#x6216;&#x8005;&#x4F9D;&#x8D56;&#x4E8E;&#x53E6;&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#x7684;&#x5185;&#x5BB9;</li>
 </ol>
 <ul>
-<li>直接修改了date部分的month的值</li>
+<li>&#x76F4;&#x63A5;&#x4FEE;&#x6539;&#x4E86;date&#x90E8;&#x5206;&#x7684;month&#x7684;&#x503C;</li>
 </ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/33.png" alt=""></p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/33.png" alt></p>
 <ul>
-<li>直接修改了另一个模块对象的成员变量的值</li>
+<li>&#x76F4;&#x63A5;&#x4FEE;&#x6539;&#x4E86;&#x53E6;&#x4E00;&#x4E2A;&#x6A21;&#x5757;&#x5BF9;&#x8C61;&#x7684;&#x6210;&#x5458;&#x53D8;&#x91CF;&#x7684;&#x503C;</li>
 </ul>
-<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/42.png" alt=""></p>
-<h1>10. KWIC的四种不同实现</h1>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt13/42.png" alt></p>
+<h1>10. KWIC&#x7684;&#x56DB;&#x79CD;&#x4E0D;&#x540C;&#x5B9E;&#x73B0;</h1>
 <ol>
-<li>复习本地的四种实现的Java代码</li>
+<li>&#x590D;&#x4E60;&#x672C;&#x5730;&#x7684;&#x56DB;&#x79CD;&#x5B9E;&#x73B0;&#x7684;Java&#x4EE3;&#x7801;</li>
 </ol>
-<h2 id="10-1-主程序和子程序-MS">10.1. 主程序和子程序(MS)</h2>
+<h2 id="10-1-&#x4E3B;&#x7A0B;&#x5E8F;&#x548C;&#x5B50;&#x7A0B;&#x5E8F;-MS">10.1. &#x4E3B;&#x7A0B;&#x5E8F;&#x548C;&#x5B50;&#x7A0B;&#x5E8F;(MS)</h2>
 <ul>
-<li>使用全局变量，减少过多的参数传递</li>
+<li>&#x4F7F;&#x7528;&#x5168;&#x5C40;&#x53D8;&#x91CF;&#xFF0C;&#x51CF;&#x5C11;&#x8FC7;&#x591A;&#x7684;&#x53C2;&#x6570;&#x4F20;&#x9012;</li>
 </ul>
-<h2 id="10-2-面向对象-OO">10.2. 面向对象(OO)</h2>
+<h2 id="10-2-&#x9762;&#x5411;&#x5BF9;&#x8C61;-OO">10.2. &#x9762;&#x5411;&#x5BF9;&#x8C61;(OO)</h2>
 <ol>
-<li>中间有一些对象进行存储</li>
-<li>对象写作</li>
+<li>&#x4E2D;&#x95F4;&#x6709;&#x4E00;&#x4E9B;&#x5BF9;&#x8C61;&#x8FDB;&#x884C;&#x5B58;&#x50A8;</li>
+<li>&#x5BF9;&#x8C61;&#x5199;&#x4F5C;</li>
 </ol>
 <h2 id="10-3-Pipe-Filter">10.3. Pipe Filter</h2>
 <ol>
-<li>数据进来通过过滤器</li>
-<li>通过管道串联过滤器</li>
-<li>好处:
+<li>&#x6570;&#x636E;&#x8FDB;&#x6765;&#x901A;&#x8FC7;&#x8FC7;&#x6EE4;&#x5668;</li>
+<li>&#x901A;&#x8FC7;&#x7BA1;&#x9053;&#x4E32;&#x8054;&#x8FC7;&#x6EE4;&#x5668;</li>
+<li>&#x597D;&#x5904;:
 <ol>
-<li>如果有一个过滤器无法使用了直接替换就行</li>
-<li>增加是容易的</li>
+<li>&#x5982;&#x679C;&#x6709;&#x4E00;&#x4E2A;&#x8FC7;&#x6EE4;&#x5668;&#x65E0;&#x6CD5;&#x4F7F;&#x7528;&#x4E86;&#x76F4;&#x63A5;&#x66FF;&#x6362;&#x5C31;&#x884C;</li>
+<li>&#x589E;&#x52A0;&#x662F;&#x5BB9;&#x6613;&#x7684;</li>
 </ol>
 </li>
-<li>各自过滤器是独立工作的，不在意其他人怎么样</li>
-<li>管道不一定是方法调用(独立进程)，要不就和结构化没有区别</li>
-<li>4个线程各自跑起来，用pipe连接起来</li>
+<li>&#x5404;&#x81EA;&#x8FC7;&#x6EE4;&#x5668;&#x662F;&#x72EC;&#x7ACB;&#x5DE5;&#x4F5C;&#x7684;&#xFF0C;&#x4E0D;&#x5728;&#x610F;&#x5176;&#x4ED6;&#x4EBA;&#x600E;&#x4E48;&#x6837;</li>
+<li>&#x7BA1;&#x9053;&#x4E0D;&#x4E00;&#x5B9A;&#x662F;&#x65B9;&#x6CD5;&#x8C03;&#x7528;(&#x72EC;&#x7ACB;&#x8FDB;&#x7A0B;)&#xFF0C;&#x8981;&#x4E0D;&#x5C31;&#x548C;&#x7ED3;&#x6784;&#x5316;&#x6CA1;&#x6709;&#x533A;&#x522B;</li>
+<li>4&#x4E2A;&#x7EBF;&#x7A0B;&#x5404;&#x81EA;&#x8DD1;&#x8D77;&#x6765;&#xFF0C;&#x7528;pipe&#x8FDE;&#x63A5;&#x8D77;&#x6765;</li>
 </ol>
-<h2 id="10-4-基于事件">10.4. 基于事件</h2>
+<h2 id="10-4-&#x57FA;&#x4E8E;&#x4E8B;&#x4EF6;">10.4. &#x57FA;&#x4E8E;&#x4E8B;&#x4EF6;</h2>
 <ol>
-<li>有一个事件机制，有订阅者和分发者</li>
-<li>GUI：点击Button之后，触发事件</li>
-<li>框架帮你完成事件机制</li>
-<li>明确什么监听什么</li>
-<li>观察者模式</li>
+<li>&#x6709;&#x4E00;&#x4E2A;&#x4E8B;&#x4EF6;&#x673A;&#x5236;&#xFF0C;&#x6709;&#x8BA2;&#x9605;&#x8005;&#x548C;&#x5206;&#x53D1;&#x8005;</li>
+<li>GUI&#xFF1A;&#x70B9;&#x51FB;Button&#x4E4B;&#x540E;&#xFF0C;&#x89E6;&#x53D1;&#x4E8B;&#x4EF6;</li>
+<li>&#x6846;&#x67B6;&#x5E2E;&#x4F60;&#x5B8C;&#x6210;&#x4E8B;&#x4EF6;&#x673A;&#x5236;</li>
+<li>&#x660E;&#x786E;&#x4EC0;&#x4E48;&#x76D1;&#x542C;&#x4EC0;&#x4E48;</li>
+<li>&#x89C2;&#x5BDF;&#x8005;&#x6A21;&#x5F0F;</li>
 </ol>
 
 <div class="article-footer fs14">
@@ -1265,7 +1265,7 @@
     </section>
     </div>
 </article>
-<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/12-%E8%AF%A6%E7%BB%86%E8%AE%BE%E8%AE%A1/">SE-II-ch12-详细设计</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/14-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%A8%A1%E5%9D%97%E5%8C%96/">SE-II-ch14-面向对象的模块化</a></div></section></div>
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/12-%E8%AF%A6%E7%BB%86%E8%AE%BE%E8%AE%A1/">SE-II-ch12-详细设计</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/2022/06/18/SE-II%E7%AC%94%E8%AE%B0/15-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E4%BF%A1%E6%81%AF%E9%9A%90%E8%97%8F/">SE-II-ch15-面向对象的信息隐藏</a></div></section></div>
 
 
 
