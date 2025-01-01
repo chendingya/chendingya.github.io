@@ -1,0 +1,555 @@
+
+<!DOCTYPE html><html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.28.1" theme-name="Stellar" theme-version="1.28.1">
+  
+  <meta name="generator" content="Hexo 7.2.0">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f9fafb">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
+  
+  <title>Flutter 简介 - Asimov's Blog</title>
+
+  
+    <meta name="description" content="2024.6.28 Flutter &#x7B80;&#x4ECB; 1.2 &#x521D;&#x8BC6; Flutter | &#x300A;Flutter&#x5B9E;&#x6218;&#xB7;&#x7B2C;&#x4E8C;&#x7248;&#x300B; (flutterchina.club) Flutter &#x662F; Google &#x63A8;&#x51FA;&amp;#x5">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Flutter 简介">
+<meta property="og:url" content="https://chendingya.github.io/2024/06/28/flutter%E7%AC%94%E8%AE%B0/flutter%E5%88%9D%E8%AF%86/index.html">
+<meta property="og:site_name" content="Asimov&#39;s Blog">
+<meta property="og:description" content="2024.6.28 Flutter &#x7B80;&#x4ECB; 1.2 &#x521D;&#x8BC6; Flutter | &#x300A;Flutter&#x5B9E;&#x6218;&#xB7;&#x7B2C;&#x4E8C;&#x7248;&#x300B; (flutterchina.club) Flutter &#x662F; Google &#x63A8;&#x51FA;&amp;#x5">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://chendingya.github.io/2024/06/28/flutter%E7%AC%94%E8%AE%B0/flutter%E5%88%9D%E8%AF%86/1-1.82c25693.png">
+<meta property="article:published_time" content="2024-06-28T10:32:34.000Z">
+<meta property="article:modified_time" content="2025-01-01T12:53:35.091Z">
+<meta property="article:author" content="Asimov">
+<meta property="article:tag" content="Flutter">
+<meta property="article:tag" content="Dart">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://chendingya.github.io/2024/06/28/flutter%E7%AC%94%E8%AE%B0/flutter%E5%88%9D%E8%AF%86/1-1.82c25693.png">
+  
+  
+  
+  <meta name="keywords" content="Flutter,Dart">
+
+  <!-- feed -->
+  
+
+  <link rel="stylesheet" href="/css/main.css?v=1.28.1">
+
+  
+
+  
+
+  
+</head>
+<body><div class="sitebg"><div class="siteblur"></div></div>
+
+<div class="l_body s:aa content tech" id="start" layout="post" ><aside class="l_left"><div class="leftbar-container">
+
+
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="https://raw.githubusercontent.com/chendingya/PicGo/main/typora202405021052957.png" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">Asimov's Blog</div><div class="sub normal cap">asimov的废话乐园</div><div class="sub hover cap" style="opacity:0"> 快乐老家</div></a></div></header>
+
+<div class="nav-area">
+<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" placeholder="站内搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
+
+
+<nav class="menu dis-select"></nav>
+</div>
+<div class="widgets">
+
+
+<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2024/07/02/flutter%E7%AC%94%E8%AE%B0/Widge/"><span class="title">Flutter Widge</span></a><a class="item title" href="/2024/06/28/flutter%E7%AC%94%E8%AE%B0/flutter%E5%8A%A8%E7%94%BB/"><span class="title">Flutter动画简介</span></a><a class="item title" href="/2024/06/28/flutter%E7%AC%94%E8%AE%B0/flutter%E5%88%9D%E8%AF%86/"><span class="title">Flutter 简介</span></a><a class="item title" href="/2024/06/29/flutter%E7%AC%94%E8%AE%B0/dart%E8%AF%AD%E6%B3%95/"><span class="title">Dart语法</span></a><a class="item title" href="/2026/01/01/leetcode/%E5%88%B7%E9%A2%98-3280%20%E6%97%A5%E6%9C%9F%E8%BD%AC%E4%BA%8C%E8%BF%9B%E5%88%B6/"><span class="title">leetcode刷题-3280-日期转换为二进制表示</span></a><a class="item title" href="/2024/06/28/%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F%E7%AE%A1%E7%90%86/%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F%E7%AE%A1%E7%90%86%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/"><span class="title">软件质量管理-期末复习</span></a><a class="item title" href="/2024/06/24/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0-%E5%8E%9F%E5%88%99%E6%A8%A1%E5%BC%8F/"><span class="title">软件系统设计-原则模式期末复习</span></a><a class="item title" href="/2024/06/24/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0-%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84/"><span class="title">软件系统设计-系统架构期末复习</span></a><a class="item title" href="/2024/05/02/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%842/"><span class="title">系统架构2-质量属性Quality Attributes</span></a><a class="item title" href="/2024/01/05/23-%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92/%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/"><span class="title">人机交互-期末复习</span></a></div></widget>
+</div>
+<footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/chendingya?tab=repositories" target="_blank" rel="external nofollow noopener noreferrer"><img no-lazy src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" / onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a></div></footer>
+</div></aside><div class="l_main" id="main">
+
+
+
+
+
+<div class="article banner top">
+  <div class="content">
+    <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/Flutter/">Flutter</a></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2024-06-28T10:32:34.000Z">2024-06-28</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2025-01-01T12:53:35.091Z">2025-01-01</time></span></div></div></div>
+    
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>Flutter 简介</span></h1>
+        
+      </div>
+    </div>
+    
+  </div>
+  </div><article class="md-text content"><p>2024.6.28</p>
+<h1>Flutter &#x7B80;&#x4ECB;</h1>
+<p><a target="_blank" rel="noopener" href="https://book.flutterchina.club/chapter1/flutter_intro.html#_1-2-1-flutter-%E7%AE%80%E4%BB%8B">1.2 &#x521D;&#x8BC6; Flutter | &#x300A;Flutter&#x5B9E;&#x6218;&#xB7;&#x7B2C;&#x4E8C;&#x7248;&#x300B; (flutterchina.club)</a></p>
+<p>Flutter &#x662F; Google &#x63A8;&#x51FA;&#x5E76;&#x5F00;&#x6E90;&#x7684;&#x79FB;&#x52A8;&#x5E94;&#x7528;&#x5F00;&#x53D1;&#x6846;&#x67B6;&#xFF0C;&#x4E3B;&#x6253;&#x8DE8;&#x5E73;&#x53F0;&#x3001;&#x9AD8;&#x4FDD;&#x771F;&#x3001;&#x9AD8;&#x6027;&#x80FD;&#x3002;&#x5F00;&#x53D1;&#x8005;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; Dart &#x8BED;&#x8A00;&#x5F00;&#x53D1; App&#xFF0C;&#x4E00;&#x5957;&#x4EE3;&#x7801;&#x540C;&#x65F6;&#x8FD0;&#x884C;&#x5728; iOS &#x548C; Android&#x5E73;&#x53F0;&#x3002;</p>
+<p>Flutter &#x63D0;&#x4F9B;&#x4E86;&#x4E30;&#x5BCC;&#x7684;&#x7EC4;&#x4EF6;&#x3001;&#x63A5;&#x53E3;&#xFF0C;&#x5F00;&#x53D1;&#x8005;&#x53EF;&#x4EE5;&#x5F88;&#x5FEB;&#x5730;&#x4E3A; Flutter &#x6DFB;&#x52A0; Native&#xFF08;&#x5373;&#x539F;&#x751F;&#x5F00;&#x53D1;&#xFF0C;&#x6307;&#x57FA;&#x4E8E;&#x5E73;&#x53F0;&#x539F;&#x751F;&#x8BED;&#x8A00;&#x6765;&#x5F00;&#x53D1;&#x5E94;&#x7528;&#xFF0C;flutter&#x53EF;&#x4EE5;&#x548C;&#x5E73;&#x53F0;&#x539F;&#x751F;&#x8BED;&#x8A00;&#x6DF7;&#x5408;&#x5F00;&#x53D1;&#xFF09; &#x6269;&#x5C55;&#x3002;</p>
+<h2 id="flutter&#x7684;&#x5F15;&#x64CE;">flutter&#x7684;&#x5F15;&#x64CE;</h2>
+<p>Flutter &#x4F7F;&#x7528;&#x81EA;&#x5DF1;&#x7684;&#x9AD8;&#x6027;&#x80FD;&#x6E32;&#x67D3;&#x5F15;&#x64CE;&#x6765;&#x7ED8;&#x5236; Widget&#xFF08;&#x7EC4;&#x4EF6;&#xFF09;&#x3002;</p>
+<p>Flutter &#x5E95;&#x5C42;&#x4F7F;&#x7528; Skia &#x4F5C;&#x4E3A;&#x5176; 2D &#x6E32;&#x67D3;&#x5F15;&#x64CE;&#xFF0C;Skia &#x662F; Google&#x7684;&#x4E00;&#x4E2A; 2D &#x56FE;&#x5F62;&#x5904;&#x7406;&#x51FD;&#x6570;&#x5E93;&#xFF0C;&#x5305;&#x542B;&#x5B57;&#x578B;&#x3001;&#x5750;&#x6807;&#x8F6C;&#x6362;&#xFF0C;&#x4EE5;&#x53CA;&#x70B9;&#x9635;&#x56FE;&#xFF0C;&#x5B83;&#x4EEC;&#x90FD;&#x6709;&#x9AD8;&#x6548;&#x80FD;&#x4E14;&#x7B80;&#x6D01;&#x7684;&#x8868;&#x73B0;&#x3002;Skia &#x662F;&#x8DE8;&#x5E73;&#x53F0;&#x7684;&#xFF0C;&#x5E76;&#x63D0;&#x4F9B;&#x4E86;&#x975E;&#x5E38;&#x53CB;&#x597D;&#x7684; API&#xFF0C;&#x76EE;&#x524D; Google Chrome&#x6D4F;&#x89C8;&#x5668;&#x548C; Android &#x5747;&#x91C7;&#x7528; Skia &#x4F5C;&#x4E3A;&#x5176; 2D &#x7ED8;&#x56FE;&#x5F15;&#x64CE;&#x3002;</p>
+<h2 id="Flutter-&#x9AD8;&#x6027;&#x80FD;">Flutter &#x9AD8;&#x6027;&#x80FD;</h2>
+<p>Flutter App &#x91C7;&#x7528; Dart &#x8BED;&#x8A00;&#x5F00;&#x53D1;&#x3002;Dart &#x5728; JIT&#xFF08;&#x5373;&#x65F6;&#x7F16;&#x8BD1;&#xFF09;&#x6A21;&#x5F0F;&#x4E0B;&#xFF0C;&#x6267;&#x884C;&#x901F;&#x5EA6;&#x4E0E; JavaScript &#x57FA;&#x672C;&#x6301;&#x5E73;&#x3002;&#x4F46;&#x662F; Dart &#x652F;&#x6301; AOT&#xFF0C;&#x5F53;&#x4EE5; AOT&#x6A21;&#x5F0F;&#x8FD0;&#x884C;&#x65F6;&#xFF0C;JavaScript &#x4FBF;&#x8FDC;&#x8FDC;&#x8FFD;&#x4E0D;&#x4E0A;&#x4E86;&#x3002;&#x6267;&#x884C;&#x901F;&#x5EA6;&#x7684;&#x63D0;&#x5347;&#x5BF9;&#x9AD8;&#x5E27;&#x7387;&#x4E0B;&#x7684;&#x89C6;&#x56FE;&#x6570;&#x636E;&#x8BA1;&#x7B97;&#x5F88;&#x6709;&#x5E2E;&#x52A9;&#x3002;</p>
+<p>Flutter &#x4F7F;&#x7528;&#x81EA;&#x5DF1;&#x7684;&#x6E32;&#x67D3;&#x5F15;&#x64CE;&#x6765;&#x7ED8;&#x5236; UI &#xFF0C;&#x5E03;&#x5C40;&#x6570;&#x636E;&#x7B49;&#x7531; Dart &#x8BED;&#x8A00;&#x76F4;&#x63A5;&#x63A7;&#x5236;&#xFF0C;&#x6240;&#x4EE5;&#x5728;&#x5E03;&#x5C40;&#x8FC7;&#x7A0B;&#x4E2D;&#x4E0D;&#x9700;&#x8981;&#x50CF; RN &#x90A3;&#x6837;&#x8981;&#x5728; JavaScript &#x548C; Native &#x4E4B;&#x95F4;&#x901A;&#x4FE1;&#xFF0C;&#x8FD9;&#x5728;&#x4E00;&#x4E9B;&#x6ED1;&#x52A8;&#x548C;&#x62D6;&#x52A8;&#x7684;&#x573A;&#x666F;&#x4E0B;&#x5177;&#x6709;&#x660E;&#x663E;&#x4F18;&#x52BF;&#xFF0C;&#x56E0;&#x4E3A;&#x5728;&#x6ED1;&#x52A8;&#x548C;&#x62D6;&#x52A8;&#x8FC7;&#x7A0B;&#x5F80;&#x5F80;&#x90FD;&#x4F1A;&#x5F15;&#x8D77;&#x5E03;&#x5C40;&#x53D1;&#x751F;&#x53D8;&#x5316;&#xFF0C;&#x6240;&#x4EE5; JavaScript &#x9700;&#x8981;&#x548C; Native &#x4E4B;&#x95F4;&#x4E0D;&#x505C;&#x5730;&#x540C;&#x6B65;&#x5E03;&#x5C40;&#x4FE1;&#x606F;&#xFF0C;&#x8FD9;&#x548C;&#x5728;&#x6D4F;&#x89C8;&#x5668;&#x4E2D;JavaScript &#x9891;&#x7E41;&#x64CD;&#x4F5C; DOM &#x6240;&#x5E26;&#x6765;&#x7684;&#x95EE;&#x9898;&#x662F;&#x7C7B;&#x4F3C;&#x7684;&#xFF0C;&#x90FD;&#x4F1A;&#x5BFC;&#x81F4;&#x6BD4;&#x8F83;&#x53EF;&#x89C2;&#x7684;&#x6027;&#x80FD;&#x5F00;&#x9500;&#x3002;</p>
+<h3 id="&#x91C7;&#x7528;Dart&#x8BED;&#x8A00;&#x5F00;&#x53D1;">&#x91C7;&#x7528;Dart&#x8BED;&#x8A00;&#x5F00;&#x53D1;</h3>
+<p>&#x8FD9;&#x4E2A;&#x662F;&#x4E00;&#x4E2A;&#x5F88;&#x6709;&#x610F;&#x601D;&#x4F46;&#x4E5F;&#x5F88;&#x6709;&#x4E89;&#x8BAE;&#x7684;&#x95EE;&#x9898;&#xFF0C; Flutter &#x4E3A;&#x4EC0;&#x4E48;&#x9009;&#x62E9;&#x4E86; Dart &#x800C;&#x4E0D;&#x662F; JavaScript</p>
+<p>&#x4E4B;&#x524D;&#x63D0;&#x5230;&#x8FC7;&#x7684;&#x4E24;&#x4E2A;&#x6982;&#x5FF5;&#xFF1A;JIT &#x548C; AOT</p>
+<p>&#x7A0B;&#x5E8F;&#x4E3B;&#x8981;&#x6709;&#x4E24;&#x79CD;&#x8FD0;&#x884C;&#x65B9;&#x5F0F;&#xFF1A;&#x9759;&#x6001;&#x7F16;&#x8BD1;&#x4E0E;&#x52A8;&#x6001;&#x89E3;&#x91CA;&#x3002;&#x9759;&#x6001;&#x7F16;&#x8BD1;&#x7684;&#x7A0B;&#x5E8F;&#x5728;&#x6267;&#x884C;&#x524D;&#x7A0B;&#x5E8F;&#x4F1A;&#x88AB;&#x63D0;&#x524D;&#x7F16;&#x8BD1;&#x4E3A;&#x673A;&#x5668;&#x7801;&#xFF08;&#x6216;&#x4E2D;&#x95F4;&#x5B57;&#x8282;&#x7801;&#xFF09;&#xFF0C;&#x901A;&#x5E38;&#x5C06;&#x8FD9;&#x79CD;&#x7C7B;&#x578B;&#x79F0;&#x4E3A;<strong>AOT</strong> &#xFF08;Ahead of time&#xFF09;&#x5373; &#x201C;&#x63D0;&#x524D;&#x7F16;&#x8BD1;&#x201D;&#x3002;&#x800C;&#x89E3;&#x91CA;&#x6267;&#x884C;&#x5219;&#x662F;&#x5728;&#x8FD0;&#x884C;&#x65F6;&#x5C06;&#x6E90;&#x7801;&#x5B9E;&#x65F6;&#x7FFB;&#x8BD1;&#x4E3A;&#x673A;&#x5668;&#x7801;&#x6765;&#x6267;&#x884C;&#xFF0C;&#x901A;&#x5E38;&#x5C06;&#x8FD9;&#x79CD;&#x7C7B;&#x578B;&#x79F0;&#x4E3A;<strong>JIT</strong>&#xFF08;Just-in-time&#xFF09;&#x5373;&#x201C;&#x5373;&#x65F6;&#x7F16;&#x8BD1;&#x201D;&#x3002;</p>
+<p>AOT &#x7A0B;&#x5E8F;&#x7684;&#x5178;&#x578B;&#x4EE3;&#x8868;&#x662F;&#x7528; C/C++ &#x5F00;&#x53D1;&#x7684;&#x5E94;&#x7528;&#xFF0C;&#x5B83;&#x4EEC;&#x5FC5;&#x987B;&#x5728;&#x6267;&#x884C;&#x524D;&#x7F16;&#x8BD1;&#x6210;&#x673A;&#x5668;&#x7801;&#xFF1B;</p>
+<p>&#x800C;JIT&#x7684;&#x4EE3;&#x8868;&#x5219;&#x975E;&#x5E38;&#x591A;&#xFF0C;&#x5982;JavaScript&#x3001;python&#x7B49;</p>
+<p>&#x4E8B;&#x5B9E;&#x4E0A;&#xFF0C;&#x6240;&#x6709;&#x811A;&#x672C;&#x8BED;&#x8A00;&#x90FD;&#x652F;&#x6301; JIT &#x6A21;&#x5F0F;&#x3002;</p>
+<p>&#x4F46;&#x9700;&#x8981;&#x6CE8;&#x610F;&#x7684;&#x662F; JIT &#x548C; AOT &#x6307;&#x7684;&#x662F;&#x7A0B;&#x5E8F;&#x8FD0;&#x884C;&#x65B9;&#x5F0F;&#xFF0C;&#x548C;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&#x5E76;&#x975E;&#x5F3A;&#x5173;&#x8054;&#x7684;&#xFF0C;&#x6709;&#x4E9B;&#x8BED;&#x8A00;&#x65E2;&#x53EF;&#x4EE5;&#x4EE5; JIT &#x65B9;&#x5F0F;&#x8FD0;&#x884C;&#x4E5F;&#x53EF;&#x4EE5;&#x4EE5; AOT &#x65B9;&#x5F0F;&#x8FD0;&#x884C;&#xFF0C;&#x5982;Python&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x5728;&#x7B2C;&#x4E00;&#x6B21;&#x6267;&#x884C;&#x65F6;&#x7F16;&#x8BD1;&#x6210;&#x4E2D;&#x95F4;&#x5B57;&#x8282;&#x7801;&#xFF0C;&#x7136;&#x540E;&#x5728;&#x4E4B;&#x540E;&#x6267;&#x884C;&#x65F6;&#x518D;&#x5C06;&#x5B57;&#x8282;&#x7801;&#x5B9E;&#x65F6;&#x8F6C;&#x4E3A;&#x673A;&#x5668;&#x7801;&#x6267;&#x884C;&#x3002;</p>
+<p>&#x4E5F;&#x8BB8;&#x6709;&#x4EBA;&#x4F1A;&#x8BF4;&#xFF0C;&#x4E2D;&#x95F4;&#x5B57;&#x8282;&#x7801;&#x5E76;&#x975E;&#x673A;&#x5668;&#x7801;&#xFF0C;&#x5728;&#x7A0B;&#x5E8F;&#x6267;&#x884C;&#x65F6;&#x4ECD;&#x7136;&#x9700;&#x8981;&#x52A8;&#x6001;&#x5C06;&#x5B57;&#x8282;&#x7801;&#x8F6C;&#x4E3A;&#x673A;&#x5668;&#x7801;&#xFF0C;&#x8FD9;&#x4E0D;&#x5E94;&#x8BE5;&#x662F; JIT &#x5417; ? &#x662F;&#x8FD9;&#x6837;&#xFF0C;==&#x4F46;&#x901A;&#x5E38;&#x6211;&#x4EEC;&#x533A;&#x5206;&#x662F;&#x5426;&#x4E3A;AOT &#x7684;&#x6807;&#x51C6;&#x5C31;&#x662F;&#x770B;&#x4EE3;&#x7801;&#x5728;&#x6267;&#x884C;&#x4E4B;&#x524D;<strong>&#x662F;&#x5426;&#x9700;&#x8981;&#x7F16;&#x8BD1;</strong>&#xFF0C;&#x53EA;&#x8981;&#x9700;&#x8981;&#x7F16;&#x8BD1;&#xFF0C;&#x65E0;&#x8BBA;&#x5176;&#x7F16;&#x8BD1;&#x4EA7;&#x7269;&#x662F;&#x5B57;&#x8282;&#x7801;&#x8FD8;&#x662F;&#x673A;&#x5668;&#x7801;&#xFF0C;&#x90FD;&#x5C5E;&#x4E8E;AOT&#x3002;==</p>
+<ol>
+<li>
+<p><strong>&#x5F00;&#x53D1;&#x6548;&#x7387;&#x9AD8;</strong></p>
+<p>Dart &#x8FD0;&#x884C;&#x65F6;&#x548C;&#x7F16;&#x8BD1;&#x5668;&#x652F;&#x6301; Flutter &#x7684;&#x4E24;&#x4E2A;&#x5173;&#x952E;&#x7279;&#x6027;&#x7684;&#x7EC4;&#x5408;&#xFF1A;</p>
+<ul>
+<li><strong>&#x57FA;&#x4E8E; JIT &#x7684;&#x5FEB;&#x901F;&#x5F00;&#x53D1;&#x5468;&#x671F;</strong>&#xFF1A;Flutter <strong>&#x5728;&#x5F00;&#x53D1;&#x9636;&#x6BB5;&#x91C7;&#x7528; JIT &#x6A21;&#x5F0F;</strong>&#xFF0C;&#x8FD9;&#x6837;&#x5C31;&#x907F;&#x514D;&#x4E86;&#x6BCF;&#x6B21;&#x6539;&#x52A8;&#x90FD;&#x8981;&#x8FDB;&#x884C;&#x7F16;&#x8BD1;&#xFF0C;&#x6781;&#x5927;&#x5730;&#x8282;&#x7701;&#x4E86;&#x5F00;&#x53D1;&#x65F6;&#x95F4;&#xFF1B;</li>
+<li><strong>&#x57FA;&#x4E8E; AOT &#x7684;&#x53D1;&#x5E03;&#x5305;</strong>: Flutter &#x5728;<strong>&#x53D1;&#x5E03;&#x65F6;</strong>&#x53EF;&#x4EE5;<strong>&#x901A;&#x8FC7; AOT &#x751F;&#x6210;&#x9AD8;&#x6548;&#x7684;&#x673A;&#x5668;&#x7801;&#x4EE5;&#x4FDD;&#x8BC1;&#x5E94;&#x7528;&#x6027;&#x80FD;</strong>&#x3002;&#x800C; JavaScript &#x5219;&#x4E0D;&#x5177;&#x6709;&#x8FD9;&#x4E2A;&#x80FD;&#x529B;&#x3002;</li>
+</ul>
+</li>
+<li>
+<p><strong>&#x9AD8;&#x6027;&#x80FD;</strong></p>
+<p>Flutter &#x65E8;&#x5728;&#x63D0;&#x4F9B;&#x6D41;&#x7545;&#x3001;&#x9AD8;&#x4FDD;&#x771F;&#x7684; UI &#x4F53;&#x9A8C;&#x3002;&#x4E3A;&#x4E86;&#x5B9E;&#x73B0;&#x8FD9;&#x4E00;&#x70B9;&#xFF0C;Flutter &#x4E2D;&#x9700;&#x8981;&#x80FD;&#x591F;&#x5728;&#x6BCF;&#x4E2A;&#x52A8;&#x753B;&#x5E27;&#x4E2D;&#x8FD0;&#x884C;&#x5927;&#x91CF;&#x7684;&#x4EE3;&#x7801;&#x3002;&#x8FD9;&#x610F;&#x5473;&#x7740;&#x9700;&#x8981;&#x4E00;&#x79CD;&#x65E2;&#x80FD;&#x4FDD;&#x8BC1;&#x9AD8;&#x6027;&#x80FD;&#xFF0C;&#x4E5F;&#x4E0D;&#x4F1A;&#x51FA;&#x73B0;&#x4E22;&#x5E27;&#x7684;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&#xFF0C;&#x800C; Dart &#x652F;&#x6301; AOT&#xFF0C;&#x5728;&#x8FD9;&#x4E00;&#x70B9;&#x4E0A;&#x53EF;&#x4EE5;&#x505A;&#x5F97;&#x6BD4; JavaScript &#x66F4;&#x597D;&#x3002;</p>
+</li>
+<li>
+<p><strong>&#x5FEB;&#x901F;&#x5185;&#x5B58;&#x5206;&#x914D;</strong></p>
+<p>Flutter &#x6846;&#x67B6;&#x4F7F;&#x7528;&#x51FD;&#x6570;&#x5F0F;&#x6D41;&#xFF0C;&#x8FD9;&#x4F7F;&#x5F97;&#x5B83;&#x5728;&#x5F88;&#x5927;&#x7A0B;&#x5EA6;&#x4E0A;&#x4F9D;&#x8D56;&#x4E8E;&#x5E95;&#x5C42;&#x7684;&#x5185;&#x5B58;&#x5206;&#x914D;&#x5668;&#x3002;&#x56E0;&#x6B64;&#xFF0C;&#x62E5;&#x6709;&#x4E00;&#x4E2A;&#x80FD;&#x591F;&#x6709;&#x6548;&#x5730;&#x5904;&#x7406;&#x7410;&#x788E;&#x4EFB;&#x52A1;&#x7684;&#x5185;&#x5B58;&#x5206;&#x914D;&#x5668;&#x5C06;&#x663E;&#x5F97;&#x5341;&#x5206;&#x91CD;&#x8981;&#xFF0C;&#x5728;&#x7F3A;&#x4E4F;&#x6B64;&#x529F;&#x80FD;&#x7684;&#x8BED;&#x8A00;&#x4E2D;&#xFF0C;Flutter &#x5C06;&#x65E0;&#x6CD5;&#x6709;&#x6548;&#x5730;&#x5DE5;&#x4F5C;&#x3002;&#x5F53;&#x7136; Chrome V8 &#x7684; JavaScript &#x5F15;&#x64CE;&#x5728;&#x5185;&#x5B58;&#x5206;&#x914D;&#x4E0A;&#x4E5F;&#x5DF2;&#x7ECF;&#x505A;&#x7684;&#x5F88;&#x597D;&#xFF0C;&#x4E8B;&#x5B9E;&#x4E0A; Dart &#x5F00;&#x53D1;&#x56E2;&#x961F;&#x7684;&#x5F88;&#x591A;&#x6210;&#x5458;&#x90FD;&#x662F;&#x6765;&#x81EA;Chrome &#x56E2;&#x961F;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x5728;&#x5185;&#x5B58;&#x5206;&#x914D;&#x4E0A; Dart &#x5E76;&#x4E0D;&#x80FD;&#x4F5C;&#x4E3A;&#x8D85;&#x8D8A; JavaScript &#x7684;&#x4F18;&#x52BF;&#xFF0C;&#x800C;&#x5BF9;&#x4E8E;Flutter&#x6765;&#x8BF4;&#xFF0C;&#x5B83;&#x9700;&#x8981;&#x8FD9;&#x6837;&#x7684;&#x7279;&#x6027;&#xFF0C;&#x800C; Dart &#x4E5F;&#x6B63;&#x597D;&#x6EE1;&#x8DB3;&#x800C;&#x5DF2;&#x3002;</p>
+</li>
+<li>
+<p><strong>&#x7C7B;&#x578B;&#x5B89;&#x5168;&#x548C;&#x7A7A;&#x5B89;&#x5168;</strong></p>
+<p>&#x7531;&#x4E8E; Dart &#x662F;&#x7C7B;&#x578B;&#x5B89;&#x5168;&#x7684;&#x8BED;&#x8A00;&#xFF0C;&#x4E14; 2.12 &#x7248;&#x672C;&#x540E;&#x4E5F;&#x652F;&#x6301;&#x4E86;&#x7A7A;&#x5B89;&#x5168;&#x7279;&#x6027;&#xFF0C;&#x6240;&#x4EE5; Dart &#x652F;&#x6301;<strong>&#x9759;&#x6001;&#x7C7B;&#x578B;&#x68C0;&#x6D4B;</strong>&#xFF0C;&#x53EF;&#x4EE5;&#x5728;&#x7F16;&#x8BD1;&#x524D;&#x53D1;&#x73B0;&#x4E00;&#x4E9B;&#x7C7B;&#x578B;&#x7684;&#x9519;&#x8BEF;&#xFF0C;&#x5E76;&#x6392;&#x9664;&#x6F5C;&#x5728;&#x95EE;&#x9898;&#xFF0C;&#x8FD9;&#x4E00;&#x70B9;&#x5BF9;&#x4E8E;&#x524D;&#x7AEF;&#x5F00;&#x53D1;&#x8005;&#x6765;&#x8BF4;&#x53EF;&#x80FD;&#x4F1A;&#x66F4;&#x5177;&#x6709;&#x5438;&#x5F15;&#x529B;&#x3002;&#x4E0E;&#x4E4B;&#x4E0D;&#x540C;&#x7684;&#xFF0C;JavaScript &#x662F;&#x4E00;&#x4E2A;&#x5F31;&#x7C7B;&#x578B;&#x8BED;&#x8A00;&#xFF0C;&#x4E5F;&#x56E0;&#x6B64;&#x524D;&#x7AEF;&#x793E;&#x533A;&#x51FA;&#x73B0;&#x4E86;&#x5F88;&#x591A;&#x7ED9; JavaScript &#x4EE3;&#x7801;&#x6DFB;&#x52A0;&#x9759;&#x6001;&#x7C7B;&#x578B;&#x68C0;&#x6D4B;&#x7684;&#x6269;&#x5C55;&#x8BED;&#x8A00;&#x548C;&#x5DE5;&#x5177;&#xFF0C;&#x5982;&#xFF1A;&#x5FAE;&#x8F6F;&#x7684; TypeScript &#x4EE5;&#x53CA;Facebook &#x7684; Flow&#x3002;&#x76F8;&#x6BD4;&#x4E4B;&#x4E0B;&#xFF0C;Dart &#x672C;&#x8EAB;&#x5C31;&#x652F;&#x6301;&#x9759;&#x6001;&#x7C7B;&#x578B;&#xFF0C;&#x8FD9;&#x662F;&#x5B83;&#x7684;&#x4E00;&#x4E2A;&#x91CD;&#x8981;&#x4F18;&#x52BF;&#x3002;</p>
+</li>
+<li>
+<p><strong>Dart &#x56E2;&#x961F;&#x5C31;&#x5728;&#x4F60;&#x8EAB;&#x8FB9;</strong></p>
+<p>&#x770B;&#x4F3C;&#x4E0D;&#x8D77;&#x773C;&#xFF0C;&#x5B9E;&#x5219;&#x4E3E;&#x8DB3;&#x8F7B;&#x91CD;&#x3002;&#x7531;&#x4E8E;&#x6709; Dart &#x56E2;&#x961F;&#x7684;&#x79EF;&#x6781;&#x6295;&#x5165;&#xFF0C;Flutter &#x56E2;&#x961F;&#x53EF;&#x4EE5;&#x83B7;&#x5F97;&#x66F4;&#x591A;&#x3001;&#x66F4;&#x65B9;&#x4FBF;&#x7684;&#x652F;&#x6301;&#xFF0C;&#x6B63;&#x5982;Flutter &#x5B98;&#x7F51;&#x6240;&#x8FF0;&#x201C;&#x6211;&#x4EEC;&#x6B63;&#x4E0E; Dart &#x793E;&#x533A;&#x8FDB;&#x884C;&#x5BC6;&#x5207;&#x5408;&#x4F5C;&#xFF0C;&#x4EE5;&#x6539;&#x8FDB; Dart &#x5728; Flutter &#x4E2D;&#x7684;&#x4F7F;&#x7528;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x5F53;&#x6211;&#x4EEC;&#x6700;&#x521D;&#x91C7;&#x7528; Dart &#x65F6;&#xFF0C;&#x8BE5;&#x8BED;&#x8A00;&#x5E76;&#x6CA1;&#x6709;&#x63D0;&#x4F9B;&#x751F;&#x6210;&#x539F;&#x751F;&#x4E8C;&#x8FDB;&#x5236;&#x6587;&#x4EF6;&#x7684;&#x5DE5;&#x5177;&#x94FE;&#xFF08;&#x8FD9;&#x5BF9;&#x4E8E;&#x5B9E;&#x73B0;&#x53EF;&#x9884;&#x6D4B;&#x7684;&#x9AD8;&#x6027;&#x80FD;&#x5177;&#x6709;&#x5F88;&#x5927;&#x7684;&#x5E2E;&#x52A9;&#xFF09;&#xFF0C;&#x4F46;&#x662F;&#x73B0;&#x5728;&#x5B83;&#x5B9E;&#x73B0;&#x4E86;&#xFF0C;&#x56E0;&#x4E3A; Dart &#x56E2;&#x961F;&#x4E13;&#x95E8;&#x4E3A; Flutter &#x6784;&#x5EFA;&#x4E86;&#x5B83;&#x3002;&#x540C;&#x6837;&#xFF0C;Dart VM &#x4E4B;&#x524D;&#x5DF2;&#x7ECF;&#x9488;&#x5BF9;&#x541E;&#x5410;&#x91CF;&#x8FDB;&#x884C;&#x4E86;&#x4F18;&#x5316;&#xFF0C;&#x4F46;&#x56E2;&#x961F;&#x73B0;&#x5728;&#x6B63;&#x5728;&#x4F18;&#x5316; VM &#x7684;&#x5EF6;&#x8FDF;&#x65F6;&#x95F4;&#xFF0C;&#x8FD9;&#x5BF9;&#x4E8E; Flutter &#x7684;&#x5DE5;&#x4F5C;&#x8D1F;&#x8F7D;&#x66F4;&#x4E3A;&#x91CD;&#x8981;&#x3002;&#x201D;</p>
+</li>
+</ol>
+<h2 id="Flutter&#x6846;&#x67B6;&#x7ED3;&#x6784;">Flutter&#x6846;&#x67B6;&#x7ED3;&#x6784;</h2>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="/2024/06/28/flutter%E7%AC%94%E8%AE%B0/flutter%E5%88%9D%E8%AF%86/1-1.82c25693.png" alt="&#x56FE;1-1"></p>
+<h3 id="1-&#x6846;&#x67B6;&#x5C42;">1. &#x6846;&#x67B6;&#x5C42;</h3>
+<p>Flutter Framework&#xFF0C;&#x5373;&#x6846;&#x67B6;&#x5C42;&#x3002;&#x8FD9;&#x662F;&#x4E00;&#x4E2A;&#x7EAF; Dart&#x5B9E;&#x73B0;&#x7684; SDK&#xFF0C;&#x5B83;&#x5B9E;&#x73B0;&#x4E86;&#x4E00;&#x5957;&#x57FA;&#x7840;&#x5E93;&#xFF0C;&#x81EA;&#x5E95;&#x5411;&#x4E0A;&#xFF0C;&#x6211;&#x4EEC;&#x6765;&#x7B80;&#x5355;&#x4ECB;&#x7ECD;&#x4E00;&#x4E0B;&#xFF1A;</p>
+<ul>
+<li>&#x5E95;&#x4E0B;&#x4E24;&#x5C42;&#xFF08;Foundation &#x548C; Animation&#x3001;Painting&#x3001;Gestures&#xFF09;&#x5728; Google &#x7684;&#x4E00;&#x4E9B;&#x89C6;&#x9891;&#x4E2D;&#x88AB;&#x5408;&#x5E76;&#x4E3A;&#x4E00;&#x4E2A;dart UI&#x5C42;&#xFF0C;<strong>&#x5BF9;&#x5E94;&#x7684;&#x662F;Flutter&#x4E2D;&#x7684;<code>dart:ui</code>&#x5305;</strong>&#xFF0C;&#x5B83;&#x662F; Flutter Engine &#x66B4;&#x9732;&#x7684;&#x5E95;&#x5C42;UI&#x5E93;&#xFF0C;<strong>&#x63D0;&#x4F9B;&#x52A8;&#x753B;&#x3001;&#x624B;&#x52BF;&#x53CA;&#x7ED8;&#x5236;&#x80FD;&#x529B;</strong>&#x3002;</li>
+<li>Rendering &#x5C42;&#xFF0C;&#x5373;<strong>&#x6E32;&#x67D3;&#x5C42;</strong>&#xFF0C;&#x8FD9;&#x4E00;&#x5C42;&#x662F;&#x4E00;&#x4E2A;&#x62BD;&#x8C61;&#x7684;&#x5E03;&#x5C40;&#x5C42;&#xFF0C;&#x5B83;&#x4F9D;&#x8D56;&#x4E8E; Dart UI &#x5C42;&#xFF0C;&#x6E32;&#x67D3;&#x5C42;&#x4F1A;&#x6784;&#x5EFA;&#x4E00;&#x68F5;&#x7531;&#x53EF;&#x6E32;&#x67D3;&#x5BF9;&#x8C61;&#x7EC4;&#x6210;&#x7684;<strong>&#x6E32;&#x67D3;&#x6811;</strong>&#xFF0C;&#x5F53;&#x52A8;&#x6001;&#x66F4;&#x65B0;&#x8FD9;&#x4E9B;&#x5BF9;&#x8C61;&#x65F6;&#xFF0C;&#x6E32;&#x67D3;&#x6811;&#x4F1A;&#x627E;&#x51FA;&#x53D8;&#x5316;&#x7684;&#x90E8;&#x5206;&#xFF0C;&#x7136;&#x540E;&#x66F4;&#x65B0;&#x6E32;&#x67D3;&#x3002;<strong>&#x6E32;&#x67D3;&#x5C42;&#x53EF;&#x4EE5;&#x8BF4;&#x662F;Flutter &#x6846;&#x67B6;&#x5C42;&#x4E2D;&#x6700;&#x6838;&#x5FC3;&#x7684;&#x90E8;&#x5206;&#xFF0C;&#x5B83;&#x9664;&#x4E86;&#x786E;&#x5B9A;&#x6BCF;&#x4E2A;&#x6E32;&#x67D3;&#x5BF9;&#x8C61;&#x7684;&#x4F4D;&#x7F6E;&#x3001;&#x5927;&#x5C0F;&#x4E4B;&#x5916;&#x8FD8;&#x8981;&#x8FDB;&#x884C;&#x5750;&#x6807;&#x53D8;&#x6362;&#x3001;&#x7ED8;&#x5236;&#xFF08;&#x8C03;&#x7528;&#x5E95;&#x5C42; dart:ui &#xFF09;</strong>&#x3002;</li>
+<li>Widgets &#x5C42;&#x662F; Flutter &#x63D0;&#x4F9B;&#x7684;&#x4E00;&#x5957;&#x57FA;&#x7840;&#x7EC4;&#x4EF6;&#x5E93;&#xFF0C;&#x5728;&#x57FA;&#x7840;&#x7EC4;&#x4EF6;&#x5E93;&#x4E4B;&#x4E0A;&#xFF0C;Flutter &#x8FD8;&#x63D0;&#x4F9B;&#x4E86; Material &#x548C; Cupertino &#x4E24;&#x79CD;&#x89C6;&#x89C9;&#x98CE;&#x683C;&#x7684;&#x7EC4;&#x4EF6;&#x5E93;&#xFF0C;&#x5B83;&#x4EEC;&#x5206;&#x522B;&#x5B9E;&#x73B0;&#x4E86; Material &#x548C; iOS &#x8BBE;&#x8BA1;&#x89C4;&#x8303;&#x3002;</li>
+</ul>
+<p>Flutter &#x6846;&#x67B6;&#x76F8;&#x5BF9;&#x8F83;&#x5C0F;&#xFF0C;&#x56E0;&#x4E3A;&#x4E00;&#x4E9B;&#x5F00;&#x53D1;&#x8005;&#x53EF;&#x80FD;&#x4F1A;&#x4F7F;&#x7528;&#x5230;&#x7684;&#x66F4;&#x9AD8;&#x5C42;&#x7EA7;&#x7684;&#x529F;&#x80FD;&#x5DF2;&#x7ECF;&#x88AB;&#x62C6;&#x5206;&#x5230;&#x4E0D;&#x540C;&#x7684;&#x8F6F;&#x4EF6;&#x5305;&#x4E2D;&#xFF0C;&#x4F7F;&#x7528; Dart &#x548C; Flutter &#x7684;&#x6838;&#x5FC3;&#x5E93;&#x5B9E;&#x73B0;&#xFF0C;&#x5176;&#x4E2D;&#x5305;&#x62EC;&#x5E73;&#x53F0;&#x63D2;&#x4EF6;&#xFF0C;&#x4F8B;&#x5982; <a target="_blank" rel="noopener" href="https://pub.flutter-io.cn/packages/camera">camera (opens new window)</a>&#x548C; <a target="_blank" rel="noopener" href="https://pub.flutter-io.cn/packages/webview_flutter">webview (opens new window)</a>&#xFF0C;&#x4EE5;&#x53CA;&#x548C;&#x5E73;&#x53F0;&#x65E0;&#x5173;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x4F8B;&#x5982; <a target="_blank" rel="noopener" href="https://pub.flutter-io.cn/packages/animations">animations (opens new window)</a>&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x8FDB;&#x884C;Flutter &#x5F00;&#x53D1;&#x65F6;&#xFF0C;&#x5927;&#x591A;&#x6570;&#x65F6;&#x5019;&#x90FD;&#x662F;&#x548C; Flutter Framework &#x6253;&#x4EA4;&#x9053;&#x3002;</p>
+<h3 id="2-&#x5F15;&#x64CE;&#x5C42;">2. &#x5F15;&#x64CE;&#x5C42;</h3>
+<p>Engine&#xFF0C;&#x5373;&#x5F15;&#x64CE;&#x5C42;&#x3002;&#x6BEB;&#x65E0;&#x7591;&#x95EE;&#x662F; Flutter &#x7684;&#x6838;&#x5FC3;&#xFF0C; &#x8BE5;&#x5C42;&#x4E3B;&#x8981;&#x662F; C++ &#x5B9E;&#x73B0;&#xFF0C;&#x5176;&#x4E2D;&#x5305;&#x62EC;&#x4E86; Skia &#x5F15;&#x64CE;&#x3001;Dart &#x8FD0;&#x884C;&#x65F6;&#xFF08;Dart runtime&#xFF09;&#x3001;&#x6587;&#x5B57;&#x6392;&#x7248;&#x5F15;&#x64CE;&#x7B49;&#x3002;&#x5728;&#x4EE3;&#x7801;&#x8C03;&#x7528; <code>dart:ui</code>&#x5E93;&#x65F6;&#xFF0C;&#x8C03;&#x7528;&#x6700;&#x7EC8;&#x4F1A;&#x8D70;&#x5230;&#x5F15;&#x64CE;&#x5C42;&#xFF0C;&#x7136;&#x540E;&#x5B9E;&#x73B0;&#x771F;&#x6B63;&#x7684;&#x7ED8;&#x5236;&#x548C;&#x663E;&#x793A;&#x3002;</p>
+<h3 id="3-&#x5D4C;&#x5165;&#x5C42;">3. &#x5D4C;&#x5165;&#x5C42;</h3>
+<p><strong>Embedder&#xFF0C;&#x5373;&#x5D4C;&#x5165;&#x5C42;</strong>&#x3002;Flutter &#x6700;&#x7EC8;&#x6E32;&#x67D3;&#x3001;&#x4EA4;&#x4E92;&#x662F;&#x8981;&#x4F9D;&#x8D56;&#x5176;&#x6240;&#x5728;&#x5E73;&#x53F0;&#x7684;&#x64CD;&#x4F5C;&#x7CFB;&#x7EDF; API&#xFF0C;**&#x5D4C;&#x5165;&#x5C42;&#x4E3B;&#x8981;&#x662F;&#x5C06; Flutter &#x5F15;&#x64CE; &#x201D;&#x5B89;&#x88C5;&#x201C; &#x5230;&#x7279;&#x5B9A;&#x5E73;&#x53F0;&#x4E0A;&#x3002;**&#x5D4C;&#x5165;&#x5C42;&#x91C7;&#x7528;&#x4E86;&#x5F53;&#x524D;&#x5E73;&#x53F0;&#x7684;&#x8BED;&#x8A00;&#x7F16;&#x5199;&#xFF0C;&#x4F8B;&#x5982; <strong>Android &#x4F7F;&#x7528;&#x7684;&#x662F; Java &#x548C; C++&#xFF0C; iOS &#x548C; macOS &#x4F7F;&#x7528;&#x7684;&#x662F; Objective-C &#x548C; Objective-C++&#xFF0C;Windows &#x548C; Linux &#x4F7F;&#x7528;&#x7684;&#x662F; C++</strong>&#x3002; Flutter &#x4EE3;&#x7801;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5D4C;&#x5165;&#x5C42;&#xFF0C;&#x4EE5;&#x6A21;&#x5757;&#x65B9;&#x5F0F;&#x96C6;&#x6210;&#x5230;&#x73B0;&#x6709;&#x7684;&#x5E94;&#x7528;&#x4E2D;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x4F5C;&#x4E3A;&#x5E94;&#x7528;&#x7684;&#x4E3B;&#x4F53;&#x3002;<strong>Flutter &#x672C;&#x8EAB;&#x5305;&#x542B;&#x4E86;&#x5404;&#x4E2A;&#x5E38;&#x89C1;&#x5E73;&#x53F0;&#x7684;&#x5D4C;&#x5165;&#x5C42;&#xFF0C;&#x5047;&#x5982;&#x4EE5;&#x540E; Flutter &#x8981;&#x652F;&#x6301;&#x65B0;&#x7684;&#x5E73;&#x53F0;&#xFF0C;&#x5219;&#x9700;&#x8981;&#x9488;&#x5BF9;&#x8BE5;&#x65B0;&#x7684;&#x5E73;&#x53F0;&#x7F16;&#x5199;&#x4E00;&#x4E2A;&#x5D4C;&#x5165;&#x5C42;&#x3002;</strong></p>
+
+<div class="article-footer fs14">
+    <section id="license">
+      <div class="header"><span>许可协议</span></div>
+      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div>
+    </section>
+    </div>
+</article>
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/2024/06/29/flutter%E7%AC%94%E8%AE%B0/dart%E8%AF%AD%E6%B3%95/">Dart语法</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/2024/06/28/flutter%E7%AC%94%E8%AE%B0/flutter%E5%8A%A8%E7%94%BB/">Flutter动画简介</a></div></section></div>
+
+
+
+
+
+
+<footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">Asimov</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.28.1">Stellar 1.28.1</a> 主题创建。<br>
+本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+</div></footer>
+<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
+<div class="widgets">
+
+
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">Flutter 简介</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#flutter%E7%9A%84%E5%BC%95%E6%93%8E"><span class="toc-text">flutter的引擎</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Flutter-%E9%AB%98%E6%80%A7%E8%83%BD"><span class="toc-text">Flutter 高性能</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%87%87%E7%94%A8Dart%E8%AF%AD%E8%A8%80%E5%BC%80%E5%8F%91"><span class="toc-text">采用Dart语言开发</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Flutter%E6%A1%86%E6%9E%B6%E7%BB%93%E6%9E%84"><span class="toc-text">Flutter框架结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%A1%86%E6%9E%B6%E5%B1%82"><span class="toc-text">1. 框架层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%BC%95%E6%93%8E%E5%B1%82"><span class="toc-text">2. 引擎层</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%B5%8C%E5%85%A5%E5%B1%82"><span class="toc-text">3. 嵌入层</span></a></li></ol></li></ol></li></ol></div><div class="widget-footer">
+
+<a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12c0-4.714 0-7.071 1.464-8.536C4.93 2 7.286 2 12 2c4.714 0 7.071 0 8.535 1.464C22 4.93 22 7.286 22 12c0 4.714 0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12Z"/><path stroke-linecap="round" stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M10.46 1.25h3.08c1.603 0 2.86 0 3.864.095c1.023.098 1.861.3 2.6.752a5.75 5.75 0 0 1 1.899 1.899c.452.738.654 1.577.752 2.6c.095 1.004.095 2.261.095 3.865v1.067c0 1.141 0 2.036-.05 2.759c-.05.735-.153 1.347-.388 1.913a5.75 5.75 0 0 1-3.112 3.112c-.805.334-1.721.408-2.977.43a10.81 10.81 0 0 0-.929.036c-.198.022-.275.054-.32.08c-.047.028-.112.078-.224.232c-.121.166-.258.396-.476.764l-.542.916c-.773 1.307-2.69 1.307-3.464 0l-.542-.916a10.605 10.605 0 0 0-.476-.764c-.112-.154-.177-.204-.224-.232c-.045-.026-.122-.058-.32-.08c-.212-.023-.49-.03-.93-.037c-1.255-.021-2.171-.095-2.976-.429A5.75 5.75 0 0 1 1.688 16.2c-.235-.566-.338-1.178-.389-1.913c-.049-.723-.049-1.618-.049-2.76v-1.066c0-1.604 0-2.86.095-3.865c.098-1.023.3-1.862.752-2.6a5.75 5.75 0 0 1 1.899-1.899c.738-.452 1.577-.654 2.6-.752C7.6 1.25 8.857 1.25 10.461 1.25M6.739 2.839c-.914.087-1.495.253-1.959.537A4.25 4.25 0 0 0 3.376 4.78c-.284.464-.45 1.045-.537 1.96c-.088.924-.089 2.11-.089 3.761v1c0 1.175 0 2.019.046 2.685c.045.659.131 1.089.278 1.441a4.25 4.25 0 0 0 2.3 2.3c.515.214 1.173.294 2.429.316h.031c.398.007.747.013 1.037.045c.311.035.616.104.909.274c.29.17.5.395.682.645c.169.232.342.525.538.856l.559.944a.52.52 0 0 0 .882 0l.559-.944c.196-.331.37-.624.538-.856c.182-.25.392-.476.682-.645c.293-.17.598-.24.909-.274c.29-.032.639-.038 1.037-.045h.032c1.255-.022 1.913-.102 2.428-.316a4.25 4.25 0 0 0 2.3-2.3c.147-.352.233-.782.278-1.441c.046-.666.046-1.51.046-2.685v-1c0-1.651 0-2.837-.089-3.762c-.087-.914-.253-1.495-.537-1.959a4.25 4.25 0 0 0-1.403-1.403c-.464-.284-1.045-.45-1.96-.537c-.924-.088-2.11-.089-3.761-.089h-3c-1.651 0-2.837 0-3.762.089" clip-rule="evenodd"/><path fill="currentColor" d="M9 11a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0"/></svg><span>参与讨论</span></a></div></widget>
+</div></aside><div class='float-panel blur'>
+  <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+  </button>
+  <button type='button' style='display:none' class='mobile-only leftbar-toggle mobile' onclick='sidebar.leftbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"/><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"/></g></svg>
+  </button>
+</div>
+</div><div class="scripts">
+<script type="text/javascript">
+  const ctx = {
+    date_suffix: {
+      just: `刚刚`,
+      min: `分钟前`,
+      hour: `小时前`,
+      day: `天前`,
+    },
+    root : `/`,
+  };
+
+  // required plugins (only load if needs)
+  if (`local_search`) {
+    ctx.search = {};
+    ctx.search.service = `local_search`;
+    if (ctx.search.service == 'local_search') {
+      let service_obj = Object.assign({}, `{"field":"all","path":"/search.json","content":true,"sort":"-date"}`);
+      ctx.search[ctx.search.service] = service_obj;
+    }
+  }
+  const def = {
+    avatar: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg`,
+    cover: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg`,
+  };
+  const deps = {
+    jquery: `https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js`,
+    marked: `https://cdn.bootcdn.net/ajax/libs/marked/4.0.18/marked.min.js`
+  }
+  
+
+</script>
+
+<script type="text/javascript">
+  const utils = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    css: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    js: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')){
+        src = ctx.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    jq: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        utils.js(deps.jquery).then(fn)
+      } else {
+        fn()
+      }
+    },
+    
+    onLoading: (el) => {
+      if (el) {
+        $(el).append('<div class="loading-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg></div>');
+      }
+    },
+    onLoadSuccess: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap').remove();
+      }
+    },
+    onLoadFailure: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap svg').remove();
+        $(el).find('.loading-wrap').append('<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3L21 20H3L12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 10V14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"/></path></g><circle cx="12" cy="17" r="1" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.4s" values="0;1"/></circle></svg>');
+        $(el).find('.loading-wrap').addClass('error');
+      }
+    },
+    request: (el, url, callback, onFailure) => {
+      let retryTimes = 3;
+      utils.onLoading(el);
+      function req() {
+        return new Promise((resolve, reject) => {
+          let status = 0; // 0 等待 1 完成 2 超时
+          let timer = setTimeout(() => {
+            if (status === 0) {
+              status = 2;
+              timer = null;
+              reject('请求超时');
+              if (retryTimes == 0) {
+                onFailure();
+              }
+            }
+          }, 5000);
+          fetch(url).then(function(response) {
+            if (status !== 2) {
+              clearTimeout(timer);
+              resolve(response);
+              timer = null;
+              status = 1;
+            }
+            if (response.ok) {
+              return response.json();
+            }
+            throw new Error('Network response was not ok.');
+          }).then(function(data) {
+            retryTimes = 0;
+            utils.onLoadSuccess(el);
+            callback(data);
+          }).catch(function(error) {
+            if (retryTimes > 0) {
+              retryTimes -= 1;
+              setTimeout(() => {
+                req();
+              }, 5000);
+            } else {
+              utils.onLoadFailure(el);
+              onFailure();
+            }
+          });
+        });
+      }
+      req();
+    },
+  };
+</script>
+
+<script>
+  const sidebar = {
+    leftbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    rightbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('rightbar');
+        l_body.removeAttribute('leftbar');
+      }
+    },
+    dismiss: () => {
+      if (l_body) {
+        l_body.removeAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    toggleTOC: () => {
+      document.querySelector('#data-toc').classList.toggle('collapse');
+    }
+  }
+</script>
+
+<!-- required -->
+<script src="/js/main.js?v=1.28.1" async></script>
+
+<!-- optional -->
+
+
+
+<script defer>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.services = Object.assign({}, JSON.parse(`{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"}}`));
+    for (let id of Object.keys(ctx.services)) {
+      const js = ctx.services[id].js;
+      if (id == 'siteinfo') {
+        ctx.cardlinks = document.querySelectorAll('a.link-card[cardlink]');
+        if (ctx.cardlinks?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            setCardLink(ctx.cardlinks);
+          });
+        }
+      } else {
+        const els = document.getElementsByClassName(`ds-${id}`);
+        if (els?.length > 0) {
+          utils.jq(() => {
+            if (id == 'timeline' || 'memos' || 'marked') {
+              utils.js(deps.marked).then(function () {
+                utils.js(js, { defer: true });
+              });
+            } else {
+              utils.js(js, { defer: true });
+            }
+          });
+        }
+      }
+    }
+  });
+</script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.search = {
+      path: `/search.json`,
+    }
+    utils.js('/js/search/local-search.js', { defer: true });
+  });
+</script><script>
+  window.FPConfig = {
+    delay: 0,
+    ignoreKeywords: [],
+    maxRPS: 5,
+    hoverDelay: 25
+  };
+</script>
+<script defer src="https://cdn.bootcdn.net/ajax/libs/flying-pages/2.1.2/flying-pages.min.js"></script><script defer src="https://cdn.bootcdn.net/ajax/libs/vanilla-lazyload/17.8.4/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazy",
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    window.lazyLoadInstance?.update();
+  });
+</script><script>
+  ctx.fancybox = {
+    selector: `.timenode p>img`,
+    css: `https://cdn.bootcdn.net/ajax/libs/fancyapps-ui/5.0.22/fancybox/fancybox.min.css`,
+    js: `https://cdn.bootcdn.net/ajax/libs/fancyapps-ui/5.0.22/fancybox/fancybox.umd.min.js`
+  };
+  var selector = '[data-fancybox]:not(.error)';
+  if (ctx.fancybox.selector) {
+    selector += `, ${ctx.fancybox.selector}`
+  }
+  var needFancybox = document.querySelectorAll(selector).length !== 0;
+  if (!needFancybox) {
+    const els = document.getElementsByClassName('ds-memos');
+    if (els != undefined && els.length > 0) {
+      needFancybox = true;
+    }
+  }
+  if (needFancybox) {
+    utils.css(ctx.fancybox.css);
+    utils.js(ctx.fancybox.js, { defer: true }).then(function () {
+      Fancybox.bind(selector, {
+        hideScrollbar: false,
+        Thumbs: {
+          autoStart: false,
+        },
+        caption: (fancybox, slide) => {
+          return slide.triggerEl.alt || slide.triggerEl.dataset.caption || null
+        }
+      });
+    })
+  }
+</script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    const swiper_api = document.getElementById('swiper-api');
+    if (swiper_api != undefined) {
+      utils.css(`https://unpkg.com/swiper@10.3.1/swiper-bundle.min.css`);
+      utils.js(`https://unpkg.com/swiper@10.3.1/swiper-bundle.min.js`, { defer: true }).then(function () {
+        const effect = swiper_api.getAttribute('effect') || '';
+        var swiper = new Swiper('.swiper#swiper-api', {
+          slidesPerView: 'auto',
+          spaceBetween: 8,
+          centeredSlides: true,
+          effect: effect,
+          rewind: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+      })
+    }
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    window.codeElements = document.querySelectorAll('.code');
+    if (window.codeElements.length > 0) {
+      ctx.copycode = {
+        default_text: `Copy`,
+        success_text: `Copied`,
+        toast: `复制成功`,
+      };
+      utils.js('/js/plugins/copycode.js');
+    }
+  });
+</script>
+
+
+<!-- inject -->
+
+</div></body></html>

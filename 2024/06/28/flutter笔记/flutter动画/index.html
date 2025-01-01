@@ -1,0 +1,667 @@
+
+<!DOCTYPE html><html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.28.1" theme-name="Stellar" theme-version="1.28.1">
+  
+  <meta name="generator" content="Hexo 7.2.0">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f9fafb">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
+  
+  <title>Flutter动画简介 - Asimov's Blog</title>
+
+  
+    <meta name="description" content="Flutter&#x52A8;&#x753B;&#x7B80;&#x4ECB; Flutter&#x4E2D;&#x52A8;&#x753B;&#x62BD;&#x8C61; Animation Animation&#x662F;&#x4E00;&#x4E2A;&#x62BD;&#x8C61;&#x7C7B;&#xFF0C;&#x5B83;&#x672C;&#x8EAB;&#x548C;UI&amp;#x">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Flutter动画简介">
+<meta property="og:url" content="https://chendingya.github.io/2024/06/28/flutter%E7%AC%94%E8%AE%B0/flutter%E5%8A%A8%E7%94%BB/index.html">
+<meta property="og:site_name" content="Asimov&#39;s Blog">
+<meta property="og:description" content="Flutter&#x52A8;&#x753B;&#x7B80;&#x4ECB; Flutter&#x4E2D;&#x52A8;&#x753B;&#x62BD;&#x8C61; Animation Animation&#x662F;&#x4E00;&#x4E2A;&#x62BD;&#x8C61;&#x7C7B;&#xFF0C;&#x5B83;&#x672C;&#x8EAB;&#x548C;UI&amp;#x">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://book.flutterchina.club/assets/img/9-1.e020a06d.gif">
+<meta property="article:published_time" content="2024-06-28T10:32:34.000Z">
+<meta property="article:modified_time" content="2025-01-01T12:53:52.056Z">
+<meta property="article:author" content="Asimov">
+<meta property="article:tag" content="Flutter">
+<meta property="article:tag" content="Dart">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://book.flutterchina.club/assets/img/9-1.e020a06d.gif">
+  
+  
+  
+  <meta name="keywords" content="Flutter,Dart">
+
+  <!-- feed -->
+  
+
+  <link rel="stylesheet" href="/css/main.css?v=1.28.1">
+
+  
+
+  
+
+  
+</head>
+<body><div class="sitebg"><div class="siteblur"></div></div>
+
+<div class="l_body s:aa content tech" id="start" layout="post" ><aside class="l_left"><div class="leftbar-container">
+
+
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="https://raw.githubusercontent.com/chendingya/PicGo/main/typora202405021052957.png" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">Asimov's Blog</div><div class="sub normal cap">asimov的废话乐园</div><div class="sub hover cap" style="opacity:0"> 快乐老家</div></a></div></header>
+
+<div class="nav-area">
+<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" placeholder="站内搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
+
+
+<nav class="menu dis-select"></nav>
+</div>
+<div class="widgets">
+
+
+<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2024/07/02/flutter%E7%AC%94%E8%AE%B0/Widge/"><span class="title">Flutter Widge</span></a><a class="item title" href="/2024/06/28/flutter%E7%AC%94%E8%AE%B0/flutter%E5%8A%A8%E7%94%BB/"><span class="title">Flutter动画简介</span></a><a class="item title" href="/2024/06/28/flutter%E7%AC%94%E8%AE%B0/flutter%E5%88%9D%E8%AF%86/"><span class="title">Flutter 简介</span></a><a class="item title" href="/2024/06/29/flutter%E7%AC%94%E8%AE%B0/dart%E8%AF%AD%E6%B3%95/"><span class="title">Dart语法</span></a><a class="item title" href="/2026/01/01/leetcode/%E5%88%B7%E9%A2%98-3280%20%E6%97%A5%E6%9C%9F%E8%BD%AC%E4%BA%8C%E8%BF%9B%E5%88%B6/"><span class="title">leetcode刷题-3280-日期转换为二进制表示</span></a><a class="item title" href="/2024/06/28/%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F%E7%AE%A1%E7%90%86/%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F%E7%AE%A1%E7%90%86%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/"><span class="title">软件质量管理-期末复习</span></a><a class="item title" href="/2024/06/24/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0-%E5%8E%9F%E5%88%99%E6%A8%A1%E5%BC%8F/"><span class="title">软件系统设计-原则模式期末复习</span></a><a class="item title" href="/2024/06/24/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0-%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84/"><span class="title">软件系统设计-系统架构期末复习</span></a><a class="item title" href="/2024/05/02/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%842/"><span class="title">系统架构2-质量属性Quality Attributes</span></a><a class="item title" href="/2024/01/05/23-%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92/%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/"><span class="title">人机交互-期末复习</span></a></div></widget>
+</div>
+<footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/chendingya?tab=repositories" target="_blank" rel="external nofollow noopener noreferrer"><img no-lazy src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" / onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a></div></footer>
+</div></aside><div class="l_main" id="main">
+
+
+
+
+
+<div class="article banner top">
+  <div class="content">
+    <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/Flutter/">Flutter</a></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2024-06-28T10:32:34.000Z">2024-06-28</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2025-01-01T12:53:52.056Z">2025-01-01</time></span></div></div></div>
+    
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>Flutter动画简介</span></h1>
+        
+      </div>
+    </div>
+    
+  </div>
+  </div><article class="md-text content"><h1>Flutter&#x52A8;&#x753B;&#x7B80;&#x4ECB;</h1>
+<h2 id="Flutter&#x4E2D;&#x52A8;&#x753B;&#x62BD;&#x8C61;">Flutter&#x4E2D;&#x52A8;&#x753B;&#x62BD;&#x8C61;</h2>
+<h3 id="Animation">Animation</h3>
+<p><code>Animation</code>&#x662F;&#x4E00;&#x4E2A;&#x62BD;&#x8C61;&#x7C7B;&#xFF0C;&#x5B83;&#x672C;&#x8EAB;&#x548C;UI&#x6E32;&#x67D3;&#x6CA1;&#x6709;&#x4EFB;&#x4F55;&#x5173;&#x7CFB;&#xFF0C;&#x800C;&#x5B83;&#x4E3B;&#x8981;&#x7684;&#x529F;&#x80FD;&#x662F;&#x4FDD;&#x5B58;&#x52A8;&#x753B;&#x7684;&#x63D2;&#x503C;&#x548C;&#x72B6;&#x6001;&#xFF1B;</p>
+<p>&#x5176;&#x4E2D;&#x4E00;&#x4E2A;&#x6BD4;&#x8F83;&#x5E38;&#x7528;&#x7684;<code>Animation</code>&#x7C7B;&#x662F;<code>Animation&lt;double&gt;</code>&#x3002;</p>
+<p><code>Animation</code>&#x5BF9;&#x8C61;&#x662F;&#x4E00;&#x4E2A;&#x5728;&#x4E00;&#x6BB5;&#x65F6;&#x95F4;&#x5185;&#x4F9D;&#x6B21;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x533A;&#x95F4;(Tween)&#x4E4B;&#x95F4;&#x503C;&#x7684;&#x7C7B;&#x3002;</p>
+<p><code>Animation</code>&#x5BF9;&#x8C61;&#x5728;&#x6574;&#x4E2A;&#x52A8;&#x753B;&#x6267;&#x884C;&#x8FC7;&#x7A0B;&#x4E2D;&#x8F93;&#x51FA;&#x7684;&#x503C;&#x53EF;&#x4EE5;&#x662F;&#x7EBF;&#x6027;&#x7684;&#x3001;&#x66F2;&#x7EBF;&#x7684;&#x3001;&#x4E00;&#x4E2A;&#x6B65;&#x8FDB;&#x51FD;&#x6570;&#x6216;&#x8005;&#x4EFB;&#x4F55;&#x5176;&#x4ED6;&#x66F2;&#x7EBF;&#x51FD;&#x6570;&#x7B49;&#x7B49;&#xFF0C;&#x8FD9;&#x7531;<code>Curve</code>&#x6765;&#x51B3;&#x5B9A;&#x3002;</p>
+<p>&#x6839;&#x636E;<code>Animation</code>&#x5BF9;&#x8C61;&#x7684;&#x63A7;&#x5236;&#x65B9;&#x5F0F;&#xFF0C;&#x52A8;&#x753B;&#x53EF;&#x4EE5;&#x6B63;&#x5411;&#x8FD0;&#x884C;&#xFF08;&#x4ECE;&#x8D77;&#x59CB;&#x72B6;&#x6001;&#x5F00;&#x59CB;&#xFF0C;&#x5230;&#x7EC8;&#x6B62;&#x72B6;&#x6001;&#x7ED3;&#x675F;&#xFF09;&#xFF0C;&#x4E5F;&#x53EF;&#x4EE5;&#x53CD;&#x5411;&#x8FD0;&#x884C;&#xFF0C;&#x751A;&#x81F3;&#x53EF;&#x4EE5;&#x5728;&#x4E2D;&#x95F4;&#x5207;&#x6362;&#x65B9;&#x5411;&#x3002;</p>
+<p><code>Animation</code>&#x8FD8;&#x53EF;&#x4EE5;&#x751F;&#x6210;&#x9664;<code>double</code>&#x4E4B;&#x5916;&#x7684;&#x5176;&#x4ED6;&#x7C7B;&#x578B;&#x503C;&#xFF0C;&#x5982;&#xFF1A;<code>Animation&lt;Color&gt;</code> &#x6216;<code>Animation&lt;Size&gt;</code>&#x3002;&#x5728;&#x52A8;&#x753B;&#x7684;&#x6BCF;&#x4E00;&#x5E27;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;<code>Animation</code>&#x5BF9;&#x8C61;&#x7684;<code>value</code>&#x5C5E;&#x6027;&#x83B7;&#x53D6;&#x52A8;&#x753B;&#x7684;&#x5F53;&#x524D;&#x72B6;&#x6001;&#x503C;&#x3002;</p>
+<h4 id="&#x52A8;&#x753B;&#x901A;&#x77E5;">&#x52A8;&#x753B;&#x901A;&#x77E5;</h4>
+<p>&#x53EF;&#x4EE5;&#x901A;&#x8FC7;<code>Animation</code>&#x6765;&#x76D1;&#x542C;&#x52A8;&#x753B;&#x6BCF;&#x4E00;&#x5E27;&#x4EE5;&#x53CA;&#x6267;&#x884C;&#x72B6;&#x6001;&#x7684;&#x53D8;&#x5316;&#xFF0C;<code>Animation</code>&#x6709;&#x5982;&#x4E0B;&#x4E24;&#x4E2A;&#x65B9;&#x6CD5;&#xFF1A;</p>
+<ol>
+<li><code>addListener()</code>&#xFF1B;&#x5B83;&#x53EF;&#x4EE5;&#x7528;&#x4E8E;&#x7ED9;<code>Animation</code>&#x6DFB;&#x52A0;<strong>&#x5E27;&#x76D1;&#x542C;&#x5668;</strong>&#xFF0C;<strong>&#x5728;&#x6BCF;&#x4E00;&#x5E27;&#x90FD;&#x4F1A;&#x88AB;&#x8C03;&#x7528;</strong>&#x3002;&#x5E27;&#x76D1;&#x542C;&#x5668;&#x4E2D;&#x6700;&#x5E38;&#x89C1;&#x7684;&#x884C;&#x4E3A;&#x662F;<strong>&#x6539;&#x53D8;&#x72B6;&#x6001;&#x540E;&#x8C03;&#x7528;<code>setState()</code>&#x6765;&#x89E6;&#x53D1;UI&#x91CD;&#x5EFA;</strong>&#x3002;</li>
+<li><code>addStatusListener()</code>&#xFF1B;&#x5B83;&#x53EF;&#x4EE5;&#x7ED9;<code>Animation</code>&#x6DFB;&#x52A0;&#x201C;&#x52A8;&#x753B;&#x72B6;&#x6001;&#x6539;&#x53D8;&#x201D;&#x76D1;&#x542C;&#x5668;&#xFF1B;<strong>&#x52A8;&#x753B;&#x5F00;&#x59CB;&#x3001;&#x7ED3;&#x675F;&#x3001;&#x6B63;&#x5411;&#x6216;&#x53CD;&#x5411;&#xFF08;&#x89C1;<code>AnimationStatus</code>&#x5B9A;&#x4E49;&#xFF09;&#x65F6;&#x4F1A;&#x8C03;&#x7528;&#x72B6;&#x6001;&#x6539;&#x53D8;&#x7684;&#x76D1;&#x542C;&#x5668;</strong>&#x3002;</li>
+</ol>
+<h3 id="Curve">Curve</h3>
+<p>&#x52A8;&#x753B;&#x8FC7;&#x7A0B;&#x53EF;&#x4EE5;&#x662F;&#x5300;&#x901F;&#x7684;&#x3001;&#x5300;&#x52A0;&#x901F;&#x7684;&#x6216;&#x8005;&#x5148;&#x52A0;&#x901F;&#x540E;&#x51CF;&#x901F;&#x7B49;&#x3002;</p>
+<p>Flutter&#x4E2D;&#x901A;&#x8FC7;<code>Curve</code>&#xFF08;&#x66F2;&#x7EBF;&#xFF09;&#x6765;&#x63CF;&#x8FF0;&#x52A8;&#x753B;&#x8FC7;&#x7A0B;</p>
+<p>&#x6211;&#x4EEC;&#x628A;&#x5300;&#x901F;&#x52A8;&#x753B;&#x79F0;&#x4E3A;&#x7EBF;&#x6027;&#x7684;(Curves.linear)&#xFF0C;&#x800C;&#x975E;&#x5300;&#x901F;&#x52A8;&#x753B;&#x79F0;&#x4E3A;&#x975E;&#x7EBF;&#x6027;&#x7684;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;<code>CurvedAnimation</code>&#x6765;&#x6307;&#x5B9A;&#x52A8;&#x753B;&#x7684;&#x66F2;&#x7EBF;&#xFF0C;&#x5982;&#xFF1A;</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> CurvedAnimation curve =</span><br><span class="line">    CurvedAnimation(parent: controller, curve: Curves.easeIn);</span><br></pre></td></tr></table></figure>
+<p><code>CurvedAnimation</code>&#x548C;<code>AnimationController</code>&#x90FD;&#x662F;<code>Animation&lt;double&gt;</code>&#x7C7B;&#x578B;&#x3002;</p>
+<p><code>CurvedAnimation</code>&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x5305;&#x88C5;<code>AnimationController</code>&#x548C;<code>Curve</code>&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x52A8;&#x753B;&#x5BF9;&#x8C61; &#xFF0C;&#x6211;&#x4EEC;&#x6B63;&#x662F;&#x901A;&#x8FC7;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x6765;&#x5C06;&#x52A8;&#x753B;&#x548C;&#x52A8;&#x753B;&#x6267;&#x884C;&#x7684;&#x66F2;&#x7EBF;&#x5173;&#x8054;&#x8D77;&#x6765;&#x7684;&#x3002;</p>
+<p>&#x6211;&#x4EEC;&#x6307;&#x5B9A;&#x52A8;&#x753B;&#x7684;&#x66F2;&#x7EBF;&#x4E3A;<code>Curves.easeIn</code>&#xFF0C;&#x5B83;&#x8868;&#x793A;&#x52A8;&#x753B;&#x5F00;&#x59CB;&#x65F6;&#x6BD4;&#x8F83;&#x6162;&#xFF0C;&#x7ED3;&#x675F;&#x65F6;&#x6BD4;&#x8F83;&#x5FEB;&#x3002;</p>
+<p><a target="_blank" rel="noopener" href="https://docs.flutter.io/flutter/animation/Curves-class.html">Curves (opens new window)</a>&#x7C7B;&#x662F;&#x4E00;&#x4E2A;&#x9884;&#x7F6E;&#x7684;&#x679A;&#x4E3E;&#x7C7B;&#xFF0C;&#x5B9A;&#x4E49;&#x4E86;&#x8BB8;&#x591A;&#x5E38;&#x7528;&#x7684;&#x66F2;&#x7EBF;&#xFF0C;&#x4E0B;&#x9762;&#x5217;&#x51E0;&#x79CD;&#x5E38;&#x7528;&#x7684;&#xFF1A;</p>
+<table>
+<thead>
+<tr>
+<th>Curves&#x66F2;&#x7EBF;</th>
+<th>&#x52A8;&#x753B;&#x8FC7;&#x7A0B;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>linear</td>
+<td>&#x5300;&#x901F;&#x7684;</td>
+</tr>
+<tr>
+<td>decelerate</td>
+<td>&#x5300;&#x51CF;&#x901F;</td>
+</tr>
+<tr>
+<td>ease</td>
+<td>&#x5F00;&#x59CB;&#x52A0;&#x901F;&#xFF0C;&#x540E;&#x9762;&#x51CF;&#x901F;</td>
+</tr>
+<tr>
+<td>easeIn</td>
+<td>&#x5F00;&#x59CB;&#x6162;&#xFF0C;&#x540E;&#x9762;&#x5FEB;</td>
+</tr>
+<tr>
+<td>easeOut</td>
+<td>&#x5F00;&#x59CB;&#x5FEB;&#xFF0C;&#x540E;&#x9762;&#x6162;</td>
+</tr>
+<tr>
+<td>easeInOut</td>
+<td>&#x5F00;&#x59CB;&#x6162;&#xFF0C;&#x7136;&#x540E;&#x52A0;&#x901F;&#xFF0C;&#x6700;&#x540E;&#x518D;&#x51CF;&#x901F;</td>
+</tr>
+</tbody>
+</table>
+<p>&#x9664;&#x4E86;&#x4E0A;&#x9762;&#x5217;&#x4E3E;&#x7684;&#xFF0C; <a target="_blank" rel="noopener" href="https://docs.flutter.io/flutter/animation/Curves-class.html">Curves (opens new window)</a>&#x7C7B;&#x4E2D;&#x8FD8;&#x5B9A;&#x4E49;&#x4E86;&#x8BB8;&#x591A;&#x5176;&#x4ED6;&#x7684;&#x66F2;&#x7EBF;&#xFF0C;</p>
+<p>&#x5F53;&#x7136;&#x6211;&#x4EEC;&#x4E5F;&#x53EF;&#x4EE5;&#x521B;&#x5EFA;&#x81EA;&#x5DF1;Curve&#xFF0C;&#x4F8B;&#x5982;&#x6211;&#x4EEC;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x6B63;&#x5F26;&#x66F2;&#x7EBF;&#xFF1A;</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ShakeCurve</span> <span class="keyword">extends</span> <span class="title">Curve</span> </span>{</span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  <span class="built_in">double</span> transform(<span class="built_in">double</span> t) {</span><br><span class="line">    <span class="keyword">return</span> math.sin(t * math.PI * <span class="number">2</span>);</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<h3 id="AnimationController">AnimationController</h3>
+<p><code>AnimationController</code>&#x7528;&#x4E8E;&#x63A7;&#x5236;&#x52A8;&#x753B;&#xFF0C;&#x5B83;&#x5305;&#x542B;&#x52A8;&#x753B;&#x7684;&#x542F;&#x52A8;<code>forward()</code>&#x3001;&#x505C;&#x6B62;<code>stop()</code> &#x3001;&#x53CD;&#x5411;&#x64AD;&#x653E; <code>reverse()</code>&#x7B49;&#x65B9;&#x6CD5;&#x3002;</p>
+<p><code>AnimationController</code><strong>&#x4F1A;&#x5728;&#x52A8;&#x753B;&#x7684;&#x6BCF;&#x4E00;&#x5E27;&#xFF0C;&#x5C31;&#x4F1A;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x503C;&#x3002;</strong></p>
+<p><strong>&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;<code>AnimationController</code>&#x5728;&#x7ED9;&#x5B9A;&#x7684;&#x65F6;&#x95F4;&#x6BB5;&#x5185;&#x7EBF;&#x6027;&#x7684;&#x751F;&#x6210;&#x4ECE; 0.0 &#x5230;1.0&#xFF08;&#x9ED8;&#x8BA4;&#x533A;&#x95F4;&#xFF09;&#x7684;&#x6570;&#x5B57;&#x3002;</strong></p>
+<p>&#x4F8B;&#x5982;&#xFF0C;&#x4E0B;&#x9762;&#x4EE3;&#x7801;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;<code>Animation</code>&#x5BF9;&#x8C61;&#xFF08;&#x4F46;&#x4E0D;&#x4F1A;&#x542F;&#x52A8;&#x52A8;&#x753B;&#xFF09;&#xFF1A;</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> AnimationController controller = AnimationController(</span><br><span class="line">  duration: <span class="keyword">const</span> <span class="built_in">Duration</span>(milliseconds: <span class="number">2000</span>),</span><br><span class="line">  vsync: <span class="keyword">this</span>,</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p><code>AnimationController</code>&#x751F;&#x6210;&#x6570;&#x5B57;&#x7684;&#x533A;&#x95F4;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;<code>lowerBound</code>&#x548C;<code>upperBound</code>&#x6765;&#x6307;&#x5B9A;&#xFF0C;&#x5982;&#xFF1A;</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> AnimationController controller = AnimationController( </span><br><span class="line"> duration: <span class="keyword">const</span> <span class="built_in">Duration</span>(milliseconds: <span class="number">2000</span>), </span><br><span class="line"> lowerBound: <span class="number">10.0</span>,</span><br><span class="line"> upperBound: <span class="number">20.0</span>,</span><br><span class="line"> vsync: <span class="keyword">this</span></span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+<p><code>AnimationController</code>&#x6D3E;&#x751F;&#x81EA;<code>Animation&lt;double&gt;</code>&#xFF0C;&#x56E0;&#x6B64;&#x53EF;&#x4EE5;&#x5728;&#x9700;&#x8981;<code>Animation</code>&#x5BF9;&#x8C61;&#x7684;&#x4EFB;&#x4F55;&#x5730;&#x65B9;&#x4F7F;&#x7528;&#x3002;</p>
+<p>&#x4F46;&#x662F;&#xFF0C;<code>AnimationController</code>&#x5177;&#x6709;&#x63A7;&#x5236;&#x52A8;&#x753B;&#x7684;&#x5176;&#x4ED6;&#x65B9;&#x6CD5;&#xFF0C;&#x4F8B;&#x5982;<code>forward()</code>&#x65B9;&#x6CD5;&#x53EF;&#x4EE5;&#x542F;&#x52A8;&#x6B63;&#x5411;&#x52A8;&#x753B;&#xFF0C;<code>reverse()</code>&#x53EF;&#x4EE5;&#x542F;&#x52A8;&#x53CD;&#x5411;&#x52A8;&#x753B;&#x3002;</p>
+<p>&#x5728;&#x52A8;&#x753B;&#x5F00;&#x59CB;&#x6267;&#x884C;&#x540E;&#x5F00;&#x59CB;&#x751F;&#x6210;&#x52A8;&#x753B;&#x5E27;&#xFF0C;&#x5C4F;&#x5E55;&#x6BCF;&#x5237;&#x65B0;&#x4E00;&#x6B21;&#x5C31;&#x662F;&#x4E00;&#x4E2A;&#x52A8;&#x753B;&#x5E27;&#xFF0C;<strong>&#x5728;&#x52A8;&#x753B;&#x7684;&#x6BCF;&#x4E00;&#x5E27;&#xFF0C;&#x4F1A;&#x968F;&#x7740;&#x6839;&#x636E;&#x52A8;&#x753B;&#x7684;&#x66F2;&#x7EBF;&#x6765;&#x751F;&#x6210;&#x5F53;&#x524D;&#x7684;&#x52A8;&#x753B;&#x503C;&#xFF08;<code>Animation.value</code></strong>&#xFF09;&#xFF0C;&#x7136;&#x540E;&#x6839;&#x636E;&#x5F53;&#x524D;&#x7684;&#x52A8;&#x753B;&#x503C;&#x53BB;&#x6784;&#x5EFA;UI&#xFF0C;&#x5F53;&#x6240;&#x6709;&#x52A8;&#x753B;&#x5E27;&#x4F9D;&#x6B21;&#x89E6;&#x53D1;&#x65F6;&#xFF0C;&#x52A8;&#x753B;&#x503C;&#x4F1A;&#x4F9D;&#x6B21;&#x6539;&#x53D8;&#xFF0C;&#x6240;&#x4EE5;&#x6784;&#x5EFA;&#x7684;UI&#x4E5F;&#x4F1A;&#x4F9D;&#x6B21;&#x53D8;&#x5316;&#xFF0C;&#x6240;&#x4EE5;&#x6700;&#x7EC8;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x770B;&#x5230;&#x4E00;&#x4E2A;&#x5B8C;&#x6210;&#x7684;&#x52A8;&#x753B;&#x3002;</p>
+<p><strong>&#x53E6;&#x5916;&#x5728;&#x52A8;&#x753B;&#x7684;&#x6BCF;&#x4E00;&#x5E27;&#xFF0C;<code>Animation</code>&#x5BF9;&#x8C61;&#x4F1A;&#x8C03;&#x7528;&#x5176;&#x5E27;&#x76D1;&#x542C;&#x5668;&#xFF0C;&#x7B49;&#x52A8;&#x753B;&#x72B6;&#x6001;&#x53D1;&#x751F;&#x6539;&#x53D8;&#x65F6;&#xFF08;&#x5982;&#x52A8;&#x753B;&#x7ED3;&#x675F;&#xFF09;&#x4F1A;&#x8C03;&#x7528;&#x72B6;&#x6001;&#x6539;&#x53D8;&#x76D1;&#x542C;&#x5668;&#x3002;</strong></p>
+<p><code>duration</code>&#x8868;&#x793A;&#x52A8;&#x753B;&#x6267;&#x884C;&#x7684;&#x65F6;&#x957F;&#xFF0C;&#x901A;&#x8FC7;&#x5B83;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x63A7;&#x5236;&#x52A8;&#x753B;&#x7684;&#x901F;&#x5EA6;&#x3002;</p>
+<blockquote>
+<p><strong>&#x6CE8;&#x610F;</strong>&#xFF1A; &#x5728;&#x67D0;&#x4E9B;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;&#x52A8;&#x753B;&#x503C;&#x53EF;&#x80FD;&#x4F1A;&#x8D85;&#x51FA;<code>AnimationController</code>&#x7684;[0.0&#xFF0C;1.0]&#x7684;&#x8303;&#x56F4;&#xFF0C;&#x8FD9;&#x53D6;&#x51B3;&#x4E8E;&#x5177;&#x4F53;&#x7684;&#x66F2;&#x7EBF;&#x3002;&#x4F8B;&#x5982;&#xFF0C;<code>fling()</code>&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x6839;&#x636E;&#x6211;&#x4EEC;&#x624B;&#x6307;&#x6ED1;&#x52A8;&#xFF08;&#x7529;&#x51FA;&#xFF09;&#x7684;&#x901F;&#x5EA6;(velocity)&#x3001;&#x529B;&#x91CF;(force)&#x7B49;&#x6765;&#x6A21;&#x62DF;&#x4E00;&#x4E2A;&#x624B;&#x6307;&#x7529;&#x51FA;&#x52A8;&#x753B;&#xFF0C;&#x56E0;&#x6B64;&#x5B83;&#x7684;&#x52A8;&#x753B;&#x503C;&#x53EF;&#x4EE5;&#x5728;[0.0&#xFF0C;1.0]&#x8303;&#x56F4;&#x4E4B;&#x5916; &#x3002;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x6839;&#x636E;&#x9009;&#x62E9;&#x7684;&#x66F2;&#x7EBF;&#xFF0C;<code>CurvedAnimation</code>&#x7684;&#x8F93;&#x51FA;&#x53EF;&#x4EE5;&#x5177;&#x6709;&#x6BD4;&#x8F93;&#x5165;&#x66F4;&#x5927;&#x7684;&#x8303;&#x56F4;&#x3002;&#x4F8B;&#x5982;&#xFF0C;Curves.elasticIn&#x7B49;&#x5F39;&#x6027;&#x66F2;&#x7EBF;&#x4F1A;&#x751F;&#x6210;&#x5927;&#x4E8E;&#x6216;&#x5C0F;&#x4E8E;&#x9ED8;&#x8BA4;&#x8303;&#x56F4;&#x7684;&#x503C;&#x3002;</p>
+</blockquote>
+<h4 id="Ticker">Ticker</h4>
+<p>&#x5F53;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;<code>AnimationController</code>&#x65F6;&#xFF0C;&#x9700;&#x8981;&#x4F20;&#x9012;&#x4E00;&#x4E2A;<code>vsync</code>&#x53C2;&#x6570;&#xFF0C;&#x5B83;&#x63A5;&#x6536;&#x4E00;&#x4E2A;<code>TickerProvider</code>&#x7C7B;&#x578B;&#x7684;&#x5BF9;&#x8C61;&#xFF0C;&#x5B83;&#x7684;&#x4E3B;&#x8981;&#x804C;&#x8D23;&#x662F;&#x521B;&#x5EFA;<code>Ticker</code>&#xFF0C;&#x5B9A;&#x4E49;&#x5982;&#x4E0B;&#xFF1A;</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">abstract</span> <span class="class"><span class="keyword">class</span> <span class="title">TickerProvider</span> </span>{</span><br><span class="line">  <span class="comment">//&#x901A;&#x8FC7;&#x4E00;&#x4E2A;&#x56DE;&#x8C03;&#x521B;&#x5EFA;&#x4E00;&#x4E2A;Ticker</span></span><br><span class="line">  Ticker createTicker(TickerCallback onTick);</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>Flutter &#x5E94;&#x7528;&#x5728;&#x542F;&#x52A8;&#x65F6;&#x90FD;&#x4F1A;&#x7ED1;&#x5B9A;&#x4E00;&#x4E2A;<code>SchedulerBinding</code>&#xFF0C;&#x901A;&#x8FC7;<code>SchedulerBinding</code>&#x53EF;&#x4EE5;&#x7ED9;&#x6BCF;&#x4E00;&#x6B21;&#x5C4F;&#x5E55;&#x5237;&#x65B0;&#x6DFB;&#x52A0;&#x56DE;&#x8C03;&#xFF0C;&#x800C;<code>Ticker</code>&#x5C31;&#x662F;&#x901A;&#x8FC7;<code>SchedulerBinding</code>&#x6765;&#x6DFB;&#x52A0;&#x5C4F;&#x5E55;&#x5237;&#x65B0;&#x56DE;&#x8C03;&#xFF0C;&#x8FD9;&#x6837;&#x4E00;&#x6765;&#xFF0C;&#x6BCF;&#x6B21;&#x5C4F;&#x5E55;&#x5237;&#x65B0;&#x90FD;&#x4F1A;&#x8C03;&#x7528;<code>TickerCallback</code>&#x3002;&#x4F7F;&#x7528;<code>Ticker</code>(&#x800C;&#x4E0D;&#x662F;<code>Timer</code>)&#x6765;&#x9A71;&#x52A8;&#x52A8;&#x753B;&#x4F1A;&#x9632;&#x6B62;&#x5C4F;&#x5E55;&#x5916;&#x52A8;&#x753B;&#xFF08;&#x52A8;&#x753B;&#x7684;UI&#x4E0D;&#x5728;&#x5F53;&#x524D;&#x5C4F;&#x5E55;&#x65F6;&#xFF0C;&#x5982;&#x9501;&#x5C4F;&#x65F6;&#xFF09;&#x6D88;&#x8017;&#x4E0D;&#x5FC5;&#x8981;&#x7684;&#x8D44;&#x6E90;&#xFF0C;&#x56E0;&#x4E3A;Flutter&#x4E2D;&#x5C4F;&#x5E55;&#x5237;&#x65B0;&#x65F6;&#x4F1A;&#x901A;&#x77E5;&#x5230;&#x7ED1;&#x5B9A;&#x7684;<code>SchedulerBinding</code>&#xFF0C;&#x800C;<code>Ticker</code>&#x662F;&#x53D7;<code>SchedulerBinding</code>&#x9A71;&#x52A8;&#x7684;&#xFF0C;&#x7531;&#x4E8E;&#x9501;&#x5C4F;&#x540E;&#x5C4F;&#x5E55;&#x4F1A;&#x505C;&#x6B62;&#x5237;&#x65B0;&#xFF0C;&#x6240;&#x4EE5;<code>Ticker</code>&#x5C31;&#x4E0D;&#x4F1A;&#x518D;&#x89E6;&#x53D1;&#x3002;</p>
+<p><strong>&#x901A;&#x5E38;&#x6211;&#x4EEC;&#x4F1A;&#x5C06;<code>SingleTickerProviderStateMixin</code>&#x6DFB;&#x52A0;&#x5230;<code>State</code>&#x7684;&#x5B9A;&#x4E49;&#x4E2D;&#xFF0C;&#x7136;&#x540E;&#x5C06;State&#x5BF9;&#x8C61;&#x4F5C;&#x4E3A;<code>vsync</code>&#x7684;&#x503C;</strong></p>
+<h3 id="Tween">Tween</h3>
+<h4 id="1&#xFF09;&#x7B80;&#x4ECB;">1&#xFF09;&#x7B80;&#x4ECB;</h4>
+<p>&#x9ED8;&#x8BA4;&#x60C5;&#x51B5;&#x4E0B;&#xFF0C;<code>AnimationController</code>&#x5BF9;&#x8C61;&#x503C;&#x7684;&#x8303;&#x56F4;&#x662F;[0.0&#xFF0C;1.0]&#x3002;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x6784;&#x5EFA;UI&#x7684;&#x52A8;&#x753B;&#x503C;&#x5728;&#x4E0D;&#x540C;&#x7684;&#x8303;&#x56F4;&#x6216;&#x4E0D;&#x540C;&#x7684;&#x6570;&#x636E;&#x7C7B;&#x578B;&#xFF0C;&#x5219;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;<code>Tween</code>&#x6765;&#x6DFB;&#x52A0;&#x6620;&#x5C04;&#x4EE5;&#x751F;&#x6210;&#x4E0D;&#x540C;&#x7684;&#x8303;&#x56F4;&#x6216;&#x6570;&#x636E;&#x7C7B;&#x578B;&#x7684;&#x503C;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x50CF;&#x4E0B;&#x9762;&#x793A;&#x4F8B;&#xFF0C;<code>Tween</code>&#x751F;&#x6210;[-200.0&#xFF0C;0.0]&#x7684;&#x503C;&#xFF1A;</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> Tween doubleTween = Tween&lt;<span class="built_in">double</span>&gt;(begin: <span class="number">-200.0</span>, end: <span class="number">0.0</span>);</span><br></pre></td></tr></table></figure>
+<p><code>Tween</code>&#x6784;&#x9020;&#x51FD;&#x6570;&#x9700;&#x8981;<code>begin</code>&#x548C;<code>end</code>&#x4E24;&#x4E2A;&#x53C2;&#x6570;&#x3002;</p>
+<p><code>Tween</code>&#x7684;&#x552F;&#x4E00;&#x804C;&#x8D23;&#x5C31;&#x662F;&#x5B9A;&#x4E49;&#x4ECE;&#x8F93;&#x5165;&#x8303;&#x56F4;&#x5230;&#x8F93;&#x51FA;&#x8303;&#x56F4;&#x7684;&#x6620;&#x5C04;&#x3002;&#x8F93;&#x5165;&#x8303;&#x56F4;&#x901A;&#x5E38;&#x4E3A;[0.0&#xFF0C;1.0]&#xFF0C;&#x4F46;&#x8FD9;&#x4E0D;&#x662F;&#x5FC5;&#x987B;&#x7684;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x81EA;&#x5B9A;&#x4E49;&#x9700;&#x8981;&#x7684;&#x8303;&#x56F4;&#x3002;</p>
+<p><code>Tween</code>&#x7EE7;&#x627F;&#x81EA;<code>Animatable&lt;T&gt;</code>&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x7EE7;&#x627F;&#x81EA;<code>Animation&lt;T&gt;</code>&#xFF0C;<code>Animatable</code>&#x4E2D;&#x4E3B;&#x8981;&#x5B9A;&#x4E49;&#x52A8;&#x753B;&#x503C;&#x7684;&#x6620;&#x5C04;&#x89C4;&#x5219;&#x3002;</p>
+<p>&#x4E0B;&#x9762;&#x6211;&#x4EEC;&#x770B;&#x4E00;&#x4E2A;ColorTween&#x5C06;&#x52A8;&#x753B;&#x8F93;&#x5165;&#x8303;&#x56F4;&#x6620;&#x5C04;&#x4E3A;&#x4E24;&#x79CD;&#x989C;&#x8272;&#x503C;&#x4E4B;&#x95F4;&#x8FC7;&#x6E21;&#x8F93;&#x51FA;&#x7684;&#x4F8B;&#x5B50;&#xFF1A;</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> Tween colorTween =</span><br><span class="line">    ColorTween(begin: Colors.transparent, end: Colors.black54);</span><br></pre></td></tr></table></figure>
+<p><code>Tween</code>&#x5BF9;&#x8C61;&#x4E0D;&#x5B58;&#x50A8;&#x4EFB;&#x4F55;&#x72B6;&#x6001;&#xFF0C;&#x76F8;&#x53CD;&#xFF0C;&#x5B83;&#x63D0;&#x4F9B;&#x4E86;<code>evaluate(Animation&lt;double&gt; animation)</code>&#x65B9;&#x6CD5;&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x83B7;&#x53D6;&#x52A8;&#x753B;&#x5F53;&#x524D;&#x6620;&#x5C04;&#x503C;&#x3002; <code>Animation</code>&#x5BF9;&#x8C61;&#x7684;&#x5F53;&#x524D;&#x503C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;<code>value()</code>&#x65B9;&#x6CD5;&#x53D6;&#x5230;&#x3002;<code>evaluate</code>&#x51FD;&#x6570;&#x8FD8;&#x6267;&#x884C;&#x4E00;&#x4E9B;&#x5176;&#x4ED6;&#x5904;&#x7406;&#xFF0C;&#x4F8B;&#x5982;&#x5206;&#x522B;&#x786E;&#x4FDD;&#x5728;&#x52A8;&#x753B;&#x503C;&#x4E3A;0.0&#x548C;1.0&#x65F6;&#x8FD4;&#x56DE;&#x5F00;&#x59CB;&#x548C;&#x7ED3;&#x675F;&#x72B6;&#x6001;&#x3002;</p>
+<h4 id="Tween-animate">Tween.animate</h4>
+<p>&#x8981;&#x4F7F;&#x7528; Tween &#x5BF9;&#x8C61;&#xFF0C;&#x9700;&#x8981;&#x8C03;&#x7528;&#x5176;<code>animate()</code>&#x65B9;&#x6CD5;&#xFF0C;&#x7136;&#x540E;&#x4F20;&#x5165;&#x4E00;&#x4E2A;&#x63A7;&#x5236;&#x5668;&#x5BF9;&#x8C61;&#x3002;&#x4F8B;&#x5982;&#xFF0C;&#x4EE5;&#x4E0B;&#x4EE3;&#x7801;&#x5728; 500 &#x6BEB;&#x79D2;&#x5185;&#x751F;&#x6210;&#x4ECE; 0 &#x5230; 255 &#x7684;&#x6574;&#x6570;&#x503C;&#x3002;</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> AnimationController controller = AnimationController(</span><br><span class="line">  duration: <span class="keyword">const</span> <span class="built_in">Duration</span>(milliseconds: <span class="number">500</span>), </span><br><span class="line">  vsync: <span class="keyword">this</span>,</span><br><span class="line">);</span><br><span class="line">Animation&lt;<span class="built_in">int</span>&gt; alpha = IntTween(begin: <span class="number">0</span>, end: <span class="number">255</span>).animate(controller);</span><br></pre></td></tr></table></figure>
+<p>&#x6CE8;&#x610F;<code>animate()</code>&#x8FD4;&#x56DE;&#x7684;&#x662F;&#x4E00;&#x4E2A;<code>Animation</code>&#xFF0C;&#x800C;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;<code>Animatable</code>&#x3002;</p>
+<p>&#x4EE5;&#x4E0B;&#x793A;&#x4F8B;&#x6784;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A;&#x63A7;&#x5236;&#x5668;&#x3001;&#x4E00;&#x6761;&#x66F2;&#x7EBF;&#x548C;&#x4E00;&#x4E2A; Tween&#xFF1A;</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">final</span> AnimationController controller = AnimationController(</span><br><span class="line">  duration: <span class="keyword">const</span> <span class="built_in">Duration</span>(milliseconds: <span class="number">500</span>), </span><br><span class="line">  vsync: <span class="keyword">this</span>,</span><br><span class="line">);</span><br><span class="line"><span class="keyword">final</span> Animation curve = CurvedAnimation(parent: controller, curve: Curves.easeOut);</span><br><span class="line">Animation&lt;<span class="built_in">int</span>&gt; alpha = IntTween(begin: <span class="number">0</span>, end: <span class="number">255</span>).animate(curve);</span><br></pre></td></tr></table></figure>
+<h2 id="&#x7EBF;&#x6027;&#x63D2;&#x503C;lerp&#x51FD;&#x6570;">&#x7EBF;&#x6027;&#x63D2;&#x503C;lerp&#x51FD;&#x6570;</h2>
+<p>&#x52A8;&#x753B;&#x7684;&#x539F;&#x7406;&#x5176;&#x5B9E;&#x5C31;&#x662F;&#x6BCF;&#x4E00;&#x5E27;&#x7ED8;&#x5236;&#x4E0D;&#x540C;&#x7684;&#x5185;&#x5BB9;&#xFF0C;&#x4E00;&#x822C;&#x90FD;&#x662F;&#x6307;&#x5B9A;&#x8D77;&#x59CB;&#x548C;&#x7ED3;&#x675F;&#x72B6;&#x6001;&#xFF0C;&#x7136;&#x540E;&#x5728;&#x4E00;&#x6BB5;&#x65F6;&#x95F4;&#x5185;&#x4ECE;&#x8D77;&#x59CB;&#x72B6;&#x6001;&#x9010;&#x6E10;&#x53D8;&#x4E3A;&#x7ED3;&#x675F;&#x72B6;&#x6001;&#xFF0C;&#x800C;&#x5177;&#x4F53;&#x67D0;&#x4E00;&#x5E27;&#x7684;&#x72B6;&#x6001;&#x503C;&#x4F1A;&#x6839;&#x636E;&#x52A8;&#x753B;&#x7684;&#x8FDB;&#x5EA6;&#x6765;&#x7B97;&#x51FA;&#xFF0C;&#x56E0;&#x6B64;&#xFF0C;Flutter &#x4E2D;&#x7ED9;&#x6709;&#x53EF;&#x80FD;&#x4F1A;&#x505A;&#x52A8;&#x753B;&#x7684;&#x4E00;&#x4E9B;&#x72B6;&#x6001;&#x5C5E;&#x6027;&#x90FD;&#x5B9A;&#x4E49;&#x4E86;&#x9759;&#x6001;&#x7684; lerp &#x65B9;&#x6CD5;&#xFF08;&#x7EBF;&#x6027;&#x63D2;&#x503C;&#xFF09;&#xFF0C;&#x6BD4;&#x5982;&#xFF1A;</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//a &#x4E3A;&#x8D77;&#x59CB;&#x989C;&#x8272;&#xFF0C;b&#x4E3A;&#x7EC8;&#x6B62;&#x989C;&#x8272;&#xFF0C;t&#x4E3A;&#x5F53;&#x524D;&#x52A8;&#x753B;&#x7684;&#x8FDB;&#x5EA6;[0,1]</span></span><br><span class="line">Color.lerp(a, b, t);</span><br></pre></td></tr></table></figure>
+<p>lerp &#x7684;&#x8BA1;&#x7B97;&#x4E00;&#x822C;&#x9075;&#x5FAA;&#xFF1A; &#x8FD4;&#x56DE;&#x503C; = a + (b - a) * t&#xFF0C;&#x5176;&#x4ED6;&#x62E5;&#x6709; lerp &#x65B9;&#x6CD5;&#x7684;&#x7C7B;&#xFF1A;</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// Size.lerp(a, b, t)</span></span><br><span class="line"><span class="comment">// Rect.lerp(a, b, t)</span></span><br><span class="line"><span class="comment">// Offset.lerp(a, b, t)</span></span><br><span class="line"><span class="comment">// Decoration.lerp(a, b, t)</span></span><br><span class="line"><span class="comment">// Tween.lerp(t) //&#x8D77;&#x59CB;&#x72B6;&#x6001;&#x548C;&#x7EC8;&#x6B62;&#x72B6;&#x6001;&#x5728;&#x6784;&#x5EFA; Tween &#x7684;&#x65F6;&#x5019;&#x5DF2;&#x7ECF;&#x6307;&#x5B9A;&#x4E86;</span></span><br><span class="line">...</span><br></pre></td></tr></table></figure>
+<p>&#x9700;&#x8981;&#x6CE8;&#x610F;&#xFF0C;lerp &#x662F;<strong>&#x7EBF;&#x6027;</strong>&#x63D2;&#x503C;&#xFF0C;&#x610F;&#x601D;&#x662F;&#x8FD4;&#x56DE;&#x503C;&#x548C;&#x52A8;&#x753B;&#x8FDB;&#x5EA6;t&#x662F;&#x6210;<strong>&#x4E00;&#x6B21;&#x51FD;&#x6570;</strong>&#xFF08;y = kx + b&#xFF09;&#x5173;&#x7CFB;&#xFF0C;&#x56E0;&#x4E3A;&#x4E00;&#x6B21;&#x51FD;&#x6570;&#x7684;&#x56FE;&#x50CF;&#x662F;&#x4E00;&#x6761;&#x76F4;&#x7EBF;&#xFF0C;&#x6240;&#x4EE5;&#x53EB;&#x7EBF;&#x6027;&#x63D2;&#x503C;&#x3002;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x60F3;&#x8BA9;&#x52A8;&#x753B;&#x6309;&#x7167;&#x4E00;&#x4E2A;&#x66F2;&#x7EBF;&#x6765;&#x6267;&#x884C;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5BF9; t &#x8FDB;&#x884C;&#x6620;&#x5C04;&#xFF0C;&#x6BD4;&#x5982;&#x8981;&#x5B9E;&#x73B0;&#x5300;&#x52A0;&#x901F;&#x6548;&#x679C;&#xFF0C;&#x5219; t&#x2019; = at&#xB2;+bt+c&#xFF0C;&#x7136;&#x540E;&#x6307;&#x5B9A;&#x52A0;&#x901F;&#x5EA6; a &#x548C; b &#x5373;&#x53EF;&#xFF08;&#x5927;&#x591A;&#x6570;&#x60C5;&#x51B5;&#x4E0B;&#x9700;&#x4FDD;&#x8BC1; t&#x2019; &#x7684;&#x53D6;&#x503C;&#x8303;&#x56F4;&#x5728;[0,1]&#xFF0C;&#x5F53;&#x7136;&#x4E5F;&#x6709;&#x4E00;&#x4E9B;&#x60C5;&#x51B5;&#x53EF;&#x80FD;&#x4F1A;&#x8D85;&#x51FA;&#x8BE5;&#x53D6;&#x503C;&#x8303;&#x56F4;&#xFF0C;&#x6BD4;&#x5982;&#x5F39;&#x7C27;&#xFF08;bounce&#xFF09;&#x6548;&#x679C;&#xFF09;&#xFF0C;&#x800C;&#x4E0D;&#x540C; Curve &#x53EF;&#x4EE5;&#x6309;&#x7167;&#x4E0D;&#x540C;&#x66F2;&#x7EBF;&#x6267;&#x884C;&#x52A8;&#x753B;&#x7684;&#x539F;&#x7406;&#x672C;&#x8D28;&#x4E0A;&#x5C31;&#x662F;&#x5BF9; t &#x6309;&#x7167;&#x4E0D;&#x540C;&#x6620;&#x5C04;&#x516C;&#x5F0F;&#x8FDB;&#x884C;&#x6620;&#x5C04;&#x5B9E;&#x73B0;&#x7684;&#x3002;</p>
+<h1>&#x52A8;&#x753B;&#x57FA;&#x672C;&#x7ED3;&#x6784;&#x53CA;&#x72B6;&#x6001;&#x76D1;&#x542C;</h1>
+<h2 id="&#x52A8;&#x753B;&#x57FA;&#x672C;&#x7ED3;&#x6784;">&#x52A8;&#x753B;&#x57FA;&#x672C;&#x7ED3;&#x6784;</h2>
+<p>&#x5728;Flutter&#x4E2D;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x591A;&#x79CD;&#x65B9;&#x5F0F;&#x6765;&#x5B9E;&#x73B0;&#x52A8;&#x753B;&#xFF0C;&#x4E0B;&#x9762;&#x901A;&#x8FC7;&#x4E00;&#x4E2A;&#x56FE;&#x7247;&#x9010;&#x6E10;&#x653E;&#x5927;&#x793A;&#x4F8B;&#x7684;&#x4E0D;&#x540C;&#x5B9E;&#x73B0;&#x6765;&#x6F14;&#x793A;Flutter&#x4E2D;&#x52A8;&#x753B;&#x7684;&#x4E0D;&#x540C;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;&#x7684;&#x533A;&#x522B;&#x3002;</p>
+<h3 id="&#x57FA;&#x7840;&#x7248;&#x672C;">&#x57FA;&#x7840;&#x7248;&#x672C;</h3>
+<p>&#x4E0B;&#x9762;&#x6211;&#x4EEC;&#x6F14;&#x793A;&#x4E00;&#x4E0B;&#x6700;&#x57FA;&#x7840;&#x7684;&#x52A8;&#x753B;&#x5B9E;&#x73B0;&#x65B9;&#x5F0F;&#xFF1A;</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ScaleAnimationRoute</span> <span class="keyword">extends</span> <span class="title">StatefulWidget</span> </span>{</span><br><span class="line">  <span class="keyword">const</span> ScaleAnimationRoute({Key? key}) : <span class="keyword">super</span>(key: key);</span><br><span class="line">  </span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  _ScaleAnimationRouteState createState() =&gt; _ScaleAnimationRouteState();</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="comment">//&#x9700;&#x8981;&#x7EE7;&#x627F;TickerProvider&#xFF0C;&#x5982;&#x679C;&#x6709;&#x591A;&#x4E2A;AnimationController&#xFF0C;&#x5219;&#x5E94;&#x8BE5;&#x4F7F;&#x7528;TickerProviderStateMixin&#x3002;</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">_ScaleAnimationRouteState</span> <span class="keyword">extends</span> <span class="title">State</span>&lt;<span class="title">ScaleAnimationRoute</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="title">with</span> <span class="title">SingleTickerProviderStateMixin</span> </span>{</span><br><span class="line">  <span class="keyword">late</span> Animation&lt;<span class="built_in">double</span>&gt; animation;</span><br><span class="line">  <span class="keyword">late</span> AnimationController controller;</span><br><span class="line">  </span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  initState() {</span><br><span class="line">    <span class="keyword">super</span>.initState();</span><br><span class="line">    controller = AnimationController(</span><br><span class="line">      duration: <span class="keyword">const</span> <span class="built_in">Duration</span>(seconds: <span class="number">2</span>),</span><br><span class="line">      vsync: <span class="keyword">this</span>,</span><br><span class="line">    );</span><br><span class="line"></span><br><span class="line">    <span class="comment">//&#x5300;&#x901F;</span></span><br><span class="line">    <span class="comment">//&#x56FE;&#x7247;&#x5BBD;&#x9AD8;&#x4ECE;0&#x53D8;&#x5230;300</span></span><br><span class="line">    animation = Tween(begin: <span class="number">0.0</span>, end: <span class="number">300.0</span>).animate(controller)</span><br><span class="line">      ..addListener(() {</span><br><span class="line">        setState(() =&gt; {});</span><br><span class="line">      });</span><br><span class="line"></span><br><span class="line">    <span class="comment">//&#x542F;&#x52A8;&#x52A8;&#x753B;(&#x6B63;&#x5411;&#x6267;&#x884C;)</span></span><br><span class="line">    controller.forward();</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  Widget build(BuildContext context) {</span><br><span class="line">    <span class="keyword">return</span> Center(</span><br><span class="line">      child: Image.asset(</span><br><span class="line">        <span class="string">&quot;imgs/avatar.png&quot;</span>,</span><br><span class="line">        width: animation.value,</span><br><span class="line">        height: animation.value,</span><br><span class="line">      ),</span><br><span class="line">    );</span><br><span class="line">  }</span><br><span class="line">  </span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  dispose() {</span><br><span class="line">    <span class="comment">//&#x8DEF;&#x7531;&#x9500;&#x6BC1;&#x65F6;&#x9700;&#x8981;&#x91CA;&#x653E;&#x52A8;&#x753B;&#x8D44;&#x6E90;</span></span><br><span class="line">    controller.dispose();</span><br><span class="line">    <span class="keyword">super</span>.dispose();</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p><strong>&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x4E2D;<code>addListener()</code>&#x51FD;&#x6570;&#x8C03;&#x7528;&#x4E86;<code>setState()</code>&#xFF0C;&#x6240;&#x4EE5;&#x6BCF;&#x6B21;&#x52A8;&#x753B;&#x751F;&#x6210;&#x4E00;&#x4E2A;&#x65B0;&#x7684;&#x6570;&#x5B57;&#x65F6;&#xFF0C;&#x5F53;&#x524D;&#x5E27;&#x88AB;&#x6807;&#x8BB0;&#x4E3A;&#x810F;(dirty)&#xFF0C;&#x8FD9;&#x4F1A;&#x5BFC;&#x81F4;widget&#x7684;<code>build()</code>&#x65B9;&#x6CD5;&#x518D;&#x6B21;&#x88AB;&#x8C03;&#x7528;</strong></p>
+<p><strong>&#x800C;&#x5728;<code>build()</code>&#x4E2D;&#xFF0C;&#x6539;&#x53D8;Image&#x7684;&#x5BBD;&#x9AD8;&#xFF0C;&#x56E0;&#x4E3A;&#x5B83;&#x7684;&#x9AD8;&#x5EA6;&#x548C;&#x5BBD;&#x5EA6;&#x73B0;&#x5728;&#x4F7F;&#x7528;&#x7684;&#x662F;<code>animation.value</code> &#xFF0C;&#x6240;&#x4EE5;&#x5C31;&#x4F1A;&#x9010;&#x6E10;&#x653E;&#x5927;&#x3002;</strong></p>
+<p><strong>&#x503C;&#x5F97;&#x6CE8;&#x610F;&#x7684;&#x662F;&#x52A8;&#x753B;&#x5B8C;&#x6210;&#x65F6;&#x8981;&#x91CA;&#x653E;&#x63A7;&#x5236;&#x5668;(&#x8C03;&#x7528;<code>dispose()</code>&#x65B9;&#x6CD5;)&#x4EE5;&#x9632;&#x6B62;&#x5185;&#x5B58;&#x6CC4;&#x6F0F;&#x3002;</strong></p>
+<p>&#x4E0A;&#x9762;&#x7684;&#x4F8B;&#x5B50;&#x4E2D;&#x5E76;&#x6CA1;&#x6709;&#x6307;&#x5B9A;Curve&#xFF0C;&#x6240;&#x4EE5;&#x653E;&#x5927;&#x7684;&#x8FC7;&#x7A0B;&#x662F;&#x7EBF;&#x6027;&#x7684;&#xFF08;&#x5300;&#x901F;&#xFF09;&#xFF0C;&#x4E0B;&#x9762;&#x6211;&#x4EEC;&#x6307;&#x5B9A;&#x4E00;&#x4E2A;Curve&#xFF0C;&#x6765;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x7C7B;&#x4F3C;&#x4E8E;&#x5F39;&#x7C27;&#x6548;&#x679C;&#x7684;&#x52A8;&#x753B;&#x8FC7;&#x7A0B;&#xFF0C;&#x6211;&#x4EEC;&#x53EA;&#x9700;&#x8981;&#x5C06;<code>initState</code>&#x4E2D;&#x7684;&#x4EE3;&#x7801;&#x6539;&#x4E3A;&#x4E0B;&#x9762;&#x8FD9;&#x6837;&#x5373;&#x53EF;&#xFF1A;</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@override</span></span><br><span class="line">initState() {</span><br><span class="line">    <span class="keyword">super</span>.initState();</span><br><span class="line">    controller = AnimationController(</span><br><span class="line">        duration: <span class="keyword">const</span> <span class="built_in">Duration</span>(seconds: <span class="number">3</span>), vsync: <span class="keyword">this</span>);</span><br><span class="line">    <span class="comment">//&#x4F7F;&#x7528;&#x5F39;&#x6027;&#x66F2;&#x7EBF;</span></span><br><span class="line">    animation=CurvedAnimation(parent: controller, curve: Curves.bounceIn);</span><br><span class="line">    <span class="comment">//&#x56FE;&#x7247;&#x5BBD;&#x9AD8;&#x4ECE;0&#x53D8;&#x5230;300</span></span><br><span class="line">    animation = Tween(begin: <span class="number">0.0</span>, end: <span class="number">300.0</span>).animate(animation)</span><br><span class="line">      ..addListener(() {</span><br><span class="line">        setState(() =&gt; {});</span><br><span class="line">      });</span><br><span class="line">    <span class="comment">//&#x542F;&#x52A8;&#x52A8;&#x753B;</span></span><br><span class="line">    controller.forward();</span><br><span class="line">  }</span><br></pre></td></tr></table></figure>
+<p>&#x8FD0;&#x884C;&#x540E;&#x6548;&#x679C;&#x5982;&#x56FE;9-1&#x6240;&#x793A;&#xFF1A;</p>
+<p><img class="lazy" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAABGdBTUEAALGPC/xhBQAAADhlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAAqACAAQAAAABAAAAAaADAAQAAAABAAAAAQAAAADa6r/EAAAAC0lEQVQIHWNgAAIAAAUAAY27m/MAAAAASUVORK5CYII=" data-src="https://book.flutterchina.club/assets/img/9-1.e020a06d.gif" alt="&#x56FE;9-1"></p>
+<h3 id="&#x4F7F;&#x7528;AnimatedWidget&#x7B80;&#x5316;">&#x4F7F;&#x7528;AnimatedWidget&#x7B80;&#x5316;</h3>
+<p>&#x4E0A;&#x9762;&#x793A;&#x4F8B;&#x4E2D;&#x901A;&#x8FC7;<code>addListener()</code>&#x548C;<code>setState()</code> &#x6765;&#x66F4;&#x65B0;UI&#x8FD9;&#x4E00;&#x6B65;&#x5176;&#x5B9E;&#x662F;&#x901A;&#x7528;&#x7684;&#xFF0C;&#x5982;&#x679C;&#x6BCF;&#x4E2A;&#x52A8;&#x753B;&#x4E2D;&#x90FD;&#x52A0;&#x8FD9;&#x4E48;&#x4E00;&#x53E5;&#x662F;&#x6BD4;&#x8F83;&#x7E41;&#x7410;&#x7684;&#x3002;</p>
+<p><code>AnimatedWidget</code>&#x7C7B;&#x5C01;&#x88C5;&#x4E86;&#x8C03;&#x7528;<code>setState()</code>&#x7684;&#x7EC6;&#x8282;&#xFF0C;&#x5E76;&#x5141;&#x8BB8;&#x6211;&#x4EEC;&#x5C06; widget &#x5206;&#x79BB;&#x51FA;&#x6765;&#xFF0C;&#x91CD;&#x6784;&#x540E;&#x7684;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> <span class="string">&apos;package:flutter/material.dart&apos;</span>;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">AnimatedImage</span> <span class="keyword">extends</span> <span class="title">AnimatedWidget</span> </span>{</span><br><span class="line">  <span class="keyword">const</span> AnimatedImage({</span><br><span class="line">    Key? key,</span><br><span class="line">    <span class="keyword">required</span> Animation&lt;<span class="built_in">double</span>&gt; animation,</span><br><span class="line">  }) : <span class="keyword">super</span>(key: key, listenable: animation);</span><br><span class="line"></span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  Widget build(BuildContext context) {</span><br><span class="line">    <span class="keyword">final</span> animation = listenable <span class="keyword">as</span> Animation&lt;<span class="built_in">double</span>&gt;;</span><br><span class="line">    <span class="keyword">return</span>  Center(</span><br><span class="line">      child: Image.asset(</span><br><span class="line">        <span class="string">&quot;imgs/avatar.png&quot;</span>,</span><br><span class="line">        width: animation.value,</span><br><span class="line">        height: animation.value,</span><br><span class="line">      ),</span><br><span class="line">    );</span><br><span class="line">  }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ScaleAnimationRoute1</span> <span class="keyword">extends</span> <span class="title">StatefulWidget</span> </span>{</span><br><span class="line">  <span class="keyword">const</span> ScaleAnimationRoute1({Key? key}) : <span class="keyword">super</span>(key: key);</span><br><span class="line"></span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  _ScaleAnimationRouteState createState() =&gt;  _ScaleAnimationRouteState();</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">_ScaleAnimationRouteState</span> <span class="keyword">extends</span> <span class="title">State</span>&lt;<span class="title">ScaleAnimationRoute1</span>&gt;</span></span><br><span class="line"><span class="class">    <span class="title">with</span> <span class="title">SingleTickerProviderStateMixin</span> </span>{</span><br><span class="line">  <span class="keyword">late</span> Animation&lt;<span class="built_in">double</span>&gt; animation;</span><br><span class="line">  <span class="keyword">late</span> AnimationController controller;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  initState() {</span><br><span class="line">    <span class="keyword">super</span>.initState();</span><br><span class="line">    controller =  AnimationController(</span><br><span class="line">        duration: <span class="keyword">const</span> <span class="built_in">Duration</span>(seconds: <span class="number">2</span>), vsync: <span class="keyword">this</span>);</span><br><span class="line">    <span class="comment">//&#x56FE;&#x7247;&#x5BBD;&#x9AD8;&#x4ECE;0&#x53D8;&#x5230;300</span></span><br><span class="line">    animation =  Tween(begin: <span class="number">0.0</span>, end: <span class="number">300.0</span>).animate(controller);</span><br><span class="line">    <span class="comment">//&#x542F;&#x52A8;&#x52A8;&#x753B;</span></span><br><span class="line">    controller.forward();</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  Widget build(BuildContext context) {</span><br><span class="line">    <span class="keyword">return</span> AnimatedImage(</span><br><span class="line">      animation: animation,</span><br><span class="line">    );</span><br><span class="line">  }</span><br><span class="line"></span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  dispose() {</span><br><span class="line">    <span class="comment">//&#x8DEF;&#x7531;&#x9500;&#x6BC1;&#x65F6;&#x9700;&#x8981;&#x91CA;&#x653E;&#x52A8;&#x753B;&#x8D44;&#x6E90;</span></span><br><span class="line">    controller.dispose();</span><br><span class="line">    <span class="keyword">super</span>.dispose();</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<h3 id="&#x7528;AnimatedBuilder&#x91CD;&#x6784;">&#x7528;AnimatedBuilder&#x91CD;&#x6784;</h3>
+<p>&#x7528;AnimatedWidget &#x53EF;&#x4EE5;&#x4ECE;&#x52A8;&#x753B;&#x4E2D;&#x5206;&#x79BB;&#x51FA; widget&#xFF0C;&#x800C;&#x52A8;&#x753B;&#x7684;&#x6E32;&#x67D3;&#x8FC7;&#x7A0B;&#xFF08;&#x5373;&#x8BBE;&#x7F6E;&#x5BBD;&#x9AD8;&#xFF09;&#x4ECD;&#x7136;&#x5728;AnimatedWidget &#x4E2D;&#xFF0C;&#x5047;&#x8BBE;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x518D;&#x6DFB;&#x52A0;&#x4E00;&#x4E2A; widget &#x900F;&#x660E;&#x5EA6;&#x53D8;&#x5316;&#x7684;&#x52A8;&#x753B;&#xFF0C;&#x90A3;&#x4E48;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x518D;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;AnimatedWidget&#xFF0C;&#x8FD9;&#x6837;&#x4E0D;&#x662F;&#x5F88;&#x4F18;&#x96C5;&#xFF0C;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x80FD;&#x628A;&#x6E32;&#x67D3;&#x8FC7;&#x7A0B;&#x4E5F;&#x62BD;&#x8C61;&#x51FA;&#x6765;&#xFF0C;&#x90A3;&#x5C31;&#x4F1A;&#x597D;&#x5F88;&#x591A;&#xFF0C;&#x800C;AnimatedBuilder&#x6B63;&#x662F;&#x5C06;&#x6E32;&#x67D3;&#x903B;&#x8F91;&#x5206;&#x79BB;&#x51FA;&#x6765;, &#x4E0A;&#x9762;&#x7684; build &#x65B9;&#x6CD5;&#x4E2D;&#x7684;&#x4EE3;&#x7801;&#x53EF;&#x4EE5;&#x6539;&#x4E3A;&#xFF1A;</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@override</span></span><br><span class="line">Widget build(BuildContext context) {</span><br><span class="line">  <span class="comment">//return AnimatedImage(animation: animation,);</span></span><br><span class="line">    <span class="keyword">return</span> AnimatedBuilder(</span><br><span class="line">      animation: animation,</span><br><span class="line">      child: Image.asset(<span class="string">&quot;imgs/avatar.png&quot;</span>),</span><br><span class="line">      builder: (BuildContext ctx, child) {</span><br><span class="line">        <span class="keyword">return</span>  Center(</span><br><span class="line">          child: SizedBox(</span><br><span class="line">            height: animation.value,</span><br><span class="line">            width: animation.value,</span><br><span class="line">            child: child,</span><br><span class="line">          ),</span><br><span class="line">        );</span><br><span class="line">      },</span><br><span class="line">    );</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x4E2D;&#x6709;&#x4E00;&#x4E2A;&#x8FF7;&#x60D1;&#x7684;&#x95EE;&#x9898;&#x662F;&#xFF0C;<code>child</code>&#x770B;&#x8D77;&#x6765;&#x50CF;&#x88AB;&#x6307;&#x5B9A;&#x4E86;&#x4E24;&#x6B21;&#x3002;</p>
+<p><strong>&#x4F46;&#x5B9E;&#x9645;&#x53D1;&#x751F;&#x7684;&#x4E8B;&#x60C5;&#x662F;&#xFF1A;&#x5C06;&#x5916;&#x90E8;&#x5F15;&#x7528;<code>child</code>&#x4F20;&#x9012;&#x7ED9;<code>AnimatedBuilder</code>&#x540E;&#xFF0C;<code>AnimatedBuilder</code>&#x518D;&#x5C06;&#x5176;&#x4F20;&#x9012;&#x7ED9;&#x533F;&#x540D;&#x6784;&#x9020;&#x5668;&#xFF0C; &#x7136;&#x540E;&#x5C06;&#x8BE5;&#x5BF9;&#x8C61;&#x7528;&#x4F5C;&#x5176;&#x5B50;&#x5BF9;&#x8C61;&#x3002;&#x6700;&#x7EC8;&#x7684;&#x7ED3;&#x679C;&#x662F;<code>AnimatedBuilder</code>&#x8FD4;&#x56DE;&#x7684;&#x5BF9;&#x8C61;&#x63D2;&#x5165;&#x5230; widget &#x6811;&#x4E2D;&#x3002;</strong></p>
+<p>&#x4E5F;&#x8BB8;&#x4F60;&#x4F1A;&#x8BF4;&#x8FD9;&#x548C;&#x6211;&#x4EEC;&#x521A;&#x5F00;&#x59CB;&#x7684;&#x793A;&#x4F8B;&#x5DEE;&#x4E0D;&#x4E86;&#x591A;&#x5C11;&#xFF0C;&#x5176;&#x5B9E;&#x5B83;&#x4F1A;&#x5E26;&#x6765;&#x4E09;&#x4E2A;&#x597D;&#x5904;&#xFF1A;</p>
+<ol>
+<li>
+<p><strong>&#x4E0D;&#x7528;&#x663E;&#x5F0F;&#x7684;&#x53BB;&#x6DFB;&#x52A0;&#x5E27;&#x76D1;&#x542C;&#x5668;</strong>&#xFF0C;&#x7136;&#x540E;&#x518D;&#x8C03;&#x7528;<code>setState()</code> &#x4E86;&#xFF0C;&#x8FD9;&#x4E2A;&#x597D;&#x5904;&#x548C;<code>AnimatedWidget</code>&#x662F;&#x4E00;&#x6837;&#x7684;&#x3002;</p>
+</li>
+<li>
+<p><strong>&#x66F4;&#x597D;&#x7684;&#x6027;&#x80FD;</strong>&#xFF1A;&#x56E0;&#x4E3A;&#x52A8;&#x753B;&#x6BCF;&#x4E00;&#x5E27;&#x9700;&#x8981;&#x6784;&#x5EFA;&#x7684; widget &#x7684;&#x8303;&#x56F4;&#x7F29;&#x5C0F;&#x4E86;&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;<code>builder</code>&#xFF0C;<code>setState()</code>&#x5C06;&#x4F1A;&#x5728;&#x7236;&#x7EC4;&#x4EF6;&#x4E0A;&#x4E0B;&#x6587;&#x4E2D;&#x8C03;&#x7528;&#xFF0C;&#x8FD9;&#x5C06;&#x4F1A;&#x5BFC;&#x81F4;&#x7236;&#x7EC4;&#x4EF6;&#x7684;<code>build</code>&#x65B9;&#x6CD5;&#x91CD;&#x65B0;&#x8C03;&#x7528;&#xFF1B;&#x800C;&#x6709;&#x4E86;<code>builder</code>&#x4E4B;&#x540E;&#xFF0C;&#x53EA;&#x4F1A;&#x5BFC;&#x81F4;&#x52A8;&#x753B;widget&#x81EA;&#x8EAB;&#x7684;<code>build</code>&#x91CD;&#x65B0;&#x8C03;&#x7528;&#xFF0C;&#x907F;&#x514D;&#x4E0D;&#x5FC5;&#x8981;&#x7684;rebuild&#x3002;</p>
+</li>
+<li>
+<p>&#x901A;&#x8FC7;<code>AnimatedBuilder</code>&#x53EF;&#x4EE5;&#x5C01;&#x88C5;&#x5E38;&#x89C1;&#x7684;&#x8FC7;&#x6E21;&#x6548;&#x679C;&#x6765;&#x590D;&#x7528;&#x52A8;&#x753B;&#x3002;&#x4E0B;&#x9762;&#x6211;&#x4EEC;&#x901A;&#x8FC7;&#x5C01;&#x88C5;&#x4E00;&#x4E2A;<code>GrowTransition</code>&#x6765;&#x8BF4;&#x660E;&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x5BF9;&#x5B50;widget&#x5B9E;&#x73B0;&#x653E;&#x5927;&#x52A8;&#x753B;&#xFF1A;</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">GrowTransition</span> <span class="keyword">extends</span> <span class="title">StatelessWidget</span> </span>{</span><br><span class="line">  <span class="keyword">const</span> GrowTransition({Key? key,</span><br><span class="line">    <span class="keyword">required</span> <span class="keyword">this</span>.animation,</span><br><span class="line">    <span class="keyword">this</span>.child,</span><br><span class="line">  }) : <span class="keyword">super</span>(key: key);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">final</span> Widget? child;</span><br><span class="line">  <span class="keyword">final</span> Animation&lt;<span class="built_in">double</span>&gt; animation;</span><br><span class="line"></span><br><span class="line">  <span class="meta">@override</span></span><br><span class="line">  Widget build(BuildContext context) {</span><br><span class="line">    <span class="keyword">return</span> Center(</span><br><span class="line">      child: AnimatedBuilder(</span><br><span class="line">        animation: animation,</span><br><span class="line">        builder: (BuildContext context, child) {</span><br><span class="line">          <span class="keyword">return</span> SizedBox(</span><br><span class="line">            height: animation.value,</span><br><span class="line">            width: animation.value,</span><br><span class="line">            child: child,</span><br><span class="line">          );</span><br><span class="line">        },</span><br><span class="line">        child: child,</span><br><span class="line">      ),</span><br><span class="line">    );</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>&#x8FD9;&#x6837;&#xFF0C;&#x6700;&#x521D;&#x7684;&#x793A;&#x4F8B;&#x5C31;&#x53EF;&#x4EE5;&#x6539;&#x4E3A;&#xFF1A;</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">...</span><br><span class="line">Widget build(BuildContext context) {</span><br><span class="line">  <span class="keyword">return</span> GrowTransition(</span><br><span class="line">    child: Image.asset(<span class="string">&quot;images/avatar.png&quot;</span>), </span><br><span class="line">    animation: animation,</span><br><span class="line">  );</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p><strong>Flutter&#x4E2D;&#x6B63;&#x662F;&#x901A;&#x8FC7;&#x8FD9;&#x79CD;&#x65B9;&#x5F0F;&#x5C01;&#x88C5;&#x4E86;&#x5F88;&#x591A;&#x52A8;&#x753B;&#xFF0C;&#x5982;&#xFF1A;FadeTransition&#x3001;ScaleTransition&#x3001;SizeTransition&#x7B49;&#xFF0C;&#x5F88;&#x591A;&#x65F6;&#x5019;&#x90FD;&#x53EF;&#x4EE5;&#x590D;&#x7528;&#x8FD9;&#x4E9B;&#x9884;&#x7F6E;&#x7684;&#x8FC7;&#x6E21;&#x7C7B;&#x3002;</strong></p>
+</li>
+</ol>
+<h2 id="&#x52A8;&#x753B;&#x72B6;&#x6001;&#x76D1;&#x542C;">&#x52A8;&#x753B;&#x72B6;&#x6001;&#x76D1;&#x542C;</h2>
+<p>&#x4E0A;&#x9762;&#x8BF4;&#x8FC7;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;<code>Animation</code>&#x7684;<code>addStatusListener()</code>&#x65B9;&#x6CD5;&#x6765;&#x6DFB;&#x52A0;&#x52A8;&#x753B;&#x72B6;&#x6001;&#x6539;&#x53D8;&#x76D1;&#x542C;&#x5668;&#x3002;Flutter&#x4E2D;&#xFF0C;&#x6709;&#x56DB;&#x79CD;&#x52A8;&#x753B;&#x72B6;&#x6001;&#xFF0C;&#x5728;<code>AnimationStatus</code>&#x679A;&#x4E3E;&#x7C7B;&#x4E2D;&#x5B9A;&#x4E49;&#xFF0C;&#x4E0B;&#x9762;&#x6211;&#x4EEC;&#x9010;&#x4E2A;&#x8BF4;&#x660E;&#xFF1A;</p>
+<table>
+<thead>
+<tr>
+<th>&#x679A;&#x4E3E;&#x503C;</th>
+<th>&#x542B;&#x4E49;</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>dismissed</code></td>
+<td>&#x52A8;&#x753B;&#x5728;&#x8D77;&#x59CB;&#x70B9;&#x505C;&#x6B62;</td>
+</tr>
+<tr>
+<td><code>forward</code></td>
+<td>&#x52A8;&#x753B;&#x6B63;&#x5728;&#x6B63;&#x5411;&#x6267;&#x884C;</td>
+</tr>
+<tr>
+<td><code>reverse</code></td>
+<td>&#x52A8;&#x753B;&#x6B63;&#x5728;&#x53CD;&#x5411;&#x6267;&#x884C;</td>
+</tr>
+<tr>
+<td><code>completed</code></td>
+<td>&#x52A8;&#x753B;&#x5728;&#x7EC8;&#x70B9;&#x505C;&#x6B62;</td>
+</tr>
+</tbody>
+</table>
+<h4 id="&#x793A;&#x4F8B;">&#x793A;&#x4F8B;</h4>
+<p>&#x6211;&#x4EEC;&#x5C06;&#x4E0A;&#x9762;&#x56FE;&#x7247;&#x653E;&#x5927;&#x7684;&#x793A;&#x4F8B;&#x6539;&#x4E3A;&#x5148;&#x653E;&#x5927;&#x518D;&#x7F29;&#x5C0F;&#x518D;&#x653E;&#x5927;&#x2026;&#x2026;&#x8FD9;&#x6837;&#x7684;&#x5FAA;&#x73AF;&#x52A8;&#x753B;&#x3002;&#x8981;&#x5B9E;&#x73B0;&#x8FD9;&#x79CD;&#x6548;&#x679C;&#xFF0C;&#x6211;&#x4EEC;&#x53EA;&#x9700;&#x8981;&#x76D1;&#x542C;&#x52A8;&#x753B;&#x72B6;&#x6001;&#x7684;&#x6539;&#x53D8;&#x5373;&#x53EF;&#xFF0C;&#x5373;&#xFF1A;&#x5728;&#x52A8;&#x753B;&#x6B63;&#x5411;&#x6267;&#x884C;&#x7ED3;&#x675F;&#x65F6;&#x53CD;&#x8F6C;&#x52A8;&#x753B;&#xFF0C;&#x5728;&#x52A8;&#x753B;&#x53CD;&#x5411;&#x6267;&#x884C;&#x7ED3;&#x675F;&#x65F6;&#x518D;&#x6B63;&#x5411;&#x6267;&#x884C;&#x52A8;&#x753B;&#x3002;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">initState() {</span><br><span class="line">  <span class="keyword">super</span>.initState();</span><br><span class="line">  controller = AnimationController(</span><br><span class="line">    duration: <span class="keyword">const</span> <span class="built_in">Duration</span>(seconds: <span class="number">1</span>), </span><br><span class="line">    vsync: <span class="keyword">this</span>,</span><br><span class="line">  );</span><br><span class="line">  <span class="comment">//&#x56FE;&#x7247;&#x5BBD;&#x9AD8;&#x4ECE;0&#x53D8;&#x5230;300</span></span><br><span class="line">  animation = Tween(begin: <span class="number">0.0</span>, end: <span class="number">300.0</span>).animate(controller);</span><br><span class="line">  animation.addStatusListener((status) {</span><br><span class="line">    <span class="keyword">if</span> (status == AnimationStatus.completed) {</span><br><span class="line">      <span class="comment">//&#x52A8;&#x753B;&#x6267;&#x884C;&#x7ED3;&#x675F;&#x65F6;&#x53CD;&#x5411;&#x6267;&#x884C;&#x52A8;&#x753B;</span></span><br><span class="line">      controller.reverse();</span><br><span class="line">    } <span class="keyword">else</span> <span class="keyword">if</span> (status == AnimationStatus.dismissed) {</span><br><span class="line">      <span class="comment">//&#x52A8;&#x753B;&#x6062;&#x590D;&#x5230;&#x521D;&#x59CB;&#x72B6;&#x6001;&#x65F6;&#x6267;&#x884C;&#x52A8;&#x753B;&#xFF08;&#x6B63;&#x5411;&#xFF09;</span></span><br><span class="line">      controller.forward();</span><br><span class="line">    }</span><br><span class="line">  });</span><br><span class="line"></span><br><span class="line">  <span class="comment">//&#x542F;&#x52A8;&#x52A8;&#x753B;&#xFF08;&#x6B63;&#x5411;&#xFF09;</span></span><br><span class="line">  controller.forward();</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<div class="article-footer fs14">
+    <section id="license">
+      <div class="header"><span>许可协议</span></div>
+      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div>
+    </section>
+    </div>
+</article>
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/2024/06/28/flutter%E7%AC%94%E8%AE%B0/flutter%E5%88%9D%E8%AF%86/">Flutter 简介</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/2024/06/28/%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F%E7%AE%A1%E7%90%86/%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F%E7%AE%A1%E7%90%86%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/">软件质量管理-期末复习</a></div></section></div>
+
+
+
+
+
+
+<footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">Asimov</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.28.1">Stellar 1.28.1</a> 主题创建。<br>
+本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+</div></footer>
+<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
+<div class="widgets">
+
+
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">Flutter动画简介</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Flutter%E4%B8%AD%E5%8A%A8%E7%94%BB%E6%8A%BD%E8%B1%A1"><span class="toc-text">Flutter中动画抽象</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Animation"><span class="toc-text">Animation</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8A%A8%E7%94%BB%E9%80%9A%E7%9F%A5"><span class="toc-text">动画通知</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Curve"><span class="toc-text">Curve</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#AnimationController"><span class="toc-text">AnimationController</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Ticker"><span class="toc-text">Ticker</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Tween"><span class="toc-text">Tween</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%EF%BC%89%E7%AE%80%E4%BB%8B"><span class="toc-text">1）简介</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Tween-animate"><span class="toc-text">Tween.animate</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E6%8F%92%E5%80%BClerp%E5%87%BD%E6%95%B0"><span class="toc-text">线性插值lerp函数</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">动画基本结构及状态监听</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E7%94%BB%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84"><span class="toc-text">动画基本结构</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%9F%BA%E7%A1%80%E7%89%88%E6%9C%AC"><span class="toc-text">基础版本</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8AnimatedWidget%E7%AE%80%E5%8C%96"><span class="toc-text">使用AnimatedWidget简化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8AnimatedBuilder%E9%87%8D%E6%9E%84"><span class="toc-text">用AnimatedBuilder重构</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8A%A8%E7%94%BB%E7%8A%B6%E6%80%81%E7%9B%91%E5%90%AC"><span class="toc-text">动画状态监听</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%A4%BA%E4%BE%8B"><span class="toc-text">示例</span></a></li></ol></li></ol></li></ol></li></ol></div><div class="widget-footer">
+
+<a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12c0-4.714 0-7.071 1.464-8.536C4.93 2 7.286 2 12 2c4.714 0 7.071 0 8.535 1.464C22 4.93 22 7.286 22 12c0 4.714 0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12Z"/><path stroke-linecap="round" stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M10.46 1.25h3.08c1.603 0 2.86 0 3.864.095c1.023.098 1.861.3 2.6.752a5.75 5.75 0 0 1 1.899 1.899c.452.738.654 1.577.752 2.6c.095 1.004.095 2.261.095 3.865v1.067c0 1.141 0 2.036-.05 2.759c-.05.735-.153 1.347-.388 1.913a5.75 5.75 0 0 1-3.112 3.112c-.805.334-1.721.408-2.977.43a10.81 10.81 0 0 0-.929.036c-.198.022-.275.054-.32.08c-.047.028-.112.078-.224.232c-.121.166-.258.396-.476.764l-.542.916c-.773 1.307-2.69 1.307-3.464 0l-.542-.916a10.605 10.605 0 0 0-.476-.764c-.112-.154-.177-.204-.224-.232c-.045-.026-.122-.058-.32-.08c-.212-.023-.49-.03-.93-.037c-1.255-.021-2.171-.095-2.976-.429A5.75 5.75 0 0 1 1.688 16.2c-.235-.566-.338-1.178-.389-1.913c-.049-.723-.049-1.618-.049-2.76v-1.066c0-1.604 0-2.86.095-3.865c.098-1.023.3-1.862.752-2.6a5.75 5.75 0 0 1 1.899-1.899c.738-.452 1.577-.654 2.6-.752C7.6 1.25 8.857 1.25 10.461 1.25M6.739 2.839c-.914.087-1.495.253-1.959.537A4.25 4.25 0 0 0 3.376 4.78c-.284.464-.45 1.045-.537 1.96c-.088.924-.089 2.11-.089 3.761v1c0 1.175 0 2.019.046 2.685c.045.659.131 1.089.278 1.441a4.25 4.25 0 0 0 2.3 2.3c.515.214 1.173.294 2.429.316h.031c.398.007.747.013 1.037.045c.311.035.616.104.909.274c.29.17.5.395.682.645c.169.232.342.525.538.856l.559.944a.52.52 0 0 0 .882 0l.559-.944c.196-.331.37-.624.538-.856c.182-.25.392-.476.682-.645c.293-.17.598-.24.909-.274c.29-.032.639-.038 1.037-.045h.032c1.255-.022 1.913-.102 2.428-.316a4.25 4.25 0 0 0 2.3-2.3c.147-.352.233-.782.278-1.441c.046-.666.046-1.51.046-2.685v-1c0-1.651 0-2.837-.089-3.762c-.087-.914-.253-1.495-.537-1.959a4.25 4.25 0 0 0-1.403-1.403c-.464-.284-1.045-.45-1.96-.537c-.924-.088-2.11-.089-3.761-.089h-3c-1.651 0-2.837 0-3.762.089" clip-rule="evenodd"/><path fill="currentColor" d="M9 11a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0"/></svg><span>参与讨论</span></a></div></widget>
+</div></aside><div class='float-panel blur'>
+  <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+  </button>
+  <button type='button' style='display:none' class='mobile-only leftbar-toggle mobile' onclick='sidebar.leftbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"/><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"/></g></svg>
+  </button>
+</div>
+</div><div class="scripts">
+<script type="text/javascript">
+  const ctx = {
+    date_suffix: {
+      just: `刚刚`,
+      min: `分钟前`,
+      hour: `小时前`,
+      day: `天前`,
+    },
+    root : `/`,
+  };
+
+  // required plugins (only load if needs)
+  if (`local_search`) {
+    ctx.search = {};
+    ctx.search.service = `local_search`;
+    if (ctx.search.service == 'local_search') {
+      let service_obj = Object.assign({}, `{"field":"all","path":"/search.json","content":true,"sort":"-date"}`);
+      ctx.search[ctx.search.service] = service_obj;
+    }
+  }
+  const def = {
+    avatar: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg`,
+    cover: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg`,
+  };
+  const deps = {
+    jquery: `https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js`,
+    marked: `https://cdn.bootcdn.net/ajax/libs/marked/4.0.18/marked.min.js`
+  }
+  
+
+</script>
+
+<script type="text/javascript">
+  const utils = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    css: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    js: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')){
+        src = ctx.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    jq: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        utils.js(deps.jquery).then(fn)
+      } else {
+        fn()
+      }
+    },
+    
+    onLoading: (el) => {
+      if (el) {
+        $(el).append('<div class="loading-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg></div>');
+      }
+    },
+    onLoadSuccess: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap').remove();
+      }
+    },
+    onLoadFailure: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap svg').remove();
+        $(el).find('.loading-wrap').append('<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3L21 20H3L12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 10V14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"/></path></g><circle cx="12" cy="17" r="1" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.4s" values="0;1"/></circle></svg>');
+        $(el).find('.loading-wrap').addClass('error');
+      }
+    },
+    request: (el, url, callback, onFailure) => {
+      let retryTimes = 3;
+      utils.onLoading(el);
+      function req() {
+        return new Promise((resolve, reject) => {
+          let status = 0; // 0 等待 1 完成 2 超时
+          let timer = setTimeout(() => {
+            if (status === 0) {
+              status = 2;
+              timer = null;
+              reject('请求超时');
+              if (retryTimes == 0) {
+                onFailure();
+              }
+            }
+          }, 5000);
+          fetch(url).then(function(response) {
+            if (status !== 2) {
+              clearTimeout(timer);
+              resolve(response);
+              timer = null;
+              status = 1;
+            }
+            if (response.ok) {
+              return response.json();
+            }
+            throw new Error('Network response was not ok.');
+          }).then(function(data) {
+            retryTimes = 0;
+            utils.onLoadSuccess(el);
+            callback(data);
+          }).catch(function(error) {
+            if (retryTimes > 0) {
+              retryTimes -= 1;
+              setTimeout(() => {
+                req();
+              }, 5000);
+            } else {
+              utils.onLoadFailure(el);
+              onFailure();
+            }
+          });
+        });
+      }
+      req();
+    },
+  };
+</script>
+
+<script>
+  const sidebar = {
+    leftbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    rightbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('rightbar');
+        l_body.removeAttribute('leftbar');
+      }
+    },
+    dismiss: () => {
+      if (l_body) {
+        l_body.removeAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    toggleTOC: () => {
+      document.querySelector('#data-toc').classList.toggle('collapse');
+    }
+  }
+</script>
+
+<!-- required -->
+<script src="/js/main.js?v=1.28.1" async></script>
+
+<!-- optional -->
+
+
+
+<script defer>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.services = Object.assign({}, JSON.parse(`{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"}}`));
+    for (let id of Object.keys(ctx.services)) {
+      const js = ctx.services[id].js;
+      if (id == 'siteinfo') {
+        ctx.cardlinks = document.querySelectorAll('a.link-card[cardlink]');
+        if (ctx.cardlinks?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            setCardLink(ctx.cardlinks);
+          });
+        }
+      } else {
+        const els = document.getElementsByClassName(`ds-${id}`);
+        if (els?.length > 0) {
+          utils.jq(() => {
+            if (id == 'timeline' || 'memos' || 'marked') {
+              utils.js(deps.marked).then(function () {
+                utils.js(js, { defer: true });
+              });
+            } else {
+              utils.js(js, { defer: true });
+            }
+          });
+        }
+      }
+    }
+  });
+</script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.search = {
+      path: `/search.json`,
+    }
+    utils.js('/js/search/local-search.js', { defer: true });
+  });
+</script><script>
+  window.FPConfig = {
+    delay: 0,
+    ignoreKeywords: [],
+    maxRPS: 5,
+    hoverDelay: 25
+  };
+</script>
+<script defer src="https://cdn.bootcdn.net/ajax/libs/flying-pages/2.1.2/flying-pages.min.js"></script><script defer src="https://cdn.bootcdn.net/ajax/libs/vanilla-lazyload/17.8.4/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazy",
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    window.lazyLoadInstance?.update();
+  });
+</script><script>
+  ctx.fancybox = {
+    selector: `.timenode p>img`,
+    css: `https://cdn.bootcdn.net/ajax/libs/fancyapps-ui/5.0.22/fancybox/fancybox.min.css`,
+    js: `https://cdn.bootcdn.net/ajax/libs/fancyapps-ui/5.0.22/fancybox/fancybox.umd.min.js`
+  };
+  var selector = '[data-fancybox]:not(.error)';
+  if (ctx.fancybox.selector) {
+    selector += `, ${ctx.fancybox.selector}`
+  }
+  var needFancybox = document.querySelectorAll(selector).length !== 0;
+  if (!needFancybox) {
+    const els = document.getElementsByClassName('ds-memos');
+    if (els != undefined && els.length > 0) {
+      needFancybox = true;
+    }
+  }
+  if (needFancybox) {
+    utils.css(ctx.fancybox.css);
+    utils.js(ctx.fancybox.js, { defer: true }).then(function () {
+      Fancybox.bind(selector, {
+        hideScrollbar: false,
+        Thumbs: {
+          autoStart: false,
+        },
+        caption: (fancybox, slide) => {
+          return slide.triggerEl.alt || slide.triggerEl.dataset.caption || null
+        }
+      });
+    })
+  }
+</script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    const swiper_api = document.getElementById('swiper-api');
+    if (swiper_api != undefined) {
+      utils.css(`https://unpkg.com/swiper@10.3.1/swiper-bundle.min.css`);
+      utils.js(`https://unpkg.com/swiper@10.3.1/swiper-bundle.min.js`, { defer: true }).then(function () {
+        const effect = swiper_api.getAttribute('effect') || '';
+        var swiper = new Swiper('.swiper#swiper-api', {
+          slidesPerView: 'auto',
+          spaceBetween: 8,
+          centeredSlides: true,
+          effect: effect,
+          rewind: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+      })
+    }
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    window.codeElements = document.querySelectorAll('.code');
+    if (window.codeElements.length > 0) {
+      ctx.copycode = {
+        default_text: `Copy`,
+        success_text: `Copied`,
+        toast: `复制成功`,
+      };
+      utils.js('/js/plugins/copycode.js');
+    }
+  });
+</script>
+
+
+<!-- inject -->
+
+</div></body></html>

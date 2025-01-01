@@ -1,0 +1,721 @@
+
+<!DOCTYPE html><html lang="zh-CN">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="hexo-theme" content="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.28.1" theme-name="Stellar" theme-version="1.28.1">
+  
+  <meta name="generator" content="Hexo 7.2.0">
+  <meta http-equiv='x-dns-prefetch-control' content='on' />
+  
+  <meta name="renderer" content="webkit">
+  <meta name="force-rendering" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <meta name="HandheldFriendly" content="True" >
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="theme-color" media="(prefers-color-scheme: light)" content="#f9fafb">
+  <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#000">
+  
+  <title>Dart语法 - Asimov's Blog</title>
+
+  
+    <meta name="description" content="2024.6.29 &#x672C;&#x7AE0;&#x76EE;&#x5F55; | &#x300A;Flutter&#x5B9E;&#x6218;&#xB7;&#x7B2C;&#x4E8C;&#x7248;&#x300B; (flutterchina.club) Dart&#x8BED;&#x6CD5; Dart &#x5728;&#x9759;&#x6001;&#x8BED;&amp;#x6CD5">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Dart语法">
+<meta property="og:url" content="https://chendingya.github.io/2024/06/29/flutter%E7%AC%94%E8%AE%B0/dart%E8%AF%AD%E6%B3%95/index.html">
+<meta property="og:site_name" content="Asimov&#39;s Blog">
+<meta property="og:description" content="2024.6.29 &#x672C;&#x7AE0;&#x76EE;&#x5F55; | &#x300A;Flutter&#x5B9E;&#x6218;&#xB7;&#x7B2C;&#x4E8C;&#x7248;&#x300B; (flutterchina.club) Dart&#x8BED;&#x6CD5; Dart &#x5728;&#x9759;&#x6001;&#x8BED;&amp;#x6CD5">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2024-06-29T10:32:34.000Z">
+<meta property="article:modified_time" content="2025-01-01T12:53:13.146Z">
+<meta property="article:author" content="Asimov">
+<meta property="article:tag" content="Flutter">
+<meta property="article:tag" content="Dart">
+<meta name="twitter:card" content="summary">
+  
+  
+  
+  <meta name="keywords" content="Flutter,Dart">
+
+  <!-- feed -->
+  
+
+  <link rel="stylesheet" href="/css/main.css?v=1.28.1">
+
+  
+
+  
+
+  
+</head>
+<body><div class="sitebg"><div class="siteblur"></div></div>
+
+<div class="l_body s:aa content tech" id="start" layout="post" ><aside class="l_left"><div class="leftbar-container">
+
+
+<header class="header"><div class="logo-wrap"><a class="avatar" href="/about/"><div class="bg" style="opacity:0;background-image:url(https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/rainbow64@3x.webp);"></div><img no-lazy class="avatar" src="https://raw.githubusercontent.com/chendingya/PicGo/main/typora202405021052957.png" onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a><a class="title" href="/"><div class="main" ff="title">Asimov's Blog</div><div class="sub normal cap">asimov的废话乐园</div><div class="sub hover cap" style="opacity:0"> 快乐老家</div></a></div></header>
+
+<div class="nav-area">
+<div class="search-wrapper" id="search-wrapper"><form class="search-form"><a class="search-button" onclick="document.getElementById(&quot;search-input&quot;).focus();"><svg t="1705074644177" viewBox="0 0 1025 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="1560" width="200" height="200"><path d="M1008.839137 935.96571L792.364903 719.491476a56.783488 56.783488 0 0 0-80.152866 0 358.53545 358.53545 0 1 1 100.857314-335.166073 362.840335 362.840335 0 0 1-3.689902 170.145468 51.248635 51.248635 0 1 0 99.217358 26.444296 462.057693 462.057693 0 1 0-158.255785 242.303546l185.930047 185.725053a51.248635 51.248635 0 0 0 72.568068 0 51.248635 51.248635 0 0 0 0-72.978056z" p-id="1561"></path><path d="M616.479587 615.969233a50.428657 50.428657 0 0 0-61.498362-5.534852 174.655348 174.655348 0 0 1-177.525271 3.484907 49.403684 49.403684 0 0 0-58.833433 6.76482l-3.074918 2.869923a49.403684 49.403684 0 0 0 8.609771 78.10292 277.767601 277.767601 0 0 0 286.992355-5.739847 49.403684 49.403684 0 0 0 8.404776-76.667958z" p-id="1562"></path></svg></a><input type="text" class="search-input" id="search-input" placeholder="站内搜索"></form><div id="search-result"></div><div class="search-no-result">没有找到内容！</div></div>
+
+
+<nav class="menu dis-select"></nav>
+</div>
+<div class="widgets">
+
+
+<widget class="widget-wrapper post-list"><div class="widget-header dis-select"><span class="name">最近更新</span></div><div class="widget-body fs14"><a class="item title" href="/2024/07/02/flutter%E7%AC%94%E8%AE%B0/Widge/"><span class="title">Flutter Widge</span></a><a class="item title" href="/2024/06/28/flutter%E7%AC%94%E8%AE%B0/flutter%E5%8A%A8%E7%94%BB/"><span class="title">Flutter动画简介</span></a><a class="item title" href="/2024/06/28/flutter%E7%AC%94%E8%AE%B0/flutter%E5%88%9D%E8%AF%86/"><span class="title">Flutter 简介</span></a><a class="item title" href="/2024/06/29/flutter%E7%AC%94%E8%AE%B0/dart%E8%AF%AD%E6%B3%95/"><span class="title">Dart语法</span></a><a class="item title" href="/2026/01/01/leetcode/%E5%88%B7%E9%A2%98-3280%20%E6%97%A5%E6%9C%9F%E8%BD%AC%E4%BA%8C%E8%BF%9B%E5%88%B6/"><span class="title">leetcode刷题-3280-日期转换为二进制表示</span></a><a class="item title" href="/2024/06/28/%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F%E7%AE%A1%E7%90%86/%E8%BD%AF%E4%BB%B6%E8%B4%A8%E9%87%8F%E7%AE%A1%E7%90%86%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/"><span class="title">软件质量管理-期末复习</span></a><a class="item title" href="/2024/06/24/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0-%E5%8E%9F%E5%88%99%E6%A8%A1%E5%BC%8F/"><span class="title">软件系统设计-原则模式期末复习</span></a><a class="item title" href="/2024/06/24/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0-%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84/"><span class="title">软件系统设计-系统架构期末复习</span></a><a class="item title" href="/2024/05/02/24-%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%842/"><span class="title">系统架构2-质量属性Quality Attributes</span></a><a class="item title" href="/2024/01/05/23-%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92/%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92%E6%9C%9F%E6%9C%AB%E5%A4%8D%E4%B9%A0/"><span class="title">人机交互-期末复习</span></a></div></widget>
+</div>
+<footer class="footer dis-select"><div class="social-wrap"><a class="social" href="https://github.com/chendingya?tab=repositories" target="_blank" rel="external nofollow noopener noreferrer"><img no-lazy src="https://github.githubassets.com/assets/GitHub-Mark-ea2971cee799.png" / onerror="javascript:this.classList.add('error');this.src='https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/image/2659360.svg';"></a></div></footer>
+</div></aside><div class="l_main" id="main">
+
+
+
+
+
+<div class="article banner top">
+  <div class="content">
+    <div class="top bread-nav footnote"><div class="left"><div class="flex-row" id="breadcrumb"><a class="cap breadcrumb" href="/">主页</a>
+<span class="sep"></span><a class="cap breadcrumb" href="/">文章</a><span class="sep"></span><a class="cap breadcrumb-link" href="/categories/Flutter/">Flutter</a></div>
+<div class="flex-row" id="post-meta"><span class="text created">发布于：<time datetime="2024-06-29T10:32:34.000Z">2024-06-29</time></span><span class="sep updated"></span><span class="text updated">更新于：<time datetime="2025-01-01T12:53:13.146Z">2025-01-01</time></span></div></div></div>
+    
+    <div class="bottom only-title">
+      
+      <div class="text-area">
+        <h1 class="text title"><span>Dart语法</span></h1>
+        
+      </div>
+    </div>
+    
+  </div>
+  </div><article class="md-text content"><p>2024.6.29</p>
+<p><a target="_blank" rel="noopener" href="https://book.flutterchina.club/chapter1/">&#x672C;&#x7AE0;&#x76EE;&#x5F55; | &#x300A;Flutter&#x5B9E;&#x6218;&#xB7;&#x7B2C;&#x4E8C;&#x7248;&#x300B; (flutterchina.club)</a></p>
+<h1>Dart&#x8BED;&#x6CD5;</h1>
+<p>Dart &#x5728;&#x9759;&#x6001;&#x8BED;&#x6CD5;&#x65B9;&#x9762;&#x548C; Java &#x975E;&#x5E38;&#x76F8;&#x4F3C;&#xFF0C;&#x5982;&#x7C7B;&#x578B;&#x5B9A;&#x4E49;&#x3001;&#x51FD;&#x6570;&#x58F0;&#x660E;&#x3001;&#x6CDB;&#x578B;&#x7B49;&#xFF0C;</p>
+<p>&#x800C;&#x5728;&#x52A8;&#x6001;&#x7279;&#x6027;&#x65B9;&#x9762;&#x53C8;&#x548C; JavaScript &#x5F88;&#x50CF;&#xFF0C;&#x5982;&#x51FD;&#x6570;&#x5F0F;&#x7279;&#x6027;&#x3001;&#x5F02;&#x6B65;&#x652F;&#x6301;&#x7B49;&#x3002;</p>
+<p>&#x9664;&#x4E86;&#x878D;&#x5408; Java &#x548C; JavaScript &#x8BED;&#x8A00;&#x4E4B;&#x6240;&#x957F;&#x4E4B;&#x5916;&#xFF0C;Dart &#x4E5F;&#x5177;&#x6709;&#x4E00;&#x4E9B;&#x5176;&#x4ED6;&#x5F88;&#x6709;&#x8868;&#x73B0;&#x529B;&#x7684;&#x8BED;&#x6CD5;&#xFF0C;&#x5982;&#x53EF;&#x9009;&#x547D;&#x540D;&#x53C2;&#x6570;&#x3001;<code>..</code>&#xFF08;&#x7EA7;&#x8054;&#x8FD0;&#x7B97;&#x7B26;&#xFF09;&#x548C;<code>?.</code>&#xFF08;&#x6761;&#x4EF6;&#x6210;&#x5458;&#x8BBF;&#x95EE;&#x8FD0;&#x7B97;&#x7B26;&#xFF09;&#x4EE5;&#x53CA;<code>??</code>&#xFF08;&#x5224;&#x7A7A;&#x8D4B;&#x503C;&#x8FD0;&#x7B97;&#x7B26;&#xFF09;&#x3002;</p>
+<p>&#x5728; Dart &#x4E2D;&#x5176;&#x5B9E;&#x770B;&#x5230;&#x7684;&#x4E0D;&#x4EC5;&#x6709; Java &#x548C; JavaScript &#x7684;&#x5F71;&#x5B50;&#xFF0C;&#x5B83;&#x8FD8;&#x5177;&#x6709;&#x5176;&#x4ED6;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&#x4E2D;&#x7684;&#x8EAB;&#x5F71;&#xFF0C;&#x5982;&#x547D;&#x540D;&#x53C2;&#x6570;&#x5728; Objective-C &#x548C; Swift &#x4E2D;&#x65E9;&#x5C31;&#x5F88;&#x666E;&#x904D;&#xFF0C;&#x800C;<code>??</code>&#x64CD;&#x4F5C;&#x7B26;&#x5728;PHP 7.0 &#x8BED;&#x6CD5;&#x4E2D;&#x5C31;&#x5DF2;&#x7ECF;&#x5B58;&#x5728;&#x4E86;&#xFF0C;&#x56E0;&#x6B64;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x770B;&#x5230; Google &#x5BF9; Dart &#x8BED;&#x8A00;&#x7ED9;&#x4E88;&#x539A;&#x671B;&#xFF0C;&#x662F;&#x60F3;&#x628A; Dart &#x6253;&#x9020;&#x6210;&#x4E00;&#x95E8;&#x96C6;&#x767E;&#x5BB6;&#x4E4B;&#x6240;&#x957F;&#x7684;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&#x3002;</p>
+<h2 id="&#x53D8;&#x91CF;&#x58F0;&#x660E;">&#x53D8;&#x91CF;&#x58F0;&#x660E;</h2>
+<h3 id="1-var-&#x5173;&#x952E;&#x5B57;">1. <code>var</code> &#x5173;&#x952E;&#x5B57;</h3>
+<p>&#x7C7B;&#x4F3C;&#x4E8E; JavaScript &#x4E2D;&#x7684;<code>var</code>&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x63A5;&#x6536;&#x4EFB;&#x4F55;&#x7C7B;&#x578B;&#x7684;&#x53D8;&#x91CF;&#xFF0C;&#x4F46;&#x6700;&#x5927;&#x7684;&#x4E0D;&#x540C;&#x662F; Dart &#x4E2D; var &#x53D8;&#x91CF;&#x4E00;&#x65E6;&#x8D4B;&#x503C;&#xFF0C;&#x7C7B;&#x578B;&#x4FBF;&#x4F1A;&#x786E;&#x5B9A;&#xFF0C;&#x5219;&#x4E0D;&#x80FD;&#x518D;&#x6539;&#x53D8;&#x5176;&#x7C7B;&#x578B;&#xFF0C;&#x5982;&#xFF1A;</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> t = <span class="string">&quot;hi world&quot;</span>;</span><br><span class="line"><span class="comment">// &#x4E0B;&#x9762;&#x4EE3;&#x7801;&#x5728;dart&#x4E2D;&#x4F1A;&#x62A5;&#x9519;&#xFF0C;&#x56E0;&#x4E3A;&#x53D8;&#x91CF;t&#x7684;&#x7C7B;&#x578B;&#x5DF2;&#x7ECF;&#x786E;&#x5B9A;&#x4E3A;String&#xFF0C;</span></span><br><span class="line"><span class="comment">// &#x7C7B;&#x578B;&#x4E00;&#x65E6;&#x786E;&#x5B9A;&#x540E;&#x5219;&#x4E0D;&#x80FD;&#x518D;&#x66F4;&#x6539;&#x5176;&#x7C7B;&#x578B;&#x3002;</span></span><br><span class="line">t = <span class="number">1000</span>;</span><br></pre></td></tr></table></figure>
+<p>&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x5728; JavaScript &#x662F;&#x6CA1;&#x6709;&#x95EE;&#x9898;&#x7684;&#xFF0C;&#x4E4B;&#x6240;&#x4EE5;&#x6709;&#x6B64;&#x5DEE;&#x5F02;&#x662F;&#x56E0;&#x4E3A; <strong>Dart &#x672C;&#x8EAB;&#x662F;&#x4E00;&#x4E2A;&#x5F3A;&#x7C7B;&#x578B;&#x8BED;&#x8A00;</strong>&#xFF0C;&#x4EFB;&#x4F55;&#x53D8;&#x91CF;&#x90FD;&#x662F;&#x6709;&#x786E;&#x5B9A;&#x7C7B;&#x578B;&#x7684;&#xFF0C;&#x5728; Dart &#x4E2D;&#xFF0C;&#x5F53;&#x7528;<code>var</code>&#x58F0;&#x660E;&#x4E00;&#x4E2A;&#x53D8;&#x91CF;&#x540E;&#xFF0C;Dart &#x5728;&#x7F16;&#x8BD1;&#x65F6;&#x4F1A;&#x6839;&#x636E;&#x7B2C;&#x4E00;&#x6B21;&#x8D4B;&#x503C;&#x6570;&#x636E;&#x7684;&#x7C7B;&#x578B;&#x6765;&#x63A8;&#x65AD;&#x5176;&#x7C7B;&#x578B;&#xFF0C;&#x7F16;&#x8BD1;&#x7ED3;&#x675F;&#x540E;&#x5176;&#x7C7B;&#x578B;&#x5C31;&#x5DF2;&#x7ECF;&#x88AB;&#x786E;&#x5B9A;&#xFF0C;&#x800C; JavaScript &#x662F;&#x7EAF;&#x7CB9;&#x7684;&#x5F31;&#x7C7B;&#x578B;&#x811A;&#x672C;&#x8BED;&#x8A00;&#xFF0C;var &#x53EA;&#x662F;&#x53D8;&#x91CF;&#x7684;&#x58F0;&#x660E;&#x65B9;&#x5F0F;&#x800C;&#x5DF2;&#x3002;</p>
+<h3 id="2-dynamic-&#x548C;-Object">2. <code>dynamic</code> &#x548C; <code>Object</code></h3>
+<p><code>Object</code> &#x662F; Dart &#x6240;&#x6709;&#x5BF9;&#x8C61;&#x7684;&#x6839;&#x57FA;&#x7C7B;&#xFF0C;&#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#x5728; Dart &#x4E2D;&#x6240;&#x6709;&#x7C7B;&#x578B;&#x90FD;&#x662F;<code>Object</code>&#x7684;&#x5B50;&#x7C7B;(&#x5305;&#x62EC;Function&#x548C;Null)&#xFF0C;&#x6240;&#x4EE5;<strong>&#x4EFB;&#x4F55;&#x7C7B;&#x578B;&#x7684;&#x6570;&#x636E;&#x90FD;&#x53EF;&#x4EE5;&#x8D4B;&#x503C;&#x7ED9;<code>Object</code>&#x58F0;&#x660E;&#x7684;&#x5BF9;&#x8C61;</strong>&#x3002; <code>dynamic</code>&#x4E0E;<code>Object</code>&#x58F0;&#x660E;&#x7684;&#x53D8;&#x91CF;&#x90FD;&#x53EF;&#x4EE5;&#x8D4B;&#x503C;&#x4EFB;&#x610F;&#x5BF9;&#x8C61;&#xFF0C;&#x4E14;&#x540E;&#x671F;&#x53EF;&#x4EE5;&#x6539;&#x53D8;&#x8D4B;&#x503C;&#x7684;&#x7C7B;&#x578B;&#xFF0C;&#x8FD9;&#x548C; <code>var</code> &#x662F;&#x4E0D;&#x540C;&#x7684;&#xFF0C;&#x5982;&#xFF1A;</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">dynamic</span> t;</span><br><span class="line"><span class="built_in">Object</span> x;</span><br><span class="line">t = <span class="string">&quot;hi world&quot;</span>;</span><br><span class="line">x = <span class="string">&apos;Hello Object&apos;</span>;</span><br><span class="line"><span class="comment">//&#x4E0B;&#x9762;&#x4EE3;&#x7801;&#x6CA1;&#x6709;&#x95EE;&#x9898;</span></span><br><span class="line">t = <span class="number">1000</span>;</span><br><span class="line">x = <span class="number">1000</span>;</span><br></pre></td></tr></table></figure>
+<p><strong><code>dynamic</code>&#x4E0E;<code>Object</code>&#x4E0D;&#x540C;&#x7684;&#x662F;<code>dynamic</code>&#x58F0;&#x660E;&#x7684;&#x5BF9;&#x8C61;&#x7F16;&#x8BD1;&#x5668;&#x4F1A;&#x63D0;&#x4F9B;&#x6240;&#x6709;&#x53EF;&#x80FD;&#x7684;&#x7EC4;&#x5408;&#xFF0C;&#x800C;<code>Object</code>&#x58F0;&#x660E;&#x7684;&#x5BF9;&#x8C61;&#x53EA;&#x80FD;&#x4F7F;&#x7528; <code>Object</code> &#x7684;&#x5C5E;&#x6027;&#x4E0E;&#x65B9;&#x6CD5;, &#x5426;&#x5219;&#x7F16;&#x8BD1;&#x5668;&#x4F1A;&#x62A5;&#x9519;</strong>&#xFF0C;&#x5982;:</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">dynamic</span> a;</span><br><span class="line"><span class="built_in">Object</span> b = <span class="string">&quot;&quot;</span>;</span><br><span class="line">main() {</span><br><span class="line">  a = <span class="string">&quot;&quot;</span>;</span><br><span class="line">  printLengths();</span><br><span class="line">}   </span><br><span class="line"></span><br><span class="line">printLengths() {</span><br><span class="line">  <span class="comment">// &#x6B63;&#x5E38;</span></span><br><span class="line">  <span class="built_in">print</span>(a.length);</span><br><span class="line">  <span class="comment">// &#x62A5;&#x9519; The getter &apos;length&apos; is not defined for the class &apos;Object&apos;</span></span><br><span class="line">  <span class="built_in">print</span>(b.length);</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p><code>dynamic</code> &#x7684;&#x8FD9;&#x4E2A;&#x7279;&#x70B9;&#x4F7F;&#x5F97;&#x6211;&#x4EEC;&#x5728;&#x4F7F;&#x7528;&#x5B83;&#x65F6;&#x9700;&#x8981;&#x683C;&#x5916;&#x6CE8;&#x610F;&#xFF0C;&#x8FD9;&#x5F88;&#x5BB9;&#x6613;&#x5F15;&#x5165;&#x4E00;&#x4E2A;&#x8FD0;&#x884C;&#x65F6;&#x9519;&#x8BEF;&#xFF0C;&#x6BD4;&#x5982;&#x4E0B;&#x9762;&#x4EE3;&#x7801;&#x5728;&#x7F16;&#x8BD1;&#x65F6;&#x4E0D;&#x4F1A;&#x62A5;&#x9519;&#xFF0C;&#x800C;&#x5728;&#x8FD0;&#x884C;&#x65F6;&#x4F1A;&#x62A5;&#x9519;&#xFF1A;</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(a.xx); <span class="comment">// a&#x662F;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x6CA1;&#x6709;&quot;xx&quot;&#x5C5E;&#x6027;&#xFF0C;&#x7F16;&#x8BD1;&#x65F6;&#x4E0D;&#x4F1A;&#x62A5;&#x9519;&#xFF0C;&#x8FD0;&#x884C;&#x65F6;&#x4F1A;&#x62A5;&#x9519;</span></span><br></pre></td></tr></table></figure>
+<h3 id="3-final&#x548C;const">3. <code>final</code>&#x548C;<code>const</code></h3>
+<p>&#x5982;&#x679C;&#x4ECE;&#x672A;&#x6253;&#x7B97;&#x66F4;&#x6539;&#x4E00;&#x4E2A;&#x53D8;&#x91CF;&#xFF0C;&#x90A3;&#x4E48;&#x4F7F;&#x7528; <code>final</code> &#x6216; <code>const</code>&#xFF0C;&#x4E0D;&#x662F;<code>var</code>&#xFF0C;&#x4E5F;&#x4E0D;&#x662F;&#x4E00;&#x4E2A;&#x7C7B;&#x578B;&#x3002;</p>
+<p>&#x4E00;&#x4E2A; <code>final</code> &#x53D8;&#x91CF;&#x53EA;&#x80FD;&#x88AB;&#x8BBE;&#x7F6E;&#x4E00;&#x6B21;</p>
+<p>&#x4E24;&#x8005;&#x533A;&#x522B;&#x5728;&#x4E8E;&#xFF1A;</p>
+<p><code>const</code> &#x53D8;&#x91CF;&#x662F;&#x4E00;&#x4E2A;<strong>&#x7F16;&#x8BD1;&#x65F6;&#x5E38;&#x91CF;</strong>&#xFF08;&#x7F16;&#x8BD1;&#x65F6;&#x76F4;&#x63A5;&#x66FF;&#x6362;&#x4E3A;&#x5E38;&#x91CF;&#x503C;&#xFF09;</p>
+<p><code>final</code>&#x53D8;&#x91CF;&#x5728;<strong>&#x7B2C;&#x4E00;&#x6B21;&#x4F7F;&#x7528;&#x65F6;&#x88AB;&#x521D;&#x59CB;&#x5316;</strong>&#x3002;<strong>&#x88AB;<code>final</code>&#x6216;&#x8005;<code>const</code>&#x4FEE;&#x9970;&#x7684;&#x53D8;&#x91CF;&#xFF0C;&#x53D8;&#x91CF;&#x7C7B;&#x578B;&#x53EF;&#x4EE5;&#x7701;&#x7565;</strong>&#xFF0C;&#x5982;&#xFF1A;</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//&#x53EF;&#x4EE5;&#x7701;&#x7565;String&#x8FD9;&#x4E2A;&#x7C7B;&#x578B;&#x58F0;&#x660E;</span></span><br><span class="line"><span class="keyword">final</span> str = <span class="string">&quot;hi world&quot;</span>;</span><br><span class="line"><span class="comment">//final String str = &quot;hi world&quot;; </span></span><br><span class="line"><span class="keyword">const</span> str1 = <span class="string">&quot;hi world&quot;</span>;</span><br><span class="line"><span class="comment">//const String str1 = &quot;hi world&quot;;</span></span><br></pre></td></tr></table></figure>
+<h3 id="4-&#x7A7A;&#x5B89;&#x5168;&#xFF08;null-safety&#xFF09;">4. &#x7A7A;&#x5B89;&#x5168;&#xFF08;null-safety&#xFF09;</h3>
+<p>Dart &#x4E2D;&#x4E00;&#x5207;&#x90FD;&#x662F;&#x5BF9;&#x8C61;&#xFF0C;&#x8FD9;&#x610F;&#x5473;&#x7740;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A;&#x6570;&#x5B57;&#xFF0C;&#x5728;&#x521D;&#x59CB;&#x5316;&#x5B83;&#x4E4B;&#x524D;&#x5982;&#x679C;&#x6211;&#x4EEC;&#x4F7F;&#x7528;&#x4E86;&#x5B83;&#xFF0C;&#x5047;&#x5982;&#x6CA1;&#x6709;&#x67D0;&#x79CD;&#x68C0;&#x67E5;&#x673A;&#x5236;&#xFF0C;&#x5219;&#x4E0D;&#x4F1A;&#x62A5;&#x9519;&#xFF0C;&#x6BD4;&#x5982;&#xFF1A;</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">test() {</span><br><span class="line">  <span class="built_in">int</span> i; </span><br><span class="line">  <span class="built_in">print</span>(i*<span class="number">8</span>);</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>&#x5728; Dart &#x5F15;&#x5165;&#x7A7A;&#x5B89;&#x5168;&#x4E4B;&#x524D;&#xFF0C;&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#x5728;&#x6267;&#x884C;&#x524D;&#x4E0D;&#x4F1A;&#x62A5;&#x9519;&#xFF0C;&#x4F46;&#x4F1A;&#x89E6;&#x53D1;&#x4E00;&#x4E2A;&#x8FD0;&#x884C;&#x65F6;&#x9519;&#x8BEF;&#xFF0C;&#x539F;&#x56E0;&#x662F; i &#x7684;&#x503C;&#x4E3A; null &#x3002;&#x4F46;&#x73B0;&#x5728;&#x6709;&#x4E86;&#x7A7A;&#x5B89;&#x5168;&#xFF0C;&#x5219;&#x5B9A;&#x4E49;&#x53D8;&#x91CF;&#x65F6;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x6307;&#x5B9A;&#x53D8;&#x91CF;&#x662F;&#x53EF;&#x7A7A;&#x8FD8;&#x662F;&#x4E0D;&#x53EF;&#x7A7A;&#x3002;</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">int</span> i = <span class="number">8</span>; <span class="comment">//&#x9ED8;&#x8BA4;&#x4E3A;&#x4E0D;&#x53EF;&#x7A7A;&#xFF0C;&#x5FC5;&#x987B;&#x5728;&#x5B9A;&#x4E49;&#x65F6;&#x521D;&#x59CB;&#x5316;&#x3002;</span></span><br><span class="line"><span class="built_in">int?</span> j; <span class="comment">// &#x5B9A;&#x4E49;&#x4E3A;&#x53EF;&#x7A7A;&#x7C7B;&#x578B;&#xFF0C;&#x5BF9;&#x4E8E;&#x53EF;&#x7A7A;&#x53D8;&#x91CF;&#xFF0C;&#x6211;&#x4EEC;&#x5728;&#x4F7F;&#x7528;&#x524D;&#x5FC5;&#x987B;&#x5224;&#x7A7A;&#x3002;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">// &#x5982;&#x679C;&#x6211;&#x4EEC;&#x9884;&#x671F;&#x53D8;&#x91CF;&#x4E0D;&#x80FD;&#x4E3A;&#x7A7A;&#xFF0C;&#x4F46;&#x5728;&#x5B9A;&#x4E49;&#x65F6;&#x4E0D;&#x80FD;&#x786E;&#x5B9A;&#x5176;&#x521D;&#x59CB;&#x503C;&#xFF0C;&#x5219;&#x53EF;&#x4EE5;&#x52A0;&#x4E0A;late&#x5173;&#x952E;&#x5B57;&#xFF0C;</span></span><br><span class="line"><span class="comment">// &#x8868;&#x793A;&#x4F1A;&#x7A0D;&#x540E;&#x521D;&#x59CB;&#x5316;&#xFF0C;&#x4F46;&#x662F;&#x5728;&#x6B63;&#x5F0F;&#x4F7F;&#x7528;&#x5B83;&#x4E4B;&#x524D;&#x5FC5;&#x987B;&#x5F97;&#x4FDD;&#x8BC1;&#x521D;&#x59CB;&#x5316;&#x8FC7;&#x4E86;&#xFF0C;&#x5426;&#x5219;&#x4F1A;&#x62A5;&#x9519;</span></span><br><span class="line"><span class="keyword">late</span> <span class="built_in">int</span> k;</span><br><span class="line">k=<span class="number">9</span>;</span><br></pre></td></tr></table></figure>
+<p>&#x5982;&#x679C;&#x4E00;&#x4E2A;&#x53D8;&#x91CF;&#x6211;&#x4EEC;&#x5B9A;&#x4E49;&#x4E3A;&#x53EF;&#x7A7A;&#x7C7B;&#x578B;&#xFF0C;&#x5728;&#x67D0;&#x4E9B;&#x60C5;&#x51B5;&#x4E0B;&#x5373;&#x4F7F;&#x6211;&#x4EEC;&#x7ED9;&#x5B83;&#x8D4B;&#x503C;&#x8FC7;&#x4E86;&#xFF0C;&#x4F46;&#x662F;&#x9884;&#x5904;&#x7406;&#x5668;&#x4ECD;&#x7136;&#x6709;&#x53EF;&#x80FD;&#x8BC6;&#x522B;&#x4E0D;&#x51FA;&#xFF0C;&#x8FD9;&#x65F6;&#x6211;&#x4EEC;&#x5C31;&#x8981;&#x663E;&#x5F0F;&#xFF08;&#x901A;&#x8FC7;&#x5728;&#x53D8;&#x91CF;&#x540E;&#x9762;&#x52A0;&#x4E00;&#x4E2A;&#x201D;!&#x201C;&#x7B26;&#x53F7;&#xFF09;&#x544A;&#x8BC9;&#x9884;&#x5904;&#x7406;&#x5668;&#x5B83;&#x5DF2;&#x7ECF;&#x4E0D;&#x662F;null&#x4E86;&#xFF0C;&#x6BD4;&#x5982;&#xFF1A;</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Test</span></span>{</span><br><span class="line">  <span class="built_in">int?</span> i;</span><br><span class="line">  <span class="built_in">Function?</span> fun;</span><br><span class="line">  say(){</span><br><span class="line">    <span class="keyword">if</span>(i!=<span class="keyword">null</span>) {</span><br><span class="line">      <span class="built_in">print</span>(i! * <span class="number">8</span>); <span class="comment">//&#x56E0;&#x4E3A;&#x5DF2;&#x7ECF;&#x5224;&#x8FC7;&#x7A7A;&#xFF0C;&#x6240;&#x4EE5;&#x80FD;&#x8D70;&#x5230;&#x8FD9; i &#x5FC5;&#x4E0D;&#x4E3A;null&#xFF0C;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x663E;&#x5F0F;&#x7533;&#x660E;&#xFF0C;&#x5219; IDE &#x4F1A;&#x62A5;&#x9519;</span></span><br><span class="line">    }</span><br><span class="line">    <span class="keyword">if</span>(fun!=<span class="keyword">null</span>){</span><br><span class="line">      fun!(); <span class="comment">// &#x540C;&#x4E0A;</span></span><br><span class="line">    }</span><br><span class="line">  }</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>&#x4E0A;&#x9762;&#x4E2D;&#x5982;&#x679C;&#x51FD;&#x6570;&#x53D8;&#x91CF;&#x53EF;&#x7A7A;&#x65F6;&#xFF0C;&#x8C03;&#x7528;&#x7684;&#x65F6;&#x5019;&#x53EF;&#x4EE5;&#x7528;&#x8BED;&#x6CD5;&#x7CD6;&#xFF1A;</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fun?.call() <span class="comment">// fun &#x4E0D;&#x4E3A;&#x7A7A;&#x65F6;&#x5219;&#x4F1A;&#x88AB;&#x8C03;&#x7528;</span></span><br></pre></td></tr></table></figure>
+<h2 id="1-4-2-&#x51FD;&#x6570;">1.4.2 &#x51FD;&#x6570;</h2>
+<p>Dart&#x662F;&#x4E00;&#x79CD;&#x771F;&#x6B63;&#x7684;&#x9762;&#x5411;&#x5BF9;&#x8C61;&#x7684;&#x8BED;&#x8A00;&#xFF0C;&#x6240;&#x4EE5;&#x5373;&#x4F7F;&#x662F;&#x51FD;&#x6570;&#x4E5F;&#x662F;&#x5BF9;&#x8C61;&#xFF0C;&#x5E76;&#x4E14;&#x6709;&#x4E00;&#x4E2A;&#x7C7B;&#x578B;<strong>Function</strong>&#x3002;&#x8FD9;&#x610F;&#x5473;&#x7740;&#x51FD;&#x6570;&#x53EF;&#x4EE5;&#x8D4B;&#x503C;&#x7ED9;&#x53D8;&#x91CF;&#x6216;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x4F20;&#x9012;&#x7ED9;&#x5176;&#x4ED6;&#x51FD;&#x6570;&#xFF0C;&#x8FD9;&#x662F;&#x51FD;&#x6570;&#x5F0F;&#x7F16;&#x7A0B;&#x7684;&#x5178;&#x578B;&#x7279;&#x5F81;&#x3002;</p>
+<h3 id="1-&#x51FD;&#x6570;&#x58F0;&#x660E;">1. &#x51FD;&#x6570;&#x58F0;&#x660E;</h3>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">bool</span> isNoble(<span class="built_in">int</span> atomicNumber) {</span><br><span class="line">  <span class="keyword">return</span> _nobleGases[atomicNumber] != <span class="keyword">null</span>;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p><strong>Dart&#x51FD;&#x6570;&#x58F0;&#x660E;&#x5982;&#x679C;&#x6CA1;&#x6709;&#x663E;&#x5F0F;&#x58F0;&#x660E;&#x8FD4;&#x56DE;&#x503C;&#x7C7B;&#x578B;&#x65F6;&#x4F1A;&#x9ED8;&#x8BA4;&#x5F53;&#x505A;<code>dynamic</code>&#x5904;&#x7406;</strong>&#xFF0C;&#x6CE8;&#x610F;&#xFF0C;<strong>&#x51FD;&#x6570;&#x8FD4;&#x56DE;&#x503C;&#x6CA1;&#x6709;&#x7C7B;&#x578B;&#x63A8;&#x65AD;</strong>&#xFF1A;</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="built_in">bool</span> CALLBACK();</span><br><span class="line"></span><br><span class="line"><span class="comment">//&#x4E0D;&#x6307;&#x5B9A;&#x8FD4;&#x56DE;&#x7C7B;&#x578B;&#xFF0C;&#x6B64;&#x65F6;&#x9ED8;&#x8BA4;&#x4E3A;dynamic&#xFF0C;&#x4E0D;&#x662F;bool</span></span><br><span class="line">isNoble(<span class="built_in">int</span> atomicNumber) {</span><br><span class="line">  <span class="keyword">return</span> _nobleGases[atomicNumber] != <span class="keyword">null</span>;</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">void</span> test(CALLBACK cb){</span><br><span class="line">   <span class="built_in">print</span>(cb()); </span><br><span class="line">}</span><br><span class="line"><span class="comment">//&#x62A5;&#x9519;&#xFF0C;isNoble&#x4E0D;&#x662F;bool&#x7C7B;&#x578B;</span></span><br><span class="line">test(isNoble);</span><br></pre></td></tr></table></figure>
+<p>&#x5BF9;&#x4E8E;&#x53EA;&#x5305;&#x542B;&#x4E00;&#x4E2A;&#x8868;&#x8FBE;&#x5F0F;&#x7684;&#x51FD;&#x6570;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x7B80;&#x5199;&#x8BED;&#x6CD5;&#xFF1A;</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">bool</span> isNoble (<span class="built_in">int</span> atomicNumber)=&gt; <span class="keyword">true</span> ;   </span><br></pre></td></tr></table></figure>
+<h3 id="2-&#x51FD;&#x6570;&#x4F5C;&#x4E3A;&#x53D8;&#x91CF;">2. &#x51FD;&#x6570;&#x4F5C;&#x4E3A;&#x53D8;&#x91CF;</h3>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> say = (str){</span><br><span class="line">  <span class="built_in">print</span>(str);</span><br><span class="line">};</span><br><span class="line">say(<span class="string">&quot;hi world&quot;</span>);</span><br></pre></td></tr></table></figure>
+<h3 id="3-&#x51FD;&#x6570;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x4F20;&#x9012;">3. &#x51FD;&#x6570;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x4F20;&#x9012;</h3>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//&#x5B9A;&#x4E49;&#x51FD;&#x6570;execute&#xFF0C;&#x5B83;&#x7684;&#x53C2;&#x6570;&#x7C7B;&#x578B;&#x4E3A;&#x51FD;&#x6570;</span></span><br><span class="line"><span class="keyword">void</span> execute(<span class="keyword">var</span> callback) {</span><br><span class="line">    callback(); <span class="comment">//&#x6267;&#x884C;&#x4F20;&#x5165;&#x7684;&#x51FD;&#x6570;</span></span><br><span class="line">}</span><br><span class="line"><span class="comment">//&#x8C03;&#x7528;execute&#xFF0C;&#x5C06;&#x7BAD;&#x5934;&#x51FD;&#x6570;&#x4F5C;&#x4E3A;&#x53C2;&#x6570;&#x4F20;&#x9012;</span></span><br><span class="line">execute(() =&gt; <span class="built_in">print</span>(<span class="string">&quot;xxx&quot;</span>))</span><br></pre></td></tr></table></figure>
+<h4 id="1&#xFF09;&#x53EF;&#x9009;&#x7684;&#x4F4D;&#x7F6E;&#x53C2;&#x6570;">1&#xFF09;&#x53EF;&#x9009;&#x7684;&#x4F4D;&#x7F6E;&#x53C2;&#x6570;</h4>
+<p>&#x5305;&#x88C5;&#x4E00;&#x7EC4;&#x51FD;&#x6570;&#x53C2;&#x6570;&#xFF0C;<strong>&#x7528;[]&#x6807;&#x8BB0;&#x4E3A;&#x53EF;&#x9009;&#x7684;&#x4F4D;&#x7F6E;&#x53C2;&#x6570;</strong>&#xFF0C;&#x5E76;&#x653E;&#x5728;&#x53C2;&#x6570;&#x5217;&#x8868;&#x7684;&#x6700;&#x540E;&#x9762;&#xFF1A;</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">String</span> say(<span class="built_in">String</span> from, <span class="built_in">String</span> msg, [<span class="built_in">String?</span> device]) {</span><br><span class="line">  <span class="keyword">var</span> result = <span class="string">&apos;<span class="subst">$from</span> says <span class="subst">$msg</span>&apos;</span>;</span><br><span class="line">  <span class="keyword">if</span> (device != <span class="keyword">null</span>) {</span><br><span class="line">    result = <span class="string">&apos;<span class="subst">$result</span> with a <span class="subst">$device</span>&apos;</span>;</span><br><span class="line">  }</span><br><span class="line">  <span class="keyword">return</span> result;</span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>&#x4E0B;&#x9762;&#x662F;&#x4E00;&#x4E2A;&#x4E0D;&#x5E26;&#x53EF;&#x9009;&#x53C2;&#x6570;&#x8C03;&#x7528;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x7684;&#x4F8B;&#x5B50;&#xFF1A;</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">say(<span class="string">&apos;Bob&apos;</span>, <span class="string">&apos;Howdy&apos;</span>); <span class="comment">//&#x7ED3;&#x679C;&#x662F;&#xFF1A; Bob says Howdy</span></span><br></pre></td></tr></table></figure>
+<p>&#x4E0B;&#x9762;&#x662F;&#x7528;&#x7B2C;&#x4E09;&#x4E2A;&#x53C2;&#x6570;&#x8C03;&#x7528;&#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x7684;&#x4F8B;&#x5B50;&#xFF1A;</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">say(<span class="string">&apos;Bob&apos;</span>, <span class="string">&apos;Howdy&apos;</span>, <span class="string">&apos;smoke signal&apos;</span>); <span class="comment">//&#x7ED3;&#x679C;&#x662F;&#xFF1A;Bob says Howdy with a smoke signal</span></span><br></pre></td></tr></table></figure>
+<h4 id="2&#xFF09;&#x53EF;&#x9009;&#x7684;&#x547D;&#x540D;&#x53C2;&#x6570;">2&#xFF09;&#x53EF;&#x9009;&#x7684;&#x547D;&#x540D;&#x53C2;&#x6570;</h4>
+<p>&#x5B9A;&#x4E49;&#x51FD;&#x6570;&#x65F6;&#xFF0C;&#x4F7F;&#x7528;{param1, param2, &#x2026;}&#xFF0C;&#x653E;&#x5728;&#x53C2;&#x6570;&#x5217;&#x8868;&#x7684;&#x6700;&#x540E;&#x9762;&#xFF0C;&#x7528;&#x4E8E;&#x6307;&#x5B9A;&#x547D;&#x540D;&#x53C2;&#x6570;&#x3002;&#x4F8B;&#x5982;&#xFF1A;</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//&#x8BBE;&#x7F6E;[bold]&#x548C;[hidden]&#x6807;&#x5FD7;</span></span><br><span class="line"><span class="keyword">void</span> enableFlags({<span class="built_in">bool</span> bold, <span class="built_in">bool</span> hidden}) {</span><br><span class="line">    <span class="comment">// ... </span></span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>&#x8C03;&#x7528;&#x51FD;&#x6570;&#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528;&#x6307;&#x5B9A;&#x547D;&#x540D;&#x53C2;&#x6570;&#x3002;&#x4F8B;&#x5982;&#xFF1A;<code>paramName: value</code></p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">enableFlags(bold: <span class="keyword">true</span>, hidden: <span class="keyword">false</span>);</span><br></pre></td></tr></table></figure>
+<p>&#x53EF;&#x9009;&#x547D;&#x540D;&#x53C2;&#x6570;&#x5728;Flutter&#x4E2D;&#x4F7F;&#x7528;&#x975E;&#x5E38;&#x591A;&#x3002;<strong>&#x6CE8;&#x610F;&#xFF0C;&#x4E0D;&#x80FD;&#x540C;&#x65F6;&#x4F7F;&#x7528;&#x53EF;&#x9009;&#x7684;&#x4F4D;&#x7F6E;&#x53C2;&#x6570;&#x548C;&#x53EF;&#x9009;&#x7684;&#x547D;&#x540D;&#x53C2;&#x6570;</strong>&#x3002;</p>
+<h2 id="1-4-3-mixin">1.4.3 mixin</h2>
+<p>Dart &#x662F;&#x4E0D;&#x652F;&#x6301;&#x591A;&#x7EE7;&#x627F;&#x7684;&#xFF0C;&#x4F46;&#x662F;&#x5B83;&#x652F;&#x6301; mixin&#xFF0C;&#x7B80;&#x5355;&#x6765;&#x8BB2; mixin &#x53EF;&#x4EE5; &#x201C;&#x7EC4;&#x5408;&#x201D; &#x591A;&#x4E2A;&#x7C7B;&#xFF0C;&#x6211;&#x4EEC;&#x901A;&#x8FC7;&#x4E00;&#x4E2A;&#x4F8B;&#x5B50;&#x6765;&#x7406;&#x89E3;&#x3002;</p>
+<p>&#x5B9A;&#x4E49;&#x4E00;&#x4E2A; Person &#x7C7B;&#xFF0C;&#x5B9E;&#x73B0;&#x5403;&#x996D;&#x3001;&#x8BF4;&#x8BDD;&#x3001;&#x8D70;&#x8DEF;&#x548C;&#x5199;&#x4EE3;&#x7801;&#x529F;&#x80FD;&#xFF0C;&#x540C;&#x65F6;&#x5B9A;&#x4E49;&#x4E00;&#x4E2A; Dog &#x7C7B;&#xFF0C;&#x5B9E;&#x73B0;&#x5403;&#x996D;&#x3001;&#x548C;&#x8D70;&#x8DEF;&#x529F;&#x80FD;&#xFF1A;</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>{</span><br><span class="line">  say() {</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&apos;say&apos;</span>);</span><br><span class="line">  }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">mixin</span> Eat {</span><br><span class="line">  eat() {</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&apos;eat&apos;</span>);</span><br><span class="line">  }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">mixin</span> Walk {</span><br><span class="line">  walk() {</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&apos;walk&apos;</span>);</span><br><span class="line">  }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="keyword">mixin</span> Code {</span><br><span class="line">  code() {</span><br><span class="line">    <span class="built_in">print</span>(<span class="string">&apos;key&apos;</span>);</span><br><span class="line">  }</span><br><span class="line">}</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Dog</span> <span class="title">with</span> <span class="title">Eat</span>, <span class="title">Walk</span></span>{}</span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Man</span> <span class="keyword">extends</span> <span class="title">Person</span> <span class="title">with</span> <span class="title">Eat</span>, <span class="title">Walk</span>, <span class="title">Code</span></span>{}</span><br></pre></td></tr></table></figure>
+<p>&#x6211;&#x4EEC;&#x5B9A;&#x4E49;&#x4E86;&#x51E0;&#x4E2A; mixin&#xFF0C;&#x7136;&#x540E;<strong>&#x901A;&#x8FC7; with &#x5173;&#x952E;&#x5B57;&#x5C06;&#x5B83;&#x4EEC;&#x7EC4;&#x5408;&#x6210;&#x4E0D;&#x540C;&#x7684;&#x7C7B;</strong>&#x3002;&#x6709;&#x4E00;&#x70B9;&#x9700;&#x8981;&#x6CE8;&#x610F;&#xFF1A;&#x5982;&#x679C;&#x591A;&#x4E2A;mixin &#x4E2D;&#x6709;&#x540C;&#x540D;&#x65B9;&#x6CD5;&#xFF0C;with &#x65F6;&#xFF0C;&#x4F1A;&#x9ED8;&#x8BA4;&#x4F7F;&#x7528;&#x6700;&#x540E;&#x9762;&#x7684; mixin &#x7684;&#xFF0C;mixin &#x65B9;&#x6CD5;&#x4E2D;&#x53EF;&#x4EE5;&#x901A;&#x8FC7; super &#x5173;&#x952E;&#x5B57;&#x8C03;&#x7528;&#x4E4B;&#x524D; mixin &#x6216;&#x7C7B;&#x4E2D;&#x7684;&#x65B9;&#x6CD5;&#x3002;&#x6211;&#x4EEC;&#x8FD9;&#x91CC;&#x53EA;&#x4ECB;&#x7ECD; mixin &#x6700;&#x57FA;&#x672C;&#x7684;&#x7279;&#x6027;&#xFF0C;&#x5173;&#x4E8E; mixin &#x66F4;&#x8BE6;&#x7EC6;&#x7684;&#x5185;&#x5BB9;&#x8BFB;&#x8005;&#x53EF;&#x4EE5;&#x81EA;&#x884C;&#x767E;&#x5EA6;&#x3002;</p>
+<h2 id="1-4-4-&#x5F02;&#x6B65;&#x652F;&#x6301;">1.4.4 &#x5F02;&#x6B65;&#x652F;&#x6301;</h2>
+<p>Dart&#x7C7B;&#x5E93;&#x6709;&#x975E;&#x5E38;&#x591A;&#x7684;&#x8FD4;&#x56DE;<code>Future</code>&#x6216;&#x8005;<code>Stream</code>&#x5BF9;&#x8C61;&#x7684;&#x51FD;&#x6570;&#x3002; &#x8FD9;&#x4E9B;&#x51FD;&#x6570;&#x88AB;&#x79F0;&#x4E3A;<strong>&#x5F02;&#x6B65;&#x51FD;&#x6570;</strong>&#xFF1A;&#x5B83;&#x4EEC;&#x53EA;&#x4F1A;&#x5728;&#x8BBE;&#x7F6E;&#x597D;&#x4E00;&#x4E9B;&#x8017;&#x65F6;&#x64CD;&#x4F5C;&#x4E4B;&#x540E;&#x8FD4;&#x56DE;&#xFF0C;&#x6BD4;&#x5982;&#x50CF; IO&#x64CD;&#x4F5C;&#x3002;&#x800C;&#x4E0D;&#x662F;&#x7B49;&#x5230;&#x8FD9;&#x4E2A;&#x64CD;&#x4F5C;&#x5B8C;&#x6210;&#x3002;</p>
+<p><code>async</code>&#x548C;<code>await</code>&#x5173;&#x952E;&#x8BCD;&#x652F;&#x6301;&#x4E86;&#x5F02;&#x6B65;&#x7F16;&#x7A0B;&#xFF0C;&#x5141;&#x8BB8;&#x60A8;&#x5199;&#x51FA;&#x548C;&#x540C;&#x6B65;&#x4EE3;&#x7801;&#x5F88;&#x50CF;&#x7684;&#x5F02;&#x6B65;&#x4EE3;&#x7801;&#x3002;</p>
+<h3 id="1-Future">1. <code>Future</code></h3>
+<p><code>Future</code>&#x4E0E;JavaScript&#x4E2D;&#x7684;<code>Promise</code>&#x975E;&#x5E38;&#x76F8;&#x4F3C;&#xFF0C;&#x8868;&#x793A;&#x4E00;&#x4E2A;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#x7684;&#x6700;&#x7EC8;&#x5B8C;&#x6210;&#xFF08;&#x6216;&#x5931;&#x8D25;&#xFF09;&#x53CA;&#x5176;&#x7ED3;&#x679C;&#x503C;&#x7684;&#x8868;&#x793A;&#x3002;&#x7B80;&#x5355;&#x6765;&#x8BF4;&#xFF0C;&#x5B83;&#x5C31;&#x662F;&#x7528;&#x4E8E;&#x5904;&#x7406;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#x7684;&#xFF0C;&#x5F02;&#x6B65;&#x5904;&#x7406;&#x6210;&#x529F;&#x4E86;&#x5C31;&#x6267;&#x884C;&#x6210;&#x529F;&#x7684;&#x64CD;&#x4F5C;&#xFF0C;&#x5F02;&#x6B65;&#x5904;&#x7406;&#x5931;&#x8D25;&#x4E86;&#x5C31;&#x6355;&#x83B7;&#x9519;&#x8BEF;&#x6216;&#x8005;&#x505C;&#x6B62;&#x540E;&#x7EED;&#x64CD;&#x4F5C;&#x3002;&#x4E00;&#x4E2A;Future&#x53EA;&#x4F1A;&#x5BF9;&#x5E94;&#x4E00;&#x4E2A;&#x7ED3;&#x679C;&#xFF0C;&#x8981;&#x4E48;&#x6210;&#x529F;&#xFF0C;&#x8981;&#x4E48;&#x5931;&#x8D25;&#x3002;</p>
+<p>&#x7531;&#x4E8E;&#x672C;&#x8EAB;&#x529F;&#x80FD;&#x8F83;&#x591A;&#xFF0C;&#x8FD9;&#x91CC;&#x6211;&#x4EEC;&#x53EA;&#x4ECB;&#x7ECD;&#x5176;&#x5E38;&#x7528;&#x7684;API&#x53CA;&#x7279;&#x6027;&#x3002;&#x8FD8;&#x6709;&#xFF0C;&#x8BF7;&#x8BB0;&#x4F4F;&#xFF0C;<code>Future</code> &#x7684;&#x6240;&#x6709;API&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x4ECD;&#x7136;&#x662F;&#x4E00;&#x4E2A;<code>Future</code>&#x5BF9;&#x8C61;&#xFF0C;&#x6240;&#x4EE5;&#x53EF;&#x4EE5;&#x5F88;&#x65B9;&#x4FBF;&#x7684;&#x8FDB;&#x884C;&#x94FE;&#x5F0F;&#x8C03;&#x7528;&#x3002;</p>
+<h4 id="1&#xFF09;Future-then"><a target="_blank" rel="noopener" href="https://book.flutterchina.club/chapter1/dart.html#_1-future-then">#</a>1&#xFF09;<code>Future.then</code></h4>
+<p>&#x4E3A;&#x4E86;&#x65B9;&#x4FBF;&#x793A;&#x4F8B;&#xFF0C;&#x5728;&#x672C;&#x4F8B;&#x4E2D;&#x6211;&#x4EEC;&#x4F7F;&#x7528;<code>Future.delayed</code> &#x521B;&#x5EFA;&#x4E86;&#x4E00;&#x4E2A;&#x5EF6;&#x65F6;&#x4EFB;&#x52A1;&#xFF08;&#x5B9E;&#x9645;&#x573A;&#x666F;&#x4F1A;&#x662F;&#x4E00;&#x4E2A;&#x771F;&#x6B63;&#x7684;&#x8017;&#x65F6;&#x4EFB;&#x52A1;&#xFF0C;&#x6BD4;&#x5982;&#x4E00;&#x6B21;&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;&#xFF09;&#xFF0C;&#x5373;2&#x79D2;&#x540E;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;&#x5B57;&#x7B26;&#x4E32;&quot;hi world!&quot;&#xFF0C;&#x7136;&#x540E;&#x6211;&#x4EEC;&#x5728;<code>then</code>&#x4E2D;&#x63A5;&#x6536;&#x5F02;&#x6B65;&#x7ED3;&#x679C;&#x5E76;&#x6253;&#x5370;&#x7ED3;&#x679C;&#xFF0C;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Future.delayed(<span class="built_in">Duration</span>(seconds: <span class="number">2</span>),(){</span><br><span class="line">   <span class="keyword">return</span> <span class="string">&quot;hi world!&quot;</span>;</span><br><span class="line">}).then((data){</span><br><span class="line">   <span class="built_in">print</span>(data);</span><br><span class="line">});</span><br></pre></td></tr></table></figure>
+<h4 id="2&#xFF09;Future-catchError"><a target="_blank" rel="noopener" href="https://book.flutterchina.club/chapter1/dart.html#_2-future-catcherror">#</a>2&#xFF09;<code>Future.catchError</code></h4>
+<p>&#x5982;&#x679C;&#x5F02;&#x6B65;&#x4EFB;&#x52A1;&#x53D1;&#x751F;&#x9519;&#x8BEF;&#xFF0C;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x5728;<code>catchError</code>&#x4E2D;&#x6355;&#x83B7;&#x9519;&#x8BEF;&#xFF0C;&#x6211;&#x4EEC;&#x5C06;&#x4E0A;&#x9762;&#x793A;&#x4F8B;&#x6539;&#x4E3A;&#xFF1A;</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Future.delayed(<span class="built_in">Duration</span>(seconds: <span class="number">2</span>),(){</span><br><span class="line">   <span class="comment">//return &quot;hi world!&quot;;</span></span><br><span class="line">   <span class="keyword">throw</span> AssertionError(<span class="string">&quot;Error&quot;</span>);  </span><br><span class="line">}).then((data){</span><br><span class="line">   <span class="comment">//&#x6267;&#x884C;&#x6210;&#x529F;&#x4F1A;&#x8D70;&#x5230;&#x8FD9;&#x91CC;  </span></span><br><span class="line">   <span class="built_in">print</span>(<span class="string">&quot;success&quot;</span>);</span><br><span class="line">}).catchError((e){</span><br><span class="line">   <span class="comment">//&#x6267;&#x884C;&#x5931;&#x8D25;&#x4F1A;&#x8D70;&#x5230;&#x8FD9;&#x91CC;  </span></span><br><span class="line">   <span class="built_in">print</span>(e);</span><br><span class="line">});</span><br></pre></td></tr></table></figure>
+<p>&#x5728;&#x672C;&#x793A;&#x4F8B;&#x4E2D;&#xFF0C;&#x6211;&#x4EEC;&#x5728;&#x5F02;&#x6B65;&#x4EFB;&#x52A1;&#x4E2D;&#x629B;&#x51FA;&#x4E86;&#x4E00;&#x4E2A;&#x5F02;&#x5E38;&#xFF0C;<code>then</code>&#x7684;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x5C06;&#x4E0D;&#x4F1A;&#x88AB;&#x6267;&#x884C;&#xFF0C;&#x53D6;&#x800C;&#x4EE3;&#x4E4B;&#x7684;&#x662F; <code>catchError</code>&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x5C06;&#x88AB;&#x8C03;&#x7528;&#xFF1B;&#x4F46;&#x662F;&#xFF0C;&#x5E76;&#x4E0D;&#x662F;&#x53EA;&#x6709; <code>catchError</code>&#x56DE;&#x8C03;&#x624D;&#x80FD;&#x6355;&#x83B7;&#x9519;&#x8BEF;&#xFF0C;<code>then</code>&#x65B9;&#x6CD5;&#x8FD8;&#x6709;&#x4E00;&#x4E2A;&#x53EF;&#x9009;&#x53C2;&#x6570;<code>onError</code>&#xFF0C;&#x6211;&#x4EEC;&#x4E5F;&#x53EF;&#x4EE5;&#x7528;&#x5B83;&#x6765;&#x6355;&#x83B7;&#x5F02;&#x5E38;&#xFF1A;</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Future.delayed(<span class="built_in">Duration</span>(seconds: <span class="number">2</span>), () {</span><br><span class="line">	<span class="comment">//return &quot;hi world!&quot;;</span></span><br><span class="line">	<span class="keyword">throw</span> AssertionError(<span class="string">&quot;Error&quot;</span>);</span><br><span class="line">}).then((data) {</span><br><span class="line">	<span class="built_in">print</span>(<span class="string">&quot;success&quot;</span>);</span><br><span class="line">}, onError: (e) {</span><br><span class="line">	<span class="built_in">print</span>(e);</span><br><span class="line">});</span><br></pre></td></tr></table></figure>
+<p>1<br>
+2<br>
+3<br>
+4<br>
+5<br>
+6<br>
+7<br>
+8</p>
+<h4 id="3&#xFF09;Future-whenComplete"><a target="_blank" rel="noopener" href="https://book.flutterchina.club/chapter1/dart.html#_3-future-whencomplete">#</a>3&#xFF09;<code>Future.whenComplete</code></h4>
+<p>&#x6709;&#x4E9B;&#x65F6;&#x5019;&#xFF0C;&#x6211;&#x4EEC;&#x4F1A;&#x9047;&#x5230;&#x65E0;&#x8BBA;&#x5F02;&#x6B65;&#x4EFB;&#x52A1;&#x6267;&#x884C;&#x6210;&#x529F;&#x6216;&#x5931;&#x8D25;&#x90FD;&#x9700;&#x8981;&#x505A;&#x4E00;&#x4E9B;&#x4E8B;&#x7684;&#x573A;&#x666F;&#xFF0C;&#x6BD4;&#x5982;&#x5728;&#x7F51;&#x7EDC;&#x8BF7;&#x6C42;&#x524D;&#x5F39;&#x51FA;&#x52A0;&#x8F7D;&#x5BF9;&#x8BDD;&#x6846;&#xFF0C;&#x5728;&#x8BF7;&#x6C42;&#x7ED3;&#x675F;&#x540E;&#x5173;&#x95ED;&#x5BF9;&#x8BDD;&#x6846;&#x3002;&#x8FD9;&#x79CD;&#x573A;&#x666F;&#xFF0C;&#x6709;&#x4E24;&#x79CD;&#x65B9;&#x6CD5;&#xFF0C;&#x7B2C;&#x4E00;&#x79CD;&#x662F;&#x5206;&#x522B;&#x5728;<code>then</code>&#x6216;<code>catch</code>&#x4E2D;&#x5173;&#x95ED;&#x4E00;&#x4E0B;&#x5BF9;&#x8BDD;&#x6846;&#xFF0C;&#x7B2C;&#x4E8C;&#x79CD;&#x5C31;&#x662F;&#x4F7F;&#x7528;<code>Future</code>&#x7684;<code>whenComplete</code>&#x56DE;&#x8C03;&#xFF0C;&#x6211;&#x4EEC;&#x5C06;&#x4E0A;&#x9762;&#x793A;&#x4F8B;&#x6539;&#x4E00;&#x4E0B;&#xFF1A;</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Future.delayed(<span class="built_in">Duration</span>(seconds: <span class="number">2</span>),(){</span><br><span class="line">   <span class="comment">//return &quot;hi world!&quot;;</span></span><br><span class="line">   <span class="keyword">throw</span> AssertionError(<span class="string">&quot;Error&quot;</span>);</span><br><span class="line">}).then((data){</span><br><span class="line">   <span class="comment">//&#x6267;&#x884C;&#x6210;&#x529F;&#x4F1A;&#x8D70;&#x5230;&#x8FD9;&#x91CC; </span></span><br><span class="line">   <span class="built_in">print</span>(data);</span><br><span class="line">}).catchError((e){</span><br><span class="line">   <span class="comment">//&#x6267;&#x884C;&#x5931;&#x8D25;&#x4F1A;&#x8D70;&#x5230;&#x8FD9;&#x91CC;   </span></span><br><span class="line">   <span class="built_in">print</span>(e);</span><br><span class="line">}).whenComplete((){</span><br><span class="line">   <span class="comment">//&#x65E0;&#x8BBA;&#x6210;&#x529F;&#x6216;&#x5931;&#x8D25;&#x90FD;&#x4F1A;&#x8D70;&#x5230;&#x8FD9;&#x91CC;</span></span><br><span class="line">});</span><br></pre></td></tr></table></figure>
+<p>1<br>
+2<br>
+3<br>
+4<br>
+5<br>
+6<br>
+7<br>
+8<br>
+9<br>
+10<br>
+11<br>
+12</p>
+<h4 id="4&#xFF09;Future-wait"><a target="_blank" rel="noopener" href="https://book.flutterchina.club/chapter1/dart.html#_4-future-wait">#</a>4&#xFF09;<code>Future.wait</code></h4>
+<p>&#x6709;&#x4E9B;&#x65F6;&#x5019;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x7B49;&#x5F85;&#x591A;&#x4E2A;&#x5F02;&#x6B65;&#x4EFB;&#x52A1;&#x90FD;&#x6267;&#x884C;&#x7ED3;&#x675F;&#x540E;&#x624D;&#x8FDB;&#x884C;&#x4E00;&#x4E9B;&#x64CD;&#x4F5C;&#xFF0C;&#x6BD4;&#x5982;&#x6211;&#x4EEC;&#x6709;&#x4E00;&#x4E2A;&#x754C;&#x9762;&#xFF0C;&#x9700;&#x8981;&#x5148;&#x5206;&#x522B;&#x4ECE;&#x4E24;&#x4E2A;&#x7F51;&#x7EDC;&#x63A5;&#x53E3;&#x83B7;&#x53D6;&#x6570;&#x636E;&#xFF0C;&#x83B7;&#x53D6;&#x6210;&#x529F;&#x540E;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x5C06;&#x4E24;&#x4E2A;&#x63A5;&#x53E3;&#x6570;&#x636E;&#x8FDB;&#x884C;&#x7279;&#x5B9A;&#x7684;&#x5904;&#x7406;&#x540E;&#x518D;&#x663E;&#x793A;&#x5230;UI&#x754C;&#x9762;&#x4E0A;&#xFF0C;&#x5E94;&#x8BE5;&#x600E;&#x4E48;&#x505A;&#xFF1F;&#x7B54;&#x6848;&#x662F;<code>Future.wait</code>&#xFF0C;&#x5B83;&#x63A5;&#x53D7;&#x4E00;&#x4E2A;<code>Future</code>&#x6570;&#x7EC4;&#x53C2;&#x6570;&#xFF0C;&#x53EA;&#x6709;&#x6570;&#x7EC4;&#x4E2D;&#x6240;&#x6709;<code>Future</code>&#x90FD;&#x6267;&#x884C;&#x6210;&#x529F;&#x540E;&#xFF0C;&#x624D;&#x4F1A;&#x89E6;&#x53D1;<code>then</code>&#x7684;&#x6210;&#x529F;&#x56DE;&#x8C03;&#xFF0C;&#x53EA;&#x8981;&#x6709;&#x4E00;&#x4E2A;<code>Future</code>&#x6267;&#x884C;&#x5931;&#x8D25;&#xFF0C;&#x5C31;&#x4F1A;&#x89E6;&#x53D1;&#x9519;&#x8BEF;&#x56DE;&#x8C03;&#x3002;&#x4E0B;&#x9762;&#xFF0C;&#x6211;&#x4EEC;&#x901A;&#x8FC7;&#x6A21;&#x62DF;<code>Future.delayed</code> &#x6765;&#x6A21;&#x62DF;&#x4E24;&#x4E2A;&#x6570;&#x636E;&#x83B7;&#x53D6;&#x7684;&#x5F02;&#x6B65;&#x4EFB;&#x52A1;&#xFF0C;&#x7B49;&#x4E24;&#x4E2A;&#x5F02;&#x6B65;&#x4EFB;&#x52A1;&#x90FD;&#x6267;&#x884C;&#x6210;&#x529F;&#x65F6;&#xFF0C;&#x5C06;&#x4E24;&#x4E2A;&#x5F02;&#x6B65;&#x4EFB;&#x52A1;&#x7684;&#x7ED3;&#x679C;&#x62FC;&#x63A5;&#x6253;&#x5370;&#x51FA;&#x6765;&#xFF0C;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">Future.wait([</span><br><span class="line">  <span class="comment">// 2&#x79D2;&#x540E;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;  </span></span><br><span class="line">  Future.delayed(<span class="built_in">Duration</span>(seconds: <span class="number">2</span>), () {</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;hello&quot;</span>;</span><br><span class="line">  }),</span><br><span class="line">  <span class="comment">// 4&#x79D2;&#x540E;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;  </span></span><br><span class="line">  Future.delayed(<span class="built_in">Duration</span>(seconds: <span class="number">4</span>), () {</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot; world&quot;</span>;</span><br><span class="line">  })</span><br><span class="line">]).then((results){</span><br><span class="line">  <span class="built_in">print</span>(results[<span class="number">0</span>]+results[<span class="number">1</span>]);</span><br><span class="line">}).catchError((e){</span><br><span class="line">  <span class="built_in">print</span>(e);</span><br><span class="line">});</span><br></pre></td></tr></table></figure>
+<p>1<br>
+2<br>
+3<br>
+4<br>
+5<br>
+6<br>
+7<br>
+8<br>
+9<br>
+10<br>
+11<br>
+12<br>
+13<br>
+14</p>
+<p>&#x6267;&#x884C;&#x4E0A;&#x9762;&#x4EE3;&#x7801;&#xFF0C;4&#x79D2;&#x540E;&#x4F60;&#x4F1A;&#x5728;&#x63A7;&#x5236;&#x53F0;&#x4E2D;&#x770B;&#x5230;&#x201C;hello world&#x201D;&#x3002;</p>
+<h3 id="2-async-await"><a target="_blank" rel="noopener" href="https://book.flutterchina.club/chapter1/dart.html#_2-async-await">#</a>2. async/await</h3>
+<p>Dart&#x4E2D;&#x7684;<code>async/await</code> &#x548C;JavaScript&#x4E2D;&#x7684;<code>async/await</code>&#x529F;&#x80FD;&#x662F;&#x4E00;&#x6837;&#x7684;&#xFF1A;&#x5F02;&#x6B65;&#x4EFB;&#x52A1;&#x4E32;&#x884C;&#x5316;&#x3002;&#x5982;&#x679C;&#x4F60;&#x5DF2;&#x7ECF;&#x4E86;&#x89E3;JavaScript&#x4E2D;&#x7684;<code>async/await</code>&#x7684;&#x7528;&#x6CD5;&#xFF0C;&#x53EF;&#x4EE5;&#x76F4;&#x63A5;&#x8DF3;&#x8FC7;&#x672C;&#x8282;&#x3002;</p>
+<h4 id="1&#xFF09;&#x56DE;&#x8C03;&#x5730;&#x72F1;-Callback-Hell"><a target="_blank" rel="noopener" href="https://book.flutterchina.club/chapter1/dart.html#_1-%E5%9B%9E%E8%B0%83%E5%9C%B0%E7%8B%B1-callback-hell">#</a>1&#xFF09;&#x56DE;&#x8C03;&#x5730;&#x72F1;(Callback Hell)</h4>
+<p>&#x5982;&#x679C;&#x4EE3;&#x7801;&#x4E2D;&#x6709;&#x5927;&#x91CF;&#x5F02;&#x6B65;&#x903B;&#x8F91;&#xFF0C;&#x5E76;&#x4E14;&#x51FA;&#x73B0;&#x5927;&#x91CF;&#x5F02;&#x6B65;&#x4EFB;&#x52A1;&#x4F9D;&#x8D56;&#x5176;&#x4ED6;&#x5F02;&#x6B65;&#x4EFB;&#x52A1;&#x7684;&#x7ED3;&#x679C;&#x65F6;&#xFF0C;&#x5FC5;&#x7136;&#x4F1A;&#x51FA;&#x73B0;<code>Future.then</code>&#x56DE;&#x8C03;&#x4E2D;&#x5957;&#x56DE;&#x8C03;&#x60C5;&#x51B5;&#x3002;&#x4E3E;&#x4E2A;&#x4F8B;&#x5B50;&#xFF0C;&#x6BD4;&#x5982;&#x73B0;&#x5728;&#x6709;&#x4E2A;&#x9700;&#x6C42;&#x573A;&#x666F;&#x662F;&#x7528;&#x6237;&#x5148;&#x767B;&#x5F55;&#xFF0C;&#x767B;&#x5F55;&#x6210;&#x529F;&#x540E;&#x4F1A;&#x83B7;&#x5F97;&#x7528;&#x6237;ID&#xFF0C;&#x7136;&#x540E;&#x901A;&#x8FC7;&#x7528;&#x6237;ID&#xFF0C;&#x518D;&#x53BB;&#x8BF7;&#x6C42;&#x7528;&#x6237;&#x4E2A;&#x4EBA;&#x4FE1;&#x606F;&#xFF0C;&#x83B7;&#x53D6;&#x5230;&#x7528;&#x6237;&#x4E2A;&#x4EBA;&#x4FE1;&#x606F;&#x540E;&#xFF0C;&#x4E3A;&#x4E86;&#x4F7F;&#x7528;&#x65B9;&#x4FBF;&#xFF0C;&#x6211;&#x4EEC;&#x9700;&#x8981;&#x5C06;&#x5176;&#x7F13;&#x5B58;&#x5728;&#x672C;&#x5730;&#x6587;&#x4EF6;&#x7CFB;&#x7EDF;&#xFF0C;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//&#x5148;&#x5206;&#x522B;&#x5B9A;&#x4E49;&#x5404;&#x4E2A;&#x5F02;&#x6B65;&#x4EFB;&#x52A1;</span></span><br><span class="line">Future&lt;<span class="built_in">String</span>&gt; login(<span class="built_in">String</span> userName, <span class="built_in">String</span> pwd){</span><br><span class="line">	...</span><br><span class="line">    <span class="comment">//&#x7528;&#x6237;&#x767B;&#x5F55;</span></span><br><span class="line">};</span><br><span class="line">Future&lt;<span class="built_in">String</span>&gt; getUserInfo(<span class="built_in">String</span> id){</span><br><span class="line">	...</span><br><span class="line">    <span class="comment">//&#x83B7;&#x53D6;&#x7528;&#x6237;&#x4FE1;&#x606F; </span></span><br><span class="line">};</span><br><span class="line">Future saveUserInfo(<span class="built_in">String</span> userInfo){</span><br><span class="line">	...</span><br><span class="line">	<span class="comment">// &#x4FDD;&#x5B58;&#x7528;&#x6237;&#x4FE1;&#x606F; </span></span><br><span class="line">}; </span><br></pre></td></tr></table></figure>
+<p>1<br>
+2<br>
+3<br>
+4<br>
+5<br>
+6<br>
+7<br>
+8<br>
+9<br>
+10<br>
+11<br>
+12<br>
+13</p>
+<p>&#x63A5;&#x4E0B;&#x6765;&#xFF0C;&#x6267;&#x884C;&#x6574;&#x4E2A;&#x4EFB;&#x52A1;&#x6D41;&#xFF1A;</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">login(<span class="string">&quot;alice&quot;</span>,<span class="string">&quot;******&quot;</span>).then((id){</span><br><span class="line"> <span class="comment">//&#x767B;&#x5F55;&#x6210;&#x529F;&#x540E;&#x901A;&#x8FC7;&#xFF0C;id&#x83B7;&#x53D6;&#x7528;&#x6237;&#x4FE1;&#x606F;    </span></span><br><span class="line"> getUserInfo(id).then((userInfo){</span><br><span class="line">    <span class="comment">//&#x83B7;&#x53D6;&#x7528;&#x6237;&#x4FE1;&#x606F;&#x540E;&#x4FDD;&#x5B58; </span></span><br><span class="line">    saveUserInfo(userInfo).then((){</span><br><span class="line">       <span class="comment">//&#x4FDD;&#x5B58;&#x7528;&#x6237;&#x4FE1;&#x606F;&#xFF0C;&#x63A5;&#x4E0B;&#x6765;&#x6267;&#x884C;&#x5176;&#x4ED6;&#x64CD;&#x4F5C;</span></span><br><span class="line">        ...</span><br><span class="line">    });</span><br><span class="line">  });</span><br><span class="line">})</span><br></pre></td></tr></table></figure>
+<p>1<br>
+2<br>
+3<br>
+4<br>
+5<br>
+6<br>
+7<br>
+8<br>
+9<br>
+10</p>
+<p>&#x53EF;&#x4EE5;&#x611F;&#x53D7;&#x4E00;&#x4E0B;&#xFF0C;&#x5982;&#x679C;&#x4E1A;&#x52A1;&#x903B;&#x8F91;&#x4E2D;&#x6709;&#x5927;&#x91CF;&#x5F02;&#x6B65;&#x4F9D;&#x8D56;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x5C06;&#x4F1A;&#x51FA;&#x73B0;&#x4E0A;&#x9762;&#x8FD9;&#x79CD;&#x5728;&#x56DE;&#x8C03;&#x91CC;&#x9762;&#x5957;&#x56DE;&#x8C03;&#x7684;&#x60C5;&#x51B5;&#xFF0C;&#x8FC7;&#x591A;&#x7684;&#x5D4C;&#x5957;&#x4F1A;&#x5BFC;&#x81F4;&#x7684;&#x4EE3;&#x7801;&#x53EF;&#x8BFB;&#x6027;&#x4E0B;&#x964D;&#x4EE5;&#x53CA;&#x51FA;&#x9519;&#x7387;&#x63D0;&#x9AD8;&#xFF0C;&#x5E76;&#x4E14;&#x975E;&#x5E38;&#x96BE;&#x7EF4;&#x62A4;&#xFF0C;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x88AB;&#x5F62;&#x8C61;&#x7684;&#x79F0;&#x4E3A;<strong>&#x56DE;&#x8C03;&#x5730;&#x72F1;&#xFF08;Callback Hell&#xFF09;</strong>&#x3002;&#x56DE;&#x8C03;&#x5730;&#x72F1;&#x95EE;&#x9898;&#x5728;&#x4E4B;&#x524D; JavaScript &#x4E2D;&#x975E;&#x5E38;&#x7A81;&#x51FA;&#xFF0C;&#x4E5F;&#x662F; JavaScript &#x88AB;&#x5410;&#x69FD;&#x6700;&#x591A;&#x7684;&#x70B9;&#xFF0C;&#x4F46;&#x968F;&#x7740; ECMAScript &#x6807;&#x51C6;&#x53D1;&#x5E03;&#x540E;&#xFF0C;&#x8FD9;&#x4E2A;&#x95EE;&#x9898;&#x5F97;&#x5230;&#x4E86;&#x975E;&#x5E38;&#x597D;&#x7684;&#x89E3;&#x51B3;&#xFF0C;&#x800C;&#x89E3;&#x51B3;&#x56DE;&#x8C03;&#x5730;&#x72F1;&#x7684;&#x4E24;&#x5927;&#x795E;&#x5668;&#x6B63;&#x662F; ECMAScript6 &#x5F15;&#x5165;&#x4E86;<code>Promise</code>&#xFF0C;&#x4EE5;&#x53CA;ECMAScript7 &#x4E2D;&#x5F15;&#x5165;&#x7684;<code>async/await</code>&#x3002; &#x800C;&#x5728; Dart &#x4E2D;&#x51E0;&#x4E4E;&#x662F;&#x5B8C;&#x5168;&#x5E73;&#x79FB;&#x4E86; JavaScript &#x4E2D;&#x7684;&#x8FD9;&#x4E24;&#x8005;&#xFF1A;<code>Future</code>&#x76F8;&#x5F53;&#x4E8E;<code>Promise</code>&#xFF0C;&#x800C;<code>async/await</code>&#x8FDE;&#x540D;&#x5B57;&#x90FD;&#x6CA1;&#x6539;&#x3002;&#x63A5;&#x4E0B;&#x6765;&#x6211;&#x4EEC;&#x770B;&#x770B;&#x901A;&#x8FC7;<code>Future</code>&#x548C;<code>async/await</code>&#x5982;&#x4F55;&#x6D88;&#x9664;&#x4E0A;&#x9762;&#x793A;&#x4F8B;&#x4E2D;&#x7684;&#x5D4C;&#x5957;&#x95EE;&#x9898;&#x3002;</p>
+<h4 id="2&#xFF09;&#x6D88;&#x9664;&#x56DE;&#x8C03;&#x5730;&#x72F1;"><a target="_blank" rel="noopener" href="https://book.flutterchina.club/chapter1/dart.html#_2-%E6%B6%88%E9%99%A4%E5%9B%9E%E8%B0%83%E5%9C%B0%E7%8B%B1">#</a>2&#xFF09;&#x6D88;&#x9664;&#x56DE;&#x8C03;&#x5730;&#x72F1;</h4>
+<p>&#x6D88;&#x9664;&#x56DE;&#x8C03;&#x5730;&#x72F1;&#x4E3B;&#x8981;&#x6709;&#x4E24;&#x79CD;&#x65B9;&#x5F0F;&#xFF1A;</p>
+<p><strong>&#x4E00;&#x3001;&#x4F7F;&#x7528;Future&#x6D88;&#x9664;Callback Hell</strong></p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">login(<span class="string">&quot;alice&quot;</span>,<span class="string">&quot;******&quot;</span>).then((id){</span><br><span class="line">  	<span class="keyword">return</span> getUserInfo(id);</span><br><span class="line">}).then((userInfo){</span><br><span class="line">    <span class="keyword">return</span> saveUserInfo(userInfo);</span><br><span class="line">}).then((e){</span><br><span class="line">   <span class="comment">//&#x6267;&#x884C;&#x63A5;&#x4E0B;&#x6765;&#x7684;&#x64CD;&#x4F5C; </span></span><br><span class="line">}).catchError((e){</span><br><span class="line">  <span class="comment">//&#x9519;&#x8BEF;&#x5904;&#x7406;  </span></span><br><span class="line">  <span class="built_in">print</span>(e);</span><br><span class="line">});</span><br></pre></td></tr></table></figure>
+<p>1<br>
+2<br>
+3<br>
+4<br>
+5<br>
+6<br>
+7<br>
+8<br>
+9<br>
+10</p>
+<p>&#x6B63;&#x5982;&#x4E0A;&#x6587;&#x6240;&#x8FF0;&#xFF0C; <em>&#x201C;<code>Future</code> &#x7684;&#x6240;&#x6709;API&#x7684;&#x8FD4;&#x56DE;&#x503C;&#x4ECD;&#x7136;&#x662F;&#x4E00;&#x4E2A;<code>Future</code>&#x5BF9;&#x8C61;&#xFF0C;&#x6240;&#x4EE5;&#x53EF;&#x4EE5;&#x5F88;&#x65B9;&#x4FBF;&#x7684;&#x8FDB;&#x884C;&#x94FE;&#x5F0F;&#x8C03;&#x7528;&#x201D;</em> &#xFF0C;&#x5982;&#x679C;&#x5728;then &#x4E2D;&#x8FD4;&#x56DE;&#x7684;&#x662F;&#x4E00;&#x4E2A;<code>Future</code>&#x7684;&#x8BDD;&#xFF0C;&#x8BE5;<code>future</code>&#x4F1A;&#x6267;&#x884C;&#xFF0C;&#x6267;&#x884C;&#x7ED3;&#x675F;&#x540E;&#x4F1A;&#x89E6;&#x53D1;&#x540E;&#x9762;&#x7684;<code>then</code>&#x56DE;&#x8C03;&#xFF0C;&#x8FD9;&#x6837;&#x4F9D;&#x6B21;&#x5411;&#x4E0B;&#xFF0C;&#x5C31;&#x907F;&#x514D;&#x4E86;&#x5C42;&#x5C42;&#x5D4C;&#x5957;&#x3002;</p>
+<p><strong>&#x4E8C;&#x3001;&#x4F7F;&#x7528; async/await &#x6D88;&#x9664; callback hell</strong></p>
+<p>&#x901A;&#x8FC7;<code>Future</code>&#x56DE;&#x8C03;&#x4E2D;&#x518D;&#x8FD4;&#x56DE;<code>Future</code>&#x7684;&#x65B9;&#x5F0F;&#x867D;&#x7136;&#x80FD;&#x907F;&#x514D;&#x5C42;&#x5C42;&#x5D4C;&#x5957;&#xFF0C;&#x4F46;&#x662F;&#x8FD8;&#x662F;&#x6709;&#x4E00;&#x5C42;&#x56DE;&#x8C03;&#xFF0C;&#x6709;&#x6CA1;&#x6709;&#x4E00;&#x79CD;&#x65B9;&#x5F0F;&#x80FD;&#x591F;&#x8BA9;&#x6211;&#x4EEC;&#x53EF;&#x4EE5;&#x50CF;&#x5199;&#x540C;&#x6B65;&#x4EE3;&#x7801;&#x90A3;&#x6837;&#x6765;&#x6267;&#x884C;&#x5F02;&#x6B65;&#x4EFB;&#x52A1;&#x800C;&#x4E0D;&#x4F7F;&#x7528;&#x56DE;&#x8C03;&#x7684;&#x65B9;&#x5F0F;&#xFF1F;&#x7B54;&#x6848;&#x662F;&#x80AF;&#x5B9A;&#x7684;&#xFF0C;&#x8FD9;&#x5C31;&#x8981;&#x4F7F;&#x7528;<code>async/await</code>&#x4E86;&#xFF0C;&#x4E0B;&#x9762;&#x6211;&#x4EEC;&#x5148;&#x76F4;&#x63A5;&#x770B;&#x4EE3;&#x7801;&#xFF0C;&#x7136;&#x540E;&#x518D;&#x89E3;&#x91CA;&#xFF0C;&#x4EE3;&#x7801;&#x5982;&#x4E0B;&#xFF1A;</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">task() <span class="keyword">async</span> {</span><br><span class="line">   <span class="keyword">try</span>{</span><br><span class="line">    <span class="built_in">String</span> id = <span class="keyword">await</span> login(<span class="string">&quot;alice&quot;</span>,<span class="string">&quot;******&quot;</span>);</span><br><span class="line">    <span class="built_in">String</span> userInfo = <span class="keyword">await</span> getUserInfo(id);</span><br><span class="line">    <span class="keyword">await</span> saveUserInfo(userInfo);</span><br><span class="line">    <span class="comment">//&#x6267;&#x884C;&#x63A5;&#x4E0B;&#x6765;&#x7684;&#x64CD;&#x4F5C;   </span></span><br><span class="line">   } <span class="keyword">catch</span>(e){</span><br><span class="line">    <span class="comment">//&#x9519;&#x8BEF;&#x5904;&#x7406;   </span></span><br><span class="line">    <span class="built_in">print</span>(e);   </span><br><span class="line">   }  </span><br><span class="line">}</span><br></pre></td></tr></table></figure>
+<p>1<br>
+2<br>
+3<br>
+4<br>
+5<br>
+6<br>
+7<br>
+8<br>
+9<br>
+10<br>
+11</p>
+<ul>
+<li><code>async</code>&#x7528;&#x6765;&#x8868;&#x793A;&#x51FD;&#x6570;&#x662F;&#x5F02;&#x6B65;&#x7684;&#xFF0C;&#x5B9A;&#x4E49;&#x7684;&#x51FD;&#x6570;&#x4F1A;&#x8FD4;&#x56DE;&#x4E00;&#x4E2A;<code>Future</code>&#x5BF9;&#x8C61;&#xFF0C;&#x53EF;&#x4EE5;&#x4F7F;&#x7528; then &#x65B9;&#x6CD5;&#x6DFB;&#x52A0;&#x56DE;&#x8C03;&#x51FD;&#x6570;&#x3002;</li>
+<li><code>await</code> &#x540E;&#x9762;&#x662F;&#x4E00;&#x4E2A;<code>Future</code>&#xFF0C;&#x8868;&#x793A;&#x7B49;&#x5F85;&#x8BE5;&#x5F02;&#x6B65;&#x4EFB;&#x52A1;&#x5B8C;&#x6210;&#xFF0C;&#x5F02;&#x6B65;&#x5B8C;&#x6210;&#x540E;&#x624D;&#x4F1A;&#x5F80;&#x4E0B;&#x8D70;&#xFF1B;<code>await</code>&#x5FC5;&#x987B;&#x51FA;&#x73B0;&#x5728; <code>async</code> &#x51FD;&#x6570;&#x5185;&#x90E8;&#x3002;</li>
+</ul>
+<p>&#x53EF;&#x4EE5;&#x770B;&#x5230;&#xFF0C;&#x6211;&#x4EEC;&#x901A;&#x8FC7;<code>async/await</code>&#x5C06;&#x4E00;&#x4E2A;&#x5F02;&#x6B65;&#x6D41;&#x7528;&#x540C;&#x6B65;&#x7684;&#x4EE3;&#x7801;&#x8868;&#x793A;&#x51FA;&#x6765;&#x4E86;&#x3002;</p>
+<blockquote>
+<p>&#x5176;&#x5B9E;&#xFF0C;&#x65E0;&#x8BBA;&#x662F;&#x5728; JavaScript &#x8FD8;&#x662F; Dart &#x4E2D;&#xFF0C;<code>async/await</code> &#x90FD;&#x53EA;&#x662F;&#x4E00;&#x4E2A;&#x8BED;&#x6CD5;&#x7CD6;&#xFF0C;&#x7F16;&#x8BD1;&#x5668;&#x6216;&#x89E3;&#x91CA;&#x5668;&#x6700;&#x7EC8;&#x90FD;&#x4F1A;&#x5C06;&#x5176;&#x8F6C;&#x5316;&#x4E3A;&#x4E00;&#x4E2A; Promise&#xFF08;Future&#xFF09;&#x7684;&#x8C03;&#x7528;&#x94FE;&#x3002;</p>
+</blockquote>
+<h2 id="1-4-5-Stream"><a target="_blank" rel="noopener" href="https://book.flutterchina.club/chapter1/dart.html#_1-4-5-stream">#</a>1.4.5 Stream</h2>
+<p><code>Stream</code> &#x4E5F;&#x662F;&#x7528;&#x4E8E;&#x63A5;&#x6536;&#x5F02;&#x6B65;&#x4E8B;&#x4EF6;&#x6570;&#x636E;&#xFF0C;&#x548C; <code>Future</code> &#x4E0D;&#x540C;&#x7684;&#x662F;&#xFF0C;&#x5B83;&#x53EF;&#x4EE5;&#x63A5;&#x6536;&#x591A;&#x4E2A;&#x5F02;&#x6B65;&#x64CD;&#x4F5C;&#x7684;&#x7ED3;&#x679C;&#xFF08;&#x6210;&#x529F;&#x6216;&#x5931;&#x8D25;&#xFF09;&#x3002; &#x4E5F;&#x5C31;&#x662F;&#x8BF4;&#xFF0C;&#x5728;&#x6267;&#x884C;&#x5F02;&#x6B65;&#x4EFB;&#x52A1;&#x65F6;&#xFF0C;&#x53EF;&#x4EE5;&#x901A;&#x8FC7;&#x591A;&#x6B21;&#x89E6;&#x53D1;&#x6210;&#x529F;&#x6216;&#x5931;&#x8D25;&#x4E8B;&#x4EF6;&#x6765;&#x4F20;&#x9012;&#x7ED3;&#x679C;&#x6570;&#x636E;&#x6216;&#x9519;&#x8BEF;&#x5F02;&#x5E38;&#x3002; <code>Stream</code> &#x5E38;&#x7528;&#x4E8E;&#x4F1A;&#x591A;&#x6B21;&#x8BFB;&#x53D6;&#x6570;&#x636E;&#x7684;&#x5F02;&#x6B65;&#x4EFB;&#x52A1;&#x573A;&#x666F;&#xFF0C;&#x5982;&#x7F51;&#x7EDC;&#x5185;&#x5BB9;&#x4E0B;&#x8F7D;&#x3001;&#x6587;&#x4EF6;&#x8BFB;&#x5199;&#x7B49;&#x3002;&#x4E3E;&#x4E2A;&#x4F8B;&#x5B50;&#xFF1A;</p>
+<figure class="highlight dart"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">Stream.fromFutures([</span><br><span class="line">  <span class="comment">// 1&#x79D2;&#x540E;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;</span></span><br><span class="line">  Future.delayed(<span class="built_in">Duration</span>(seconds: <span class="number">1</span>), () {</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;hello 1&quot;</span>;</span><br><span class="line">  }),</span><br><span class="line">  <span class="comment">// &#x629B;&#x51FA;&#x4E00;&#x4E2A;&#x5F02;&#x5E38;</span></span><br><span class="line">  Future.delayed(<span class="built_in">Duration</span>(seconds: <span class="number">2</span>),(){</span><br><span class="line">    <span class="keyword">throw</span> AssertionError(<span class="string">&quot;Error&quot;</span>);</span><br><span class="line">  }),</span><br><span class="line">  <span class="comment">// 3&#x79D2;&#x540E;&#x8FD4;&#x56DE;&#x7ED3;&#x679C;</span></span><br><span class="line">  Future.delayed(<span class="built_in">Duration</span>(seconds: <span class="number">3</span>), () {</span><br><span class="line">    <span class="keyword">return</span> <span class="string">&quot;hello 3&quot;</span>;</span><br><span class="line">  })</span><br><span class="line">]).listen((data){</span><br><span class="line">   <span class="built_in">print</span>(data);</span><br><span class="line">}, onError: (e){</span><br><span class="line">   <span class="built_in">print</span>(e.message);</span><br><span class="line">},onDone: (){</span><br><span class="line"></span><br><span class="line">});</span><br></pre></td></tr></table></figure>
+<p>1<br>
+2<br>
+3<br>
+4<br>
+5<br>
+6<br>
+7<br>
+8<br>
+9<br>
+10<br>
+11<br>
+12<br>
+13<br>
+14<br>
+15<br>
+16<br>
+17<br>
+18<br>
+19<br>
+20</p>
+<p>&#x4E0A;&#x9762;&#x7684;&#x4EE3;&#x7801;&#x4F9D;&#x6B21;&#x4F1A;&#x8F93;&#x51FA;&#xFF1A;</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">I/flutter (17666): hello 1</span><br><span class="line">I/flutter (17666): Error</span><br><span class="line">I/flutter (17666): hello 3</span><br></pre></td></tr></table></figure>
+<p>1<br>
+2<br>
+3</p>
+<p>&#x4EE3;&#x7801;&#x5F88;&#x7B80;&#x5355;&#xFF0C;&#x5C31;&#x4E0D;&#x8D58;&#x8FF0;&#x4E86;&#x3002;</p>
+<blockquote>
+<p>&#x601D;&#x8003;&#x9898;&#xFF1A;&#x65E2;&#x7136; Stream &#x53EF;&#x4EE5;&#x63A5;&#x6536;&#x591A;&#x6B21;&#x4E8B;&#x4EF6;&#xFF0C;&#x90A3;&#x80FD;&#x4E0D;&#x80FD;&#x7528; Stream &#x6765;&#x5B9E;&#x73B0;&#x4E00;&#x4E2A;&#x8BA2;&#x9605;&#x8005;&#x6A21;&#x5F0F;&#x7684;&#x4E8B;&#x4EF6;&#x603B;&#x7EBF;&#xFF1F;</p>
+</blockquote>
+<h2 id="1-4-6-Dart&#x548C;Java&#x53CA;JavaScript&#x5BF9;&#x6BD4;"><a target="_blank" rel="noopener" href="https://book.flutterchina.club/chapter1/dart.html#_1-4-6-dart%E5%92%8Cjava%E5%8F%8Ajavascript%E5%AF%B9%E6%AF%94">#</a>1.4.6 Dart&#x548C;Java&#x53CA;JavaScript&#x5BF9;&#x6BD4;</h2>
+<p>&#x901A;&#x8FC7;&#x4E0A;&#x9762;&#x4ECB;&#x7ECD;&#xFF0C;&#x76F8;&#x4FE1;&#x4F60;&#x5BF9; Dart &#x5E94;&#x8BE5;&#x6709;&#x4E86;&#x4E00;&#x4E2A;&#x521D;&#x6B65;&#x7684;&#x5370;&#x8C61;&#xFF0C;&#x7531;&#x4E8E;&#x7B14;&#x8005;&#x5E73;&#x65F6;&#x4E5F;&#x4F7F;&#x7528; Java &#x548C; JavaScript&#xFF0C;&#x4E0B;&#x9762;&#x7B14;&#x8005;&#x6839;&#x636E;&#x81EA;&#x5DF1;&#x7684;&#x7ECF;&#x9A8C;&#xFF0C;&#x7ED3;&#x5408; Java &#x548C; JavaScript&#xFF0C;&#x8C08;&#x4E00;&#x4E0B;&#x81EA;&#x5DF1;&#x7684;&#x770B;&#x6CD5;&#x3002;</p>
+<blockquote>
+<p>&#x4E4B;&#x6240;&#x4EE5;&#x5C06; Dart &#x4E0E; Java &#x548C; JavaScript &#x5BF9;&#x6BD4;&#xFF0C;&#x662F;&#x56E0;&#x4E3A;&#xFF0C;&#x8FD9;&#x4E24;&#x8005;&#x5206;&#x522B;&#x662F;&#x5F3A;&#x7C7B;&#x578B;&#x8BED;&#x8A00;&#x548C;&#x5F31;&#x7C7B;&#x578B;&#x8BED;&#x8A00;&#x7684;&#x5178;&#x578B;&#x4EE3;&#x8868;&#xFF0C;&#x5E76;&#x4E14; Dart &#x8BED;&#x6CD5;&#x4E2D;&#x5F88;&#x591A;&#x5730;&#x65B9;&#x4E5F;&#x90FD;&#x501F;&#x9274;&#x4E86; Java &#x548C; JavaScript&#x3002;</p>
+</blockquote>
+<h3 id="1-Dart-vs-Java"><a target="_blank" rel="noopener" href="https://book.flutterchina.club/chapter1/dart.html#_1-dart-vs-java">#</a>1. Dart vs Java</h3>
+<p>&#x5BA2;&#x89C2;&#x7684;&#x6765;&#x8BB2;&#xFF0C;Dart &#x5728;&#x8BED;&#x6CD5;&#x5C42;&#x9762;&#x786E;&#x5B9E;&#x6BD4; Java &#x66F4;&#x6709;&#x8868;&#x73B0;&#x529B;&#xFF1B;&#x5728; VM &#x5C42;&#x9762;&#xFF0C;Dart VM &#x5728;&#x5185;&#x5B58;&#x56DE;&#x6536;&#x548C;&#x541E;&#x5410;&#x91CF;&#x90FD;&#x8FDB;&#x884C;&#x4E86;&#x53CD;&#x590D;&#x7684;&#x4F18;&#x5316;&#xFF0C;&#x4F46;&#x5177;&#x4F53;&#x7684;&#x6027;&#x80FD;&#x5BF9;&#x6BD4;&#xFF0C;&#x7B14;&#x8005;&#x6CA1;&#x6709;&#x627E;&#x5230;&#x76F8;&#x5173;&#x6D4B;&#x8BD5;&#x6570;&#x636E;&#xFF0C;&#x4F46;&#x5728;&#x7B14;&#x8005;&#x770B;&#x6765;&#xFF0C;&#x53EA;&#x8981; Dart &#x8BED;&#x8A00;&#x80FD;&#x6D41;&#x884C;&#xFF0C;VM &#x7684;&#x6027;&#x80FD;&#x5C31;&#x4E0D;&#x7528;&#x62C5;&#x5FC3;&#xFF0C;&#x6BD5;&#x7ADF; Google &#x5728; Go&#x3001;JavaScript&#xFF08;v8&#xFF09;&#x3001;Dalvik&#xFF08; Android &#x4E0A;&#x7684; Java VM &#xFF09;&#x4E0A;&#x5DF2;&#x7ECF;&#x6709;&#x4E86;&#x5F88;&#x591A;&#x6280;&#x672F;&#x79EF;&#x6DC0;&#x3002;&#x503C;&#x5F97;&#x6CE8;&#x610F;&#x7684;&#x662F; Dart &#x5728; Flutter &#x4E2D;&#x5DF2;&#x7ECF;&#x53EF;&#x4EE5;&#x5C06; GC&#xFF08;&#x5185;&#x5B58;&#x5783;&#x573E;&#x56DE;&#x6536;&#xFF09;&#x505A;&#x5230; 10ms &#x4EE5;&#x5185;&#xFF0C;&#x6240;&#x4EE5; Dart &#x548C; Java &#x76F8;&#x6BD4;&#xFF0C;&#x51B3;&#x80DC;&#x56E0;&#x7D20;&#x5E76;&#x4E0D;&#x4F1A;&#x662F;&#x5728;&#x6027;&#x80FD;&#x65B9;&#x9762;&#x3002;&#x800C;&#x5728;&#x8BED;&#x6CD5;&#x5C42;&#x9762;&#xFF0C;Dart &#x8981;&#x6BD4; Java &#x66F4;&#x6709;&#x8868;&#x73B0;&#x529B;&#xFF0C;&#x6700;&#x91CD;&#x8981;&#x7684;&#x662F; Dart &#x5BF9;&#x51FD;&#x6570;&#x5F0F;&#x7F16;&#x7A0B;&#x652F;&#x6301;&#x8981;&#x8FDC;&#x5F3A;&#x4E8E; Java&#xFF08;&#x76EE;&#x524D;&#x53EA;&#x505C;&#x7559;&#x5728; Lambda &#x8868;&#x8FBE;&#x5F0F;&#xFF09;&#xFF0C;&#x800C; Dart &#x76EE;&#x524D;&#x771F;&#x6B63;&#x7684;&#x4E0D;&#x8DB3;&#x662F;<strong>&#x751F;&#x6001;</strong>&#xFF0C;&#x4F46;&#x7B14;&#x8005;&#x76F8;&#x4FE1;&#xFF0C;&#x968F;&#x7740; Flutter &#x7684;&#x9010;&#x6E10;&#x706B;&#x70ED;&#xFF0C;&#x4F1A;&#x56DE;&#x8FC7;&#x5934;&#x6765;&#x53CD;&#x63A8; Dart &#x751F;&#x6001;&#x52A0;&#x901F;&#x53D1;&#x5C55;&#xFF0C;&#x5BF9;&#x4E8E; Dart &#x6765;&#x8BF4;&#xFF0C;&#x73B0;&#x5728;&#x9700;&#x8981;&#x7684;&#x662F;&#x65F6;&#x95F4;&#x3002;</p>
+<h3 id="2-Dart-vs-JavaScript"><a target="_blank" rel="noopener" href="https://book.flutterchina.club/chapter1/dart.html#_2-dart-vs-javascript">#</a>2. Dart vs JavaScript</h3>
+<p>JavaScript &#x7684;&#x201C;&#x5F31;&#x7C7B;&#x578B;&#x201D;&#x4E00;&#x76F4;&#x88AB;&#x8BDF;&#x75C5;&#xFF0C;&#x6240;&#x4EE5; TypeScript &#xFF08;JavaScript&#x8BED;&#x8A00;&#x7684;&#x8D85;&#x96C6;&#xFF0C;&#x8BED;&#x6CD5;&#x517C;&#x5BB9;JavaScript&#xFF0C;&#x4F46;&#x6DFB;&#x52A0;&#x4E86;&#x201C;&#x7C7B;&#x578B;&#x201D;&#xFF09;&#x624D;&#x6709;&#x5E02;&#x573A;&#x3002;&#x5C31;&#x7B14;&#x8005;&#x4F7F;&#x7528;&#x8FC7;&#x7684;&#x811A;&#x672C;&#x8BED;&#x8A00;&#x4E2D;&#xFF08;&#x7B14;&#x8005;&#x66FE;&#x4F7F;&#x7528;&#x8FC7; Python&#x3001;PHP&#xFF09;&#xFF0C;JavaScript &#x65E0;&#x7591;&#x662F;<strong>&#x52A8;&#x6001;&#x5316;</strong>&#x652F;&#x6301;&#x6700;&#x597D;&#x7684;&#x811A;&#x672C;&#x8BED;&#x8A00;&#xFF0C;&#x6BD4;&#x5982;&#x5728; JavaScript &#x4E2D;&#xFF0C;&#x53EF;&#x4EE5;&#x7ED9;&#x4EFB;&#x4F55;&#x5BF9;&#x8C61;&#x5728;&#x4EFB;&#x4F55;&#x65F6;&#x5019;&#x52A8;&#x6001;&#x6269;&#x5C55;&#x5C5E;&#x6027;&#xFF0C;&#x5BF9;&#x4E8E;&#x7CBE;&#x901A; JavaScript &#x7684;&#x9AD8;&#x624B;&#x6765;&#x8BF4;&#xFF0C;&#x8FD9;&#x65E0;&#x7591;&#x662F;&#x4E00;&#x628A;&#x5229;&#x5251;&#x3002;&#x4F46;&#x662F;&#xFF0C;&#x4EFB;&#x4F55;&#x4E8B;&#x7269;&#x90FD;&#x6709;&#x4E24;&#x9762;&#x6027;&#xFF0C;JavaScript &#x5F3A;&#x5927;&#x7684;&#x52A8;&#x6001;&#x5316;&#x7279;&#x6027;&#x4E5F;&#x662F;&#x628A;&#x53CC;&#x5203;&#x5251;&#xFF0C;&#x4F60;&#x53EF;&#x7ECF;&#x5E38;&#x542C;&#x5230;&#x53E6;&#x4E00;&#x4E2A;&#x58F0;&#x97F3;&#xFF0C;&#x8BA4;&#x4E3A; JavaScript &#x7684;&#x8FD9;&#x79CD;&#x52A8;&#x6001;&#x6027;&#x7CDF;&#x7CD5;&#x900F;&#x4E86;&#xFF0C;&#x592A;&#x8FC7;&#x7075;&#x6D3B;&#x53CD;&#x800C;&#x5BFC;&#x81F4;&#x4EE3;&#x7801;&#x5F88;&#x96BE;&#x9884;&#x671F;&#xFF0C;&#x65E0;&#x6CD5;&#x9650;&#x5236;&#x4E0D;&#x88AB;&#x671F;&#x671B;&#x7684;&#x4FEE;&#x6539;&#x3002;&#x6BD5;&#x7ADF;&#x6709;&#x4E9B;&#x4EBA;&#x603B;&#x662F;&#x5BF9;&#x81EA;&#x5DF1;&#x6216;&#x522B;&#x4EBA;&#x5199;&#x7684;&#x4EE3;&#x7801;&#x4E0D;&#x653E;&#x5FC3;&#xFF0C;&#x4ED6;&#x4EEC;&#x5E0C;&#x671B;&#x80FD;&#x591F;&#x8BA9;&#x4EE3;&#x7801;&#x53D8;&#x5F97;&#x53EF;&#x63A7;&#xFF0C;&#x5E76;&#x671F;&#x671B;&#x6709;&#x4E00;&#x5957;&#x9759;&#x6001;&#x7C7B;&#x578B;&#x68C0;&#x67E5;&#x7CFB;&#x7EDF;&#x6765;&#x5E2E;&#x52A9;&#x81EA;&#x5DF1;&#x51CF;&#x5C11;&#x9519;&#x8BEF;&#x3002;&#x6B63;&#x56E0;&#x5982;&#x6B64;&#xFF0C;&#x5728; Flutter&#x4E2D;&#xFF0C;Dart &#x51E0;&#x4E4E;&#x653E;&#x5F03;&#x4E86;&#x811A;&#x672C;&#x8BED;&#x8A00;&#x52A8;&#x6001;&#x5316;&#x7684;&#x7279;&#x6027;&#xFF0C;&#x5982;&#x4E0D;&#x652F;&#x6301;&#x53CD;&#x5C04;&#x3001;&#x4E5F;&#x4E0D;&#x652F;&#x6301;&#x52A8;&#x6001;&#x521B;&#x5EFA;&#x51FD;&#x6570;&#x7B49;&#x3002;&#x5E76;&#x4E14; Dart &#x4ECE; 2.0 &#x5F00;&#x59CB;&#x5F3A;&#x5236;&#x5F00;&#x542F;&#x4E86;&#x7C7B;&#x578B;&#x68C0;&#x67E5;&#xFF08;Strong Mode&#xFF09;&#xFF0C;&#x539F;&#x5148;&#x7684;&#x68C0;&#x67E5;&#x6A21;&#x5F0F;&#xFF08;checked mode&#xFF09;&#x548C;&#x53EF;&#x9009;&#x7C7B;&#x578B;&#xFF08;optional type&#xFF09;&#x5C06;&#x6DE1;&#x51FA;&#xFF0C;&#x6240;&#x4EE5;&#x5728;&#x7C7B;&#x578B;&#x5B89;&#x5168;&#x8FD9;&#x4E2A;&#x5C42;&#x9762;&#x6765;&#x8BF4;&#xFF0C;Dart &#x548C; TypeScript&#x3001;CoffeeScript &#x662F;&#x5DEE;&#x4E0D;&#x591A;&#x7684;&#xFF0C;&#x6240;&#x4EE5;&#x5355;&#x4ECE;&#x52A8;&#x6001;&#x6027;&#x6765;&#x770B;&#xFF0C;Dart &#x5E76;&#x4E0D;&#x5177;&#x5907;&#x4EC0;&#x4E48;&#x660E;&#x663E;&#x4F18;&#x52BF;&#xFF0C;&#x4F46;&#x7EFC;&#x5408;&#x8D77;&#x6765;&#x770B;&#xFF0C;Dart &#x65E2;&#x80FD;&#x8FDB;&#x884C;&#x670D;&#x52A1;&#x7AEF;&#x811A;&#x672C;&#x3001;App &#x5F00;&#x53D1;&#x3001;Web &#x5F00;&#x53D1;&#xFF0C;&#x8FD9;&#x5C31;&#x6709;&#x4F18;&#x52BF;&#x4E86;&#xFF01;</p>
+
+<div class="article-footer fs14">
+    <section id="license">
+      <div class="header"><span>许可协议</span></div>
+      <div class="body"><p>本文采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">署名-非商业性使用-相同方式共享 4.0 国际</a> 许可协议，转载请注明出处。</p>
+</div>
+    </section>
+    </div>
+</article>
+<div class="related-wrap" id="read-next"><section class="body"><div class="item" id="prev"><div class="note">较新文章</div><a href="/2024/07/02/flutter%E7%AC%94%E8%AE%B0/Widge/">Flutter Widge</a></div><div class="item" id="next"><div class="note">较早文章</div><a href="/2024/06/28/flutter%E7%AC%94%E8%AE%B0/flutter%E5%88%9D%E8%AF%86/">Flutter 简介</a></div></section></div>
+
+
+
+
+
+
+<footer class="page-footer footnote"><hr><div class="text"><p>本站由 <a href="/">Asimov</a> 使用 <a target="_blank" rel="noopener" href="https://github.com/xaoxuu/hexo-theme-stellar/tree/1.28.1">Stellar 1.28.1</a> 主题创建。<br>
+本博客所有文章除特别声明外，均采用 <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> 许可协议，转载请注明出处。</p>
+</div></footer>
+<div class="main-mask" onclick="sidebar.dismiss()"></div></div><aside class="l_right">
+<div class="widgets">
+
+
+
+<widget class="widget-wrapper toc" id="data-toc" collapse="false"><div class="widget-header dis-select"><span class="name">本文目录</span><a class="cap-action" onclick="sidebar.toggleTOC()" ><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg></a></div><div class="widget-body"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-text">Dart语法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%98%E9%87%8F%E5%A3%B0%E6%98%8E"><span class="toc-text">变量声明</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-var-%E5%85%B3%E9%94%AE%E5%AD%97"><span class="toc-text">1. var 关键字</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-dynamic-%E5%92%8C-Object"><span class="toc-text">2. dynamic 和 Object</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-final%E5%92%8Cconst"><span class="toc-text">3. final和const</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E7%A9%BA%E5%AE%89%E5%85%A8%EF%BC%88null-safety%EF%BC%89"><span class="toc-text">4. 空安全（null-safety）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-2-%E5%87%BD%E6%95%B0"><span class="toc-text">1.4.2 函数</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%87%BD%E6%95%B0%E5%A3%B0%E6%98%8E"><span class="toc-text">1. 函数声明</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%87%BD%E6%95%B0%E4%BD%9C%E4%B8%BA%E5%8F%98%E9%87%8F"><span class="toc-text">2. 函数作为变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%87%BD%E6%95%B0%E4%BD%9C%E4%B8%BA%E5%8F%82%E6%95%B0%E4%BC%A0%E9%80%92"><span class="toc-text">3. 函数作为参数传递</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%EF%BC%89%E5%8F%AF%E9%80%89%E7%9A%84%E4%BD%8D%E7%BD%AE%E5%8F%82%E6%95%B0"><span class="toc-text">1）可选的位置参数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2%EF%BC%89%E5%8F%AF%E9%80%89%E7%9A%84%E5%91%BD%E5%90%8D%E5%8F%82%E6%95%B0"><span class="toc-text">2）可选的命名参数</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-3-mixin"><span class="toc-text">1.4.3 mixin</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-4-%E5%BC%82%E6%AD%A5%E6%94%AF%E6%8C%81"><span class="toc-text">1.4.4 异步支持</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Future"><span class="toc-text">1. Future</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%EF%BC%89Future-then"><span class="toc-text">1）Future.then</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2%EF%BC%89Future-catchError"><span class="toc-text">2）Future.catchError</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3%EF%BC%89Future-whenComplete"><span class="toc-text">3）Future.whenComplete</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4%EF%BC%89Future-wait"><span class="toc-text">4）Future.wait</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-async-await"><span class="toc-text">2. async&#x2F;await</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1%EF%BC%89%E5%9B%9E%E8%B0%83%E5%9C%B0%E7%8B%B1-Callback-Hell"><span class="toc-text">1）回调地狱(Callback Hell)</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2%EF%BC%89%E6%B6%88%E9%99%A4%E5%9B%9E%E8%B0%83%E5%9C%B0%E7%8B%B1"><span class="toc-text">2）消除回调地狱</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-5-Stream"><span class="toc-text">1.4.5 Stream</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-4-6-Dart%E5%92%8CJava%E5%8F%8AJavaScript%E5%AF%B9%E6%AF%94"><span class="toc-text">1.4.6 Dart和Java及JavaScript对比</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Dart-vs-Java"><span class="toc-text">1. Dart vs Java</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Dart-vs-JavaScript"><span class="toc-text">2. Dart vs JavaScript</span></a></li></ol></li></ol></li></ol></div><div class="widget-footer">
+
+<a class="top" onclick="util.scrollTop()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 12c0-4.714 0-7.071 1.464-8.536C4.93 2 7.286 2 12 2c4.714 0 7.071 0 8.535 1.464C22 4.93 22 7.286 22 12c0 4.714 0 7.071-1.465 8.535C19.072 22 16.714 22 12 22s-7.071 0-8.536-1.465C2 19.072 2 16.714 2 12Z"/><path stroke-linecap="round" stroke-linejoin="round" d="m9 15.5l3-3l3 3m-6-4l3-3l3 3"/></g></svg><span>回到顶部</span></a><a class="buttom" onclick="util.scrollComment()"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="currentColor" fill-rule="evenodd" d="M10.46 1.25h3.08c1.603 0 2.86 0 3.864.095c1.023.098 1.861.3 2.6.752a5.75 5.75 0 0 1 1.899 1.899c.452.738.654 1.577.752 2.6c.095 1.004.095 2.261.095 3.865v1.067c0 1.141 0 2.036-.05 2.759c-.05.735-.153 1.347-.388 1.913a5.75 5.75 0 0 1-3.112 3.112c-.805.334-1.721.408-2.977.43a10.81 10.81 0 0 0-.929.036c-.198.022-.275.054-.32.08c-.047.028-.112.078-.224.232c-.121.166-.258.396-.476.764l-.542.916c-.773 1.307-2.69 1.307-3.464 0l-.542-.916a10.605 10.605 0 0 0-.476-.764c-.112-.154-.177-.204-.224-.232c-.045-.026-.122-.058-.32-.08c-.212-.023-.49-.03-.93-.037c-1.255-.021-2.171-.095-2.976-.429A5.75 5.75 0 0 1 1.688 16.2c-.235-.566-.338-1.178-.389-1.913c-.049-.723-.049-1.618-.049-2.76v-1.066c0-1.604 0-2.86.095-3.865c.098-1.023.3-1.862.752-2.6a5.75 5.75 0 0 1 1.899-1.899c.738-.452 1.577-.654 2.6-.752C7.6 1.25 8.857 1.25 10.461 1.25M6.739 2.839c-.914.087-1.495.253-1.959.537A4.25 4.25 0 0 0 3.376 4.78c-.284.464-.45 1.045-.537 1.96c-.088.924-.089 2.11-.089 3.761v1c0 1.175 0 2.019.046 2.685c.045.659.131 1.089.278 1.441a4.25 4.25 0 0 0 2.3 2.3c.515.214 1.173.294 2.429.316h.031c.398.007.747.013 1.037.045c.311.035.616.104.909.274c.29.17.5.395.682.645c.169.232.342.525.538.856l.559.944a.52.52 0 0 0 .882 0l.559-.944c.196-.331.37-.624.538-.856c.182-.25.392-.476.682-.645c.293-.17.598-.24.909-.274c.29-.032.639-.038 1.037-.045h.032c1.255-.022 1.913-.102 2.428-.316a4.25 4.25 0 0 0 2.3-2.3c.147-.352.233-.782.278-1.441c.046-.666.046-1.51.046-2.685v-1c0-1.651 0-2.837-.089-3.762c-.087-.914-.253-1.495-.537-1.959a4.25 4.25 0 0 0-1.403-1.403c-.464-.284-1.045-.45-1.96-.537c-.924-.088-2.11-.089-3.761-.089h-3c-1.651 0-2.837 0-3.762.089" clip-rule="evenodd"/><path fill="currentColor" d="M9 11a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0m4 0a1 1 0 1 1-2 0a1 1 0 0 1 2 0"/></svg><span>参与讨论</span></a></div></widget>
+</div></aside><div class='float-panel blur'>
+  <button type='button' style='display:none' class='laptop-only rightbar-toggle mobile' onclick='sidebar.rightbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6h11m-11 6h11m-11 6h11M4 6h1v4m-1 0h2m0 8H4c0-1 2-2 2-3s-1-1.5-2-1"/></svg>
+  </button>
+  <button type='button' style='display:none' class='mobile-only leftbar-toggle mobile' onclick='sidebar.leftbar()'>
+    <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5"><path d="M2 11c0-3.771 0-5.657 1.172-6.828C4.343 3 6.229 3 10 3h4c3.771 0 5.657 0 6.828 1.172C22 5.343 22 7.229 22 11v2c0 3.771 0 5.657-1.172 6.828C19.657 21 17.771 21 14 21h-4c-3.771 0-5.657 0-6.828-1.172C2 18.657 2 16.771 2 13z"/><path id="sep" stroke-linecap="round" d="M5.5 10h6m-5 4h4m4.5 7V3"/></g></svg>
+  </button>
+</div>
+</div><div class="scripts">
+<script type="text/javascript">
+  const ctx = {
+    date_suffix: {
+      just: `刚刚`,
+      min: `分钟前`,
+      hour: `小时前`,
+      day: `天前`,
+    },
+    root : `/`,
+  };
+
+  // required plugins (only load if needs)
+  if (`local_search`) {
+    ctx.search = {};
+    ctx.search.service = `local_search`;
+    if (ctx.search.service == 'local_search') {
+      let service_obj = Object.assign({}, `{"field":"all","path":"/search.json","content":true,"sort":"-date"}`);
+      ctx.search[ctx.search.service] = service_obj;
+    }
+  }
+  const def = {
+    avatar: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/avatar/round/3442075.svg`,
+    cover: `https://gcore.jsdelivr.net/gh/cdn-x/placeholder@1.0.12/cover/76b86c0226ffd.svg`,
+  };
+  const deps = {
+    jquery: `https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js`,
+    marked: `https://cdn.bootcdn.net/ajax/libs/marked/4.0.18/marked.min.js`
+  }
+  
+
+</script>
+
+<script type="text/javascript">
+  const utils = {
+    // 懒加载 css https://github.com/filamentgroup/loadCSS
+    css: (href, before, media, attributes) => {
+      var doc = window.document;
+      var ss = doc.createElement("link");
+      var ref;
+      if (before) {
+        ref = before;
+      } else {
+        var refs = (doc.body || doc.getElementsByTagName("head")[0]).childNodes;
+        ref = refs[refs.length - 1];
+      }
+      var sheets = doc.styleSheets;
+      if (attributes) {
+        for (var attributeName in attributes) {
+          if (attributes.hasOwnProperty(attributeName)) {
+            ss.setAttribute(attributeName, attributes[attributeName]);
+          }
+        }
+      }
+      ss.rel = "stylesheet";
+      ss.href = href;
+      ss.media = "only x";
+      function ready(cb) {
+        if (doc.body) {
+          return cb();
+        }
+        setTimeout(function () {
+          ready(cb);
+        });
+      }
+      ready(function () {
+        ref.parentNode.insertBefore(ss, before ? ref : ref.nextSibling);
+      });
+      var onloadcssdefined = function (cb) {
+        var resolvedHref = ss.href;
+        var i = sheets.length;
+        while (i--) {
+          if (sheets[i].href === resolvedHref) {
+            return cb();
+          }
+        }
+        setTimeout(function () {
+          onloadcssdefined(cb);
+        });
+      };
+      function loadCB() {
+        if (ss.addEventListener) {
+          ss.removeEventListener("load", loadCB);
+        }
+        ss.media = media || "all";
+      }
+      if (ss.addEventListener) {
+        ss.addEventListener("load", loadCB);
+      }
+      ss.onloadcssdefined = onloadcssdefined;
+      onloadcssdefined(loadCB);
+      return ss;
+    },
+
+    js: (src, opt) => new Promise((resolve, reject) => {
+      var script = document.createElement('script');
+      if (src.startsWith('/')){
+        src = ctx.root + src.substring(1);
+      }
+      script.src = src;
+      if (opt) {
+        for (let key of Object.keys(opt)) {
+          script[key] = opt[key]
+        }
+      } else {
+        // 默认异步，如果需要同步，第二个参数传入 {} 即可
+        script.async = true
+      }
+      script.onerror = reject
+      script.onload = script.onreadystatechange = function() {
+        const loadState = this.readyState
+        if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+        script.onload = script.onreadystatechange = null
+        resolve()
+      }
+      document.head.appendChild(script)
+    }),
+
+    jq: (fn) => {
+      if (typeof jQuery === 'undefined') {
+        utils.js(deps.jquery).then(fn)
+      } else {
+        fn()
+      }
+    },
+    
+    onLoading: (el) => {
+      if (el) {
+        $(el).append('<div class="loading-wrap"><svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" stroke-opacity=".3" d="M12 3C16.9706 3 21 7.02944 21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="1.3s" values="60;0"/></path><path stroke-dasharray="15" stroke-dashoffset="15" d="M12 3C16.9706 3 21 7.02944 21 12"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0"/><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"/></path></g></svg></div>');
+      }
+    },
+    onLoadSuccess: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap').remove();
+      }
+    },
+    onLoadFailure: (el) => {
+      if (el) {
+        $(el).find('.loading-wrap svg').remove();
+        $(el).find('.loading-wrap').append('<svg xmlns="http://www.w3.org/2000/svg" width="2em" height="2em" preserveAspectRatio="xMidYMid meet" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"><path stroke-dasharray="60" stroke-dashoffset="60" d="M12 3L21 20H3L12 3Z"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.5s" values="60;0"/></path><path stroke-dasharray="6" stroke-dashoffset="6" d="M12 10V14"><animate fill="freeze" attributeName="stroke-dashoffset" begin="0.6s" dur="0.2s" values="6;0"/></path></g><circle cx="12" cy="17" r="1" fill="currentColor" fill-opacity="0"><animate fill="freeze" attributeName="fill-opacity" begin="0.8s" dur="0.4s" values="0;1"/></circle></svg>');
+        $(el).find('.loading-wrap').addClass('error');
+      }
+    },
+    request: (el, url, callback, onFailure) => {
+      let retryTimes = 3;
+      utils.onLoading(el);
+      function req() {
+        return new Promise((resolve, reject) => {
+          let status = 0; // 0 等待 1 完成 2 超时
+          let timer = setTimeout(() => {
+            if (status === 0) {
+              status = 2;
+              timer = null;
+              reject('请求超时');
+              if (retryTimes == 0) {
+                onFailure();
+              }
+            }
+          }, 5000);
+          fetch(url).then(function(response) {
+            if (status !== 2) {
+              clearTimeout(timer);
+              resolve(response);
+              timer = null;
+              status = 1;
+            }
+            if (response.ok) {
+              return response.json();
+            }
+            throw new Error('Network response was not ok.');
+          }).then(function(data) {
+            retryTimes = 0;
+            utils.onLoadSuccess(el);
+            callback(data);
+          }).catch(function(error) {
+            if (retryTimes > 0) {
+              retryTimes -= 1;
+              setTimeout(() => {
+                req();
+              }, 5000);
+            } else {
+              utils.onLoadFailure(el);
+              onFailure();
+            }
+          });
+        });
+      }
+      req();
+    },
+  };
+</script>
+
+<script>
+  const sidebar = {
+    leftbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    rightbar: () => {
+      if (l_body) {
+        l_body.toggleAttribute('rightbar');
+        l_body.removeAttribute('leftbar');
+      }
+    },
+    dismiss: () => {
+      if (l_body) {
+        l_body.removeAttribute('leftbar');
+        l_body.removeAttribute('rightbar');
+      }
+    },
+    toggleTOC: () => {
+      document.querySelector('#data-toc').classList.toggle('collapse');
+    }
+  }
+</script>
+
+<!-- required -->
+<script src="/js/main.js?v=1.28.1" async></script>
+
+<!-- optional -->
+
+
+
+<script defer>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.services = Object.assign({}, JSON.parse(`{"mdrender":{"js":"/js/services/mdrender.js"},"siteinfo":{"js":"/js/services/siteinfo.js","api":null},"ghinfo":{"js":"/js/services/ghinfo.js"},"sites":{"js":"/js/services/sites.js"},"friends":{"js":"/js/services/friends.js"},"timeline":{"js":"/js/services/timeline.js"},"fcircle":{"js":"/js/services/fcircle.js"},"weibo":{"js":"/js/services/weibo.js"},"memos":{"js":"/js/services/memos.js"}}`));
+    for (let id of Object.keys(ctx.services)) {
+      const js = ctx.services[id].js;
+      if (id == 'siteinfo') {
+        ctx.cardlinks = document.querySelectorAll('a.link-card[cardlink]');
+        if (ctx.cardlinks?.length > 0) {
+          utils.js(js, { defer: true }).then(function () {
+            setCardLink(ctx.cardlinks);
+          });
+        }
+      } else {
+        const els = document.getElementsByClassName(`ds-${id}`);
+        if (els?.length > 0) {
+          utils.jq(() => {
+            if (id == 'timeline' || 'memos' || 'marked') {
+              utils.js(deps.marked).then(function () {
+                utils.js(js, { defer: true });
+              });
+            } else {
+              utils.js(js, { defer: true });
+            }
+          });
+        }
+      }
+    }
+  });
+</script>
+
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    ctx.search = {
+      path: `/search.json`,
+    }
+    utils.js('/js/search/local-search.js', { defer: true });
+  });
+</script><script>
+  window.FPConfig = {
+    delay: 0,
+    ignoreKeywords: [],
+    maxRPS: 5,
+    hoverDelay: 25
+  };
+</script>
+<script defer src="https://cdn.bootcdn.net/ajax/libs/flying-pages/2.1.2/flying-pages.min.js"></script><script defer src="https://cdn.bootcdn.net/ajax/libs/vanilla-lazyload/17.8.4/lazyload.min.js"></script>
+<script>
+  // https://www.npmjs.com/package/vanilla-lazyload
+  // Set the options globally
+  // to make LazyLoad self-initialize
+  window.lazyLoadOptions = {
+    elements_selector: ".lazy",
+  };
+  // Listen to the initialization event
+  // and get the instance of LazyLoad
+  window.addEventListener(
+    "LazyLoad::Initialized",
+    function (event) {
+      window.lazyLoadInstance = event.detail.instance;
+    },
+    false
+  );
+  document.addEventListener('DOMContentLoaded', function () {
+    window.lazyLoadInstance?.update();
+  });
+</script><script>
+  ctx.fancybox = {
+    selector: `.timenode p>img`,
+    css: `https://cdn.bootcdn.net/ajax/libs/fancyapps-ui/5.0.22/fancybox/fancybox.min.css`,
+    js: `https://cdn.bootcdn.net/ajax/libs/fancyapps-ui/5.0.22/fancybox/fancybox.umd.min.js`
+  };
+  var selector = '[data-fancybox]:not(.error)';
+  if (ctx.fancybox.selector) {
+    selector += `, ${ctx.fancybox.selector}`
+  }
+  var needFancybox = document.querySelectorAll(selector).length !== 0;
+  if (!needFancybox) {
+    const els = document.getElementsByClassName('ds-memos');
+    if (els != undefined && els.length > 0) {
+      needFancybox = true;
+    }
+  }
+  if (needFancybox) {
+    utils.css(ctx.fancybox.css);
+    utils.js(ctx.fancybox.js, { defer: true }).then(function () {
+      Fancybox.bind(selector, {
+        hideScrollbar: false,
+        Thumbs: {
+          autoStart: false,
+        },
+        caption: (fancybox, slide) => {
+          return slide.triggerEl.alt || slide.triggerEl.dataset.caption || null
+        }
+      });
+    })
+  }
+</script>
+<script>
+  window.addEventListener('DOMContentLoaded', (event) => {
+    const swiper_api = document.getElementById('swiper-api');
+    if (swiper_api != undefined) {
+      utils.css(`https://unpkg.com/swiper@10.3.1/swiper-bundle.min.css`);
+      utils.js(`https://unpkg.com/swiper@10.3.1/swiper-bundle.min.js`, { defer: true }).then(function () {
+        const effect = swiper_api.getAttribute('effect') || '';
+        var swiper = new Swiper('.swiper#swiper-api', {
+          slidesPerView: 'auto',
+          spaceBetween: 8,
+          centeredSlides: true,
+          effect: effect,
+          rewind: true,
+          pagination: {
+            el: '.swiper-pagination',
+            clickable: true,
+          },
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+          },
+        });
+      })
+    }
+  });
+</script>
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    window.codeElements = document.querySelectorAll('.code');
+    if (window.codeElements.length > 0) {
+      ctx.copycode = {
+        default_text: `Copy`,
+        success_text: `Copied`,
+        toast: `复制成功`,
+      };
+      utils.js('/js/plugins/copycode.js');
+    }
+  });
+</script>
+
+
+<!-- inject -->
+
+</div></body></html>
