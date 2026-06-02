@@ -55,6 +55,7 @@ AI Blog 是 Node.js 静态站点生成器。一次 `npm run build` 执行完整�
 - 自动生成 slug（保留中文，子目录名纳入 slug）
 - 自动生成 URL（按 `posts.permalink` 格式）
 - `tags` / `categories` 自动规范化为数组
+- 日期三级回退：Front Matter date → 文件名 YYYY-MM-DD- 前缀 → 文件修改时间
 - `processImagePaths()` 重写图片路径：相对路径 → 统一前缀，Windows 绝对路径 → SVG 占位
 
 ### 3.3 图片处理器 `image-processor.js`
@@ -63,6 +64,7 @@ AI Blog 是 Node.js 静态站点生成器。一次 `npm run build` 执行完整�
 - `content/assets/` 下的图片 → 压缩、响应式裁剪、WebP 转换
 - `content/posts/` 下的图片 → 透传原始文件，URL 保持目录结构
 - 缺失图片 + Windows 绝对路径 → 内联 SVG 占位图，日志聚合汇总
+- 自动 `decodeURIComponent()` 解码图片路径（兼容 Typora 百分号编码中文）
 - 处理完调用 `summary()` 输出统计，不逐张刷屏
 
 ### 3.4 模板引擎 `template-engine.js`

@@ -41,6 +41,14 @@ DOM 节点（进度条、返回顶部按钮）在 `default.ejs` 中声明，`mai
 
 `tags`/`categories` 在 `content-parser.js` 中自动规范化为数组。单值 `tags: 教程` 和数组 `tags: [教程]` 等价。
 
+### 日期解析
+
+三级回退：`Front Matter date` → `文件名 YYYY-MM-DD- 前缀` → `文件修改时间 mtime`。没有 date 的文章不再统一显示当天。
+
+### 图片 URL 编码
+
+Typora 会将中文路径编码为 `%E5%8F%8D` 写入 md。`image-processor.js` 在 `processImage()` 中自动 `decodeURIComponent()` 解码，不要删这个调用。
+
 ## Windows 特别注意事项
 
 - `npm install` 加 `--ignore-scripts`，否则 browser-sync 的 postinstall 被 Defender 拦截报 EPERM
