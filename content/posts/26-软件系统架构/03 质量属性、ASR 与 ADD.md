@@ -1,3 +1,12 @@
+---
+title: 质量属性、ASR 与 ADD
+date: 2026-06-02
+author: heleyang
+tags: [软件架构设计, 期末复习]
+categories: [软件架构设计]
+description: 
+---
+
 # 03 质量属性、ASR 与 ADD
 
 **本页是复习枢纽：**架构设计不是从“我要高性能”开始，而是从可度量的质量属性场景开始；识别 **ASR** 后，先用 **通用设计策略（Generic Design Strategies）** 把问题抽象、分解、迭代和复用，再用 **tactics / patterns** 与七类设计决策形成可评估方案，最终进入 ADD 的迭代设计。
