@@ -5,6 +5,7 @@ const ContentParser = require('./core/content-parser');
 const ImageProcessor = require('./core/image-processor');
 const TemplateEngine = require('./core/template-engine');
 const FileGenerator = require('./core/file-generator');
+const PluginManager = require('./core/plugin-manager');
 
 class AIBlog {
   constructor(projectRoot) {
@@ -15,6 +16,7 @@ class AIBlog {
     this.imageProcessor = null;
     this.templateEngine = null;
     this.fileGenerator = null;
+    this.pluginManager = null;
   }
 
   async init() {
@@ -28,8 +30,16 @@ class AIBlog {
       // 初始化核心模块
       this.contentParser = new ContentParser(this.config);
       this.imageProcessor = new ImageProcessor(this.config);
-      this.templateEngine = new TemplateEngine(this.config);
+      
+      // 加载插件
+      this.pluginManager = new PluginManager(this.config);
+      await this.pluginManager.loadPlugins();
+      const pluginNav = this.pluginManager.getNavigation();
+      
+      this.templateEngine = new TemplateEngine(this.config, pluginNav);
       this.fileGenerator = new FileGenerator(this.config);
+      // 将 pluginNav 传递给 fileGenerator 以便 renderPluginPage 使用
+      this.fileGenerator.pluginNav = pluginNav;
       
       console.log('AI Blog 初始化完成');
       return this.config;
@@ -54,14 +64,20 @@ class AIBlog {
       const pages = await this.parsePages();
       console.log(`解析了 ${pages.length} 个页面`);
       
+      // 获取插件页面
+      const pluginPages = this.pluginManager.getPages();
+      if (pluginPages.length > 0) {
+        console.log(`收集了 ${pluginPages.length} 个插件页面`);
+      }
+      
       // 处理图片
       await this.processImages(posts, pages);
       
       // 生成静态文件
-      const result = await this.fileGenerator.generate(posts, pages);
+      const result = await this.fileGenerator.generate(posts, pages, pluginPages);
       
       // 生成额外的SEO文件
-      await this.generateSEOFiles(posts, pages);
+      await this.generateSEOFiles(posts, pages, pluginPages);
       
       console.log('博客构建完成!');
       return result;
@@ -131,12 +147,12 @@ class AIBlog {
     }
   }
 
-  async generateSEOFiles(posts, pages) {
+  async generateSEOFiles(posts, pages, pluginPages = []) {
     try {
       console.log('生成SEO文件...');
       
       // 生成sitemap
-      await this.fileGenerator.generateSitemap(posts, pages);
+      await this.fileGenerator.generateSitemap(posts, pages, pluginPages);
       
       // 生成robots.txt
       await this.fileGenerator.generateRobotsTxt();

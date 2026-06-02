@@ -63,3 +63,37 @@ Typora 会将中文路径编码为 `%E5%8F%8D` 写入 md。`image-processor.js` 
 4. `npm run build`
 
 YAML key 即 CSS 变量名（如 `--bg-cream`、`--space-md`），不要改前缀规则。
+
+## 插件开发
+
+插件放在 `src/plugins/` 下，每个插件是一个 `.js` 文件（不支持 `.mjs`）。
+
+### 最小插件示例
+
+```js
+module.exports = {
+  name: 'my-plugin',        // 必填，插件标识
+  pages() {                  // 必填，返回页面数组
+    return [{
+      url: '/my-page/',
+      title: '我的页面',
+      description: '页面描述',
+      bodyClass: 'my-page',
+      content: '<h2>Hello</h2>'  // 原始 HTML
+    }];
+  },
+  navigation() {             // 可选，注入导航条目
+    return [{ title: '我的页面', url: '/my-page/' }];
+  }
+};
+```
+
+### 关键约定
+
+- `pages()` 支持 async（返回 Promise）
+- `content` 模式：原始 HTML → `page.ejs` 包裹 → `default.ejs` 布局
+- `template` 模式：指定 EJS 模板名，优先查找 `src/plugins/<插件名>/templates/`，再 fallback 到全局 `templates/layouts/`
+- 插件导航条目追加到 `navigation` 末尾，不覆盖手动配置
+- 单个插件错误不阻断构建（try-catch 包裹）
+- 文件名以 `_` 开头（如 `_draft.js`）不会被加载
+- 配置在 `config/default.yml` 的 `plugins` 段：`enabled` 控制白名单，`disabled` 控制黑名单

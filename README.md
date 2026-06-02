@@ -35,6 +35,7 @@ templates/
 └── partials/             # header / footer 公用片段
 
 src/core/                 # 构建核心
+src/plugins/              # 插件（每个 .js 文件声明自定义页面）
 dist/                     # 编译输出（可直接部署）
 ```
 
@@ -95,6 +96,8 @@ Markdown 中用相对路径：
 | `links` | array | 友链列表 |
 | `posts.perPage` | number | 首页每页文章数（默认 10） |
 | `posts.permalink` | string | URL 格式，默认 `/posts/:slug/` |
+| `plugins.enabled` | array | 插件启用白名单（空=全部加载） |
+| `plugins.disabled` | array | 插件禁用黑名单 |
 | `markdown.highlight` | bool | 是否启用代码高亮 |
 
 ### 主题配置 `config/themes/cream.yml`
@@ -146,6 +149,34 @@ JS 只控制行为，不创建 DOM 节点。进度条和返回顶部按钮在模
 2. `content/posts/**/*.{png,jpg,...}` → 文章图片（保持目录结构复制到 `dist/`）
 3. 外部 URL → 透传
 4. 缺失图片 → 内联 SVG 占位图
+
+## 插件开发
+
+在 `src/plugins/` 下创建 `.js` 文件即可注入自定义页面：
+
+```js
+module.exports = {
+  name: 'my-plugin',
+  pages() {
+    return [{
+      url: '/my-page/',
+      title: '我的页面',
+      description: '页面描述',
+      bodyClass: 'my-page',
+      content: '<h2>Hello</h2>'  // 原始 HTML
+    }];
+  },
+  navigation() {
+    return [{ title: '我的页面', url: '/my-page/' }];  // 自动追加到导航
+  }
+};
+```
+
+- `pages()` 支持 async，可用于动态数据获取
+- `content` 模式：原始 HTML → `page.ejs` 包裹 → `default.ejs` 布局
+- `template` 模式：指定 EJS 模板名，优先查找插件自带 `templates/` 目录
+- 单个插件错误不阻断构建
+- 配置白名单/黑名单见 `config/default.yml` 的 `plugins` 段
 
 ## 部署
 

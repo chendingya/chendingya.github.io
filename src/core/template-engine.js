@@ -4,16 +4,18 @@ const ejs = require('ejs');
 const yaml = require('js-yaml');
 
 class TemplateEngine {
-  constructor(config) {
+  constructor(config, pluginNav = []) {
     this.config = config;
     this.templatesDir = path.resolve('templates');
     this.layoutsDir = path.join(this.templatesDir, 'layouts');
     this.partialsDir = path.join(this.templatesDir, 'partials');
     this.themesDir = path.join(this.templatesDir, 'themes');
     this.configThemesDir = path.resolve('config/themes');
+    this.pluginsDir = path.resolve('src/plugins');
 
     this.templateCache = new Map();
     this.theme = this.loadTheme();
+    this.pluginNav = pluginNav;
   }
 
   loadTheme() {
@@ -96,21 +98,37 @@ class TemplateEngine {
     }
   }
 
-  async getTemplate(templateName) {
+  async getTemplate(templateName, pluginDir = null) {
     // 检查缓存
     if (this.templateCache.has(templateName)) {
       return this.templateCache.get(templateName);
     }
     
-    // 尝试从主题目录加载
-    let templatePath = path.join(this.themesDir, this.config.theme, 'layouts', `${templateName}.ejs`);
+    // 查找顺序：插件模板 → 主题模板 → 默认模板
+    let templatePath = null;
     
-    // 如果主题模板不存在，使用默认模板
-    if (!await fs.pathExists(templatePath)) {
+    // 1. 如果有插件目录，先查找插件自带模板
+    if (pluginDir) {
+      const pluginTemplatePath = path.join(pluginDir, 'templates', `${templateName}.ejs`);
+      if (await fs.pathExists(pluginTemplatePath)) {
+        templatePath = pluginTemplatePath;
+      }
+    }
+    
+    // 2. 尝试从主题目录加载
+    if (!templatePath) {
+      const themeTemplatePath = path.join(this.themesDir, this.config.theme, 'layouts', `${templateName}.ejs`);
+      if (await fs.pathExists(themeTemplatePath)) {
+        templatePath = themeTemplatePath;
+      }
+    }
+    
+    // 3. 使用默认模板
+    if (!templatePath) {
       templatePath = path.join(this.layoutsDir, `${templateName}.ejs`);
     }
     
-    // 检查默认模板是否存在
+    // 检查模板是否存在
     if (!await fs.pathExists(templatePath)) {
       throw new Error(`模板不存在: ${templateName}`);
     }
@@ -125,6 +143,10 @@ class TemplateEngine {
   }
 
   prepareTemplateData(data) {
+    // 合并手动配置的导航 + 插件注入的导航（插件追加到末尾）
+    const baseNavigation = this.config.navigation || [];
+    const mergedNavigation = [...baseNavigation, ...this.pluginNav];
+
     const templateData = {
       site: {
         title: this.config.site.title,
@@ -134,7 +156,7 @@ class TemplateEngine {
         language: this.config.site.language,
         logo: this.config.site.logo || '',
         favicon: this.config.site.favicon || '/favicon.ico',
-        navigation: this.config.navigation || [],
+        navigation: mergedNavigation,
         social: this.config.social || {},
         links: this.config.links || [],
         rss: this.config.rss || { enabled: false, limit: 20 },
@@ -149,7 +171,7 @@ class TemplateEngine {
         bodyClass: data.bodyClass || '',
         ...data.page
       },
-      navigation: this.config.navigation || [],
+      navigation: mergedNavigation,
       social: this.config.social || {},
       links: this.config.links || [],
       themeCSS: this.generateThemeCSS(),
@@ -328,8 +350,67 @@ class TemplateEngine {
       type: 'website',
       bodyClass: 'error-page'
     };
-    
     return this.renderWithLayout('404', data);
+  }
+
+  async renderPluginPage(pageDesc) {
+    // 插件页面有两种模式：
+    // 1. content 模式：提供原始 HTML，用 page.ejs 包裹再套 default.ejs
+    // 2. template 模式：指定 EJS 模板名，用 renderWithLayout 渲染
+
+    if (pageDesc.template) {
+      // template 模式：使用指定模板名渲染
+      const data = {
+        title: pageDesc.title || '',
+        description: pageDesc.description || '',
+        url: pageDesc.url,
+        type: pageDesc.type || 'website',
+        image: pageDesc.image || '',
+        bodyClass: pageDesc.bodyClass || 'plugin-page',
+        ...pageDesc.templateData
+      };
+      // 查找模板：优先从插件目录查找，再从全局模板查找
+      const pluginDir = pageDesc.pluginDir || null;
+      const templateContent = await this.getTemplate(pageDesc.template, pluginDir);
+
+      // 渲染内容模板
+      const templateData = this.prepareTemplateData(data);
+      const bodyContent = ejs.render(templateContent, templateData, {
+        filename: pluginDir
+          ? path.join(pluginDir, 'templates', `${pageDesc.template}.ejs`)
+          : path.join(this.layoutsDir, `${pageDesc.template}.ejs`),
+        root: this.templatesDir,
+        views: [this.layoutsDir, this.partialsDir, pluginDir ? path.join(pluginDir, 'templates') : '']
+      });
+
+      // 套 default.ejs 布局
+      const layoutData = {
+        ...this.prepareTemplateData(data),
+        body: bodyContent
+      };
+      const layoutContent = await this.getTemplate('default');
+      return ejs.render(layoutContent, layoutData, {
+        filename: path.join(this.layoutsDir, 'default.ejs'),
+        root: this.templatesDir,
+        views: [this.layoutsDir, this.partialsDir]
+      });
+    } else {
+      // content 模式：提供原始 HTML，用 page.ejs 包裹再套 default.ejs
+      const data = {
+        title: pageDesc.title || '',
+        description: pageDesc.description || '',
+        url: pageDesc.url,
+        type: pageDesc.type || 'website',
+        image: pageDesc.image || '',
+        bodyClass: pageDesc.bodyClass || 'plugin-page',
+        page: {
+          ...pageDesc,
+          content: pageDesc.content
+        },
+        content: pageDesc.content
+      };
+      return this.renderWithLayout('page', data);
+    }
   }
 
   generateExcerpt(content, maxLength = 200) {

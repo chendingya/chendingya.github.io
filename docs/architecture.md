@@ -154,3 +154,53 @@ content/posts/hello.md                 →  /posts/hello/
 ```
 
 可通过 `posts.permalink` 配置自定义格式，支持 `:year` `:month` `:day` `:slug` 占位符。
+
+## 9. 插件系统
+
+### 架构
+
+插件系统允许通过 `src/plugins/` 下的 JS 文件注入自定义页面，构建时自动生成并注入导航菜单。
+
+```
+src/plugins/*.js → PluginManager.loadPlugins() → pages() + navigation()
+    → FileGenerator.generatePluginPages() → dist/<url>/index.html
+    → TemplateEngine.prepareTemplateData() → 合并 navigation
+```
+
+### 插件接口
+
+每个插件 JS 文件导出：
+
+- `name` — 必填，插件标识符
+- `pages()` — 必填，返回页面描述数组（支持 async）
+  - `url` — 永久链接路径（如 `/projects/`）
+  - `title` / `description` — SEO 元数据
+  - `content` — 原始 HTML，用 `page.ejs` + `default.ejs` 渲染
+  - `template` — 自定义 EJS 模板名，优先查找插件自带模板
+  - `templateData` — 传给 EJS 模板的数据
+- `navigation()` — 可选，返回导航条目数组
+
+### 模板查找顺序
+
+```
+1. src/plugins/<插件名>/templates/<名>.ejs   （插件自带）
+2. templates/themes/<主题>/layouts/<名>.ejs   （主题模板）
+3. templates/layouts/<名>.ejs                （默认模板）
+```
+
+### 配置
+
+`config/default.yml` 中 `plugins` 段控制启用/禁用：
+
+```yaml
+plugins:
+  enabled: []   # 空 = 全部加载
+  disabled: []  # 排除列表
+```
+
+### 设计约束
+
+- 插件页面始终套 `default.ejs` 布局
+- 插件导航追加到 `navigation` 末尾，不覆盖手动配置
+- `pages()` 可为 async 函数
+- 单个插件错误不阻断构建

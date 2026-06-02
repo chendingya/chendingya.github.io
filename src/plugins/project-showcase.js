@@ -1,0 +1,30 @@
+module.exports = {
+  name: 'project-showcase',
+
+  pages() {
+    return [{
+      url: '/projects/',
+      title: '项目展示',
+      description: '我的项目作品集',
+      bodyClass: 'projects-page',
+      content: `
+        <section class="projects-grid">
+          <h2>我的项目</h2>
+          <p>这里展示我参与的开源项目和作品。</p>
+          <div class="project-card">
+            <h3>AI Blog</h3>
+            <p>基于 Node.js + EJS 的静态博客生成器，支持主题切换、图片处理和插件扩展。</p>
+          </div>
+          <div class="project-card">
+            <h3>更多项目</h3>
+            <p>敬请期待...</p>
+          </div>
+        </section>
+      `
+    }];
+  },
+
+  navigation() {
+    return [{ title: '项目', url: '/projects/' }];
+  }
+};

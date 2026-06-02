@@ -7,7 +7,7 @@ class FileGenerator {
     this.outputDir = path.resolve(this.config.build.output);
   }
 
-  async generate(posts, pages) {
+  async generate(posts, pages, pluginPages = []) {
     try {
       console.log('开始生成静态文件...');
       
@@ -27,6 +27,9 @@ class FileGenerator {
       
       // 生成独立页面
       await this.generatePages(pages);
+      
+      // 生成插件页面
+      await this.generatePluginPages(pluginPages);
       
       // 生成归档页
       await this.generateArchive(posts);
@@ -57,7 +60,8 @@ class FileGenerator {
         success: true,
         outputDir: this.outputDir,
         posts: posts.length,
-        pages: pages.length
+        pages: pages.length,
+        pluginPages: pluginPages.length
       };
     } catch (error) {
       console.error('生成静态文件失败:', error.message);
@@ -157,6 +161,31 @@ class FileGenerator {
       }
     } catch (error) {
       console.error('生成页面失败:', error.message);
+      throw error;
+    }
+  }
+
+  async generatePluginPages(pluginPages) {
+    try {
+      const TemplateEngine = require('./template-engine');
+      const engine = new TemplateEngine(this.config, this.pluginNav || []);
+      
+      for (const page of pluginPages) {
+        // 渲染插件页面
+        const html = await engine.renderPluginPage(page);
+        
+        // 确定输出路径：去掉开头的 /，生成 dist/<url>/index.html
+        const urlPath = page.url.replace(/^\//, '');
+        const outputPath = path.join(this.outputDir, urlPath, 'index.html');
+        
+        // 写入文件
+        await fs.ensureDir(path.dirname(outputPath));
+        await fs.writeFile(outputPath, html, 'utf8');
+        
+        console.log(`已生成插件页面: ${outputPath}`);
+      }
+    } catch (error) {
+      console.error('生成插件页面失败:', error.message);
       throw error;
     }
   }
@@ -378,7 +407,7 @@ class FileGenerator {
     }
   }
 
-  async generateSitemap(posts, pages) {
+  async generateSitemap(posts, pages, pluginPages = []) {
     try {
       const siteURL = this.config.site.baseURL;
       
@@ -415,6 +444,20 @@ class FileGenerator {
     <lastmod>${new Date().toISOString()}</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
+  </url>`;
+      }
+      
+      // 添加插件页面
+      for (const page of pluginPages) {
+        // 避免 baseURL 尾部 / 和 url 开头 / 拼接为双斜杠
+        const pageURL = siteURL.replace(/\/$/, '') + page.url;
+        
+        sitemap += `
+  <url>
+    <loc>${pageURL}</loc>
+    <lastmod>${new Date().toISOString()}</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
   </url>`;
       }
       
