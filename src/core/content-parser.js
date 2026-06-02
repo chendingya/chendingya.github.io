@@ -99,7 +99,7 @@ class ContentParser {
         url,
         filePath,
         fileName: path.basename(filePath),
-        date: metadata.date ? new Date(metadata.date) : new Date(),
+        date: this.resolveDate(metadata, filePath),
         tags: normArray(metadata.tags),
         categories: normArray(metadata.categories),
         description: metadata.description || '',
@@ -138,6 +138,29 @@ class ContentParser {
     const slugDir = dirPart ? dirPart.split('/').map(clean).filter(Boolean).join('/') : '';
 
     return slugDir ? `${slugDir}/${slugName}` : slugName;
+  }
+
+  resolveDate(metadata, filePath) {
+    // 1. Front Matter 中的 date 字段
+    if (metadata.date) {
+      const d = new Date(metadata.date);
+      if (!isNaN(d.getTime())) return d;
+    }
+
+    // 2. 从文件名提取日期前缀 (YYYY-MM-DD-)
+    const fileName = path.basename(filePath, path.extname(filePath));
+    const dateMatch = fileName.match(/^(\d{4})-(\d{2})-(\d{2})-/);
+    if (dateMatch) {
+      return new Date(+dateMatch[1], +dateMatch[2] - 1, +dateMatch[3]);
+    }
+
+    // 3. 文件最后修改时间
+    try {
+      const stat = fs.statSync(filePath);
+      return stat.mtime;
+    } catch (e) {
+      return new Date();
+    }
   }
 
   generateUrl(slug, metadata) {
