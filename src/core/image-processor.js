@@ -24,27 +24,26 @@ class ImageProcessor {
         return this.generatePlaceholderImage(imagePath);
       }
 
+      // URL 解码（Typora 会对中文路径编码）
+      let decoded = imagePath;
+      try { decoded = decodeURIComponent(imagePath); } catch (e) { /* 不解码也能用 */ }
+
       let fullImagePath;
       let fromPosts = false;
 
-      if (imagePath.startsWith('/')) {
-        fullImagePath = path.resolve(this.config.assets.dir, imagePath.substring(1));
-        if (!await fs.pathExists(fullImagePath)) {
-          const altPath = path.resolve(this.config.posts.dir, imagePath.substring(1));
-          if (await fs.pathExists(altPath)) {
-            fullImagePath = altPath;
-            fromPosts = true;
-          }
+      const tryPath = (base) => {
+        if (decoded.startsWith('/')) {
+          return path.resolve(base, decoded.substring(1));
         }
-      } else {
-        fullImagePath = path.resolve(outputDir, imagePath);
-        if (!await fs.pathExists(fullImagePath)) {
-          // 尝试同名子文件夹：<postdir>/<postname>/image.png
-          const altPath = path.resolve(outputDir, path.basename(outputDir, path.extname(outputDir)), path.basename(imagePath));
-          if (await fs.pathExists(altPath)) {
-            fullImagePath = altPath;
-            fromPosts = true;
-          }
+        return path.resolve(outputDir, decoded);
+      };
+
+      fullImagePath = tryPath(this.config.assets.dir);
+      if (!await fs.pathExists(fullImagePath)) {
+        const altPath = tryPath(this.config.posts.dir);
+        if (await fs.pathExists(altPath)) {
+          fullImagePath = altPath;
+          fromPosts = true;
         }
       }
 
