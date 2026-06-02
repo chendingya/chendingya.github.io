@@ -1,0 +1,114 @@
+# AI Blog 默认配置
+
+# 站点信息
+site:
+  title: "AI Blog"
+  description: "一个由AI驱动的个人博客"
+  author: "Your Name"
+  baseURL: "https://username.github.io/ai-blog"
+  language: "zh-CN"
+
+# 主题配置
+theme: "default"
+
+# 构建配置
+build:
+  output: "dist"
+  cleanOutput: true
+
+# Markdown配置
+markdown:
+  # 是否启用GFM（GitHub Flavored Markdown）
+  gfm: true
+  # 是否启用代码高亮
+  highlight: true
+  # 代码高亮主题
+  highlightTheme: "github"
+  # 是否自动链接URL
+  linkify: true
+  # 是否启用typographer
+  typographer: true
+
+# 图片处理配置
+images:
+  # 是否启用图片优化
+  optimize: true
+  # 是否生成响应式图片
+  responsive: true
+  # 响应式图片尺寸
+  sizes: [320, 640, 1024]
+  # 是否启用懒加载
+  lazyLoad: true
+  # 图片质量（1-100）
+  quality: 80
+  # 是否生成WebP格式
+  webp: true
+
+# 文章配置
+posts:
+  # 文章目录
+  dir: "content/posts"
+  # 每页文章数量（用于分页）
+  perPage: 10
+  # 是否生成文章目录
+  toc: true
+  # 文章URL格式
+  permalink: "/:year/:month/:day/:slug/"
+
+# 页面配置
+pages:
+  # 页面目录
+  dir: "content/pages"
+
+# 静态资源配置
+assets:
+  # 静态资源目录
+  dir: "content/assets"
+  # 是否压缩CSS/JS
+  minify: true
+
+# 导航菜单
+navigation:
+  - title: "首页"
+    url: "/"
+  - title: "归档"
+    url: "/archive/"
+  - title: "标签"
+    url: "/tags/"
+  - title: "分类"
+    url: "/categories/"
+
+
+# 社交链接
+social:
+  github: "https://github.com/yourname"
+  twitter: "https://twitter.com/yourname"
+  email: "your@email.com"
+
+# 友情链接
+links:
+  - title: "示例友链"
+    url: "https://example.com"
+    description: "这是一个示例友链"
+    avatar: "https://example.com/avatar.png"
+
+# 评论配置（可选）
+comments:
+  # 是否启用评论
+  enabled: false
+  # 评论系统（disqus, gitalk, etc.）
+  system: "disqus"
+  # Disqus shortname
+  disqusShortname: ""
+
+# RSS配置
+rss:
+  # 是否生成RSS
+  enabled: true
+  # RSS文章数量
+  limit: 20
+
+# 分析配置（可选）
+analytics:
+  # Google Analytics ID
+  googleAnalytics: ""

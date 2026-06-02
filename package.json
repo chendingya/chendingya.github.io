@@ -1,0 +1,30 @@
+{
+  "name": "ai-blog",
+  "version": "1.0.0",
+  "description": "将Markdown转换为静态HTML页面的个人博客系统",
+  "main": "src/index.js",
+  "scripts": {
+    "build": "node src/index.js",
+    "dev": "node src/index.js dev",
+    "clean": "rm -rf dist"
+  },
+  "keywords": ["blog", "markdown", "static-site-generator", "github-pages"],
+  "author": "Your Name",
+  "license": "MIT",
+  "dependencies": {
+    "gray-matter": "^4.0.3",
+    "markdown-it": "^14.0.0",
+    "markdown-it-anchor": "^8.6.7",
+    "markdown-it-toc-done-right": "^4.2.0",
+    "ejs": "^3.1.9",
+    "sharp": "^0.33.2",
+    "js-yaml": "^4.1.0",
+    "fs-extra": "^11.2.0",
+    "glob": "^10.3.10",
+    "chokidar": "^3.5.3",
+    "browser-sync": "^2.29.3"
+  },
+  "devDependencies": {
+    "eslint": "^8.56.0"
+  }
+}

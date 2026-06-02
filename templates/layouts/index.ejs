@@ -1,0 +1,77 @@
+<div class="hero-section">
+  <div class="container">
+    <h1 class="hero-title"><%= site.title %></h1>
+    <p class="hero-desc"><%= site.description %></p>
+  </div>
+</div>
+
+<div class="container">
+  <main class="main-content">
+    <div class="post-list">
+      <% if (posts && posts.length > 0) { %>
+        <% posts.forEach((post, idx) => { %>
+          <article class="post-card" style="--card-index: <%= idx %>;">
+            <div class="post-card-inner">
+              <% if (post.image) { %>
+                <div class="post-card-image-wrap">
+                  <img src="<%= post.image %>" alt="<%= post.title %>" class="post-card-image" loading="lazy">
+                </div>
+              <% } %>
+              <div class="post-card-body">
+                <div class="post-card-meta">
+                  <time datetime="<%= post.date.toISOString() %>">
+                    <%= post.date.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' }) %>
+                  </time>
+                  <% if (post.categories && post.categories.length > 0) { %>
+                    <span class="meta-divider">&middot;</span>
+                    <% post.categories.forEach(cat => { %>
+                      <a href="/categories/<%= cat %>/" class="meta-cat"><%= cat %></a>
+                    <% }); %>
+                  <% } %>
+                </div>
+                <h2 class="post-card-title">
+                  <a href="<%= post.url %>"><%= post.title %></a>
+                </h2>
+                <p class="post-card-excerpt"><%= post.excerpt %></p>
+                <div class="post-card-footer">
+                  <% if (post.tags && post.tags.length > 0) { %>
+                    <div class="post-card-tags">
+                      <% post.tags.slice(0, 3).forEach(tag => { %>
+                        <a href="/tags/<%= tag %>/" class="tag"><%= tag %></a>
+                      <% }); %>
+                    </div>
+                  <% } %>
+                  <a href="<%= post.url %>" class="read-more">
+                    阅读全文
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+        <% }); %>
+      <% } else { %>
+        <div class="empty-state">
+          <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+          <p>还没有文章，开始写第一篇吧</p>
+        </div>
+      <% } %>
+    </div>
+
+    <% if (pagination && pagination.totalPages > 1) { %>
+      <nav class="pagination">
+        <% if (pagination.hasPrev) { %>
+          <a href="<%= pagination.prevUrl %>" class="page-btn">&larr; 上一页</a>
+        <% } else { %>
+          <span class="page-btn disabled">&larr; 上一页</span>
+        <% } %>
+        <span class="page-info"><%= pagination.currentPage %> / <%= pagination.totalPages %></span>
+        <% if (pagination.hasNext) { %>
+          <a href="<%= pagination.nextUrl %>" class="page-btn">下一页 &rarr;</a>
+        <% } else { %>
+          <span class="page-btn disabled">下一页 &rarr;</span>
+        <% } %>
+      </nav>
+    <% } %>
+  </main>
+</div>

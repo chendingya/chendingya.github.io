@@ -1,0 +1,24 @@
+<div class="container">
+  <main class="main-content">
+    <div class="page-header">
+      <h1 class="page-title">分类</h1>
+      <p class="page-desc">共 <%= categories.length %> 个分类</p>
+    </div>
+    <% if (categories && categories.length > 0) { %>
+      <div class="categories-grid">
+        <% categories.sort((a, b) => b.count - a.count).forEach(cat => { %>
+          <a href="<%= cat.url %>" class="category-card">
+            <span class="category-name"><%= cat.name %></span>
+            <span class="category-count"><%= cat.count %> 篇</span>
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          </a>
+        <% }); %>
+      </div>
+    <% } else { %>
+      <div class="empty-state">
+        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg>
+        <p>暂无分类</p>
+      </div>
+    <% } %>
+  </main>
+</div>

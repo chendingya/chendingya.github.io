@@ -1,0 +1,31 @@
+<div class="container">
+  <main class="main-content">
+    <div class="page-header">
+      <h1 class="page-title"><%= category %></h1>
+      <p class="page-desc"><%= posts.length %> 篇文章</p>
+    </div>
+    <div class="post-list">
+      <% posts.forEach((post, idx) => { %>
+        <article class="post-card" style="--card-index: <%= idx %>;">
+          <div class="post-card-inner">
+            <div class="post-card-body">
+              <div class="post-card-meta">
+                <time datetime="<%= post.date.toISOString() %>">
+                  <%= post.date.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' }) %>
+                </time>
+              </div>
+              <h2 class="post-card-title">
+                <a href="<%= post.url %>"><%= post.title %></a>
+              </h2>
+              <p class="post-card-excerpt"><%= post.excerpt %></p>
+              <a href="<%= post.url %>" class="read-more">
+                阅读全文
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+      <% }); %>
+    </div>
+  </main>
+</div>

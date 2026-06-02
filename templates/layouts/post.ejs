@@ -1,0 +1,56 @@
+<div class="container">
+  <main class="main-content">
+    <article class="post-article">
+      <header class="post-header">
+        <% if (post.categories && post.categories.length > 0) { %>
+          <div class="post-header-cats">
+            <% post.categories.forEach(cat => { %>
+              <a href="/categories/<%= cat %>/" class="meta-cat accent"><%= cat %></a>
+            <% }); %>
+          </div>
+        <% } %>
+        <h1 class="post-title"><%= post.title %></h1>
+        <div class="post-meta">
+          <time datetime="<%= post.date.toISOString() %>">
+            <%= post.date.toLocaleDateString('zh-CN', { year: 'numeric', month: 'long', day: 'numeric' }) %>
+          </time>
+          <% if (post.author) { %>
+            <span class="meta-divider">&middot;</span>
+            <span class="post-author"><%= post.author %></span>
+          <% } %>
+        </div>
+        <% if (post.tags && post.tags.length > 0) { %>
+          <div class="post-header-tags">
+            <% post.tags.forEach(tag => { %>
+              <a href="/tags/<%= tag %>/" class="tag"><%= tag %></a>
+            <% }); %>
+          </div>
+        <% } %>
+      </header>
+
+      <% if (post.toc && post.toc.length > 0) { %>
+        <details class="toc-wrap">
+          <summary class="toc-title">目录</summary>
+          <nav class="toc-nav">
+            <% post.toc.forEach(heading => { %>
+              <a href="#<%= heading.id %>" class="toc-link toc-level-<%= heading.level %>"><%= heading.text %></a>
+            <% }); %>
+          </nav>
+        </details>
+      <% } %>
+
+      <div class="post-body">
+        <%- content %>
+      </div>
+
+      <footer class="post-footer">
+        <div class="post-nav">
+          <a href="/" class="post-nav-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            返回首页
+          </a>
+        </div>
+      </footer>
+    </article>
+  </main>
+</div>
