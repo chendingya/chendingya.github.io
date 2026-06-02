@@ -5,7 +5,6 @@ author: "Your Name"
 tags: ["博客", "AI", "入门"]
 categories: ["教程"]
 description: "这是你的第一篇博客文章，了解如何使用AI Blog系统。"
-image: "/assets/images/welcome.jpg"
 ---
 
 # 欢迎使用AI Blog
