@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="一个由AI驱动的个人博客">
+  <title>服务端-ch17-k8s使用 - AI Blog</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Noto+Serif+SC:wght@400;500;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/css/style.css">
+  
+  <link rel="stylesheet" href="/assets/css/highlight.css">
+  
+
+  
+  <style>:root {
+  --font-display: 'Playfair Display', 'Noto Serif SC', Georgia, 'Times New Roman', serif;
+  --font-body: 'Public Sans', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'Fira Code', 'Cascadia Code', 'JetBrains Mono', monospace;
+  --bg-cream: #FEFAF6;
+  --bg-surface: #FFFFFF;
+  --bg-warm: #FDF5EB;
+  --text-primary: #2C1810;
+  --text-secondary: #8B7355;
+  --text-muted: #C4A882;
+  --border: #E8D5C4;
+  --border-light: #F0E3D5;
+  --shadow-sm: 0 1px 2px rgba(44,24,16,0.04);
+  --shadow-md: 0 4px 12px rgba(44,24,16,0.06);
+  --shadow-lg: 0 12px 32px rgba(44,24,16,0.08);
+  --brand: var(--accent-coral);
+  --brand-hover: #FF5252;
+  --accent-coral: #FF6B6B;
+  --accent-coral-hover: #FF5252;
+  --accent-amber: #F4A261;
+  --accent-mint: #90BE6D;
+  --accent-lavender: #9B72AA;
+  --accent-sky: #4ECDC4;
+  --accent-sun: #F9C74F;
+  --accent-rose: #FF6B8A;
+  --accent-blue: #577590;
+  --max-width: 1200px;
+  --content-width: 720px;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 5rem;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+}
+
+[data-theme="dark"] {
+  --bg-cream: #1A1614;
+  --bg-surface: #2C2420;
+  --bg-warm: #241E1A;
+  --text-primary: #E8D5C4;
+  --text-secondary: #B8A088;
+  --text-muted: #8B7355;
+  --border: #3D3028;
+  --border-light: #332A22;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.25);
+  --shadow-lg: 0 12px 32px rgba(0,0,0,0.3);
+  --brand: var(--accent-coral);
+  --brand-hover: #FF8A8A;
+}</style>
+  
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23FF6B6B'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='20' fill='white'>A</text></svg>">
+
+  
+  <link rel="alternate" type="application/rss+xml" title="AI Blog" href="/feed.xml">
+  
+
+  <meta property="og:title" content="服务端-ch17-k8s使用">
+  <meta property="og:description" content="一个由AI驱动的个人博客">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://username.github.io/ai-blog/posts/23-服务端/ch17-k8s使用/">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="服务端-ch17-k8s使用">
+  <meta name="twitter:description" content="一个由AI驱动的个人博客">
+  
+</head>
+<body class="post-page">
+  <div class="reading-progress"></div>
+
+  <header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="/" class="site-brand">
+        
+          <span class="brand-title">AI Blog</span>
+        
+      </a>
+
+      <nav class="site-nav" data-target="main-nav">
+        <ul class="nav-list">
+          
+            <li class="nav-item">
+              <a href="/" class="nav-link">首页</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/archive/" class="nav-link">归档</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/tags/" class="nav-link">标签</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/categories/" class="nav-link">分类</a>
+            </li>
+          
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" data-action="toggle-theme" aria-label="切换暗色模式">
+          <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+
+        <button class="icon-btn menu-btn" data-action="toggle-menu" aria-label="菜单">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  <div class="container">
+  <main class="main-content">
+    <article class="post-article">
+      <header class="post-header">
+        
+          <div class="post-header-cats">
+            
+              <a href="/categories/服务端开发/" class="meta-cat accent">服务端开发</a>
+            
+          </div>
+        
+        <h1 class="post-title">服务端-ch17-k8s使用</h1>
+        <div class="post-meta">
+          <time datetime="2024-01-04T18:32:34.000Z">
+            2024年1月5日
+          </time>
+          
+            <span class="meta-divider">&middot;</span>
+            <span class="post-author">Your Name</span>
+          
+        </div>
+        
+          <div class="post-header-tags">
+            
+              <a href="/tags/springboot/" class="tag">springboot</a>
+            
+          </div>
+        
+      </header>
+
+      
+
+      <div class="post-body">
+        <h1 id="k8s%E7%8E%AF%E5%A2%83" tabindex="-1"><a class="header-anchor" href="#k8s%E7%8E%AF%E5%A2%83">#</a> k8s环境</h1>
+<h2 id="%E5%AE%89%E8%A3%85" tabindex="-1"><a class="header-anchor" href="#%E5%AE%89%E8%A3%85">#</a> 安装</h2>
+<p><a href="https://github.com/AliyunContainerService/k8s-for-docker-desktop">GitHub - AliyunContainerService/k8s-for-docker-desktop: 为Docker Desktop for Mac/Windows开启Kubernetes和Istio。 </a></p>
+<p>根据说明安装</p>
+<h2 id="%E9%83%A8%E7%BD%B2dashboard" tabindex="-1"><a class="header-anchor" href="#%E9%83%A8%E7%BD%B2dashboard">#</a> 部署dashboard</h2>
+<pre><code>kubectl apply -f kubernetes-dashboard.yaml
+</code></pre>
+<p>kubectl： 客户端程序与远程k8s server交互
+kubectl proxy： 把远程k8s server端口代理到本地端口</p>
+<h2 id="%E9%83%A8%E7%BD%B2ingress-controller" tabindex="-1"><a class="header-anchor" href="#%E9%83%A8%E7%BD%B2ingress-controller">#</a> 部署ingress controller</h2>
+<pre><code>kubectl apply -f ingress-nginx-controller.yaml
+</code></pre>
+<h2 id="1.4.-%E9%AA%8C%E8%AF%81-kubernetes-%E9%9B%86%E7%BE%A4%E7%8A%B6%E6%80%81" tabindex="-1"><a class="header-anchor" href="#1.4.-%E9%AA%8C%E8%AF%81-kubernetes-%E9%9B%86%E7%BE%A4%E7%8A%B6%E6%80%81">#</a> 1.4. 验证 Kubernetes 集群状态</h2>
+<ul>
+<li>kubectl cluster-info</li>
+<li>kubectl get nodes</li>
+<li>kubectl get nodes –show-labels</li>
+<li>给节点打标签：kubectl label node docker-desktop disktype=ssd
+<ul>
+<li>查询满足标签的节点：kubectl get nodes -l disktype=ssd</li>
+<li>删除标签：kubectl label node docker-desktop disktype</li>
+</ul>
+</li>
+</ul>
+<h1 id="k8s%E5%9F%BA%E6%9C%AC%E6%9E%B6%E6%9E%84" tabindex="-1"><a class="header-anchor" href="#k8s%E5%9F%BA%E6%9C%AC%E6%9E%B6%E6%9E%84">#</a> k8s基本架构</h1>
+<p><img src="https://chillcharlie-img.oss-cn-hangzhou.aliyuncs.com/image%2F2023%2F12%2F28%2F18-55-11-2838e48395432e6ee0c51d6f1cbf08d5-20231228185510-36573e.png" alt="" class="" loading="lazy"></p>
+<p>Node: 安装docker的宿主机，提供容器。
+Master：管理集群的机器，安装k8s的核心模块。也可以与Node部署在同一台宿主机上。</p>
+<p>kubelet：和Master、本地docker交互。
+flannel：容器网络的第三方实现，给容器提供虚拟网络。
+etcd：类似reddis的缓存系统。</p>
+<p>k8s目的：通过多个Node节点，获得更多容器。</p>
+<h1 id="3.-k8s%E8%B5%84%E6%BA%90%F0%9F%91%8D" tabindex="-1"><a class="header-anchor" href="#3.-k8s%E8%B5%84%E6%BA%90%F0%9F%91%8D">#</a> 3. k8s资源👍</h1>
+<h2 id="3.1.-%E7%B1%BB%E5%9E%8B" tabindex="-1"><a class="header-anchor" href="#3.1.-%E7%B1%BB%E5%9E%8B">#</a> 3.1. 类型</h2>
+<ul>
+<li>namespaces
+<ul>
+<li>类似java中的package</li>
+<li>可以把不同资源放在不同namespace里，不同namespace里面可以有同名资源</li>
+</ul>
+</li>
+<li>ReplicaSet
+<ul>
+<li>维持Pod实例数</li>
+</ul>
+</li>
+<li>Pods
+<ul>
+<li>以包含一个或多个容器，内部容器的逻辑宿主机</li>
+<li>k8s里管理的最小资源</li>
+</ul>
+</li>
+<li>Deployment
+<ul>
+<li>负责Pod的自动创建</li>
+</ul>
+</li>
+<li>Service
+<ul>
+<li>类似微服务的“服务”概念，为外界提供一定的业务能力</li>
+<li>部署在Pod中，一个服务可以有多个Pod</li>
+</ul>
+</li>
+<li>Ingress
+<ul>
+<li>网关，把不同域名/url路由到对应的服务</li>
+<li>k8s对外统一提供Ingress的入口</li>
+</ul>
+</li>
+<li>configmap
+<ul>
+<li>集群中提供配置信息的地方</li>
+<li>key-value结构</li>
+</ul>
+</li>
+<li>secrets
+<ul>
+<li>涉及安全的隐私数据，有不同类别</li>
+</ul>
+</li>
+<li>serviceaccounts
+<ul>
+<li>给容器里的软件用的账户，容器和k8s server交互时用到</li>
+</ul>
+</li>
+<li>DaemonSet
+<ul>
+<li>常驻在Node上</li>
+<li>例：fluentd，常驻的Node上收集日志</li>
+</ul>
+</li>
+</ul>
+<h2 id="3.2.-pod" tabindex="-1"><a class="header-anchor" href="#3.2.-pod">#</a> 3.2. Pod</h2>
+<ul>
+<li>Pod是Kubernetes调度的最小单元 👍</li>
+<li>多个容器在一个Pod中共享网络和文件系统
+<ul>
+<li>PID命名空间：Pod中不同的应用程序可以看到其他应用程序的进程ID</li>
+<li>network命名空间：Pod中多个容器处于<strong>同一个网络命名空间</strong>，因此能够访问的IP和端口范围都是相同的。也可以通过localhost相互访问</li>
+<li>IPC命名空间：Pod中的<strong>多个容器</strong>共享Inner-process Communication命名空间，因此可以通过SystemVIPC或POSIX进行<strong>进程间通信</strong></li>
+<li>UTS命名空间：Pod中的多个容器共享同一个主机名</li>
+<li>Volumes：Pod中各个容器可以共享在Pod中定义分存储卷（Volume）</li>
+</ul>
+</li>
+<li>restartPolicy字段
+<ul>
+<li>Always：只要退出就重启</li>
+<li>OnFailure：失败退出时（exit code不为0）才重启
+<ul>
+<li>也可能是正常的退出</li>
+</ul>
+</li>
+<li>Never：永远不重启</li>
+</ul>
+</li>
+</ul>
+<h3 id="3.2.1.-pod%E7%AE%A1%E7%90%86%E5%91%BD%E4%BB%A4" tabindex="-1"><a class="header-anchor" href="#3.2.1.-pod%E7%AE%A1%E7%90%86%E5%91%BD%E4%BB%A4">#</a> 3.2.1. pod管理命令</h3>
+<ul>
+<li>
+<p>创建pod</p>
+<ul>
+<li><code>kubectl run</code></li>
+<li><code>kubectl run myspittr --image spittr:1.0-SNAPSHOT</code></li>
+<li>类似docker run</li>
+</ul>
+</li>
+<li>
+<p>查看pod</p>
+<ul>
+<li><code>kubectl get pods</code></li>
+<li><code>kubectl logs -f myspittr</code></li>
+</ul>
+</li>
+<li>
+<p>在pod中</p>
+<p>执行命令</p>
+<ul>
+<li><code>kubectl exec</code></li>
+<li><code>kubectl exec myspittr -- ls /run/secrets/kubernetes.io/serviceaccount</code>，在myspittr中执行<code>--</code>后的命令</li>
+</ul>
+</li>
+<li>
+<p>删除pod</p>
+<ul>
+<li><code>kubectl delete pod </code></li>
+</ul>
+</li>
+</ul>
+<h3 id="3.2.2.-%E5%A6%82%E4%BD%95%E5%B0%86pod%E6%88%96service%E7%9A%84%E7%AB%AF%E5%8F%A3%E5%BF%AB%E9%80%9F%E6%98%A0%E5%B0%84%E5%88%B0%E6%9C%AC%E6%9C%BA%E7%AB%AF%E5%8F%A3%EF%BC%88%E8%B0%83%E8%AF%95%E7%94%A8%EF%BC%89" tabindex="-1"><a class="header-anchor" href="#3.2.2.-%E5%A6%82%E4%BD%95%E5%B0%86pod%E6%88%96service%E7%9A%84%E7%AB%AF%E5%8F%A3%E5%BF%AB%E9%80%9F%E6%98%A0%E5%B0%84%E5%88%B0%E6%9C%AC%E6%9C%BA%E7%AB%AF%E5%8F%A3%EF%BC%88%E8%B0%83%E8%AF%95%E7%94%A8%EF%BC%89">#</a> 3.2.2. 如何将pod或service的端口快速映射到本机端口（调试用）</h3>
+<ul>
+<li><strong>port-forward</strong>: ``kubectl port-forwardhost_ip:container_ip`
+<ul>
+<li>和<code>docker -p</code>一样，左边宿主机右边容器端口</li>
+<li>可以直接映射pod，但更<strong>推荐映射service</strong></li>
+</ul>
+</li>
+<li>映射pod：<code>kubectl port-forward pod/myspittr 8081:8080</code>
+<ul>
+<li>访问：<a href="http://localhost:8081/spittr/">http://localhost:8081/spittr/ </a></li>
+</ul>
+</li>
+<li>映射service：<code>kubectl port-forward service/demo 8081:80</code></li>
+</ul>
+<h3 id="3.2.3.-pod%E3%80%81container%E4%B8%8Enode%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB" tabindex="-1"><a class="header-anchor" href="#3.2.3.-pod%E3%80%81container%E4%B8%8Enode%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB">#</a> 3.2.3. Pod、Container与Node之间的关系</h3>
+<p><img src="https://chillcharlie-img.oss-cn-hangzhou.aliyuncs.com/image%2F2023%2F12%2F28%2F19-32-11-f9c84bf9f2d585a4e92d0a7a6a7fe85d-20231228193210-1d543b.png" alt="" class="" loading="lazy"></p>
+<h2 id="3.3.-service-%F0%9F%91%8D" tabindex="-1"><a class="header-anchor" href="#3.3.-service-%F0%9F%91%8D">#</a> 3.3. Service 👍</h2>
+<p>不希望让别人直接访问pod，k8s可能会对pod做更改，ip会改变。但<strong>cluster-ip或服务名不会改变</strong>。</p>
+<h3 id="3.3.1.-%E5%91%BD%E4%BB%A4" tabindex="-1"><a class="header-anchor" href="#3.3.1.-%E5%91%BD%E4%BB%A4">#</a> 3.3.1. 命令</h3>
+<ul>
+<li>创建：kubectl expose
+<ul>
+<li><code>kubectl expose pod  --port </code></li>
+</ul>
+</li>
+<li>查看
+<ul>
+<li>kubectl svc</li>
+</ul>
+</li>
+</ul>
+<h3 id="3.3.2.-%E5%A6%82%E4%BD%95%E8%AE%BF%E9%97%AEservice" tabindex="-1"><a class="header-anchor" href="#3.3.2.-%E5%A6%82%E4%BD%95%E8%AE%BF%E9%97%AEservice">#</a> 3.3.2. 如何访问Service</h3>
+<ol>
+<li>expose</li>
+<li>port-forward</li>
+<li>curl容器</li>
+</ol>
+<h2 id="3.4.-ingress-%F0%9F%91%8D" tabindex="-1"><a class="header-anchor" href="#3.4.-ingress-%F0%9F%91%8D">#</a> 3.4. Ingress 👍</h2>
+<ul>
+<li>只能路由到service，不能路由到pod
+<ul>
+<li>service有cluseter-ip，不会改变，而pod的ip可能会改变</li>
+</ul>
+</li>
+</ul>
+<h3 id="3.4.1.-%E5%91%BD%E4%BB%A4" tabindex="-1"><a class="header-anchor" href="#3.4.1.-%E5%91%BD%E4%BB%A4">#</a> 3.4.1. 命令</h3>
+<ul>
+<li>
+<p>创建：kubectl create ingress myspittr –class=nginx –rule=</p>
+<p><a href="http://www.license.com/*=myspittr:8080">www.license.com/*=myspittr:8080</a></p>
+<ul>
+<li>访问：<a href="http://www.license.com/spittr/">http://www.license.com/spittr/ </a></li>
+</ul>
+</li>
+<li>
+<p>删除：kubectl delete ingress myspittr</p>
+</li>
+</ul>
+<p>ingress网关默认端口80</p>
+<h2 id="3.5.-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%BF%AB%E6%8D%B7%E5%88%9B%E5%BB%BAdeployment%E3%80%81service%E3%80%81ingress" tabindex="-1"><a class="header-anchor" href="#3.5.-%E5%91%BD%E4%BB%A4%E8%A1%8C%E5%BF%AB%E6%8D%B7%E5%88%9B%E5%BB%BAdeployment%E3%80%81service%E3%80%81ingress">#</a> 3.5. 命令行快捷创建deployment、service、ingress</h2>
+<ul>
+<li>kubectl create deployment myspittr–image=spittr:1.0-SNAPSHOT –port=8080</li>
+<li>kubectl expose deployment myspittr 把上面的这个pod的8080端口暴露为myspittr服务</li>
+<li>kubectl create ingress myspittr–class=nginx–rule=<a href="http://www.license.com/*=myspittr:8080">www.license.com/*=myspittr:8080 </a></li>
+<li>访问：<a href="http://www.license.com/spittr/">http://www.license.com/spittr/ </a></li>
+<li>删除：
+<ul>
+<li>kubectl delete ingress myspittr</li>
+<li>kubectl delete service myspittr</li>
+<li>kubectl delete deployment myspittr</li>
+</ul>
+</li>
+</ul>
+<h2 id="3.6.-deployment" tabindex="-1"><a class="header-anchor" href="#3.6.-deployment">#</a> 3.6. Deployment</h2>
+<p><a href="https://www.jianshu.com/p/029661f38674">Kubernetes对象之Deployment - 简书 </a></p>
+<ul>
+<li>
+<p>重启：kubectl rollout restart deployment/spittr</p>
+<ul>
+<li>kubectl rollout restart deployment –selector=app=spittr</li>
+</ul>
+</li>
+<li>
+<p><strong>更新镜像重部署</strong>：kubectl set image deployment/spittr spittr=spittr:1.0</p>
+</li>
+<li>
+<p>扩容：kubectl scale deployment spittr –replicas 2</p>
+</li>
+<li>
+<p>自动伸缩</p>
+<p>：kubectl autoscale deployment spittr –min=10 –max=15 –cpu-percent=80 👍</p>
+<ul>
+<li>k8s可以依据CPU使用率动态决定实例数量的选择</li>
+<li>记得删除： kubectl delete horizontalpodautoscalers.autoscaling spittr</li>
+</ul>
+</li>
+<li>
+<p>查看历史版本：kubectl rollout history deployment/spittr</p>
+</li>
+<li>
+<p>回滚到前一个版本：kubectl rollout undo deployment/spittr</p>
+</li>
+</ul>
+<h1 id="4.-k8s%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4" tabindex="-1"><a class="header-anchor" href="#4.-k8s%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4">#</a> 4. k8s常用命令</h1>
+<ul>
+<li>kubectl get secrets/pods/all [ -n namespace]</li>
+<li>kubectl get secret mysecret-o yaml</li>
+<li>kubectl delete pod pod_name [ -n namespace]</li>
+<li>kubectl apply -f [json文件或yaml文件-路径]</li>
+<li>kubectl delete -f [json文件或yaml文件-路径]</li>
+<li>kubectl describe secret mysecret</li>
+<li>kubectl logs secret1-pod</li>
+</ul>
+
+      </div>
+
+      <footer class="post-footer">
+        <div class="post-nav">
+          <a href="/" class="post-nav-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            返回首页
+          </a>
+        </div>
+      </footer>
+    </article>
+  </main>
+</div>
+
+
+  <footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <span class="footer-logo">AI Blog</span>
+        <p class="footer-desc">一个由AI驱动的个人博客</p>
+        <div class="footer-social">
+          
+            <a href="https://github.com/yourname" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+          
+          
+            <a href="https://twitter.com/yourname" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          
+          
+            <a href="mailto:your@email.com" class="social-link" aria-label="Email">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </a>
+          
+          
+            <a href="/feed.xml" class="social-link" aria-label="RSS">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20C5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1z"/></svg>
+            </a>
+          
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">导航</h4>
+        <ul class="footer-links">
+          
+            <li><a href="/">首页</a></li>
+          
+            <li><a href="/archive/">归档</a></li>
+          
+            <li><a href="/tags/">标签</a></li>
+          
+            <li><a href="/categories/">分类</a></li>
+          
+          <li><a href="/archive/">归档</a></li>
+          <li><a href="/tags/">标签</a></li>
+          <li><a href="/categories/">分类</a></li>
+        </ul>
+      </div>
+
+      
+      <div class="footer-col">
+        <h4 class="footer-heading">友链</h4>
+        <ul class="footer-links">
+          
+            <li><a href="https://example.com" target="_blank" rel="noopener noreferrer">示例友链</a></li>
+          
+        </ul>
+      </div>
+      
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 AI Blog</p>
+      
+    </div>
+  </div>
+</footer>
+
+
+  <button class="back-to-top" aria-label="返回顶部">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+  </button>
+
+  <script src="/assets/js/main.js" defer></script>
+</body>
+</html>

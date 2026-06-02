@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="一个由AI驱动的个人博客">
+  <title>软件测试-期末复习 - AI Blog</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Noto+Serif+SC:wght@400;500;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/css/style.css">
+  
+  <link rel="stylesheet" href="/assets/css/highlight.css">
+  
+
+  
+  <style>:root {
+  --font-display: 'Playfair Display', 'Noto Serif SC', Georgia, 'Times New Roman', serif;
+  --font-body: 'Public Sans', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'Fira Code', 'Cascadia Code', 'JetBrains Mono', monospace;
+  --bg-cream: #FEFAF6;
+  --bg-surface: #FFFFFF;
+  --bg-warm: #FDF5EB;
+  --text-primary: #2C1810;
+  --text-secondary: #8B7355;
+  --text-muted: #C4A882;
+  --border: #E8D5C4;
+  --border-light: #F0E3D5;
+  --shadow-sm: 0 1px 2px rgba(44,24,16,0.04);
+  --shadow-md: 0 4px 12px rgba(44,24,16,0.06);
+  --shadow-lg: 0 12px 32px rgba(44,24,16,0.08);
+  --brand: var(--accent-coral);
+  --brand-hover: #FF5252;
+  --accent-coral: #FF6B6B;
+  --accent-coral-hover: #FF5252;
+  --accent-amber: #F4A261;
+  --accent-mint: #90BE6D;
+  --accent-lavender: #9B72AA;
+  --accent-sky: #4ECDC4;
+  --accent-sun: #F9C74F;
+  --accent-rose: #FF6B8A;
+  --accent-blue: #577590;
+  --max-width: 1200px;
+  --content-width: 720px;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 5rem;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+}
+
+[data-theme="dark"] {
+  --bg-cream: #1A1614;
+  --bg-surface: #2C2420;
+  --bg-warm: #241E1A;
+  --text-primary: #E8D5C4;
+  --text-secondary: #B8A088;
+  --text-muted: #8B7355;
+  --border: #3D3028;
+  --border-light: #332A22;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.25);
+  --shadow-lg: 0 12px 32px rgba(0,0,0,0.3);
+  --brand: var(--accent-coral);
+  --brand-hover: #FF8A8A;
+}</style>
+  
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23FF6B6B'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='20' fill='white'>A</text></svg>">
+
+  
+  <link rel="alternate" type="application/rss+xml" title="AI Blog" href="/feed.xml">
+  
+
+  <meta property="og:title" content="软件测试-期末复习">
+  <meta property="og:description" content="一个由AI驱动的个人博客">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://username.github.io/ai-blog/posts/23-软件测试/期末复习/">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="软件测试-期末复习">
+  <meta name="twitter:description" content="一个由AI驱动的个人博客">
+  
+</head>
+<body class="post-page">
+  <div class="reading-progress"></div>
+
+  <header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="/" class="site-brand">
+        
+          <span class="brand-title">AI Blog</span>
+        
+      </a>
+
+      <nav class="site-nav" data-target="main-nav">
+        <ul class="nav-list">
+          
+            <li class="nav-item">
+              <a href="/" class="nav-link">首页</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/archive/" class="nav-link">归档</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/tags/" class="nav-link">标签</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/categories/" class="nav-link">分类</a>
+            </li>
+          
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" data-action="toggle-theme" aria-label="切换暗色模式">
+          <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+
+        <button class="icon-btn menu-btn" data-action="toggle-menu" aria-label="菜单">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  <div class="container">
+  <main class="main-content">
+    <article class="post-article">
+      <header class="post-header">
+        
+          <div class="post-header-cats">
+            
+              <a href="/categories/软件测试/" class="meta-cat accent">软件测试</a>
+            
+          </div>
+        
+        <h1 class="post-title">软件测试-期末复习</h1>
+        <div class="post-meta">
+          <time datetime="2024-01-06T18:32:34.000Z">
+            2024年1月7日
+          </time>
+          
+            <span class="meta-divider">&middot;</span>
+            <span class="post-author">Your Name</span>
+          
+        </div>
+        
+          <div class="post-header-tags">
+            
+              <a href="/tags/测试/" class="tag">测试</a>
+            
+              <a href="/tags/期末复习/" class="tag">期末复习</a>
+            
+          </div>
+        
+      </header>
+
+      
+
+      <div class="post-body">
+        <h1 id="%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95" tabindex="-1"><a class="header-anchor" href="#%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95">#</a> 自动化测试</h1>
+<h2 id="%E6%B5%8B%E8%AF%95%E7%9A%84%E5%B1%80%E9%99%90%E6%80%A7" tabindex="-1"><a class="header-anchor" href="#%E6%B5%8B%E8%AF%95%E7%9A%84%E5%B1%80%E9%99%90%E6%80%A7">#</a> 测试的局限性</h2>
+<ul>
+<li>输入空间庞大 无法穷举所有输入</li>
+<li>实现逻辑复杂  无法想到所有场景</li>
+<li>测试预言未知 无法判定测试的预期输出</li>
+</ul>
+<h3 id="%E9%9A%8F%E6%9C%BA%E6%B5%8B%E8%AF%95" tabindex="-1"><a class="header-anchor" href="#%E9%9A%8F%E6%9C%BA%E6%B5%8B%E8%AF%95">#</a> 随机测试</h3>
+<p>大数定律</p>
+<p>测试执行次数够多</p>
+<p>测试数据随机生成</p>
+<p>概率低的偶然现象发生</p>
+<h1 id="%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95" tabindex="-1"><a class="header-anchor" href="#%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95">#</a> 模糊测试</h1>
+<p>通过异常的输入自动化发现待 测程序缺陷的技术。</p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h2 id="%E4%B8%89%E4%B8%AA%E7%BB%84%E4%BB%B6" tabindex="-1"><a class="header-anchor" href="#%E4%B8%89%E4%B8%AA%E7%BB%84%E4%BB%B6">#</a> 三个组件</h2>
+<p>输入生成组件（Input Generator）</p>
+<p>测试执行组件 （Test Executor）</p>
+<p>输出分析组件（Output Analyzer）</p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h3 id="%E6%B5%8B%E8%AF%95%E8%BE%93%E5%85%A5%EF%BC%88test-input%EF%BC%89" tabindex="-1"><a class="header-anchor" href="#%E6%B5%8B%E8%AF%95%E8%BE%93%E5%85%A5%EF%BC%88test-input%EF%BC%89">#</a> 测试输入（Test Input）</h3>
+<p>测试输入是一组用于驱动待测程序执行的数据</p>
+<h3 id="%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%EF%BC%88test-case%EF%BC%89" tabindex="-1"><a class="header-anchor" href="#%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%EF%BC%88test-case%EF%BC%89">#</a> 测试用例（Test Case）</h3>
+<p>测试用例是一组用于确定应用软件或软件系统是否能够正确工作的条件或变量</p>
+<p>输入 + 逻辑（调用序列） + 预言</p>
+<h3 id="%E7%A7%8D%E5%AD%90%E8%BE%93%E5%85%A5%EF%BC%88seed-input%EF%BC%89" tabindex="-1"><a class="header-anchor" href="#%E7%A7%8D%E5%AD%90%E8%BE%93%E5%85%A5%EF%BC%88seed-input%EF%BC%89">#</a> 种子输入（Seed Input）</h3>
+<p>种子输入是一个或一组在模糊测试过程中<strong>为输入生成（Input Generation）提供基准的测试输入</strong>，简称种子（Seed）。</p>
+<h2 id="%E6%A1%86%E6%9E%B6" tabindex="-1"><a class="header-anchor" href="#%E6%A1%86%E6%9E%B6">#</a> 框架</h2>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h2 id="%E5%88%86%E7%B1%BB" tabindex="-1"><a class="header-anchor" href="#%E5%88%86%E7%B1%BB">#</a> 分类</h2>
+<p>根据组件核心或技术贡献进行分类</p>
+<ul>
+<li>按照采用的运行时信息：黑盒、灰盒、白盒</li>
+<li>按照输入生成的策略：Mutation-based, Generation-based</li>
+<li>按照引导过程：Search-based（一些启发式算法），Gradient-based（梯度下降）</li>
+<li>按照测试目标：定向、非定向、某一类缺陷</li>
+<li>按照应用领域：网络协议、Compiler、DNN、IoT、内核</li>
+<li>按照优化角度：种子调度、变异策略、能量调度、过程建模</li>
+</ul>
+<h3 id="%E9%BB%91%E7%9B%92%EF%BC%88blackbox%EF%BC%89%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95" tabindex="-1"><a class="header-anchor" href="#%E9%BB%91%E7%9B%92%EF%BC%88blackbox%EF%BC%89%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95">#</a> 黑盒（Blackbox）模糊测试</h3>
+<ul>
+<li>特点：不监控执行过程，也不使用执行过程中产生的任何信息， 仅从输入和输出端入手优化模糊测试</li>
+<li>引导方式：<strong>利用输入格式或输出状态引导测试执行</strong></li>
+<li>优缺点：<strong>效率高，但引导的有效性上面有所欠缺</strong></li>
+<li>代表性工作：KIF 2 、IoTFuzzer 3 、CodeAlchemist 4</li>
+</ul>
+<h3 id="%E7%99%BD%E7%9B%92%EF%BC%88whitebox%EF%BC%89%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95" tabindex="-1"><a class="header-anchor" href="#%E7%99%BD%E7%9B%92%EF%BC%88whitebox%EF%BC%89%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95">#</a> 白盒（Whitebox）模糊测试</h3>
+<ul>
+<li>特点：使用混合执行、污点分析（Taint Analysis）等<strong>比较昂贵</strong> 的白盒分析技术优化模糊测试过程</li>
+<li>引导方式：<strong>利用详细的程序分析结果引导测试执行</strong></li>
+<li>优缺点：<strong>反馈更加有效，但是效率不高</strong>、适配性较差</li>
+<li>代表性工作：Driller2、QSYM3、CONFETTI4</li>
+</ul>
+<h3 id="%E7%81%B0%E7%9B%92%EF%BC%88greybox%EF%BC%89%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95" tabindex="-1"><a class="header-anchor" href="#%E7%81%B0%E7%9B%92%EF%BC%88greybox%EF%BC%89%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95">#</a> 灰盒（Greybox）模糊测试</h3>
+<ul>
+<li>Coverage-based Greybox Fuzzing, CGF</li>
+<li>特点：采用轻量级插装对程序进行监控，在执行过程中收集各类信息，如分支覆盖、线程执行、堆栈状态等</li>
+<li>引导方式：利用收集到的执行信息（内部状态）引导测试执行</li>
+<li>代表性工作：AFL、AFLGo、EcoFuzz、Zest、BeDivFuzz</li>
+</ul>
+<h2 id="%E5%9F%BA%E4%BA%8E%E5%8F%98%E5%BC%82%E7%9A%84%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95" tabindex="-1"><a class="header-anchor" href="#%E5%9F%BA%E4%BA%8E%E5%8F%98%E5%BC%82%E7%9A%84%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95">#</a> 基于变异的模糊测试</h2>
+<p>Mutation-based：基于随机变异或启发式变异策略</p>
+<ul>
+<li>本质：将<strong>种子输入转换为比特串（Bits），对比特串进行变换</strong></li>
+<li>优点：可拓展性强，易于泛化，理论上可用于任意输入（图 片、文本、音视频）</li>
+<li>缺点：容易破坏输入的结构、产生无效输入（Invalid  Input）；生成的大部分输入都无法通过语义检查 （Semantic Checking），很难探测深层次的程序状态和程序元素（Program Elements</li>
+</ul>
+<h3 id="afl%E5%8F%98%E5%BC%82%E7%AE%97%E5%AD%90" tabindex="-1"><a class="header-anchor" href="#afl%E5%8F%98%E5%BC%82%E7%AE%97%E5%AD%90">#</a> AFL变异算子</h3>
+<ul>
+<li>bitflip L/S ：以S为增量，每次翻转L位</li>
+<li>arith L/8：加/减长度为L的小整数</li>
+<li>interest L/8：翻转“有趣”字节位</li>
+<li>havoc：对输入进行大肆破坏</li>
+<li>splice：随机拼接两个种子输入</li>
+</ul>
+<h2 id="%E5%9F%BA%E4%BA%8E%E7%94%9F%E6%88%90%E7%9A%84%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95" tabindex="-1"><a class="header-anchor" href="#%E5%9F%BA%E4%BA%8E%E7%94%9F%E6%88%90%E7%9A%84%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95">#</a> 基于生成的模糊测试</h2>
+<p>Generation-based：基于一定的文法规则/结构信息</p>
+<ul>
+<li>本质：利用给定的、或者挖掘/学习得到的文法规则，来构建能够通过（语法）检查的结构化输入</li>
+<li>优点：<strong>容易生成合法、有效输入（Valid Inputs），适用于对输入结构性要求较高的场景</strong>，如针对解析器（Parser）、解释器（Interpreter）以及编译器（Compiler）的测试</li>
+<li>缺点：需要人工赋予一定的领域知识。在没有人工指定文法 的情况下，很难得到完整的文法规则</li>
+</ul>
+<h2 id="%E5%9F%BA%E4%BA%8E%E6%90%9C%E7%B4%A2%E7%9A%84%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95" tabindex="-1"><a class="header-anchor" href="#%E5%9F%BA%E4%BA%8E%E6%90%9C%E7%B4%A2%E7%9A%84%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95">#</a> 基于搜索的模糊测试</h2>
+<p>Search-based：Fuzzing as Search Problem</p>
+<ul>
+<li>核心：将模糊测试过程建模为搜索问题，根据模型构造启发式算法（Heuristic）解决问题</li>
+<li>启发式：遗传算法-AFL1、马尔科夫链-AFLFast2、信息熵Entropic3、多臂老虎机问题-EcoFuzz</li>
+</ul>
+<h2 id="%E5%9F%BA%E4%BA%8E%E6%A2%AF%E5%BA%A6%E7%9A%84%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95" tabindex="-1"><a class="header-anchor" href="#%E5%9F%BA%E4%BA%8E%E6%A2%AF%E5%BA%A6%E7%9A%84%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95">#</a> 基于梯度的模糊测试</h2>
+<p>Gradient-based：Fuzzing as Optimization Problem</p>
+<ul>
+<li>核心：将模糊测试过程建模为优化问题，问题的目标是最大化缺陷发掘数量，<strong>利用梯度下降算法持续求解最优解</strong></li>
+<li>目标退阶：缺陷离散分布且无法预知 替换为代码覆盖 •</li>
+<li>应用DL技术-Neuzz1 &amp; MTFuzz2；利用梯度下降取代符号执行的约束求解过程-Angora3</li>
+</ul>
+<h2 id="%E5%AE%9A%E5%90%91%E7%81%B0%E7%9B%92%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95" tabindex="-1"><a class="header-anchor" href="#%E5%AE%9A%E5%90%91%E7%81%B0%E7%9B%92%E6%A8%A1%E7%B3%8A%E6%B5%8B%E8%AF%95">#</a> 定向灰盒模糊测试</h2>
+<p>AFLGo1：定向灰盒模糊测试</p>
+<p>基本思路：Distance + Annealing-based Scheduling，为 更靠近目标位置的种子分配更多的能量</p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h1 id="%E5%8F%98%E5%BC%82%E6%B5%8B%E8%AF%95" tabindex="-1"><a class="header-anchor" href="#%E5%8F%98%E5%BC%82%E6%B5%8B%E8%AF%95">#</a> 变异测试</h1>
+<p>变异测试旨在找出有效的测试用例，发现程序中真正的错误。</p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h2 id="%E5%8F%98%E5%BC%82%E4%BD%93" tabindex="-1"><a class="header-anchor" href="#%E5%8F%98%E5%BC%82%E4%BD%93">#</a> 变异体</h2>
+<p>基于一定的语法（Syntax）变换规则，通过对源程序进行程 序变换（Program Transformation）得到的一系列变体</p>
+<p>假设</p>
+<ul>
+<li>源程序不包含缺陷 现有的测试套件没有发现缺陷</li>
+<li>变异体表达了某种缺陷  人工缺陷（Artificial Defect）</li>
+</ul>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h2 id="%E5%8F%98%E5%BC%82%E5%BE%97%E5%88%86%EF%BC%88mutation-score%EF%BC%89" tabindex="-1"><a class="header-anchor" href="#%E5%8F%98%E5%BC%82%E5%BE%97%E5%88%86%EF%BC%88mutation-score%EF%BC%89">#</a> 变异得分（Mutation Score）</h2>
+<ul>
+<li>
+<p>变异测试对测试套件错误检测能力的量化</p>
+</li>
+<li>
+<p>杀死与存活：<strong>变异体是否导致某个测试用例运行失败</strong>；测试 用例是否“检测”到某个变异体</p>
+<ul>
+<li>检测到：变体被杀死（Killed）</li>
+<li>未检测到：变体存活（Survived）</li>
+</ul>
+</li>
+<li>
+<p>计算公式</p>
+<p>$score =  \frac{mut _k}{mut_s + mut_k}* 100%$</p>
+</li>
+</ul>
+<h2 id="%E5%8F%98%E5%BC%82%E4%BD%93%E7%9A%84%E5%88%86%E7%B1%BB" tabindex="-1"><a class="header-anchor" href="#%E5%8F%98%E5%BC%82%E4%BD%93%E7%9A%84%E5%88%86%E7%B1%BB">#</a> 变异体的分类</h2>
+<ul>
+<li>有效变异体
+<ul>
+<li>夭折变异体（Stillborn Mutant）</li>
+<li>等价变异体（Equivalent Mutant）</li>
+<li>冗余变异体（Redundant Mutant）
+<ul>
+<li>重复变异体（Duplicated Mutant）</li>
+<li>蕴含变异体（Subsumed Mutant）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="%E7%AD%89%E4%BB%B7" tabindex="-1"><a class="header-anchor" href="#%E7%AD%89%E4%BB%B7">#</a> 等价</h3>
+<ul>
+<li>对于待测程序p的变体mut，如果mut和p的语法不同、语义相同，则称mut是p的等价变异体</li>
+<li>语义相同：对于给定输入，两个程序总能给出相同的输出</li>
+</ul>
+<h3 id="%E8%95%B4%E5%90%AB" tabindex="-1"><a class="header-anchor" href="#%E8%95%B4%E5%90%AB">#</a> 蕴含</h3>
+<ul>
+<li>对于两个变体$mut_1$和$mut_2$，如果∀杀死$mut_1$的测试用例t都可以杀死$mut_2$，则称$mut_1$蕴含$mut_2$</li>
+</ul>
+<h2 id="%E5%8F%98%E5%BC%82%E7%AE%97%E5%AD%90%EF%BC%88mutation-operator%EF%BC%89" tabindex="-1"><a class="header-anchor" href="#%E5%8F%98%E5%BC%82%E7%AE%97%E5%AD%90%EF%BC%88mutation-operator%EF%BC%89">#</a> 变异算子（Mutation Operator）</h2>
+<ul>
+<li>一系列语法变换规则（Syntactic Transformation Rule）</li>
+<li>变异（Mutate）的依据，反映了测试人员关注的缺陷种类</li>
+<li>基本形式
+<ul>
+<li>对程序的源代码进行变换（Source Code Level）</li>
+<li>对程序的编译结果（中间表示）进行变换，例如：针对Java  Bytecode的程序变换算子</li>
+<li>元变异（Meta-mutation）</li>
+</ul>
+</li>
+</ul>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h2 id="%E5%8F%98%E5%BC%82%E6%B5%8B%E8%AF%95%E4%B8%BA%E4%BB%80%E4%B9%88%E6%9C%89%E6%95%88" tabindex="-1"><a class="header-anchor" href="#%E5%8F%98%E5%BC%82%E6%B5%8B%E8%AF%95%E4%B8%BA%E4%BB%80%E4%B9%88%E6%9C%89%E6%95%88">#</a> 变异测试为什么有效</h2>
+<ul>
+<li>假设1：缺陷是简单的、可模拟的
+<ul>
+<li>变异体能够模拟测试人员关注的缺陷类型，即：最常出现的 缺陷类型；</li>
+<li>能够在变异测试中暴露这些人工缺陷的测试套件一定能检测出待测程序中潜在的同类缺陷</li>
+<li>老练程序员假设：一个老练程序员编写的错误程序与正确程序相差不大</li>
+</ul>
+</li>
+<li>假设2：缺陷可叠加
+<ul>
+<li>复杂变异体可以通过耦合简单变异体得到</li>
+<li>能够杀死简单变异体的测试用例可以杀死复杂变异体</li>
+</ul>
+</li>
+<li>假设3：缺陷检测有效性
+<ul>
+<li>缺陷检测能力是测试用例最重要的属性</li>
+<li>变异得分能够有效地反映测试用例/套件的错误检测能力</li>
+<li>传递性假设：能够杀死变异体（暴露人工缺陷）的测试用例 也能有效发现真实世界的缺陷</li>
+</ul>
+</li>
+</ul>
+<h2 id="%E5%8F%98%E5%BC%82%E6%B5%8B%E8%AF%95%E6%B5%81%E7%A8%8B" tabindex="-1"><a class="header-anchor" href="#%E5%8F%98%E5%BC%82%E6%B5%8B%E8%AF%95%E6%B5%81%E7%A8%8B">#</a> 变异测试流程</h2>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<ul>
+<li>变异分析：1，2，3，5，6</li>
+<li>变异应用：4，7，10</li>
+</ul>
+<h3 id="%E5%A6%82%E4%BD%95%E8%AE%BE%E8%AE%A1%E6%9C%89%E6%95%88%E7%9A%84%E5%8F%98%E5%BC%82%E7%AE%97%E5%AD%90%EF%BC%9F" tabindex="-1"><a class="header-anchor" href="#%E5%A6%82%E4%BD%95%E8%AE%BE%E8%AE%A1%E6%9C%89%E6%95%88%E7%9A%84%E5%8F%98%E5%BC%82%E7%AE%97%E5%AD%90%EF%BC%9F">#</a> 如何设计有效的变异算子？</h3>
+<p>设计原则</p>
+<ul>
+<li>根据编程语言：Java，C#，C/C++，JS，AspectJ •</li>
+<li>根据语言设计原则：OO，AOP</li>
+<li>根据应用场景：Web，Android，Ajax</li>
+<li>根据Bug类型：安全漏洞、内存缺陷、交互错误</li>
+</ul>
+<h3 id="%E5%8F%98%E5%BC%82%E4%BD%93%E7%BA%A6%E5%87%8F" tabindex="-1"><a class="header-anchor" href="#%E5%8F%98%E5%BC%82%E4%BD%93%E7%BA%A6%E5%87%8F">#</a> 变异体约减</h3>
+<p>变异体约减旨在从变异体全集中选出具有代表性变异体子集</p>
+<h4 id="%E7%BA%A6%E5%87%8F%E7%AD%96%E7%95%A5" tabindex="-1"><a class="header-anchor" href="#%E7%BA%A6%E5%87%8F%E7%AD%96%E7%95%A5">#</a> 约减策略</h4>
+<ul>
+<li>随机选取1：选取总量的10%~60%，缺陷丢失率为6%~26%</li>
+<li>基于类型2：某些类型的变异体可能要更加重要</li>
+<li>基于分布3：利用AST选取更加分散的变异体</li>
+</ul>
+<h3 id="%E5%8F%98%E5%BC%82%E4%BD%93%E7%94%9F%E6%88%90" tabindex="-1"><a class="header-anchor" href="#%E5%8F%98%E5%BC%82%E4%BD%93%E7%94%9F%E6%88%90">#</a> 变异体生成</h3>
+<p>变异体生成技术</p>
+<ul>
+<li>元变异（Meta-mutation）</li>
+<li>基于字节码操作（Bytecode Manipulation</li>
+<li>热替换（Hot-Swap, Just-In-Time）</li>
+</ul>
+<h3 id="%E5%8F%98%E5%BC%82%E4%BD%93%E4%BC%98%E5%8C%96" tabindex="-1"><a class="header-anchor" href="#%E5%8F%98%E5%BC%82%E4%BD%93%E4%BC%98%E5%8C%96">#</a> 变异体优化</h3>
+<h4 id="%E5%8E%BB%E9%99%A4%E6%9C%89%E7%AD%89%E4%BB%B7%E5%92%8C%E6%97%A0%E6%95%88%E5%8F%98%E5%BC%82%E4%BD%93" tabindex="-1"><a class="header-anchor" href="#%E5%8E%BB%E9%99%A4%E6%9C%89%E7%AD%89%E4%BB%B7%E5%92%8C%E6%97%A0%E6%95%88%E5%8F%98%E5%BC%82%E4%BD%93">#</a> 去除有等价和无效变异体</h4>
+<p><strong>通过静态分析的方式，识别并移除有问题的变异</strong></p>
+<h4 id="%E8%AF%86%E5%88%AB%E7%AD%89%E4%BB%B7%E5%8F%98%E5%BC%82%E4%BD%93" tabindex="-1"><a class="header-anchor" href="#%E8%AF%86%E5%88%AB%E7%AD%89%E4%BB%B7%E5%8F%98%E5%BC%82%E4%BD%93">#</a> 识别等价变异体</h4>
+<p>常用技术</p>
+<ul>
+<li>代码优化（Code optimization）。对源代码和变异体进行优化， 移除优化后与源代码相同的变异体</li>
+<li>静态数据流分析，如值分析（Value Analysis）。等价变异体汇 总存在特定的数据流模板，可以由此识别等价变异体</li>
+</ul>
+<h3 id="%E5%8F%98%E5%BC%82%E4%BD%93%E6%89%A7%E8%A1%8C" tabindex="-1"><a class="header-anchor" href="#%E5%8F%98%E5%BC%82%E4%BD%93%E6%89%A7%E8%A1%8C">#</a> 变异体执行</h3>
+<h4 id="%E5%8F%98%E5%BC%82%E4%BD%93%E7%9F%A9%E9%98%B5" tabindex="-1"><a class="header-anchor" href="#%E5%8F%98%E5%BC%82%E4%BD%93%E7%9F%A9%E9%98%B5">#</a> 变异体矩阵</h4>
+<p>记录每个测试用例对每个变异体的执行情况</p>
+<p>m*n维矩阵：m为变异体个数，n为测试用例个数</p>
+<h2 id="%E5%BA%94%E7%94%A8" tabindex="-1"><a class="header-anchor" href="#%E5%BA%94%E7%94%A8">#</a> 应用</h2>
+<ul>
+<li>评估作用：利用变异得分度量测试的充分性</li>
+<li>引导作用：利用变异测试/分析的结果来引导测试过程</li>
+<li>传统应用：应用于确定性系统
+<ul>
+<li>测试生成（Test Generation）</li>
+<li>预言生成（Oracle Problem）</li>
+<li>测试优化（排序 &amp; 选择）</li>
+<li>Debug引导 （缺陷定位 &amp; 自动修复</li>
+</ul>
+</li>
+<li>变异 &amp; AI：应用于非确定性系统（DNN）</li>
+</ul>
+<h1 id="%E5%9B%9E%E5%BD%92%E6%B5%8B%E8%AF%95" tabindex="-1"><a class="header-anchor" href="#%E5%9B%9E%E5%BD%92%E6%B5%8B%E8%AF%95">#</a> 回归测试</h1>
+<h2 id="%E5%9B%9E%E5%BD%92%E6%B5%8B%E8%AF%95%E7%A0%94%E7%A9%B6%E6%A1%86%E6%9E%B6" tabindex="-1"><a class="header-anchor" href="#%E5%9B%9E%E5%BD%92%E6%B5%8B%E8%AF%95%E7%A0%94%E7%A9%B6%E6%A1%86%E6%9E%B6">#</a> 回归测试研究框架</h2>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h2 id="%E5%9B%9E%E5%BD%92%E6%B5%8B%E8%AF%95%E4%BC%98%E5%8C%96" tabindex="-1"><a class="header-anchor" href="#%E5%9B%9E%E5%BD%92%E6%B5%8B%E8%AF%95%E4%BC%98%E5%8C%96">#</a> 回归测试优化</h2>
+<ul>
+<li>
+<p>测试用例修复 [1]：识别出因相关模块的外部接口或内在语义发生变更为失效的用例，并其进行修复。</p>
+</li>
+<li>
+<p>测试用例选择 [2]：通过分析代码修改，从已有测试用例中选择出所 有可检测代码修改的测试用例，并确保未被选择的测试用例在修改前后程序上的执行行为保持一致。</p>
+</li>
+<li>
+<p>测试用例扩充 [3] ：在代码修改影响分析基础上，对已有测试用例集 的充分性进行评估，若不充分则设计新的测试用例以确保对代码修改的充分测试</p>
+</li>
+<li>
+<p>测试用例缩减 [4]：在满足指定测试需求覆盖前提下，识别并移除冗 余测试用例来降低回归测试用例集规模。</p>
+</li>
+<li>
+<p>测试用例优先级 [5]：当测试预算不足以执行完所有测试用例时，可 以基于特定优先级准则，对测试用例进行优先级排序以优化其执行次 序，旨在最大化优先级目标，例如测试用例集的缺陷检测速率。</p>
+</li>
+</ul>
+<h1 id="web%E6%B5%8B%E8%AF%95" tabindex="-1"><a class="header-anchor" href="#web%E6%B5%8B%E8%AF%95">#</a> web测试</h1>
+<p>功能测试 Functional Testing 根据产品特性和设计 需求，验证一个产品 的特性和行为是否满 足设计需求</p>
+<h2 id="%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95%E5%B8%B8%E7%94%A8%E6%AD%A5%E9%AA%A4" tabindex="-1"><a class="header-anchor" href="#%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95%E5%B8%B8%E7%94%A8%E6%AD%A5%E9%AA%A4">#</a> 功能测试常用步骤</h2>
+<ol>
+<li>根据需求来细分功能点</li>
+<li>根据功能点派生测试需求</li>
+<li>根据测试需求设计功能测试用例</li>
+<li>逐项执行功能测试用例验证产品</li>
+</ol>
+<h2 id="%E7%9B%B8%E5%85%B3%E7%9A%84%E6%B5%8B%E8%AF%95%E7%B1%BB%E5%9E%8B" tabindex="-1"><a class="header-anchor" href="#%E7%9B%B8%E5%85%B3%E7%9A%84%E6%B5%8B%E8%AF%95%E7%B1%BB%E5%9E%8B">#</a> 相关的测试类型</h2>
+<ul>
+<li>正确性
+<ul>
+<li>产品功能是否与需求和设计文档一致</li>
+</ul>
+</li>
+<li>可靠性
+<ul>
+<li>用户交互是否引发软件崩溃和其它异常</li>
+</ul>
+</li>
+<li>易用性
+<ul>
+<li>软件产品完成特定任务的难易程度</li>
+</ul>
+</li>
+</ul>
+<h2 id="%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95%E7%A4%BA%E4%BE%8B" tabindex="-1"><a class="header-anchor" href="#%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95%E7%A4%BA%E4%BE%8B">#</a> 功能测试示例</h2>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h2 id="%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E5%BA%A6%E9%87%8F%E6%96%B9%E6%B3%95" tabindex="-1"><a class="header-anchor" href="#%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E5%BA%A6%E9%87%8F%E6%96%B9%E6%B3%95">#</a> 性能测试度量方法</h2>
+<ul>
+<li>不同的关注对象采用不同的性能的度量方法</li>
+<li>服务端性能采用CPU、内存等使用率来度量</li>
+<li>客户端性能通常根据系统处理特定用户请求的响 应时间来度量</li>
+</ul>
+<h3 id="%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E5%BA%A6%E9%87%8F%E5%AF%B9%E8%B1%A1" tabindex="-1"><a class="header-anchor" href="#%E6%80%A7%E8%83%BD%E6%B5%8B%E8%AF%95%E5%BA%A6%E9%87%8F%E5%AF%B9%E8%B1%A1">#</a> 性能测试度量对象</h3>
+<ul>
+<li>响应时间</li>
+<li>并发用户数</li>
+<li>吞吐量</li>
+<li>性能计数器</li>
+</ul>
+<h2 id="%E8%B4%9F%E8%BD%BD%E6%B5%8B%E8%AF%95" tabindex="-1"><a class="header-anchor" href="#%E8%B4%9F%E8%BD%BD%E6%B5%8B%E8%AF%95">#</a> 负载测试</h2>
+<ul>
+<li>负载测试用于验证应用系统在正常负载条件下的行为</li>
+<li>性能行为通过一些性能指标体现</li>
+<li>两种方式：
+<ul>
+<li>直接到达负载数（如并发用户数，事务数等）</li>
+<li>逐步增加负载数（如并发用户数，事务数等）</li>
+</ul>
+</li>
+</ul>
+<h2 id="%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95" tabindex="-1"><a class="header-anchor" href="#%E5%8E%8B%E5%8A%9B%E6%B5%8B%E8%AF%95">#</a> 压力测试</h2>
+<ul>
+<li>压力测试是评估应用系统处于或超过预期负 载时的行为</li>
+<li>压力测试关注的行为不一定是性能行为，<strong>可能是某种Bug，比如同步问题，内存泄露等</strong></li>
+<li>在压力级别逐渐增加时，系统性能应该按照预期缓慢下降，但是不应该崩溃</li>
+<li>压力测试还可以发现系统崩溃的临界点，从而发现系统中的薄弱环节</li>
+</ul>
+<h2 id="web%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95" tabindex="-1"><a class="header-anchor" href="#web%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95">#</a> Web功能测试方法</h2>
+<ul>
+<li>
+<p>功能相关性</p>
+</li>
+<li>
+<p>数据相关性</p>
+</li>
+<li>
+<p>检查按钮的功能是否正确</p>
+</li>
+<li>
+<p>字符串长度检查</p>
+</li>
+<li>
+<p>字符类型检查</p>
+</li>
+<li>
+<p>标点符号检查</p>
+</li>
+<li>
+<p>特殊字符检查</p>
+</li>
+<li>
+<p>中文字符处理</p>
+</li>
+<li>
+<p>检查信息的完整性</p>
+</li>
+<li>
+<p>信息重复</p>
+</li>
+<li>
+<p>检查删除功能</p>
+</li>
+<li>
+<p>检查添加和修改是否一致</p>
+</li>
+<li>
+<p>重复提交表单</p>
+<p>…</p>
+</li>
+</ul>
+<h2 id="%E6%8E%A2%E7%B4%A2%E5%BC%8F%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95" tabindex="-1"><a class="header-anchor" href="#%E6%8E%A2%E7%B4%A2%E5%BC%8F%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95">#</a> 探索式测试方法</h2>
+<p>探索式测试(ET)是一种帮助测试人员如何在需求不完善的情况下 尽早发现更多软件质量风险的测试手段。</p>
+<p><strong>它是一种测试风格，测试思维，而不是具体的测试技术</strong></p>
+<h3 id="%E4%BA%A7%E7%94%9F%E8%BF%87%E7%A8%8B" tabindex="-1"><a class="header-anchor" href="#%E4%BA%A7%E7%94%9F%E8%BF%87%E7%A8%8B">#</a> 产生过程</h3>
+<p>目前缺陷的检测有两种方式：自动化测试 和 手工测试。</p>
+<ul>
+<li>自动化测试：
+<ul>
+<li>a、有代码维护成本、学习成本，而且测试程序本身也存在问题。</li>
+<li>b、只要能在合理的场景中使用自动化还是能提高效率的，并不是所有的测试都 适合自动化。</li>
+</ul>
+</li>
+<li>手工测试：
+<ul>
+<li>需手脑并用，发挥聪明才智，才能设计出导致软件失效或符合软件设计效果的 真实场景。如果想发现与应用程序业务逻辑相关的缺陷手工测试是最佳选择。</li>
+<li>缺点：
+<ul>
+<li>a、慢</li>
+<li>b、无规律</li>
+<li>c、不易复现</li>
+<li>d、不可反复使用</li>
+<li>e、无可借鉴的经验</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>基于以上缺点诞生了手工测试的技术 ------ 探索式测试</li>
+</ul>
+<h3 id="%E6%8C%87%E5%AF%BC%E6%96%B9%E6%B3%95" tabindex="-1"><a class="header-anchor" href="#%E6%8C%87%E5%AF%BC%E6%96%B9%E6%B3%95">#</a> 指导方法</h3>
+<ul>
+<li>局部探索式测试法（小范围的，比如一个对话框等）
+<ul>
+<li>在运行任何一个测试用例时都都需要作出很多细微的战术层面决定</li>
+</ul>
+</li>
+<li>全局探索式测试法（总体测试，整个程序功能）
+<ul>
+<li>基于“漫游”概念，如同一个导游带领旅游团队参观大都市中的一系列 著名景点，漫游测试法提供的路线可以指导测试人员如何探索软件的方 方面面。</li>
+<li>全局测试法对于制定完整的测试策略给出了指导意义</li>
+</ul>
+</li>
+<li>混合探索式测试法（把探索式测试的实质和使用脚本的手工测试 合并起来）
+<ul>
+<li>使用正式脚本可以为探索式测试设立一个明确框架范围，探索式测试可 以提高脚本测试的有效性，为脚本中的测试用例提供更多种多样的变化</li>
+</ul>
+</li>
+</ul>
+<h1 id="%E4%BC%97%E5%8C%85%E6%B5%8B%E8%AF%95" tabindex="-1"><a class="header-anchor" href="#%E4%BC%97%E5%8C%85%E6%B5%8B%E8%AF%95">#</a> 众包测试</h1>
+<p>众包：利用群体力量来完成传统方法中成本高昂或耗时的大规模任务， 是Howe Jeff于2006年在美国《连线》杂志上首次提出的一种商业模式。</p>
+<h2 id="%E4%BC%97%E5%8C%85%E6%B5%8B%E8%AF%95%E6%B5%81%E7%A8%8B" tabindex="-1"><a class="header-anchor" href="#%E4%BC%97%E5%8C%85%E6%B5%8B%E8%AF%95%E6%B5%81%E7%A8%8B">#</a> 众包测试流程</h2>
+<ul>
+<li><strong>申请上传</strong>：用户将自己的应用程序上传到 众测平台， 并指定相应的测试任务和酬劳信息。</li>
+<li><strong>任务选择和环境设置</strong>：众测人员自由选择他们想要完 成的任务。选择后测试人员从平台上下载应用程序进 行测试。</li>
+<li><strong>提交报告</strong>：众测人员根据选择的待测应用，对测试到 的缺陷提交缺陷报告。</li>
+<li>**生成最终测试报告：**平台收集补充信息，生成最终的 缺陷报告，包括：一般信息、设备信息、操作路径等。</li>
+<li><strong>报告验证</strong>：客户将验证所有最终的缺陷报告，并决定 如何酬劳每个提交报告的众包测试人员</li>
+</ul>
+<h2 id="%E4%BC%97%E5%8C%85%E6%B5%8B%E8%AF%95%E7%9A%84%E4%BC%98%E5%8A%BF" tabindex="-1"><a class="header-anchor" href="#%E4%BC%97%E5%8C%85%E6%B5%8B%E8%AF%95%E7%9A%84%E4%BC%98%E5%8A%BF">#</a> 众包测试的优势</h2>
+<ul>
+<li>更充分的测试时间</li>
+<li>更广泛的测试方法</li>
+<li>更多样的测试环境</li>
+<li>更全面的测试方法</li>
+</ul>
+<h2 id="%E4%BC%97%E5%8C%85%E6%B5%8B%E8%AF%95%E4%B8%AD%E7%9A%84%E7%BC%BA%E9%99%B7%E7%B1%BB%E5%9E%8B" tabindex="-1"><a class="header-anchor" href="#%E4%BC%97%E5%8C%85%E6%B5%8B%E8%AF%95%E4%B8%AD%E7%9A%84%E7%BC%BA%E9%99%B7%E7%B1%BB%E5%9E%8B">#</a> 众包测试中的缺陷类型</h2>
+<ul>
+<li>功能缺陷</li>
+<li>显示问题</li>
+<li>性能问题</li>
+<li>布局问题</li>
+<li>应用崩溃</li>
+<li>错误提示</li>
+<li>空白屏</li>
+</ul>
+<h2 id="%E4%BC%97%E5%8C%85%E6%B5%8B%E8%AF%95%E9%9D%A2%E4%B8%B4%E7%9A%84%E6%8C%91%E6%88%98" tabindex="-1"><a class="header-anchor" href="#%E4%BC%97%E5%8C%85%E6%B5%8B%E8%AF%95%E9%9D%A2%E4%B8%B4%E7%9A%84%E6%8C%91%E6%88%98">#</a> 众包测试面临的挑战</h2>
+<ul>
+<li>任务分配</li>
+<li>任务奖励</li>
+<li>众测过程引导</li>
+<li>测试报告质量控制</li>
+</ul>
+<h2 id="%E5%8D%8F%E4%BD%9C%E5%BC%8F%E4%BC%97%E5%8C%85%E6%B5%8B%E8%AF%95" tabindex="-1"><a class="header-anchor" href="#%E5%8D%8F%E4%BD%9C%E5%BC%8F%E4%BC%97%E5%8C%85%E6%B5%8B%E8%AF%95">#</a> 协作式众包测试</h2>
+<ul>
+<li>信息共享：用户在提交报告时进行实时相似报告推荐，避免重复报告提交。</li>
+<li>任务分配：审核页面推荐待审核的报告列表，测试页面推荐待测页面。</li>
+<li>协作方式：点赞点踩操作：利用用户的交叉审核，验证报告有效性。</li>
+<li>一键Fork：Fork他人结果后进行修改，利用多人协作提升报告质量。</li>
+</ul>
+<h2 id="%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A" tabindex="-1"><a class="header-anchor" href="#%E6%B5%8B%E8%AF%95%E6%8A%A5%E5%91%8A">#</a> 测试报告</h2>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p>众测报告信息</p>
+<ul>
+<li>缺陷截图</li>
+<li>文本描述</li>
+<li>缺陷行为描述、复现步骤、期望行为</li>
+<li>测试环境信息</li>
+</ul>
+<h2 id="%E4%BC%97%E6%B5%8B%E6%8A%A5%E5%91%8A%E8%81%9A%E5%90%88" tabindex="-1"><a class="header-anchor" href="#%E4%BC%97%E6%B5%8B%E6%8A%A5%E5%91%8A%E8%81%9A%E5%90%88">#</a> 众测报告聚合</h2>
+<p>大量的测试报告——较多的重复数据</p>
+<ul>
+<li>懒惰和缺乏经验的用户。</li>
+<li>测试报告搜索功能较差。</li>
+<li>偶然的重复——由于网络等原因不小心提交了多次</li>
+<li>给开发者增加了许多工作量。</li>
+<li>不同的信息可以使开发者对Bug有一个更全面的了解。</li>
+</ul>
+<h3 id="aggregator" tabindex="-1"><a class="header-anchor" href="#aggregator">#</a> Aggregator</h3>
+<ol>
+<li>截屏集合的距离矩阵DS计算</li>
+<li>文本集合的距离矩阵DT计算</li>
+<li>距离矩阵的合并–Balanced Distance的计算
+<ul>
+<li>若文本完全相同，则认为<strong>平衡距离为0</strong></li>
+<li>若截屏完全相同，则平衡距离为<strong>加权的文本距离</strong></li>
+<li>文本和截屏均不相同时，使用<strong>二者的调和平均数</strong></li>
+</ul>
+</li>
+<li>合成层次聚类( Agglomerative Hirarchical Clustering )
+<ul>
+<li>将所有样本点各自归为一类，两两类别计算距离</li>
+<li>将距离最短的两个类合成一个类，计算新类与旧类的距离</li>
+<li>重复操作</li>
+<li>直至所有样本点都归于一类</li>
+</ul>
+</li>
+</ol>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h3 id="summarizer" tabindex="-1"><a class="header-anchor" href="#summarizer">#</a> Summarizer</h3>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h2 id="%E4%BC%97%E6%B5%8B%E6%8A%A5%E5%91%8A%E6%8E%92%E5%BA%8F" tabindex="-1"><a class="header-anchor" href="#%E4%BC%97%E6%B5%8B%E6%8A%A5%E5%91%8A%E6%8E%92%E5%BA%8F">#</a> 众测报告排序</h2>
+<ul>
+<li>使用文本+图片结合分析的方法</li>
+<li>通过自然语言处理算法计算文本的相似度</li>
+<li>通过SPM算法（Spatial Pyramid Matching）识别缺陷截图相似度</li>
+<li>通过使用一种多目标的优化算法结合文本与截图相似度完成针对测试报告的相似度比较</li>
+</ul>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p>处理截图主要涉及三个操作：</p>
+<ul>
+<li>建立特征直方图</li>
+<li>计算截图之间的距离</li>
+<li>计算截图集合之间的距离</li>
+<li>将图片转化为特征向量便于计算</li>
+</ul>
+<p>处理文本主要涉及两个操作：</p>
+<ul>
+<li>关键词的提取  过滤无用词汇：这些词会对文本距离计算产生消极影响</li>
+<li>文本距离的计算 使用Jaccard距离计算测试报告集 中文本描述间距离</li>
+</ul>
+<h1 id="%E7%A7%BB%E5%8A%A8%E5%BA%94%E7%94%A8%E8%87%AA%E5%8A%A8%E5%8C%96-gui-%E6%B5%8B%E8%AF%95" tabindex="-1"><a class="header-anchor" href="#%E7%A7%BB%E5%8A%A8%E5%BA%94%E7%94%A8%E8%87%AA%E5%8A%A8%E5%8C%96-gui-%E6%B5%8B%E8%AF%95">#</a> 移动应用自动化 GUI 测试</h1>
+<p><strong>GUI测试 = 控件定位 / 匹配 + 操作执行</strong></p>
+<h2 id="%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6" tabindex="-1"><a class="header-anchor" href="#%E8%87%AA%E5%8A%A8%E5%8C%96%E6%B5%8B%E8%AF%95%E6%A1%86%E6%9E%B6">#</a> 自动化测试框架</h2>
+<ul>
+<li>
+<p>Selenium</p>
+<ul>
+<li>Selenium 是一个开源的自动化测试工具，专门用于自动化网 页浏览器的操作。</li>
+<li>Selenium 允许测试人员使用多种编程语言编写测试脚本（如 Java、C#、Python、Ruby、JavaScript 等），以模拟用户 对网页的各种操作，如点击、填写表单、导航等</li>
+</ul>
+</li>
+<li>
+<p>Appium</p>
+<ul>
+<li>Appium 是一个扩展了 Selenium 的 WebDriver 协议来支持移 动应用自动化的工具，允许使用 Selenium 的客户端库来编写 适用于 iOS 和 Android 应用的测试脚本</li>
+</ul>
+</li>
+</ul>
+<p>人工录制 + 自动化回放</p>
+<p>基于模型的自动化测试技术</p>
+<h2 id="%E5%9F%BA%E4%BA%8E%E5%9B%BE%E5%83%8F%E7%9A%84%E7%AE%80%E5%8D%95%E6%8E%A7%E4%BB%B6%E5%AE%9A%E4%BD%8D" tabindex="-1"><a class="header-anchor" href="#%E5%9F%BA%E4%BA%8E%E5%9B%BE%E5%83%8F%E7%9A%84%E7%AE%80%E5%8D%95%E6%8E%A7%E4%BB%B6%E5%AE%9A%E4%BD%8D">#</a> 基于图像的简单控件定位</h2>
+<p>Sikuli 来自 MIT 的 Sikuli 通过图像 匹配算法来完成对 GUI 元素 的识别和定位。</p>
+<p>Airtest 来自网易的 Airtest 连接到某个窗 口或移动设备上，然后进行 GUI  测试脚本的编写。</p>
+<h3 id="%E5%AD%98%E5%9C%A8%E7%9A%84%E9%97%AE%E9%A2%98" tabindex="-1"><a class="header-anchor" href="#%E5%AD%98%E5%9C%A8%E7%9A%84%E9%97%AE%E9%A2%98">#</a> 存在的问题</h3>
+<ul>
+<li>
+<p>测试脚本的执行仍依赖于操作系统接口，如 Android 的 ADB</p>
+</li>
+<li>
+<p>使用像素级方式定位控件的方式难以应对复杂场景，如不同分辨率的设备</p>
+</li>
+<li>
+<p>仍面临人工编写和维护脚本的成本</p>
+</li>
+</ul>
+<h3 id="%E6%B7%B1%E5%BA%A6%E5%9B%BE%E5%83%8F%E7%90%86%E8%A7%A3%EF%BC%88%E6%8E%A7%E4%BB%B6%E6%8F%90%E5%8F%96%EF%BC%89" tabindex="-1"><a class="header-anchor" href="#%E6%B7%B1%E5%BA%A6%E5%9B%BE%E5%83%8F%E7%90%86%E8%A7%A3%EF%BC%88%E6%8E%A7%E4%BB%B6%E6%8F%90%E5%8F%96%EF%BC%89">#</a> 深度图像理解（控件提取）</h3>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h3 id="%E6%B7%B1%E5%BA%A6%E5%9B%BE%E5%83%8F%E7%90%86%E8%A7%A3%EF%BC%88%E6%96%87%E5%AD%97%E8%AF%86%E5%88%AB-%EF%BC%89" tabindex="-1"><a class="header-anchor" href="#%E6%B7%B1%E5%BA%A6%E5%9B%BE%E5%83%8F%E7%90%86%E8%A7%A3%EF%BC%88%E6%96%87%E5%AD%97%E8%AF%86%E5%88%AB-%EF%BC%89">#</a> 深度图像理解（文字识别 ）</h3>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h3 id="%E6%B7%B1%E5%BA%A6%E5%9B%BE%E5%83%8F%E7%90%86%E8%A7%A3%EF%BC%88%E7%95%8C%E9%9D%A2%E7%90%86%E8%A7%A3%EF%BC%89" tabindex="-1"><a class="header-anchor" href="#%E6%B7%B1%E5%BA%A6%E5%9B%BE%E5%83%8F%E7%90%86%E8%A7%A3%EF%BC%88%E7%95%8C%E9%9D%A2%E7%90%86%E8%A7%A3%EF%BC%89">#</a> 深度图像理解（界面理解）</h3>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h3 id="%E5%9F%BA%E4%BA%8E%E6%B7%B1%E5%BA%A6%E5%9B%BE%E5%83%8F%E7%90%86%E8%A7%A3%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E6%8E%A2%E7%B4%A2%E5%B7%A5%E5%85%B7" tabindex="-1"><a class="header-anchor" href="#%E5%9F%BA%E4%BA%8E%E6%B7%B1%E5%BA%A6%E5%9B%BE%E5%83%8F%E7%90%86%E8%A7%A3%E7%9A%84%E8%87%AA%E5%8A%A8%E5%8C%96%E6%8E%A2%E7%B4%A2%E5%B7%A5%E5%85%B7">#</a> 基于深度图像理解的自动化探索工具</h3>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<ol>
+<li>无法感知异形屏幕对 UI 控件的遮挡</li>
+<li>难以模拟真实场景下人的交互操作</li>
+<li>仍依赖操作系统接口执行测试操作</li>
+</ol>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h1 id="%E6%B5%8B%E8%AF%95%E9%A2%84%E8%A8%80%E9%97%AE%E9%A2%98" tabindex="-1"><a class="header-anchor" href="#%E6%B5%8B%E8%AF%95%E9%A2%84%E8%A8%80%E9%97%AE%E9%A2%98">#</a> 测试预言问题</h1>
+<h2 id="%E6%B5%8B%E8%AF%95%E9%A2%84%E8%A8%80" tabindex="-1"><a class="header-anchor" href="#%E6%B5%8B%E8%AF%95%E9%A2%84%E8%A8%80">#</a> 测试预言</h2>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h2 id="%E6%B5%8B%E8%AF%95%E9%A2%84%E8%A8%80%E5%AE%9A%E4%B9%89%EF%BC%88test-oracle%EF%BC%89" tabindex="-1"><a class="header-anchor" href="#%E6%B5%8B%E8%AF%95%E9%A2%84%E8%A8%80%E5%AE%9A%E4%B9%89%EF%BC%88test-oracle%EF%BC%89">#</a> 测试预言定义（Test Oracle）</h2>
+<ul>
+<li>是文档：体现被测单元的预期功能1（Intended Functionality）</li>
+<li>被测单元：模块、类、方法、函数、语句</li>
+<li>是机制：验证待测程序的行为是否符合预期</li>
+<li>是程序：判定程序的执行是否违反了某种正确性政策</li>
+<li>是约束：</li>
+<li>是映射：</li>
+</ul>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h2 id="%E6%B5%8B%E8%AF%95%E9%A2%84%E8%A8%80%E5%88%86%E7%B1%BB" tabindex="-1"><a class="header-anchor" href="#%E6%B5%8B%E8%AF%95%E9%A2%84%E8%A8%80%E5%88%86%E7%B1%BB">#</a> 测试预言分类</h2>
+<ul>
+<li><strong>隐式预言</strong>：用于检测**显著缺陷（Obvious Bug）**的测试预言。例如， 预期外的程序崩溃（Crash）就是一种典型的显著缺陷。</li>
+<li>显式预言：根据软件的预期功能提取得到的预言，一般用于检测<strong>功能性缺陷（Functional Bug）。</strong></li>
+</ul>
+<p>显式预言如上图举例</p>
+<p>隐式预言如下图</p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h2 id="%E9%A2%84%E8%A8%80%E9%97%AE%E9%A2%98%EF%BC%9A" tabindex="-1"><a class="header-anchor" href="#%E9%A2%84%E8%A8%80%E9%97%AE%E9%A2%98%EF%BC%9A">#</a> 预言问题：</h2>
+<p>给定系统的输入，<strong>如何找到能够正确辨别出符合期望的 正确行为与发现潜在的不正确行为</strong>测试预言的挑战性难题。</p>
+<p>预言问题具有挑战性的原因</p>
+<ul>
+<li>缺少清晰的规格：文档通常用自然语言编写，而自然语言存在二义性</li>
+<li>软件的动态特征：网络问题导致的问题、线程调度产生的并发问题</li>
+<li>优先的测试资源：测试预言空间和测试输入空间一样无法穷尽</li>
+</ul>
+<h2 id="%E9%A2%84%E8%A8%80%E9%97%AE%E9%A2%98%E7%8E%B0%E7%8A%B6" tabindex="-1"><a class="header-anchor" href="#%E9%A2%84%E8%A8%80%E9%97%AE%E9%A2%98%E7%8E%B0%E7%8A%B6">#</a> 预言问题现状</h2>
+<p>复杂的预言难以构建，容易构建的预言效果差</p>
+<h2 id="%E9%A2%84%E8%A8%80%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88" tabindex="-1"><a class="header-anchor" href="#%E9%A2%84%E8%A8%80%E9%97%AE%E9%A2%98%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88">#</a> 预言问题解决方案</h2>
+<p>利用静态程序分析手段自动化构建测试预言</p>
+<ul>
+<li>从文本文档/注释中自动提取（Specification Mining）</li>
+<li>设计形式化的文档语言：体系结构设计语言（ADL）</li>
+<li>使用不完全测试预言（Partial Test Oracle）
+<ul>
+<li>蜕变测试（Metamorphic Testing）</li>
+<li>差分测试（Differential Testing）</li>
+</ul>
+</li>
+</ul>
+<h1 id="%E8%9C%95%E5%8F%98%E6%B5%8B%E8%AF%95" tabindex="-1"><a class="header-anchor" href="#%E8%9C%95%E5%8F%98%E6%B5%8B%E8%AF%95">#</a> 蜕变测试</h1>
+<p>蜕变关系(Metamorphic Relation, MR) 是指多次执行目标程序时，<strong>输入与输出之间期望遵循的关系。</strong></p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p>应对（自动化）软件测试中的两大难题</p>
+<ul>
+<li>可靠测试集问题（Reliable Test Set Problem） <strong>测试生成/扩增</strong></li>
+<li>预言问题（Oracle Problem）<strong>正确性验证</strong></li>
+</ul>
+<p>蜕变测试本质：<strong>充分利用成功测试用例</strong></p>
+<ul>
+<li>对成功测试用例表现出的必要属性（Necessary Properties） 的复用；</li>
+<li>必要属性：从相关成功测试用例的集合和程序规格中提取出的、 <strong>待测软件必须遵守的属性</strong>；</li>
+<li>属性的必要性：<strong>违反必要属性的测试一定发现了某种软件缺陷。</strong></li>
+</ul>
+<h2 id="%E4%B8%89%E8%A6%81%E7%B4%A0" tabindex="-1"><a class="header-anchor" href="#%E4%B8%89%E8%A6%81%E7%B4%A0">#</a> 三要素</h2>
+<h3 id="%E8%9C%95%E5%8F%98%E5%85%B3%E7%B3%BB%EF%BC%88mr%2C-metamorphic-relation%EF%BC%89" tabindex="-1"><a class="header-anchor" href="#%E8%9C%95%E5%8F%98%E5%85%B3%E7%B3%BB%EF%BC%88mr%2C-metamorphic-relation%EF%BC%89">#</a> 蜕变关系（MR, Metamorphic Relation）</h3>
+<p>一组待测算法/功能 的必要属性，蜕变测试的核心</p>
+<p>蜕变关系可以是非等式关系</p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h3 id="%E8%9C%95%E5%8F%98%E9%9B%86%E5%90%88%EF%BC%88metamorphic-group%EF%BC%89" tabindex="-1"><a class="header-anchor" href="#%E8%9C%95%E5%8F%98%E9%9B%86%E5%90%88%EF%BC%88metamorphic-group%EF%BC%89">#</a> 蜕变集合（Metamorphic Group）</h3>
+<p>由表达了蜕变关系的一组测试输入组成的集合</p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h3 id="%E8%9C%95%E5%8F%98%E6%B5%8B%E8%AF%95%E8%BF%87%E7%A8%8B" tabindex="-1"><a class="header-anchor" href="#%E8%9C%95%E5%8F%98%E6%B5%8B%E8%AF%95%E8%BF%87%E7%A8%8B">#</a> 蜕变测试过程</h3>
+<p>应用蜕变关系和蜕变集合进行测试的一般流程</p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h2 id="%E4%BE%8B%E5%AD%90" tabindex="-1"><a class="header-anchor" href="#%E4%BE%8B%E5%AD%90">#</a> 例子</h2>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h1 id="%E5%B7%AE%E5%88%86%E6%B5%8B%E8%AF%95" tabindex="-1"><a class="header-anchor" href="#%E5%B7%AE%E5%88%86%E6%B5%8B%E8%AF%95">#</a> 差分测试</h1>
+<p>基本思想：通过将同一测试用例运行到一系列相似功能的应用中观察执行差异来检测bug。</p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h2 id="%E5%AE%9A%E4%B9%89" tabindex="-1"><a class="header-anchor" href="#%E5%AE%9A%E4%B9%89">#</a> 定义</h2>
+<p>差分测试（Differential Testing）也称为差分模糊测试，是 一种常用的软件测试技术，通过向一系列类似的应用程序 （或同一应用程序的不同实现）提供相同的输入，根据这些相似程序执行结 果是否存在差异来判定是否检测到缺陷1,2。</p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h2 id="%E8%9C%95%E5%8F%98%E5%92%8C%E5%B7%AE%E5%88%86%E6%B5%8B%E8%AF%95%E7%9A%84%E8%BE%A8%E6%9E%90" tabindex="-1"><a class="header-anchor" href="#%E8%9C%95%E5%8F%98%E5%92%8C%E5%B7%AE%E5%88%86%E6%B5%8B%E8%AF%95%E7%9A%84%E8%BE%A8%E6%9E%90">#</a> 蜕变和差分测试的辨析</h2>
+<ul>
+<li>相同点：
+<ul>
+<li>都利用了待测程序中的必要属性（Necessary Property）；</li>
+<li>都是黑盒测试技术</li>
+</ul>
+</li>
+<li>不同点
+<ul>
+<li>必要属性的类型不同：
+<ul>
+<li>蜕变测试利用了<strong>单一待测程序的必要属性</strong>；</li>
+<li>差分 测试则利用了<strong>多个相似待测程序间的必要属性</strong>；</li>
+</ul>
+</li>
+<li>正确性验证的准则不同：
+<ul>
+<li>蜕变测试的正确性验证准则是可变的，由蜕变关系决定；</li>
+<li>差分测试的正确性准则是固定的，即不同相似待测程序在同 一测试输入上的输出结果应该相同</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h1 id="%E6%99%BA%E8%83%BD%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95" tabindex="-1"><a class="header-anchor" href="#%E6%99%BA%E8%83%BD%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95">#</a> 智能软件测试</h1>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h2 id="%E6%B5%8B%E8%AF%95%E6%A0%87%E5%87%86" tabindex="-1"><a class="header-anchor" href="#%E6%B5%8B%E8%AF%95%E6%A0%87%E5%87%86">#</a> 测试标准</h2>
+<ul>
+<li>Neuron Coverage</li>
+<li>k-Multisection Neuron Coverage</li>
+<li>Neuron Boundary Coverage</li>
+<li>Strong Neuron Activation Coverage</li>
+<li>Top-k Neuron Coverage</li>
+</ul>
+<h2 id="%E6%95%B0%E6%8D%AE%E6%89%A9%E5%A2%9E" tabindex="-1"><a class="header-anchor" href="#%E6%95%B0%E6%8D%AE%E6%89%A9%E5%A2%9E">#</a> 数据扩增</h2>
+<p>数据扩增：通过轻微变换现有数据或创建新的合成图像来得到新数 据的技术。应用领域有图像扩增、文本扩增、雷达扩增……</p>
+<h2 id="%E7%AA%81%E5%8F%98%E6%B5%8B%E8%AF%95" tabindex="-1"><a class="header-anchor" href="#%E7%AA%81%E5%8F%98%E6%B5%8B%E8%AF%95">#</a> 突变测试</h2>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h2 id="%E6%A0%87%E5%87%86" tabindex="-1"><a class="header-anchor" href="#%E6%A0%87%E5%87%86">#</a> 标准</h2>
+<ul>
+<li>鲁棒性</li>
+<li>后门攻击</li>
+<li>公平性</li>
+<li>可解释性AI</li>
+<li>隐私性</li>
+</ul>
+<h2 id="framework-%2F-library-testing" tabindex="-1"><a class="header-anchor" href="#framework-%2F-library-testing">#</a> Framework / Library Testing</h2>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+
+      </div>
+
+      <footer class="post-footer">
+        <div class="post-nav">
+          <a href="/" class="post-nav-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            返回首页
+          </a>
+        </div>
+      </footer>
+    </article>
+  </main>
+</div>
+
+
+  <footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <span class="footer-logo">AI Blog</span>
+        <p class="footer-desc">一个由AI驱动的个人博客</p>
+        <div class="footer-social">
+          
+            <a href="https://github.com/yourname" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+          
+          
+            <a href="https://twitter.com/yourname" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          
+          
+            <a href="mailto:your@email.com" class="social-link" aria-label="Email">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </a>
+          
+          
+            <a href="/feed.xml" class="social-link" aria-label="RSS">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20C5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1z"/></svg>
+            </a>
+          
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">导航</h4>
+        <ul class="footer-links">
+          
+            <li><a href="/">首页</a></li>
+          
+            <li><a href="/archive/">归档</a></li>
+          
+            <li><a href="/tags/">标签</a></li>
+          
+            <li><a href="/categories/">分类</a></li>
+          
+          <li><a href="/archive/">归档</a></li>
+          <li><a href="/tags/">标签</a></li>
+          <li><a href="/categories/">分类</a></li>
+        </ul>
+      </div>
+
+      
+      <div class="footer-col">
+        <h4 class="footer-heading">友链</h4>
+        <ul class="footer-links">
+          
+            <li><a href="https://example.com" target="_blank" rel="noopener noreferrer">示例友链</a></li>
+          
+        </ul>
+      </div>
+      
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 AI Blog</p>
+      
+    </div>
+  </div>
+</footer>
+
+
+  <button class="back-to-top" aria-label="返回顶部">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+  </button>
+
+  <script src="/assets/js/main.js" defer></script>
+</body>
+</html>

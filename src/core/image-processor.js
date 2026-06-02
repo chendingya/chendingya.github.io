@@ -5,46 +5,82 @@ const sharp = require('sharp');
 class ImageProcessor {
   constructor(config) {
     this.config = config;
-    this.processedImages = new Map(); // 缓存已处理的图片
+    this.processedImages = new Map();
+    this.missingImages = new Set(); // 去重统计
   }
 
   async processImage(imagePath, outputDir) {
     try {
-      // 检查是否是外部URL
+      // 外部URL / 内联 SVG
       if (imagePath.startsWith('http://') || imagePath.startsWith('https://')) {
         return this.processExternalImage(imagePath);
       }
-      
-      // 检查是否是绝对路径
-      let fullImagePath;
-      if (imagePath.startsWith('/')) {
-        fullImagePath = path.resolve(this.config.assets.dir, imagePath.substring(1));
-      } else {
-        fullImagePath = path.resolve(outputDir, imagePath);
+      if (imagePath.startsWith('data:')) {
+        return { original: imagePath, width: 800, height: 400, format: 'svg', sizes: [], placeholder: true, url: imagePath };
       }
-      
-      // 检查文件是否存在
-      if (!await fs.pathExists(fullImagePath)) {
-        console.warn(`图片不存在: ${fullImagePath}`);
+
+      // Windows 绝对路径 (Typora 遗留)
+      if (/^[A-Za-z]:[/\\]/.test(imagePath)) {
         return this.generatePlaceholderImage(imagePath);
       }
-      
-      // 检查缓存
+
+      let fullImagePath;
+      let fromPosts = false;
+
+      if (imagePath.startsWith('/')) {
+        fullImagePath = path.resolve(this.config.assets.dir, imagePath.substring(1));
+        if (!await fs.pathExists(fullImagePath)) {
+          const altPath = path.resolve(this.config.posts.dir, imagePath.substring(1));
+          if (await fs.pathExists(altPath)) {
+            fullImagePath = altPath;
+            fromPosts = true;
+          }
+        }
+      } else {
+        fullImagePath = path.resolve(outputDir, imagePath);
+        if (!await fs.pathExists(fullImagePath)) {
+          // 尝试同名子文件夹：<postdir>/<postname>/image.png
+          const altPath = path.resolve(outputDir, path.basename(outputDir, path.extname(outputDir)), path.basename(imagePath));
+          if (await fs.pathExists(altPath)) {
+            fullImagePath = altPath;
+            fromPosts = true;
+          }
+        }
+      }
+
+      if (!await fs.pathExists(fullImagePath)) {
+        this.missingImages.add(imagePath);
+        return this.generatePlaceholderImage(imagePath);
+      }
+
+      // posts 目录下的图片直接透传，不处理（由 copyImages 统一复制到 dist）
+      if (fromPosts || fullImagePath.startsWith(path.resolve(this.config.posts.dir))) {
+        const postsDir = path.resolve(this.config.posts.dir);
+        const relPath = path.relative(postsDir, fullImagePath).replace(/\\/g, '/');
+        return {
+          original: imagePath, width: 0, height: 0, format: path.extname(fullImagePath).slice(1),
+          sizes: [], passthrough: true, url: '/' + relPath
+        };
+      }
+
+      // assets 目录下的图片正常处理
       const cacheKey = fullImagePath;
       if (this.processedImages.has(cacheKey)) {
         return this.processedImages.get(cacheKey);
       }
-      
-      // 处理图片
+
       const result = await this.processLocalImage(fullImagePath, outputDir);
-      
-      // 缓存结果
       this.processedImages.set(cacheKey, result);
-      
       return result;
     } catch (error) {
-      console.error(`处理图片失败 ${imagePath}:`, error.message);
+      this.missingImages.add(imagePath);
       return this.generatePlaceholderImage(imagePath);
+    }
+  }
+
+  summary() {
+    if (this.missingImages.size > 0) {
+      console.warn(`图片缺失 ${this.missingImages.size} 张（已用占位图替代）`);
     }
   }
 
@@ -186,72 +222,44 @@ class ImageProcessor {
   }
 
   generatePlaceholderImage(imagePath) {
-    // 生成占位图片数据
+    const svg = '<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400" viewBox="0 0 800 400">'
+      + '<rect width="800" height="400" fill="#F0E3D5"/>'
+      + '<text x="400" y="185" text-anchor="middle" fill="#C4A882" font-size="16" font-family="sans-serif">图片缺失</text>'
+      + '<text x="400" y="215" text-anchor="middle" fill="#E8D5C4" font-size="12" font-family="sans-serif">image not found</text>'
+      + '</svg>';
     return {
       original: imagePath,
-      width: 800,
-      height: 600,
-      format: 'jpeg',
+      width: 800, height: 400,
+      format: 'svg',
       sizes: [],
       placeholder: true,
-      url: '/images/placeholder.jpg'
+      url: 'data:image/svg+xml,' + encodeURIComponent(svg)
     };
   }
 
   generateImageTag(imageData, alt = '', className = '') {
-    if (!imageData) {
-      return '';
-    }
-    
-    // 如果是外部图片
+    if (!imageData) return '';
+
     if (imageData.external) {
       return `<img src="${imageData.original}" alt="${alt}" class="${className}" loading="lazy">`;
     }
-    
-    // 如果是占位图片
-    if (imageData.placeholder) {
-      return `<img src="${imageData.url}" alt="${alt}" class="${className} placeholder" loading="lazy">`;
+
+    // 占位图 或 posts 透传图 — 直接使用 url
+    if (imageData.placeholder || imageData.passthrough) {
+      return `<img src="${imageData.url}" alt="${alt}" class="${className}" loading="lazy">`;
     }
-    
-    // 生成响应式图片标签
+
+    // 响应式 + 优化后图片
     const srcset = this.generateSrcset(imageData);
     const sizes = this.generateSizes(imageData);
-    
     let imgTag = '<img';
-    
-    // 添加srcset
-    if (srcset) {
-      imgTag += ` srcset="${srcset}"`;
-    }
-    
-    // 添加sizes
-    if (sizes) {
-      imgTag += ` sizes="${sizes}"`;
-    }
-    
-    // 添加src（默认图片）
+    if (srcset) imgTag += ` srcset="${srcset}"`;
+    if (sizes) imgTag += ` sizes="${sizes}"`;
     imgTag += ` src="${imageData.optimized?.url || imageData.original}"`;
-    
-    // 添加alt
     imgTag += ` alt="${alt}"`;
-    
-    // 添加class
-    if (className) {
-      imgTag += ` class="${className}"`;
-    }
-    
-    // 添加loading="lazy"
-    if (this.config.images.lazyLoad) {
-      imgTag += ' loading="lazy"';
-    }
-    
-    // 添加宽度和高度（避免布局偏移）
-    if (imageData.width && imageData.height) {
-      imgTag += ` width="${imageData.width}" height="${imageData.height}"`;
-    }
-    
+    if (className) imgTag += ` class="${className}"`;
+    if (this.config.images.lazyLoad) imgTag += ' loading="lazy"';
     imgTag += '>';
-    
     return imgTag;
   }
 

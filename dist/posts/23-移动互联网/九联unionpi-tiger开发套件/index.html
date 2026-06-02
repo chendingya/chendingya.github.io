@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="一个由AI驱动的个人博客">
+  <title>九联Unionpi-Tiger开发套件 - AI Blog</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Noto+Serif+SC:wght@400;500;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/css/style.css">
+  
+  <link rel="stylesheet" href="/assets/css/highlight.css">
+  
+
+  
+  <style>:root {
+  --font-display: 'Playfair Display', 'Noto Serif SC', Georgia, 'Times New Roman', serif;
+  --font-body: 'Public Sans', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'Fira Code', 'Cascadia Code', 'JetBrains Mono', monospace;
+  --bg-cream: #FEFAF6;
+  --bg-surface: #FFFFFF;
+  --bg-warm: #FDF5EB;
+  --text-primary: #2C1810;
+  --text-secondary: #8B7355;
+  --text-muted: #C4A882;
+  --border: #E8D5C4;
+  --border-light: #F0E3D5;
+  --shadow-sm: 0 1px 2px rgba(44,24,16,0.04);
+  --shadow-md: 0 4px 12px rgba(44,24,16,0.06);
+  --shadow-lg: 0 12px 32px rgba(44,24,16,0.08);
+  --brand: var(--accent-coral);
+  --brand-hover: #FF5252;
+  --accent-coral: #FF6B6B;
+  --accent-coral-hover: #FF5252;
+  --accent-amber: #F4A261;
+  --accent-mint: #90BE6D;
+  --accent-lavender: #9B72AA;
+  --accent-sky: #4ECDC4;
+  --accent-sun: #F9C74F;
+  --accent-rose: #FF6B8A;
+  --accent-blue: #577590;
+  --max-width: 1200px;
+  --content-width: 720px;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 5rem;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+}
+
+[data-theme="dark"] {
+  --bg-cream: #1A1614;
+  --bg-surface: #2C2420;
+  --bg-warm: #241E1A;
+  --text-primary: #E8D5C4;
+  --text-secondary: #B8A088;
+  --text-muted: #8B7355;
+  --border: #3D3028;
+  --border-light: #332A22;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.25);
+  --shadow-lg: 0 12px 32px rgba(0,0,0,0.3);
+  --brand: var(--accent-coral);
+  --brand-hover: #FF8A8A;
+}</style>
+  
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23FF6B6B'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='20' fill='white'>A</text></svg>">
+
+  
+  <link rel="alternate" type="application/rss+xml" title="AI Blog" href="/feed.xml">
+  
+
+  <meta property="og:title" content="九联Unionpi-Tiger开发套件">
+  <meta property="og:description" content="一个由AI驱动的个人博客">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://username.github.io/ai-blog/posts/23-移动互联网/九联unionpi-tiger开发套件/">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="九联Unionpi-Tiger开发套件">
+  <meta name="twitter:description" content="一个由AI驱动的个人博客">
+  
+</head>
+<body class="post-page">
+  <div class="reading-progress"></div>
+
+  <header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="/" class="site-brand">
+        
+          <span class="brand-title">AI Blog</span>
+        
+      </a>
+
+      <nav class="site-nav" data-target="main-nav">
+        <ul class="nav-list">
+          
+            <li class="nav-item">
+              <a href="/" class="nav-link">首页</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/archive/" class="nav-link">归档</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/tags/" class="nav-link">标签</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/categories/" class="nav-link">分类</a>
+            </li>
+          
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" data-action="toggle-theme" aria-label="切换暗色模式">
+          <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+
+        <button class="icon-btn menu-btn" data-action="toggle-menu" aria-label="菜单">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  <div class="container">
+  <main class="main-content">
+    <article class="post-article">
+      <header class="post-header">
+        
+          <div class="post-header-cats">
+            
+              <a href="/categories/openharmony/" class="meta-cat accent">openharmony</a>
+            
+          </div>
+        
+        <h1 class="post-title">九联Unionpi-Tiger开发套件</h1>
+        <div class="post-meta">
+          <time datetime="2023-10-04T11:40:36.000Z">
+            2023年10月4日
+          </time>
+          
+            <span class="meta-divider">&middot;</span>
+            <span class="post-author">Your Name</span>
+          
+        </div>
+        
+          <div class="post-header-tags">
+            
+              <a href="/tags/openharmony/" class="tag">openharmony</a>
+            
+          </div>
+        
+      </header>
+
+      
+
+      <div class="post-body">
+        <h1 id="%E4%B9%9D%E8%81%94unionpi-tiger%E5%BC%80%E5%8F%91%E5%A5%97%E4%BB%B6" tabindex="-1"><a class="header-anchor" href="#%E4%B9%9D%E8%81%94unionpi-tiger%E5%BC%80%E5%8F%91%E5%A5%97%E4%BB%B6">#</a> 九联Unionpi-Tiger开发套件</h1>
+<h2 id="%E4%BB%8B%E7%BB%8D" tabindex="-1"><a class="header-anchor" href="#%E4%BB%8B%E7%BB%8D">#</a> 介绍</h2>
+<p>九联科技Unionpi Tiger是一款应用于图像处理，音视频处理和深度学习等场景的智能硬件，其主芯片采用Amlogic A311D芯片方案。 A311D支持GPU和神经网络加速子系统，支持4K视频编解码器引擎和一流的HDR图像处理，并集成了所有标准音频/视频输入/输出接口。主系统的CPU采用大小核设计，主频高达2.2GHz，集成了四个Cortex-A73核心和两Cortex-A53核心 ，集成独立的5.0T NPU处理器。</p>
+<p>图1 九联Unionpi-Tiger开发板外观图</p>
+<p><img src="https://gitee.com/openharmony/device_board_unionman/raw/master/figures/view-of-unionpi-tiger.jpg" alt="" class="" loading="lazy"></p>
+<h2 id="%E5%BC%80%E5%8F%91%E6%9D%BF%E8%AF%A6%E6%83%85" tabindex="-1"><a class="header-anchor" href="#%E5%BC%80%E5%8F%91%E6%9D%BF%E8%AF%A6%E6%83%85">#</a> 开发板详情</h2>
+<p>A311D采用四个Cortex-A73，主频最高为2.2GHz的大核和两个Cortex-A53，主频最高为1.8GHz的小核组成；采用22nm先进工艺，具有低功耗高性能的特点，可广泛应用于嵌入式人工智能领域。</p>
+<p>其规格参数如下：</p>
+<table>
+<thead>
+<tr>
+<th>规格类型</th>
+<th>具体参数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>主芯片</td>
+<td>Amlogic A311D</td>
+</tr>
+<tr>
+<td>CPU</td>
+<td>4 x Cortex-A73+2 x Cortex-A53</td>
+</tr>
+<tr>
+<td>GPU</td>
+<td>ARM Mali-G52 4核GPU</td>
+</tr>
+<tr>
+<td>NPU</td>
+<td>内置神经网处理器 NPU，AI 运算性能强：支持 8bit/16bit 运算，运算性能高达 5.0TOPS</td>
+</tr>
+<tr>
+<td>VPU</td>
+<td>支持4K VP9，H265，H264视频解码，高达60fps；支持多路1080P 多格式解码（H265，H264，MPEG-1/2/4，VP9，WMV）；一路1080P@60fps H264,H265编码；一路JPEG编码</td>
+</tr>
+<tr>
+<td>内存</td>
+<td>LPDDR4x 4GB</td>
+</tr>
+<tr>
+<td>存储</td>
+<td>高速 eMMC 5.1 32GB</td>
+</tr>
+<tr>
+<td>显示</td>
+<td>1 x HDMI 2.0 , 支持 4K@60HZ 输出 和 HDCP 1.4/2.2；1 x MIPI-DSI , 支持单通道1080P@60fps 输出</td>
+</tr>
+<tr>
+<td>音频</td>
+<td>1 x HDMI 2.0 音频输出；1 xSpeaker 双声道（4Ω/5W）；1 x 四段式CTIA耳麦，支持麦克风音频输入</td>
+</tr>
+<tr>
+<td>摄像头</td>
+<td>1 x 2-lane MIPI-CSI 摄像头接口</td>
+</tr>
+<tr>
+<td>拓展接口</td>
+<td>RS485 x 1、CAN Bus x 1、ADC x 1、PWM x 1、TTL x 1、GPIO</td>
+</tr>
+<tr>
+<td>电源</td>
+<td>DC 12V/3A</td>
+</tr>
+<tr>
+<td>工作温度</td>
+<td>0℃ - 60℃</td>
+</tr>
+</tbody>
+</table>
+<p>图2 开发板接口示意图 <img src="https://gitee.com/openharmony/device_board_unionman/raw/master/figures/interfaces.png" alt="" class="" loading="lazy"></p>
+<h2 id="%E5%BC%80%E5%8F%91%E6%9D%BF%E5%8A%9F%E8%83%BD" tabindex="-1"><a class="header-anchor" href="#%E5%BC%80%E5%8F%91%E6%9D%BF%E5%8A%9F%E8%83%BD">#</a> 开发板功能</h2>
+<ul>
+<li>核心板: 采用DDR3 SODIMM接口，尺寸为67.6mm x 52.3mm x 5mm，可满足小型终端产品空间需求</li>
+<li>千兆网口：可通过千兆以太网网口(RJ45)访问和传输内外网数据，提高网络传输效率</li>
+<li>内置神经网处理器 NPU: AI 运算支持 8bit/16bit 运算，运算性能高达5.0TOPS,支持主流神经网络模型（Caffe/MXNet/TensorFlow/TF-lite/ONNX/Darknet等）</li>
+<li>视频处理器VPU：支持4K VP9，H265，H264视频解码，高达60fps，支持多路1080P 多格式解码（H265，H264，MPEG-1/2/4，VP9，WMV）， 一路1080P@60fps H264,H265编码， 一路JPEG编码</li>
+<li>支持多系统：OpenHarmony、OpenEuler、Ubuntu 20.04、 Linux、Android</li>
+</ul>
+<h2 id="%E5%BC%80%E5%8F%91%E6%9D%BF%E9%85%8D%E4%BB%B6%E5%AE%89%E8%A3%85" tabindex="-1"><a class="header-anchor" href="#%E5%BC%80%E5%8F%91%E6%9D%BF%E9%85%8D%E4%BB%B6%E5%AE%89%E8%A3%85">#</a> 开发板配件安装</h2>
+<p>配件摄像头（MIPI-CSI）、屏幕模组（MIPI-DSI）及喇叭安装如下图：</p>
+<p>图3 开发板配件连接 <img src="https://gitee.com/openharmony/device_board_unionman/raw/master/figures/connections.png" alt="" class="" loading="lazy"></p>
+<h2 id="%E5%BC%80%E5%8F%91%E6%9D%BF%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF" tabindex="-1"><a class="header-anchor" href="#%E5%BC%80%E5%8F%91%E6%9D%BF%E5%BA%94%E7%94%A8%E5%9C%BA%E6%99%AF">#</a> 开发板应用场景</h2>
+<p>九联Unionpi Tiger(A311D)有着强大的芯片处理能力及大量丰富的硬件接口，使得它能应用于多种领域。适用于智能家居、AI人脸识别、工业控制、智慧车载、多媒体处理、AI边缘计算、物联网、舵机应用等各种领域。</p>
+<h2 id="%E6%90%AD%E5%BB%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83" tabindex="-1"><a class="header-anchor" href="#%E6%90%AD%E5%BB%BA%E5%BC%80%E5%8F%91%E7%8E%AF%E5%A2%83">#</a> 搭建开发环境</h2>
+<h4 id="1%E3%80%81%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96%E5%B7%A5%E5%85%B7" tabindex="-1"><a class="header-anchor" href="#1%E3%80%81%E5%AE%89%E8%A3%85%E4%BE%9D%E8%B5%96%E5%B7%A5%E5%85%B7">#</a> 1、安装依赖工具</h4>
+<p>安装命令如下：</p>
+<pre><code>sudo apt-get update &amp;&amp; sudo apt-get install binutils git git-lfs gnupg flex
+bison gperf build-essential zip curl zlib1g-dev gcc-multilib g++-multilib
+libc6-dev-i386 lib32ncurses5-dev x11proto-core-dev libx11-dev lib32z1-dev ccache
+libgl1-mesa-dev libxml2-utils xsltproc unzip m4 bc gnutls-bin python3.8
+python3-pip ruby device-tree-compiler lib32stdc++6 lib32z1 libncurses5-dev -y
+</code></pre>
+<p><strong>说明：</strong> 以上安装命令适用于Ubuntu 18.04/20.04，其他版本请根据安装包名称采用对应的安装命令。</p>
+<h4 id="2%E3%80%81%E8%8E%B7%E5%8F%96%E6%A0%87%E5%87%86%E7%B3%BB%E7%BB%9F%E6%BA%90%E7%A0%81" tabindex="-1"><a class="header-anchor" href="#2%E3%80%81%E8%8E%B7%E5%8F%96%E6%A0%87%E5%87%86%E7%B3%BB%E7%BB%9F%E6%BA%90%E7%A0%81">#</a> 2、获取标准系统源码</h4>
+<p><strong>前提条件</strong></p>
+<p>1）注册码云gitee账号。</p>
+<p>2）注册码云SSH公钥，请参考<a href="https://gitee.com/help/articles/4191">码云帮助中心</a>。</p>
+<p>3）安装<a href="https://gitee.com/link?target=http%3A%2F%2Fgit-scm.com%2Fbook%2Fzh%2Fv2%2F%E8%B5%B7%E6%AD%A5-%E5%AE%89%E8%A3%85-Git">git客户端</a>和<a href="https://gitee.com/vcs-all-in-one/git-lfs?_from=gitee_search#downloading">git-lfs</a>并配置用户信息。</p>
+<pre><code>git config --global user.name &quot;yourname&quot;
+git config --global user.email &quot;your-email-address&quot;
+git config --global credential.helper store
+</code></pre>
+<p>4）安装码云repo工具，可以执行如下命令。</p>
+<pre><code>curl -s https://gitee.com/oschina/repo/raw/fork_flow/repo-py3 
+/usr/local/bin/repo  #如果没有权限，可下载至其他目录，并将其配置到环境变量中
+chmod a+x /usr/local/bin/repo
+pip3 install -i https://repo.huaweicloud.com/repository/pypi/simple requests
+</code></pre>
+<p><strong>获取源码操作步骤</strong></p>
+<p>1） 通过repo + ssh 下载（需注册公钥，请参考码云帮助中心）：</p>
+<pre><code>repo init -u git@gitee.com:openharmony/manifest.git -b master --no-repo-verify
+repo sync -c
+repo forall -c 'git lfs pull'
+</code></pre>
+<p>2） 通过repo + https 下载：</p>
+<pre><code>repo init -u https://gitee.com/openharmony/manifest.git -b master --no-repo-verify
+repo sync -c
+repo forall -c 'git lfs pull'
+</code></pre>
+<p><strong>执行prebuilts</strong></p>
+<p>在源码根目录下执行脚本，安装编译器及二进制工具：</p>
+<pre><code>bash build/prebuilts_download.sh
+</code></pre>
+<p>下载的prebuilts二进制默认存放在与OpenHarmony同目录下的OpenHarmony_2.0_canary_prebuilts下。</p>
+<h2 id="%E7%BC%96%E8%AF%91%E4%B8%8E%E8%B0%83%E8%AF%95" tabindex="-1"><a class="header-anchor" href="#%E7%BC%96%E8%AF%91%E4%B8%8E%E8%B0%83%E8%AF%95">#</a> 编译与调试</h2>
+<h4 id="1%E3%80%81%E7%BC%96%E8%AF%91%E5%8F%8A%E6%89%93%E5%8C%85" tabindex="-1"><a class="header-anchor" href="#1%E3%80%81%E7%BC%96%E8%AF%91%E5%8F%8A%E6%89%93%E5%8C%85">#</a> 1、编译及打包</h4>
+<p>在Linux环境进行如下操作:</p>
+<p>1） 进入源码根目录，执行如下命令进行版本编译：</p>
+<pre><code>./build.sh --product-name unionpi_tiger –ccache
+</code></pre>
+<p>2） 检查编译结果。编译完成后，log中显示如下：</p>
+<pre><code>[OHOS INFO] unionpi_tiger build success
+[OHOS INFO] cost time: 0:14:30
+=====build successful=====
+2022-06-25 14:30:14
+</code></pre>
+<p>编译所生成的文件都归档在out/unionpi_tiger/目录下，结果镜像输出在 out/unionpi_tiger/packages/phone/images/ 目录下。</p>
+<p>3） 编译源码完成，如果需要生成boot.img镜像或需要完整USB烧录镜像包，请先进行镜像打包，打包命令如下：</p>
+<pre><code>./device/board/unionman/unionpi_tiger/common/tools/packer-unionpi.sh
+</code></pre>
+<p>打包完成后的镜像名称为OpenHarmony.img, 也生成在out/unionpi_tiger/packages/phone/images/ 目录下：</p>
+<blockquote>
+<p>1.该步骤每次编译完成后执行一次即可；</p>
+<p>2.Amlogic USB烧录工具不支持单镜像烧录，需要对镜像进行打包，如果单独烧写镜像可以在Uboot下采用U盘升级的方式</p>
+</blockquote>
+<h4 id="2%E3%80%81%E7%83%A7%E5%BD%95%E6%AD%A5%E9%AA%A4" tabindex="-1"><a class="header-anchor" href="#2%E3%80%81%E7%83%A7%E5%BD%95%E6%AD%A5%E9%AA%A4">#</a> 2、烧录步骤</h4>
+<p>1） 开发板与PC连接USB OTG口</p>
+<p>2） 进入烧录模式</p>
+<p>在接入电源上电状态前，长按Update键不放开可以进入烧录模式。如果开发板，已经处于开机上电的情况下，长按Update键，再单击Reset键进入烧录模式。USB烧录工具显示设备连接状态如下图所示：</p>
+<p><img src="https://gitee.com/openharmony/device_board_unionman/raw/master/figures/state-of-device.png" alt="" class="" loading="lazy"></p>
+<p>3）烧录配置及镜像选择</p>
+<p>从菜单“文件”－“导入烧录包”选择加载要烧录的镜像文件，也可以通过“最近打开的文件”选择最近使用过的烧录镜像文件，其中默认对导入的烧录包进行校验检查（可去除校验，以加快烧录进度）</p>
+<p><img src="https://gitee.com/openharmony/device_board_unionman/raw/master/figures/options-of-burning.png" alt="" class="" loading="lazy"></p>
+<p>导入烧录包（为上文linux环境下编译打包出来的固件镜像），点击“开始”，接着就可以等待镜像烧录。烧录完成之后，如果软件界面会相应提示成功或失败，失败同时会提示失败原因。本次烧录成功如图所示。（烧录时间根据镜像大小而定，烧录大概10-12分钟左右，耐心等待, 如果调整镜像大小或采用sparse-image，可以缩短烧录时间）</p>
+<p><img src="https://gitee.com/openharmony/device_board_unionman/raw/master/figures/success-of-burning.png" alt="" class="" loading="lazy"></p>
+<p>烧写工具下载及使用</p>
+<blockquote>
+<p>1、工具下载参考：<a href="https://gitee.com/algoideas/amlogic-tools/tree/master/Windows">USB烧录工具及USB转串口工具</a></p>
+<p>2、USB OTG口同时为HDC调试接口，需注意右侧3个USB2.0接口和USB OTG口不能同时启用。</p>
+</blockquote>
+<h2 id="%E5%85%B6%E4%BB%96" tabindex="-1"><a class="header-anchor" href="#%E5%85%B6%E4%BB%96">#</a> 其他</h2>
+<h4 id="1%E3%80%81%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%83%A7%E5%BD%95" tabindex="-1"><a class="header-anchor" href="#1%E3%80%81%E5%91%BD%E4%BB%A4%E8%A1%8C%E7%83%A7%E5%BD%95">#</a> 1、命令行烧录</h4>
+<p>开发板支持命令行烧录功能，且命令行烧录支持单分区进行更新，工具链接：<a href="https://gitee.com/algoideas/amlogic-tools/blob/master/Windows/update.zip">update.zip</a>。其中，命令行的详细使用方法可直接输入update.exe进行了解。命令行烧录的使用方法和步骤如下：</p>
+<h5 id="1.1%E3%80%81-%E8%BF%9B%E5%85%A5%E5%8D%87%E7%BA%A7%E6%A8%A1%E5%BC%8F" tabindex="-1"><a class="header-anchor" href="#1.1%E3%80%81-%E8%BF%9B%E5%85%A5%E5%8D%87%E7%BA%A7%E6%A8%A1%E5%BC%8F">#</a> 1.1、 进入升级模式</h5>
+<p><strong>a)</strong>、自动进入方式 (目前仅适用master分支的版本) 系统正常启动后，并确保可以正常使用hdc工具的情况下，执行以下命令后自动重启进入升级模式：</p>
+<pre><code>hdc_std shell aml_reboot update
+</code></pre>
+<p><strong>b)</strong>、手动进入方式 (参考编译与调试章节说明) 开机前，按Update键，可进入升级模式</p>
+<h5 id="1.2%E3%80%81%E9%95%9C%E5%83%8F%E7%83%A7%E5%BD%95" tabindex="-1"><a class="header-anchor" href="#1.2%E3%80%81%E9%95%9C%E5%83%8F%E7%83%A7%E5%BD%95">#</a> 1.2、镜像烧录</h5>
+<p>烧录完整分区镜像命令如下(可根据需要仅对单独分区进行升级)：</p>
+<pre><code>update.exe partition _aml_dtb dtb.img
+update.exe partition boot boot.img
+update.exe partition updater updater.img
+update.exe partition data userdata.img
+update.exe partition vendor vendor.img
+update.exe partition system system.img
+update.exe partition bootloader u-boot.bin
+update.exe bulkcmd &quot;env default -a&quot;
+update.exe bulkcmd &quot;env save&quot;
+update.exe bulkcmd reboot
+</code></pre>
+<h4 id="2%E3%80%81%E5%88%87%E6%8D%A2usb-host%E6%A8%A1%E5%BC%8F" tabindex="-1"><a class="header-anchor" href="#2%E3%80%81%E5%88%87%E6%8D%A2usb-host%E6%A8%A1%E5%BC%8F">#</a> 2、切换USB Host模式</h4>
+<p>USB OTG口默认HDC调试，其他3个USB2.0口不能使用，如果需要使用USB2.0,需要进行切换（或通过修改dts默认启用USB2.0），切换命令如下：</p>
+<pre><code># 同时切换USB HUB (启用ttyACM0 ttyACM1)
+echo 1 &gt; /sys/devices/platform/leds/leds/usb_switch/brightness
+echo 0 &gt; /sys/devices/platform/soc/ffe09000.usb/usb_mode
+echo host &gt; /sys/class/usb_role/ffe09000.usb-role-switch/role
+</code></pre>
+<h4 id="3%E3%80%81%E6%81%A2%E5%A4%8D%E6%A8%A1%E5%BC%8F" tabindex="-1"><a class="header-anchor" href="#3%E3%80%81%E6%81%A2%E5%A4%8D%E6%A8%A1%E5%BC%8F">#</a> 3、恢复模式</h4>
+<p>开发板如果不能正常启动时，即Boot启动异常（可通过debug串口查看），且Update键进入烧录模式，USB烧录软件不能识别设备。</p>
+<p>如下图所示，用金属短接核心板触点1和2，可以进入恢复模式，USB烧录软件可以正常识别设备后，按照正常烧录步骤烧写即可。</p>
+<p><img src="https://gitee.com/openharmony/device_board_unionman/raw/master/figures/recovery.jpg" alt="" class="" loading="lazy"></p>
+
+      </div>
+
+      <footer class="post-footer">
+        <div class="post-nav">
+          <a href="/" class="post-nav-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            返回首页
+          </a>
+        </div>
+      </footer>
+    </article>
+  </main>
+</div>
+
+
+  <footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <span class="footer-logo">AI Blog</span>
+        <p class="footer-desc">一个由AI驱动的个人博客</p>
+        <div class="footer-social">
+          
+            <a href="https://github.com/yourname" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+          
+          
+            <a href="https://twitter.com/yourname" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          
+          
+            <a href="mailto:your@email.com" class="social-link" aria-label="Email">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </a>
+          
+          
+            <a href="/feed.xml" class="social-link" aria-label="RSS">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20C5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1z"/></svg>
+            </a>
+          
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">导航</h4>
+        <ul class="footer-links">
+          
+            <li><a href="/">首页</a></li>
+          
+            <li><a href="/archive/">归档</a></li>
+          
+            <li><a href="/tags/">标签</a></li>
+          
+            <li><a href="/categories/">分类</a></li>
+          
+          <li><a href="/archive/">归档</a></li>
+          <li><a href="/tags/">标签</a></li>
+          <li><a href="/categories/">分类</a></li>
+        </ul>
+      </div>
+
+      
+      <div class="footer-col">
+        <h4 class="footer-heading">友链</h4>
+        <ul class="footer-links">
+          
+            <li><a href="https://example.com" target="_blank" rel="noopener noreferrer">示例友链</a></li>
+          
+        </ul>
+      </div>
+      
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 AI Blog</p>
+      
+    </div>
+  </div>
+</footer>
+
+
+  <button class="back-to-top" aria-label="返回顶部">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+  </button>
+
+  <script src="/assets/js/main.js" defer></script>
+</body>
+</html>

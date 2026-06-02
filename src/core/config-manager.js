@@ -93,7 +93,7 @@ class ConfigManager {
     this.config.posts.dir = this.config.posts.dir || 'content/posts';
     this.config.posts.perPage = this.config.posts.perPage || 10;
     this.config.posts.toc = this.config.posts.toc !== false;
-    this.config.posts.permalink = this.config.posts.permalink || '/:year/:month/:day/:slug/';
+    this.config.posts.permalink = this.config.posts.permalink || '/posts/:slug/';
     
     // 页面默认值
     this.config.pages = this.config.pages || {};

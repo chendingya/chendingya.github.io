@@ -339,20 +339,39 @@ class FileGenerator {
 
   async copyImages() {
     try {
-      const imagesDir = path.resolve(this.config.assets.dir, 'images');
-      
-      if (!await fs.pathExists(imagesDir)) {
-        console.log('图片目录不存在，跳过复制');
-        return;
-      }
-      
       const outputImagesDir = path.join(this.outputDir, 'images');
       await fs.ensureDir(outputImagesDir);
-      
-      // 复制所有图片
-      await fs.copy(imagesDir, outputImagesDir);
-      
-      console.log(`已复制图片: ${imagesDir} -> ${outputImagesDir}`);
+
+      // 1. 复制 assets/images/ → dist/images/
+      const assetsImagesDir = path.resolve(this.config.assets.dir, 'images');
+      if (await fs.pathExists(assetsImagesDir)) {
+        await fs.copy(assetsImagesDir, outputImagesDir);
+        console.log(`已复制资源图片: ${assetsImagesDir} -> ${outputImagesDir}`);
+      }
+
+      // 2. 复制 posts 目录下的图片到 dist（保持目录结构）
+      const postsDir = path.resolve(this.config.posts.dir);
+      const imageExts = ['.png', '.jpg', '.jpeg', '.gif', '.svg', '.webp', '.bmp'];
+      const copyPostsImages = async (dir) => {
+        const items = await fs.readdir(dir, { withFileTypes: true });
+        for (const item of items) {
+          const srcPath = path.join(dir, item.name);
+          if (item.isDirectory() && item.name !== 'images') {
+            await copyPostsImages(srcPath);
+          } else if (item.isFile() && imageExts.includes(path.extname(item.name).toLowerCase())) {
+            const relPath = path.relative(postsDir, srcPath).replace(/\\/g, '/');
+            const destPath = path.join(this.outputDir, relPath);
+            await fs.ensureDir(path.dirname(destPath));
+            await fs.copy(srcPath, destPath);
+          }
+        }
+      };
+
+      if (await fs.pathExists(postsDir)) {
+        await copyPostsImages(postsDir);
+      }
+
+      console.log('已复制文章图片');
     } catch (error) {
       console.error('复制图片失败:', error.message);
       throw error;

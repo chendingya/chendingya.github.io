@@ -1,0 +1,575 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="一个由AI驱动的个人博客">
+  <title>SE-II-ch16-设计模式 - AI Blog</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Noto+Serif+SC:wght@400;500;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/css/style.css">
+  
+  <link rel="stylesheet" href="/assets/css/highlight.css">
+  
+
+  
+  <style>:root {
+  --font-display: 'Playfair Display', 'Noto Serif SC', Georgia, 'Times New Roman', serif;
+  --font-body: 'Public Sans', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'Fira Code', 'Cascadia Code', 'JetBrains Mono', monospace;
+  --bg-cream: #FEFAF6;
+  --bg-surface: #FFFFFF;
+  --bg-warm: #FDF5EB;
+  --text-primary: #2C1810;
+  --text-secondary: #8B7355;
+  --text-muted: #C4A882;
+  --border: #E8D5C4;
+  --border-light: #F0E3D5;
+  --shadow-sm: 0 1px 2px rgba(44,24,16,0.04);
+  --shadow-md: 0 4px 12px rgba(44,24,16,0.06);
+  --shadow-lg: 0 12px 32px rgba(44,24,16,0.08);
+  --brand: var(--accent-coral);
+  --brand-hover: #FF5252;
+  --accent-coral: #FF6B6B;
+  --accent-coral-hover: #FF5252;
+  --accent-amber: #F4A261;
+  --accent-mint: #90BE6D;
+  --accent-lavender: #9B72AA;
+  --accent-sky: #4ECDC4;
+  --accent-sun: #F9C74F;
+  --accent-rose: #FF6B8A;
+  --accent-blue: #577590;
+  --max-width: 1200px;
+  --content-width: 720px;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 5rem;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+}
+
+[data-theme="dark"] {
+  --bg-cream: #1A1614;
+  --bg-surface: #2C2420;
+  --bg-warm: #241E1A;
+  --text-primary: #E8D5C4;
+  --text-secondary: #B8A088;
+  --text-muted: #8B7355;
+  --border: #3D3028;
+  --border-light: #332A22;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.25);
+  --shadow-lg: 0 12px 32px rgba(0,0,0,0.3);
+  --brand: var(--accent-coral);
+  --brand-hover: #FF8A8A;
+}</style>
+  
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23FF6B6B'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='20' fill='white'>A</text></svg>">
+
+  
+  <link rel="alternate" type="application/rss+xml" title="AI Blog" href="/feed.xml">
+  
+
+  <meta property="og:title" content="SE-II-ch16-设计模式">
+  <meta property="og:description" content="一个由AI驱动的个人博客">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://username.github.io/ai-blog/posts/se-ii笔记/16-设计模式/">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SE-II-ch16-设计模式">
+  <meta name="twitter:description" content="一个由AI驱动的个人博客">
+  
+</head>
+<body class="post-page">
+  <div class="reading-progress"></div>
+
+  <header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="/" class="site-brand">
+        
+          <span class="brand-title">AI Blog</span>
+        
+      </a>
+
+      <nav class="site-nav" data-target="main-nav">
+        <ul class="nav-list">
+          
+            <li class="nav-item">
+              <a href="/" class="nav-link">首页</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/archive/" class="nav-link">归档</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/tags/" class="nav-link">标签</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/categories/" class="nav-link">分类</a>
+            </li>
+          
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" data-action="toggle-theme" aria-label="切换暗色模式">
+          <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+
+        <button class="icon-btn menu-btn" data-action="toggle-menu" aria-label="菜单">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  <div class="container">
+  <main class="main-content">
+    <article class="post-article">
+      <header class="post-header">
+        
+          <div class="post-header-cats">
+            
+              <a href="/categories/软件工程与计算II/" class="meta-cat accent">软件工程与计算II</a>
+            
+          </div>
+        
+        <h1 class="post-title">SE-II-ch16-设计模式</h1>
+        <div class="post-meta">
+          <time datetime="2022-06-18T16:02:34.000Z">
+            2022年6月19日
+          </time>
+          
+            <span class="meta-divider">&middot;</span>
+            <span class="post-author">Your Name</span>
+          
+        </div>
+        
+          <div class="post-header-tags">
+            
+              <a href="/tags/软件工程与计算II/" class="tag">软件工程与计算II</a>
+            
+          </div>
+        
+      </header>
+
+      
+        <details class="toc-wrap">
+          <summary class="toc-title">目录</summary>
+          <nav class="toc-nav">
+            
+              <a href="#1-可修改性及其基本实现机制" class="toc-link toc-level-1">1. 可修改性及其基本实现机制</a>
+            
+              <a href="#1-1-如何实现可修改性-重要" class="toc-link toc-level-2">1.1. 如何实现可修改性？ 重要</a>
+            
+              <a href="#1-2-如何将接口与实现的分离-java视角" class="toc-link toc-level-2">1.2. 如何将接口与实现的分离 -- Java视角</a>
+            
+              <a href="#1-3-实现接口-interface" class="toc-link toc-level-2">1.3. 实现接口(interface)</a>
+            
+              <a href="#1-4-类图中的标志物的含义" class="toc-link toc-level-2">1.4. 类图中的标志物的含义</a>
+            
+              <a href="#1-5-类图与依赖关系" class="toc-link toc-level-2">1.5. 类图与依赖关系</a>
+            
+              <a href="#1-6-继承" class="toc-link toc-level-2">1.6. 继承</a>
+            
+              <a href="#1-7-类图与依赖关系" class="toc-link toc-level-2">1.7. 类图与依赖关系</a>
+            
+              <a href="#1-8-实现的可修改性" class="toc-link toc-level-2">1.8. 实现的可修改性</a>
+            
+              <a href="#1-8-1-扩展" class="toc-link toc-level-3">1.8.1. 扩展</a>
+            
+              <a href="#1-9-实现的可扩展性" class="toc-link toc-level-2">1.9. 实现的可扩展性</a>
+            
+              <a href="#1-10-实现的灵活性" class="toc-link toc-level-2">1.10. 实现的灵活性</a>
+            
+              <a href="#1-11-继承的优点" class="toc-link toc-level-2">1.11. 继承的优点</a>
+            
+              <a href="#1-12-继承的缺点" class="toc-link toc-level-2">1.12. 继承的缺点</a>
+            
+              <a href="#1-13-组合" class="toc-link toc-level-2">1.13. 组合</a>
+            
+              <a href="#1-13-1-组合的优点" class="toc-link toc-level-3">1.13.1. 组合的优点</a>
+            
+              <a href="#2-设计模式" class="toc-link toc-level-1">2. 设计模式</a>
+            
+              <a href="#2-1-why-为什么使用设计模式" class="toc-link toc-level-2">2.1. Why？为什么使用设计模式</a>
+            
+              <a href="#2-2-什么是设计模式" class="toc-link toc-level-2">2.2. 什么是设计模式</a>
+            
+              <a href="#2-3-模式" class="toc-link toc-level-2">2.3. 模式</a>
+            
+              <a href="#2-4-解决方案" class="toc-link toc-level-2">2.4. 解决方案</a>
+            
+              <a href="#3-设计模式和策略配对" class="toc-link toc-level-1">3. 设计模式和策略配对</a>
+            
+              <a href="#4-设计模式重点掌握类图-重要" class="toc-link toc-level-1">4. 设计模式重点掌握类图 重要</a>
+            
+              <a href="#5-题目" class="toc-link toc-level-1">5. 题目</a>
+            
+          </nav>
+        </details>
+      
+
+      <div class="post-body">
+        <h2 id="16-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F" tabindex="-1"><a class="header-anchor" href="#16-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">#</a> 16-设计模式</h2>
+<!-- TOC -->
+<ul>
+<li><a href="#1-%E5%8F%AF%E4%BF%AE%E6%94%B9%E6%80%A7%E5%8F%8A%E5%85%B6%E5%9F%BA%E6%9C%AC%E5%AE%9E%E7%8E%B0%E6%9C%BA%E5%88%B6">1. 可修改性及其基本实现机制</a>
+<ul>
+<li><a href="#11-%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%8F%AF%E4%BF%AE%E6%94%B9%E6%80%A7-%E9%87%8D%E8%A6%81">1.1. 如何实现可修改性？ 重要</a></li>
+<li><a href="#12-%E5%A6%82%E4%BD%95%E5%B0%86%E6%8E%A5%E5%8F%A3%E4%B8%8E%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%88%86%E7%A6%BB----java%E8%A7%86%E8%A7%92">1.2. 如何将接口与实现的分离 – Java视角</a></li>
+<li><a href="#13-%E5%AE%9E%E7%8E%B0%E6%8E%A5%E5%8F%A3interface">1.3. 实现接口(interface)</a></li>
+<li><a href="#14-%E7%B1%BB%E5%9B%BE%E4%B8%AD%E7%9A%84%E6%A0%87%E5%BF%97%E7%89%A9%E7%9A%84%E5%90%AB%E4%B9%89">1.4. 类图中的标志物的含义</a></li>
+<li><a href="#15-%E7%B1%BB%E5%9B%BE%E4%B8%8E%E4%BE%9D%E8%B5%96%E5%85%B3%E7%B3%BB">1.5. 类图与依赖关系</a></li>
+<li><a href="#16-%E7%BB%A7%E6%89%BF">1.6. 继承</a></li>
+<li><a href="#17-%E7%B1%BB%E5%9B%BE%E4%B8%8E%E4%BE%9D%E8%B5%96%E5%85%B3%E7%B3%BB">1.7. 类图与依赖关系</a></li>
+<li><a href="#18-%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%8F%AF%E4%BF%AE%E6%94%B9%E6%80%A7">1.8. 实现的可修改性</a>
+<ul>
+<li><a href="#181-%E6%89%A9%E5%B1%95">1.8.1. 扩展</a></li>
+</ul>
+</li>
+<li><a href="#19-%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%8F%AF%E6%89%A9%E5%B1%95%E6%80%A7">1.9. 实现的可扩展性</a></li>
+<li><a href="#110-%E5%AE%9E%E7%8E%B0%E7%9A%84%E7%81%B5%E6%B4%BB%E6%80%A7">1.10. 实现的灵活性</a></li>
+<li><a href="#111-%E7%BB%A7%E6%89%BF%E7%9A%84%E4%BC%98%E7%82%B9">1.11. 继承的优点</a></li>
+<li><a href="#112-%E7%BB%A7%E6%89%BF%E7%9A%84%E7%BC%BA%E7%82%B9">1.12. 继承的缺点</a></li>
+<li><a href="#113-%E7%BB%84%E5%90%88">1.13. 组合</a>
+<ul>
+<li><a href="#1131-%E7%BB%84%E5%90%88%E7%9A%84%E4%BC%98%E7%82%B9">1.13.1. 组合的优点</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#2-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">2. 设计模式</a>
+<ul>
+<li><a href="#21-why%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">2.1. Why？为什么使用设计模式</a></li>
+<li><a href="#22-%E4%BB%80%E4%B9%88%E6%98%AF%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">2.2. 什么是设计模式</a></li>
+<li><a href="#23-%E6%A8%A1%E5%BC%8F">2.3. 模式</a></li>
+<li><a href="#24-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88">2.4. 解决方案</a></li>
+</ul>
+</li>
+<li><a href="#3-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%92%8C%E7%AD%96%E7%95%A5%E9%85%8D%E5%AF%B9">3. 设计模式和策略配对</a></li>
+<li><a href="#4-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E9%87%8D%E7%82%B9%E6%8E%8C%E6%8F%A1%E7%B1%BB%E5%9B%BE-%E9%87%8D%E8%A6%81">4. 设计模式重点掌握类图 重要</a></li>
+<li><a href="#5-%E9%A2%98%E7%9B%AE">5. 题目</a></li>
+</ul>
+<!-- /TOC -->
+<p>设计模式是设计经验的总结。</p>
+<p>本章只是介绍《设计模式》中最为简单、常用的几种设计模式，它们都是用来<strong>提高系统可修改性的。</strong></p>
+<h1 id="1.-%E5%8F%AF%E4%BF%AE%E6%94%B9%E6%80%A7%E5%8F%8A%E5%85%B6%E5%9F%BA%E6%9C%AC%E5%AE%9E%E7%8E%B0%E6%9C%BA%E5%88%B6" tabindex="-1"><a class="header-anchor" href="#1.-%E5%8F%AF%E4%BF%AE%E6%94%B9%E6%80%A7%E5%8F%8A%E5%85%B6%E5%9F%BA%E6%9C%AC%E5%AE%9E%E7%8E%B0%E6%9C%BA%E5%88%B6">#</a> 1. 可修改性及其基本实现机制</h1>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<ol>
+<li>实现的<strong>可修改性</strong>:涉及到大的场景的修改
+<ol>
+<li>对已有实现的修改</li>
+<li>使用接口与实现分离即可实现可修改性，对实现作修改，不影响client类</li>
+</ol>
+</li>
+<li>实现的<strong>可扩展性</strong>(DIP &amp; OCP)
+<ol>
+<li>对新的实现的扩展</li>
+<li>使用接口与实现分离即可实现可拓展性，增加一个新的类即可</li>
+</ol>
+</li>
+<li>实现的<strong>灵活性</strong>
+<ol>
+<li>对实现的动态配置</li>
+<li>多态，根据对象的实际类型调用方法</li>
+</ol>
+</li>
+</ol>
+<h2 id="1.1.-%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%8F%AF%E4%BF%AE%E6%94%B9%E6%80%A7%EF%BC%9F-%E9%87%8D%E8%A6%81" tabindex="-1"><a class="header-anchor" href="#1.1.-%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0%E5%8F%AF%E4%BF%AE%E6%94%B9%E6%80%A7%EF%BC%9F-%E9%87%8D%E8%A6%81">#</a> 1.1. 如何实现可修改性？ 重要</h2>
+<ol>
+<li>接口与实现的分离</li>
+</ol>
+<h2 id="1.2.-%E5%A6%82%E4%BD%95%E5%B0%86%E6%8E%A5%E5%8F%A3%E4%B8%8E%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%88%86%E7%A6%BB-%E2%80%93-java%E8%A7%86%E8%A7%92" tabindex="-1"><a class="header-anchor" href="#1.2.-%E5%A6%82%E4%BD%95%E5%B0%86%E6%8E%A5%E5%8F%A3%E4%B8%8E%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%88%86%E7%A6%BB-%E2%80%93-java%E8%A7%86%E8%A7%92">#</a> 1.2. 如何将接口与实现的分离 – Java视角</h2>
+<ol>
+<li>通过接口与实现该接口的类，将接口与实现相分离</li>
+<li>通过子类继承父类/抽象类，将父类的接口与子类的实现相分离:通过继承的方式，<strong>在一定程度上实现了接口与实现的分离</strong>，但是也使得子类继承了父类的实现，当然可以更好地<strong>重用代码</strong>，但<strong>使得灵活性略有下降【父类接口改变，子类一定会变】。</strong></li>
+</ol>
+<h2 id="1.3.-%E5%AE%9E%E7%8E%B0%E6%8E%A5%E5%8F%A3(interface)" tabindex="-1"><a class="header-anchor" href="#1.3.-%E5%AE%9E%E7%8E%B0%E6%8E%A5%E5%8F%A3(interface)">#</a> 1.3. 实现接口(interface)</h2>
+<ol>
+<li>interface:定义了规约</li>
+<li>实现class:实现了规约</li>
+</ol>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt16/1.png" alt="" class="" loading="lazy"></p>
+<h2 id="1.4.-%E7%B1%BB%E5%9B%BE%E4%B8%AD%E7%9A%84%E6%A0%87%E5%BF%97%E7%89%A9%E7%9A%84%E5%90%AB%E4%B9%89" tabindex="-1"><a class="header-anchor" href="#1.4.-%E7%B1%BB%E5%9B%BE%E4%B8%AD%E7%9A%84%E6%A0%87%E5%BF%97%E7%89%A9%E7%9A%84%E5%90%AB%E4%B9%89">#</a> 1.4. 类图中的标志物的含义</h2>
+<ol>
+<li>虚线箭头:依赖</li>
+<li>实线箭头:关联(两侧写数量)</li>
+<li>空菱形在一侧的实线箭头:聚合</li>
+<li>实菱形在一侧的实线箭头:组合</li>
+<li>空心实线箭头:泛化(extends)</li>
+<li>空心虚线箭头:实现(implements)</li>
+</ol>
+<h2 id="1.5.-%E7%B1%BB%E5%9B%BE%E4%B8%8E%E4%BE%9D%E8%B5%96%E5%85%B3%E7%B3%BB" tabindex="-1"><a class="header-anchor" href="#1.5.-%E7%B1%BB%E5%9B%BE%E4%B8%8E%E4%BE%9D%E8%B5%96%E5%85%B3%E7%B3%BB">#</a> 1.5. 类图与依赖关系</h2>
+<ol>
+<li>Client、Interface_A、Class_A1之间是什么关系？</li>
+<li>Client和Class_A1是否存在依赖关系？</li>
+</ol>
+<h2 id="1.6.-%E7%BB%A7%E6%89%BF" tabindex="-1"><a class="header-anchor" href="#1.6.-%E7%BB%A7%E6%89%BF">#</a> 1.6. 继承</h2>
+<ol>
+<li>父类定义了规约(contract)</li>
+<li>子类实现了规约(contract)</li>
+</ol>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt16/2.png" alt="" class="" loading="lazy"></p>
+<h2 id="1.7.-%E7%B1%BB%E5%9B%BE%E4%B8%8E%E4%BE%9D%E8%B5%96%E5%85%B3%E7%B3%BB" tabindex="-1"><a class="header-anchor" href="#1.7.-%E7%B1%BB%E5%9B%BE%E4%B8%8E%E4%BE%9D%E8%B5%96%E5%85%B3%E7%B3%BB">#</a> 1.7. 类图与依赖关系</h2>
+<ol>
+<li>Client、Super_A、Sub_A1之间是什么关系？</li>
+<li>Client和Sub_A1是否存在依赖关系？<strong>不</strong></li>
+</ol>
+<h2 id="1.8.-%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%8F%AF%E4%BF%AE%E6%94%B9%E6%80%A7" tabindex="-1"><a class="header-anchor" href="#1.8.-%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%8F%AF%E4%BF%AE%E6%94%B9%E6%80%A7">#</a> 1.8. 实现的可修改性</h2>
+<ol>
+<li>对于实现的可修改性，无论是Class_A1还是Sub_A1的method_A方法的实现的修改都和Client中的调用代码没有任何耦合性。</li>
+</ol>
+<h3 id="1.8.1.-%E6%89%A9%E5%B1%95" tabindex="-1"><a class="header-anchor" href="#1.8.1.-%E6%89%A9%E5%B1%95">#</a> 1.8.1. 扩展</h3>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt16/3.png" alt="" class="" loading="lazy"></p>
+<h2 id="1.9.-%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%8F%AF%E6%89%A9%E5%B1%95%E6%80%A7" tabindex="-1"><a class="header-anchor" href="#1.9.-%E5%AE%9E%E7%8E%B0%E7%9A%84%E5%8F%AF%E6%89%A9%E5%B1%95%E6%80%A7">#</a> 1.9. 实现的可扩展性</h2>
+<ol>
+<li>对于实现的可扩展性，我们可以通过 Class_A2还是Sub_A2的创建来实现。</li>
+</ol>
+<h2 id="1.10.-%E5%AE%9E%E7%8E%B0%E7%9A%84%E7%81%B5%E6%B4%BB%E6%80%A7" tabindex="-1"><a class="header-anchor" href="#1.10.-%E5%AE%9E%E7%8E%B0%E7%9A%84%E7%81%B5%E6%B4%BB%E6%80%A7">#</a> 1.10. 实现的灵活性</h2>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt16/4.png" alt="" class="" loading="lazy"></p>
+<h2 id="1.11.-%E7%BB%A7%E6%89%BF%E7%9A%84%E4%BC%98%E7%82%B9" tabindex="-1"><a class="header-anchor" href="#1.11.-%E7%BB%A7%E6%89%BF%E7%9A%84%E4%BC%98%E7%82%B9">#</a> 1.11. 继承的优点</h2>
+<ol>
+<li>虽然继承也能很好的完成接口与实现的分离，但是继承还有他独有的特征。</li>
+<li>子类不但继承了父类的接口还继承了父类的实现，这可以<strong>更好的进行代码的重用</strong>。</li>
+</ol>
+<h2 id="1.12.-%E7%BB%A7%E6%89%BF%E7%9A%84%E7%BC%BA%E7%82%B9" tabindex="-1"><a class="header-anchor" href="#1.12.-%E7%BB%A7%E6%89%BF%E7%9A%84%E7%BC%BA%E7%82%B9">#</a> 1.12. 继承的缺点</h2>
+<ol>
+<li>继承的父类与所有子类存在共有接口的耦合性。当父类接口发生改变的时候，子类的接口就一定会更改，这样就会影响到 Client代码。</li>
+<li>而且当子类创建对象的时候，就决定了其实现的选择，没法再动态的修改。<strong>即只能单继承，不能多继承，而接口可以多实现</strong></li>
+</ol>
+<h2 id="1.13.-%E7%BB%84%E5%90%88" tabindex="-1"><a class="header-anchor" href="#1.13.-%E7%BB%84%E5%90%88">#</a> 1.13. 组合</h2>
+<ol>
+<li>而利用接口的组成关系，却能在实现接口和实现的前提下，体现更好的灵活性。前端类和后端类是组合关系。前端类重用了后端类的代码。</li>
+<li>考虑到软件工程中的人的重要性。</li>
+</ol>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt16/5.png" alt="" class="" loading="lazy"></p>
+<h3 id="1.13.1.-%E7%BB%84%E5%90%88%E7%9A%84%E4%BC%98%E7%82%B9" tabindex="-1"><a class="header-anchor" href="#1.13.1.-%E7%BB%84%E5%90%88%E7%9A%84%E4%BC%98%E7%82%B9">#</a> 1.13.1. 组合的优点</h3>
+<ol>
+<li>前端和后端在接口上不存在耦合性。当后端接口发生改变的时候，只要在 frontend 里面修改即可，并不会直接影响到Client代码。</li>
+<li>后端类的实现亦可以动态创建、动态配置、动态销毁，非常灵活。</li>
+</ol>
+<h1 id="2.-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F" tabindex="-1"><a class="header-anchor" href="#2.-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">#</a> 2. 设计模式</h1>
+<h2 id="2.1.-why%EF%BC%9F%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F" tabindex="-1"><a class="header-anchor" href="#2.1.-why%EF%BC%9F%E4%B8%BA%E4%BB%80%E4%B9%88%E4%BD%BF%E7%94%A8%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">#</a> 2.1. Why？为什么使用设计模式</h2>
+<ol>
+<li>设计OO软件非常困难</li>
+<li>设计可重用的OO软件-难度更大</li>
+<li>经验丰富的OO设计师可以做出出色的设计</li>
+<li>新设计师倾向于使用以前使用的非OO技术</li>
+<li>经验丰富的设计师知道一些东西-这是什么？</li>
+<li>专家设计师知道不能从第一原则中解决所有问题</li>
+<li>复用的解决方案</li>
+<li>这些模式使面向对象的设计更加灵活，优雅并且最终可重用。</li>
+</ol>
+<h2 id="2.2.-%E4%BB%80%E4%B9%88%E6%98%AF%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F" tabindex="-1"><a class="header-anchor" href="#2.2.-%E4%BB%80%E4%B9%88%E6%98%AF%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">#</a> 2.2. 什么是设计模式</h2>
+<ol>
+<li>设计模式:抽象一个重复的设计结构</li>
+<li>包含类和/或对象
+<ol>
+<li>依赖</li>
+<li>结构</li>
+<li>互动，或</li>
+<li>约定</li>
+</ol>
+</li>
+<li>提炼设计经验</li>
+</ol>
+<h2 id="2.3.-%E6%A8%A1%E5%BC%8F" tabindex="-1"><a class="header-anchor" href="#2.3.-%E6%A8%A1%E5%BC%8F">#</a> 2.3. 模式</h2>
+<ol>
+<li>典型问题</li>
+<li>设计分析</li>
+<li>解决方案</li>
+<li>案例</li>
+</ol>
+<h2 id="2.4.-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88" tabindex="-1"><a class="header-anchor" href="#2.4.-%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88">#</a> 2.4. 解决方案</h2>
+<ol>
+<li>参与者与协作：描述了设计中涉及的各个类的组成成分，他们之间的相互关系及各自的职责和协作方式。</li>
+<li>应用场景：描述了应该何时使用模式。它解释了设计模式所要解决的问题，以及解决这个问题时所面临的特点的环境、限制条件、场景等。这也是我们在应用某种模式之前，需要仔细去体察的。</li>
+<li>使用注意点：因为模式只是一个模板，他可以应用与多种不同场合，所以解决方案并不描述一个具体的实现，而是提供解决方案的一个抽象模型。要根据具体情况来具体实现</li>
+</ol>
+<h1 id="3.-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%92%8C%E7%AD%96%E7%95%A5%E9%85%8D%E5%AF%B9" tabindex="-1"><a class="header-anchor" href="#3.-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E5%92%8C%E7%AD%96%E7%95%A5%E9%85%8D%E5%AF%B9">#</a> 3. 设计模式和策略配对</h1>
+<p>:star:<strong>详见书本 p265</strong></p>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt16/7.png" alt="" class="" loading="lazy"></p>
+<p>各个设计模式使用的设计原则：</p>
+<ol>
+<li>
+<p>策略模式:【<strong>强调行为的不同</strong>】</p>
+<ol>
+<li>减少耦合：减少策略的使用类和策略的实现类直接的耦合</li>
+<li>依赖倒置：策略的使用类依赖的是策略的接口，而非策略的实现类。</li>
+</ol>
+</li>
+<li>
+<p>抽象工厂模式:【<strong>强调对象的创建</strong>】</p>
+<ol>
+<li>职责抽象：抽象对于对象创建的职责</li>
+<li>接口重用：提供对于对象创建的接口</li>
+</ol>
+</li>
+<li>
+<p>单件模式:</p>
+<ol>
+<li>职责抽象：隐藏单件创建的实现</li>
+<li>信息隐藏</li>
+</ol>
+</li>
+<li>
+<p>迭代器模式:【<strong>偏向于完成遍历集合这个业务</strong>】</p>
+<p><strong>其实是个工厂模式</strong>，用于创建 iterator，但使用得太多了，因此单独分出来作为一个模式</p>
+<ol>
+<li>减少耦合：减少<strong>遍历的使用类</strong>和<strong>遍历的实现类</strong>直接的耦合</li>
+<li>依赖倒置：遍历的使用类依赖的是策略的接口，而非遍历的实现</li>
+</ol>
+</li>
+</ol>
+<h1 id="4.-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E9%87%8D%E7%82%B9%E6%8E%8C%E6%8F%A1%E7%B1%BB%E5%9B%BE-%E9%87%8D%E8%A6%81" tabindex="-1"><a class="header-anchor" href="#4.-%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F%E9%87%8D%E7%82%B9%E6%8E%8C%E6%8F%A1%E7%B1%BB%E5%9B%BE-%E9%87%8D%E8%A6%81">#</a> 4. 设计模式重点掌握类图 重要</h1>
+<ol>
+<li>
+<p>策略模式：组合的方式，如果是继承也可以，但不易维护</p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+</li>
+<li>
+<p>抽象工厂模式</p>
+<ol>
+<li>
+<p>工厂模式</p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+</li>
+<li>
+<p>抽象工厂模式【相比于工厂模式多了一层抽象，注意这里的ConcreteFactory1和2都可以创建产品A和B】</p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+</li>
+</ol>
+</li>
+<li>
+<p>单件模式</p>
+<ol>
+<li><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></li>
+</ol>
+</li>
+<li>
+<p>迭代器模式</p>
+<ol>
+<li><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></li>
+</ol>
+</li>
+</ol>
+<h1 id="5.-%E9%A2%98%E7%9B%AE" tabindex="-1"><a class="header-anchor" href="#5.-%E9%A2%98%E7%9B%AE">#</a> 5. 题目</h1>
+<ol>
+<li>给定场景，利用设计模式写出代码</li>
+<li>给出代码，利用设计模式重写</li>
+<li>设计模式内容具体查看</li>
+</ol>
+
+      </div>
+
+      <footer class="post-footer">
+        <div class="post-nav">
+          <a href="/" class="post-nav-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            返回首页
+          </a>
+        </div>
+      </footer>
+    </article>
+  </main>
+</div>
+
+
+  <footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <span class="footer-logo">AI Blog</span>
+        <p class="footer-desc">一个由AI驱动的个人博客</p>
+        <div class="footer-social">
+          
+            <a href="https://github.com/yourname" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+          
+          
+            <a href="https://twitter.com/yourname" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          
+          
+            <a href="mailto:your@email.com" class="social-link" aria-label="Email">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </a>
+          
+          
+            <a href="/feed.xml" class="social-link" aria-label="RSS">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20C5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1z"/></svg>
+            </a>
+          
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">导航</h4>
+        <ul class="footer-links">
+          
+            <li><a href="/">首页</a></li>
+          
+            <li><a href="/archive/">归档</a></li>
+          
+            <li><a href="/tags/">标签</a></li>
+          
+            <li><a href="/categories/">分类</a></li>
+          
+          <li><a href="/archive/">归档</a></li>
+          <li><a href="/tags/">标签</a></li>
+          <li><a href="/categories/">分类</a></li>
+        </ul>
+      </div>
+
+      
+      <div class="footer-col">
+        <h4 class="footer-heading">友链</h4>
+        <ul class="footer-links">
+          
+            <li><a href="https://example.com" target="_blank" rel="noopener noreferrer">示例友链</a></li>
+          
+        </ul>
+      </div>
+      
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 AI Blog</p>
+      
+    </div>
+  </div>
+</footer>
+
+
+  <button class="back-to-top" aria-label="返回顶部">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+  </button>
+
+  <script src="/assets/js/main.js" defer></script>
+</body>
+</html>

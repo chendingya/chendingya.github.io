@@ -3,11 +3,25 @@ const path = require('path');
 const matter = require('gray-matter');
 const MarkdownIt = require('markdown-it');
 const markdownItAnchor = require('markdown-it-anchor');
+
+// 内联 SVG 占位图 — 无外部依赖，始终可用
+const placeholderImg = (alt) => {
+  const text = encodeURIComponent(alt || '图片缺失');
+  return `<img src="${placeholderSrc}" alt="${alt || '图片缺失'}" class="img-placeholder">`;
+};
+const placeholderSrc = 'data:image/svg+xml,' + encodeURIComponent(
+  '<svg xmlns="http://www.w3.org/2000/svg" width="800" height="400" viewBox="0 0 800 400">' +
+  '<rect width="800" height="400" fill="#F0E3D5"/>' +
+  '<text x="400" y="185" text-anchor="middle" fill="#C4A882" font-size="16" font-family="sans-serif">图片缺失</text>' +
+  '<text x="400" y="215" text-anchor="middle" fill="#E8D5C4" font-size="12" font-family="sans-serif">image not found</text>' +
+  '</svg>'
+);
 const markdownItToc = require('markdown-it-toc-done-right');
 
 class ContentParser {
   constructor(config) {
     this.config = config;
+    this.postsDir = path.resolve(config.posts.dir);
     this.md = new MarkdownIt({
       html: true,
       linkify: true,
@@ -69,7 +83,15 @@ class ContentParser {
     
     // 处理图片路径
     const processedContent = this.processImagePaths(htmlContent, filePath);
-    
+
+    // 规范化：统一转为数组
+    const normArray = (v) => {
+      if (!v) return [];
+      if (Array.isArray(v)) return v;
+      if (typeof v === 'string') return v.split(',').map(s => s.trim()).filter(Boolean);
+      return [v];
+    };
+
     return {
       metadata: {
         ...metadata,
@@ -78,8 +100,8 @@ class ContentParser {
         filePath,
         fileName: path.basename(filePath),
         date: metadata.date ? new Date(metadata.date) : new Date(),
-        tags: metadata.tags || [],
-        categories: metadata.categories || [],
+        tags: normArray(metadata.tags),
+        categories: normArray(metadata.categories),
         description: metadata.description || '',
         image: metadata.image || '',
         author: metadata.author || this.config.site.author
@@ -94,23 +116,28 @@ class ContentParser {
   }
 
   generateSlug(filePath, metadata) {
-    // 如果metadata中有slug，使用它
-    if (metadata.slug) {
-      return metadata.slug;
-    }
-    
-    // 从文件名生成slug
-    const fileName = path.basename(filePath, path.extname(filePath));
-    
-    // 移除日期前缀（如果存在）
+    if (metadata.slug) return metadata.slug;
+
+    const absPath = path.resolve(filePath);
+    const relPath = path.relative(this.postsDir, absPath);
+    const parsed = path.parse(relPath);
+    const dirPart = parsed.dir ? parsed.dir.split(path.sep).join('/') : '';
+    let namePart = parsed.name;
+
+    // 移除日期前缀
     const datePrefixRegex = /^\d{4}-\d{2}-\d{2}-/;
-    const slug = fileName.replace(datePrefixRegex, '');
-    
-    // 转换为URL友好的格式
-    return slug
+    namePart = namePart.replace(datePrefixRegex, '');
+
+    // 清理为 URL 安全格式
+    const clean = (s) => s
       .toLowerCase()
       .replace(/[^a-z0-9\u4e00-\u9fa5]+/g, '-')
       .replace(/^-+|-+$/g, '');
+
+    const slugName = clean(namePart);
+    const slugDir = dirPart ? dirPart.split('/').map(clean).filter(Boolean).join('/') : '';
+
+    return slugDir ? `${slugDir}/${slugName}` : slugName;
   }
 
   generateUrl(slug, metadata) {
@@ -163,26 +190,31 @@ class ContentParser {
   }
 
   processImagePaths(htmlContent, filePath) {
-    // 处理图片路径，将相对路径转换为绝对路径
     const fileDir = path.dirname(filePath);
     const postsDir = path.resolve(this.config.posts.dir);
-    
+
     return htmlContent.replace(/<img([^>]*)src="([^"]*)"([^>]*)>/g, (match, before, src, after) => {
-      // 如果是外部URL，直接返回
+      // 外部URL
       if (src.startsWith('http://') || src.startsWith('https://') || src.startsWith('//')) {
         return match;
       }
-      
-      // 如果是绝对路径，转换为相对于posts目录的路径
+
+      // Windows 绝对路径 (Typora 遗留)
+      if (/^[A-Za-z]:[/\\]/.test(src)) {
+        const alt = (before.match(/alt="([^"]*)"/) || [])[1] || '缺失图片';
+        return placeholderImg(alt);
+      }
+
+      // Unix 绝对路径
       if (src.startsWith('/')) {
         return `<img${before}src="${src}"${after}>`;
       }
-      
-      // 相对路径处理
+
+      // 相对路径
       const absolutePath = path.resolve(fileDir, src);
       const relativePath = path.relative(postsDir, absolutePath);
       const newSrc = '/' + relativePath.replace(/\\/g, '/');
-      
+
       return `<img${before}src="${newSrc}"${after}>`;
     });
   }

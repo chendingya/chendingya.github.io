@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="一个由AI驱动的个人博客">
+  <title>SE-II-ch19-软件测试 - AI Blog</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Noto+Serif+SC:wght@400;500;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/css/style.css">
+  
+  <link rel="stylesheet" href="/assets/css/highlight.css">
+  
+
+  
+  <style>:root {
+  --font-display: 'Playfair Display', 'Noto Serif SC', Georgia, 'Times New Roman', serif;
+  --font-body: 'Public Sans', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'Fira Code', 'Cascadia Code', 'JetBrains Mono', monospace;
+  --bg-cream: #FEFAF6;
+  --bg-surface: #FFFFFF;
+  --bg-warm: #FDF5EB;
+  --text-primary: #2C1810;
+  --text-secondary: #8B7355;
+  --text-muted: #C4A882;
+  --border: #E8D5C4;
+  --border-light: #F0E3D5;
+  --shadow-sm: 0 1px 2px rgba(44,24,16,0.04);
+  --shadow-md: 0 4px 12px rgba(44,24,16,0.06);
+  --shadow-lg: 0 12px 32px rgba(44,24,16,0.08);
+  --brand: var(--accent-coral);
+  --brand-hover: #FF5252;
+  --accent-coral: #FF6B6B;
+  --accent-coral-hover: #FF5252;
+  --accent-amber: #F4A261;
+  --accent-mint: #90BE6D;
+  --accent-lavender: #9B72AA;
+  --accent-sky: #4ECDC4;
+  --accent-sun: #F9C74F;
+  --accent-rose: #FF6B8A;
+  --accent-blue: #577590;
+  --max-width: 1200px;
+  --content-width: 720px;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 5rem;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+}
+
+[data-theme="dark"] {
+  --bg-cream: #1A1614;
+  --bg-surface: #2C2420;
+  --bg-warm: #241E1A;
+  --text-primary: #E8D5C4;
+  --text-secondary: #B8A088;
+  --text-muted: #8B7355;
+  --border: #3D3028;
+  --border-light: #332A22;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.25);
+  --shadow-lg: 0 12px 32px rgba(0,0,0,0.3);
+  --brand: var(--accent-coral);
+  --brand-hover: #FF8A8A;
+}</style>
+  
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23FF6B6B'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='20' fill='white'>A</text></svg>">
+
+  
+  <link rel="alternate" type="application/rss+xml" title="AI Blog" href="/feed.xml">
+  
+
+  <meta property="og:title" content="SE-II-ch19-软件测试">
+  <meta property="og:description" content="一个由AI驱动的个人博客">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://username.github.io/ai-blog/posts/se-ii笔记/19-软件测试/">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SE-II-ch19-软件测试">
+  <meta name="twitter:description" content="一个由AI驱动的个人博客">
+  
+</head>
+<body class="post-page">
+  <div class="reading-progress"></div>
+
+  <header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="/" class="site-brand">
+        
+          <span class="brand-title">AI Blog</span>
+        
+      </a>
+
+      <nav class="site-nav" data-target="main-nav">
+        <ul class="nav-list">
+          
+            <li class="nav-item">
+              <a href="/" class="nav-link">首页</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/archive/" class="nav-link">归档</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/tags/" class="nav-link">标签</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/categories/" class="nav-link">分类</a>
+            </li>
+          
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" data-action="toggle-theme" aria-label="切换暗色模式">
+          <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+
+        <button class="icon-btn menu-btn" data-action="toggle-menu" aria-label="菜单">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  <div class="container">
+  <main class="main-content">
+    <article class="post-article">
+      <header class="post-header">
+        
+          <div class="post-header-cats">
+            
+              <a href="/categories/软件工程与计算II/" class="meta-cat accent">软件工程与计算II</a>
+            
+          </div>
+        
+        <h1 class="post-title">SE-II-ch19-软件测试</h1>
+        <div class="post-meta">
+          <time datetime="2022-06-18T16:02:34.000Z">
+            2022年6月19日
+          </time>
+          
+            <span class="meta-divider">&middot;</span>
+            <span class="post-author">Your Name</span>
+          
+        </div>
+        
+          <div class="post-header-tags">
+            
+              <a href="/tags/软件工程与计算II/" class="tag">软件工程与计算II</a>
+            
+          </div>
+        
+      </header>
+
+      
+        <details class="toc-wrap">
+          <summary class="toc-title">目录</summary>
+          <nav class="toc-nav">
+            
+              <a href="#1-考试题" class="toc-link toc-level-1">1. 考试题</a>
+            
+              <a href="#2-bug起源" class="toc-link toc-level-1">2. Bug起源</a>
+            
+              <a href="#2-1-第一个bug" class="toc-link toc-level-2">2.1. 第一个Bug</a>
+            
+              <a href="#2-2-千年虫病毒" class="toc-link toc-level-2">2.2. 千年虫病毒</a>
+            
+              <a href="#2-3-辐射机问题" class="toc-link toc-level-2">2.3. 辐射机问题</a>
+            
+              <a href="#2-4-爱国者导弹防御1991" class="toc-link toc-level-2">2.4. 爱国者导弹防御1991</a>
+            
+              <a href="#2-5-奔腾处理器的浮点数bug" class="toc-link toc-level-2">2.5. 奔腾处理器的浮点数bug</a>
+            
+              <a href="#2-6-迪士尼的-狮子王动画故事书-1994" class="toc-link toc-level-2">2.6. 迪士尼的《狮子王动画故事书》 1994</a>
+            
+              <a href="#3-什么是对的软件" class="toc-link toc-level-1">3. 什么是对的软件？</a>
+            
+              <a href="#3-1-你是否正确的构造了软件" class="toc-link toc-level-2">3.1. 你是否正确的构造了软件</a>
+            
+              <a href="#3-2-verification-and-validation-验证和确认-重要" class="toc-link toc-level-2">3.2. Verification and Validation 验证和确认 重要</a>
+            
+              <a href="#3-2-1-如果软件是错误的-重要" class="toc-link toc-level-3">3.2.1. 如果软件是错误的 重要</a>
+            
+              <a href="#4-common-v-v-activities-常见的v-v活动" class="toc-link toc-level-1">4. Common V&amp;V Activities 常见的V＆V活动</a>
+            
+              <a href="#4-1-静态分析技术" class="toc-link toc-level-2">4.1. 静态分析技术</a>
+            
+              <a href="#4-2-动态分析技术" class="toc-link toc-level-2">4.2. 动态分析技术</a>
+            
+              <a href="#4-3-软件开发中的验证与确认活动" class="toc-link toc-level-2">4.3. 软件开发中的验证与确认活动</a>
+            
+              <a href="#5-软件测试的目的" class="toc-link toc-level-1">5. 软件测试的目的</a>
+            
+              <a href="#5-1-测试用例" class="toc-link toc-level-2">5.1. 测试用例</a>
+            
+              <a href="#5-2-桩与驱动stub-driver" class="toc-link toc-level-2">5.2. 桩与驱动stub driver</a>
+            
+              <a href="#5-3-测试空间" class="toc-link toc-level-2">5.3. 测试空间</a>
+            
+              <a href="#6-测试层次" class="toc-link toc-level-1">6. 测试层次</a>
+            
+              <a href="#6-1-单元测试" class="toc-link toc-level-2">6.1. 单元测试</a>
+            
+              <a href="#6-2-集成测试" class="toc-link toc-level-2">6.2. 集成测试</a>
+            
+              <a href="#6-2-1-自顶向下的集成测试" class="toc-link toc-level-3">6.2.1. 自顶向下的集成测试</a>
+            
+              <a href="#6-2-2-自底向上的集成测试" class="toc-link toc-level-3">6.2.2. 自底向上的集成测试</a>
+            
+              <a href="#6-3-系统测试" class="toc-link toc-level-2">6.3. 系统测试</a>
+            
+              <a href="#7-测试技术" class="toc-link toc-level-1">7. 测试技术</a>
+            
+              <a href="#7-1-测试用例的选择" class="toc-link toc-level-2">7.1. 测试用例的选择</a>
+            
+              <a href="#7-2-随机测试" class="toc-link toc-level-2">7.2. 随机测试</a>
+            
+              <a href="#7-3-黑盒测试-重要" class="toc-link toc-level-2">7.3. 黑盒测试 重要</a>
+            
+              <a href="#7-3-1-黑盒测试方法-等价类划分" class="toc-link toc-level-3">7.3.1. 黑盒测试方法-等价类划分</a>
+            
+              <a href="#7-3-2-黑盒测试方法-边界值分析" class="toc-link toc-level-3">7.3.2. 黑盒测试方法-边界值分析</a>
+            
+              <a href="#7-3-3-黑盒测试方法-决策表" class="toc-link toc-level-3">7.3.3. 黑盒测试方法-决策表</a>
+            
+              <a href="#7-3-4-黑盒测试方法-状态转换" class="toc-link toc-level-3">7.3.4. 黑盒测试方法-状态转换</a>
+            
+              <a href="#7-4-白盒测试-重要" class="toc-link toc-level-2">7.4. 白盒测试 重要</a>
+            
+              <a href="#7-4-1-白盒测试方法-语句覆盖" class="toc-link toc-level-3">7.4.1. 白盒测试方法-语句覆盖</a>
+            
+              <a href="#7-4-2-白盒测试方法-条件-分支覆盖" class="toc-link toc-level-3">7.4.2. 白盒测试方法-条件/分支覆盖</a>
+            
+              <a href="#7-4-3-白盒测试方法-路径覆盖" class="toc-link toc-level-3">7.4.3. 白盒测试方法-路径覆盖</a>
+            
+              <a href="#7-4-4-三种覆盖示例" class="toc-link toc-level-3">7.4.4. 三种覆盖示例</a>
+            
+              <a href="#7-5-特定测试技术" class="toc-link toc-level-2">7.5. 特定测试技术</a>
+            
+              <a href="#7-6-面向对象的测试技术" class="toc-link toc-level-2">7.6. 面向对象的测试技术</a>
+            
+              <a href="#8-测试活动" class="toc-link toc-level-1">8. 测试活动</a>
+            
+              <a href="#8-1-测试用例日志" class="toc-link toc-level-2">8.1. 测试用例日志</a>
+            
+              <a href="#8-2-缺陷报告" class="toc-link toc-level-2">8.2. 缺陷报告</a>
+            
+              <a href="#9-测试度量" class="toc-link toc-level-1">9. 测试度量</a>
+            
+              <a href="#9-1-缺陷度量" class="toc-link toc-level-2">9.1. 缺陷度量</a>
+            
+              <a href="#9-2-覆盖率" class="toc-link toc-level-2">9.2. 覆盖率</a>
+            
+          </nav>
+        </details>
+      
+
+      <div class="post-body">
+        <h2 id="19-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95" tabindex="-1"><a class="header-anchor" href="#19-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95">#</a> 19-软件测试</h2>
+<!-- TOC -->
+<ul>
+<li><a href="#1-%E8%80%83%E8%AF%95%E9%A2%98">1. 考试题</a></li>
+<li><a href="#2-bug%E8%B5%B7%E6%BA%90">2. Bug起源</a>
+<ul>
+<li><a href="#21-%E7%AC%AC%E4%B8%80%E4%B8%AAbug">2.1. 第一个Bug</a></li>
+<li><a href="#22-%E5%8D%83%E5%B9%B4%E8%99%AB%E7%97%85%E6%AF%92">2.2. 千年虫病毒</a></li>
+<li><a href="#23-%E8%BE%90%E5%B0%84%E6%9C%BA%E9%97%AE%E9%A2%98">2.3. 辐射机问题</a></li>
+<li><a href="#24-%E7%88%B1%E5%9B%BD%E8%80%85%E5%AF%BC%E5%BC%B9%E9%98%B2%E5%BE%A11991">2.4. 爱国者导弹防御1991</a></li>
+<li><a href="#25-%E5%A5%94%E8%85%BE%E5%A4%84%E7%90%86%E5%99%A8%E7%9A%84%E6%B5%AE%E7%82%B9%E6%95%B0bug">2.5. 奔腾处理器的浮点数bug</a></li>
+<li><a href="#26-%E8%BF%AA%E5%A3%AB%E5%B0%BC%E7%9A%84%E7%8B%AE%E5%AD%90%E7%8E%8B%E5%8A%A8%E7%94%BB%E6%95%85%E4%BA%8B%E4%B9%A6-1994">2.6. 迪士尼的《狮子王动画故事书》 1994</a></li>
+</ul>
+</li>
+<li><a href="#3-%E4%BB%80%E4%B9%88%E6%98%AF%E5%AF%B9%E7%9A%84%E8%BD%AF%E4%BB%B6">3. 什么是对的软件？</a>
+<ul>
+<li><a href="#31-%E4%BD%A0%E6%98%AF%E5%90%A6%E6%AD%A3%E7%A1%AE%E7%9A%84%E6%9E%84%E9%80%A0%E4%BA%86%E8%BD%AF%E4%BB%B6">3.1. 你是否正确的构造了软件</a></li>
+<li><a href="#32-verification-and-validation-%E9%AA%8C%E8%AF%81%E5%92%8C%E7%A1%AE%E8%AE%A4-%E9%87%8D%E8%A6%81">3.2. Verification and Validation 验证和确认 重要</a>
+<ul>
+<li><a href="#321-%E5%A6%82%E6%9E%9C%E8%BD%AF%E4%BB%B6%E6%98%AF%E9%94%99%E8%AF%AF%E7%9A%84">3.2.1. 如果软件是错误的</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#4-common-vv-activities-%E5%B8%B8%E8%A7%81%E7%9A%84vv%E6%B4%BB%E5%8A%A8">4. Common V&amp;V Activities 常见的V＆V活动</a>
+<ul>
+<li><a href="#41-%E9%9D%99%E6%80%81%E5%88%86%E6%9E%90%E6%8A%80%E6%9C%AF">4.1. 静态分析技术</a></li>
+<li><a href="#42-%E5%8A%A8%E6%80%81%E5%88%86%E6%9E%90%E6%8A%80%E6%9C%AF">4.2. 动态分析技术</a></li>
+<li><a href="#43-%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E9%AA%8C%E8%AF%81%E4%B8%8E%E7%A1%AE%E8%AE%A4%E6%B4%BB%E5%8A%A8">4.3. 软件开发中的验证与确认活动</a></li>
+</ul>
+</li>
+<li><a href="#5-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%9A%84%E7%9B%AE%E7%9A%84">5. 软件测试的目的</a>
+<ul>
+<li><a href="#51-%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B">5.1. 测试用例</a></li>
+<li><a href="#52-%E6%A1%A9%E4%B8%8E%E9%A9%B1%E5%8A%A8">5.2. 桩与驱动</a></li>
+<li><a href="#53-%E6%B5%8B%E8%AF%95%E7%A9%BA%E9%97%B4">5.3. 测试空间</a></li>
+</ul>
+</li>
+<li><a href="#6-%E6%B5%8B%E8%AF%95%E5%B1%82%E6%AC%A1">6. 测试层次</a>
+<ul>
+<li><a href="#61-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95">6.1. 单元测试</a></li>
+<li><a href="#62-%E9%9B%86%E6%88%90%E6%B5%8B%E8%AF%95">6.2. 集成测试</a>
+<ul>
+<li><a href="#621-%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E7%9A%84%E9%9B%86%E6%88%90%E6%B5%8B%E8%AF%95">6.2.1. 自顶向下的集成测试</a></li>
+<li><a href="#622-%E8%87%AA%E5%BA%95%E5%90%91%E4%B8%8A%E7%9A%84%E9%9B%86%E6%88%90%E6%B5%8B%E8%AF%95">6.2.2. 自底向上的集成测试</a></li>
+</ul>
+</li>
+<li><a href="#63-%E7%B3%BB%E7%BB%9F%E6%B5%8B%E8%AF%95">6.3. 系统测试</a></li>
+</ul>
+</li>
+<li><a href="#7-%E6%B5%8B%E8%AF%95%E6%8A%80%E6%9C%AF">7. 测试技术</a>
+<ul>
+<li><a href="#71-%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E7%9A%84%E9%80%89%E6%8B%A9">7.1. 测试用例的选择</a></li>
+<li><a href="#72-%E9%9A%8F%E6%9C%BA%E6%B5%8B%E8%AF%95">7.2. 随机测试</a></li>
+<li><a href="#73-%E9%BB%91%E7%9B%92%E6%B5%8B%E8%AF%95-%E9%87%8D%E8%A6%81">7.3. 黑盒测试 重要</a>
+<ul>
+<li><a href="#731-%E9%BB%91%E7%9B%92%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95-%E7%AD%89%E4%BB%B7%E7%B1%BB%E5%88%92%E5%88%86">7.3.1. 黑盒测试方法-等价类划分</a></li>
+<li><a href="#732-%E9%BB%91%E7%9B%92%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95-%E8%BE%B9%E7%95%8C%E5%80%BC%E5%88%86%E6%9E%90">7.3.2. 黑盒测试方法-边界值分析</a></li>
+<li><a href="#733-%E9%BB%91%E7%9B%92%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95-%E5%86%B3%E7%AD%96%E8%A1%A8">7.3.3. 黑盒测试方法-决策表</a></li>
+<li><a href="#734-%E9%BB%91%E7%9B%92%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95-%E7%8A%B6%E6%80%81%E8%BD%AC%E6%8D%A2">7.3.4. 黑盒测试方法-状态转换</a></li>
+</ul>
+</li>
+<li><a href="#74-%E7%99%BD%E7%9B%92%E6%B5%8B%E8%AF%95-%E9%87%8D%E8%A6%81">7.4. 白盒测试 重要</a>
+<ul>
+<li><a href="#741-%E7%99%BD%E7%9B%92%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95-%E8%AF%AD%E5%8F%A5%E8%A6%86%E7%9B%96">7.4.1. 白盒测试方法-语句覆盖</a></li>
+<li><a href="#742-%E7%99%BD%E7%9B%92%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95-%E6%9D%A1%E4%BB%B6%E8%A6%86%E7%9B%96">7.4.2. 白盒测试方法-条件覆盖</a></li>
+<li><a href="#743-%E7%99%BD%E7%9B%92%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95-%E8%B7%AF%E5%BE%84%E8%A6%86%E7%9B%96">7.4.3. 白盒测试方法-路径覆盖</a></li>
+</ul>
+</li>
+<li><a href="#75-%E7%89%B9%E5%AE%9A%E6%B5%8B%E8%AF%95%E6%8A%80%E6%9C%AF">7.5. 特定测试技术</a></li>
+<li><a href="#76-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%B5%8B%E8%AF%95%E6%8A%80%E6%9C%AF">7.6. 面向对象的测试技术</a></li>
+</ul>
+</li>
+<li><a href="#8-%E6%B5%8B%E8%AF%95%E6%B4%BB%E5%8A%A8">8. 测试活动</a>
+<ul>
+<li><a href="#81-%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E6%97%A5%E5%BF%97">8.1. 测试用例日志</a></li>
+<li><a href="#82-%E7%BC%BA%E9%99%B7%E6%8A%A5%E5%91%8A">8.2. 缺陷报告</a></li>
+</ul>
+</li>
+<li><a href="#9-%E6%B5%8B%E8%AF%95%E5%BA%A6%E9%87%8F">9. 测试度量</a>
+<ul>
+<li><a href="#91-%E7%BC%BA%E9%99%B7%E5%BA%A6%E9%87%8F">9.1. 缺陷度量</a></li>
+<li><a href="#92-%E8%A6%86%E7%9B%96%E7%8E%87">9.2. 覆盖率</a></li>
+</ul>
+</li>
+</ul>
+<!-- /TOC -->
+<h1 id="1.-%E8%80%83%E8%AF%95%E9%A2%98" tabindex="-1"><a class="header-anchor" href="#1.-%E8%80%83%E8%AF%95%E9%A2%98">#</a> 1. 考试题</h1>
+<ol>
+<li>给出功能需求，设计功能测试用例</li>
+<li>给出设计图，按要求写集成测试用例，Stub和Driver</li>
+<li>给出方法的描述，按要求写单元测试用例，Mock Object</li>
+<li>Junit基本用法</li>
+</ol>
+<h1 id="2.-bug%E8%B5%B7%E6%BA%90" tabindex="-1"><a class="header-anchor" href="#2.-bug%E8%B5%B7%E6%BA%90">#</a> 2. Bug起源</h1>
+<h2 id="2.1.-%E7%AC%AC%E4%B8%80%E4%B8%AAbug" tabindex="-1"><a class="header-anchor" href="#2.1.-%E7%AC%AC%E4%B8%80%E4%B8%AAbug">#</a> 2.1. 第一个Bug</h2>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt19/1.png" alt="" class="" loading="lazy"></p>
+<h2 id="2.2.-%E5%8D%83%E5%B9%B4%E8%99%AB%E7%97%85%E6%AF%92" tabindex="-1"><a class="header-anchor" href="#2.2.-%E5%8D%83%E5%B9%B4%E8%99%AB%E7%97%85%E6%AF%92">#</a> 2.2. 千年虫病毒</h2>
+<ol>
+<li>在七十年代，程序员利用宝贵的内存和磁盘空间通过两位来存储年份</li>
+<li>他们从来没有想到程序可以运行到2000年</li>
+</ol>
+<h2 id="2.3.-%E8%BE%90%E5%B0%84%E6%9C%BA%E9%97%AE%E9%A2%98" tabindex="-1"><a class="header-anchor" href="#2.3.-%E8%BE%90%E5%B0%84%E6%9C%BA%E9%97%AE%E9%A2%98">#</a> 2.3. 辐射机问题</h2>
+<ol>
+<li>Therac-25放射治疗机中的软件有缺陷，导致数名癌症患者接受致命的过量放射。 四名患者死亡</li>
+<li>独立科学家进行的一项调查发现，即使在加拿大原子能有限公司(AECL)认为已修复特定错误之后，仍发生了事故。</li>
+<li>他们在报告中写道：“这里的基本错误涉及不良的软件工程实践，以及建立依赖该软件进行安全操作的机器。”</li>
+</ol>
+<h2 id="2.4.-%E7%88%B1%E5%9B%BD%E8%80%85%E5%AF%BC%E5%BC%B9%E9%98%B2%E5%BE%A11991" tabindex="-1"><a class="header-anchor" href="#2.4.-%E7%88%B1%E5%9B%BD%E8%80%85%E5%AF%BC%E5%BC%B9%E9%98%B2%E5%BE%A11991">#</a> 2.4. 爱国者导弹防御1991</h2>
+<ol>
+<li>爱国者导弹防御系统未能防御多种导弹</li>
+<li>系统时钟中累积了微小的计时误差，因此14小时后，跟踪系统不再准确</li>
+<li>在对KSA达兰的攻击中，该系统已运行100多个小时</li>
+<li>该系统是可移动的，因此开发人员没想到它会在一个地方停留14小时</li>
+</ol>
+<h2 id="2.5.-%E5%A5%94%E8%85%BE%E5%A4%84%E7%90%86%E5%99%A8%E7%9A%84%E6%B5%AE%E7%82%B9%E6%95%B0bug" tabindex="-1"><a class="header-anchor" href="#2.5.-%E5%A5%94%E8%85%BE%E5%A4%84%E7%90%86%E5%99%A8%E7%9A%84%E6%B5%AE%E7%82%B9%E6%95%B0bug">#</a> 2.5. 奔腾处理器的浮点数bug</h2>
+<ol>
+<li>(4195835/3145727) * 3145727 - 4195835 ≠ 0</li>
+<li>测试工程师企图淡化Bug，管理人员认为这并不要紧</li>
+<li>一位用户报告说，1994年10月30日，英特尔试图淡化该错误。 如果您可以证明自己受到影响，可以更换芯片</li>
+<li>最终，他们道歉。 更换所有芯片，耗资4.5亿美元</li>
+<li>有趣的是，1.13 MHz Pentium III导致软件冻结</li>
+</ol>
+<h2 id="2.6.-%E8%BF%AA%E5%A3%AB%E5%B0%BC%E7%9A%84%E3%80%8A%E7%8B%AE%E5%AD%90%E7%8E%8B%E5%8A%A8%E7%94%BB%E6%95%85%E4%BA%8B%E4%B9%A6%E3%80%8B-1994" tabindex="-1"><a class="header-anchor" href="#2.6.-%E8%BF%AA%E5%A3%AB%E5%B0%BC%E7%9A%84%E3%80%8A%E7%8B%AE%E5%AD%90%E7%8E%8B%E5%8A%A8%E7%94%BB%E6%95%85%E4%BA%8B%E4%B9%A6%E3%80%8B-1994">#</a> 2.6. 迪士尼的《狮子王动画故事书》 1994</h2>
+<ol>
+<li>迪士尼发行了第一张针对儿童的多媒体CD-ROM</li>
+<li>一个大型广告系列，称其为&quot;购买游戏&quot;</li>
+<li>圣诞节过后，许多生气的父母正与迪斯尼通电话，背景中有哭泣的孩子</li>
+<li>问题是游戏只能在少数平台上运行，而包装盒上对此一无所知，因为迪斯尼尚未意识到问题所在</li>
+<li>兼容性的问题，只能在部分CD中进行播放</li>
+</ol>
+<h1 id="3.-%E4%BB%80%E4%B9%88%E6%98%AF%E5%AF%B9%E7%9A%84%E8%BD%AF%E4%BB%B6%EF%BC%9F" tabindex="-1"><a class="header-anchor" href="#3.-%E4%BB%80%E4%B9%88%E6%98%AF%E5%AF%B9%E7%9A%84%E8%BD%AF%E4%BB%B6%EF%BC%9F">#</a> 3. 什么是对的软件？</h1>
+<h2 id="3.1.-%E4%BD%A0%E6%98%AF%E5%90%A6%E6%AD%A3%E7%A1%AE%E7%9A%84%E6%9E%84%E9%80%A0%E4%BA%86%E8%BD%AF%E4%BB%B6" tabindex="-1"><a class="header-anchor" href="#3.1.-%E4%BD%A0%E6%98%AF%E5%90%A6%E6%AD%A3%E7%A1%AE%E7%9A%84%E6%9E%84%E9%80%A0%E4%BA%86%E8%BD%AF%E4%BB%B6">#</a> 3.1. 你是否正确的构造了软件</h2>
+<ol>
+<li>软件正确性
+<ol>
+<li>在且仅在以下情况下，才根据规范S考虑程序P：对于每个有效输入，P的输出均符合规范S</li>
+</ol>
+</li>
+<li>验证：常常我们会将软件与终端用户或者其他利益相关者的需求进行比较。</li>
+</ol>
+<h2 id="3.2.-verification-and-validation-%E9%AA%8C%E8%AF%81%E5%92%8C%E7%A1%AE%E8%AE%A4-%E9%87%8D%E8%A6%81" tabindex="-1"><a class="header-anchor" href="#3.2.-verification-and-validation-%E9%AA%8C%E8%AF%81%E5%92%8C%E7%A1%AE%E8%AE%A4-%E9%87%8D%E8%A6%81">#</a> 3.2. Verification and Validation 验证和确认 重要</h2>
+<ol>
+<li>Verification: 验证，检查开发者是否正确地使用技术建立系统，确保系统能够在于其的环境中按照技术要求正确地运行。</li>
+<li>Validation: 确认，检查开发者是否建立了正确的系统，确保最终产品符合规格。</li>
+<li>V＆V差异无关紧要</li>
+<li>V＆V通常是指试图确保软件按要求运行的任何活动。</li>
+<li>Ex见课本320页,<strong>重要，会考V&amp;V</strong></li>
+</ol>
+<h3 id="3.2.1.-%E5%A6%82%E6%9E%9C%E8%BD%AF%E4%BB%B6%E6%98%AF%E9%94%99%E8%AF%AF%E7%9A%84-%E9%87%8D%E8%A6%81" tabindex="-1"><a class="header-anchor" href="#3.2.1.-%E5%A6%82%E6%9E%9C%E8%BD%AF%E4%BB%B6%E6%98%AF%E9%94%99%E8%AF%AF%E7%9A%84-%E9%87%8D%E8%A6%81">#</a> 3.2.1. 如果软件是错误的 重要</h3>
+<ol>
+<li>定义
+<ol>
+<li><strong>缺陷</strong>:系统代码中存在的不正确的地方，计算时存在除0可能</li>
+<li><strong>错误</strong>:如果系统执行到缺陷代码，就可能使得执行结果不符合预期且无法预测，表现出来的不稳定的状态，比如计算时存在除0可能的代码，一旦除0则会发生错误</li>
+<li><strong>失败</strong>:有Failure一定有fault和Error，而倒过来是未必成立的。失败是指错误的发生会使得软件的功能失效，比如，系统某个功能输出不正确、异常终止、不符合时间或者空间的限制等。</li>
+</ol>
+</li>
+<li>关系
+<ol>
+<li><strong>缺陷可能在被活动激发前很长时间不被检测到</strong></li>
+<li><strong>如果错误传播到输出，则最终会导致失败。</strong></li>
+</ol>
+</li>
+<li>缺陷、错误和失败：该链可以递归地迭代：依次由其他交互系统的故障引起故障。</li>
+</ol>
+<h1 id="4.-common-v%26v-activities-%E5%B8%B8%E8%A7%81%E7%9A%84v%EF%BC%86v%E6%B4%BB%E5%8A%A8" tabindex="-1"><a class="header-anchor" href="#4.-common-v%26v-activities-%E5%B8%B8%E8%A7%81%E7%9A%84v%EF%BC%86v%E6%B4%BB%E5%8A%A8">#</a> 4. Common V&amp;V Activities 常见的V＆V活动</h1>
+<ol>
+<li>静态分析技术（<strong>不执行代码来检查</strong>）
+<ol>
+<li>仅基于(手动或自动)检查软件模型和代码的项目文档以及有关需求和设计的其他相关信息</li>
+<li>通常会产生有效的结果，但精度可能较弱</li>
+<li><strong>容易产生误报</strong>，**因为多态的存在导致很多只能在运行的时候才报错。**人工检查时可能看不出父类对象指针实际指向的是子类，会认为方法的执行不对</li>
+</ol>
+</li>
+<li>动态测试技术（<strong>执行代码来检查</strong>）
+<ol>
+<li>运行软件以暴露可能的故障</li>
+<li>还观察了程序的行为和性能属性</li>
+<li>产生更精确的结果，但仅适用于经过检查的执行</li>
+<li><strong>动态容易漏报，没有运行到一定不会报告</strong></li>
+</ol>
+</li>
+</ol>
+<h2 id="4.1.-%E9%9D%99%E6%80%81%E5%88%86%E6%9E%90%E6%8A%80%E6%9C%AF" tabindex="-1"><a class="header-anchor" href="#4.1.-%E9%9D%99%E6%80%81%E5%88%86%E6%9E%90%E6%8A%80%E6%9C%AF">#</a> 4.1. 静态分析技术</h2>
+<ol>
+<li>可以在需求阶段应用； 在设计阶段； 在实施阶段</li>
+<li>传统静态技术–大量手动操作，容易出错，耗时
+<ol>
+<li>软件检查–根据已编译的常见和历史缺陷清单，对生成的文档(可交付成果)进行逐步分析</li>
+<li>软件评审–将工作产品的不同方面呈现给项目人员(经理，用户，客户等)和其他感兴趣的涉众以征求意见或批准的过程</li>
+<li>阅读代码–对生成的代码进行桌面分析，以发现违反样式或语法的键入错误</li>
+<li>算法分析和跟踪–可以得出所用算法的复杂性以及最坏情况，平均情况和概率分析评估的过程</li>
+</ol>
+</li>
+<li>依靠形式化方法的静态分析技术</li>
+</ol>
+<h2 id="4.2.-%E5%8A%A8%E6%80%81%E5%88%86%E6%9E%90%E6%8A%80%E6%9C%AF" tabindex="-1"><a class="header-anchor" href="#4.2.-%E5%8A%A8%E6%80%81%E5%88%86%E6%9E%90%E6%8A%80%E6%9C%AF">#</a> 4.2. 动态分析技术</h2>
+<ol>
+<li>测试–基于对有价值的输入的代码执行(必要时必须包括表征系统状态的参数和环境条件的定义)
+<ol>
+<li>检查指定输入和指定输出</li>
+</ol>
+</li>
+<li>性能分析–程序配置文件记录了一组受控执行过程中某些感兴趣的实体出现的次数
+<ol>
+<li>频谱执行情况:一个向量，从第一行到最后一行，形成一个01向量</li>
+<li>分支覆盖法</li>
+</ol>
+</li>
+</ol>
+<h2 id="4.3.-%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E9%AA%8C%E8%AF%81%E4%B8%8E%E7%A1%AE%E8%AE%A4%E6%B4%BB%E5%8A%A8" tabindex="-1"><a class="header-anchor" href="#4.3.-%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E4%B8%AD%E7%9A%84%E9%AA%8C%E8%AF%81%E4%B8%8E%E7%A1%AE%E8%AE%A4%E6%B4%BB%E5%8A%A8">#</a> 4.3. 软件开发中的验证与确认活动</h2>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt19/2.png" alt="" class="" loading="lazy"></p>
+<h1 id="5.-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%9A%84%E7%9B%AE%E7%9A%84" tabindex="-1"><a class="header-anchor" href="#5.-%E8%BD%AF%E4%BB%B6%E6%B5%8B%E8%AF%95%E7%9A%84%E7%9B%AE%E7%9A%84">#</a> 5. 软件测试的目的</h1>
+<ol>
+<li>目的一:向开发者和用户展示软件满足了需求，表明软件产品是一个合格的产品。
+<ol>
+<li>有效性测试</li>
+</ol>
+</li>
+<li>目的二:找出软件中的缺陷和不足
+<ol>
+<li>缺陷测试:只有发现了缺陷的测试才是成功的测试</li>
+</ol>
+</li>
+<li>总而言之，<strong>软件测试是为评价与改进产品质量、标识产品缺陷和问题而进行的活动。</strong></li>
+</ol>
+<h2 id="5.1.-%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B" tabindex="-1"><a class="header-anchor" href="#5.1.-%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B">#</a> 5.1. 测试用例</h2>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt19/3.png" alt="" class="" loading="lazy"></p>
+<ol>
+<li>差分测试</li>
+</ol>
+<ul>
+<li>开发者：理解系统含义，但是只是<strong>大体上</strong>，通过流程进行了测试</li>
+<li>独立测试人员：必须学习系统相关，但是会去尝试破坏系统，并且是通过质量来驱动测试</li>
+</ul>
+<h2 id="5.2.-%E6%A1%A9%E4%B8%8E%E9%A9%B1%E5%8A%A8stub-driver" tabindex="-1"><a class="header-anchor" href="#5.2.-%E6%A1%A9%E4%B8%8E%E9%A9%B1%E5%8A%A8stub-driver">#</a> 5.2. 桩与驱动stub driver</h2>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt19/4.png" alt="" class="" loading="lazy"></p>
+<ol>
+<li>桩程序是被测试部件的交互环境，他扮演被测试部件需要调用的其他系统部件。桩程序对其他系统部件的扮演仅限于规格相同，内部代码要简单的多，<strong>通常是直接返回固定数据或者按照固定规则返回数据。</strong></li>
+<li>驱动程序负责创建被测试部件的执行环境，并驱动和监控被测试部件执行测试用例的过程，判定测试用例的执行结果。</li>
+</ol>
+<h2 id="5.3.-%E6%B5%8B%E8%AF%95%E7%A9%BA%E9%97%B4" tabindex="-1"><a class="header-anchor" href="#5.3.-%E6%B5%8B%E8%AF%95%E7%A9%BA%E9%97%B4">#</a> 5.3. 测试空间</h2>
+<ol>
+<li>黑盒测试、白盒测试、灰盒测试</li>
+</ol>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt19/5.png" alt="" class="" loading="lazy"></p>
+<h1 id="6.-%E6%B5%8B%E8%AF%95%E5%B1%82%E6%AC%A1" tabindex="-1"><a class="header-anchor" href="#6.-%E6%B5%8B%E8%AF%95%E5%B1%82%E6%AC%A1">#</a> 6. 测试层次</h1>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt19/6.png" alt="" class="" loading="lazy"></p>
+<ul>
+<li>开发者主要是进行单元测试，可以进行一定程度上的集成测试和系统测试</li>
+<li><strong>重要</strong>
+<ul>
+<li>α测试:在软件发布前，让小规模、有代表性的潜在用户试用，可以在开发机构中进行。</li>
+<li>β测试:在用户处进行</li>
+</ul>
+</li>
+</ul>
+<h2 id="6.1.-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95" tabindex="-1"><a class="header-anchor" href="#6.1.-%E5%8D%95%E5%85%83%E6%B5%8B%E8%AF%95">#</a> 6.1. 单元测试</h2>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt19/7.png" alt="" class="" loading="lazy"></p>
+<ol>
+<li>在过程化编程中，一个单元就是一个函数与过程。</li>
+<li>在面向对象编程中，一个单元就是类的一个方法。</li>
+<li>发现技术缺陷和代码缺陷</li>
+<li><strong>需要构建桩程序和驱动程序，与其他程序单元隔离开</strong></li>
+</ol>
+<h2 id="6.2.-%E9%9B%86%E6%88%90%E6%B5%8B%E8%AF%95" tabindex="-1"><a class="header-anchor" href="#6.2.-%E9%9B%86%E6%88%90%E6%B5%8B%E8%AF%95">#</a> 6.2. 集成测试</h2>
+<ol>
+<li>集成测试一般在单元测试和系统测试之间</li>
+</ol>
+<h3 id="6.2.1.-%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E7%9A%84%E9%9B%86%E6%88%90%E6%B5%8B%E8%AF%95" tabindex="-1"><a class="header-anchor" href="#6.2.1.-%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E7%9A%84%E9%9B%86%E6%88%90%E6%B5%8B%E8%AF%95">#</a> 6.2.1. 自顶向下的集成测试</h3>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt19/8.png" alt="" class="" loading="lazy"></p>
+<ol>
+<li>一定要一步一步集成，需要很多的桩程序</li>
+</ol>
+<h3 id="6.2.2.-%E8%87%AA%E5%BA%95%E5%90%91%E4%B8%8A%E7%9A%84%E9%9B%86%E6%88%90%E6%B5%8B%E8%AF%95" tabindex="-1"><a class="header-anchor" href="#6.2.2.-%E8%87%AA%E5%BA%95%E5%90%91%E4%B8%8A%E7%9A%84%E9%9B%86%E6%88%90%E6%B5%8B%E8%AF%95">#</a> 6.2.2. 自底向上的集成测试</h3>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt19/9.png" alt="" class="" loading="lazy"></p>
+<p>自底向上需要很多的驱动程序</p>
+<h2 id="6.3.-%E7%B3%BB%E7%BB%9F%E6%B5%8B%E8%AF%95" tabindex="-1"><a class="header-anchor" href="#6.3.-%E7%B3%BB%E7%BB%9F%E6%B5%8B%E8%AF%95">#</a> 6.3. 系统测试</h2>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt19/10.png" alt="" class="" loading="lazy"></p>
+<h1 id="7.-%E6%B5%8B%E8%AF%95%E6%8A%80%E6%9C%AF" tabindex="-1"><a class="header-anchor" href="#7.-%E6%B5%8B%E8%AF%95%E6%8A%80%E6%9C%AF">#</a> 7. 测试技术</h1>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt19/11.png" alt="" class="" loading="lazy"></p>
+<ol>
+<li>测试的目的是发现尽可能多的缺陷，<strong>并不绝对要求发现所有缺陷。</strong></li>
+</ol>
+<h2 id="7.1.-%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E7%9A%84%E9%80%89%E6%8B%A9" tabindex="-1"><a class="header-anchor" href="#7.1.-%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E7%9A%84%E9%80%89%E6%8B%A9">#</a> 7.1. 测试用例的选择</h2>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt19/12.png" alt="" class="" loading="lazy"></p>
+<ol>
+<li>课本P326页图 19-7 :工程追求足够好，而不是最好。</li>
+</ol>
+<h2 id="7.2.-%E9%9A%8F%E6%9C%BA%E6%B5%8B%E8%AF%95" tabindex="-1"><a class="header-anchor" href="#7.2.-%E9%9A%8F%E6%9C%BA%E6%B5%8B%E8%AF%95">#</a> 7.2. 随机测试</h2>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt19/13.png" alt="" class="" loading="lazy"></p>
+<ol>
+<li>比如int的越界问题:两类测试用例，不越界和越界</li>
+</ol>
+<h2 id="7.3.-%E9%BB%91%E7%9B%92%E6%B5%8B%E8%AF%95-%E9%87%8D%E8%A6%81" tabindex="-1"><a class="header-anchor" href="#7.3.-%E9%BB%91%E7%9B%92%E6%B5%8B%E8%AF%95-%E9%87%8D%E8%A6%81">#</a> 7.3. 黑盒测试 重要</h2>
+<ol>
+<li>黑盒测试是将测试对象作为一个黑盒子，完全基于输入和输出数据来判断测试对象的正确性。</li>
+</ol>
+<h3 id="7.3.1.-%E9%BB%91%E7%9B%92%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95-%E7%AD%89%E4%BB%B7%E7%B1%BB%E5%88%92%E5%88%86" tabindex="-1"><a class="header-anchor" href="#7.3.1.-%E9%BB%91%E7%9B%92%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95-%E7%AD%89%E4%BB%B7%E7%B1%BB%E5%88%92%E5%88%86">#</a> 7.3.1. 黑盒测试方法-等价类划分</h3>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt19/14.png" alt="" class="" loading="lazy"></p>
+<ul>
+<li>把所有可能的输入数据，即程序的输入域划分为若干部分(子集)，<strong>从每个子集中选取少量具有代表性的数据</strong>作为测试用例。</li>
+<li>例子</li>
+</ul>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt19/15.png" alt="" class="" loading="lazy"></p>
+<h3 id="7.3.2.-%E9%BB%91%E7%9B%92%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95-%E8%BE%B9%E7%95%8C%E5%80%BC%E5%88%86%E6%9E%90" tabindex="-1"><a class="header-anchor" href="#7.3.2.-%E9%BB%91%E7%9B%92%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95-%E8%BE%B9%E7%95%8C%E5%80%BC%E5%88%86%E6%9E%90">#</a> 7.3.2. 黑盒测试方法-边界值分析</h3>
+<ol>
+<li>边界值分析是等价类划分方法的补充，实践证明，<strong>错误最容易发生在各等价类的边界，而不是等价类的内部。</strong></li>
+<li>对定价类划分的补充，错误容易发生在各个等价类的边界上，而不是等价类的内部，因此针对边界情况设计测试用例，可以发现更多的缺陷。</li>
+<li>边界值分析不是从某等价类中随便找一个作为代表，而是这个<strong>等价类的每个边界都要作为测试条件</strong>。</li>
+<li>边界值分析的基本思想是使用在最小值、略高于最小值、正常值、略低于最大值和最大值处取输入变量值，记为：<strong>min、min+、nom、max-、max，略大于最大值max+，略小于最小值min-的值。</strong></li>
+<li><strong>常见的边界值</strong>
+<ul>
+<li>文本框接收字符个数，比如用户名长度、密码长度等；</li>
+<li>报表的<strong>第1行和最后1行</strong>；</li>
+<li>数值元素的<strong>第1个和最后1个</strong>；</li>
+<li>循环的<strong>第1次、2次和倒数第1次、2次</strong></li>
+</ul>
+</li>
+</ol>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt19/16.png" alt="" class="" loading="lazy"></p>
+<h3 id="7.3.3.-%E9%BB%91%E7%9B%92%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95-%E5%86%B3%E7%AD%96%E8%A1%A8" tabindex="-1"><a class="header-anchor" href="#7.3.3.-%E9%BB%91%E7%9B%92%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95-%E5%86%B3%E7%AD%96%E8%A1%A8">#</a> 7.3.3. 黑盒测试方法-决策表</h3>
+<ul>
+<li>决策表是为复杂逻辑判断设计测试用例的技术。决策表是由条件声明、行动声明、规则选项和行动选项等四个象限组成的表格。</li>
+</ul>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt19/17.png" alt="" class="" loading="lazy"></p>
+<h3 id="7.3.4.-%E9%BB%91%E7%9B%92%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95-%E7%8A%B6%E6%80%81%E8%BD%AC%E6%8D%A2" tabindex="-1"><a class="header-anchor" href="#7.3.4.-%E9%BB%91%E7%9B%92%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95-%E7%8A%B6%E6%80%81%E8%BD%AC%E6%8D%A2">#</a> 7.3.4. 黑盒测试方法-状态转换</h3>
+<ul>
+<li>状态转换是针对复杂测试对象的测试技术。<strong>该类复杂测试对象对输入数据的反映是多样的，还需要依赖自身的状态才能决定。</strong></li>
+<li><strong>状态转换包含有效转换和无效转换</strong>，只有在复杂情况和可靠性要求较高的情况下才会为无效转换设计测试用例。</li>
+</ul>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt19/18.png" alt="" class="" loading="lazy"></p>
+<ul>
+<li>例子</li>
+</ul>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt19/25.png" alt="" class="" loading="lazy">
+<img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt19/26.png" alt="" class="" loading="lazy">
+<img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt19/27.png" alt="" class="" loading="lazy"></p>
+<h2 id="7.4.-%E7%99%BD%E7%9B%92%E6%B5%8B%E8%AF%95-%E9%87%8D%E8%A6%81" tabindex="-1"><a class="header-anchor" href="#7.4.-%E7%99%BD%E7%9B%92%E6%B5%8B%E8%AF%95-%E9%87%8D%E8%A6%81">#</a> 7.4. 白盒测试 重要</h2>
+<ol>
+<li>白盒测试是将测试对象看做透明的，不关心测试对象的规格，而是按照测试对象内部的程序结构来设计测试用例进行测试工作。</li>
+</ol>
+<h3 id="7.4.1.-%E7%99%BD%E7%9B%92%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95-%E8%AF%AD%E5%8F%A5%E8%A6%86%E7%9B%96" tabindex="-1"><a class="header-anchor" href="#7.4.1.-%E7%99%BD%E7%9B%92%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95-%E8%AF%AD%E5%8F%A5%E8%A6%86%E7%9B%96">#</a> 7.4.1. 白盒测试方法-语句覆盖</h3>
+<ol>
+<li><strong>语句覆盖设计测试用例</strong>的标注是保证被测试的对象的<strong>每一行代码都至少执行了一次。</strong></li>
+<li>注意即使语句得到了覆盖，也不能保证能检测出错误</li>
+</ol>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt19/19.png" alt="" class="" loading="lazy"></p>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt19/21.png" alt="" class="" loading="lazy"></p>
+<h3 id="7.4.2.-%E7%99%BD%E7%9B%92%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95-%E6%9D%A1%E4%BB%B6%2F%E5%88%86%E6%94%AF%E8%A6%86%E7%9B%96" tabindex="-1"><a class="header-anchor" href="#7.4.2.-%E7%99%BD%E7%9B%92%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95-%E6%9D%A1%E4%BB%B6%2F%E5%88%86%E6%94%AF%E8%A6%86%E7%9B%96">#</a> 7.4.2. 白盒测试方法-条件/分支覆盖</h3>
+<ol>
+<li>条件覆盖设计测试用例的标准是确保程序中<strong>每个判断的每个结果都至少满足一次</strong>。</li>
+</ol>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt19/22.png" alt="" class="" loading="lazy"></p>
+<h3 id="7.4.3.-%E7%99%BD%E7%9B%92%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95-%E8%B7%AF%E5%BE%84%E8%A6%86%E7%9B%96" tabindex="-1"><a class="header-anchor" href="#7.4.3.-%E7%99%BD%E7%9B%92%E6%B5%8B%E8%AF%95%E6%96%B9%E6%B3%95-%E8%B7%AF%E5%BE%84%E8%A6%86%E7%9B%96">#</a> 7.4.3. 白盒测试方法-路径覆盖</h3>
+<ol>
+<li>路径覆盖测试用例的标准是确保程序中<strong>每一条独立执行的路径都至少执行一次。</strong></li>
+</ol>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt19/23.png" alt="" class="" loading="lazy"></p>
+<ul>
+<li>所有的路径都覆盖一遍，路径覆盖</li>
+<li>因此如果有10个if-else语句，那么至少需要 2^10^ 个测试用例才能覆盖，规模是爆炸式增长的，因此<strong>路径覆盖使用得很少</strong></li>
+</ul>
+<h3 id="7.4.4.-%E4%B8%89%E7%A7%8D%E8%A6%86%E7%9B%96%E7%A4%BA%E4%BE%8B" tabindex="-1"><a class="header-anchor" href="#7.4.4.-%E4%B8%89%E7%A7%8D%E8%A6%86%E7%9B%96%E7%A4%BA%E4%BE%8B">#</a> 7.4.4. 三种覆盖示例</h3>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt19/20.png" alt="" class="" loading="lazy"></p>
+<p>可见两个if-else语句，需要至少 4 条测试用例才能实现路径覆盖</p>
+<h2 id="7.5.-%E7%89%B9%E5%AE%9A%E6%B5%8B%E8%AF%95%E6%8A%80%E6%9C%AF" tabindex="-1"><a class="header-anchor" href="#7.5.-%E7%89%B9%E5%AE%9A%E6%B5%8B%E8%AF%95%E6%8A%80%E6%9C%AF">#</a> 7.5. 特定测试技术</h2>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt19/24.png" alt="" class="" loading="lazy"></p>
+<h2 id="7.6.-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%B5%8B%E8%AF%95%E6%8A%80%E6%9C%AF" tabindex="-1"><a class="header-anchor" href="#7.6.-%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%9A%84%E6%B5%8B%E8%AF%95%E6%8A%80%E6%9C%AF">#</a> 7.6. 面向对象的测试技术</h2>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt19/28.png" alt="" class="" loading="lazy"></p>
+<h1 id="8.-%E6%B5%8B%E8%AF%95%E6%B4%BB%E5%8A%A8" tabindex="-1"><a class="header-anchor" href="#8.-%E6%B5%8B%E8%AF%95%E6%B4%BB%E5%8A%A8">#</a> 8. 测试活动</h1>
+<ol>
+<li>测试计划:在开始具体的软件测试活动之前，必须首先进行测试计划，以明确测试的工作范围、资源与成本、基本策略、进度安排等。</li>
+<li>测试设计:测试的成功取决于有效设计的测试用例</li>
+<li>测试执行:执行测试前需要选择好测试工具</li>
+<li>测试评价:在测试完成后，必须评价测试结果</li>
+<li>以上详见课本332页</li>
+</ol>
+<h2 id="8.1.-%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E6%97%A5%E5%BF%97" tabindex="-1"><a class="header-anchor" href="#8.1.-%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E6%97%A5%E5%BF%97">#</a> 8.1. 测试用例日志</h2>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt19/29.png" alt="" class="" loading="lazy"></p>
+<h2 id="8.2.-%E7%BC%BA%E9%99%B7%E6%8A%A5%E5%91%8A" tabindex="-1"><a class="header-anchor" href="#8.2.-%E7%BC%BA%E9%99%B7%E6%8A%A5%E5%91%8A">#</a> 8.2. 缺陷报告</h2>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt19/30.png" alt="" class="" loading="lazy"></p>
+<h1 id="9.-%E6%B5%8B%E8%AF%95%E5%BA%A6%E9%87%8F" tabindex="-1"><a class="header-anchor" href="#9.-%E6%B5%8B%E8%AF%95%E5%BA%A6%E9%87%8F">#</a> 9. 测试度量</h1>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt19/31.png" alt="" class="" loading="lazy"></p>
+<ul>
+<li>需求覆盖率=被测试的需求数量/需求总数</li>
+<li>模块覆盖率=被测试的模块数量/模块总数</li>
+<li>代码覆盖率=被测试的代码行/代码行数</li>
+</ul>
+<h2 id="9.1.-%E7%BC%BA%E9%99%B7%E5%BA%A6%E9%87%8F" tabindex="-1"><a class="header-anchor" href="#9.1.-%E7%BC%BA%E9%99%B7%E5%BA%A6%E9%87%8F">#</a> 9.1. 缺陷度量</h2>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt19/32.png" alt="" class="" loading="lazy"></p>
+<h2 id="9.2.-%E8%A6%86%E7%9B%96%E7%8E%87" tabindex="-1"><a class="header-anchor" href="#9.2.-%E8%A6%86%E7%9B%96%E7%8E%87">#</a> 9.2. 覆盖率</h2>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt19/33.png" alt="" class="" loading="lazy"></p>
+
+      </div>
+
+      <footer class="post-footer">
+        <div class="post-nav">
+          <a href="/" class="post-nav-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            返回首页
+          </a>
+        </div>
+      </footer>
+    </article>
+  </main>
+</div>
+
+
+  <footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <span class="footer-logo">AI Blog</span>
+        <p class="footer-desc">一个由AI驱动的个人博客</p>
+        <div class="footer-social">
+          
+            <a href="https://github.com/yourname" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+          
+          
+            <a href="https://twitter.com/yourname" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          
+          
+            <a href="mailto:your@email.com" class="social-link" aria-label="Email">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </a>
+          
+          
+            <a href="/feed.xml" class="social-link" aria-label="RSS">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20C5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1z"/></svg>
+            </a>
+          
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">导航</h4>
+        <ul class="footer-links">
+          
+            <li><a href="/">首页</a></li>
+          
+            <li><a href="/archive/">归档</a></li>
+          
+            <li><a href="/tags/">标签</a></li>
+          
+            <li><a href="/categories/">分类</a></li>
+          
+          <li><a href="/archive/">归档</a></li>
+          <li><a href="/tags/">标签</a></li>
+          <li><a href="/categories/">分类</a></li>
+        </ul>
+      </div>
+
+      
+      <div class="footer-col">
+        <h4 class="footer-heading">友链</h4>
+        <ul class="footer-links">
+          
+            <li><a href="https://example.com" target="_blank" rel="noopener noreferrer">示例友链</a></li>
+          
+        </ul>
+      </div>
+      
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 AI Blog</p>
+      
+    </div>
+  </div>
+</footer>
+
+
+  <button class="back-to-top" aria-label="返回顶部">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+  </button>
+
+  <script src="/assets/js/main.js" defer></script>
+</body>
+</html>

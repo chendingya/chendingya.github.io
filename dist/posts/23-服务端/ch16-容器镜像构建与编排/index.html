@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="一个由AI驱动的个人博客">
+  <title>服务端-ch16-容器镜像构建与编排 - AI Blog</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Noto+Serif+SC:wght@400;500;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/css/style.css">
+  
+  <link rel="stylesheet" href="/assets/css/highlight.css">
+  
+
+  
+  <style>:root {
+  --font-display: 'Playfair Display', 'Noto Serif SC', Georgia, 'Times New Roman', serif;
+  --font-body: 'Public Sans', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'Fira Code', 'Cascadia Code', 'JetBrains Mono', monospace;
+  --bg-cream: #FEFAF6;
+  --bg-surface: #FFFFFF;
+  --bg-warm: #FDF5EB;
+  --text-primary: #2C1810;
+  --text-secondary: #8B7355;
+  --text-muted: #C4A882;
+  --border: #E8D5C4;
+  --border-light: #F0E3D5;
+  --shadow-sm: 0 1px 2px rgba(44,24,16,0.04);
+  --shadow-md: 0 4px 12px rgba(44,24,16,0.06);
+  --shadow-lg: 0 12px 32px rgba(44,24,16,0.08);
+  --brand: var(--accent-coral);
+  --brand-hover: #FF5252;
+  --accent-coral: #FF6B6B;
+  --accent-coral-hover: #FF5252;
+  --accent-amber: #F4A261;
+  --accent-mint: #90BE6D;
+  --accent-lavender: #9B72AA;
+  --accent-sky: #4ECDC4;
+  --accent-sun: #F9C74F;
+  --accent-rose: #FF6B8A;
+  --accent-blue: #577590;
+  --max-width: 1200px;
+  --content-width: 720px;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 5rem;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+}
+
+[data-theme="dark"] {
+  --bg-cream: #1A1614;
+  --bg-surface: #2C2420;
+  --bg-warm: #241E1A;
+  --text-primary: #E8D5C4;
+  --text-secondary: #B8A088;
+  --text-muted: #8B7355;
+  --border: #3D3028;
+  --border-light: #332A22;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.25);
+  --shadow-lg: 0 12px 32px rgba(0,0,0,0.3);
+  --brand: var(--accent-coral);
+  --brand-hover: #FF8A8A;
+}</style>
+  
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23FF6B6B'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='20' fill='white'>A</text></svg>">
+
+  
+  <link rel="alternate" type="application/rss+xml" title="AI Blog" href="/feed.xml">
+  
+
+  <meta property="og:title" content="服务端-ch16-容器镜像构建与编排">
+  <meta property="og:description" content="一个由AI驱动的个人博客">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://username.github.io/ai-blog/posts/23-服务端/ch16-容器镜像构建与编排/">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="服务端-ch16-容器镜像构建与编排">
+  <meta name="twitter:description" content="一个由AI驱动的个人博客">
+  
+</head>
+<body class="post-page">
+  <div class="reading-progress"></div>
+
+  <header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="/" class="site-brand">
+        
+          <span class="brand-title">AI Blog</span>
+        
+      </a>
+
+      <nav class="site-nav" data-target="main-nav">
+        <ul class="nav-list">
+          
+            <li class="nav-item">
+              <a href="/" class="nav-link">首页</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/archive/" class="nav-link">归档</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/tags/" class="nav-link">标签</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/categories/" class="nav-link">分类</a>
+            </li>
+          
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" data-action="toggle-theme" aria-label="切换暗色模式">
+          <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+
+        <button class="icon-btn menu-btn" data-action="toggle-menu" aria-label="菜单">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  <div class="container">
+  <main class="main-content">
+    <article class="post-article">
+      <header class="post-header">
+        
+          <div class="post-header-cats">
+            
+              <a href="/categories/服务端开发/" class="meta-cat accent">服务端开发</a>
+            
+          </div>
+        
+        <h1 class="post-title">服务端-ch16-容器镜像构建与编排</h1>
+        <div class="post-meta">
+          <time datetime="2023-12-30T18:32:34.000Z">
+            2023年12月31日
+          </time>
+          
+            <span class="meta-divider">&middot;</span>
+            <span class="post-author">Your Name</span>
+          
+        </div>
+        
+          <div class="post-header-tags">
+            
+              <a href="/tags/springboot/" class="tag">springboot</a>
+            
+          </div>
+        
+      </header>
+
+      
+
+      <div class="post-body">
+        <h1 id="%E7%94%B1dockerfile%E6%9E%84%E5%BB%BA%E9%95%9C%E5%83%8F" tabindex="-1"><a class="header-anchor" href="#%E7%94%B1dockerfile%E6%9E%84%E5%BB%BA%E9%95%9C%E5%83%8F">#</a> 由Dockerfile构建镜像</h1>
+<h2 id="%E8%BF%87%E7%A8%8B" tabindex="-1"><a class="header-anchor" href="#%E8%BF%87%E7%A8%8B">#</a> 过程</h2>
+<p>Image：静态的压缩包
+Container：运行的容器，轻量级的虚拟机</p>
+<p><img src="https://chillcharlie-img.oss-cn-hangzhou.aliyuncs.com/image%2F2023%2F12%2F21%2F18-48-00-e370271f15d63a6c253c9948ac97824b-20231221184759-c0bcd1.png" alt="" class="" loading="lazy"></p>
+<h2 id="%E6%96%87%E4%BB%B6%E6%8C%87%E4%BB%A4%F0%9F%91%8D" tabindex="-1"><a class="header-anchor" href="#%E6%96%87%E4%BB%B6%E6%8C%87%E4%BB%A4%F0%9F%91%8D">#</a> 文件指令👍</h2>
+<ul>
+<li>FROM：<strong>指定基础镜像，必须为第一个命令</strong></li>
+<li>RUN：构建镜像时执行的命令</li>
+<li>ADD：将本地文件添加到容器中，<strong>tar类型文件会自动解压</strong></li>
+<li>COPY：功能类似ADD，但是<strong>不会自动解压文件</strong></li>
+<li>CMD：构建容器后调用，也就是在容器启动时才进行调用
+<ul>
+<li>可以被docker run参数覆盖</li>
+</ul>
+</li>
+<li>ENTRYPOINT：配置容器，使其可执行化
+<ul>
+<li>配合CMD可省去“application”，只使用参数，用于docker run时根据不同参数执行不同功能</li>
+<li>很可能是shell脚本</li>
+</ul>
+</li>
+<li>LABEL：用于为镜像添加元数据
+<ul>
+<li>key-value</li>
+</ul>
+</li>
+<li>ENV：设置环境变量</li>
+<li>EXPOSE：指定与外界交互的端口，容器内的端口号，docker run时加-P则会映射一个随机号（宿主机）</li>
+<li>VOLUME：用于指定持久化目录，docker run时如果没有指定挂载目录，会创建一个volume</li>
+<li>WORKDIR：工作目录，类似于cd命令</li>
+<li>USER：指定运行容器时的用户名或 UID
+<ul>
+<li>默认root</li>
+</ul>
+</li>
+<li>ARG：用于指定传递给构建运行时的变量</li>
+<li>ONBUILD：用于设置镜像触发器
+<ul>
+<li>可以被其他人进一步构建，会触发一些行为</li>
+</ul>
+</li>
+</ul>
+<h1 id="2.-docker-build" tabindex="-1"><a class="header-anchor" href="#2.-docker-build">#</a> 2. Docker build</h1>
+<h2 id="%E6%9E%84%E5%BB%BA%E5%91%BD%E4%BB%A4" tabindex="-1"><a class="header-anchor" href="#%E6%9E%84%E5%BB%BA%E5%91%BD%E4%BB%A4">#</a> 构建命令</h2>
+<ul>
+<li>docker build [OPTIONS] PATH | URL | -</li>
+<li>生成镜像：<code>docker build -t &lt;image&gt;:&lt;tag&gt; .</code>
+<ul>
+<li>最后一个参数context: .</li>
+</ul>
+</li>
+</ul>
+<h2 id="%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5%F0%9F%91%8D" tabindex="-1"><a class="header-anchor" href="#%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5%F0%9F%91%8D">#</a> 最佳实践👍</h2>
+<ul>
+<li>如何编写dockerfile: <a href="https://zhuanlan.zhihu.com/p/26904830">如何编写最佳的Dockerfile - 知乎 </a>
+<ol>
+<li><code>.dockerignore</code>文件</li>
+<li>容器只运行单个应用
+<ul>
+<li>解耦，未来可以单独对一个应用进行升级/重启/…</li>
+</ul>
+</li>
+<li>将多个RUN指令合并为一个
+<ul>
+<li>原因：减少镜像分层</li>
+</ul>
+</li>
+<li>基础镜像的标签不要用latest
+<ul>
+<li>建议使用固定的版本，使得镜像可预知</li>
+</ul>
+</li>
+<li>每个RUN指令的最后删除多余文件
+<ul>
+<li>原因：否则，虽然在下一个RUN删掉，上一层的文件还在（写时复制，上一层不可修改）</li>
+</ul>
+</li>
+<li>选择合适的基础镜像(alpine版本最好)
+<ul>
+<li>轻量级</li>
+</ul>
+</li>
+<li>设置WORKDIR和 CMD</li>
+<li>合理安排COPY和RUN的顺序
+<ul>
+<li>把不容易改变的放在前面，充分利用缓存</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>Docker健康检查HEALTHCHECK的使用方法：<a href="https://zhuanlan.zhihu.com/p/386986915">Docker健康检查HEALTHCHECK的使用方法 - 知乎 </a></li>
+</ul>
+<h2 id="%E9%95%9C%E5%83%8F%E5%88%86%E5%B1%82" tabindex="-1"><a class="header-anchor" href="#%E9%95%9C%E5%83%8F%E5%88%86%E5%B1%82">#</a> 镜像分层</h2>
+<p>Dockerfile里每一条命令都会生成一个新的层，重复构建时有cache, 只从修改的层开始重新构建.</p>
+<ul>
+<li>写时复制 COW</li>
+<li>docker history 查看镜像的层</li>
+<li>将所有的RUN指令合并为一个
+<ul>
+<li>Dockerfile中的每个指令都会创建一个新的镜像层</li>
+<li>镜像层将被缓存和复用</li>
+<li>当Dockerfile的指令修改了，复制的文件变化了，或者构建镜像时指定的变量不同了，对应的镜像层缓存就会失效</li>
+<li>某一层的镜像缓存失效之后，它之后的镜像层缓存都会失效</li>
+<li>镜像层是不可变的，如果我们在某一层中添加一个文件，然后在下一层中删除它，则镜像中依然会包含该文件(只是这个文件在Docker容器中不可见了)</li>
+</ul>
+</li>
+</ul>
+<h2 id="yaml%E6%96%87%E4%BB%B6%E8%AF%AD%E6%B3%95" tabindex="-1"><a class="header-anchor" href="#yaml%E6%96%87%E4%BB%B6%E8%AF%AD%E6%B3%95">#</a> YAML文件语法</h2>
+<h1 id="docker-compose" tabindex="-1"><a class="header-anchor" href="#docker-compose">#</a> Docker compose</h1>
+<p>服务编排工具</p>
+<ul>
+<li>Compose 项目是 Docker 官方的开源项目，负责实现对 Docker 容器集群的快速编排
+一个单独的 docker-compose.yml模板文件（YAML 格式）来定义一组相关联的应用容器为一个项目（project）</li>
+<li>Compose 的默认管理对象是项目，通过子命令对项目中的一组容器进行便捷地生命周期管理</li>
+<li>Compose 中有两个重要的概念
+<ul>
+<li>服务 (service)：一个应用的容器（可能会有多个容器），实际上可以包括若干运行相同镜像的容器实例</li>
+<li>项目 (project)：由一组关联的应用容器组成的一个完整业务单元，在 docker-compose.yml文件中定义</li>
+</ul>
+</li>
+<li>使用微服务架构的系统一般包含若干个微服务，每个微服务一般部署多个实例。如果每个服务都要手动启停，那么效率低，维护量大</li>
+</ul>
+<h2 id="docker-compose.yml%E6%A0%BC%E5%BC%8F" tabindex="-1"><a class="header-anchor" href="#docker-compose.yml%E6%A0%BC%E5%BC%8F">#</a> docker-compose.yml格式</h2>
+<p><a href="https://blog.csdn.net/weixin_46545831/article/details/112995427">Docker-compose指令详解_docker-compose指定container名字-CSDN博客 </a></p>
+<p><a href="https://zhuanlan.zhihu.com/p/93459395">Docker三剑客之docker-compose - 知乎 </a></p>
+<h2 id="yaml%E6%96%87%E4%BB%B6" tabindex="-1"><a class="header-anchor" href="#yaml%E6%96%87%E4%BB%B6">#</a> YAML文件</h2>
+<p>指定容器名之后只能部署一个，默认情况下为服务名+编号</p>
+<h2 id="docker-compose%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%F0%9F%91%8D" tabindex="-1"><a class="header-anchor" href="#docker-compose%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%F0%9F%91%8D">#</a> docker-compose常用命令👍</h2>
+<ul>
+<li>docker-compose --help</li>
+<li>docker-compose up -d
+<ul>
+<li># 该命令十分强大，它将尝试自动完成包括构建镜像，（重新）创建服务，启动服务，并关联服务相关容器的一系列操作</li>
+</ul>
+</li>
+<li>docker-compose ps、docker-compose ps --services</li>
+<li>docker-compose images</li>
+<li>docker-compose stop
+<ul>
+<li># 终止整个服务集合</li>
+</ul>
+</li>
+<li>docker-compose stop nginx</li>
+<li># 终止指定的服务 （这有个点就是启动的时候会先启动 depond_on 中的容器，关闭的时候不会影响到 depond_on 中的）</li>
+<li>docker-compose logs -f [services…]</li>
+<li># 查看容器的输出日志</li>
+<li>docker-compose build [SERVICE…]</li>
+<li>docker-compose rm nginx # 移除指定的容器</li>
+<li>docker-compose up -d --scale flask=3 organizationservice=2</li>
+<li>设置指定服务运行的容器个数</li>
+<li>scale：横向伸缩</li>
+</ul>
+<h2 id="ports%E3%80%81expose%E3%80%81links%E3%80%81depends_on" tabindex="-1"><a class="header-anchor" href="#ports%E3%80%81expose%E3%80%81links%E3%80%81depends_on">#</a> ports、expose、links、depends_on</h2>
+<p><a href="https://zhuanlan.zhihu.com/p/382779508">docker-compose的ports、expose、links、depends_on的使用技巧 - 知乎 </a></p>
+<ul>
+<li>ports
+<ul>
+<li><strong>用来把服务端口映射给宿主机</strong></li>
+</ul>
+</li>
+<li>expose
+<ul>
+<li><strong>用来把服务端口开放给其他服</strong>务，客户端服务可以通过links功能访问服务端服务的端口</li>
+</ul>
+</li>
+<li>links
+<ul>
+<li>links的目的是<strong>把一个服务的名称在当前服务里面创建一个别名</strong></li>
+</ul>
+</li>
+<li>depends_on
+<ul>
+<li><strong>当前服务启动之前先要把depends_on指定的服务启动起来才行</strong></li>
+</ul>
+</li>
+</ul>
+<h2 id="%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81docker-compose" tabindex="-1"><a class="header-anchor" href="#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81docker-compose">#</a> 为什么要docker-compose</h2>
+<p>可以方便地在本地调试微服务</p>
+<h2 id="%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE%E6%97%A5%E5%BF%97%E9%A9%B1%E5%8A%A8docker-logging" tabindex="-1"><a class="header-anchor" href="#%E5%A6%82%E4%BD%95%E9%85%8D%E7%BD%AE%E6%97%A5%E5%BF%97%E9%A9%B1%E5%8A%A8docker-logging">#</a> 如何配置日志驱动Docker Logging</h2>
+<ul>
+<li>Logging 驱动是可以插拔的框架</li>
+<li>Logging 驱动是 Container 用来使用服务来访问 log data 的工具</li>
+<li>Docker 支持很多种类的 Logging Driver</li>
+<li>默认驱动（log-driver）: “json-file”，存放到主机目录：/var/lib/docker/containers/[容器ID]-json.log</li>
+<li>单个容器的日志配置
+<ul>
+<li>docker run –log-driver syslog nginx</li>
+<li>docker run –log-driver json-file –log-opt max-size=50m nginx</li>
+</ul>
+</li>
+<li>更多驱动：fluentd、splunk、awslogs</li>
+</ul>
+
+      </div>
+
+      <footer class="post-footer">
+        <div class="post-nav">
+          <a href="/" class="post-nav-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            返回首页
+          </a>
+        </div>
+      </footer>
+    </article>
+  </main>
+</div>
+
+
+  <footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <span class="footer-logo">AI Blog</span>
+        <p class="footer-desc">一个由AI驱动的个人博客</p>
+        <div class="footer-social">
+          
+            <a href="https://github.com/yourname" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+          
+          
+            <a href="https://twitter.com/yourname" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          
+          
+            <a href="mailto:your@email.com" class="social-link" aria-label="Email">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </a>
+          
+          
+            <a href="/feed.xml" class="social-link" aria-label="RSS">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20C5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1z"/></svg>
+            </a>
+          
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">导航</h4>
+        <ul class="footer-links">
+          
+            <li><a href="/">首页</a></li>
+          
+            <li><a href="/archive/">归档</a></li>
+          
+            <li><a href="/tags/">标签</a></li>
+          
+            <li><a href="/categories/">分类</a></li>
+          
+          <li><a href="/archive/">归档</a></li>
+          <li><a href="/tags/">标签</a></li>
+          <li><a href="/categories/">分类</a></li>
+        </ul>
+      </div>
+
+      
+      <div class="footer-col">
+        <h4 class="footer-heading">友链</h4>
+        <ul class="footer-links">
+          
+            <li><a href="https://example.com" target="_blank" rel="noopener noreferrer">示例友链</a></li>
+          
+        </ul>
+      </div>
+      
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 AI Blog</p>
+      
+    </div>
+  </div>
+</footer>
+
+
+  <button class="back-to-top" aria-label="返回顶部">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+  </button>
+
+  <script src="/assets/js/main.js" defer></script>
+</body>
+</html>

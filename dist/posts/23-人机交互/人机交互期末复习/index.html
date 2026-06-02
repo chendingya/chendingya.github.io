@@ -1,0 +1,1698 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="一个由AI驱动的个人博客">
+  <title>人机交互-期末复习 - AI Blog</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Noto+Serif+SC:wght@400;500;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/css/style.css">
+  
+  <link rel="stylesheet" href="/assets/css/highlight.css">
+  
+
+  
+  <style>:root {
+  --font-display: 'Playfair Display', 'Noto Serif SC', Georgia, 'Times New Roman', serif;
+  --font-body: 'Public Sans', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'Fira Code', 'Cascadia Code', 'JetBrains Mono', monospace;
+  --bg-cream: #FEFAF6;
+  --bg-surface: #FFFFFF;
+  --bg-warm: #FDF5EB;
+  --text-primary: #2C1810;
+  --text-secondary: #8B7355;
+  --text-muted: #C4A882;
+  --border: #E8D5C4;
+  --border-light: #F0E3D5;
+  --shadow-sm: 0 1px 2px rgba(44,24,16,0.04);
+  --shadow-md: 0 4px 12px rgba(44,24,16,0.06);
+  --shadow-lg: 0 12px 32px rgba(44,24,16,0.08);
+  --brand: var(--accent-coral);
+  --brand-hover: #FF5252;
+  --accent-coral: #FF6B6B;
+  --accent-coral-hover: #FF5252;
+  --accent-amber: #F4A261;
+  --accent-mint: #90BE6D;
+  --accent-lavender: #9B72AA;
+  --accent-sky: #4ECDC4;
+  --accent-sun: #F9C74F;
+  --accent-rose: #FF6B8A;
+  --accent-blue: #577590;
+  --max-width: 1200px;
+  --content-width: 720px;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 5rem;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+}
+
+[data-theme="dark"] {
+  --bg-cream: #1A1614;
+  --bg-surface: #2C2420;
+  --bg-warm: #241E1A;
+  --text-primary: #E8D5C4;
+  --text-secondary: #B8A088;
+  --text-muted: #8B7355;
+  --border: #3D3028;
+  --border-light: #332A22;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.25);
+  --shadow-lg: 0 12px 32px rgba(0,0,0,0.3);
+  --brand: var(--accent-coral);
+  --brand-hover: #FF8A8A;
+}</style>
+  
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23FF6B6B'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='20' fill='white'>A</text></svg>">
+
+  
+  <link rel="alternate" type="application/rss+xml" title="AI Blog" href="/feed.xml">
+  
+
+  <meta property="og:title" content="人机交互-期末复习">
+  <meta property="og:description" content="一个由AI驱动的个人博客">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://username.github.io/ai-blog/posts/23-人机交互/人机交互期末复习/">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="人机交互-期末复习">
+  <meta name="twitter:description" content="一个由AI驱动的个人博客">
+  
+</head>
+<body class="post-page">
+  <div class="reading-progress"></div>
+
+  <header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="/" class="site-brand">
+        
+          <span class="brand-title">AI Blog</span>
+        
+      </a>
+
+      <nav class="site-nav" data-target="main-nav">
+        <ul class="nav-list">
+          
+            <li class="nav-item">
+              <a href="/" class="nav-link">首页</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/archive/" class="nav-link">归档</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/tags/" class="nav-link">标签</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/categories/" class="nav-link">分类</a>
+            </li>
+          
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" data-action="toggle-theme" aria-label="切换暗色模式">
+          <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+
+        <button class="icon-btn menu-btn" data-action="toggle-menu" aria-label="菜单">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  <div class="container">
+  <main class="main-content">
+    <article class="post-article">
+      <header class="post-header">
+        
+          <div class="post-header-cats">
+            
+              <a href="/categories/人机交互/" class="meta-cat accent">人机交互</a>
+            
+          </div>
+        
+        <h1 class="post-title">人机交互-期末复习</h1>
+        <div class="post-meta">
+          <time datetime="2024-01-05T18:32:34.000Z">
+            2024年1月6日
+          </time>
+          
+            <span class="meta-divider">&middot;</span>
+            <span class="post-author">Your Name</span>
+          
+        </div>
+        
+          <div class="post-header-tags">
+            
+              <a href="/tags/人机交互/" class="tag">人机交互</a>
+            
+              <a href="/tags/期末复习/" class="tag">期末复习</a>
+            
+          </div>
+        
+      </header>
+
+      
+        <details class="toc-wrap">
+          <summary class="toc-title">目录</summary>
+          <nav class="toc-nav">
+            
+              <a href="#人机交互" class="toc-link toc-level-1">人机交互</a>
+            
+              <a href="#part-1-基础" class="toc-link toc-level-1">Part 1 基础</a>
+            
+              <a href="#概述" class="toc-link toc-level-2">概述</a>
+            
+              <a href="#基础知识" class="toc-link toc-level-2">基础知识</a>
+            
+              <a href="#认知心理学" class="toc-link toc-level-3">认知心理学</a>
+            
+              <a href="#交互设计的目标和原则" class="toc-link toc-level-2">交互设计的目标和原则</a>
+            
+              <a href="#主要问题" class="toc-link toc-level-2">主要问题</a>
+            
+              <a href="#需求" class="toc-link toc-level-1">需求</a>
+            
+              <a href="#产品特性" class="toc-link toc-level-2">产品特性</a>
+            
+              <a href="#用户特性" class="toc-link toc-level-2">用户特性</a>
+            
+              <a href="#用户建模" class="toc-link toc-level-2">用户建模</a>
+            
+              <a href="#需求获取-分析-验证" class="toc-link toc-level-2">需求获取、分析、验证</a>
+            
+              <a href="#场景和观察" class="toc-link toc-level-3">场景和观察</a>
+            
+              <a href="#hta-层次化任务分析" class="toc-link toc-level-3">HTA 层次化任务分析</a>
+            
+              <a href="#原型" class="toc-link toc-level-2">原型</a>
+            
+              <a href="#心智模型" class="toc-link toc-level-3">心智模型</a>
+            
+              <a href="#交互式系统的设计" class="toc-link toc-level-1">交互式系统的设计</a>
+            
+              <a href="#设计框架-主要和前面的交互框架区分" class="toc-link toc-level-2">设计框架（主要和前面的交互框架区分）</a>
+            
+              <a href="#简化的设计策略" class="toc-link toc-level-2">简化的设计策略</a>
+            
+              <a href="#设计中的折中" class="toc-link toc-level-2">设计中的折中</a>
+            
+              <a href="#软件设计的细节-感觉又重复一遍" class="toc-link toc-level-2">软件设计的细节（感觉又重复一遍）</a>
+            
+              <a href="#设计模式" class="toc-link toc-level-2">设计模式</a>
+            
+              <a href="#交互设计模型与理论" class="toc-link toc-level-1">交互设计模型与理论</a>
+            
+              <a href="#预测模型" class="toc-link toc-level-2">预测模型：</a>
+            
+              <a href="#goms模型-goal-operator-method-selection-最著名的预测模型" class="toc-link toc-level-2">GOMS模型（Goal、Operator、Method、Selection）（最著名的预测模型）</a>
+            
+              <a href="#klm-击键层次模型-goms模型的一种-这里很可能会考计算题" class="toc-link toc-level-2">KLM（击键层次模型）：GOMS模型的一种（这里很可能会考计算题！）</a>
+            
+              <a href="#fitts定律" class="toc-link toc-level-2">Fitts定律</a>
+            
+              <a href="#用户中心设计" class="toc-link toc-level-2">用户中心设计</a>
+            
+              <a href="#评估" class="toc-link toc-level-1">评估</a>
+            
+              <a href="#基础知识" class="toc-link toc-level-2">基础知识</a>
+            
+              <a href="#目标" class="toc-link toc-level-3">目标</a>
+            
+              <a href="#原则" class="toc-link toc-level-3">原则</a>
+            
+              <a href="#评估范型" class="toc-link toc-level-3">评估范型</a>
+            
+              <a href="#评估技术" class="toc-link toc-level-3">评估技术</a>
+            
+              <a href="#评估方法-可用性评估方法汇总" class="toc-link toc-level-3">评估方法（可用性评估方法汇总）</a>
+            
+              <a href="#decide评估框架" class="toc-link toc-level-3">DECIDE评估框架</a>
+            
+              <a href="#小规模试验-看完整版" class="toc-link toc-level-3">小规模试验（看完整版）</a>
+            
+              <a href="#可用性问题分级-看完整版" class="toc-link toc-level-3">可用性问题分级（看完整版）</a>
+            
+              <a href="#评估之观察用户" class="toc-link toc-level-2">评估之观察用户</a>
+            
+              <a href="#评估之询问用户" class="toc-link toc-level-2">评估之询问用户</a>
+            
+              <a href="#访谈" class="toc-link toc-level-3">访谈</a>
+            
+              <a href="#原则-技巧" class="toc-link toc-level-3">原则 技巧</a>
+            
+              <a href="#步骤" class="toc-link toc-level-4">步骤</a>
+            
+              <a href="#类型" class="toc-link toc-level-4">类型</a>
+            
+              <a href="#问卷调查" class="toc-link toc-level-3">问卷调查</a>
+            
+              <a href="#设计原则" class="toc-link toc-level-4">设计原则</a>
+            
+              <a href="#评估之询问专家" class="toc-link toc-level-2">评估之询问专家</a>
+            
+              <a href="#认知走查" class="toc-link toc-level-3">认知走查</a>
+            
+              <a href="#步骤" class="toc-link toc-level-4">步骤</a>
+            
+              <a href="#协作走查" class="toc-link toc-level-3">协作走查</a>
+            
+              <a href="#启发式评估" class="toc-link toc-level-3">启发式评估</a>
+            
+              <a href="#评估之用户测试" class="toc-link toc-level-2">评估之用户测试</a>
+            
+              <a href="#以decide框架为基础" class="toc-link toc-level-3">以DECIDE框架为基础</a>
+            
+              <a href="#附-评估大题作答方法" class="toc-link toc-level-1">附：评估大题作答方法</a>
+            
+          </nav>
+        </details>
+      
+
+      <div class="post-body">
+        <h1 id="%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92" tabindex="-1"><a class="header-anchor" href="#%E4%BA%BA%E6%9C%BA%E4%BA%A4%E4%BA%92">#</a> 人机交互</h1>
+<p>这里只整理知识点，适合考前两小时快速过一遍。</p>
+<h1 id="part-1-%E5%9F%BA%E7%A1%80" tabindex="-1"><a class="header-anchor" href="#part-1-%E5%9F%BA%E7%A1%80">#</a> <strong>Part 1 基础</strong></h1>
+<h2 id="%E6%A6%82%E8%BF%B0" tabindex="-1"><a class="header-anchor" href="#%E6%A6%82%E8%BF%B0">#</a> <strong>概述</strong></h2>
+<ul>
+<li>HCI/CHI：Human-Computer Interaction/Computer-Human Interaction</li>
+<li>MMI/HMI：Man-Machine Interaction/Human-Machine Interaction</li>
+<li>UCD：User-Centered Design</li>
+<li>HF：Human Factors</li>
+<li>什么是人机交互</li>
+<li>抓住三方面答：人、计算机和他们之间互相联系的方式（交互），交互是重点。</li>
+<li>ACM定义：有关交互式计算机系统的设计、评估、实现以及与之相关现象的学科</li>
+<li>人机交互的研究内容
+<ul>
+<li>U：使用计算机的上下文</li>
+<li>H：人的特性</li>
+<li>C：计算机系统和用户接口架构</li>
+<li>D：开发过程</li>
+</ul>
+</li>
+<li>重要性
+<ul>
+<li>企业角度</li>
+<li>市场角度</li>
+<li>个人角度</li>
+<li>人性因素角度</li>
+</ul>
+</li>
+<li>发展历史
+<ul>
+<li>批处理阶段</li>
+<li>联机终端阶段（命令行）</li>
+<li>GUI阶段（现在）</li>
+<li>多媒体界面（未来）</li>
+</ul>
+</li>
+</ul>
+<h2 id="%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86" tabindex="-1"><a class="header-anchor" href="#%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86">#</a> <strong>基础知识</strong></h2>
+<ul>
+<li>交互框架
+<ul>
+<li>执行评估
+<ul>
+<li>执行隔阂 用户为达目标而制定的动作与系统允许的动作之间的差别</li>
+<li>评估隔阂 系统状态的<strong>实际表现</strong>与用户预期之间的差别</li>
+</ul>
+</li>
+<li>活动周期EEC
+<ul>
+<li>四个组成部分
+<ul>
+<li>目标</li>
+<li>执行</li>
+<li>客观因素</li>
+<li>评估</li>
+</ul>
+</li>
+<li>1-4：执行阶段
+<ul>
+<li>形成目标</li>
+<li>形成意图</li>
+<li>明确动作</li>
+<li>执行动作</li>
+</ul>
+</li>
+<li>5-7：评估阶段
+<ul>
+<li>感知系统状态</li>
+<li>解释系统状态</li>
+<li>评估输出</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>循环这个过程</li>
+<li>可以用来识别出交互存在的问题，即系统表现和用户预期之间的差距</li>
+</ul>
+</li>
+<li>交互形式：交互泛型（图形页面如何与机器交互）泛型决定了技术类型
+<ul>
+<li>命令行交互</li>
+<li>菜单驱动界面（菜单/菜单栏）</li>
+<li>基于表格的界面（表单）</li>
+<li>直接操纵（拖拽等）</li>
+<li>问答界面（对话框）</li>
+<li>隐喻界面（图标）</li>
+<li>自然语言交互</li>
+</ul>
+</li>
+<li>信息处理模型（研究人对外界信息的接收、存储、集成、检索和使用，可预测人执行特定任务的效率，如可推算人需要多长时间来感知和响应某个刺激（又 称“反应时间”），信息过载会出现怎样的瓶颈现象等。
+<ul>
+<li>人类处理机模型 最著名的<strong>信息处理模型</strong>，描述了人们从感知信息到付诸行动的认知过程
+<ul>
+<li>感知处理器
+<ul>
+<li>信息将被输出到声音存储和视觉存储区域</li>
+</ul>
+</li>
+<li>认知处理器
+<ul>
+<li>输入将被输出到工作记忆，能够访问工作记忆和长时记忆中的信息</li>
+</ul>
+</li>
+<li>动作处理器
+<ul>
+<li>执行动作</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="%E8%AE%A4%E7%9F%A5%E5%BF%83%E7%90%86%E5%AD%A6" tabindex="-1"><a class="header-anchor" href="#%E8%AE%A4%E7%9F%A5%E5%BF%83%E7%90%86%E5%AD%A6">#</a> 认知心理学</h3>
+<ul>
+<li>格式塔/完型心理学
+<ul>
+<li>
+<p>相近性原则</p>
+<ul>
+<li><strong>空间上比较靠近</strong>的物体容易被视为整体</li>
+<li>设计界面时应按照相关性对组件进行分组</li>
+<li><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></li>
+</ul>
+</li>
+<li>
+<p>相似性原则</p>
+</li>
+<li>
+<p>人们习惯将看上去<strong>相似的物体</strong>看成一个整体</p>
+</li>
+<li>
+<p>功能相近的组件应该使用相同或相近的表现形式</p>
+</li>
+<li>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+</li>
+<li>
+<p>连续性原则</p>
+<ul>
+<li><strong>共线或具有相同方向</strong>的物体会被组合在一起</li>
+<li>将组件对齐，更有助于增强用户的主观感知效果</li>
+<li><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></li>
+</ul>
+</li>
+<li>
+<p>对称性原则</p>
+<ul>
+<li><strong>相互对称且能够组合为有意义单元的物体</strong>会被组合在一起</li>
+</ul>
+</li>
+<li>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+</li>
+<li>
+<p>完整和闭合原则</p>
+<ul>
+<li>人们倾向于<strong>忽视轮廓的间隙</strong>而将其视作一个完整的整体</li>
+<li>页面上的空白可帮助实现分组</li>
+<li><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>违反格式塔则可以突出某个物体</li>
+<li>视错觉：上下文信息有助于增强人们的视觉感知</li>
+<li>记忆特性
+<ul>
+<li>三个阶段，Atkinson和Shiffrin
+<ul>
+<li>感觉记忆
+<ol>
+<li>瞬时记忆，持续约1s</li>
+<li>作用：视觉暂留，视频的实现</li>
+</ol>
+</li>
+<li>短时记忆
+<ol>
+<li>工作记忆，30s左右。储存当前正在处理的信息。</li>
+<li>感觉记忆经编码后进入短时记忆</li>
+<li>Short Term Memory, 简称 STM</li>
+<li><strong>存储能力</strong>：7+2，7-2个信息单元</li>
+</ol>
+</li>
+<li>长时记忆
+<ol>
+<li>短时记忆中的信息经进一步加工后会变为长时记忆不代表长时记忆区的信息丢失了</li>
+<li>遗忘：可能失去了提取信息的途径，或原有联系受到了干扰。但不代表记忆丢失。</li>
+</ol>
+</li>
+</ul>
+</li>
+<li><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></li>
+</ul>
+</li>
+<li>
+<h2 id="%E4%BA%A4%E4%BA%92%E8%AE%BE%E5%A4%87" tabindex="-1"><a class="header-anchor" href="#%E4%BA%A4%E4%BA%92%E8%AE%BE%E5%A4%87">#</a> 交互设备</h2>
+</li>
+</ul>
+<h2 id="%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1%E7%9A%84%E7%9B%AE%E6%A0%87%E5%92%8C%E5%8E%9F%E5%88%99" tabindex="-1"><a class="header-anchor" href="#%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1%E7%9A%84%E7%9B%AE%E6%A0%87%E5%92%8C%E5%8E%9F%E5%88%99">#</a> <strong>交互设计的目标和原则</strong></h2>
+<ul>
+<li>目标
+<ul>
+<li>可用性目标（产品应该具有的）
+<ul>
+<li>易学性 关键问题在于确定用户准备花费多少时间学习一个产品</li>
+<li>易记性 学会使用并记住该产品如何使用的难易程度</li>
+<li>高效用 一定程度上该产品提供了正确的功能，可以让用户做他们需要做 的或想做的事情</li>
+<li>高效率 当用户学会使用产品之后，用户应该具有更高的生产力水平（效率）</li>
+<li>安全性 避免用户发生危险和陷入不好的情形</li>
+</ul>
+</li>
+<li>用户体验目标（产品给用户额外带来的）
+<ul>
+<li>用户与系统交互时的感受</li>
+<li>体验和可用性的关系</li>
+<li>主观 vs.客观</li>
+<li>矛盾性
+<ul>
+<li>许多玩家喜欢找最具挑战、非简单的游戏：违反可用性</li>
+<li>用塑料锤砸屏幕上的地鼠较用鼠标点击更费劲且更易出错，但会带来一个 更愉快和有趣的体验</li>
+<li>有些可用性和用户体验目标是不兼容的</li>
+</ul>
+</li>
+<li><strong>认识和理解可用性和其他用户体验目标之间的关系</strong>是<strong>交互设计的核心</strong></li>
+</ul>
+</li>
+<li>简易可用性工程（可能这里会考实验设计？）
+<ul>
+<li>
+<p>提高产品的可用性为目标的先进的产品开发方法论，强调以人为中心来进行交互式产品的设计研发</p>
+</li>
+<li>
+<p>完整的可用性工程过程</p>
+<ul>
+<li>了解用户</li>
+<li>竞争性分析</li>
+<li>设定可用性目标</li>
+<li>用户参与的设计</li>
+<li>迭代设计</li>
+<li>产品发布后的工作</li>
+</ul>
+</li>
+<li>
+<h4 id="%E7%AE%80%E5%8C%96%E7%9A%84%E5%8F%AF%E7%94%A8%E6%80%A7%E5%B7%A5%E7%A8%8B%E8%BF%87%E7%A8%8B-%E5%9B%9B%E7%A7%8D%E4%B8%BB%E8%A6%81%E6%8A%80%E6%9C%AF" tabindex="-1"><a class="header-anchor" href="#%E7%AE%80%E5%8C%96%E7%9A%84%E5%8F%AF%E7%94%A8%E6%80%A7%E5%B7%A5%E7%A8%8B%E8%BF%87%E7%A8%8B-%E5%9B%9B%E7%A7%8D%E4%B8%BB%E8%A6%81%E6%8A%80%E6%9C%AF">#</a> 简化的可用性工程过程 <strong>四种主要技术</strong></h4>
+</li>
+<li>
+<p><strong>用户和任务观察</strong>  直接与潜在用户进行接触</p>
+</li>
+<li>
+<p><strong>场景（scenario）</strong> 简便易行的原型工具，通过省略整个系统的若干部分来减少实现的复杂性</p>
+</li>
+<li>
+<p>**简化的边做边说（thinking aloud）**让真实用户在使用系统执行一组特定任务的时候，讲出他们的所思所想 <strong>最有价值的单个可用性工程方法</strong> 可了解用户为什么这样做，并确定其可能对系统产生的误解</p>
+</li>
+<li>
+<p><strong>启发式评估</strong>  <strong>5名专家能够发现约80%的可用性问题</strong>，剩下的可以通过简化的边做边说方法来发现 为避免个人的偏见，应当让<strong>多个不同的人来进行经验性评估</strong></p>
+</li>
+<li>
+<p>系统状态可见性（进度条）</p>
+</li>
+<li>
+<p>和现实世界吻合（说人话）</p>
+</li>
+<li>
+<p>用户有控制的自主权（后退）</p>
+</li>
+<li>
+<p>一致化和标准化（确认在左还是右）</p>
+</li>
+<li>
+<p>预防错误（日历牌）</p>
+</li>
+<li>
+<p>认知而不是记忆（步骤条）</p>
+</li>
+<li>
+<p>使用的灵活性和效率（快捷键）</p>
+</li>
+<li>
+<p>审美感和最小化设计（遥控器）</p>
+</li>
+<li>
+<p>帮助用户识别、诊断和修正错误（说人话）</p>
+</li>
+<li>
+<p>帮助和文档（F1）</p>
+</li>
+<li>
+<h4 id="%E5%8F%AF%E7%94%A8%E6%80%A7%E5%BA%A6%E9%87%8F" tabindex="-1"><a class="header-anchor" href="#%E5%8F%AF%E7%94%A8%E6%80%A7%E5%BA%A6%E9%87%8F">#</a> 可用性度量</h4>
+</li>
+<li>
+<p>就是选一些用户来执行预定的任务，观察比较执行情况</p>
+</li>
+<li>
+<p>易学性度量</p>
+<ul>
+<li>从未使用过的用户</li>
+<li>统计到达某种熟练程度的时间（熟练程度：能够在特定的时间里完成一组特定的任务）</li>
+</ul>
+</li>
+<li>
+<p>易记性度量</p>
+<ul>
+<li>新手用户，熟练用户，非频繁使用用户（最能体现）</li>
+<li>①对特定长时间内没有使用系统的用户进行测试，记录执行特定任务所需的时间</li>
+<li>②在完成特定任务后要求用户解释各种命令的作用</li>
+</ul>
+</li>
+<li>
+<p>使用效率度量</p>
+<ul>
+<li>按已使用系统的小时数对用户进行分类</li>
+<li>记录不同用户群体的使用效率并绘制出曲线</li>
+</ul>
+</li>
+<li>
+<p>错误率度量</p>
+<ul>
+<li>所有用户</li>
+<li>统计用户在操作中的错误次数（可以在其他度量过程中一起进行）</li>
+</ul>
+</li>
+<li>
+<p>满意度度量</p>
+<ul>
+<li>所有用户</li>
+<li>在其他测试完成后询问用户（Likert度量尺度&amp;语义差异尺度）</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>交互设计原则
+<ul>
+<li>
+<p>一般原则</p>
+<ul>
+<li>可学习性</li>
+<li>灵活性</li>
+<li>健壮性</li>
+</ul>
+</li>
+<li>
+<h4 id="%E5%85%AB%E6%9D%A1%E9%BB%84%E9%87%91%E5%8E%9F%E5%88%99%EF%BC%88%E5%92%8C%E5%90%AF%E5%8F%91%E5%BC%8F%E8%A7%84%E5%88%99%E6%9C%89%E5%BE%88%E5%A4%9A%E5%8F%AF%E4%BB%A5%E5%AF%B9%E5%BA%94%E7%9A%84%E5%9C%B0%E6%96%B9%EF%BC%89" tabindex="-1"><a class="header-anchor" href="#%E5%85%AB%E6%9D%A1%E9%BB%84%E9%87%91%E5%8E%9F%E5%88%99%EF%BC%88%E5%92%8C%E5%90%AF%E5%8F%91%E5%BC%8F%E8%A7%84%E5%88%99%E6%9C%89%E5%BE%88%E5%A4%9A%E5%8F%AF%E4%BB%A5%E5%AF%B9%E5%BA%94%E7%9A%84%E5%9C%B0%E6%96%B9%EF%BC%89">#</a> 八条黄金原则（和启发式规则有很多可以对应的地方）</h4>
+</li>
+<li>
+<p>尽可能一致（一致性和标准化）</p>
+<ul>
+<li>一致的颜色、布局、字体等</li>
+</ul>
+</li>
+<li>
+<p>符合普遍可用性 （灵活性和高效性）</p>
+<ul>
+<li>（不同用户群体都能轻松使用）</li>
+<li>专家用户/新手用户</li>
+</ul>
+</li>
+<li>
+<p>提供信息丰富的反馈（系统状态可见性）</p>
+<ul>
+<li>界面对象的可视化表现</li>
+</ul>
+</li>
+<li>
+<p>设计说明对话款以生成结束信息（系统状态可见性？）</p>
+<ul>
+<li>让用户知道什么时候他们已经完成了任务</li>
+</ul>
+</li>
+<li>
+<p>预防并处理错误（预防错误）</p>
+<ul>
+<li>将不适当的菜单选项功能以灰色显示屏蔽</li>
+<li>禁止在数值输入域中出现字母字符</li>
+<li>提供简单的、有建设性的、具体的指导来帮助用户恢复操作</li>
+</ul>
+</li>
+<li>
+<p>让操作容易撤销（自主权和控制权）</p>
+<ul>
+<li>减轻用户的焦虑情绪，并鼓励用户尝试新的选</li>
+</ul>
+</li>
+<li>
+<p>支持内部控制点（自主权和控制权）</p>
+<ul>
+<li>提供出口：取消、重做、放弃等</li>
+</ul>
+</li>
+<li>
+<p>减轻短时记忆负担（认知而不是记忆）</p>
+<ul>
+<li>确保提供用户足够的学习代码、记忆操作方法和操作序列的时间</li>
+<li>提供适当的在线帮助信息</li>
+</ul>
+</li>
+<li>
+<h4 id="nielson-%E5%8D%81%E9%A1%B9%E5%90%AF%E5%8F%91%E5%BC%8F%E8%A7%84%E5%88%99" tabindex="-1"><a class="header-anchor" href="#nielson-%E5%8D%81%E9%A1%B9%E5%90%AF%E5%8F%91%E5%BC%8F%E8%A7%84%E5%88%99">#</a> nielson 十项启发式规则</h4>
+</li>
+<li>
+<p>系统状态可见性（进度条）</p>
+</li>
+<li>
+<p>和现实世界吻合（说人话）</p>
+</li>
+<li>
+<p>用户有控制的自主权（后退）</p>
+</li>
+<li>
+<p>一致化和标准化（确认在左还是右）</p>
+</li>
+<li>
+<p>预防错误（日历牌）</p>
+</li>
+<li>
+<p>认知而不是记忆（步骤条）</p>
+</li>
+<li>
+<p>使用的灵活性和效率（快捷键）</p>
+</li>
+<li>
+<p>审美感和最小化设计（遥控器）</p>
+</li>
+<li>
+<p>帮助用户识别、诊断和修正错误（说人话）</p>
+</li>
+<li>
+<p>帮助和文档（F1）</p>
+</li>
+<li>
+<h4 id="norman-%E7%9A%84%E4%B8%83%E9%A1%B9%E5%8E%9F%E7%90%86" tabindex="-1"><a class="header-anchor" href="#norman-%E7%9A%84%E4%B8%83%E9%A1%B9%E5%8E%9F%E7%90%86">#</a> Norman 的七项原理</h4>
+</li>
+<li>
+<p>应用现实世界和头脑中的知识</p>
+<ul>
+<li>系统应该在环境内部提供必要的知识。</li>
+</ul>
+</li>
+<li>
+<p>简化任务结构</p>
+<ul>
+<li>简化任务结构可避免复杂的问题求解和过多的内存负载。</li>
+</ul>
+</li>
+<li>
+<p>使事情变得明显</p>
+<ul>
+<li>要求界面使系统清楚能做什么事情以及如何完成，同时应该使用户清楚地看到这些操作在系统上的结果，其目的是架起执行和评估之间的桥梁。</li>
+</ul>
+</li>
+<li>
+<p>获得正确的映射</p>
+<ul>
+<li>应该将用户的意图和操作清晰地映射到系统的控制和事件上，保持相互之间清楚的对应关系和对应程度</li>
+<li>如对控制键和滑动键等而言，小的移动应该对应小的效果</li>
+</ul>
+</li>
+<li>
+<p>利用自然和人为的限制力量</p>
+<ul>
+<li>限制指除正确操作之外，禁止用户做其他事情</li>
+</ul>
+</li>
+<li>
+<p>容错设计</p>
+<ul>
+<li>在设计时应预见用户可能犯的错误，并提供系统的恢复机制</li>
+</ul>
+</li>
+<li>
+<p>当所有都不成功时进行标准化</p>
+<ul>
+<li>当驾驶员进入一辆从未驾驶过的汽车时，能够很快对其进驾驶，这是因为主要的控制已经标准化了</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="%E4%B8%BB%E8%A6%81%E9%97%AE%E9%A2%98" tabindex="-1"><a class="header-anchor" href="#%E4%B8%BB%E8%A6%81%E9%97%AE%E9%A2%98">#</a> 主要问题</h2>
+<p>用户</p>
+<p>需求</p>
+<p>候选方案</p>
+<p>决策</p>
+<p>交互设计生命周期</p>
+<p>星型模型</p>
+<p>可用性工程生命周期模型</p>
+<h1 id="%E9%9C%80%E6%B1%82" tabindex="-1"><a class="header-anchor" href="#%E9%9C%80%E6%B1%82">#</a> 需求</h1>
+<h2 id="%E4%BA%A7%E5%93%81%E7%89%B9%E6%80%A7" tabindex="-1"><a class="header-anchor" href="#%E4%BA%A7%E5%93%81%E7%89%B9%E6%80%A7">#</a> 产品特性</h2>
+<ul>
+<li>功能不同</li>
+<li>物理条件不同</li>
+<li>使用环境不同</li>
+</ul>
+<h2 id="%E7%94%A8%E6%88%B7%E7%89%B9%E6%80%A7" tabindex="-1"><a class="header-anchor" href="#%E7%94%A8%E6%88%B7%E7%89%B9%E6%80%A7">#</a> 用户特性</h2>
+<ul>
+<li>心理学原理部分，假设每个人都有相似的能力和局限性</li>
+<li>交互产品设计人员应该意识到个性的差异</li>
+<li>用户差异 体验水平 年龄 文化 健康</li>
+</ul>
+<h2 id="%E7%94%A8%E6%88%B7%E5%BB%BA%E6%A8%A1" tabindex="-1"><a class="header-anchor" href="#%E7%94%A8%E6%88%B7%E5%BB%BA%E6%A8%A1">#</a> 用户建模</h2>
+<ul>
+<li>人物角色 (Personas）
+<ul>
+<li><strong>不是真实的人</strong></li>
+<li>是基于观察到的那些<strong>真实人的行为和动机</strong>，并且在整个设计过程中<strong>代表真实的人</strong></li>
+<li>是在人口统计学调查收集到的<strong>实际用户的行为数据的基础上形成的综合原型</strong></li>
+<li>概念简单，但使用起来相当复杂 ：拼凑出几个用户档案是不行的</li>
+</ul>
+</li>
+<li>人物角色的作用
+<ul>
+<li>解决产品开发过程中出现的3个设计问题</li>
+<li>弹性用户
+<ul>
+<li>为弹性用户设计赋予了开发者根据自己的意愿编码，而仍然能够为“用户”服务的许可</li>
+</ul>
+</li>
+<li>自参考设计
+<ul>
+<li>设计者或者程序员将其自己的目标、动机、技巧及心智模型投射到产品的设计中</li>
+</ul>
+</li>
+<li>边缘情况设计
+<ul>
+<li>必须考虑边缘情况，但它们又不应该成为设计的关注点 问：A会经常进行这种操作吗</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>人物角色的构造
+<ul>
+<li>与某个系统有关的用户假定的一组公共需要、兴趣、期望、行为模式和责任</li>
+<li>这些属性可能是若干用户共有</li>
+<li>同一个用户也可以扮演系统的任意个不同角色</li>
+<li>基于如下问题
+<ul>
+<li><strong>谁</strong>将使用系统？</li>
+<li>这些用户属于<strong>哪些类型的人群</strong>？</li>
+<li>是什么因素决定他们将<strong>怎样使用系统</strong>？</li>
+<li>他们与软件的关系有什么<strong>特征</strong>？</li>
+<li>他们通常需要软件提供什么<strong>支持</strong>？</li>
+<li>他们对软件会有怎样的<strong>行为</strong>？</li>
+<li>他们对软件的行为有什么<strong>期望</strong>？</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>人物角色的建模
+<ul>
+<li>拼凑 采用头脑风暴方法，不去考虑他们的细节</li>
+<li>组织 将这些片段按照所构造模型的需要进行分组和分类，归并或删除那些冗余重叠的东西</li>
+<li>细节 建立和完善相应描述，补充遗漏的数据</li>
+<li>求精 对模型进行推敲，以便改进和完善</li>
+<li>以上过程循环反复</li>
+</ul>
+</li>
+</ul>
+<h2 id="%E9%9C%80%E6%B1%82%E8%8E%B7%E5%8F%96%E3%80%81%E5%88%86%E6%9E%90%E3%80%81%E9%AA%8C%E8%AF%81" tabindex="-1"><a class="header-anchor" href="#%E9%9C%80%E6%B1%82%E8%8E%B7%E5%8F%96%E3%80%81%E5%88%86%E6%9E%90%E3%80%81%E9%AA%8C%E8%AF%81">#</a> 需求获取、分析、验证</h2>
+<ul>
+<li>需求获取：通过观察（直接或间接）</li>
+<li>需求定义
+<ul>
+<li>角色+场景</li>
+<li>五个步骤
+<ul>
+<li>创建问题和前景综述</li>
+<li>头脑风暴</li>
+<li>确定角色的期望</li>
+<li>构建场景</li>
+<li>确立需求</li>
+</ul>
+</li>
+<li>不断迭代</li>
+</ul>
+</li>
+<li>需求验证：把得出的需求给用户看
+<ul>
+<li>原型：低保证，高保真（低保真好，高保真用户不会改）
+<ul>
+<li>原型重要
+<ul>
+<li>评估和反馈是交互设计的核心</li>
+<li>与文档相比，涉众能够更容易地看到、持有和与原型进行交互</li>
+<li>团队成员能够有效沟通</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="%E5%9C%BA%E6%99%AF%E5%92%8C%E8%A7%82%E5%AF%9F" tabindex="-1"><a class="header-anchor" href="#%E5%9C%BA%E6%99%AF%E5%92%8C%E8%A7%82%E5%AF%9F">#</a> 场景和观察</h3>
+<ul>
+<li>观察
+<ul>
+<li>直接观察
+<ul>
+<li>陪同他们工作而直接获得信息</li>
+<li>可能影响被观察者的日常活动</li>
+</ul>
+</li>
+<li>间接观察
+<ul>
+<li>用视频/录音获得信息</li>
+<li>观察者更舒适</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>场景
+<ul>
+<li>“讲故事”
+<ul>
+<li>是人们解释自己做什么或者希望执行某个任务的最自然方式</li>
+<li>故事的焦点就是用户希望达到的目标</li>
+<li>若场景说明不断提到某个特定形式、行为或者地点，就表明它是该活动的核心</li>
+</ul>
+</li>
+<li>场景说明通常来自专题讨论或者访谈，目的是解释或讨论有关用户目标 的一些问题</li>
+</ul>
+</li>
+</ul>
+<h3 id="hta-%E5%B1%82%E6%AC%A1%E5%8C%96%E4%BB%BB%E5%8A%A1%E5%88%86%E6%9E%90" tabindex="-1"><a class="header-anchor" href="#hta-%E5%B1%82%E6%AC%A1%E5%8C%96%E4%BB%BB%E5%8A%A1%E5%88%86%E6%9E%90">#</a> HTA 层次化任务分析</h3>
+<ul>
+<li>把任务分解为若干子任务，再把子任务进一步分解为更细致的子任务。</li>
+<li>之后，把他们组织成一个“执行次序”，说明在实际情形下如何执行各项任务</li>
+<li>图形描述
+<ul>
+<li><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></li>
+</ul>
+</li>
+<li>文字描述
+<ul>
+<li><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></li>
+</ul>
+</li>
+</ul>
+<h2 id="%E5%8E%9F%E5%9E%8B" tabindex="-1"><a class="header-anchor" href="#%E5%8E%9F%E5%9E%8B">#</a> 原型</h2>
+<p>概念模型和心智模型</p>
+<ul>
+<li>制作原型之前要首先关注用户的心智模型</li>
+<li>概念模型是对系统如何组织和操作的高级描述</li>
+<li>理想情况下，用户的心智模型应该与设计师的概念模型相同</li>
+</ul>
+<h3 id="%E5%BF%83%E6%99%BA%E6%A8%A1%E5%9E%8B" tabindex="-1"><a class="header-anchor" href="#%E5%BF%83%E6%99%BA%E6%A8%A1%E5%9E%8B">#</a> 心智模型</h3>
+<p>心智模式又叫心智模型。所谓心智模式是指深植我们心中关于我们自己、别人、组织及周围世界每个层面的假设、形象和故事。并深受习惯思维、定势思维、已有知识的局限。</p>
+<h1 id="%E4%BA%A4%E4%BA%92%E5%BC%8F%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%AE%BE%E8%AE%A1" tabindex="-1"><a class="header-anchor" href="#%E4%BA%A4%E4%BA%92%E5%BC%8F%E7%B3%BB%E7%BB%9F%E7%9A%84%E8%AE%BE%E8%AE%A1">#</a> 交互式系统的设计</h1>
+<h2 id="%E8%AE%BE%E8%AE%A1%E6%A1%86%E6%9E%B6%EF%BC%88%E4%B8%BB%E8%A6%81%E5%92%8C%E5%89%8D%E9%9D%A2%E7%9A%84%E4%BA%A4%E4%BA%92%E6%A1%86%E6%9E%B6%E5%8C%BA%E5%88%86%EF%BC%89" tabindex="-1"><a class="header-anchor" href="#%E8%AE%BE%E8%AE%A1%E6%A1%86%E6%9E%B6%EF%BC%88%E4%B8%BB%E8%A6%81%E5%92%8C%E5%89%8D%E9%9D%A2%E7%9A%84%E4%BA%A4%E4%BA%92%E6%A1%86%E6%9E%B6%E5%8C%BA%E5%88%86%EF%BC%89">#</a> 设计框架（主要和前面的交互框架区分）</h2>
+<p>（设计过程的基本活动和特征</p>
+<ol>
+<li>定义<strong>外形因素和输入方法</strong>
+<ol>
+<li>外形因素 设计什么样的产品？</li>
+<li>产品输入方法 产品与用户互动的形式</li>
+</ol>
+</li>
+<li>定义<strong>功能和数据元素</strong>
+<ol>
+<li>数据元素 交互产品中的基本主体，如相片、电子邮件、订单</li>
+<li>功能元素 对数据元素操作的工具以及输入或者放置数据元素的位置</li>
+</ol>
+</li>
+<li>决定<strong>功能组合层次</strong></li>
+<li>勾画<strong>大致的设计框架</strong>
+<ol>
+<li>方块图阶段 用粗略的方块图来表达并区分每个视图 对应窗格、控制部件（如工具栏）为每个方块图添加上标签和注解</li>
+<li>不要被界面上某个特殊区域的细枝末节分 散了精力</li>
+</ol>
+</li>
+<li>构建<strong>关键情景场景剧本</strong>
+<ol>
+<li>这些场景剧本描述了人物角色<strong>最频繁</strong>使用界面的主要路径</li>
+<li>重点在任务层</li>
+<li>可使用低保真草图序列的<strong>故事板</strong></li>
+</ol>
+</li>
+<li><strong>通过验证性的场景剧本来检查设计</strong>
+<ol>
+<li>不用具备很多细节但包含一系列“如果怎样，将怎样”的问题</li>
+</ol>
+</li>
+</ol>
+<h2 id="%E7%AE%80%E5%8C%96%E7%9A%84%E8%AE%BE%E8%AE%A1%E7%AD%96%E7%95%A5" tabindex="-1"><a class="header-anchor" href="#%E7%AE%80%E5%8C%96%E7%9A%84%E8%AE%BE%E8%AE%A1%E7%AD%96%E7%95%A5">#</a> 简化的设计策略</h2>
+<ul>
+<li>删除
+<ul>
+<li>可以让设计师专注于把有限的重要问题解决好</li>
+<li>删除视觉混乱，有助于用户心无旁骛地完成自己的目标</li>
+</ul>
+</li>
+<li>组织
+<ul>
+<li><strong>最快捷</strong>的简化设计方式</li>
+<li>确定清晰的分类标准</li>
+<li>利用不可见的网格来对齐界面元素</li>
+<li>重要的元素要大一些，不太重要的界面元素应该小一些</li>
+<li>把相似元素放在一起</li>
+</ul>
+</li>
+<li>隐藏
+<ul>
+<li>隐藏是一种<strong>低成本</strong>的简化方案
+<ul>
+<li>用户不会因不常用的功能分散注意力</li>
+<li>可作为删除不必要功能的开始</li>
+<li>必须仔细权衡要隐藏哪些功能</li>
+</ul>
+</li>
+<li>如果自定义的工具很简单，还是有价值的；一般来说，不应该让用户去自定义他们的软件</li>
+<li>渐进展示
+<ul>
+<li>隐藏精确的控制部件：一项功能包含少数核心的供主流用户使用的控制部件，另有一些为专家级 用户准备的扩展性的精确的控制部件</li>
+</ul>
+</li>
+<li>适时出现
+<ul>
+<li>《纽约时报》 过分强调隐藏功能（如为每个词加上超链接）会导致混乱，在合适的时机、合适的位置上显示相应功能</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>转移
+<ul>
+<li>被精简掉的按钮全部通过电视屏幕上的菜单来管理</li>
+<li>在设备之间转移：移动平台与桌面平台：把某项任务的某些内容（如输入信息）转移到不同的平台 上可能是一种更好的选择</li>
+<li>向用户转移</li>
+</ul>
+</li>
+<li><strong>删除不必要的</strong></li>
+<li><strong>组织要提供的</strong></li>
+<li><strong>隐藏非核心的</strong></li>
+<li><strong>转移不合适的？</strong></li>
+</ul>
+<h2 id="%E8%AE%BE%E8%AE%A1%E4%B8%AD%E7%9A%84%E6%8A%98%E4%B8%AD" tabindex="-1"><a class="header-anchor" href="#%E8%AE%BE%E8%AE%A1%E4%B8%AD%E7%9A%84%E6%8A%98%E4%B8%AD">#</a> 设计中的折中</h2>
+<p>个性化和配置</p>
+<p>本地化和国际化</p>
+<p>审美学和实用性</p>
+<h2 id="%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E7%9A%84%E7%BB%86%E8%8A%82%EF%BC%88%E6%84%9F%E8%A7%89%E5%8F%88%E9%87%8D%E5%A4%8D%E4%B8%80%E9%81%8D%EF%BC%89" tabindex="-1"><a class="header-anchor" href="#%E8%BD%AF%E4%BB%B6%E8%AE%BE%E8%AE%A1%E7%9A%84%E7%BB%86%E8%8A%82%EF%BC%88%E6%84%9F%E8%A7%89%E5%8F%88%E9%87%8D%E5%A4%8D%E4%B8%80%E9%81%8D%EF%BC%89">#</a> 软件设计的细节（感觉又重复一遍）</h2>
+<ul>
+<li>设计体贴的软件（尽责，自信，不问过多问题，知道什么时候调整规则，承担责任。具体什么意思看详细版）</li>
+<li>加快响应时间（提前加载）</li>
+<li>减轻用户的记忆负担（帮用户存储一些设置）</li>
+<li>减少等待感（进度条，分步加载，分配任务分散注意力，降低期望值）</li>
+<li>设计好的出错信息</li>
+</ul>
+<h2 id="%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F" tabindex="-1"><a class="header-anchor" href="#%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">#</a> 设计模式</h2>
+<ul>
+<li>主导航模式</li>
+<li>二级导航模式</li>
+<li>轮播模式的讨论</li>
+</ul>
+<h1 id="%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%9E%8B%E4%B8%8E%E7%90%86%E8%AE%BA" tabindex="-1"><a class="header-anchor" href="#%E4%BA%A4%E4%BA%92%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%9E%8B%E4%B8%8E%E7%90%86%E8%AE%BA">#</a> <strong>交互设计模型与理论</strong></h1>
+<h2 id="%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B%EF%BC%9A" tabindex="-1"><a class="header-anchor" href="#%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B%EF%BC%9A">#</a> 预测模型：</h2>
+<p>能够预测用户的执行情况而不用实际测试。</p>
+<h2 id="goms%E6%A8%A1%E5%9E%8B%EF%BC%88goal%E3%80%81operator%E3%80%81method%E3%80%81selection%EF%BC%89%EF%BC%88%E6%9C%80%E8%91%97%E5%90%8D%E7%9A%84%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B%EF%BC%89" tabindex="-1"><a class="header-anchor" href="#goms%E6%A8%A1%E5%9E%8B%EF%BC%88goal%E3%80%81operator%E3%80%81method%E3%80%81selection%EF%BC%89%EF%BC%88%E6%9C%80%E8%91%97%E5%90%8D%E7%9A%84%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B%EF%BC%89">#</a> GOMS模型（Goal、Operator、Method、Selection）（最著名的预测模型）</h2>
+<ul>
+<li>采用“分而治之”的思想，将一个任务进行多层次的细化</li>
+<li>把每个操作的时间相加就可以得到一项任务的时间</li>
+<li>从最高层的用户目标开始，递归地分解出子目标直到无法再分，写出各个目标的实现方法</li>
+<li>子目标的关系：顺序关系，选择关系</li>
+<li>没有考虑错误处理、任务间的关系描述过于简单、忽略用户间的个体差异</li>
+</ul>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h2 id="klm%EF%BC%88%E5%87%BB%E9%94%AE%E5%B1%82%E6%AC%A1%E6%A8%A1%E5%9E%8B%EF%BC%89%EF%BC%9Agoms%E6%A8%A1%E5%9E%8B%E7%9A%84%E4%B8%80%E7%A7%8D%EF%BC%88%E8%BF%99%E9%87%8C%E5%BE%88%E5%8F%AF%E8%83%BD%E4%BC%9A%E8%80%83%E8%AE%A1%E7%AE%97%E9%A2%98%EF%BC%81%EF%BC%89" tabindex="-1"><a class="header-anchor" href="#klm%EF%BC%88%E5%87%BB%E9%94%AE%E5%B1%82%E6%AC%A1%E6%A8%A1%E5%9E%8B%EF%BC%89%EF%BC%9Agoms%E6%A8%A1%E5%9E%8B%E7%9A%84%E4%B8%80%E7%A7%8D%EF%BC%88%E8%BF%99%E9%87%8C%E5%BE%88%E5%8F%AF%E8%83%BD%E4%BC%9A%E8%80%83%E8%AE%A1%E7%AE%97%E9%A2%98%EF%BC%81%EF%BC%89">#</a> KLM（击键层次模型）：GOMS模型的一种（这里很可能会考计算题！）</h2>
+<ul>
+<li>简化的模型，对执行时间进行量化预测。</li>
+<li><strong>场合：预测无错误情况下专家用户在特定输入前提下完成任务的时间。</strong></li>
+<li>操作符</li>
+</ul>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<ul>
+<li>方法
+<ul>
+<li>列出操作步骤：操作符名称+[到哪儿]的序列</li>
+<li>累加操作的预计时间</li>
+<li>操作符表格会给，不用背</li>
+<li>要看详细版的例子和规则</li>
+</ul>
+</li>
+<li>例子</li>
+</ul>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<ul>
+<li>放置M操作符的启发规则</li>
+</ul>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<ol>
+<li>在每一步需要访问长时记忆区的操作前放置一个M</li>
+<li>在所有K和P之前放置M K -&gt; MK; P -&gt; MP</li>
+<li>删除键入单词或字符串之间的M MKMKMK -&gt; MKKK</li>
+<li>删除复合操作之间的M (如, 选中P和点击P1 ) MPMP1 -&gt; MPP1</li>
+</ol>
+<h2 id="fitts%E5%AE%9A%E5%BE%8B" tabindex="-1"><a class="header-anchor" href="#fitts%E5%AE%9A%E5%BE%8B">#</a> Fitts定律</h2>
+<ul>
+<li>预测指向某个目标的时间。依据：大小、距离</li>
+<li>场合：可指导设计人员设计按钮的位置、大小和密集程度</li>
+<li><strong>“最健壮并被广泛采用的人类运动模型之一”</strong></li>
+<li>得到的建议
+<ul>
+<li>
+<p>大目标、小距离</p>
+</li>
+<li>
+<p>尽可能大地占据屏幕空间</p>
+</li>
+<li>
+<p>最好的像素是光标所处的像素</p>
+</li>
+<li>
+<p>利用屏幕边缘</p>
+</li>
+<li>
+<p>大菜单</p>
+</li>
+<li>
+<p>动态特性建模</p>
+</li>
+<li>
+<p>状态转移网络</p>
+</li>
+<li>
+<p>三态模型</p>
+</li>
+<li>
+<p>语言模型：BNF</p>
+</li>
+<li>
+<p>系统模型：Z标记法</p>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="%E7%94%A8%E6%88%B7%E4%B8%AD%E5%BF%83%E8%AE%BE%E8%AE%A1" tabindex="-1"><a class="header-anchor" href="#%E7%94%A8%E6%88%B7%E4%B8%AD%E5%BF%83%E8%AE%BE%E8%AE%A1">#</a> <strong>用户中心设计</strong></h2>
+<ul>
+<li>三个假设
+<ul>
+<li>好的设计结果使用户感到满意</li>
+<li>设计过程是设计人员和客户间的协作过程</li>
+<li>整个过程中，客户和设计人员持续沟通</li>
+</ul>
+</li>
+<li>四个原则
+<ul>
+<li>尽早以用户为中心进行设计</li>
+<li>综合设计</li>
+<li>尽早并持续进行测试</li>
+<li>迭代设计</li>
+</ul>
+</li>
+<li>用户参与设计（看完整版）
+<ul>
+<li>重要性（为什么）</li>
+<li>形式</li>
+<li>参与式设计</li>
+</ul>
+</li>
+<li>理解用户工作
+<ul>
+<li>上下文询问法/情景调查
+<ul>
+<li>基于学徒模型</li>
+<li>研究人员也参与建立（观察法时用户不知道研究人员的存在）</li>
+<li>四个原则
+<ul>
+<li>上下文环境</li>
+<li>伙伴关系</li>
+<li>解释</li>
+<li>焦点</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>反思（总之就是”UCD无法创造出新的需求“）
+<ul>
+<li>影响创新性</li>
+<li>可操作性受限</li>
+<li>忽略人的主观能动性和对技术的适应能力</li>
+</ul>
+</li>
+<li>改进：活动为中心的设计（ACD）</li>
+</ul>
+<h1 id="%E8%AF%84%E4%BC%B0" tabindex="-1"><a class="header-anchor" href="#%E8%AF%84%E4%BC%B0">#</a> <strong>评估</strong></h1>
+<h2 id="%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-1" tabindex="-1"><a class="header-anchor" href="#%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86-1">#</a> <strong>基础知识</strong></h2>
+<ul>
+<li>评估是系统化的数据收集过程。目的是了解用户在特定环境中使用产品执行特定任务的情况</li>
+</ul>
+<h3 id="%E7%9B%AE%E6%A0%87" tabindex="-1"><a class="header-anchor" href="#%E7%9B%AE%E6%A0%87">#</a> 目标</h3>
+<ul>
+<li>评估系统功能的范围和可达性</li>
+<li>评估交互中用户的经验</li>
+<li>确定系统的某些特定问题</li>
+</ul>
+<h3 id="%E5%8E%9F%E5%88%99" tabindex="-1"><a class="header-anchor" href="#%E5%8E%9F%E5%88%99">#</a> 原则</h3>
+<ul>
+<li>应该依赖于产品的用户</li>
+<li><strong>评估与设计结合进行</strong></li>
+<li>应在用户的<strong>实际工作任务和操作环境下进行</strong></li>
+<li>要选择有<strong>广泛代表性的用户</strong></li>
+</ul>
+<h3 id="%E8%AF%84%E4%BC%B0%E8%8C%83%E5%9E%8B" tabindex="-1"><a class="header-anchor" href="#%E8%AF%84%E4%BC%B0%E8%8C%83%E5%9E%8B">#</a> 评估范型</h3>
+<ul>
+<li>快速评估（非正式地询问）</li>
+<li>可用性测试（评估用户执行典型任务时的情况，如出错次数、完成任务的时间等。类似简易可用性工程中的度量方法）</li>
+<li>实地研究（在自然工作环境中观察用户的真实使用情况）</li>
+<li>预测性评估（专家预测用户行为。典型例子就是启发性评估）</li>
+</ul>
+<h3 id="%E8%AF%84%E4%BC%B0%E6%8A%80%E6%9C%AF" tabindex="-1"><a class="header-anchor" href="#%E8%AF%84%E4%BC%B0%E6%8A%80%E6%9C%AF">#</a> 评估技术</h3>
+<ul>
+<li>观察用户</li>
+<li>询问用户意见</li>
+<li>询问专家意见</li>
+<li>测试用户的执行情况</li>
+<li>使用原型</li>
+<li>基于模型和理论，预测界面的有效性（GOMS和KLM）</li>
+</ul>
+<h3 id="%E8%AF%84%E4%BC%B0%E6%96%B9%E6%B3%95%EF%BC%88%E5%8F%AF%E7%94%A8%E6%80%A7%E8%AF%84%E4%BC%B0%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB%EF%BC%89" tabindex="-1"><a class="header-anchor" href="#%E8%AF%84%E4%BC%B0%E6%96%B9%E6%B3%95%EF%BC%88%E5%8F%AF%E7%94%A8%E6%80%A7%E8%AF%84%E4%BC%B0%E6%96%B9%E6%B3%95%E6%B1%87%E6%80%BB%EF%BC%89">#</a> 评估方法（可用性评估方法汇总）</h3>
+<ul>
+<li>启发式评估</li>
+<li>边做边说</li>
+<li>观察</li>
+<li>问卷调查</li>
+<li>访谈</li>
+<li>焦点小组</li>
+<li>用户反馈</li>
+<li>可用性测试</li>
+</ul>
+<h3 id="decide%E8%AF%84%E4%BC%B0%E6%A1%86%E6%9E%B6" tabindex="-1"><a class="header-anchor" href="#decide%E8%AF%84%E4%BC%B0%E6%A1%86%E6%9E%B6">#</a> DECIDE评估框架</h3>
+<ul>
+<li>决定总体目标（Determine）</li>
+<li>发掘需要回答的具体问题（Explorer）</li>
+<li>选择用于回答具体问题的评估范型和技术（Choose）
+<ul>
+<li>范型决定了技术类型</li>
+</ul>
+</li>
+<li>标识必须解决的实际问题（Identify）
+<ul>
+<li>应选择恰当的用户参与评估</li>
+<li>任务时间多长</li>
+<li>设施及设备</li>
+<li>期限及预算是否允许</li>
+<li>是否需要专门技能</li>
+</ul>
+</li>
+<li>处理有关道德的问题（Decide）
+<ul>
+<li>应保护个人隐私</li>
+</ul>
+</li>
+<li>评估解释并标识数据（Evaluate）
+<ul>
+<li>搜集什么类型的数据，如何分析，如何表示 通常由评估技术决定</li>
+<li>可靠性 非正式访谈的可靠性较低</li>
+<li>有效性 能否得到想要的测量数据</li>
+<li>偏见 评估人员可能有选择地搜集自己认为重要的数据</li>
+<li>范围 研究发现是否具有普遍性</li>
+<li>环境影响 霍桑效应</li>
+</ul>
+</li>
+</ul>
+<h3 id="%E5%B0%8F%E8%A7%84%E6%A8%A1%E8%AF%95%E9%AA%8C%EF%BC%88%E7%9C%8B%E5%AE%8C%E6%95%B4%E7%89%88%EF%BC%89" tabindex="-1"><a class="header-anchor" href="#%E5%B0%8F%E8%A7%84%E6%A8%A1%E8%AF%95%E9%AA%8C%EF%BC%88%E7%9C%8B%E5%AE%8C%E6%95%B4%E7%89%88%EF%BC%89">#</a> 小规模试验（看完整版）</h3>
+<ul>
+<li>小规模试验可进行多次
+<ul>
+<li>类似迭代设计</li>
+<li>测试——反馈——修改——再测试</li>
+<li>快速、成本低</li>
+</ul>
+</li>
+</ul>
+<h3 id="%E5%8F%AF%E7%94%A8%E6%80%A7%E9%97%AE%E9%A2%98%E5%88%86%E7%BA%A7%EF%BC%88%E7%9C%8B%E5%AE%8C%E6%95%B4%E7%89%88%EF%BC%89" tabindex="-1"><a class="header-anchor" href="#%E5%8F%AF%E7%94%A8%E6%80%A7%E9%97%AE%E9%A2%98%E5%88%86%E7%BA%A7%EF%BC%88%E7%9C%8B%E5%AE%8C%E6%95%B4%E7%89%88%EF%BC%89">#</a> 可用性问题分级（看完整版）</h3>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h2 id="%E8%AF%84%E4%BC%B0%E4%B9%8B%E8%A7%82%E5%AF%9F%E7%94%A8%E6%88%B7" tabindex="-1"><a class="header-anchor" href="#%E8%AF%84%E4%BC%B0%E4%B9%8B%E8%A7%82%E5%AF%9F%E7%94%A8%E6%88%B7">#</a> <strong>评估之观察用户</strong></h2>
+<ul>
+<li>直接观察
+<ul>
+<li>方式
+<ul>
+<li>真实环境中的观察 现场观察 用户的实际环境中观察用户在使用软件时的情况</li>
+<li>受控环境中的观察 实验室观察</li>
+</ul>
+</li>
+<li>观察框架
+<ul>
+<li>人员：有哪些人员在场？他们有何特征？承担什么角色？</li>
+<li>行为 ：人们说了什么？做了什么？举止如何？是否存在规律性的行为？语调和肢体语言如何？</li>
+<li>时间：行为何时发生？是否与其他行为相关联？</li>
+<li>地点 ：行为发生于何处？是否受物理条件的影响？</li>
+<li>原因：行为为何发生？事件或交互的促成因素是什么？不同的人是否有不 同的看法？</li>
+<li>方式：行为是如何组织的？受哪些规则或标准的影响？</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>间接观察
+<ul>
+<li>日志和交互记录
+<ul>
+<li>可根据搜集到的数据，推断实际情形，并找出可用性和用户体验方面的问题</li>
+<li>体现了用户是如何完成真实任务的  使得从工作在不同环境下的大量用户那里自动收集数据变得相当容易</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>数据记录
+<ul>
+<li>日志和交互记录</li>
+<li>音视频记录</li>
+<li>纸笔</li>
+</ul>
+</li>
+<li>数据分析（应该不会考吧？）</li>
+</ul>
+<h2 id="%E8%AF%84%E4%BC%B0%E4%B9%8B%E8%AF%A2%E9%97%AE%E7%94%A8%E6%88%B7" tabindex="-1"><a class="header-anchor" href="#%E8%AF%84%E4%BC%B0%E4%B9%8B%E8%AF%A2%E9%97%AE%E7%94%A8%E6%88%B7">#</a> <strong>评估之询问用户</strong></h2>
+<h3 id="%E8%AE%BF%E8%B0%88" tabindex="-1"><a class="header-anchor" href="#%E8%AE%BF%E8%B0%88">#</a> 访谈</h3>
+<ul>
+<li>请用户详细讲述记录里面任何可能引发可用性问题的地方
+<ul>
+<li>如对一个没用过系统某个功能的用户，询问为什么没有使用某项功能</li>
+</ul>
+</li>
+</ul>
+<h3 id="%E5%8E%9F%E5%88%99-%E6%8A%80%E5%B7%A7" tabindex="-1"><a class="header-anchor" href="#%E5%8E%9F%E5%88%99-%E6%8A%80%E5%B7%A7">#</a> 原则 技巧</h3>
+<ul>
+<li>避免过长的问题</li>
+<li>避免使用复合句
+<ul>
+<li>对：“这款手机与你先前拥有的手机相比，你觉得如何”</li>
+<li>错：“你觉得这款手机怎么样？你是否有其他的手机？若是的话，你觉得它怎么样？”</li>
+</ul>
+</li>
+<li>避免使用可能让用户感觉尴尬的术语或他们无法理解的语言</li>
+<li>避免使用有诱导性的问题
+<ul>
+<li>你为什么喜欢这种交互方式？</li>
+</ul>
+</li>
+<li>尽可能保证问题是中性的</li>
+</ul>
+<h4 id="%E6%AD%A5%E9%AA%A4" tabindex="-1"><a class="header-anchor" href="#%E6%AD%A5%E9%AA%A4">#</a> 步骤</h4>
+<ul>
+<li>“开始”阶段
+<ul>
+<li>访问人先介绍自己</li>
+<li>解释访谈的原因，消除受访人对道德问题的疑虑，询问受访人是否介意被记录（录音或摄像）</li>
+</ul>
+</li>
+<li>“热身”阶段
+<ul>
+<li>先提出简单的问题</li>
+</ul>
+</li>
+<li>主要访谈阶段
+<ul>
+<li>按逻辑次序由易到难提问</li>
+</ul>
+</li>
+<li>“冷却”阶段
+<ul>
+<li>提出若干容易的问题，消除用户的紧张感觉</li>
+</ul>
+</li>
+<li>结束访谈
+<ul>
+<li>感谢受访者，关闭录音机，收好笔记本，表面访谈已经结束</li>
+</ul>
+</li>
+</ul>
+<h4 id="%E7%B1%BB%E5%9E%8B" tabindex="-1"><a class="header-anchor" href="#%E7%B1%BB%E5%9E%8B">#</a> 类型</h4>
+<ul>
+<li>非结构化访谈
+<ul>
+<li>问题是<strong>开放式</strong>的，不限定内容和格式</li>
+<li>受访人自行选择详细回答还是简要回答</li>
+<li>访问人应确保能够搜集到重要问题的回答</li>
+</ul>
+</li>
+<li>结构化访谈
+<ul>
+<li>根据预先确定的一组问题进行访谈</li>
+<li>问题通常是“<strong>封闭式</strong>”的，它要求准确的回答</li>
+</ul>
+</li>
+<li>半结构化访谈
+<ul>
+<li><strong>开放式问题+封闭式问题</strong></li>
+<li>注意不要暗示答案</li>
+</ul>
+</li>
+<li>集体访谈
+<ul>
+<li>基本思想：个别成员的看法是在应用的上下文中通过与其他用户的交流而形成的</li>
+<li>“焦点小组”是集体访谈的一种形式</li>
+</ul>
+</li>
+</ul>
+<h3 id="%E9%97%AE%E5%8D%B7%E8%B0%83%E6%9F%A5" tabindex="-1"><a class="header-anchor" href="#%E9%97%AE%E5%8D%B7%E8%B0%83%E6%9F%A5">#</a> 问卷调查</h3>
+<h4 id="%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99" tabindex="-1"><a class="header-anchor" href="#%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99">#</a> 设计原则</h4>
+<ul>
+<li>应确保问题明确，具体</li>
+<li>在可能时，采用封闭式问题并提供充分的答案选项</li>
+<li>对于征求用户意见的问题，应提供一个“无看法”的答案选项</li>
+<li>注意提问次序，先提出一般化问题，再提出具体问题</li>
+<li>避免使用复杂的多重问题</li>
+<li>在使用等级标度时，应设定适当的等级范围，并确保它们不重叠
+<ul>
+<li>做到直观、一致</li>
+</ul>
+</li>
+<li>避免使用术语</li>
+<li>明确说明如何完成问卷
+<ul>
+<li>如说明应在选项前的方框内打“√”</li>
+</ul>
+</li>
+<li>在设计问卷时，既要做到紧凑，也应适当留空</li>
+</ul>
+<p>上面两者都属于间接方法。不能完全听信</p>
+<h2 id="%E8%AF%84%E4%BC%B0%E4%B9%8B%E8%AF%A2%E9%97%AE%E4%B8%93%E5%AE%B6" tabindex="-1"><a class="header-anchor" href="#%E8%AF%84%E4%BC%B0%E4%B9%8B%E8%AF%A2%E9%97%AE%E4%B8%93%E5%AE%B6">#</a> <strong>评估之询问专家</strong></h2>
+<h3 id="%E8%AE%A4%E7%9F%A5%E8%B5%B0%E6%9F%A5" tabindex="-1"><a class="header-anchor" href="#%E8%AE%A4%E7%9F%A5%E8%B5%B0%E6%9F%A5">#</a> 认知走查</h3>
+<ul>
+<li>无需用户</li>
+<li>逐步检查使用系统执行任务的过程，得出人们<strong>第一次使用时的想法和大致流程</strong>。能找出非常具体的问题</li>
+</ul>
+<h4 id="%E6%AD%A5%E9%AA%A4-1" tabindex="-1"><a class="header-anchor" href="#%E6%AD%A5%E9%AA%A4-1">#</a> 步骤</h4>
+<ul>
+<li>标识并记录典型用户的特性</li>
+<li>基于评估重点，设计样本任务
+<ul>
+<li>应该是大多数用户要做的典型任务</li>
+</ul>
+</li>
+<li>制作界面原型（或界面描述），明确用户执行任务的具体步骤</li>
+<li>由设计人员和专家级评估人员（一位或多位）共同进行分析</li>
+<li>评估人员结合应用的上下文，逐步检查每项任务的操作步骤
+<ul>
+<li>正确的操作对于用户是否足够明显？（可预见）
+<ul>
+<li>即用户能否知道如何完成任务</li>
+</ul>
+</li>
+<li>用户能否注意到正确的操作？ （可理解）
+<ul>
+<li>功能名称或图标设计是否容易理解</li>
+</ul>
+</li>
+<li>能否正确解释操作的响应？（可解释）
+<ul>
+<li>执行—评估交互周期的完成</li>
+</ul>
+</li>
+<li>认知走查的记录工作非常重要！</li>
+</ul>
+</li>
+<li>在完成逐步检查之后，汇总关键信息</li>
+<li>修改设计，更正发现的问题</li>
+</ul>
+<h3 id="%E5%8D%8F%E4%BD%9C%E8%B5%B0%E6%9F%A5" tabindex="-1"><a class="header-anchor" href="#%E5%8D%8F%E4%BD%9C%E8%B5%B0%E6%9F%A5">#</a> 协作走查</h3>
+<ul>
+<li>由用户、开发人员和可用性专家合作，讨论与可用性问题</li>
+</ul>
+<h3 id="%E5%90%AF%E5%8F%91%E5%BC%8F%E8%AF%84%E4%BC%B0" tabindex="-1"><a class="header-anchor" href="#%E5%90%AF%E5%8F%91%E5%BC%8F%E8%AF%84%E4%BC%B0">#</a> 启发式评估</h3>
+<ul>
+<li>无需用户。快速有效，但可能出现虚假警报和漏报</li>
+</ul>
+<h2 id="%E8%AF%84%E4%BC%B0%E4%B9%8B%E7%94%A8%E6%88%B7%E6%B5%8B%E8%AF%95" tabindex="-1"><a class="header-anchor" href="#%E8%AF%84%E4%BC%B0%E4%B9%8B%E7%94%A8%E6%88%B7%E6%B5%8B%E8%AF%95">#</a> <strong>评估之用户测试</strong></h2>
+<ul>
+<li>适用于对原型和能够运行的系统进行测试</li>
+<li>测试设计
+<ul>
+<li>需要考虑实际限制并作出适当的折衷</li>
+<li>确保不同参与者的测试条件相同</li>
+<li>确保评估目标特征具有代表性</li>
+<li>实验可重复</li>
+</ul>
+</li>
+</ul>
+<h3 id="%E4%BB%A5decide%E6%A1%86%E6%9E%B6%E4%B8%BA%E5%9F%BA%E7%A1%80" tabindex="-1"><a class="header-anchor" href="#%E4%BB%A5decide%E6%A1%86%E6%9E%B6%E4%B8%BA%E5%9F%BA%E7%A1%80">#</a> 以DECIDE框架为基础</h3>
+<ul>
+<li>定义问题和目标
+<ul>
+<li>举例：对菜单结构的关注</li>
+<li>用户在第一次尝试使用时将能选择正确的菜单</li>
+<li>用户在少于5秒的时间内，能够导航到正确的3级菜单</li>
+</ul>
+</li>
+<li>选择参与者：
+<ul>
+<li>了解用户的特性有助于选择典型用户</li>
+<li>要尽可能接近实际用户</li>
+<li>通常也需要平衡性别比例</li>
+<li>至少4~5位，5~12位用户就足够了（视情况而言）</li>
+<li>注意均衡处理和消除顺序效应
+<ul>
+<li>顺序效应即参与者在执行前一组任务时获得的经验将影响后面的测试任务</li>
+<li>如果有两项任务A和B，那么，应让一半的参与者先执行A，再执行B，另一 半则先执行B，再执行A</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<h2 id="%E8%AE%BE%E8%AE%A1%E6%B5%8B%E8%AF%95%E4%BB%BB%E5%8A%A1%E3%80%82%E6%AF%8F%E9%A1%B9%E4%BB%BB%E5%8A%A15-20%E5%88%86%E9%92%9F%E3%80%82" tabindex="-1"><a class="header-anchor" href="#%E8%AE%BE%E8%AE%A1%E6%B5%8B%E8%AF%95%E4%BB%BB%E5%8A%A1%E3%80%82%E6%AF%8F%E9%A1%B9%E4%BB%BB%E5%8A%A15-20%E5%88%86%E9%92%9F%E3%80%82">#</a> 设计测试任务。每项任务5-20分钟。</h2>
+</li>
+<li>明确测试步骤。总时间控制在1小时之内。
+<ul>
+<li>正式测试前应进行小规模测试</li>
+<li>在必要时，评估人员应询问参与者遇到了什么问题</li>
+<li>若用户确实无法完成某些任务，应让他们继续下一项任务</li>
+<li>必须分析所有搜集到的数据</li>
+</ul>
+</li>
+<li>数据收集
+<ul>
+<li>使用的度量类型（定性/定量）依赖于所选择的任务
+<ul>
+<li>完成任务的时间</li>
+<li>停止使用产品一段时间后，完成任务的时间</li>
+<li>执行每项任务时的出错次数和错误类型</li>
+<li>单位时间内的出错次数</li>
+<li>求助在线帮助或手册的次数</li>
+<li>用户犯某个特定错误的次数</li>
+<li>成功完成任务的用户数</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>数据分析
+<ul>
+<li>最常用的描述性统计方法是次数统计 平均数统计</li>
+</ul>
+</li>
+</ul>
+<h1 id="%E9%99%84%EF%BC%9A%E8%AF%84%E4%BC%B0%E5%A4%A7%E9%A2%98%E4%BD%9C%E7%AD%94%E6%96%B9%E6%B3%95" tabindex="-1"><a class="header-anchor" href="#%E9%99%84%EF%BC%9A%E8%AF%84%E4%BC%B0%E5%A4%A7%E9%A2%98%E4%BD%9C%E7%AD%94%E6%96%B9%E6%B3%95">#</a> <strong>附：评估大题作答方法</strong></h1>
+<ul>
+<li>
+<p>各种评估方法概要</p>
+<ul>
+<li>观察用户（任务分析，后续研究）
+<ul>
+<li>直接观察
+<ul>
+<li>实验室观察：易于分析
+<ul>
+<li>边做边说</li>
+</ul>
+</li>
+<li>现场观察（发现<strong>同使用环境有关的问题</strong>的最佳手段）</li>
+</ul>
+</li>
+<li>间接观察：日志和交互记录（<strong>直接观察会影响用户或评估人员无法在现场时使用</strong>）</li>
+</ul>
+</li>
+<li>询问用户意见（任务分析、后续研究）
+<ul>
+<li>访谈
+<ul>
+<li>非结构化、半结构化、结构化</li>
+<li>集体访谈（焦点访谈：问<strong>用户想要什么</strong>，而不是看使用是否有问题）</li>
+</ul>
+</li>
+<li>问卷调查</li>
+</ul>
+</li>
+<li>询问专家意见（任意阶段）
+<ul>
+<li>认知走查（只适合评估一个产品的<strong>易学习性</strong>）</li>
+<li>协作走查（由用户、专家、开发者合作，发现<strong>可用性</strong>问题）</li>
+<li>启发式评估（用于<strong>早期设计</strong>）</li>
+</ul>
+</li>
+<li>用户测试（对<strong>原型和能够运行的系统</strong>进行测试）
+<ul>
+<li>DECIDE模型</li>
+</ul>
+</li>
+<li>分析模型（界面的<strong>有效性</strong>，或用来比较用户使用不同方案的<strong>执行效率</strong>）
+<ul>
+<li>Fitts</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>注意题目中</p>
+<ul>
+<li>对设计阶段的要求，如“设计初期阶段”，“已经设计和实现了”，“有一个xxx原型”，“在实现和给出原型之前”；</li>
+<li>对目标的要求，如“那种xx最容易学习”–&gt;易学性，“能减少等待时间”–&gt;效率，“在发布前想进行评估” --&gt; 可用性和用户体验。</li>
+</ul>
+</li>
+<li>
+<p>以筛选合适的评估方法和技术。</p>
+</li>
+<li>
+<p>各个技术的详细内容写什么</p>
+<ul>
+<li>实验室观察：做的任务，进行测试，记录……可以边做边说，统计数据并分析</li>
+<li>访谈：谈什么，并做记录</li>
+<li>问卷调查：问什么，并做记录</li>
+<li>认知走查：试图想象出用户在第一次使用某个产品是的想法和所采取的动作，大致流程如何</li>
+<li>协作走查：逐步检查任务场景，讨论可用性问题</li>
+<li>启发式评估：分析每个问题对应的启发式规则，列出所有问题，给出“问题描述、严重等级、修复等级、违反规则、改进建议”列表</li>
+<li>用户测试：选择……作为参与者，怎么分组，怎么做，记录什么，统计数据，分析</li>
+</ul>
+</li>
+</ul>
+
+      </div>
+
+      <footer class="post-footer">
+        <div class="post-nav">
+          <a href="/" class="post-nav-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            返回首页
+          </a>
+        </div>
+      </footer>
+    </article>
+  </main>
+</div>
+
+
+  <footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <span class="footer-logo">AI Blog</span>
+        <p class="footer-desc">一个由AI驱动的个人博客</p>
+        <div class="footer-social">
+          
+            <a href="https://github.com/yourname" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+          
+          
+            <a href="https://twitter.com/yourname" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          
+          
+            <a href="mailto:your@email.com" class="social-link" aria-label="Email">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </a>
+          
+          
+            <a href="/feed.xml" class="social-link" aria-label="RSS">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20C5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1z"/></svg>
+            </a>
+          
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">导航</h4>
+        <ul class="footer-links">
+          
+            <li><a href="/">首页</a></li>
+          
+            <li><a href="/archive/">归档</a></li>
+          
+            <li><a href="/tags/">标签</a></li>
+          
+            <li><a href="/categories/">分类</a></li>
+          
+          <li><a href="/archive/">归档</a></li>
+          <li><a href="/tags/">标签</a></li>
+          <li><a href="/categories/">分类</a></li>
+        </ul>
+      </div>
+
+      
+      <div class="footer-col">
+        <h4 class="footer-heading">友链</h4>
+        <ul class="footer-links">
+          
+            <li><a href="https://example.com" target="_blank" rel="noopener noreferrer">示例友链</a></li>
+          
+        </ul>
+      </div>
+      
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 AI Blog</p>
+      
+    </div>
+  </div>
+</footer>
+
+
+  <button class="back-to-top" aria-label="返回顶部">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+  </button>
+
+  <script src="/assets/js/main.js" defer></script>
+</body>
+</html>

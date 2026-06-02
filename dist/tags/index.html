@@ -15,6 +15,70 @@
   <link rel="stylesheet" href="/assets/css/highlight.css">
   
 
+  
+  <style>:root {
+  --font-display: 'Playfair Display', 'Noto Serif SC', Georgia, 'Times New Roman', serif;
+  --font-body: 'Public Sans', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'Fira Code', 'Cascadia Code', 'JetBrains Mono', monospace;
+  --bg-cream: #FEFAF6;
+  --bg-surface: #FFFFFF;
+  --bg-warm: #FDF5EB;
+  --text-primary: #2C1810;
+  --text-secondary: #8B7355;
+  --text-muted: #C4A882;
+  --border: #E8D5C4;
+  --border-light: #F0E3D5;
+  --shadow-sm: 0 1px 2px rgba(44,24,16,0.04);
+  --shadow-md: 0 4px 12px rgba(44,24,16,0.06);
+  --shadow-lg: 0 12px 32px rgba(44,24,16,0.08);
+  --brand: var(--accent-coral);
+  --brand-hover: #FF5252;
+  --accent-coral: #FF6B6B;
+  --accent-coral-hover: #FF5252;
+  --accent-amber: #F4A261;
+  --accent-mint: #90BE6D;
+  --accent-lavender: #9B72AA;
+  --accent-sky: #4ECDC4;
+  --accent-sun: #F9C74F;
+  --accent-rose: #FF6B8A;
+  --accent-blue: #577590;
+  --max-width: 1200px;
+  --content-width: 720px;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 5rem;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+}
+
+[data-theme="dark"] {
+  --bg-cream: #1A1614;
+  --bg-surface: #2C2420;
+  --bg-warm: #241E1A;
+  --text-primary: #E8D5C4;
+  --text-secondary: #B8A088;
+  --text-muted: #8B7355;
+  --border: #3D3028;
+  --border-light: #332A22;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.25);
+  --shadow-lg: 0 12px 32px rgba(0,0,0,0.3);
+  --brand: var(--accent-coral);
+  --brand-hover: #FF8A8A;
+}</style>
+  
+
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23FF6B6B'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='20' fill='white'>A</text></svg>">
 
   
@@ -32,6 +96,8 @@
   
 </head>
 <body class="tags-page">
+  <div class="reading-progress"></div>
+
   <header class="site-header">
   <div class="container">
     <div class="header-inner">
@@ -41,7 +107,7 @@
         
       </a>
 
-      <nav class="site-nav" id="siteNav">
+      <nav class="site-nav" data-target="main-nav">
         <ul class="nav-list">
           
             <li class="nav-item">
@@ -64,12 +130,12 @@
       </nav>
 
       <div class="header-actions">
-        <button id="themeToggle" class="icon-btn" aria-label="切换暗色模式">
+        <button class="icon-btn" data-action="toggle-theme" aria-label="切换暗色模式">
           <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
           <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         </button>
 
-        <button id="menuToggle" class="icon-btn menu-btn" aria-label="菜单">
+        <button class="icon-btn menu-btn" data-action="toggle-menu" aria-label="菜单">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
         </button>
       </div>
@@ -82,10 +148,65 @@
   <main class="main-content">
     <div class="page-header">
       <h1 class="page-title">标签</h1>
-      <p class="page-desc">共 3 个标签</p>
+      <p class="page-desc">共 28 个标签</p>
     </div>
     
       <div class="tags-cloud">
+        
+          <a href="/tags/软件工程与计算II/" class="tag-cloud-item">
+            <span class="tag-name">软件工程与计算II</span>
+            <span class="tag-count">28</span>
+          </a>
+        
+          <a href="/tags/编译原理/" class="tag-cloud-item">
+            <span class="tag-name">编译原理</span>
+            <span class="tag-count">13</span>
+          </a>
+        
+          <a href="/tags/openharmony/" class="tag-cloud-item">
+            <span class="tag-name">openharmony</span>
+            <span class="tag-count">12</span>
+          </a>
+        
+          <a href="/tags/springboot/" class="tag-cloud-item">
+            <span class="tag-name">springboot</span>
+            <span class="tag-count">10</span>
+          </a>
+        
+          <a href="/tags/服务端开发/" class="tag-cloud-item">
+            <span class="tag-name">服务端开发</span>
+            <span class="tag-count">6</span>
+          </a>
+        
+          <a href="/tags/SQL/" class="tag-cloud-item">
+            <span class="tag-name">SQL</span>
+            <span class="tag-count">6</span>
+          </a>
+        
+          <a href="/tags/Flutter/" class="tag-cloud-item">
+            <span class="tag-name">Flutter</span>
+            <span class="tag-count">4</span>
+          </a>
+        
+          <a href="/tags/Dart/" class="tag-cloud-item">
+            <span class="tag-name">Dart</span>
+            <span class="tag-count">4</span>
+          </a>
+        
+          <a href="/tags/系统架构/" class="tag-cloud-item">
+            <span class="tag-name">系统架构</span>
+            <span class="tag-count">4</span>
+          </a>
+        
+          <a href="/tags/期末复习/" class="tag-cloud-item">
+            <span class="tag-name">期末复习</span>
+            <span class="tag-count">3</span>
+          </a>
+        
+          <a href="/tags/驾考/" class="tag-cloud-item">
+            <span class="tag-name">驾考</span>
+            <span class="tag-count">2</span>
+          </a>
         
           <a href="/tags/博客/" class="tag-cloud-item">
             <span class="tag-name">博客</span>
@@ -99,6 +220,76 @@
         
           <a href="/tags/入门/" class="tag-cloud-item">
             <span class="tag-name">入门</span>
+            <span class="tag-count">1</span>
+          </a>
+        
+          <a href="/tags/int转二进制字符串/" class="tag-cloud-item">
+            <span class="tag-name">int转二进制字符串</span>
+            <span class="tag-count">1</span>
+          </a>
+        
+          <a href="/tags/质量管理/" class="tag-cloud-item">
+            <span class="tag-name">质量管理</span>
+            <span class="tag-count">1</span>
+          </a>
+        
+          <a href="/tags/测试/" class="tag-cloud-item">
+            <span class="tag-name">测试</span>
+            <span class="tag-count">1</span>
+          </a>
+        
+          <a href="/tags/人机交互/" class="tag-cloud-item">
+            <span class="tag-name">人机交互</span>
+            <span class="tag-count">1</span>
+          </a>
+        
+          <a href="/tags/机器学习/" class="tag-cloud-item">
+            <span class="tag-name">机器学习</span>
+            <span class="tag-count">1</span>
+          </a>
+        
+          <a href="/tags/排序/" class="tag-cloud-item">
+            <span class="tag-name">排序</span>
+            <span class="tag-count">1</span>
+          </a>
+        
+          <a href="/tags/双指针/" class="tag-cloud-item">
+            <span class="tag-name">双指针</span>
+            <span class="tag-count">1</span>
+          </a>
+        
+          <a href="/tags/位运算/" class="tag-cloud-item">
+            <span class="tag-name">位运算</span>
+            <span class="tag-count">1</span>
+          </a>
+        
+          <a href="/tags/哈希表/" class="tag-cloud-item">
+            <span class="tag-name">哈希表</span>
+            <span class="tag-count">1</span>
+          </a>
+        
+          <a href="/tags/双向链表/" class="tag-cloud-item">
+            <span class="tag-name">双向链表</span>
+            <span class="tag-count">1</span>
+          </a>
+        
+          <a href="/tags/动态规划/" class="tag-cloud-item">
+            <span class="tag-name">动态规划</span>
+            <span class="tag-count">1</span>
+          </a>
+        
+          <a href="/tags/tdesign/" class="tag-cloud-item">
+            <span class="tag-name">tdesign</span>
+            <span class="tag-count">1</span>
+          </a>
+        
+          <a href="/tags/hello world/" class="tag-cloud-item">
+            <span class="tag-name">hello world</span>
+            <span class="tag-count">1</span>
+          </a>
+        
+          <a href="/tags/Hexo/" class="tag-cloud-item">
+            <span class="tag-name">Hexo</span>
             <span class="tag-count">1</span>
           </a>
         
@@ -175,6 +366,10 @@
   </div>
 </footer>
 
+
+  <button class="back-to-top" aria-label="返回顶部">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+  </button>
 
   <script src="/assets/js/main.js" defer></script>
 </body>

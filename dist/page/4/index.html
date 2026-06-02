@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="一个由AI驱动的个人博客">
+  <title>第 4 页 - AI Blog</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Noto+Serif+SC:wght@400;500;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/css/style.css">
+  
+  <link rel="stylesheet" href="/assets/css/highlight.css">
+  
+
+  
+  <style>:root {
+  --font-display: 'Playfair Display', 'Noto Serif SC', Georgia, 'Times New Roman', serif;
+  --font-body: 'Public Sans', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'Fira Code', 'Cascadia Code', 'JetBrains Mono', monospace;
+  --bg-cream: #FEFAF6;
+  --bg-surface: #FFFFFF;
+  --bg-warm: #FDF5EB;
+  --text-primary: #2C1810;
+  --text-secondary: #8B7355;
+  --text-muted: #C4A882;
+  --border: #E8D5C4;
+  --border-light: #F0E3D5;
+  --shadow-sm: 0 1px 2px rgba(44,24,16,0.04);
+  --shadow-md: 0 4px 12px rgba(44,24,16,0.06);
+  --shadow-lg: 0 12px 32px rgba(44,24,16,0.08);
+  --brand: var(--accent-coral);
+  --brand-hover: #FF5252;
+  --accent-coral: #FF6B6B;
+  --accent-coral-hover: #FF5252;
+  --accent-amber: #F4A261;
+  --accent-mint: #90BE6D;
+  --accent-lavender: #9B72AA;
+  --accent-sky: #4ECDC4;
+  --accent-sun: #F9C74F;
+  --accent-rose: #FF6B8A;
+  --accent-blue: #577590;
+  --max-width: 1200px;
+  --content-width: 720px;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 5rem;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+}
+
+[data-theme="dark"] {
+  --bg-cream: #1A1614;
+  --bg-surface: #2C2420;
+  --bg-warm: #241E1A;
+  --text-primary: #E8D5C4;
+  --text-secondary: #B8A088;
+  --text-muted: #8B7355;
+  --border: #3D3028;
+  --border-light: #332A22;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.25);
+  --shadow-lg: 0 12px 32px rgba(0,0,0,0.3);
+  --brand: var(--accent-coral);
+  --brand-hover: #FF8A8A;
+}</style>
+  
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23FF6B6B'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='20' fill='white'>A</text></svg>">
+
+  
+  <link rel="alternate" type="application/rss+xml" title="AI Blog" href="/feed.xml">
+  
+
+  <meta property="og:title" content="第 4 页">
+  <meta property="og:description" content="一个由AI驱动的个人博客">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://username.github.io/ai-blog/page/4/">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="第 4 页">
+  <meta name="twitter:description" content="一个由AI驱动的个人博客">
+  
+</head>
+<body class="index-page">
+  <div class="reading-progress"></div>
+
+  <header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="/" class="site-brand">
+        
+          <span class="brand-title">AI Blog</span>
+        
+      </a>
+
+      <nav class="site-nav" data-target="main-nav">
+        <ul class="nav-list">
+          
+            <li class="nav-item">
+              <a href="/" class="nav-link">首页</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/archive/" class="nav-link">归档</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/tags/" class="nav-link">标签</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/categories/" class="nav-link">分类</a>
+            </li>
+          
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" data-action="toggle-theme" aria-label="切换暗色模式">
+          <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+
+        <button class="icon-btn menu-btn" data-action="toggle-menu" aria-label="菜单">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  <div class="hero-section">
+  <div class="container">
+    <h1 class="hero-title">AI Blog</h1>
+    <p class="hero-desc">一个由AI驱动的个人博客</p>
+  </div>
+</div>
+
+<div class="container">
+  <main class="main-content">
+    <div class="post-list">
+      
+        
+          <article class="post-card" style="--card-index: 0;">
+            <div class="post-card-inner">
+              
+              <div class="post-card-body">
+                <div class="post-card-meta">
+                  <time datetime="2023-10-26T18:32:34.000Z">
+                    2023年10月27日
+                  </time>
+                  
+                    <span class="meta-divider">&middot;</span>
+                    
+                      <a href="/categories/服务端开发/" class="meta-cat">服务端开发</a>
+                    
+                  
+                </div>
+                <h2 class="post-card-title">
+                  <a href="/posts/23-服务端/ch08-配置属性/">服务端-ch08-配置属性</a>
+                </h2>
+                <p class="post-card-excerpt">ch08-配置属性  属性来源（ property source）   application.properties、application.yml：server.port = 8090     两个文件可以混用  命令行参数（ commandLineArgs ）：java -jar taco-cloud-sd-jdbc-0.0.3-SNAPSHOT.jar --...</p>
+                <div class="post-card-footer">
+                  
+                    <div class="post-card-tags">
+                      
+                        <a href="/tags/springboot/" class="tag">springboot</a>
+                      
+                    </div>
+                  
+                  <a href="/posts/23-服务端/ch08-配置属性/" class="read-more">
+                    阅读全文
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+        
+          <article class="post-card" style="--card-index: 1;">
+            <div class="post-card-inner">
+              
+              <div class="post-card-body">
+                <div class="post-card-meta">
+                  <time datetime="2023-10-19T18:32:34.000Z">
+                    2023年10月20日
+                  </time>
+                  
+                    <span class="meta-divider">&middot;</span>
+                    
+                      <a href="/categories/服务端开发/" class="meta-cat">服务端开发</a>
+                    
+                  
+                </div>
+                <h2 class="post-card-title">
+                  <a href="/posts/23-服务端/ch07-spring-security/">服务端-ch07-Spring Security</a>
+                </h2>
+                <p class="post-card-excerpt">本文部分内容参考6-Spring Security - Charlie&#39;s Blog (chillcharlie357.github.io)  - 划分为两类：   1. 针对客户web请求权限控制   2. 针对方法级的权限控制      - 针对业务层代码      - 调用前控制，调用后控制      - 例：对数据库delete操作做权限控制 -...</p>
+                <div class="post-card-footer">
+                  
+                    <div class="post-card-tags">
+                      
+                        <a href="/tags/服务端开发/" class="tag">服务端开发</a>
+                      
+                    </div>
+                  
+                  <a href="/posts/23-服务端/ch07-spring-security/" class="read-more">
+                    阅读全文
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+        
+          <article class="post-card" style="--card-index: 2;">
+            <div class="post-card-inner">
+              
+              <div class="post-card-body">
+                <div class="post-card-meta">
+                  <time datetime="2023-10-15T11:40:36.000Z">
+                    2023年10月15日
+                  </time>
+                  
+                    <span class="meta-divider">&middot;</span>
+                    
+                      <a href="/categories/leetcode/" class="meta-cat">leetcode</a>
+                    
+                  
+                </div>
+                <h2 class="post-card-title">
+                  <a href="/posts/leetcode/leetcode刷题-136只出现一次的数字/">leetcode刷题-136、137只出现一次的数字</a>
+                </h2>
+                <p class="post-card-excerpt">136. 只出现一次的数字  给你一个 非空 整数数组 nums ，除了某个元素只出现一次以外，其余每个元素均出现两次。找出那个只出现了一次的元素。  你必须设计并实现线性时间复杂度的算法来解决此问题，且该算法只使用常量额外空间。    示例 1 ：   输入：nums = [2,2,1] 输出：1   示例 2 ：   输入：nums =...</p>
+                <div class="post-card-footer">
+                  
+                    <div class="post-card-tags">
+                      
+                        <a href="/tags/位运算/" class="tag">位运算</a>
+                      
+                    </div>
+                  
+                  <a href="/posts/leetcode/leetcode刷题-136只出现一次的数字/" class="read-more">
+                    阅读全文
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+        
+          <article class="post-card" style="--card-index: 3;">
+            <div class="post-card-inner">
+              
+              <div class="post-card-body">
+                <div class="post-card-meta">
+                  <time datetime="2023-10-15T11:40:36.000Z">
+                    2023年10月15日
+                  </time>
+                  
+                    <span class="meta-divider">&middot;</span>
+                    
+                      <a href="/categories/leetcode/" class="meta-cat">leetcode</a>
+                    
+                  
+                </div>
+                <h2 class="post-card-title">
+                  <a href="/posts/leetcode/leetcode刷题-146-lru-缓存/">leetcode刷题-146.LRU 缓存</a>
+                </h2>
+                <p class="post-card-excerpt">146.LRU 缓存  146. LRU 缓存  请你设计并实现一个满足 LRU (最近最少使用) 缓存 约束的数据结构。  实现 LRUCache 类：  - LRUCache(int capacity) 以 正整数 作为容量 capacity 初始化 LRU 缓存 - int get(int key) 如果关键字 key 存在于缓存中，则返回关键字的值，否则返回 -1 。...</p>
+                <div class="post-card-footer">
+                  
+                    <div class="post-card-tags">
+                      
+                        <a href="/tags/哈希表/" class="tag">哈希表</a>
+                      
+                        <a href="/tags/双向链表/" class="tag">双向链表</a>
+                      
+                    </div>
+                  
+                  <a href="/posts/leetcode/leetcode刷题-146-lru-缓存/" class="read-more">
+                    阅读全文
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+        
+          <article class="post-card" style="--card-index: 4;">
+            <div class="post-card-inner">
+              
+              <div class="post-card-body">
+                <div class="post-card-meta">
+                  <time datetime="2023-10-15T11:40:36.000Z">
+                    2023年10月15日
+                  </time>
+                  
+                    <span class="meta-divider">&middot;</span>
+                    
+                      <a href="/categories/leetcode/" class="meta-cat">leetcode</a>
+                    
+                  
+                </div>
+                <h2 class="post-card-title">
+                  <a href="/posts/leetcode/leetcode刷题-198-打家劫舍/">leetcode刷题-198.打家劫舍</a>
+                </h2>
+                <p class="post-card-excerpt">leetcode刷题-01  198.打家劫舍  你是一个专业的小偷，计划偷窃沿街的房屋。每间房内都藏有一定的现金。  影响你偷窃的唯一制约因素就是相邻的房屋装有相互连通的防盗系统，  如果两间相邻的房屋在同一晚上被小偷闯入，系统会自动报警  给定一个代表每个房屋存放金额的非负整数数组，计算你不触动警报装置的情况下，一夜之内能够偷窃到的最高金额。  示例 1：  ...</p>
+                <div class="post-card-footer">
+                  
+                    <div class="post-card-tags">
+                      
+                        <a href="/tags/动态规划/" class="tag">动态规划</a>
+                      
+                    </div>
+                  
+                  <a href="/posts/leetcode/leetcode刷题-198-打家劫舍/" class="read-more">
+                    阅读全文
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+        
+          <article class="post-card" style="--card-index: 5;">
+            <div class="post-card-inner">
+              
+              <div class="post-card-body">
+                <div class="post-card-meta">
+                  <time datetime="2023-10-12T18:32:34.000Z">
+                    2023年10月13日
+                  </time>
+                  
+                    <span class="meta-divider">&middot;</span>
+                    
+                      <a href="/categories/服务端开发/" class="meta-cat">服务端开发</a>
+                    
+                  
+                </div>
+                <h2 class="post-card-title">
+                  <a href="/posts/23-服务端/ch06-spring-data-mongodb-redis/">服务端-ch06-Spring Data Mongodb、Redis</a>
+                </h2>
+                <p class="post-card-excerpt">ch06-Spring Data Mongodb、Redis  NoSQL     NoSQL(Not Only SQL) ，指的是非关系型的数据库   没有声明性查询语言   没有预定义的模式   键-值对存储、列存储、文档存储、图形数据库  MongoDB    MongoDB 是由C++语言编写的，是一个基于分布式文件存储的开源数据库系统。  ...</p>
+                <div class="post-card-footer">
+                  
+                    <div class="post-card-tags">
+                      
+                        <a href="/tags/服务端开发/" class="tag">服务端开发</a>
+                      
+                    </div>
+                  
+                  <a href="/posts/23-服务端/ch06-spring-data-mongodb-redis/" class="read-more">
+                    阅读全文
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+        
+          <article class="post-card" style="--card-index: 6;">
+            <div class="post-card-inner">
+              
+              <div class="post-card-body">
+                <div class="post-card-meta">
+                  <time datetime="2023-10-07T18:32:34.000Z">
+                    2023年10月8日
+                  </time>
+                  
+                    <span class="meta-divider">&middot;</span>
+                    
+                      <a href="/categories/服务端开发/" class="meta-cat">服务端开发</a>
+                    
+                  
+                </div>
+                <h2 class="post-card-title">
+                  <a href="/posts/23-服务端/ch05-spring-data-jdbc-jpa/">服务端-ch05-Spring Data JDBC、JPA</a>
+                </h2>
+                <p class="post-card-excerpt">ch05-Spring Data JDBC、JPA  代码仓库：https://github.com/tzs919/taco-cloud-05  使用JdbcTemplate简化JDBC访问（spring-boot-starter-jdbc）  使用原始的JDBC访问数据库    RawJdbcIngredientRepository  ...</p>
+                <div class="post-card-footer">
+                  
+                    <div class="post-card-tags">
+                      
+                        <a href="/tags/服务端开发/" class="tag">服务端开发</a>
+                      
+                    </div>
+                  
+                  <a href="/posts/23-服务端/ch05-spring-data-jdbc-jpa/" class="read-more">
+                    阅读全文
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+        
+          <article class="post-card" style="--card-index: 7;">
+            <div class="post-card-inner">
+              
+              <div class="post-card-body">
+                <div class="post-card-meta">
+                  <time datetime="2023-10-04T16:40:36.000Z">
+                    2023年10月5日
+                  </time>
+                  
+                    <span class="meta-divider">&middot;</span>
+                    
+                      <a href="/categories/openharmony/" class="meta-cat">openharmony</a>
+                    
+                  
+                </div>
+                <h2 class="post-card-title">
+                  <a href="/posts/23-移动互联网/应用程序入口-uiability的使用/">应用程序入口—UIAbility的使用</a>
+                </h2>
+                <p class="post-card-excerpt">应用程序入口—UIAbility的使用  UIAbility概述  UIAbility是一种包含用户界面的应用组件，主要用于和用户进行交互。UIAbility也是系统调度的单元，为应用提供窗口在其中绘制界面。  每一个UIAbility实例，都对应于一个最近任务列表中的任务。 ...</p>
+                <div class="post-card-footer">
+                  
+                    <div class="post-card-tags">
+                      
+                        <a href="/tags/openharmony/" class="tag">openharmony</a>
+                      
+                    </div>
+                  
+                  <a href="/posts/23-移动互联网/应用程序入口-uiability的使用/" class="read-more">
+                    阅读全文
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+        
+          <article class="post-card" style="--card-index: 8;">
+            <div class="post-card-inner">
+              
+              <div class="post-card-body">
+                <div class="post-card-meta">
+                  <time datetime="2023-10-04T11:40:36.000Z">
+                    2023年10月4日
+                  </time>
+                  
+                    <span class="meta-divider">&middot;</span>
+                    
+                      <a href="/categories/openharmony/" class="meta-cat">openharmony</a>
+                    
+                  
+                </div>
+                <h2 class="post-card-title">
+                  <a href="/posts/23-移动互联网/column-row组件的使用/">Column&amp;Row组件的使用</a>
+                </h2>
+                <p class="post-card-excerpt">Column&amp;Row组件的使用  1 概述  一个丰富的页面需要很多组件组成，那么，我们如何才能让这些组件有条不紊地在页面上布局呢？这就需要借助容器组件来实现。  容器组件是一种比较特殊的组件，它可以包含其他的组件，而且按照一定的规律布局，帮助开发者生成精美的页面。容器组件除了放置基础组件外，也可以放置容器组件，通过多层布局的嵌套，可以布局出更丰富的页面。 ...</p>
+                <div class="post-card-footer">
+                  
+                    <div class="post-card-tags">
+                      
+                        <a href="/tags/openharmony/" class="tag">openharmony</a>
+                      
+                    </div>
+                  
+                  <a href="/posts/23-移动互联网/column-row组件的使用/" class="read-more">
+                    阅读全文
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+        
+          <article class="post-card" style="--card-index: 9;">
+            <div class="post-card-inner">
+              
+              <div class="post-card-body">
+                <div class="post-card-meta">
+                  <time datetime="2023-10-04T11:40:36.000Z">
+                    2023年10月4日
+                  </time>
+                  
+                    <span class="meta-divider">&middot;</span>
+                    
+                      <a href="/categories/openharmony/" class="meta-cat">openharmony</a>
+                    
+                  
+                </div>
+                <h2 class="post-card-title">
+                  <a href="/posts/23-移动互联网/list组件和grid组件的使用/">List组件和Grid组件的使用</a>
+                </h2>
+                <p class="post-card-excerpt">List组件和Grid组件的使用  简介    在我们常用的手机应用中，经常会见到一些数据列表，如设置页面、通讯录、商品列表等。下图中两个页面都包含列表，“首页”页面中包含两个网格布局，“商城”页面中包含一个商品列表。  !点击放大 ...</p>
+                <div class="post-card-footer">
+                  
+                    <div class="post-card-tags">
+                      
+                        <a href="/tags/openharmony/" class="tag">openharmony</a>
+                      
+                    </div>
+                  
+                  <a href="/posts/23-移动互联网/list组件和grid组件的使用/" class="read-more">
+                    阅读全文
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </article>
+        
+      
+    </div>
+
+    
+      <nav class="pagination">
+        
+          <a href="/page/3/" class="page-btn">&larr; 上一页</a>
+        
+        <span class="page-info">4 / 11</span>
+        
+          <a href="/page/5/" class="page-btn">下一页 &rarr;</a>
+        
+      </nav>
+    
+  </main>
+</div>
+
+
+  <footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <span class="footer-logo">AI Blog</span>
+        <p class="footer-desc">一个由AI驱动的个人博客</p>
+        <div class="footer-social">
+          
+            <a href="https://github.com/yourname" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+          
+          
+            <a href="https://twitter.com/yourname" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          
+          
+            <a href="mailto:your@email.com" class="social-link" aria-label="Email">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </a>
+          
+          
+            <a href="/feed.xml" class="social-link" aria-label="RSS">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20C5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1z"/></svg>
+            </a>
+          
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">导航</h4>
+        <ul class="footer-links">
+          
+            <li><a href="/">首页</a></li>
+          
+            <li><a href="/archive/">归档</a></li>
+          
+            <li><a href="/tags/">标签</a></li>
+          
+            <li><a href="/categories/">分类</a></li>
+          
+          <li><a href="/archive/">归档</a></li>
+          <li><a href="/tags/">标签</a></li>
+          <li><a href="/categories/">分类</a></li>
+        </ul>
+      </div>
+
+      
+      <div class="footer-col">
+        <h4 class="footer-heading">友链</h4>
+        <ul class="footer-links">
+          
+            <li><a href="https://example.com" target="_blank" rel="noopener noreferrer">示例友链</a></li>
+          
+        </ul>
+      </div>
+      
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 AI Blog</p>
+      
+    </div>
+  </div>
+</footer>
+
+
+  <button class="back-to-top" aria-label="返回顶部">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+  </button>
+
+  <script src="/assets/js/main.js" defer></script>
+</body>
+</html>

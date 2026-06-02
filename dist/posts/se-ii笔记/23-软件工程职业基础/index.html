@@ -1,0 +1,688 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="一个由AI驱动的个人博客">
+  <title>SE-II-ch23-软件工程职业基础 - AI Blog</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Noto+Serif+SC:wght@400;500;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/css/style.css">
+  
+  <link rel="stylesheet" href="/assets/css/highlight.css">
+  
+
+  
+  <style>:root {
+  --font-display: 'Playfair Display', 'Noto Serif SC', Georgia, 'Times New Roman', serif;
+  --font-body: 'Public Sans', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'Fira Code', 'Cascadia Code', 'JetBrains Mono', monospace;
+  --bg-cream: #FEFAF6;
+  --bg-surface: #FFFFFF;
+  --bg-warm: #FDF5EB;
+  --text-primary: #2C1810;
+  --text-secondary: #8B7355;
+  --text-muted: #C4A882;
+  --border: #E8D5C4;
+  --border-light: #F0E3D5;
+  --shadow-sm: 0 1px 2px rgba(44,24,16,0.04);
+  --shadow-md: 0 4px 12px rgba(44,24,16,0.06);
+  --shadow-lg: 0 12px 32px rgba(44,24,16,0.08);
+  --brand: var(--accent-coral);
+  --brand-hover: #FF5252;
+  --accent-coral: #FF6B6B;
+  --accent-coral-hover: #FF5252;
+  --accent-amber: #F4A261;
+  --accent-mint: #90BE6D;
+  --accent-lavender: #9B72AA;
+  --accent-sky: #4ECDC4;
+  --accent-sun: #F9C74F;
+  --accent-rose: #FF6B8A;
+  --accent-blue: #577590;
+  --max-width: 1200px;
+  --content-width: 720px;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 5rem;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+}
+
+[data-theme="dark"] {
+  --bg-cream: #1A1614;
+  --bg-surface: #2C2420;
+  --bg-warm: #241E1A;
+  --text-primary: #E8D5C4;
+  --text-secondary: #B8A088;
+  --text-muted: #8B7355;
+  --border: #3D3028;
+  --border-light: #332A22;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.25);
+  --shadow-lg: 0 12px 32px rgba(0,0,0,0.3);
+  --brand: var(--accent-coral);
+  --brand-hover: #FF8A8A;
+}</style>
+  
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23FF6B6B'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='20' fill='white'>A</text></svg>">
+
+  
+  <link rel="alternate" type="application/rss+xml" title="AI Blog" href="/feed.xml">
+  
+
+  <meta property="og:title" content="SE-II-ch23-软件工程职业基础">
+  <meta property="og:description" content="一个由AI驱动的个人博客">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://username.github.io/ai-blog/posts/se-ii笔记/23-软件工程职业基础/">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SE-II-ch23-软件工程职业基础">
+  <meta name="twitter:description" content="一个由AI驱动的个人博客">
+  
+</head>
+<body class="post-page">
+  <div class="reading-progress"></div>
+
+  <header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="/" class="site-brand">
+        
+          <span class="brand-title">AI Blog</span>
+        
+      </a>
+
+      <nav class="site-nav" data-target="main-nav">
+        <ul class="nav-list">
+          
+            <li class="nav-item">
+              <a href="/" class="nav-link">首页</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/archive/" class="nav-link">归档</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/tags/" class="nav-link">标签</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/categories/" class="nav-link">分类</a>
+            </li>
+          
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" data-action="toggle-theme" aria-label="切换暗色模式">
+          <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+
+        <button class="icon-btn menu-btn" data-action="toggle-menu" aria-label="菜单">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  <div class="container">
+  <main class="main-content">
+    <article class="post-article">
+      <header class="post-header">
+        
+          <div class="post-header-cats">
+            
+              <a href="/categories/软件工程与计算II/" class="meta-cat accent">软件工程与计算II</a>
+            
+          </div>
+        
+        <h1 class="post-title">SE-II-ch23-软件工程职业基础</h1>
+        <div class="post-meta">
+          <time datetime="2022-06-18T16:02:34.000Z">
+            2022年6月19日
+          </time>
+          
+            <span class="meta-divider">&middot;</span>
+            <span class="post-author">Your Name</span>
+          
+        </div>
+        
+          <div class="post-header-tags">
+            
+              <a href="/tags/软件工程与计算II/" class="tag">软件工程与计算II</a>
+            
+          </div>
+        
+      </header>
+
+      
+        <details class="toc-wrap">
+          <summary class="toc-title">目录</summary>
+          <nav class="toc-nav">
+            
+              <a href="#1-软件工程职业的出现" class="toc-link toc-level-1">1. 软件工程职业的出现</a>
+            
+              <a href="#1-1-美国软件开发与维护人员分布-jones2006" class="toc-link toc-level-2">1.1. 美国软件开发与维护人员分布 [Jones2006]</a>
+            
+              <a href="#1-2-二十世纪五十年代" class="toc-link toc-level-2">1.2. 二十世纪五十年代</a>
+            
+              <a href="#1-3-二十世纪六十年代" class="toc-link toc-level-2">1.3. 二十世纪六十年代</a>
+            
+              <a href="#1-4-二十世纪七十年代" class="toc-link toc-level-2">1.4. 二十世纪七十年代</a>
+            
+              <a href="#1-5-二十世纪八十年代" class="toc-link toc-level-2">1.5. 二十世纪八十年代</a>
+            
+              <a href="#1-6-二十世纪九十年代" class="toc-link toc-level-2">1.6. 二十世纪九十年代</a>
+            
+              <a href="#1-7-二十世纪九十年代之后" class="toc-link toc-level-2">1.7. 二十世纪九十年代之后</a>
+            
+              <a href="#2-软件工程职业概况" class="toc-link toc-level-1">2. 软件工程职业概况</a>
+            
+              <a href="#2-1-一个行业-occupation-成熟为职业需要具备下列几个基本特征" class="toc-link toc-level-2">2.1. 一个行业(Occupation)成熟为职业需要具备下列几个基本特征</a>
+            
+              <a href="#2-2-软件工程师职业素质" class="toc-link toc-level-2">2.2. 软件工程师职业素质</a>
+            
+              <a href="#2-3-软件工程知识体系" class="toc-link toc-level-2">2.3. 软件工程知识体系</a>
+            
+              <a href="#2-4-swebok的建设目的" class="toc-link toc-level-2">2.4. SWEBOK的建设目的</a>
+            
+              <a href="#2-4-1-swebok-v2的10个知识域" class="toc-link toc-level-3">2.4.1. SWEBOK V2的10个知识域</a>
+            
+              <a href="#2-4-2-swebok-v3增加的5个知识领域" class="toc-link toc-level-3">2.4.2. SWEBOK V3增加的5个知识领域</a>
+            
+              <a href="#2-5-教育体系" class="toc-link toc-level-2">2.5. 教育体系</a>
+            
+              <a href="#2-5-1-ccse2004的内容" class="toc-link toc-level-3">2.5.1. CCSE2004的内容</a>
+            
+              <a href="#2-5-2-ccse2004" class="toc-link toc-level-3">2.5.2. CCSE2004</a>
+            
+              <a href="#2-5-3-职业道德规范" class="toc-link toc-level-3">2.5.3. 职业道德规范</a>
+            
+              <a href="#2-6-short-version-概述" class="toc-link toc-level-2">2.6. Short version 概述</a>
+            
+              <a href="#2-7-认证体系" class="toc-link toc-level-2">2.7. 认证体系</a>
+            
+              <a href="#2-8-软件职业认证的区别" class="toc-link toc-level-2">2.8. 软件职业认证的区别</a>
+            
+              <a href="#2-9-行业协会" class="toc-link toc-level-2">2.9. 行业协会</a>
+            
+              <a href="#2-10-国际会议" class="toc-link toc-level-2">2.10. 国际会议</a>
+            
+              <a href="#2-11-软件工程的行业标准" class="toc-link toc-level-2">2.11. 软件工程的行业标准</a>
+            
+              <a href="#2-12-ieee-cs常见软件工程标准" class="toc-link toc-level-2">2.12. IEEE-CS常见软件工程标准</a>
+            
+              <a href="#2-13-对职业道德规范的需要" class="toc-link toc-level-2">2.13. 对职业道德规范的需要</a>
+            
+              <a href="#2-13-1-scenario-1-场景一" class="toc-link toc-level-3">2.13.1. Scenario 1 场景一</a>
+            
+              <a href="#2-13-2-scenario-2" class="toc-link toc-level-3">2.13.2. Scenario 2</a>
+            
+              <a href="#2-13-3-scenario-3" class="toc-link toc-level-3">2.13.3. Scenario 3</a>
+            
+              <a href="#2-13-4-scenario-4" class="toc-link toc-level-3">2.13.4. Scenario 4</a>
+            
+              <a href="#3-道德案例" class="toc-link toc-level-1">3. 道德案例</a>
+            
+              <a href="#4-history" class="toc-link toc-level-1">4. History</a>
+            
+              <a href="#5-joint-commission-steering-committee" class="toc-link toc-level-1">5. Joint Commission Steering Committee</a>
+            
+              <a href="#6-research" class="toc-link toc-level-1">6. Research</a>
+            
+              <a href="#7-brief-history-timeline" class="toc-link toc-level-1">7. Brief History Timeline</a>
+            
+              <a href="#8-职业道德规范" class="toc-link toc-level-1">8. 职业道德规范</a>
+            
+              <a href="#8-1-公众" class="toc-link toc-level-2">8.1. 公众</a>
+            
+              <a href="#8-2-客户和雇主" class="toc-link toc-level-2">8.2. 客户和雇主</a>
+            
+              <a href="#8-3-产品" class="toc-link toc-level-2">8.3. 产品</a>
+            
+              <a href="#8-4-判断" class="toc-link toc-level-2">8.4. 判断</a>
+            
+              <a href="#8-5-管理" class="toc-link toc-level-2">8.5. 管理</a>
+            
+              <a href="#8-6-专业" class="toc-link toc-level-2">8.6. 专业</a>
+            
+              <a href="#8-7-同行" class="toc-link toc-level-2">8.7. 同行</a>
+            
+              <a href="#8-8-自身" class="toc-link toc-level-2">8.8. 自身</a>
+            
+          </nav>
+        </details>
+      
+
+      <div class="post-body">
+        <h2 id="23-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E8%81%8C%E4%B8%9A%E5%9F%BA%E7%A1%80" tabindex="-1"><a class="header-anchor" href="#23-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E8%81%8C%E4%B8%9A%E5%9F%BA%E7%A1%80">#</a> 23-软件工程职业基础</h2>
+<!-- TOC -->
+<ul>
+<li><a href="#1-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E8%81%8C%E4%B8%9A%E7%9A%84%E5%87%BA%E7%8E%B0">1. 软件工程职业的出现</a>
+<ul>
+<li><a href="#11-%E7%BE%8E%E5%9B%BD%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E4%B8%8E%E7%BB%B4%E6%8A%A4%E4%BA%BA%E5%91%98%E5%88%86%E5%B8%83-jones2006">1.1. 美国软件开发与维护人员分布 [Jones2006]</a></li>
+<li><a href="#12-%E4%BA%8C%E5%8D%81%E4%B8%96%E7%BA%AA%E4%BA%94%E5%8D%81%E5%B9%B4%E4%BB%A3">1.2. 二十世纪五十年代</a></li>
+<li><a href="#13-%E4%BA%8C%E5%8D%81%E4%B8%96%E7%BA%AA%E5%85%AD%E5%8D%81%E5%B9%B4%E4%BB%A3">1.3. 二十世纪六十年代</a></li>
+<li><a href="#14-%E4%BA%8C%E5%8D%81%E4%B8%96%E7%BA%AA%E4%B8%83%E5%8D%81%E5%B9%B4%E4%BB%A3">1.4. 二十世纪七十年代</a></li>
+<li><a href="#15-%E4%BA%8C%E5%8D%81%E4%B8%96%E7%BA%AA%E5%85%AB%E5%8D%81%E5%B9%B4%E4%BB%A3">1.5. 二十世纪八十年代</a></li>
+<li><a href="#16-%E4%BA%8C%E5%8D%81%E4%B8%96%E7%BA%AA%E4%B9%9D%E5%8D%81%E5%B9%B4%E4%BB%A3">1.6. 二十世纪九十年代</a></li>
+<li><a href="#17-%E4%BA%8C%E5%8D%81%E4%B8%96%E7%BA%AA%E4%B9%9D%E5%8D%81%E5%B9%B4%E4%BB%A3%E4%B9%8B%E5%90%8E">1.7. 二十世纪九十年代之后</a></li>
+</ul>
+</li>
+<li><a href="#2-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E8%81%8C%E4%B8%9A%E6%A6%82%E5%86%B5">2. 软件工程职业概况</a>
+<ul>
+<li><a href="#21-%E4%B8%80%E4%B8%AA%E8%A1%8C%E4%B8%9Aoccupation%E6%88%90%E7%86%9F%E4%B8%BA%E8%81%8C%E4%B8%9A%E9%9C%80%E8%A6%81%E5%85%B7%E5%A4%87%E4%B8%8B%E5%88%97%E5%87%A0%E4%B8%AA%E5%9F%BA%E6%9C%AC%E7%89%B9%E5%BE%81">2.1. 一个行业(Occupation)成熟为职业需要具备下列几个基本特征</a></li>
+<li><a href="#22-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%81%8C%E4%B8%9A%E7%B4%A0%E8%B4%A8">2.2. 软件工程师职业素质</a></li>
+<li><a href="#23-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB">2.3. 软件工程知识体系</a></li>
+<li><a href="#24-swebok%E7%9A%84%E5%BB%BA%E8%AE%BE%E7%9B%AE%E7%9A%84">2.4. SWEBOK的建设目的</a>
+<ul>
+<li><a href="#241-swebok-v2%E7%9A%8410%E4%B8%AA%E7%9F%A5%E8%AF%86%E5%9F%9F">2.4.1. SWEBOK V2的10个知识域</a></li>
+<li><a href="#242-swebok-v3%E5%A2%9E%E5%8A%A0%E7%9A%845%E4%B8%AA%E7%9F%A5%E8%AF%86%E9%A2%86%E5%9F%9F">2.4.2. SWEBOK V3增加的5个知识领域</a></li>
+</ul>
+</li>
+<li><a href="#25-%E6%95%99%E8%82%B2%E4%BD%93%E7%B3%BB">2.5. 教育体系</a>
+<ul>
+<li><a href="#251-ccse2004%E7%9A%84%E5%86%85%E5%AE%B9">2.5.1. CCSE2004的内容</a></li>
+<li><a href="#252-ccse2004">2.5.2. CCSE2004</a></li>
+<li><a href="#253-%E8%81%8C%E4%B8%9A%E9%81%93%E5%BE%B7%E8%A7%84%E8%8C%83">2.5.3. 职业道德规范</a></li>
+</ul>
+</li>
+<li><a href="#26-short-version-%E6%A6%82%E8%BF%B0">2.6. Short version 概述</a></li>
+<li><a href="#27-%E8%AE%A4%E8%AF%81%E4%BD%93%E7%B3%BB">2.7. 认证体系</a></li>
+<li><a href="#28-%E8%BD%AF%E4%BB%B6%E8%81%8C%E4%B8%9A%E8%AE%A4%E8%AF%81%E7%9A%84%E5%8C%BA%E5%88%AB">2.8. 软件职业认证的区别</a></li>
+<li><a href="#29-%E8%A1%8C%E4%B8%9A%E5%8D%8F%E4%BC%9A">2.9. 行业协会</a></li>
+<li><a href="#210-%E5%9B%BD%E9%99%85%E4%BC%9A%E8%AE%AE">2.10. 国际会议</a></li>
+<li><a href="#211-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E7%9A%84%E8%A1%8C%E4%B8%9A%E6%A0%87%E5%87%86">2.11. 软件工程的行业标准</a></li>
+<li><a href="#212-ieee-cs%E5%B8%B8%E8%A7%81%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E6%A0%87%E5%87%86">2.12. IEEE-CS常见软件工程标准</a></li>
+<li><a href="#213-%E5%AF%B9%E8%81%8C%E4%B8%9A%E9%81%93%E5%BE%B7%E8%A7%84%E8%8C%83%E7%9A%84%E9%9C%80%E8%A6%81">2.13. 对职业道德规范的需要</a>
+<ul>
+<li><a href="#2131-scenario-1-%E5%9C%BA%E6%99%AF%E4%B8%80">2.13.1. Scenario 1 场景一</a></li>
+<li><a href="#2132-scenario-2">2.13.2. Scenario 2</a></li>
+<li><a href="#2133-scenario-3">2.13.3. Scenario 3</a></li>
+<li><a href="#2134-scenario-4">2.13.4. Scenario 4</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#3-%E9%81%93%E5%BE%B7%E6%A1%88%E4%BE%8B">3. 道德案例</a></li>
+<li><a href="#4-history">4. History</a></li>
+<li><a href="#5-joint-commission-steering-committee">5. Joint Commission Steering Committee</a></li>
+<li><a href="#6-research">6. Research</a></li>
+<li><a href="#7-brief-history-timeline">7. Brief History Timeline</a></li>
+<li><a href="#8-%E8%81%8C%E4%B8%9A%E9%81%93%E5%BE%B7%E8%A7%84%E8%8C%83">8. 职业道德规范</a>
+<ul>
+<li><a href="#81-%E5%85%AC%E4%BC%97">8.1. 公众</a></li>
+<li><a href="#82-%E5%AE%A2%E6%88%B7%E5%92%8C%E9%9B%87%E4%B8%BB">8.2. 客户和雇主</a></li>
+<li><a href="#83-%E4%BA%A7%E5%93%81">8.3. 产品</a></li>
+<li><a href="#84-%E5%88%A4%E6%96%AD">8.4. 判断</a></li>
+<li><a href="#85-%E7%AE%A1%E7%90%86">8.5. 管理</a></li>
+<li><a href="#86-%E4%B8%93%E4%B8%9A">8.6. 专业</a></li>
+<li><a href="#87-%E5%90%8C%E8%A1%8C">8.7. 同行</a></li>
+<li><a href="#88-%E8%87%AA%E8%BA%AB">8.8. 自身</a></li>
+</ul>
+</li>
+</ul>
+<!-- /TOC -->
+<h1 id="1.-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E8%81%8C%E4%B8%9A%E7%9A%84%E5%87%BA%E7%8E%B0" tabindex="-1"><a class="header-anchor" href="#1.-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E8%81%8C%E4%B8%9A%E7%9A%84%E5%87%BA%E7%8E%B0">#</a> 1. 软件工程职业的出现</h1>
+<h2 id="1.1.-%E7%BE%8E%E5%9B%BD%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E4%B8%8E%E7%BB%B4%E6%8A%A4%E4%BA%BA%E5%91%98%E5%88%86%E5%B8%83-%5Bjones2006%5D" tabindex="-1"><a class="header-anchor" href="#1.1.-%E7%BE%8E%E5%9B%BD%E8%BD%AF%E4%BB%B6%E5%BC%80%E5%8F%91%E4%B8%8E%E7%BB%B4%E6%8A%A4%E4%BA%BA%E5%91%98%E5%88%86%E5%B8%83-%5Bjones2006%5D">#</a> 1.1. 美国软件开发与维护人员分布 [Jones2006]</h2>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt23/1.png" alt="" class="" loading="lazy"></p>
+<h2 id="1.2.-%E4%BA%8C%E5%8D%81%E4%B8%96%E7%BA%AA%E4%BA%94%E5%8D%81%E5%B9%B4%E4%BB%A3" tabindex="-1"><a class="header-anchor" href="#1.2.-%E4%BA%8C%E5%8D%81%E4%B8%96%E7%BA%AA%E4%BA%94%E5%8D%81%E5%B9%B4%E4%BB%A3">#</a> 1.2. 二十世纪五十年代</h2>
+<p>计算机还是研究性机器，只有重要的科研院所机构才拥有研究性计算机，与此相应，从事软件开发的人员基本都是数量较少的研究人员，他们出于研究的目的编写软件。</p>
+<h2 id="1.3.-%E4%BA%8C%E5%8D%81%E4%B8%96%E7%BA%AA%E5%85%AD%E5%8D%81%E5%B9%B4%E4%BB%A3" tabindex="-1"><a class="header-anchor" href="#1.3.-%E4%BA%8C%E5%8D%81%E4%B8%96%E7%BA%AA%E5%85%AD%E5%8D%81%E5%B9%B4%E4%BB%A3">#</a> 1.3. 二十世纪六十年代</h2>
+<p>有些大型企业开始使用商业大型机，但是商业大型机的高昂费用使得其使用限制在少数企业范围内，基于商业大型机开发和维护应用软件的人员自然也数量不多。</p>
+<h2 id="1.4.-%E4%BA%8C%E5%8D%81%E4%B8%96%E7%BA%AA%E4%B8%83%E5%8D%81%E5%B9%B4%E4%BB%A3" tabindex="-1"><a class="header-anchor" href="#1.4.-%E4%BA%8C%E5%8D%81%E4%B8%96%E7%BA%AA%E4%B8%83%E5%8D%81%E5%B9%B4%E4%BB%A3">#</a> 1.4. 二十世纪七十年代</h2>
+<p>两个趋势——小型商业机和结构化编程理论，前者扩大了应用软件的需求，后者降低了开发难度、提高了开发成功率，二者联合起来，使得软件行业的公司和从业人员都出现了显著增长，一个软件行业的雏形开始显现。</p>
+<h2 id="1.5.-%E4%BA%8C%E5%8D%81%E4%B8%96%E7%BA%AA%E5%85%AB%E5%8D%81%E5%B9%B4%E4%BB%A3" tabindex="-1"><a class="header-anchor" href="#1.5.-%E4%BA%8C%E5%8D%81%E4%B8%96%E7%BA%AA%E5%85%AB%E5%8D%81%E5%B9%B4%E4%BB%A3">#</a> 1.5. 二十世纪八十年代</h2>
+<p>个人PC和GUI的普及，急剧扩大了应用软件的需求，以至于出现了&quot;急需提高生产力&quot;的呼声，这使得软件行业的公司和人员数量也出现了急剧增长。</p>
+<h2 id="1.6.-%E4%BA%8C%E5%8D%81%E4%B8%96%E7%BA%AA%E4%B9%9D%E5%8D%81%E5%B9%B4%E4%BB%A3" tabindex="-1"><a class="header-anchor" href="#1.6.-%E4%BA%8C%E5%8D%81%E4%B8%96%E7%BA%AA%E4%B9%9D%E5%8D%81%E5%B9%B4%E4%BB%A3">#</a> 1.6. 二十世纪九十年代</h2>
+<p>随着Internet和小型设备(嵌入式设备、移动设备)的发展，软件规模日益增长、领域越发广泛、作用越发凸显，使得软件深入了人类社会的各个角落，软件行业的公司和从业人员数量也继续在急剧增长。</p>
+<h2 id="1.7.-%E4%BA%8C%E5%8D%81%E4%B8%96%E7%BA%AA%E4%B9%9D%E5%8D%81%E5%B9%B4%E4%BB%A3%E4%B9%8B%E5%90%8E" tabindex="-1"><a class="header-anchor" href="#1.7.-%E4%BA%8C%E5%8D%81%E4%B8%96%E7%BA%AA%E4%B9%9D%E5%8D%81%E5%B9%B4%E4%BB%A3%E4%B9%8B%E5%90%8E">#</a> 1.7. 二十世纪九十年代之后</h2>
+<p>各个细分市场都已经出现了众多软件企业的身影，在新领域开疆扩土的情况只有在全新技术领域(例如移动终端)中会较多地出现，所以全新的软件开发不再像1990s之前那样快速地增长，反而是软件维护随着遗留软件越来越多而快速增长。</p>
+<h1 id="2.-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E8%81%8C%E4%B8%9A%E6%A6%82%E5%86%B5" tabindex="-1"><a class="header-anchor" href="#2.-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E8%81%8C%E4%B8%9A%E6%A6%82%E5%86%B5">#</a> 2. 软件工程职业概况</h1>
+<ol>
+<li>在一个行业中市场的高度细分化往往意味着&quot;职业&quot;(Profession)的出现，软件行业也在1990s之后开始出现&quot;软件工程职业&quot;。</li>
+</ol>
+<h2 id="2.1.-%E4%B8%80%E4%B8%AA%E8%A1%8C%E4%B8%9A(occupation)%E6%88%90%E7%86%9F%E4%B8%BA%E8%81%8C%E4%B8%9A%E9%9C%80%E8%A6%81%E5%85%B7%E5%A4%87%E4%B8%8B%E5%88%97%E5%87%A0%E4%B8%AA%E5%9F%BA%E6%9C%AC%E7%89%B9%E5%BE%81" tabindex="-1"><a class="header-anchor" href="#2.1.-%E4%B8%80%E4%B8%AA%E8%A1%8C%E4%B8%9A(occupation)%E6%88%90%E7%86%9F%E4%B8%BA%E8%81%8C%E4%B8%9A%E9%9C%80%E8%A6%81%E5%85%B7%E5%A4%87%E4%B8%8B%E5%88%97%E5%87%A0%E4%B8%AA%E5%9F%BA%E6%9C%AC%E7%89%B9%E5%BE%81">#</a> 2.1. 一个行业(Occupation)成熟为职业需要具备下列几个基本特征</h2>
+<ol>
+<li>有一批专职的从业人员</li>
+<li>界定了一个知识体系，能够明确从业人员需要具备的知识和技能</li>
+<li>建立了合格的教育体系，能够批量培养职业人员</li>
+<li>建立了严格的认证体系，能够保障从业人员的合格资质</li>
+<li>形成了职业的道德规范认同</li>
+<li>组织了指导性的行业协会。</li>
+</ol>
+<h2 id="2.2.-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%81%8C%E4%B8%9A%E7%B4%A0%E8%B4%A8" tabindex="-1"><a class="header-anchor" href="#2.2.-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E5%B8%88%E8%81%8C%E4%B8%9A%E7%B4%A0%E8%B4%A8">#</a> 2.2. 软件工程师职业素质</h2>
+<ol>
+<li>团队工作能力</li>
+<li>交流沟通能力，包括与同事的交流，也包括与用户的交流</li>
+<li>遵守职业的道德标准和操行规范</li>
+<li>积极参与行业协会活动，遵守行业标准，推进行业发展</li>
+<li>了解软件工程对社会、经济、法律等相关领域的影响、问题和观点。</li>
+</ol>
+<h2 id="2.3.-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB" tabindex="-1"><a class="header-anchor" href="#2.3.-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E7%9F%A5%E8%AF%86%E4%BD%93%E7%B3%BB">#</a> 2.3. 软件工程知识体系</h2>
+<ol>
+<li>SWEBOK(<a href="http://www.swebok.org">www.swebok.org</a>)</li>
+<li>IEEE-CS组织建立的</li>
+<li>2004年的SWEBOK第二版产生了广泛的影响。</li>
+<li>2014年SWEBOK的第三版正式发布。
+<ol>
+<li>P. Bourque and R.E. Fairley, eds., Guide to the Software Engineering Body of Knowledge, Version 3.0, IEEE Computer Society, 2014; <a href="http://www.swebok.org">www.swebok.org</a>.</li>
+</ol>
+</li>
+</ol>
+<h2 id="2.4.-swebok%E7%9A%84%E5%BB%BA%E8%AE%BE%E7%9B%AE%E7%9A%84" tabindex="-1"><a class="header-anchor" href="#2.4.-swebok%E7%9A%84%E5%BB%BA%E8%AE%BE%E7%9B%AE%E7%9A%84">#</a> 2.4. SWEBOK的建设目的</h2>
+<ol>
+<li>描述软件工程学科的内容</li>
+<li>建立全球范围内一致的软件工程视角</li>
+<li>区分软件工程相对于其他学科的位置，并定义边界</li>
+<li>为教程制定和培训提供基础</li>
+<li>为软件工程提供基础培训教材和课程发展</li>
+<li>为软件工程师的认证(certification)和授权(license)提供了基础。</li>
+</ol>
+<h3 id="2.4.1.-swebok-v2%E7%9A%8410%E4%B8%AA%E7%9F%A5%E8%AF%86%E5%9F%9F" tabindex="-1"><a class="header-anchor" href="#2.4.1.-swebok-v2%E7%9A%8410%E4%B8%AA%E7%9F%A5%E8%AF%86%E5%9F%9F">#</a> 2.4.1. SWEBOK V2的10个知识域</h3>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt23/2.png" alt="" class="" loading="lazy"></p>
+<h3 id="2.4.2.-swebok-v3%E5%A2%9E%E5%8A%A0%E7%9A%845%E4%B8%AA%E7%9F%A5%E8%AF%86%E9%A2%86%E5%9F%9F" tabindex="-1"><a class="header-anchor" href="#2.4.2.-swebok-v3%E5%A2%9E%E5%8A%A0%E7%9A%845%E4%B8%AA%E7%9F%A5%E8%AF%86%E9%A2%86%E5%9F%9F">#</a> 2.4.2. SWEBOK V3增加的5个知识领域</h3>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt23/3.png" alt="" class="" loading="lazy"></p>
+<h2 id="2.5.-%E6%95%99%E8%82%B2%E4%BD%93%E7%B3%BB" tabindex="-1"><a class="header-anchor" href="#2.5.-%E6%95%99%E8%82%B2%E4%BD%93%E7%B3%BB">#</a> 2.5. 教育体系</h2>
+<ol>
+<li>基于SWEBOK，IEEE-CS和ACM成立了联合工作组，建设并发布了软件工程专业本科教程CCSE2004，为软件工程专业本科教育计划制定和实施提供指导规范。</li>
+<li>基于CCSE2004，我国也建立了《中国软件工程学科教程》[CSEC2005]。</li>
+<li>2009年，IEEE-iSSEc又发布了软件工程专业研究生教程GSwE2009。</li>
+</ol>
+<h3 id="2.5.1.-ccse2004%E7%9A%84%E5%86%85%E5%AE%B9" tabindex="-1"><a class="header-anchor" href="#2.5.1.-ccse2004%E7%9A%84%E5%86%85%E5%AE%B9">#</a> 2.5.1. CCSE2004的内容</h3>
+<ol>
+<li>软件工程学科；</li>
+<li>指导原则；</li>
+<li>SEEK；</li>
+<li>SE教程设计与实施的指导原则；</li>
+<li>建议课程与课程顺序；</li>
+<li>对不同环境的适应；</li>
+<li>教育计划的实现与评价。</li>
+</ol>
+<h3 id="2.5.2.-ccse2004" tabindex="-1"><a class="header-anchor" href="#2.5.2.-ccse2004">#</a> 2.5.2. CCSE2004</h3>
+<ol>
+<li>CCSE2004对软件工程专业本科教育的目标、产出、指导原则、知识体系和课程体系等给出了详细的描述。</li>
+<li>CCSE2004认为计算科学基础、数学与工程基础、职业实践和软件工程知识(软件建模与分析、软件设计、软件验证与确认、软件演化、软件过程、软件质量、软件管理)是软件工程本科教育的核心知识领域。</li>
+</ol>
+<h3 id="2.5.3.-%E8%81%8C%E4%B8%9A%E9%81%93%E5%BE%B7%E8%A7%84%E8%8C%83" tabindex="-1"><a class="header-anchor" href="#2.5.3.-%E8%81%8C%E4%B8%9A%E9%81%93%E5%BE%B7%E8%A7%84%E8%8C%83">#</a> 2.5.3. 职业道德规范</h3>
+<ol>
+<li>因为软件对世界的影响力，使得软件工程师的行为会在很大程度上影响人们的财产、健康甚至生命安全，因此社会开始关注软件工程师的行为，希望他们遵从一个能够服务于社会的职业指导规范。</li>
+<li>在1999年，ACM和IEEE-CS联合指导委员会的软件工程道德和职业实践的联合工作小组提出了《软件工程道德和职业实践规范(5.2版)》[SEEPP1999]</li>
+<li>软件工程师应履行其实践承诺，使软件的需求分析、规范说明、设计、开发、测试和维护成为一项有益和受人尊敬的职业。为实现他们对公众健康、安全和利益的承诺，软件工程师应当坚持以下八项原则。</li>
+</ol>
+<h2 id="2.6.-short-version-%E6%A6%82%E8%BF%B0" tabindex="-1"><a class="header-anchor" href="#2.6.-short-version-%E6%A6%82%E8%BF%B0">#</a> 2.6. Short version 概述</h2>
+<ol>
+<li>PUBLIC - Software engineers shall act consistently with the public interest 公共利益</li>
+<li>CLIENT AND EMPLOYER - Software engineers shall act in a manner that is in the best interests of their client and employer, consistent with the public interest. 满足客户</li>
+<li>PRODUCT - Software engineers shall ensure that their products and related modifications meet the highest professional standards possible. 产品，便于维护</li>
+<li>JUDGMENT - Software engineers shall maintain integrity and independence in their professional judgment. 判断:保证专业性的判断</li>
+<li>MANAGEMENT - Software engineering managers and leaders shall subscribe to and promote an ethical approach to the management of software development and maintenance. 管理:选择管理人员</li>
+<li>PROFESSION - Software engineers shall advance the integrity and reputation of the profession consistent with the public interest. 专业化和职业化</li>
+<li>COLLEAGUES - Software engineers shall be fair to and supportive of their colleagues. 对于同事的关系</li>
+<li>SELF - Software engineers shall participate in lifelong learning regarding the practice of their profession and shall promote an ethical approach to the practice of the profession. 独立性</li>
+</ol>
+<h2 id="2.7.-%E8%AE%A4%E8%AF%81%E4%BD%93%E7%B3%BB" tabindex="-1"><a class="header-anchor" href="#2.7.-%E8%AE%A4%E8%AF%81%E4%BD%93%E7%B3%BB">#</a> 2.7. 认证体系</h2>
+<ol>
+<li>教育鉴定。
+<ol>
+<li>教育鉴定是政府主导的，是用来确认教育机构(主要是大学的相关专业)资质的评审过程。</li>
+</ol>
+</li>
+<li>职业认证。
+<ol>
+<li>职业认证更多得是行业主导的，用来确认从业人员所掌握的软件工程知识和技能。</li>
+<li>作为最权威的软件工程专业协会，IEEE-CS提出了SCP(SWEBOK Certificate Program)、CSDA(Certified Software Development Associate)和CSDP(Certified Software Development Professional)组成的分级分阶段的软件从业人员认证。</li>
+<li>SCP主要认证一个人(主要是在校学生)对SWEBOK主要内容的掌握情况。CSDA主要认证一个人(主要是毕业生)是否准备好开始职业工作。CSDP主要认证软件开发职业人员的技能水平。</li>
+</ol>
+</li>
+<li>从业执照。
+<ol>
+<li>执照通常由政府部门颁发的，只有拥有执照的人才可以参与被认定对公共卫生、安全或者财产有重大利益影响的项目。</li>
+<li>目前，国内还没有要求软件工程师具备执照才能从事关键项目的要求。</li>
+</ol>
+</li>
+</ol>
+<h2 id="2.8.-%E8%BD%AF%E4%BB%B6%E8%81%8C%E4%B8%9A%E8%AE%A4%E8%AF%81%E7%9A%84%E5%8C%BA%E5%88%AB" tabindex="-1"><a class="header-anchor" href="#2.8.-%E8%BD%AF%E4%BB%B6%E8%81%8C%E4%B8%9A%E8%AE%A4%E8%AF%81%E7%9A%84%E5%8C%BA%E5%88%AB">#</a> 2.8. 软件职业认证的区别</h2>
+<ol>
+<li>鉴定不同于认证，认证也不同于执照；</li>
+<li>鉴定针对专业，认证针对个人，而执照则表示行政或者法律允许个人从事关键软件开发的许可。</li>
+</ol>
+<h2 id="2.9.-%E8%A1%8C%E4%B8%9A%E5%8D%8F%E4%BC%9A" tabindex="-1"><a class="header-anchor" href="#2.9.-%E8%A1%8C%E4%B8%9A%E5%8D%8F%E4%BC%9A">#</a> 2.9. 行业协会</h2>
+<ol>
+<li>软件工程主要有两个专业协会提供支持：IEEE-CS(计算机学会)和ACM(Association for Computing Machinery)。</li>
+<li>其中，IEEE-CS是IEEE(国际电子电器工程师协会)众多专业学会机构中最大的一个。IEEE-CS致力于发展计算机和信息处理技术的理论、实践和应用。通过其会议、应用类和研究类的期刊、远程教育、技术委员会和标准制定工作组，学会在它的成员中间不断推动信息互动、思想交流和技术创新。另外一个专业学会ACM则是于1947年创建，旨在提高世界范围内信息科技工作者和学生的技能。</li>
+</ol>
+<h2 id="2.10.-%E5%9B%BD%E9%99%85%E4%BC%9A%E8%AE%AE" tabindex="-1"><a class="header-anchor" href="#2.10.-%E5%9B%BD%E9%99%85%E4%BC%9A%E8%AE%AE">#</a> 2.10. 国际会议</h2>
+<ol>
+<li>软件工程的第一次国际会议ICSE(International Conference on Software Engineering)于1975年举行，并且在IEEE-CS和ACM-SIGSOFT的联合赞助下成为软件工程方面的主要会议。</li>
+<li>同时，ACM-SIGSOFT还举办软件工程创立的年会。</li>
+<li>此外，这两个专业学会还通过单独赞助或者联合赞助的形式，举办很多软件工程课题的研讨会或讨论会。</li>
+</ol>
+<h2 id="2.11.-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E7%9A%84%E8%A1%8C%E4%B8%9A%E6%A0%87%E5%87%86" tabindex="-1"><a class="header-anchor" href="#2.11.-%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E7%9A%84%E8%A1%8C%E4%B8%9A%E6%A0%87%E5%87%86">#</a> 2.11. 软件工程的行业标准</h2>
+<ol>
+<li>IEEE-CS是软件工程行业标准的主要制定者。IEEE的第一个软件工程标准委员会成立于1976年，旨在为软件质量保障提供一个规范化标准。</li>
+<li>现在，IEEE的计算机学会有一个软件工程标准化 委员会，其目标如下：
+<ol>
+<li>将专业软件工程实践中的名词标准化</li>
+<li>促进客户、从业者和教育人士使用标准化软件工程语言</li>
+<li>协调国际软件工程标准化的发展。</li>
+</ol>
+</li>
+</ol>
+<h2 id="2.12.-ieee-cs%E5%B8%B8%E8%A7%81%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E6%A0%87%E5%87%86" tabindex="-1"><a class="header-anchor" href="#2.12.-ieee-cs%E5%B8%B8%E8%A7%81%E8%BD%AF%E4%BB%B6%E5%B7%A5%E7%A8%8B%E6%A0%87%E5%87%86">#</a> 2.12. IEEE-CS常见软件工程标准</h2>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt23/4.png" alt="" class="" loading="lazy"></p>
+<h2 id="2.13.-%E5%AF%B9%E8%81%8C%E4%B8%9A%E9%81%93%E5%BE%B7%E8%A7%84%E8%8C%83%E7%9A%84%E9%9C%80%E8%A6%81" tabindex="-1"><a class="header-anchor" href="#2.13.-%E5%AF%B9%E8%81%8C%E4%B8%9A%E9%81%93%E5%BE%B7%E8%A7%84%E8%8C%83%E7%9A%84%E9%9C%80%E8%A6%81">#</a> 2.13. 对职业道德规范的需要</h2>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt23/5.png" alt="" class="" loading="lazy"></p>
+<ol>
+<li>发现了重要的安全缺陷</li>
+<li>谁也不要报告，不然职业生涯可能就没了</li>
+<li>万事开头难</li>
+</ol>
+<h3 id="2.13.1.-scenario-1-%E5%9C%BA%E6%99%AF%E4%B8%80" tabindex="-1"><a class="header-anchor" href="#2.13.1.-scenario-1-%E5%9C%BA%E6%99%AF%E4%B8%80">#</a> 2.13.1. Scenario 1 场景一</h3>
+<ol>
+<li>Jean, a statistical database programmer, is trying to write a large statistical program needed by her company.  Programmers in this company are encouraged to write about their work and to publish their algorithms in professional journals.  After months of tedious programming, Jean has found herself stuck on several parts of the program.  Her manager not recognizing the complexity of the problem, wants the job completed within the next few days. Not knowing how to solve the problems, Jean remembers that a coworker had given her source listings from his current work and from an early version of a commercial software package developed at another company. <strong>On studying these programs, she sees two areas of code which could be directly incorporated into her own program.</strong> She uses segments of code from both her coworker and the commercial software, but does <strong>not tell anyone</strong> or mention it in the documentation.  She completes the project and turns it in a day ahead of time.</li>
+<li>直接使用github和商用软件等等</li>
+</ol>
+<h3 id="2.13.2.-scenario-2" tabindex="-1"><a class="header-anchor" href="#2.13.2.-scenario-2">#</a> 2.13.2. Scenario 2</h3>
+<ol>
+<li>Three years ago Diane started her own consulting business. She has been so successful that she now has several people working for her and has many clients.  Their consulting work included advising on how to network microcomputers, designing database management systems, and advising about security.</li>
+<li>Presently she is designing a database management system for the personnel office of a medium-sized company.  Diane has involved the client in the design process, informing the CEO, the directory of computing, and the director of personnel about the progress of the system. Diane has described several options to the client.  Because the system is going to cost more than they planned, the client has decided to opt for a less secure system.  She believes the information they will be storing is extremely sensitive. It will include performance evaluations, medical records for filing insurance claims, salaries, and so forth.</li>
+<li>With weak security, employees working on microcomputers may be able to figure out ways to get access to this data, not to mention the possibilities for on-line access from hackers.  Diane feels strongly that the system should be much more secure. <strong>She has tried to explain the risks, but the CEO, director of computing and director of personnel all agree that less security will do.</strong> What should she do?  Should she refuse to build the system as they request?</li>
+<li>成本太高，降低安全性拉低成本的操作？</li>
+</ol>
+<h3 id="2.13.3.-scenario-3" tabindex="-1"><a class="header-anchor" href="#2.13.3.-scenario-3">#</a> 2.13.3. Scenario 3</h3>
+<ol>
+<li>Max works in a large state department of alcoholism and drug abuse.  The agency administers programs for individuals with alcohol and drug problems, and maintains a huge database of information on the clients who use their services.  Some of the data files contain the names and current addresses of clients.</li>
+<li>Max has been asked to take a look at the track records of the treatment programs.  He is to put together a report that contains the number of clients seen in each program each month for the past five years, length of each client’s treatment, number of clients who return after completion of a program, criminal histories of clients, and so on.  In order to put together this report, Max has been given access to all files in the agency’s mainframe computer.  After assembling the data into a new file that includes the client names, he downloads it to the computer in his office.</li>
+<li>Under pressure to get the report finished by the deadline, Max decides he will have to work at home over the weekend in order to finish on time.  He copies the information onto several disks and takes them home.  After finishing the report he leaves the disks at home and forgets about them.</li>
+<li>忘记了拷贝的副本，不允许软件源码和客户信息的拷贝</li>
+</ol>
+<h3 id="2.13.4.-scenario-4" tabindex="-1"><a class="header-anchor" href="#2.13.4.-scenario-4">#</a> 2.13.4. Scenario 4</h3>
+<ol>
+<li>In determining requirements for an information system to be used in an employment agency, the client explains that, when displaying applicants whose qualifications appear to match those required for a particular job, the names of white applicants are to be displayed ahead of those of nonwhite applicants, and names of male applicants are to be displayed ahead of those of female applicants.</li>
+</ol>
+<h1 id="3.-%E9%81%93%E5%BE%B7%E6%A1%88%E4%BE%8B" tabindex="-1"><a class="header-anchor" href="#3.-%E9%81%93%E5%BE%B7%E6%A1%88%E4%BE%8B">#</a> 3. 道德案例</h1>
+<ol>
+<li>虚拟世界的案件
+<ol>
+<li>Facebook
+<ol>
+<li>好友行为的广播</li>
+<li>广告</li>
+<li>信息是否可以被招聘、法律等目的所利用</li>
+</ol>
+</li>
+<li>招聘时候去调查应聘者的SNS网站</li>
+<li>给老年人RFID芯片的皮下植入</li>
+</ol>
+</li>
+</ol>
+<h1 id="4.-history" tabindex="-1"><a class="header-anchor" href="#4.-history">#</a> 4. History</h1>
+<ol>
+<li>IEEE Board of Governors established steering committee (May, 1993).</li>
+<li>ACM Council endorsed Commission on Software Engineering (Late 1993).</li>
+<li>Joint steering committee established by both societies (January, 1994).</li>
+</ol>
+<h1 id="5.-joint-commission-steering-committee" tabindex="-1"><a class="header-anchor" href="#5.-joint-commission-steering-committee">#</a> 5. Joint Commission Steering Committee</h1>
+<ol>
+<li>4 goals:
+<ol>
+<li>Adopt standard definitions.</li>
+<li>Define required body of knowledge and recommended practices.</li>
+<li>Define ethical standards.</li>
+<li>Define educational curricula for undergraduate, graduate (Masters), and continuing education (for retraining and migration).</li>
+</ol>
+</li>
+<li>3 initial task forces:
+<ol>
+<li>Software engineering body of knowledge and recommended practices.</li>
+<li>Software engineering ethics and professional practices.</li>
+<li>Software engineering curriculum.</li>
+</ol>
+</li>
+</ol>
+<h1 id="6.-research" tabindex="-1"><a class="header-anchor" href="#6.-research">#</a> 6. Research</h1>
+<ol>
+<li>Review of available computing and engineering codes:
+<ol>
+<li>The American Association of Engineering Societies</li>
+<li>Accreditation Board for Engineering Technology • ACM’s Code of Ethics for Professional Conduct</li>
+<li>The British Computer Society Code of Practice</li>
+<li>Institute for the Certification of Computing Professionals</li>
+<li>Engineer’s Council for Professional Development</li>
+<li>The IEEE Code of Ethics</li>
+<li>National Society of Professional Engineers Code of Ethics</li>
+<li>Project Management Institute Code of Ethics</li>
+</ol>
+</li>
+</ol>
+<h1 id="7.-brief-history-timeline" tabindex="-1"><a class="header-anchor" href="#7.-brief-history-timeline">#</a> 7. Brief History Timeline</h1>
+<ol>
+<li>January 1994 - International Task Force formed the Software Engineering Ethics and Professional Practice (SEEPP).</li>
+<li>July 1997 - Initial version shown to professional societies including ACM’s SIGSOFT.</li>
+<li>November 1997 - Version 3 published in IEEE-CS and ACM magazines.</li>
+<li>Version 4 presented to IEEE review process.</li>
+<li>October 1998 - Version 5.2 unanimously adopted by ACM and IEEE.</li>
+</ol>
+<h1 id="8.-%E8%81%8C%E4%B8%9A%E9%81%93%E5%BE%B7%E8%A7%84%E8%8C%83" tabindex="-1"><a class="header-anchor" href="#8.-%E8%81%8C%E4%B8%9A%E9%81%93%E5%BE%B7%E8%A7%84%E8%8C%83">#</a> 8. 职业道德规范</h1>
+<ol>
+<li>详见PPT</li>
+</ol>
+<h2 id="8.1.-%E5%85%AC%E4%BC%97" tabindex="-1"><a class="header-anchor" href="#8.1.-%E5%85%AC%E4%BC%97">#</a> 8.1. 公众</h2>
+<h2 id="8.2.-%E5%AE%A2%E6%88%B7%E5%92%8C%E9%9B%87%E4%B8%BB" tabindex="-1"><a class="header-anchor" href="#8.2.-%E5%AE%A2%E6%88%B7%E5%92%8C%E9%9B%87%E4%B8%BB">#</a> 8.2. 客户和雇主</h2>
+<h2 id="8.3.-%E4%BA%A7%E5%93%81" tabindex="-1"><a class="header-anchor" href="#8.3.-%E4%BA%A7%E5%93%81">#</a> 8.3. 产品</h2>
+<h2 id="8.4.-%E5%88%A4%E6%96%AD" tabindex="-1"><a class="header-anchor" href="#8.4.-%E5%88%A4%E6%96%AD">#</a> 8.4. 判断</h2>
+<h2 id="8.5.-%E7%AE%A1%E7%90%86" tabindex="-1"><a class="header-anchor" href="#8.5.-%E7%AE%A1%E7%90%86">#</a> 8.5. 管理</h2>
+<h2 id="8.6.-%E4%B8%93%E4%B8%9A" tabindex="-1"><a class="header-anchor" href="#8.6.-%E4%B8%93%E4%B8%9A">#</a> 8.6. 专业</h2>
+<h2 id="8.7.-%E5%90%8C%E8%A1%8C" tabindex="-1"><a class="header-anchor" href="#8.7.-%E5%90%8C%E8%A1%8C">#</a> 8.7. 同行</h2>
+<h2 id="8.8.-%E8%87%AA%E8%BA%AB" tabindex="-1"><a class="header-anchor" href="#8.8.-%E8%87%AA%E8%BA%AB">#</a> 8.8. 自身</h2>
+
+      </div>
+
+      <footer class="post-footer">
+        <div class="post-nav">
+          <a href="/" class="post-nav-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            返回首页
+          </a>
+        </div>
+      </footer>
+    </article>
+  </main>
+</div>
+
+
+  <footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <span class="footer-logo">AI Blog</span>
+        <p class="footer-desc">一个由AI驱动的个人博客</p>
+        <div class="footer-social">
+          
+            <a href="https://github.com/yourname" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+          
+          
+            <a href="https://twitter.com/yourname" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          
+          
+            <a href="mailto:your@email.com" class="social-link" aria-label="Email">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </a>
+          
+          
+            <a href="/feed.xml" class="social-link" aria-label="RSS">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20C5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1z"/></svg>
+            </a>
+          
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">导航</h4>
+        <ul class="footer-links">
+          
+            <li><a href="/">首页</a></li>
+          
+            <li><a href="/archive/">归档</a></li>
+          
+            <li><a href="/tags/">标签</a></li>
+          
+            <li><a href="/categories/">分类</a></li>
+          
+          <li><a href="/archive/">归档</a></li>
+          <li><a href="/tags/">标签</a></li>
+          <li><a href="/categories/">分类</a></li>
+        </ul>
+      </div>
+
+      
+      <div class="footer-col">
+        <h4 class="footer-heading">友链</h4>
+        <ul class="footer-links">
+          
+            <li><a href="https://example.com" target="_blank" rel="noopener noreferrer">示例友链</a></li>
+          
+        </ul>
+      </div>
+      
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 AI Blog</p>
+      
+    </div>
+  </div>
+</footer>
+
+
+  <button class="back-to-top" aria-label="返回顶部">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+  </button>
+
+  <script src="/assets/js/main.js" defer></script>
+</body>
+</html>

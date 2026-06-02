@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="一个由AI驱动的个人博客">
+  <title>SE-II-ch07-需求文档化与验证 - AI Blog</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Noto+Serif+SC:wght@400;500;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/css/style.css">
+  
+  <link rel="stylesheet" href="/assets/css/highlight.css">
+  
+
+  
+  <style>:root {
+  --font-display: 'Playfair Display', 'Noto Serif SC', Georgia, 'Times New Roman', serif;
+  --font-body: 'Public Sans', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'Fira Code', 'Cascadia Code', 'JetBrains Mono', monospace;
+  --bg-cream: #FEFAF6;
+  --bg-surface: #FFFFFF;
+  --bg-warm: #FDF5EB;
+  --text-primary: #2C1810;
+  --text-secondary: #8B7355;
+  --text-muted: #C4A882;
+  --border: #E8D5C4;
+  --border-light: #F0E3D5;
+  --shadow-sm: 0 1px 2px rgba(44,24,16,0.04);
+  --shadow-md: 0 4px 12px rgba(44,24,16,0.06);
+  --shadow-lg: 0 12px 32px rgba(44,24,16,0.08);
+  --brand: var(--accent-coral);
+  --brand-hover: #FF5252;
+  --accent-coral: #FF6B6B;
+  --accent-coral-hover: #FF5252;
+  --accent-amber: #F4A261;
+  --accent-mint: #90BE6D;
+  --accent-lavender: #9B72AA;
+  --accent-sky: #4ECDC4;
+  --accent-sun: #F9C74F;
+  --accent-rose: #FF6B8A;
+  --accent-blue: #577590;
+  --max-width: 1200px;
+  --content-width: 720px;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 5rem;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+}
+
+[data-theme="dark"] {
+  --bg-cream: #1A1614;
+  --bg-surface: #2C2420;
+  --bg-warm: #241E1A;
+  --text-primary: #E8D5C4;
+  --text-secondary: #B8A088;
+  --text-muted: #8B7355;
+  --border: #3D3028;
+  --border-light: #332A22;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.25);
+  --shadow-lg: 0 12px 32px rgba(0,0,0,0.3);
+  --brand: var(--accent-coral);
+  --brand-hover: #FF8A8A;
+}</style>
+  
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23FF6B6B'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='20' fill='white'>A</text></svg>">
+
+  
+  <link rel="alternate" type="application/rss+xml" title="AI Blog" href="/feed.xml">
+  
+
+  <meta property="og:title" content="SE-II-ch07-需求文档化与验证">
+  <meta property="og:description" content="一个由AI驱动的个人博客">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://username.github.io/ai-blog/posts/se-ii笔记/07-需求文档化与验证/">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SE-II-ch07-需求文档化与验证">
+  <meta name="twitter:description" content="一个由AI驱动的个人博客">
+  
+</head>
+<body class="post-page">
+  <div class="reading-progress"></div>
+
+  <header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="/" class="site-brand">
+        
+          <span class="brand-title">AI Blog</span>
+        
+      </a>
+
+      <nav class="site-nav" data-target="main-nav">
+        <ul class="nav-list">
+          
+            <li class="nav-item">
+              <a href="/" class="nav-link">首页</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/archive/" class="nav-link">归档</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/tags/" class="nav-link">标签</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/categories/" class="nav-link">分类</a>
+            </li>
+          
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" data-action="toggle-theme" aria-label="切换暗色模式">
+          <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+
+        <button class="icon-btn menu-btn" data-action="toggle-menu" aria-label="菜单">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  <div class="container">
+  <main class="main-content">
+    <article class="post-article">
+      <header class="post-header">
+        
+          <div class="post-header-cats">
+            
+              <a href="/categories/软件工程与计算II/" class="meta-cat accent">软件工程与计算II</a>
+            
+          </div>
+        
+        <h1 class="post-title">SE-II-ch07-需求文档化与验证</h1>
+        <div class="post-meta">
+          <time datetime="2022-06-17T16:02:34.000Z">
+            2022年6月18日
+          </time>
+          
+            <span class="meta-divider">&middot;</span>
+            <span class="post-author">Your Name</span>
+          
+        </div>
+        
+          <div class="post-header-tags">
+            
+              <a href="/tags/软件工程与计算II/" class="tag">软件工程与计算II</a>
+            
+          </div>
+        
+      </header>
+
+      
+        <details class="toc-wrap">
+          <summary class="toc-title">目录</summary>
+          <nav class="toc-nav">
+            
+              <a href="#1-为什么文档化需求" class="toc-link toc-level-1">1. 为什么文档化需求</a>
+            
+              <a href="#2-为什么建立需求规格说明-结合试验说明-重要" class="toc-link toc-level-1">2. 为什么建立需求规格说明？结合试验说明(重要)</a>
+            
+              <a href="#3-需求文档基础" class="toc-link toc-level-1">3. 需求文档基础</a>
+            
+              <a href="#3-1-需求文档的交流对象" class="toc-link toc-level-2">3.1. 需求文档的交流对象</a>
+            
+              <a href="#3-2-用例文档" class="toc-link toc-level-2">3.2. 用例文档</a>
+            
+              <a href="#3-3-软件需求规格说明文档-srs-software-requirements-specification" class="toc-link toc-level-2">3.3. 软件需求规格说明文档(SRS，software Requirements Specification)</a>
+            
+              <a href="#3-3-1-实例" class="toc-link toc-level-3">3.3.1. 实例</a>
+            
+              <a href="#3-4-srs模板" class="toc-link toc-level-2">3.4. SRS模板</a>
+            
+              <a href="#4-技术文档写作要点" class="toc-link toc-level-1">4. 技术文档写作要点</a>
+            
+              <a href="#4-1-系统化的方式" class="toc-link toc-level-2">4.1. 系统化的方式</a>
+            
+              <a href="#4-2-需求书写要点" class="toc-link toc-level-2">4.2. 需求书写要点</a>
+            
+              <a href="#4-3-requirements-review" class="toc-link toc-level-2">4.3. Requirements Review</a>
+            
+              <a href="#5-验证需求的方法" class="toc-link toc-level-1">5. 验证需求的方法</a>
+            
+              <a href="#5-1-评审" class="toc-link toc-level-2">5.1. 评审</a>
+            
+              <a href="#5-2-开发系统测试用例" class="toc-link toc-level-2">5.2. 开发系统测试用例</a>
+            
+              <a href="#5-2-1-开发测试用例套件" class="toc-link toc-level-3">5.2.1. 开发测试用例套件</a>
+            
+              <a href="#5-2-2-开发测试用例" class="toc-link toc-level-3">5.2.2. 开发测试用例</a>
+            
+              <a href="#5-3-度量" class="toc-link toc-level-2">5.3. 度量</a>
+            
+              <a href="#5-3-1-度量需求" class="toc-link toc-level-3">5.3.1. 度量需求</a>
+            
+              <a href="#5-3-2-度量的意义" class="toc-link toc-level-3">5.3.2. 度量的意义</a>
+            
+              <a href="#5-3-3-功能点度量" class="toc-link toc-level-3">5.3.3. 功能点度量</a>
+            
+              <a href="#5-4-功能点测度总数" class="toc-link toc-level-2">5.4. 功能点测度总数</a>
+            
+              <a href="#5-5-销售用例的功能点" class="toc-link toc-level-2">5.5. 销售用例的功能点</a>
+            
+              <a href="#6-对给定的需求规格说明实例-判定并修正其错误-summary" class="toc-link toc-level-1">6. 对给定的需求规格说明实例，判定并修正其错误-Summary</a>
+            
+              <a href="#7-将需求制品纳入配置管理" class="toc-link toc-level-1">7. 将需求制品纳入配置管理</a>
+            
+          </nav>
+        </details>
+      
+
+      <div class="post-body">
+        <h2 id="07-%E9%9C%80%E6%B1%82%E6%96%87%E6%A1%A3%E5%8C%96%E4%B8%8E%E9%AA%8C%E8%AF%81" tabindex="-1"><a class="header-anchor" href="#07-%E9%9C%80%E6%B1%82%E6%96%87%E6%A1%A3%E5%8C%96%E4%B8%8E%E9%AA%8C%E8%AF%81">#</a> 07-需求文档化与验证</h2>
+<!-- TOC -->
+<ul>
+<li><a href="#1-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%96%87%E6%A1%A3%E5%8C%96%E9%9C%80%E6%B1%82">1. 为什么文档化需求</a></li>
+<li><a href="#2-%E4%B8%BA%E4%BB%80%E4%B9%88%E5%BB%BA%E7%AB%8B%E9%9C%80%E6%B1%82%E8%A7%84%E6%A0%BC%E8%AF%B4%E6%98%8E%E7%BB%93%E5%90%88%E8%AF%95%E9%AA%8C%E8%AF%B4%E6%98%8E-%E9%87%8D%E8%A6%81">2. 为什么建立需求规格说明？结合试验说明 重要</a></li>
+<li><a href="#3-%E9%9C%80%E6%B1%82%E6%96%87%E6%A1%A3%E5%9F%BA%E7%A1%80">3. 需求文档基础</a>
+<ul>
+<li><a href="#31-%E9%9C%80%E6%B1%82%E6%96%87%E6%A1%A3%E7%9A%84%E4%BA%A4%E6%B5%81%E5%AF%B9%E8%B1%A1">3.1. 需求文档的交流对象</a></li>
+<li><a href="#32-%E7%94%A8%E4%BE%8B%E6%96%87%E6%A1%A3">3.2. 用例文档</a></li>
+<li><a href="#33-%E8%BD%AF%E4%BB%B6%E9%9C%80%E6%B1%82%E8%A7%84%E6%A0%BC%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3srssoftware-requirements-specification">3.3. 软件需求规格说明文档(SRS，software Requirements Specification)</a>
+<ul>
+<li><a href="#331-%E5%AE%9E%E4%BE%8B">3.3.1. 实例</a></li>
+</ul>
+</li>
+<li><a href="#34-srs%E6%A8%A1%E6%9D%BF">3.4. SRS模板</a></li>
+</ul>
+</li>
+<li><a href="#4-%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3%E5%86%99%E4%BD%9C%E8%A6%81%E7%82%B9">4. 技术文档写作要点</a>
+<ul>
+<li><a href="#41-%E7%B3%BB%E7%BB%9F%E5%8C%96%E7%9A%84%E6%96%B9%E5%BC%8F">4.1. 系统化的方式</a></li>
+<li><a href="#42-%E9%9C%80%E6%B1%82%E4%B9%A6%E5%86%99%E8%A6%81%E7%82%B9">4.2. 需求书写要点</a></li>
+<li><a href="#43-requirements-review">4.3. Requirements Review</a></li>
+</ul>
+</li>
+<li><a href="#5-%E9%AA%8C%E8%AF%81%E9%9C%80%E6%B1%82%E7%9A%84%E6%96%B9%E6%B3%95">5. 验证需求的方法</a>
+<ul>
+<li><a href="#51-%E8%AF%84%E5%AE%A1">5.1. 评审</a></li>
+<li><a href="#52-%E5%BC%80%E5%8F%91%E7%B3%BB%E7%BB%9F%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B">5.2. 开发系统测试用例</a>
+<ul>
+<li><a href="#521-%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E5%A5%97%E4%BB%B6">5.2.1. 测试用例套件</a></li>
+<li><a href="#522-%E5%BB%BA%E7%AB%8B%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B">5.2.2. 建立测试用例</a></li>
+</ul>
+</li>
+<li><a href="#53-%E5%BA%A6%E9%87%8F">5.3. 度量</a>
+<ul>
+<li><a href="#531-%E5%BA%A6%E9%87%8F%E9%9C%80%E6%B1%82">5.3.1. 度量需求</a></li>
+<li><a href="#532-%E5%BA%A6%E9%87%8F%E7%9A%84%E6%84%8F%E4%B9%89">5.3.2. 度量的意义</a></li>
+<li><a href="#533-%E5%8A%9F%E8%83%BD%E7%82%B9%E5%BA%A6%E9%87%8F">5.3.3. 功能点度量</a></li>
+</ul>
+</li>
+<li><a href="#54-%E5%8A%9F%E8%83%BD%E7%82%B9%E6%B5%8B%E5%BA%A6%E6%80%BB%E6%95%B0">5.4. 功能点测度总数</a></li>
+<li><a href="#55-%E9%94%80%E5%94%AE%E7%94%A8%E4%BE%8B%E7%9A%84%E5%8A%9F%E8%83%BD%E7%82%B9">5.5. 销售用例的功能点</a></li>
+</ul>
+</li>
+<li><a href="#6-%E5%AF%B9%E7%BB%99%E5%AE%9A%E7%9A%84%E9%9C%80%E6%B1%82%E8%A7%84%E6%A0%BC%E8%AF%B4%E6%98%8E%E5%AE%9E%E4%BE%8B%E5%88%A4%E5%AE%9A%E5%B9%B6%E4%BF%AE%E6%AD%A3%E5%85%B6%E9%94%99%E8%AF%AF-summary">6. 对给定的需求规格说明实例，判定并修正其错误-Summary</a></li>
+<li><a href="#7-%E5%B0%86%E9%9C%80%E6%B1%82%E5%88%B6%E5%93%81%E7%BA%B3%E5%85%A5%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86">7. 将需求制品纳入配置管理</a></li>
+</ul>
+<!-- /TOC -->
+<h1 id="1.-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%96%87%E6%A1%A3%E5%8C%96%E9%9C%80%E6%B1%82" tabindex="-1"><a class="header-anchor" href="#1.-%E4%B8%BA%E4%BB%80%E4%B9%88%E6%96%87%E6%A1%A3%E5%8C%96%E9%9C%80%E6%B1%82">#</a> 1. 为什么文档化需求</h1>
+<ol>
+<li>方便团队工作和沟通</li>
+<li>方便项目管理</li>
+<li>更加明确的体系架构</li>
+<li>方便软件设计</li>
+<li>方便编码</li>
+<li>方便维护</li>
+</ol>
+<h1 id="2.-%E4%B8%BA%E4%BB%80%E4%B9%88%E5%BB%BA%E7%AB%8B%E9%9C%80%E6%B1%82%E8%A7%84%E6%A0%BC%E8%AF%B4%E6%98%8E%EF%BC%9F%E7%BB%93%E5%90%88%E8%AF%95%E9%AA%8C%E8%AF%B4%E6%98%8E(%E9%87%8D%E8%A6%81)" tabindex="-1"><a class="header-anchor" href="#2.-%E4%B8%BA%E4%BB%80%E4%B9%88%E5%BB%BA%E7%AB%8B%E9%9C%80%E6%B1%82%E8%A7%84%E6%A0%BC%E8%AF%B4%E6%98%8E%EF%BC%9F%E7%BB%93%E5%90%88%E8%AF%95%E9%AA%8C%E8%AF%B4%E6%98%8E(%E9%87%8D%E8%A6%81)">#</a> 2. 为什么建立需求规格说明？结合试验说明(重要)</h1>
+<ol>
+<li>方便交流，软件开发过程中，<strong>子任务与人员</strong>之间存在错综复杂的关系，存在大量的沟通和交流，所以要在软件开发中要编写不同类型的文档，每种文档都是针对项目中需要广泛交流的内容。因为<strong>软件需求</strong>需要进行<strong>广泛交流</strong>，所以要把需求文档化。</li>
+<li>需求规格说明是在<strong>软件产品的角度以系统级需求列表的方式</strong>描述软件系统解决方案，书写需求规格说明，可以建立管理控制的基线，方便任务分配，制定工作计划，进行跟踪和度量。</li>
+<li>在实验中，需求规格的重要性不只体现在结果上，还包括中间过程，在书写需求规格过程中，才真正把问题域的问题和分析模型的成果转化为系统级需求，方便小组成员真正明确需求，个人认为在这个阶段<strong>包含一部分的需求再发现和完整化</strong>。</li>
+</ol>
+<h1 id="3.-%E9%9C%80%E6%B1%82%E6%96%87%E6%A1%A3%E5%9F%BA%E7%A1%80" tabindex="-1"><a class="header-anchor" href="#3.-%E9%9C%80%E6%B1%82%E6%96%87%E6%A1%A3%E5%9F%BA%E7%A1%80">#</a> 3. 需求文档基础</h1>
+<h2 id="3.1.-%E9%9C%80%E6%B1%82%E6%96%87%E6%A1%A3%E7%9A%84%E4%BA%A4%E6%B5%81%E5%AF%B9%E8%B1%A1" tabindex="-1"><a class="header-anchor" href="#3.1.-%E9%9C%80%E6%B1%82%E6%96%87%E6%A1%A3%E7%9A%84%E4%BA%A4%E6%B5%81%E5%AF%B9%E8%B1%A1">#</a> 3.1. 需求文档的交流对象</h2>
+<ol>
+<li>用户:用户要验证文档内描述的需求信息是否和最初的意图一致</li>
+<li>项目管理者:软件需求文档全面、准确地定义了软件的功能和非功能要求。</li>
+<li>设计人员和程序员:设计人员和程序员需要根据软件需求文档来完成自己的任务</li>
+<li>测试人员:测试人员需要根据文档的需求内容进行验收测试，确保最终产生的软件系统能满足用户的需求</li>
+<li>文档编写人员:用户使用手册的编写人员需要根据需求信息编写用户使用手册</li>
+<li>维护人员:在软件维护中，维护人员需要在充分理解软件原有需求的基础上进行信息的修改</li>
+</ol>
+<h2 id="3.2.-%E7%94%A8%E4%BE%8B%E6%96%87%E6%A1%A3" tabindex="-1"><a class="header-anchor" href="#3.2.-%E7%94%A8%E4%BE%8B%E6%96%87%E6%A1%A3">#</a> 3.2. 用例文档</h2>
+<ol>
+<li>在用户的角度以用例文本为主描述软件系统与外界的交互</li>
+<li>基本职责是把问题域信息和需求传达给软件系统解决方案的设计者</li>
+<li>示例</li>
+</ol>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt7/1.png" alt="" class="" loading="lazy"></p>
+<ol start="4">
+<li>用例图等描述图可以更加直观的了解这部分。</li>
+</ol>
+<h2 id="3.3.-%E8%BD%AF%E4%BB%B6%E9%9C%80%E6%B1%82%E8%A7%84%E6%A0%BC%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3(srs%EF%BC%8Csoftware-requirements-specification)" tabindex="-1"><a class="header-anchor" href="#3.3.-%E8%BD%AF%E4%BB%B6%E9%9C%80%E6%B1%82%E8%A7%84%E6%A0%BC%E8%AF%B4%E6%98%8E%E6%96%87%E6%A1%A3(srs%EF%BC%8Csoftware-requirements-specification)">#</a> 3.3. 软件需求规格说明文档(SRS，software Requirements Specification)</h2>
+<ol>
+<li>在软件产品的角度以系统级需求列表的方式描述软件系统解决⽅案</li>
+</ol>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt7/2.png" alt="" class="" loading="lazy"></p>
+<h3 id="3.3.1.-%E5%AE%9E%E4%BE%8B" tabindex="-1"><a class="header-anchor" href="#3.3.1.-%E5%AE%9E%E4%BE%8B">#</a> 3.3.1. 实例</h3>
+<ol>
+<li>
+<p>在一栋大楼中有一个电梯，现在有⼈打算从1楼使用电梯到达x楼。</p>
+<ul>
+<li>请写出其用例的场景描述</li>
+<li>根据用例场景编写SRS片段</li>
+</ul>
+</li>
+<li>
+<p>用例的场景描述:(其实从1层到x层作为用例不合适，<strong>应该把整个上行过程作为用例</strong>)</p>
+<ol>
+<li>人在1楼按按钮，等待电梯(系统调度图)</li>
+<li>电梯到达，电梯开门，人登上电梯</li>
+<li>人按x楼的按钮，系统关门</li>
+<li>电梯启动开始上升</li>
+<li>人到达x楼，电梯开门</li>
+<li>电梯关门</li>
+</ol>
+</li>
+<li>
+<p>拓展流程:</p>
+<ol>
+<li>电梯故障:和电梯、人无关的不加入</li>
+<li>超载超重</li>
+<li>其他楼层按钮</li>
+<li>电梯运行方向</li>
+</ol>
+</li>
+<li>
+<p>SRS片段：</p>
+<ul>
+<li>
+<p>业务需求：系统能正常运行，实现大楼人员的上下楼</p>
+</li>
+<li>
+<p>用户需求：系统要帮助人上楼</p>
+</li>
+<li>
+<p>系统级需求：</p>
+<ul>
+<li>在人在一楼按了按钮后，电梯应该能运行到一楼并开门</li>
+<li>在人进入电梯按了x楼按钮后，电梯应该关门并运行到x楼并开门</li>
+</ul>
+</li>
+<li>
+<p>刺激/响应：</p>
+<p>刺激：在人在一楼按了按钮后</p>
+<p>响应：电梯运行到一楼并开门</p>
+<p>刺激：在人进入电梯按了x楼按钮后</p>
+<p>响应：电梯应该关门并运行到x楼并开门</p>
+</li>
+<li>
+<p>相关功能需求：（<strong>应当和刺激响应当一致对应</strong>，描述相关功能需求时也应该是<strong>描述刺激</strong>，然后<strong>描述响应</strong>）</p>
+<p>Lift.Button 系统应该允许用户按电梯按钮</p>
+<p>Lift.Button.Outside 用户在电梯外按按钮，电梯运行到1楼并开门</p>
+<p>Lift.Button.Outside.Same 用户在电梯到达1楼开门后按按钮，系统不予处理</p>
+<p>Lift.Button.Inside 用户在电梯内按x楼按钮，电梯运行x楼并开门</p>
+<p>Lift.Button.Inside.Same 用户在电梯到达x楼开门后按x楼的按钮，系统不予处理</p>
+<p>Lift.Button.Inside.More 用户在电梯内按了多个按钮，电梯对应楼层按钮应该全部亮起，并按顺序运行到相应楼层后开门</p>
+</li>
+</ul>
+</li>
+</ol>
+<h2 id="3.4.-srs%E6%A8%A1%E6%9D%BF" tabindex="-1"><a class="header-anchor" href="#3.4.-srs%E6%A8%A1%E6%9D%BF">#</a> 3.4. SRS模板</h2>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt7/3.png" alt="" class="" loading="lazy"></p>
+<h1 id="4.-%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3%E5%86%99%E4%BD%9C%E8%A6%81%E7%82%B9" tabindex="-1"><a class="header-anchor" href="#4.-%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3%E5%86%99%E4%BD%9C%E8%A6%81%E7%82%B9">#</a> 4. 技术文档写作要点</h1>
+<ol>
+<li>简洁:动词名词+辅助词，不要使用复杂长句、形容词和副词。</li>
+<li>精确:不能产生歧义或无法理解。</li>
+</ol>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt7/4.png" alt="" class="" loading="lazy"></p>
+<ol start="3">
+<li>易读(查询)
+<ol>
+<li>有效使⽤引言、目录、索引等能够增强⽂档易读性的⽅法。</li>
+<li>使⽤系统化的方式组织内容信息，提供⽂档内容的可读性。</li>
+</ol>
+</li>
+<li>易修改：使用相同的语句格式组织相关联或相似的信息；使用列表组织独立、并列的信息；使用编号表达繁杂信息之间的关系。引用而不是重复</li>
+</ol>
+<h2 id="4.1.-%E7%B3%BB%E7%BB%9F%E5%8C%96%E7%9A%84%E6%96%B9%E5%BC%8F" tabindex="-1"><a class="header-anchor" href="#4.1.-%E7%B3%BB%E7%BB%9F%E5%8C%96%E7%9A%84%E6%96%B9%E5%BC%8F">#</a> 4.1. 系统化的方式</h2>
+<ol>
+<li>使⽤<strong>相同</strong>的语句格式来描述相似、关联的信息。</li>
+<li>使⽤<strong>列表或者表格</strong>来组织独立、并列的信息。</li>
+<li>使⽤<strong>编号</strong>来表达繁杂信息之间的关系,包括顺序关系、嵌套关系和层次关系。
+<ul>
+<li>对图、表进⾏编号</li>
+<li>对⽂档的章节进⾏编号</li>
+<li>对信息内容进⾏标识和编号</li>
+</ul>
+</li>
+</ol>
+<h2 id="4.2.-%E9%9C%80%E6%B1%82%E4%B9%A6%E5%86%99%E8%A6%81%E7%82%B9" tabindex="-1"><a class="header-anchor" href="#4.2.-%E9%9C%80%E6%B1%82%E4%B9%A6%E5%86%99%E8%A6%81%E7%82%B9">#</a> 4.2. 需求书写要点</h2>
+<ol>
+<li>需求书写要点
+<ol>
+<li><strong>使用用户术语:不要使用计算机术语</strong>(导致用户无法理解)</li>
+<li><strong>可验证</strong>：不可验证的需求一般是因为描述模糊或者过于抽象</li>
+<li>可行性：需求必须能够在系统及其运行环境的已知条件和约束下实现。要考虑在限定成本、时间和人力约束内，实现需求的可能性</li>
+</ol>
+</li>
+<li>需求规格说明文档书写要点
+<ol>
+<li><strong>充分利⽤标准的文档模版</strong>，保持所有内容位置得当</li>
+<li>保持⽂档内的需求集具有完备性和⼀致性。</li>
+<li>为需求划分优先级(可以分为高中低、也可以分为1-10等分)</li>
+</ol>
+</li>
+</ol>
+<h2 id="4.3.-requirements-review" tabindex="-1"><a class="header-anchor" href="#4.3.-requirements-review">#</a> 4.3. Requirements Review</h2>
+<ol>
+<li>“After the payment process is complete, the <strong>relevant</strong> information should be appended to a log ﬁle.”(b)
+<ul>
+<li>a. This requirement should be rewritten; it is incorrect. 不正确</li>
+<li>b. This requirement should be rewritten; it is ambiguous or inconsistent. 模糊的（没有说明相关的是什么）</li>
+<li>c. This requirement should be rewritten; it is unrealistic. 不现实的</li>
+<li>d. This requirement should be rewritten; it is unveriﬁable. 不可验证的</li>
+<li>e. This requirement is ﬁne. 好的</li>
+</ul>
+</li>
+<li>“The system should be constructed so that it will be <strong>easy</strong> to add new functionality in the future.”(d)
+<ul>
+<li>a. This requirement should be rewritten; it is incorrect.</li>
+<li>b. This requirement should be rewritten; it is ambiguous or inconsistent.</li>
+<li>c. This requirement should be rewritten; it is unrealistic.（easy是不容易验证的，怎么验证容易加入）</li>
+<li>d. This requirement should be rewritten; it is unveriﬁable.</li>
+<li>e. This requirement is ﬁne.</li>
+</ul>
+</li>
+<li>“The price of a gasoline purchase is computed as the price per gallon for the type of gas purchased, multiplied by the number of gallons purchased (use two decimal points for representing fractions of gallons).”(e)
+<ul>
+<li>a. This requirement should be rewritten; it is incorrect.</li>
+<li>b. This requirement should be rewritten; it is ambiguous or inconsistent.</li>
+<li>c. This requirement should be rewritten; it is unrealistic.</li>
+<li>d. This requirement should be rewritten; it is unveriﬁable.</li>
+<li>e. This requirement is ﬁne.</li>
+</ul>
+</li>
+<li>&quot;The system should be available 24 hours a day, 7 days a week.©
+<ul>
+<li>a. This requirement should be rewritten; it is incorrect.</li>
+<li>b. This requirement should be rewritten; it is ambiguous or inconsistent.</li>
+<li>c. This requirement should be rewritten; it is unrealistic.</li>
+<li>d. This requirement should be rewritten; it is unveriﬁable.</li>
+<li>e. This requirement is ﬁne.</li>
+</ul>
+</li>
+</ol>
+<h1 id="5.-%E9%AA%8C%E8%AF%81%E9%9C%80%E6%B1%82%E7%9A%84%E6%96%B9%E6%B3%95" tabindex="-1"><a class="header-anchor" href="#5.-%E9%AA%8C%E8%AF%81%E9%9C%80%E6%B1%82%E7%9A%84%E6%96%B9%E6%B3%95">#</a> 5. 验证需求的方法</h1>
+<h2 id="5.1.-%E8%AF%84%E5%AE%A1" tabindex="-1"><a class="header-anchor" href="#5.1.-%E8%AF%84%E5%AE%A1">#</a> 5.1. 评审</h2>
+<ol>
+<li>重视需求评审:<strong>坚实的需求基础是影响项目成败的重要因素</strong></li>
+<li>需求评审的组织
+<ol>
+<li>评审的人员不能仅由技术人员组成，必须包括客户和用户</li>
+<li>在评审中使用线索，⽤户对场景与线索表现出了最⼤的兴趣</li>
+<li>使⽤需求检查列表</li>
+</ol>
+</li>
+</ol>
+<h2 id="5.2.-%E5%BC%80%E5%8F%91%E7%B3%BB%E7%BB%9F%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B" tabindex="-1"><a class="header-anchor" href="#5.2.-%E5%BC%80%E5%8F%91%E7%B3%BB%E7%BB%9F%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B">#</a> 5.2. 开发系统测试用例</h2>
+<ul>
+<li>在<strong>需求开发完成之后，测试人员就可以以需求为基础开发系统测试用例（主要是功能测试）了</strong>。</li>
+<li><strong>这些测试用例将==在软件系统实现之后的测试阶段得到执行==</strong>。</li>
+<li>在实践中发现，在为需求开发测试用例的过程中可以发现软件需求规格说明文档的缺陷与问题。</li>
+<li>因此，<strong>为需求开发测试用例也被看做有效的需求验证方法</strong>。</li>
+</ul>
+<p>以需求为基础开发测试用例有两个步骤：</p>
+<ol>
+<li>以需求为线索，<strong>开发测试⽤例套件</strong>；</li>
+<li>使⽤测试技术确定输⼊/输出数据，<strong>开发测试⽤例</strong>。</li>
+</ol>
+<h3 id="5.2.1.-%E5%BC%80%E5%8F%91%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E5%A5%97%E4%BB%B6" tabindex="-1"><a class="header-anchor" href="#5.2.1.-%E5%BC%80%E5%8F%91%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B%E5%A5%97%E4%BB%B6">#</a> 5.2.1. 开发测试用例套件</h3>
+<ol>
+<li>基于⽤例描述，可以为销售处理确定测试⽤例套件</li>
+<li>测试用例套件是测试用例的集合，将有关测试用例集合在一起</li>
+</ol>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt7/5.png" alt="" class="" loading="lazy"></p>
+<h3 id="5.2.2.-%E5%BC%80%E5%8F%91%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B" tabindex="-1"><a class="header-anchor" href="#5.2.2.-%E5%BC%80%E5%8F%91%E6%B5%8B%E8%AF%95%E7%94%A8%E4%BE%8B">#</a> 5.2.2. 开发测试用例</h3>
+<ol>
+<li>主要是基于规格的技术，设计测试场景的输⼊与输出数据</li>
+</ol>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt7/6.png" alt="" class="" loading="lazy"></p>
+<ol start="2">
+<li>不断地添加测试用例来完成测试</li>
+</ol>
+<h2 id="5.3.-%E5%BA%A6%E9%87%8F" tabindex="-1"><a class="header-anchor" href="#5.3.-%E5%BA%A6%E9%87%8F">#</a> 5.3. 度量</h2>
+<ol>
+<li>度量需求功能点</li>
+</ol>
+<h3 id="5.3.1.-%E5%BA%A6%E9%87%8F%E9%9C%80%E6%B1%82" tabindex="-1"><a class="header-anchor" href="#5.3.1.-%E5%BA%A6%E9%87%8F%E9%9C%80%E6%B1%82">#</a> 5.3.1. 度量需求</h3>
+<ol>
+<li>⽤例的数量</li>
+<li>平均每个⽤例中的场景数量</li>
+<li>平均⽤例⾏数</li>
+<li>软件需求数量</li>
+<li>⾮功能需求数量</li>
+<li>功能点数量：功能点不是功能，功能点数不是功能数。功能点是[Albrecht! 979] 提出的用于估算和度量软件系统规模与复杂度的抽象单位。在需求开发阶段，估计代码行数误差较大，使用功能点来估算和度量软件系统的规模与复杂度则有较好的效果。</li>
+</ol>
+<h3 id="5.3.2.-%E5%BA%A6%E9%87%8F%E7%9A%84%E6%84%8F%E4%B9%89" tabindex="-1"><a class="header-anchor" href="#5.3.2.-%E5%BA%A6%E9%87%8F%E7%9A%84%E6%84%8F%E4%B9%89">#</a> 5.3.2. 度量的意义</h3>
+<ol>
+<li>如果平均的⽤例场景<strong>数量过低</strong>，那么就可能存在对<strong>异常流程考虑不周</strong>的可能。</li>
+<li>如果<strong>平均用例行数过大或者过小</strong>，那么可能对⽤例的细分粒度过⼤或者过⼩。</li>
+<li>⽤例数量、软件需求数量和功能点数量应该是相对⽐例均衡的，如果三者之间有着**⾮常⼤的差距**，那么可能会有需求的遗漏。</li>
+</ol>
+<h3 id="5.3.3.-%E5%8A%9F%E8%83%BD%E7%82%B9%E5%BA%A6%E9%87%8F" tabindex="-1"><a class="header-anchor" href="#5.3.3.-%E5%8A%9F%E8%83%BD%E7%82%B9%E5%BA%A6%E9%87%8F">#</a> 5.3.3. 功能点度量</h3>
+<ol>
+<li>⽤于<strong>估算和度量软件系统规模与复杂度</strong>的抽象单位。</li>
+<li>在需求开发阶段，估计代码⾏数误差较⼤，使⽤功能点来估算和度量软件系 统的规模与复杂度则有较好的效果。
+<ol>
+<li>输⼊数量：⼀次有意义的输⼊，需要程序员进⾏⼀次编程处理</li>
+<li>输出数量：系统需要对外展示的内容组，表现为屏幕界⾯、打印输出、错误提示等等。</li>
+<li>查询数量：⽤户的&quot;命令&quot;输⼊，通常表现为⿏标点击和键盘输⼊(热键)</li>
+<li>逻辑⽂件数量：系统内部的持久化数据，包括⽂件、数据表等</li>
+<li>对外接⼝数量：与外部系统交换数据的软硬件通信接⼝。</li>
+</ol>
+</li>
+</ol>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt7/7.png" alt="" class="" loading="lazy"></p>
+<h2 id="5.4.-%E5%8A%9F%E8%83%BD%E7%82%B9%E6%B5%8B%E5%BA%A6%E6%80%BB%E6%95%B0" tabindex="-1"><a class="header-anchor" href="#5.4.-%E5%8A%9F%E8%83%BD%E7%82%B9%E6%B5%8B%E5%BA%A6%E6%80%BB%E6%95%B0">#</a> 5.4. 功能点测度总数</h2>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt7/8.png" alt="" class="" loading="lazy"></p>
+<ul>
+<li>F<sub>i</sub>为调整系统复杂度的因子，每一项都是经验估计数值，从0(不重要或不需要)到5(必须且重要)</li>
+</ul>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt7/9.png" alt="" class="" loading="lazy"></p>
+<ol>
+<li>0.65是一个标准值的测算值</li>
+</ol>
+<h2 id="5.5.-%E9%94%80%E5%94%AE%E7%94%A8%E4%BE%8B%E7%9A%84%E5%8A%9F%E8%83%BD%E7%82%B9" tabindex="-1"><a class="header-anchor" href="#5.5.-%E9%94%80%E5%94%AE%E7%94%A8%E4%BE%8B%E7%9A%84%E5%8A%9F%E8%83%BD%E7%82%B9">#</a> 5.5. 销售用例的功能点</h2>
+<p><img src="https://spricoder.oss-cn-shanghai.aliyuncs.com/2020-Software-Engineering-and-Computing-II/img/cpt7/10.png" alt="" class="" loading="lazy"></p>
+<h1 id="6.-%E5%AF%B9%E7%BB%99%E5%AE%9A%E7%9A%84%E9%9C%80%E6%B1%82%E8%A7%84%E6%A0%BC%E8%AF%B4%E6%98%8E%E5%AE%9E%E4%BE%8B%EF%BC%8C%E5%88%A4%E5%AE%9A%E5%B9%B6%E4%BF%AE%E6%AD%A3%E5%85%B6%E9%94%99%E8%AF%AF-summary" tabindex="-1"><a class="header-anchor" href="#6.-%E5%AF%B9%E7%BB%99%E5%AE%9A%E7%9A%84%E9%9C%80%E6%B1%82%E8%A7%84%E6%A0%BC%E8%AF%B4%E6%98%8E%E5%AE%9E%E4%BE%8B%EF%BC%8C%E5%88%A4%E5%AE%9A%E5%B9%B6%E4%BF%AE%E6%AD%A3%E5%85%B6%E9%94%99%E8%AF%AF-summary">#</a> 6. 对给定的需求规格说明实例，判定并修正其错误-Summary</h1>
+<ol>
+<li>首先了解需求文档化要点：
+<ol>
+<li>技术文档写作要点(简洁，精确，易读，易修改)；</li>
+<li>需求书写要点(使用用户术语，可验证，可行性)；</li>
+<li>需求规格说明文档书写要点(充分利用标准的文档模板，保持所以内容位置得当；保持文档内的需求集具有完备性和一致性；为需求划分优先级)</li>
+</ol>
+</li>
+</ol>
+<h1 id="7.-%E5%B0%86%E9%9C%80%E6%B1%82%E5%88%B6%E5%93%81%E7%BA%B3%E5%85%A5%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86" tabindex="-1"><a class="header-anchor" href="#7.-%E5%B0%86%E9%9C%80%E6%B1%82%E5%88%B6%E5%93%81%E7%BA%B3%E5%85%A5%E9%85%8D%E7%BD%AE%E7%AE%A1%E7%90%86">#</a> 7. 将需求制品纳入配置管理</h1>
+<ol>
+<li>重要的需求制品:
+<ol>
+<li>需求分析模型</li>
+<li>需求文档</li>
+<li>系统测试用例</li>
+</ol>
+</li>
+</ol>
+
+      </div>
+
+      <footer class="post-footer">
+        <div class="post-nav">
+          <a href="/" class="post-nav-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            返回首页
+          </a>
+        </div>
+      </footer>
+    </article>
+  </main>
+</div>
+
+
+  <footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <span class="footer-logo">AI Blog</span>
+        <p class="footer-desc">一个由AI驱动的个人博客</p>
+        <div class="footer-social">
+          
+            <a href="https://github.com/yourname" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+          
+          
+            <a href="https://twitter.com/yourname" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          
+          
+            <a href="mailto:your@email.com" class="social-link" aria-label="Email">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </a>
+          
+          
+            <a href="/feed.xml" class="social-link" aria-label="RSS">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20C5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1z"/></svg>
+            </a>
+          
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">导航</h4>
+        <ul class="footer-links">
+          
+            <li><a href="/">首页</a></li>
+          
+            <li><a href="/archive/">归档</a></li>
+          
+            <li><a href="/tags/">标签</a></li>
+          
+            <li><a href="/categories/">分类</a></li>
+          
+          <li><a href="/archive/">归档</a></li>
+          <li><a href="/tags/">标签</a></li>
+          <li><a href="/categories/">分类</a></li>
+        </ul>
+      </div>
+
+      
+      <div class="footer-col">
+        <h4 class="footer-heading">友链</h4>
+        <ul class="footer-links">
+          
+            <li><a href="https://example.com" target="_blank" rel="noopener noreferrer">示例友链</a></li>
+          
+        </ul>
+      </div>
+      
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 AI Blog</p>
+      
+    </div>
+  </div>
+</footer>
+
+
+  <button class="back-to-top" aria-label="返回顶部">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+  </button>
+
+  <script src="/assets/js/main.js" defer></script>
+</body>
+</html>

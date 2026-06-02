@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="一个由AI驱动的个人博客">
+  <title>机器学习-期末复习 - AI Blog</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Noto+Serif+SC:wght@400;500;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/css/style.css">
+  
+  <link rel="stylesheet" href="/assets/css/highlight.css">
+  
+
+  
+  <style>:root {
+  --font-display: 'Playfair Display', 'Noto Serif SC', Georgia, 'Times New Roman', serif;
+  --font-body: 'Public Sans', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'Fira Code', 'Cascadia Code', 'JetBrains Mono', monospace;
+  --bg-cream: #FEFAF6;
+  --bg-surface: #FFFFFF;
+  --bg-warm: #FDF5EB;
+  --text-primary: #2C1810;
+  --text-secondary: #8B7355;
+  --text-muted: #C4A882;
+  --border: #E8D5C4;
+  --border-light: #F0E3D5;
+  --shadow-sm: 0 1px 2px rgba(44,24,16,0.04);
+  --shadow-md: 0 4px 12px rgba(44,24,16,0.06);
+  --shadow-lg: 0 12px 32px rgba(44,24,16,0.08);
+  --brand: var(--accent-coral);
+  --brand-hover: #FF5252;
+  --accent-coral: #FF6B6B;
+  --accent-coral-hover: #FF5252;
+  --accent-amber: #F4A261;
+  --accent-mint: #90BE6D;
+  --accent-lavender: #9B72AA;
+  --accent-sky: #4ECDC4;
+  --accent-sun: #F9C74F;
+  --accent-rose: #FF6B8A;
+  --accent-blue: #577590;
+  --max-width: 1200px;
+  --content-width: 720px;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 5rem;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+}
+
+[data-theme="dark"] {
+  --bg-cream: #1A1614;
+  --bg-surface: #2C2420;
+  --bg-warm: #241E1A;
+  --text-primary: #E8D5C4;
+  --text-secondary: #B8A088;
+  --text-muted: #8B7355;
+  --border: #3D3028;
+  --border-light: #332A22;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.25);
+  --shadow-lg: 0 12px 32px rgba(0,0,0,0.3);
+  --brand: var(--accent-coral);
+  --brand-hover: #FF8A8A;
+}</style>
+  
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23FF6B6B'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='20' fill='white'>A</text></svg>">
+
+  
+  <link rel="alternate" type="application/rss+xml" title="AI Blog" href="/feed.xml">
+  
+
+  <meta property="og:title" content="机器学习-期末复习">
+  <meta property="og:description" content="一个由AI驱动的个人博客">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://username.github.io/ai-blog/posts/23-机器学习/复习/">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="机器学习-期末复习">
+  <meta name="twitter:description" content="一个由AI驱动的个人博客">
+  
+</head>
+<body class="post-page">
+  <div class="reading-progress"></div>
+
+  <header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="/" class="site-brand">
+        
+          <span class="brand-title">AI Blog</span>
+        
+      </a>
+
+      <nav class="site-nav" data-target="main-nav">
+        <ul class="nav-list">
+          
+            <li class="nav-item">
+              <a href="/" class="nav-link">首页</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/archive/" class="nav-link">归档</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/tags/" class="nav-link">标签</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/categories/" class="nav-link">分类</a>
+            </li>
+          
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" data-action="toggle-theme" aria-label="切换暗色模式">
+          <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+
+        <button class="icon-btn menu-btn" data-action="toggle-menu" aria-label="菜单">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  <div class="container">
+  <main class="main-content">
+    <article class="post-article">
+      <header class="post-header">
+        
+          <div class="post-header-cats">
+            
+              <a href="/categories/机器学习/" class="meta-cat accent">机器学习</a>
+            
+          </div>
+        
+        <h1 class="post-title">机器学习-期末复习</h1>
+        <div class="post-meta">
+          <time datetime="2024-01-02T18:32:34.000Z">
+            2024年1月3日
+          </time>
+          
+            <span class="meta-divider">&middot;</span>
+            <span class="post-author">Your Name</span>
+          
+        </div>
+        
+          <div class="post-header-tags">
+            
+              <a href="/tags/机器学习/" class="tag">机器学习</a>
+            
+              <a href="/tags/期末复习/" class="tag">期末复习</a>
+            
+          </div>
+        
+      </header>
+
+      
+
+      <div class="post-body">
+        <h1 id="%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5" tabindex="-1"><a class="header-anchor" href="#%E5%9F%BA%E6%9C%AC%E6%A6%82%E5%BF%B5">#</a> 基本概念</h1>
+<ul>
+<li>分类</li>
+<li>回归</li>
+<li>维数灾难 随着输入维数的增加，需要更多的数据</li>
+<li>欠拟合</li>
+<li>过拟合</li>
+<li>…</li>
+</ul>
+<h2 id="%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87" tabindex="-1"><a class="header-anchor" href="#%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87">#</a> 评价指标</h2>
+<h2 id="%E8%B7%9D%E7%A6%BB%E5%BA%A6%E9%87%8F%E5%87%BD%E6%95%B0" tabindex="-1"><a class="header-anchor" href="#%E8%B7%9D%E7%A6%BB%E5%BA%A6%E9%87%8F%E5%87%BD%E6%95%B0">#</a> 距离度量函数</h2>
+<h2 id="%E8%AE%A1%E7%AE%97%E5%BA%A6%E9%87%8F" tabindex="-1"><a class="header-anchor" href="#%E8%AE%A1%E7%AE%97%E5%BA%A6%E9%87%8F">#</a> 计算度量</h2>
+<h2 id="%E7%94%9F%E6%88%90%E5%BC%8F%2F%E5%88%A4%E5%88%AB%E5%BC%8F%E6%A8%A1%E5%9E%8B" tabindex="-1"><a class="header-anchor" href="#%E7%94%9F%E6%88%90%E5%BC%8F%2F%E5%88%A4%E5%88%AB%E5%BC%8F%E6%A8%A1%E5%9E%8B">#</a> 生成式/判别式模型</h2>
+<p>svm 逻辑回归 决策树就是判别式模型 不关心具体的样本的特点，而只在意差别</p>
+<p>贝叶斯 隐马尔科夫就是生成式模型，先学习特点，再进行比较</p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h1 id="knn%F0%9F%91%8D" tabindex="-1"><a class="header-anchor" href="#knn%F0%9F%91%8D">#</a> KNN👍</h1>
+<p>无监督学习</p>
+<h2 id="knn%E6%80%9D%E6%83%B3" tabindex="-1"><a class="header-anchor" href="#knn%E6%80%9D%E6%83%B3">#</a> KNN思想</h2>
+<p>计算所有训练样本和测试样本的距离，降序排列，选择k个相近的，如果是分类问题就投票最多，如果是回归问题就算平均</p>
+<h2 id="%E6%A6%82%E5%BF%B5" tabindex="-1"><a class="header-anchor" href="#%E6%A6%82%E5%BF%B5">#</a> 概念</h2>
+<p>一般k是奇数，k越小对噪声越敏感，模型复杂容易过拟合，k越大对噪声不敏感，但是模型简单，容易欠拟合。</p>
+<h2 id="%E7%AE%97%E6%B3%95%E6%B5%81%E7%A8%8B" tabindex="-1"><a class="header-anchor" href="#%E7%AE%97%E6%B3%95%E6%B5%81%E7%A8%8B">#</a> 算法流程</h2>
+<p>(k-Nearest Neighbor Regression)</p>
+<ul>
+<li>计算测试样本x和Dtrain中所有训练样本xi之间的距离d(,xi)</li>
+<li>对所有距离值 (相似度值) 进行进行升序(降序) 排列</li>
+<li>选择K个最近(距离最小/相似度最大) 的训练样本</li>
+<li>将距离值的倒数作为权重，然后将K个近邻的标签值加权平均作为x的预测值</li>
+</ul>
+<h2 id="%E9%99%8D%E4%BD%8E%E8%AE%A1%E7%AE%97%E5%A4%8D%E6%9D%82%E5%BA%A6%EF%BC%8C%E5%A4%A7%E6%A6%82%E7%9C%8B%E4%B8%80%E4%B8%8B" tabindex="-1"><a class="header-anchor" href="#%E9%99%8D%E4%BD%8E%E8%AE%A1%E7%AE%97%E5%A4%8D%E6%9D%82%E5%BA%A6%EF%BC%8C%E5%A4%A7%E6%A6%82%E7%9C%8B%E4%B8%80%E4%B8%8B">#</a> 降低计算复杂度，大概看一下</h2>
+<p>优点在于对异常值不敏感，精度高，没有数据输入假定</p>
+<p>缺点在于时间复杂度高，空间复杂度高</p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h1 id="%E8%81%9A%E7%B1%BB%F0%9F%91%8D" tabindex="-1"><a class="header-anchor" href="#%E8%81%9A%E7%B1%BB%F0%9F%91%8D">#</a> 聚类👍</h1>
+<p><strong>无监督学习</strong></p>
+<h2 id="%E8%81%9A%E7%B1%BB%E6%A6%82%E5%BF%B5" tabindex="-1"><a class="header-anchor" href="#%E8%81%9A%E7%B1%BB%E6%A6%82%E5%BF%B5">#</a> 聚类概念</h2>
+<p>将整个数据集中每个样本的特征向量看成是分布在特征空间中的一些点，点与点之间的距离即可作为相似性度量依据。
+聚类分析是根据不同样本之间的差异，根据距离函数的规律(大小) 进行分类 (聚类) 的。</p>
+<h2 id="%E8%81%9A%E7%B1%BB%E5%87%86%E5%88%99%EF%BC%9A%E8%81%9A%E7%B1%BB%E5%A5%BD%E5%9D%8F%E5%88%A4%E6%96%AD%EF%BC%8C" tabindex="-1"><a class="header-anchor" href="#%E8%81%9A%E7%B1%BB%E5%87%86%E5%88%99%EF%BC%9A%E8%81%9A%E7%B1%BB%E5%A5%BD%E5%9D%8F%E5%88%A4%E6%96%AD%EF%BC%8C">#</a> 聚类准则：聚类好坏判断，</h2>
+<ul>
+<li>聚类（簇）内部⾼相似性</li>
+<li>聚类（簇）之间低相似性</li>
+</ul>
+<h2 id="%E5%BA%A6%E9%87%8F" tabindex="-1"><a class="header-anchor" href="#%E5%BA%A6%E9%87%8F">#</a> 度量</h2>
+<ul>
+<li>
+<p>距离度量：度量同类样本间的相似性和不同类样本间的差异性</p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+</li>
+</ul>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h2 id="%E4%B8%89%E7%B1%BB%E8%81%9A%E7%B1%BB%E6%96%B9%E6%B3%95" tabindex="-1"><a class="header-anchor" href="#%E4%B8%89%E7%B1%BB%E8%81%9A%E7%B1%BB%E6%96%B9%E6%B3%95">#</a> 三类聚类方法</h2>
+<ul>
+<li>基于试探的聚类搜索算法<img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></li>
+<li>系统聚类法：将数据样本按距离准则逐步分类，类别由多
+到少，直到获得合适的分类要求为止
+<ul>
+<li><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></li>
+<li>主要的距离计算准则:
+最短距离法 (两个集合所有距离最小值
+最长距离法 (两个集合所有距离最大值)
+类平均距离法 (两个集合所有距离平均值</li>
+</ul>
+</li>
+<li>动态聚类法： kmeans isodata算法 迭代自组织数据分析算法)</li>
+</ul>
+<h2 id="k-means" tabindex="-1"><a class="header-anchor" href="#k-means">#</a> <strong>k-means</strong></h2>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h2 id="%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87-1" tabindex="-1"><a class="header-anchor" href="#%E8%AF%84%E4%BB%B7%E6%8C%87%E6%A0%87-1">#</a> 评价指标</h2>
+<p>在实际应用中，需要试探不同的K值和选择不同的聚类中心的起始值。
+如果数据样本可以形成若干个相距较远的孤立的区域分布，一般都能得到较好的收敛效果。
+K-means算法比较适合于分类数目已知的情况。</p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h1 id="%E5%86%B3%E7%AD%96%E6%A0%91" tabindex="-1"><a class="header-anchor" href="#%E5%86%B3%E7%AD%96%E6%A0%91">#</a> 决策树</h1>
+<p><strong>监督学习</strong></p>
+<h2 id="%E6%A6%82%E5%BF%B5-1" tabindex="-1"><a class="header-anchor" href="#%E6%A6%82%E5%BF%B5-1">#</a> 概念</h2>
+<p>实例集合X: 上例中用六个属性表示</p>
+<p>目标概念c: 定义在实例集上的布尔函数 c:X-&gt;{0,1}</p>
+<p>训练样例:正例(c(x)=1)，反例(c(x)=0)</p>
+<p>假设集H:每个假设h表示X上定义的布尔函数h:X&gt;10,1</p>
+<p>搜索(泛化)的操作</p>
+<ul>
+<li>用逻辑变量替换常量</li>
+<li>合取表达式去掉部分条件</li>
+<li>对表达式增加析取项</li>
+<li>用属性的超类来替换属性</li>
+</ul>
+<p>变型空间Version Space ：假设空间H中所有假设的列表</p>
+<p>正例和反例的作用</p>
+<ul>
+<li>正例用于S泛化，搜索S集合</li>
+<li>反例用于G特化，缩小G集合</li>
+</ul>
+<h2 id="%E5%86%B3%E7%AD%96%E6%A0%91-1" tabindex="-1"><a class="header-anchor" href="#%E5%86%B3%E7%AD%96%E6%A0%91-1">#</a> 决策树</h2>
+<p>实例:“属性-值”对表示，应用最广的归纳推理算法之一</p>
+<p>目标函数具有离散的输出值</p>
+<p>很好的健壮性(样例可以包含错误，也可以处理缺少属性值的实例)</p>
+<p>能够学习析取表达式</p>
+<p><strong>决策树</strong>是一个预测模型；他代表的是对象属性与对象值之间的一种映射关系。树中每个节点表示某个对象，而每个分叉路径则代表某个可能的属性值，而每个叶节点则对应从根节点到该叶节点所经历的路径所表示的对象的值。决策树仅有单一输出，</p>
+<h3 id="%E6%9E%84%E9%80%A0" tabindex="-1"><a class="header-anchor" href="#%E6%9E%84%E9%80%A0">#</a> 构造</h3>
+<p><a href="https://blog.csdn.net/dang_wang/article/details/21646083">机器学习之决策树，ID3算法_用于学习布尔函数的id3算法-CSDN博客</a></p>
+<h4 id="%E9%97%AE%E9%A2%98%E8%AE%BE%E7%BD%AE" tabindex="-1"><a class="header-anchor" href="#%E9%97%AE%E9%A2%98%E8%AE%BE%E7%BD%AE">#</a> 问题设置</h4>
+<p>可能的实例集X
+未知的目标函数f:X&gt;Y
+假设函数集 H={h|h:X&gt;Y}</p>
+<h4 id="%E8%BE%93%E5%85%A5" tabindex="-1"><a class="header-anchor" href="#%E8%BE%93%E5%85%A5">#</a> 输入</h4>
+<p>未知目标函数f的训练实例{&lt;xi，yi&gt;}</p>
+<h4 id="%E8%BE%93%E5%87%BA" tabindex="-1"><a class="header-anchor" href="#%E8%BE%93%E5%87%BA">#</a> 输出</h4>
+<p>最佳近似f的假设h∈H</p>
+<h4 id="id3%E7%AE%97%E6%B3%95%EF%BC%9A%E7%94%A8%E4%BA%8E%E5%AD%A6%E4%B9%A0%E5%B8%83%E5%B0%94%E5%87%BD%E6%95%B0%E7%9A%84id3%E7%AE%97%E6%B3%95" tabindex="-1"><a class="header-anchor" href="#id3%E7%AE%97%E6%B3%95%EF%BC%9A%E7%94%A8%E4%BA%8E%E5%AD%A6%E4%B9%A0%E5%B8%83%E5%B0%94%E5%87%BD%E6%95%B0%E7%9A%84id3%E7%AE%97%E6%B3%95">#</a> ID3算法：用于学习布尔函数的ID3算法</h4>
+<ol>
+<li>创建树的Root结点</li>
+<li>如果所有Examples的目标属性均为“正”那么返回label=“+”的单结点树Root</li>
+<li>如果所有Examples的目标属性均为“反那么返回label=“_”的单结点树Root</li>
+<li>如果Attributes为“空”，那么返回单结点树Root，label设置为Examples中最普遍的目标属性值5.</li>
+<li>否则
+<ul>
+<li>A&lt;-Attributes中分类Examples能力最好的属性</li>
+<li>Root的决策属性&lt;- A</li>
+<li>对于A的每个可能值vi
+<ul>
+<li>令$Examples_vi$为Examples中满足A属性值为$V_i$的子集</li>
+<li><strong>特殊情况</strong>：如果$Examples_vi$为空
+<ul>
+<li>在这个分支下加一个叶子结点，结点的label设置为Examples中最普遍的目标属性值</li>
+</ul>
+</li>
+<li>否则，在这个分支下加一个子树ID3($Examples_vi$ ，Attributes-{A})</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>结束，返回树Root</li>
+</ol>
+<h3 id="%E4%BE%8B%E5%AD%90%F0%9F%91%8D" tabindex="-1"><a class="header-anchor" href="#%E4%BE%8B%E5%AD%90%F0%9F%91%8D">#</a> 例子👍</h3>
+<p>比如有类别A 类别B 类别C， 第一个属性是年龄第二个属性是工作，结果是是否可以贷款</p>
+<p>ID3要考虑的是选用年龄还是选用工作作为分类标准</p>
+<p>计算的方式就是通过信息增益率</p>
+<p><strong>信息增益率的算法就是说用总体的熵减去用一个标准分类后子树的熵的和，越大越好</strong></p>
+<p>熵的计算方式是假设一共八个人，三个人可以贷款，五个人不可以贷款</p>
+<p>那么就是$-3/8<em>log(3/8)±5/8</em>log(3/8)$</p>
+<p>那么我们现在假设年龄有两种一个是老年，一个是年轻</p>
+<p>我们就需要去看，老年里面有多少个可以贷款，有多少个不可以贷款。</p>
+<p>假设四个老人，2个可以贷款，2个不可以贷款</p>
+<p>计算方式就是$-1/2<em>log(1/2)±1/2</em>log(1/2)$，同理可知年轻人的就是$-1/4<em>log(1/4)±3/4</em>log(3/4)$</p>
+<p>我们认为上面一个h1,另外一个h2，总体的是h。那么计算信息增益就是$h-(1/2<em>h1+1/2</em>h2)$。然后再计算一个如果用工作作为衡量标准会怎么认为，比较一下大小就好了</p>
+<p>越大越好</p>
+<h3 id="%E6%9E%84%E9%80%A0%E6%97%B6%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%E8%8A%82%E7%82%B9%E5%92%8C%E6%9C%80%E4%BD%B3%E5%B1%9E%E6%80%A7" tabindex="-1"><a class="header-anchor" href="#%E6%9E%84%E9%80%A0%E6%97%B6%E5%A6%82%E4%BD%95%E9%80%89%E6%8B%A9%E8%8A%82%E7%82%B9%E5%92%8C%E6%9C%80%E4%BD%B3%E5%B1%9E%E6%80%A7">#</a> 构造时如何选择节点和最佳属性</h3>
+<ul>
+<li>
+<p>熵：刻画了样例集的纯度(purity)</p>
+<ul>
+<li><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></li>
+<li><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></li>
+<li><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></li>
+</ul>
+</li>
+<li>
+<p>信息增益：在划分数据集之前之后信息发生的变化，计算每个特征值划分数据集获得的信息增益，获得信息增益最高的特征就是最好的选择。</p>
+<p>定义属性A对数据集D的信息增益为infoGain(D|A)，它等于D本身的熵，减去 给定A的条件下D的条件熵，即：<img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+</li>
+<li>
+<ul>
+<li><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></li>
+</ul>
+</li>
+</ul>
+<h3 id="c4.5%EF%BC%9A%E4%BF%A1%E6%81%AF%E5%A2%9E%E7%9B%8A%E6%AF%94" tabindex="-1"><a class="header-anchor" href="#c4.5%EF%BC%9A%E4%BF%A1%E6%81%AF%E5%A2%9E%E7%9B%8A%E6%AF%94">#</a> C4.5：信息增益比</h3>
+<p>信息增益比: 信息增益/该属性的熵</p>
+<p>信息增益准则对可取值数目较多的属性有所偏好</p>
+<h3 id="cart%3A-gini%E6%8C%87%E6%95%B0" tabindex="-1"><a class="header-anchor" href="#cart%3A-gini%E6%8C%87%E6%95%B0">#</a> CART: Gini指数</h3>
+<p>Gini指数: 模型的纯度，越小越好，越小纯度越高</p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h1 id="%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0" tabindex="-1"><a class="header-anchor" href="#%E9%9B%86%E6%88%90%E5%AD%A6%E4%B9%A0">#</a> 集成学习</h1>
+<p>监督学习</p>
+<p>集成学习的原理，怎么不同的弱分类器结合成强分类器</p>
+<h2 id="%E7%89%B9%E7%82%B9(%E5%88%86%E7%B1%BB)" tabindex="-1"><a class="header-anchor" href="#%E7%89%B9%E7%82%B9(%E5%88%86%E7%B1%BB)">#</a> 特点(分类)</h2>
+<ul>
+<li>多个分类器集成在一起，以提高分类准确率</li>
+<li>由训练数据构建基分类器，然后根据预测结果进行投票</li>
+<li>集成学习本身不是一种分类器，而是分类器结合方法</li>
+<li>通常集成分类器性能会好于单个分类器</li>
+</ul>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h2 id="bias-variance-tradeoff" tabindex="-1"><a class="header-anchor" href="#bias-variance-tradeoff">#</a> Bias-Variance tradeoff</h2>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h2 id="%E7%BB%93%E5%90%88%E7%AD%96%E7%95%A5" tabindex="-1"><a class="header-anchor" href="#%E7%BB%93%E5%90%88%E7%AD%96%E7%95%A5">#</a> 结合策略</h2>
+<h3 id="%E5%B9%B3%E5%9D%87%E6%B3%95(%E5%9B%9E%E5%BD%92%E9%97%AE%E9%A2%98%EF%BC%89" tabindex="-1"><a class="header-anchor" href="#%E5%B9%B3%E5%9D%87%E6%B3%95(%E5%9B%9E%E5%BD%92%E9%97%AE%E9%A2%98%EF%BC%89">#</a> 平均法(回归问题）</h3>
+<ul>
+<li>简单平均</li>
+<li>加权平均</li>
+</ul>
+<h3 id="%E6%8A%95%E7%A5%A8%E6%B3%95(%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98%EF%BC%89" tabindex="-1"><a class="header-anchor" href="#%E6%8A%95%E7%A5%A8%E6%B3%95(%E5%88%86%E7%B1%BB%E9%97%AE%E9%A2%98%EF%BC%89">#</a> 投票法(分类问题）</h3>
+<ul>
+<li>绝对多数</li>
+<li>相对多数</li>
+<li>加权投票</li>
+</ul>
+<h2 id="bagging" tabindex="-1"><a class="header-anchor" href="#bagging">#</a> Bagging</h2>
+<p>有放回采样方法。统计上的目的是得到统计量分布以及置信区间</p>
+<p>并行式集成学习，降低分类器方差，改善泛化</p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h3 id="%E4%BB%A3%E8%A1%A8%E6%80%A7%E7%AE%97%E6%B3%95%3A%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97" tabindex="-1"><a class="header-anchor" href="#%E4%BB%A3%E8%A1%A8%E6%80%A7%E7%AE%97%E6%B3%95%3A%E9%9A%8F%E6%9C%BA%E6%A3%AE%E6%9E%97">#</a> 代表性算法:随机森林</h3>
+<ul>
+<li>用N来表示训练用例 (本) 的个数，M表示特征数目;</li>
+<li>输入特征数目m，用于确定决策树上一个结点的决策结果;其中m应远小于M。</li>
+<li>从N个训练用例(样本)中以<strong>有放回抽样</strong>的方式，取样N次，形成一个训练集(即bagging取样)，并用未抽到的用例(样本)作预测，评估其误差</li>
+<li>对于每一个结点，<strong>随机选择m个特征</strong>(通常为M的均方根logz M)，根据这m个特征，计算其最佳的分裂方式。</li>
+<li>每棵树都会完整成长而不会剪枝，这有可能在建完一棵正常树状分类器后会被采用。</li>
+<li>以上过程做充分多次，以产生足够多的随机树</li>
+</ul>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h2 id="boosting" tabindex="-1"><a class="header-anchor" href="#boosting">#</a> Boosting</h2>
+<ul>
+<li>强可学习 (strongly learnable) :在PAC框架中，一个概念 (类)，如果存在一个多项式的学习算法能够学习它，并且正确率很高，那么就称这个概念是强可学习的:</li>
+<li>弱可学习 (weakly learnable) :在PAC框架中，一个概念 (类) ，如果存在一个多项式的学习算法能够学习它，学习的正确率仅比随机猜测略好，那么就称这个概念是弱可学习的</li>
+</ul>
+<p>PAC学习理论(Kearns&amp;Valiant,1984)</p>
+<ul>
+<li>强学习器与弱学习器是等价的(Robert E.Schapire,1990)</li>
+<li>一个概念是强可学习的充分必要条件是这个概念是弱可学习的</li>
+<li>可通过提升方法(Boosting)将弱学习器转为强学习器</li>
+</ul>
+<h3 id="%E4%BB%A3%E8%A1%A8%E6%80%A7%E7%AE%97%E6%B3%95%3A-adaptive-boost" tabindex="-1"><a class="header-anchor" href="#%E4%BB%A3%E8%A1%A8%E6%80%A7%E7%AE%97%E6%B3%95%3A-adaptive-boost">#</a> 代表性算法: Adaptive Boost</h3>
+<p>思想: 从弱学习算法出发，通过改变训练数据的概率分布 (权值
+分布)，反复学习，得到一系列弱分类器，然后进行组合，构成
+一个强分类器。</p>
+<h2 id="boosting%E6%8F%90%E5%8D%87%E6%A0%91" tabindex="-1"><a class="header-anchor" href="#boosting%E6%8F%90%E5%8D%87%E6%A0%91">#</a> Boosting提升树</h2>
+<p><a href="https://zhuanlan.zhihu.com/p/84139957">深入理解提升树（Boosting tree）算法 - 知乎 (zhihu.com)</a>直接看计算</p>
+<h1 id="%E6%A6%82%E7%8E%87%E5%AD%A6%E4%B9%A0" tabindex="-1"><a class="header-anchor" href="#%E6%A6%82%E7%8E%87%E5%AD%A6%E4%B9%A0">#</a> 概率学习</h1>
+<ul>
+<li>高斯混合模型</li>
+<li>基本概念
+<ul>
+<li>带约束的数学优化问题</li>
+<li>不带约束的最小二乘优化问题</li>
+</ul>
+</li>
+</ul>
+<p>最大似然估计，期望最大化
+理论推导不要求</p>
+<h1 id="svm" tabindex="-1"><a class="header-anchor" href="#svm">#</a> SVM</h1>
+<p>监督学习</p>
+<p>支持向量机support vector machine</p>
+<p>传统机器学习里最代表性的算法
+不会考推导</p>
+<p>除了二分类、线性，非线性也需要了解</p>
+<h2 id="%E4%BA%8C%E5%88%86%E7%B1%BB" tabindex="-1"><a class="header-anchor" href="#%E4%BA%8C%E5%88%86%E7%B1%BB">#</a> 二分类</h2>
+<p>二分类问题可以看作是在特征空间上对类别进行划分的任务</p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p>正中间的: 鲁棒性最好，泛化能力最强</p>
+<h3 id="%E9%97%B4%E9%9A%94%E4%B8%8E%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F" tabindex="-1"><a class="header-anchor" href="#%E9%97%B4%E9%9A%94%E4%B8%8E%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F">#</a> 间隔与支持向量</h3>
+<ul>
+<li>一个点(样例)对应的<code>“间隔”margin</code>是其到分界<strong>超平面</strong>的<strong>垂直距离</strong></li>
+<li>SVM最大化(所有训练本的) 最小间隔margin</li>
+<li><img src="https://chillcharlie-img.oss-cn-hangzhou.aliyuncs.com/image%2F2023%2F10%2F31%2Fc8b73d3ef4d015deee061644405f9d3c_20231031191039.png" alt="" class="" loading="lazy"></li>
+<li><strong>具有最小间隔的点称为支持向量(support vectors)</strong>
+<ul>
+<li>所以叫支持向量机support vector machine</li>
+</ul>
+</li>
+</ul>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<ul>
+<li>如何分类
+<ul>
+<li>$f(x)&gt;0$分为正类,$f(x)&lt;0$分为负类</li>
+</ul>
+</li>
+<li>对于任何一个样例,如何判断预测对错? ($y_i=-1,1$)
+<ul>
+<li>$y_if(x_i)&gt;0$分类正确,$y_if(x_i)&lt;0$分类错误</li>
+<li>如果<strong>我们假设能完全分开</strong>,并且$|y_i|=1$,那么$y_if(x_i)=|f(x_i)|$</li>
+</ul>
+</li>
+</ul>
+<h3 id="%E6%80%BB%E7%BB%93" tabindex="-1"><a class="header-anchor" href="#%E6%80%BB%E7%BB%93">#</a> 总结</h3>
+<ul>
+<li>分类器是一个分离超平面（separating hyperplane）</li>
+<li>最重要的训练样本是“支持向量”，它们定义了超平面，而其他训练样本被忽略了。二次优化算法可以识别哪些样本是具有非零朗格朗日乘子a;的支持向量</li>
+<li>对偶问题中，训练样本只以内积形式出现</li>
+</ul>
+<h2 id="%E9%9D%9E%E7%BA%BF%E6%80%A7%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA" tabindex="-1"><a class="header-anchor" href="#%E9%9D%9E%E7%BA%BF%E6%80%A7%E6%94%AF%E6%8C%81%E5%90%91%E9%87%8F%E6%9C%BA">#</a> 非线性支持向量机</h2>
+<p>把数据映射到高纬空间里</p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><strong>矩阵 K 是对称半正定的，满足Mercer定理，所以这个函数是核函数</strong></p>
+<p><strong>根据Mercer定理，任何半正定的函数都可以作为核函数。</strong></p>
+<p><a href="https://zhuanlan.zhihu.com/p/30009055">机器学习笔记029 | 核函数 - 知乎 (zhihu.com)</a></p>
+<h1 id="%E7%A5%9E%E7%BB%8F%E5%85%83" tabindex="-1"><a class="header-anchor" href="#%E7%A5%9E%E7%BB%8F%E5%85%83">#</a> 神经元</h1>
+<h2 id="mp%E7%A5%9E%E7%BB%8F%E5%85%83%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84" tabindex="-1"><a class="header-anchor" href="#mp%E7%A5%9E%E7%BB%8F%E5%85%83%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84">#</a> MP神经元基本结构</h2>
+<ul>
+<li>输入X = [x1,X2, x3, …]</li>
+<li>权值W =[W1, W2, W3,…]</li>
+<li>激活函数f(net) = f(Σ(wi * xi))</li>
+<li>偏置单元 (bias unit) x0，其对应权值为wo</li>
+</ul>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<ul>
+<li>一组输入加权w;相当于突触</li>
+<li>一个加法器把输入信号相加(与收集电荷的细胞膜等价)</li>
+<li>一个激活函数(最初是一个闻值函数) 决定细胞对于当前的输入是否激活 (“放电”)</li>
+</ul>
+<h2 id="%E6%84%9F%E7%9F%A5%E6%9C%BA" tabindex="-1"><a class="header-anchor" href="#%E6%84%9F%E7%9F%A5%E6%9C%BA">#</a> 感知机</h2>
+<p>最简单形式的前馈式人工神经网络，一种二元线性分类器，使用特征向量作为输入，把矩阵上的输入x(实数值向量) 映射到输出值f(x)上(一个二元的值)</p>
+<h3 id="%E7%BB%93%E6%9E%84" tabindex="-1"><a class="header-anchor" href="#%E7%BB%93%E6%9E%84">#</a> 结构</h3>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h3 id="%E6%84%9F%E7%9F%A5%E6%9C%BA%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95" tabindex="-1"><a class="header-anchor" href="#%E6%84%9F%E7%9F%A5%E6%9C%BA%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%AE%97%E6%B3%95">#</a> 感知机的学习算法</h3>
+<ol>
+<li>权值初始化</li>
+<li>输入样本对</li>
+<li>计算输出</li>
+<li>根据感知机学习规则调整权重</li>
+<li>返回步骤2，输入下一对样本，直至对所有样本的实
+际输出与期望输出相等</li>
+</ol>
+<h4 id="%E8%B0%83%E6%95%B4%E6%9D%83%E9%87%8D%E7%9A%84%E7%AE%97%E6%B3%95" tabindex="-1"><a class="header-anchor" href="#%E8%B0%83%E6%95%B4%E6%9D%83%E9%87%8D%E7%9A%84%E7%AE%97%E6%B3%95">#</a> 调整权重的算法</h4>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h4 id="%E8%AE%A1%E7%AE%97%E5%AE%9E%E4%BE%8B" tabindex="-1"><a class="header-anchor" href="#%E8%AE%A1%E7%AE%97%E5%AE%9E%E4%BE%8B">#</a> 计算实例</h4>
+<p>xo是偏置单元，通常取1</p>
+<p><strong>大$X_i$代表的是$[x_0, x_1, x_2]$</strong></p>
+<p><strong>大$W_i$代表的是$[w_0, w_1, w_2]$</strong></p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h3 id="%E4%B8%8D%E8%B6%B3" tabindex="-1"><a class="header-anchor" href="#%E4%B8%8D%E8%B6%B3">#</a> 不足</h3>
+<p>感知机学习一定可以收敛吗?</p>
+<ul>
+<li>前提是训练样例必须是线性可分的! !</li>
+</ul>
+<p>如果训练样例不是线性可分的，怎么办?</p>
+<ul>
+<li>只能去找一个学习方法，去收敛到目标概念的最佳近似</li>
+</ul>
+<p>感知机学习方法只适用在单层网络!</p>
+<h1 id="%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C" tabindex="-1"><a class="header-anchor" href="#%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C">#</a> 神经网络</h1>
+<p>神经网络需要深入掌握</p>
+<p>输入，隐藏层，输出层</p>
+<p><strong>前向，反向传播计算</strong></p>
+<h2 id="%E8%AF%AF%E5%B7%AE%E7%9A%84%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD" tabindex="-1"><a class="header-anchor" href="#%E8%AF%AF%E5%B7%AE%E7%9A%84%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD">#</a> 误差的反向传播</h2>
+<h3 id="%E8%AF%AF%E5%B7%AE%E5%AE%9A%E4%B9%89" tabindex="-1"><a class="header-anchor" href="#%E8%AF%AF%E5%B7%AE%E5%AE%9A%E4%B9%89">#</a> 误差定义</h3>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h3 id="delta%E8%A7%84%E5%88%99" tabindex="-1"><a class="header-anchor" href="#delta%E8%A7%84%E5%88%99">#</a> delta规则</h3>
+<p>学习常数c对delta规则的性能有很重要的影响，c决定了在一
+步学习过程中权值变化的快慢</p>
+<ul>
+<li>c越大，权值朝最优值移动的速度越快。</li>
+<li>然而，c过大会越过最优值或在最优值附近震荡</li>
+</ul>
+<h3 id="%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD%E7%AE%97%E6%B3%95" tabindex="-1"><a class="header-anchor" href="#%E5%8F%8D%E5%90%91%E4%BC%A0%E6%92%AD%E7%AE%97%E6%B3%95">#</a> 反向传播算法</h3>
+<ul>
+<li>前向阶段: 网络突触的权值固定，输入信号在网络中正向一层一层传播，直到到达输出端，获得网络的输出</li>
+<li>反向阶段: 通过比较网络的输出与期望输出，产生一个误差信号。误差信号通过网络反向一层一层传播，在传播过程中对网络突触的权值进行修正</li>
+</ul>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h2 id="bp%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C" tabindex="-1"><a class="header-anchor" href="#bp%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C">#</a> BP神经网络</h2>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h2 id="%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0" tabindex="-1"><a class="header-anchor" href="#%E6%BF%80%E6%B4%BB%E5%87%BD%E6%95%B0">#</a> 激活函数</h2>
+<h3 id="relu" tabindex="-1"><a class="header-anchor" href="#relu">#</a> ReLU</h3>
+<p><a href="https://blog.csdn.net/weixin_41929524/article/details/112253138">深入理解ReLU函数（ReLU函数的可解释性）-CSDN博客</a></p>
+<p><img src="https://img-blog.csdnimg.cn/20210106110219329.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3dlaXhpbl80MTkyOTUyNA==,size_16,color_FFFFFF,t_70#pic_center" alt="" class="" loading="lazy"></p>
+<h3 id="sigmoid" tabindex="-1"><a class="header-anchor" href="#sigmoid">#</a> Sigmoid</h3>
+<p>Sigmoid函数是一个在生物学中常见的S型函数，也称为S型生长曲线。在深度学习中，由于其单增以及反函数单增等性质，Sigmoid函数常被用作神经网络的激活函数，将变量映射到[ 0 , 1 ]之间。
+<img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p>Sigmoid函数的导数可以用其自身表示：
+<img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p>Sigmoid函数的特性与优缺点：</p>
+<p>Sigmoid函数的输出范围是0到1。由于输出值限定在0到1，因此它对<strong>每个神经元的输出进行了归一化。</strong></p>
+<p>用于将预测概率作为输出的模型。由于概率的取值范围是0到1，因此Sigmoid函数非常合适</p>
+<p><strong>梯度平滑</strong>，避免跳跃的输出值</p>
+<p><strong>函数是可微</strong>的。这意味着可以找到任意两个点的Sigmoid曲线的斜率</p>
+<p><strong>明确的预测，即非常接近1或0。</strong></p>
+<p>函数输出不是以0为中心的，这会降低权重更新的效率</p>
+<p>Sigmoid函数执行指数运算，计算机运行得较慢。</p>
+<p>Sigmoid函数及其导数的图像：</p>
+<p><img src="https://img-blog.csdnimg.cn/9e015fa8100a4bcf9c92b58e4d7ec21c.png?x-oss-process=image/watermark,type_ZHJvaWRzYW5zZmFsbGJhY2s,shadow_50,text_Q1NETiBAdm9uICBOZXVtYW5u,size_20,color_FFFFFF,t_70,g_se,x_16" alt="" class="" loading="lazy"></p>
+<p>原文链接：<a href="https://blog.csdn.net/hy592070616/article/details/120617176">https://blog.csdn.net/hy592070616/article/details/120617176</a></p>
+<h2 id="%E8%AE%A1%E7%AE%97%E5%AE%9E%E4%BE%8B-1" tabindex="-1"><a class="header-anchor" href="#%E8%AE%A1%E7%AE%97%E5%AE%9E%E4%BE%8B-1">#</a> 计算实例</h2>
+<p>==<a href="https://zhuanlan.zhihu.com/p/40378224">Back Propagation（梯度反向传播）实例讲解 - 知乎 (zhihu.com)</a>==</p>
+<p>==这篇文章讲的很清楚==</p>
+<h1 id="%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C" tabindex="-1"><a class="header-anchor" href="#%E5%8D%B7%E7%A7%AF%E7%A5%9E%E7%BB%8F%E7%BD%91%E7%BB%9C">#</a> 卷积神经网络</h1>
+<p><a href="https://zhuanlan.zhihu.com/p/156926543">机器学习算法之——卷积神经网络(CNN)原理讲解 - 知乎 (zhihu.com)</a></p>
+<p>Convolutional Neural Networks</p>
+<p>近现代的<strong>卷积</strong></p>
+<p>核心概念，关键模块</p>
+<p>一个卷积神经网络主要由以下5层组成：</p>
+<ul>
+<li>数据输入层/ Input layer</li>
+<li>卷积计算层/ CONV layer</li>
+<li>ReLU激励层 / ReLU layer</li>
+<li>池化层 / Pooling layer</li>
+<li>全连接层 / FC layer</li>
+</ul>
+<h2 id="%E5%8D%B7%E7%A7%AFconvolution" tabindex="-1"><a class="header-anchor" href="#%E5%8D%B7%E7%A7%AFconvolution">#</a> 卷积Convolution</h2>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h2 id="%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86" tabindex="-1"><a class="header-anchor" href="#%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86">#</a> 数据预处理</h2>
+<p>该层要做的处理主要是对原始图像数据进行预处理，其中包括：</p>
+<ul>
+<li><strong>去均值</strong>：把输入数据各个维度都中心化为0，如下图所示，其目的就是把样本的中心拉回到坐标系原点上。</li>
+<li><strong>归一化</strong>：幅度归一化到同样的范围，如下所示，即减少各维度数据取值范围的差异而带来的干扰，比如，我们有两个维度的特征A和B，A范围是0到10，而B范围是0到10000，如果直接使用这两个特征是有问题的，好的做法就是归一化，即A和B的数据都变为0到1的范围。</li>
+<li><strong>PCA/白化</strong>：用PCA降维；白化是对数据各个特征轴上的幅度归一化</li>
+</ul>
+<p>去均值与归一化效果图：</p>
+<p><img src="https://pic1.zhimg.com/80/v2-4c3b00f07cce0c7dccf2e4ba5e167e30_720w.webp" alt="" class="" loading="lazy"></p>
+<p>去相关与白化效果图：</p>
+<p><img src="https://pic2.zhimg.com/80/v2-229a2c9828a26d594dc854b659cfc8a5_720w.webp" alt="" class="" loading="lazy"></p>
+<h2 id="%E5%8D%B7%E7%A7%AF%E5%B1%82" tabindex="-1"><a class="header-anchor" href="#%E5%8D%B7%E7%A7%AF%E5%B1%82">#</a> 卷积层</h2>
+<p>有两个关键操作：</p>
+<ul>
+<li><strong>局部关联</strong>。每个神经元看做一个<strong>滤波器(filter)</strong></li>
+<li><strong>窗口(receptive field)滑动</strong>， filter对局部数据计算</li>
+</ul>
+<p>先介绍卷积层遇到的几个名词：</p>
+<ul>
+<li><strong>深度/depth</strong>（解释见下图）</li>
+<li><strong>步幅/stride</strong> （窗口一次滑动的长度）</li>
+<li><strong>填充值/zero-padding</strong></li>
+</ul>
+<h3 id="%E6%AD%A5%E5%B9%85" tabindex="-1"><a class="header-anchor" href="#%E6%AD%A5%E5%B9%85">#</a> 步幅</h3>
+<p><img src="https://pic3.zhimg.com/80/v2-821048bfaee14d8c03cc5044e04fe336_720w.webp" alt="" class="" loading="lazy"></p>
+<p>步幅控制着过滤器围绕输入内容进行卷积计算的方式。在第一部分我们举的例子中，过滤器通过每次移动一个单元的方式对输入内容进行卷积。过滤器移动的距离就是步幅。</p>
+<p>让我们看一个例子。想象一个 7 x 7 的输入图像，一个 3 x 3 过滤器（简单起见不考虑第三个维度），步幅为 1。这是一种惯常的情况。</p>
+<p><img src="https://pic4.zhimg.com/80/v2-485011463ab17396223ce79ceba0030f_720w.webp" alt="" class="" loading="lazy"></p>
+<p>如果步幅增加到 2，输出内容会怎么样。</p>
+<p><img src="https://pic4.zhimg.com/80/v2-6b81b4032ecb28ece404e344c173481b_720w.webp" alt="" class="" loading="lazy"></p>
+<p>正常情况下，程序员如果想让接受域重叠得更少并且想要更小的空间维度（spatial dimensions）时，他们会增加步幅。</p>
+<h3 id="%E5%A1%AB%E5%85%85%E5%80%BC" tabindex="-1"><a class="header-anchor" href="#%E5%A1%AB%E5%85%85%E5%80%BC">#</a> 填充值</h3>
+<p>当你把 5 x 5 x 3 的过滤器用在 32 x 32 x 3 的输入上时，会发生什么？输出的大小会是 28 x 28 x 3。</p>
+<p>注意，这里空间维度减小了。</p>
+<p>如果我们继续用卷积层，尺寸减小的速度就会超过我们的期望。在网络的早期层中，我们想要尽可能多地保留原始输入内容的信息，这样我们就能提取出那些低层的特征。</p>
+<p>比如说我们想要应用同样的卷积层，但又想让输出量维持为 32 x 32 x 3 。为做到这点，我们可以对这个层应用大小为 2 的零填充（zero padding）。零填充在输入内容的边界周围补充零。如果我们用两个零填充，就会得到一个 36 x 36 x 3 的输入卷。</p>
+<p><img src="https://pic1.zhimg.com/80/v2-08fc41b67409cb6c61ecb6af72bcea30_720w.webp" alt="" class="" loading="lazy"></p>
+<p>如果你的步幅为 1，而且把零填充设置为</p>
+<p><img src="https://pic3.zhimg.com/80/v2-96a40f41090b4bb5e7ebbf0a0e186d9a_720w.webp" alt="" class="" loading="lazy"></p>
+<p>K 是过滤器尺寸，那么输入和输出内容就总能保持一致的空间维度。</p>
+<h3 id="%E5%8D%B7%E7%A7%AF%E7%9A%84%E8%AE%A1%E7%AE%97" tabindex="-1"><a class="header-anchor" href="#%E5%8D%B7%E7%A7%AF%E7%9A%84%E8%AE%A1%E7%AE%97">#</a> 卷积的计算</h3>
+<p>注意，下面蓝色矩阵周围有一圈灰色的框，那些就是上面所说到的填充值）</p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p>这里的蓝色矩阵就是输入的图像，粉色矩阵就是卷积层的神经元，这里表示了有两个神经元（w0,w1）。绿色矩阵就是经过卷积运算后的输出矩阵，这里的步长设置为2。</p>
+<p><img src="https://pic1.zhimg.com/80/v2-af58e27acdf63325dda676ac5fc03b3c_720w.webp" alt="" class="" loading="lazy"></p>
+<h1 id="%E6%BC%94%E5%8C%96%E5%AD%A6%E4%B9%A0" tabindex="-1"><a class="header-anchor" href="#%E6%BC%94%E5%8C%96%E5%AD%A6%E4%B9%A0">#</a> 演化学习</h1>
+<h2 id="%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95(genetic-algorithms)" tabindex="-1"><a class="header-anchor" href="#%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95(genetic-algorithms)">#</a> 遗传算法(genetic algorithms)</h2>
+<h3 id="%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95ga" tabindex="-1"><a class="header-anchor" href="#%E9%81%97%E4%BC%A0%E7%AE%97%E6%B3%95ga">#</a> 遗传算法GA</h3>
+<p>受生物进化启发的学习算法</p>
+<p>假设搜索:一般假设模型到特殊假设模型? 简单假设模型到复杂假设模型?</p>
+<p><strong>通过对当前最好的假设模型重组来产生后续假设模型</strong></p>
+<p>生成并测试(generate-and-test)的柱状搜索(beam-search)</p>
+<p>假设的各个部分相互作用，每一部分对总体的影响难以建模</p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h3 id="%E7%A7%8D%E7%BE%A4" tabindex="-1"><a class="header-anchor" href="#%E7%A7%8D%E7%BE%A4">#</a> 种群</h3>
+<p>一组染色体及其所计算的适应度</p>
+<p>GA工作在每一代的种群上。第0代种群中的染色体随机生成</p>
+<h3 id="%E4%BA%A7%E7%94%9F%E5%90%8E%E4%BB%A3%3A%E9%80%89%E6%8B%A9%E7%88%B6%E6%AF%8D" tabindex="-1"><a class="header-anchor" href="#%E4%BA%A7%E7%94%9F%E5%90%8E%E4%BB%A3%3A%E9%80%89%E6%8B%A9%E7%88%B6%E6%AF%8D">#</a> 产生后代:选择父母</h3>
+<h4 id="%E5%9F%BA%E4%BA%8E%E9%80%82%E5%BA%94%E5%BA%A6%E5%87%BD%E6%95%B0%E7%9A%84%E9%80%89%E6%8B%A9" tabindex="-1"><a class="header-anchor" href="#%E5%9F%BA%E4%BA%8E%E9%80%82%E5%BA%94%E5%BA%A6%E5%87%BD%E6%95%B0%E7%9A%84%E9%80%89%E6%8B%A9">#</a> 基于适应度函数的选择</h4>
+<ul>
+<li>锦标赛选择 (tournament selection)
+<ul>
+<li>每次从种群中取出一定(N数量个体(放回抽样)，然后选择其中最好的一个(M)进入子代种群</li>
+<li>重复该操作，直到新的种群规模达到原来的种群规模</li>
+</ul>
+</li>
+<li>截断选择(Truncation selection
+<ul>
+<li>根据适应度排序,前f个染色体进入下一代种群</li>
+<li>对染色体进行复制，填充至种群规模达到原来的种群规模</li>
+</ul>
+</li>
+<li>选择的作用:优胜劣汰，适者生存</li>
+</ul>
+<h3 id="%E9%81%97%E4%BC%A0%E7%AE%97%E5%AD%90(ga-operator)" tabindex="-1"><a class="header-anchor" href="#%E9%81%97%E4%BC%A0%E7%AE%97%E5%AD%90(ga-operator)">#</a> 遗传算子(GA operator)</h3>
+<p>对从当前群体中选择的染色体进行重组，以产生后代</p>
+<h4 id="%E4%BA%A4%E5%8F%89(crossover)" tabindex="-1"><a class="header-anchor" href="#%E4%BA%A4%E5%8F%89(crossover)">#</a> 交叉(Crossover)</h4>
+<p>选择两个候选个体，分解每一个个体，然后交换分量形成
+两个新的候选个体</p>
+<ul>
+<li>单点交叉</li>
+<li>两点交叉</li>
+<li>均匀交叉</li>
+</ul>
+<h4 id="%E5%8F%98%E5%BC%82(mutation)" tabindex="-1"><a class="header-anchor" href="#%E5%8F%98%E5%BC%82(mutation)">#</a> 变异(Mutation)</h4>
+<p>选择一个候选个体，随机的选择一位，然后取反</p>
+<p>常以小概率<strong>p ~ 1/L(L是染色体长度)</strong> 发生变异</p>
+<h3 id="%E6%BC%94%E5%8C%96" tabindex="-1"><a class="header-anchor" href="#%E6%BC%94%E5%8C%96">#</a> 演化</h3>
+<h4 id="%E7%AE%80%E6%98%93%E6%96%B9%E6%A1%88" tabindex="-1"><a class="header-anchor" href="#%E7%AE%80%E6%98%93%E6%96%B9%E6%A1%88">#</a> 简易方案</h4>
+<p>后代染色体直接替代父代染色体(与自然吻合)</p>
+<p>易丢失优秀解</p>
+<h4 id="%E7%B2%BE%E8%8B%B1%E6%B3%95(elitism)" tabindex="-1"><a class="header-anchor" href="#%E7%B2%BE%E8%8B%B1%E6%B3%95(elitism)">#</a> 精英法(Elitism)</h4>
+<p>每一代保留上一代最优的染色体，丢弃掉最差个体
+往往与选择算子混用</p>
+<h4 id="%E9%94%A6%E6%A0%87%E8%B5%9B%E6%B3%95(tournaments)" tabindex="-1"><a class="header-anchor" href="#%E9%94%A6%E6%A0%87%E8%B5%9B%E6%B3%95(tournaments)">#</a> 锦标赛法(Tournaments)</h4>
+<p>让父母染色体与后代染色体参与竞争，胜者放入下一代种群</p>
+<h4 id="%E5%B0%8F%E7%94%9F%E5%A2%83%E6%B3%95(niching%EF%BC%89" tabindex="-1"><a class="header-anchor" href="#%E5%B0%8F%E7%94%9F%E5%A2%83%E6%B3%95(niching%EF%BC%89">#</a> 小生境法(Niching）</h4>
+<p>小生境的作用</p>
+<p>门当户对，并行演化</p>
+<ul>
+<li>将每一代个体划分为若干类</li>
+<li>每个类中选出若干适应度较大的个体作为一个类的优秀代表组成一个群</li>
+<li>再在种群中，以及不同种群中之间，杂交，变异产生新一代个体群</li>
+</ul>
+<h5 id="%E5%B0%8F%E7%94%9F%E5%A2%83%E4%B8%AD%E7%9A%84%E9%80%89%E6%8B%A9%E6%9C%BA%E5%88%B6" tabindex="-1"><a class="header-anchor" href="#%E5%B0%8F%E7%94%9F%E5%A2%83%E4%B8%AD%E7%9A%84%E9%80%89%E6%8B%A9%E6%9C%BA%E5%88%B6">#</a> 小生境中的选择机制</h5>
+<ul>
+<li>预选择机制:只用高适应度子代替换父代</li>
+<li>排挤机制:预定义原型。所产生的子代要保持和原型的模式不一致，模式相似的个体被替换</li>
+<li>共享机制:计算适应度和模式的关联关系，然后共享这种模式</li>
+</ul>
+<h1 id="%E7%BB%B4%E5%BA%A6%E7%BA%A6%E7%AE%80-%E9%99%8D%E7%BB%B4%E7%AE%97%E6%B3%95" tabindex="-1"><a class="header-anchor" href="#%E7%BB%B4%E5%BA%A6%E7%BA%A6%E7%AE%80-%E9%99%8D%E7%BB%B4%E7%AE%97%E6%B3%95">#</a> 维度约简 降维算法</h1>
+<h2 id="%E7%BA%BF%E6%80%A7%E5%88%A4%E5%88%AB%E5%88%86%E6%9E%90-lda" tabindex="-1"><a class="header-anchor" href="#%E7%BA%BF%E6%80%A7%E5%88%A4%E5%88%AB%E5%88%86%E6%9E%90-lda">#</a> 线性判别分析 LDA</h2>
+<p>有监督的特征降维方法:Linear Discriminant Analysis</p>
+<p>给定标注了类别的高维数据集，投影到低维的超平面，使得样本点的按类别尽最大可能区分开</p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p>类别内的点距离越近越好,类别间的点越远越好</p>
+<h3 id="%E7%AE%97%E6%B3%95%E6%B5%81%E7%A8%8B-1" tabindex="-1"><a class="header-anchor" href="#%E7%AE%97%E6%B3%95%E6%B5%81%E7%A8%8B-1">#</a> 算法流程</h3>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h3 id="%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90-pca" tabindex="-1"><a class="header-anchor" href="#%E4%B8%BB%E6%88%90%E5%88%86%E5%88%86%E6%9E%90-pca">#</a> 主成分分析 PCA</h3>
+<p>无监督的特征降维方法:Principal Components Analysis</p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h3 id="%E7%8B%AC%E7%AB%8B%E6%88%90%E5%88%86%E5%88%86%E6%9E%90-ica" tabindex="-1"><a class="header-anchor" href="#%E7%8B%AC%E7%AB%8B%E6%88%90%E5%88%86%E5%88%86%E6%9E%90-ica">#</a> 独立成分分析 ICA</h3>
+<h1 id="%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0" tabindex="-1"><a class="header-anchor" href="#%E5%BC%BA%E5%8C%96%E5%AD%A6%E4%B9%A0">#</a> 强化学习</h1>
+<p>一定会出现</p>
+<p><strong>MDP</strong>
+动态规划</p>
+<p>探索
+值函数、奖赏、测略</p>
+<p>基于模型，不基于模型</p>
+<p>Morte Carle方法
+时间差分</p>
+<p>Bootsraps
+Sampling</p>
+<p>Q-learning
+TD</p>
+<p>epsiode的概念</p>
+<h2 id="mdp%E6%A8%A1%E5%9E%8B" tabindex="-1"><a class="header-anchor" href="#mdp%E6%A8%A1%E5%9E%8B">#</a> MDP模型</h2>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h3 id="mdp%E6%A8%A1%E5%9E%8B-%E5%8A%A8%E4%BD%9C%E9%80%89%E6%8B%A9" tabindex="-1"><a class="header-anchor" href="#mdp%E6%A8%A1%E5%9E%8B-%E5%8A%A8%E4%BD%9C%E9%80%89%E6%8B%A9">#</a> MDP模型-动作选择</h3>
+<p>目标：最大化期望奖赏(单状态下)</p>
+<p>策略 单状态学习问题 状态到动作的映射(: S&gt;A)</p>
+<p>给定模型:采用贪心动作 Greedy action)</p>
+<p>通常返回函数是即时奖赏值的线性组合</p>
+<h2 id="%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92" tabindex="-1"><a class="header-anchor" href="#%E5%8A%A8%E6%80%81%E8%A7%84%E5%88%92">#</a> 动态规划</h2>
+<p>给定一个完全已知的MDP模型</p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p>V(s) = r + η * (ΣΠV(s’))</p>
+<p>跳到他们身上的概率*他们的V</p>
+<p>你都列出来以后，解这个矩阵就可以了</p>
+<p>你所有的V都算出来了 要求一个最优控制 那你只需要把Q都求出来就可以了</p>
+<p>然后做决策时候选择Q最大的就好了</p>
+
+      </div>
+
+      <footer class="post-footer">
+        <div class="post-nav">
+          <a href="/" class="post-nav-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            返回首页
+          </a>
+        </div>
+      </footer>
+    </article>
+  </main>
+</div>
+
+
+  <footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <span class="footer-logo">AI Blog</span>
+        <p class="footer-desc">一个由AI驱动的个人博客</p>
+        <div class="footer-social">
+          
+            <a href="https://github.com/yourname" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+          
+          
+            <a href="https://twitter.com/yourname" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          
+          
+            <a href="mailto:your@email.com" class="social-link" aria-label="Email">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </a>
+          
+          
+            <a href="/feed.xml" class="social-link" aria-label="RSS">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20C5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1z"/></svg>
+            </a>
+          
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">导航</h4>
+        <ul class="footer-links">
+          
+            <li><a href="/">首页</a></li>
+          
+            <li><a href="/archive/">归档</a></li>
+          
+            <li><a href="/tags/">标签</a></li>
+          
+            <li><a href="/categories/">分类</a></li>
+          
+          <li><a href="/archive/">归档</a></li>
+          <li><a href="/tags/">标签</a></li>
+          <li><a href="/categories/">分类</a></li>
+        </ul>
+      </div>
+
+      
+      <div class="footer-col">
+        <h4 class="footer-heading">友链</h4>
+        <ul class="footer-links">
+          
+            <li><a href="https://example.com" target="_blank" rel="noopener noreferrer">示例友链</a></li>
+          
+        </ul>
+      </div>
+      
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 AI Blog</p>
+      
+    </div>
+  </div>
+</footer>
+
+
+  <button class="back-to-top" aria-label="返回顶部">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+  </button>
+
+  <script src="/assets/js/main.js" defer></script>
+</body>
+</html>

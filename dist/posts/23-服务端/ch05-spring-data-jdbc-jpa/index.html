@@ -1,0 +1,1508 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="一个由AI驱动的个人博客">
+  <title>服务端-ch05-Spring Data JDBC、JPA - AI Blog</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Noto+Serif+SC:wght@400;500;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/css/style.css">
+  
+  <link rel="stylesheet" href="/assets/css/highlight.css">
+  
+
+  
+  <style>:root {
+  --font-display: 'Playfair Display', 'Noto Serif SC', Georgia, 'Times New Roman', serif;
+  --font-body: 'Public Sans', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'Fira Code', 'Cascadia Code', 'JetBrains Mono', monospace;
+  --bg-cream: #FEFAF6;
+  --bg-surface: #FFFFFF;
+  --bg-warm: #FDF5EB;
+  --text-primary: #2C1810;
+  --text-secondary: #8B7355;
+  --text-muted: #C4A882;
+  --border: #E8D5C4;
+  --border-light: #F0E3D5;
+  --shadow-sm: 0 1px 2px rgba(44,24,16,0.04);
+  --shadow-md: 0 4px 12px rgba(44,24,16,0.06);
+  --shadow-lg: 0 12px 32px rgba(44,24,16,0.08);
+  --brand: var(--accent-coral);
+  --brand-hover: #FF5252;
+  --accent-coral: #FF6B6B;
+  --accent-coral-hover: #FF5252;
+  --accent-amber: #F4A261;
+  --accent-mint: #90BE6D;
+  --accent-lavender: #9B72AA;
+  --accent-sky: #4ECDC4;
+  --accent-sun: #F9C74F;
+  --accent-rose: #FF6B8A;
+  --accent-blue: #577590;
+  --max-width: 1200px;
+  --content-width: 720px;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 5rem;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+}
+
+[data-theme="dark"] {
+  --bg-cream: #1A1614;
+  --bg-surface: #2C2420;
+  --bg-warm: #241E1A;
+  --text-primary: #E8D5C4;
+  --text-secondary: #B8A088;
+  --text-muted: #8B7355;
+  --border: #3D3028;
+  --border-light: #332A22;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.25);
+  --shadow-lg: 0 12px 32px rgba(0,0,0,0.3);
+  --brand: var(--accent-coral);
+  --brand-hover: #FF8A8A;
+}</style>
+  
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23FF6B6B'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='20' fill='white'>A</text></svg>">
+
+  
+  <link rel="alternate" type="application/rss+xml" title="AI Blog" href="/feed.xml">
+  
+
+  <meta property="og:title" content="服务端-ch05-Spring Data JDBC、JPA">
+  <meta property="og:description" content="一个由AI驱动的个人博客">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://username.github.io/ai-blog/posts/23-服务端/ch05-spring-data-jdbc-jpa/">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="服务端-ch05-Spring Data JDBC、JPA">
+  <meta name="twitter:description" content="一个由AI驱动的个人博客">
+  
+</head>
+<body class="post-page">
+  <div class="reading-progress"></div>
+
+  <header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="/" class="site-brand">
+        
+          <span class="brand-title">AI Blog</span>
+        
+      </a>
+
+      <nav class="site-nav" data-target="main-nav">
+        <ul class="nav-list">
+          
+            <li class="nav-item">
+              <a href="/" class="nav-link">首页</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/archive/" class="nav-link">归档</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/tags/" class="nav-link">标签</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/categories/" class="nav-link">分类</a>
+            </li>
+          
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" data-action="toggle-theme" aria-label="切换暗色模式">
+          <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+
+        <button class="icon-btn menu-btn" data-action="toggle-menu" aria-label="菜单">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  <div class="container">
+  <main class="main-content">
+    <article class="post-article">
+      <header class="post-header">
+        
+          <div class="post-header-cats">
+            
+              <a href="/categories/服务端开发/" class="meta-cat accent">服务端开发</a>
+            
+          </div>
+        
+        <h1 class="post-title">服务端-ch05-Spring Data JDBC、JPA</h1>
+        <div class="post-meta">
+          <time datetime="2023-10-07T18:32:34.000Z">
+            2023年10月8日
+          </time>
+          
+            <span class="meta-divider">&middot;</span>
+            <span class="post-author">Your Name</span>
+          
+        </div>
+        
+          <div class="post-header-tags">
+            
+              <a href="/tags/服务端开发/" class="tag">服务端开发</a>
+            
+          </div>
+        
+      </header>
+
+      
+
+      <div class="post-body">
+        <h1 id="ch05-spring-data-jdbc%E3%80%81jpa" tabindex="-1"><a class="header-anchor" href="#ch05-spring-data-jdbc%E3%80%81jpa">#</a> ch05-Spring Data JDBC、JPA</h1>
+<p>代码仓库：<a href="https://github.com/tzs919/taco-cloud-05">https://github.com/tzs919/taco-cloud-05</a></p>
+<h2 id="%E4%BD%BF%E7%94%A8jdbctemplate%E7%AE%80%E5%8C%96jdbc%E8%AE%BF%E9%97%AE%EF%BC%88spring-boot-starter-jdbc%EF%BC%89" tabindex="-1"><a class="header-anchor" href="#%E4%BD%BF%E7%94%A8jdbctemplate%E7%AE%80%E5%8C%96jdbc%E8%AE%BF%E9%97%AE%EF%BC%88spring-boot-starter-jdbc%EF%BC%89">#</a> 使用JdbcTemplate简化JDBC访问（spring-boot-starter-jdbc）</h2>
+<h3 id="%E4%BD%BF%E7%94%A8%E5%8E%9F%E5%A7%8B%E7%9A%84jdbc%E8%AE%BF%E9%97%AE%E6%95%B0%E6%8D%AE%E5%BA%93" tabindex="-1"><a class="header-anchor" href="#%E4%BD%BF%E7%94%A8%E5%8E%9F%E5%A7%8B%E7%9A%84jdbc%E8%AE%BF%E9%97%AE%E6%95%B0%E6%8D%AE%E5%BA%93">#</a> 使用原始的JDBC访问数据库</h3>
+<ul>
+<li>RawJdbcIngredientRepository</li>
+<li>样板式代码（ResultSet、PreparedStatement、Connection）</li>
+<li>SQLException，checked异常</li>
+</ul>
+<h3 id="%E5%BC%82%E5%B8%B8%E4%BD%93%E7%B3%BB" tabindex="-1"><a class="header-anchor" href="#%E5%BC%82%E5%B8%B8%E4%BD%93%E7%B3%BB">#</a> 异常体系</h3>
+<ul>
+<li>SQLException
+<ul>
+<li>发生异常时很难恢复</li>
+<li>难确定异常类型</li>
+</ul>
+</li>
+<li>Hibernate异常
+<ul>
+<li>定义了许多具体异常，方便定位问题</li>
+<li>对业务对象的侵入</li>
+</ul>
+</li>
+<li>Spring所提供的平台无关的持久化异常
+<ul>
+<li>DataAccessException</li>
+<li>具体异常，方便定位问题</li>
+<li>隔离具体数据库平台</li>
+</ul>
+</li>
+</ul>
+<h3 id="%E4%BD%BF%E7%94%A8jdbctemplate" tabindex="-1"><a class="header-anchor" href="#%E4%BD%BF%E7%94%A8jdbctemplate">#</a> 使用JdbcTemplate</h3>
+<p>添加依赖</p>
+<pre><code class="language-xml">&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-jdbc&lt;/artifactId&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;com.h2database&lt;/groupId&gt;
+    &lt;artifactId&gt;h2&lt;/artifactId&gt;
+    &lt;scope&gt;runtime&lt;/scope&gt;
+&lt;/dependency&gt;
+</code></pre>
+<h3 id="%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E5%BA%93" tabindex="-1"><a class="header-anchor" href="#%E5%88%9B%E5%BB%BA%E6%95%B0%E6%8D%AE%E5%BA%93">#</a> 创建数据库</h3>
+<p>需要在根路径下提供schema.sql</p>
+<p>springboot会自动帮助实例化数据库，创建表</p>
+<pre><code class="language-sql">create table if not exists Taco_Order (
+  id identity,
+  delivery_Name varchar(50) not null,
+  delivery_Street varchar(50) not null,
+  delivery_City varchar(50) not null,
+  delivery_State varchar(20) not null,
+  delivery_Zip varchar(10) not null,
+  cc_number varchar(19) not null,
+  cc_expiration varchar(5) not null,
+  cc_cvv varchar(3) not null,
+  placed_at timestamp not null
+);
+
+create table if not exists Taco (
+  id identity,
+  name varchar(50) not null,
+  taco_order bigint not null,
+  taco_order_key bigint not null,
+  created_at timestamp not null
+);
+
+create table if not exists Ingredient_Ref (
+  ingredient varchar(4) not null,
+  taco bigint not null,
+  taco_key bigint not null
+);
+
+
+create table if not exists Ingredient (
+  id varchar(4) not null,
+  name varchar(25) not null,
+  type varchar(10) not null
+);
+
+
+alter table Taco
+    add foreign key (taco_order) references Taco_Order(id);
+alter table Ingredient_Ref
+    add foreign key (ingredient) references Ingredient(id);
+</code></pre>
+<p>data.sql</p>
+<p>紧接着会执行该文件，初始化数据库</p>
+<pre><code class="language-sql">delete from Ingredient_Ref;
+delete from Taco;
+delete from Taco_Order;
+
+delete from Ingredient;
+insert into Ingredient (id, name, type) 
+                values ('FLTO', 'Flour Tortilla', 'WRAP');
+insert into Ingredient (id, name, type) 
+                values ('COTO', 'Corn Tortilla', 'WRAP');
+insert into Ingredient (id, name, type) 
+                values ('GRBF', 'Ground Beef', 'PROTEIN');
+insert into Ingredient (id, name, type) 
+                values ('CARN', 'Carnitas', 'PROTEIN');
+insert into Ingredient (id, name, type) 
+                values ('TMTO', 'Diced Tomatoes', 'VEGGIES');
+insert into Ingredient (id, name, type) 
+                values ('LETC', 'Lettuce', 'VEGGIES');
+insert into Ingredient (id, name, type) 
+                values ('CHED', 'Cheddar', 'CHEESE');
+insert into Ingredient (id, name, type) 
+                values ('JACK', 'Monterrey Jack', 'CHEESE');
+insert into Ingredient (id, name, type) 
+                values ('SLSA', 'Salsa', 'SAUCE');
+insert into Ingredient (id, name, type) 
+                values ('SRCR', 'Sour Cream', 'SAUCE');
+
+</code></pre>
+<p>提供用户名和密码</p>
+<p>application.yml</p>
+<pre><code class="language-yml">#tag::setDatabaseName[]
+spring:
+  datasource:
+    generate-unique-name: false
+    name: tacocloud
+#end::setDatabaseName[]
+</code></pre>
+<h3 id="%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8" tabindex="-1"><a class="header-anchor" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8">#</a> 数据库表</h3>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h3 id="%E4%B8%9A%E5%8A%A1%E5%B1%82%E8%AE%BF%E9%97%AEdao%E5%B1%82%E6%89%80%E9%9C%80%E8%A6%81%E7%BB%8F%E5%8E%86%E7%9A%84%E6%8E%A5%E5%8F%A3" tabindex="-1"><a class="header-anchor" href="#%E4%B8%9A%E5%8A%A1%E5%B1%82%E8%AE%BF%E9%97%AEdao%E5%B1%82%E6%89%80%E9%9C%80%E8%A6%81%E7%BB%8F%E5%8E%86%E7%9A%84%E6%8E%A5%E5%8F%A3">#</a> 业务层访问dao层所需要经历的接口</h3>
+<p>IngredientRepository</p>
+<pre><code class="language-java">package tacos.data;
+
+import java.util.Optional;
+
+import tacos.Ingredient;
+
+public interface IngredientRepository {
+
+  Iterable&lt;Ingredient&gt; findAll();
+  
+  Optional&lt;Ingredient&gt; findById(String id);
+  
+  Ingredient save(Ingredient ingredient);
+ 
+}
+</code></pre>
+<h2 id="spring%E6%A1%86%E6%9E%B6%E4%B8%8B%E7%9A%84%E5%AE%9E%E7%8E%B0" tabindex="-1"><a class="header-anchor" href="#spring%E6%A1%86%E6%9E%B6%E4%B8%8B%E7%9A%84%E5%AE%9E%E7%8E%B0">#</a> spring框架下的实现</h2>
+<h3 id="ingredientrepository%E7%9A%84%E5%AE%9E%E7%8E%B0" tabindex="-1"><a class="header-anchor" href="#ingredientrepository%E7%9A%84%E5%AE%9E%E7%8E%B0">#</a> IngredientRepository的实现</h3>
+<ul>
+<li>注入JdbcTemplate，如果只有一个构造方法可以省去@Autowired</li>
+<li>@Repository</li>
+<li>接口：RowMapper，可以使用lambda表达式</li>
+<li>注入DesignTacoController，使用</li>
+<li>IngredientByIdConverter实现优化</li>
+</ul>
+<p>JdbcIngredientRepository</p>
+<ul>
+<li>@Repository：帮助spring发现这个类，并将其实例化到上下文中</li>
+</ul>
+<pre><code class="language-java">package tacos.data;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
+
+import tacos.Ingredient;
+
+@Repository
+public class JdbcIngredientRepository implements IngredientRepository {
+
+  private JdbcTemplate jdbcTemplate;
+
+  public JdbcIngredientRepository(JdbcTemplate jdbcTemplate) {
+    this.jdbcTemplate = jdbcTemplate;
+  }
+
+    //简化后的版本
+  @Override
+  public Iterable&lt;Ingredient&gt; findAll() {
+    return jdbcTemplate.query(
+        &quot;select id, name, type from Ingredient&quot;,
+        this::mapRowToIngredient);
+  }
+
+  @Override
+  public Optional&lt;Ingredient&gt; findById(String id) {
+    List&lt;Ingredient&gt; results = jdbcTemplate.query(
+        &quot;select id, name, type from Ingredient where id=?&quot;,
+        this::mapRowToIngredient,
+        id);
+    return results.size() == 0 ?
+            Optional.empty() :
+            Optional.of(results.get(0));
+  }
+
+  @Override
+  public Ingredient save(Ingredient ingredient) {
+    jdbcTemplate.update(
+        &quot;insert into Ingredient (id, name, type) values (?, ?, ?)&quot;,
+        ingredient.getId(),
+        ingredient.getName(),
+        ingredient.getType().toString());
+    return ingredient;
+  }
+
+    //针对每一行record，需要转换成java对象
+  private Ingredient mapRowToIngredient(ResultSet row, int rowNum)
+      throws SQLException {
+    return new Ingredient(
+        row.getString(&quot;id&quot;),
+        row.getString(&quot;name&quot;),
+        Ingredient.Type.valueOf(row.getString(&quot;type&quot;)));
+  }
+
+  /*
+  @Override
+  public Ingredient findById(String id) {
+    return jdbcTemplate.queryForObject(
+        &quot;select id, name, type from Ingredient where id=?&quot;,
+        new RowMapper&lt;Ingredient&gt;() {
+          public Ingredient mapRow(ResultSet rs, int rowNum)
+              throws SQLException {
+            return new Ingredient(
+                rs.getString(&quot;id&quot;),
+                rs.getString(&quot;name&quot;),
+                Ingredient.Type.valueOf(rs.getString(&quot;type&quot;)));
+          };
+        }, id);
+  }
+   */
+}
+</code></pre>
+<h3 id="jdbcorderrepository%E6%A0%B8%E5%BF%83%E4%BB%A3%E7%A0%81" tabindex="-1"><a class="header-anchor" href="#jdbcorderrepository%E6%A0%B8%E5%BF%83%E4%BB%A3%E7%A0%81">#</a> JdbcOrderRepository核心代码</h3>
+<p>save(TacoOrder order)的实现</p>
+<ul>
+<li>Taco不能脱离TacoOrder而存在，聚合关系</li>
+<li>JdbcOrderRepository</li>
+<li>identity字段由数据库自动生成值，获取返回的ID，GeneratedKeyHolder
+<ul>
+<li>PreparedStatementCreatorFactory</li>
+<li>PreparedStatementCreator</li>
+<li>jdbcOperations.update</li>
+</ul>
+</li>
+<li>注入OrderController，使用</li>
+</ul>
+<pre><code class="language-java">package tacos.data;
+
+import java.sql.Types;
+import java.util.Arrays;
+import java.util.Date;
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.asm.Type;
+import org.springframework.dao.IncorrectResultSizeDataAccessException;
+import org.springframework.jdbc.core.JdbcOperations;
+import org.springframework.jdbc.core.PreparedStatementCreator;
+import org.springframework.jdbc.core.PreparedStatementCreatorFactory;
+import org.springframework.jdbc.support.GeneratedKeyHolder;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+import tacos.IngredientRef;
+import tacos.Taco;
+import tacos.TacoOrder;
+
+@Repository
+public class JdbcOrderRepository implements OrderRepository {
+
+  private JdbcOperations jdbcOperations;
+
+  public JdbcOrderRepository(JdbcOperations jdbcOperations) {
+    this.jdbcOperations = jdbcOperations;
+  }
+
+  @Override
+  @Transactional
+  public TacoOrder save(TacoOrder order) {
+      //创建工厂对象，需要提供sql语句以及参数对应的类型
+    PreparedStatementCreatorFactory pscf =
+      new PreparedStatementCreatorFactory(
+        &quot;insert into Taco_Order &quot;
+        + &quot;(delivery_name, delivery_street, delivery_city, &quot;
+        + &quot;delivery_state, delivery_zip, cc_number, &quot;
+        + &quot;cc_expiration, cc_cvv, placed_at) &quot;
+        + &quot;values (?,?,?,?,?,?,?,?,?)&quot;,
+        Types.VARCHAR, Types.VARCHAR, Types.VARCHAR,
+        Types.VARCHAR, Types.VARCHAR, Types.VARCHAR,
+        Types.VARCHAR, Types.VARCHAR, Types.TIMESTAMP
+    );
+    pscf.setReturnGeneratedKeys(true);
+
+    order.setPlacedAt(new Date());
+      //创建creator对象，基于工厂调用方法
+    PreparedStatementCreator psc =
+        pscf.newPreparedStatementCreator(
+            Arrays.asList(
+                order.getDeliveryName(),
+                order.getDeliveryStreet(),
+                order.getDeliveryCity(),
+                order.getDeliveryState(),
+                order.getDeliveryZip(),
+                order.getCcNumber(),
+                order.getCcExpiration(),
+                order.getCcCVV(),
+                order.getPlacedAt()));
+
+    GeneratedKeyHolder keyHolder = new GeneratedKeyHolder();
+      //使数据库新增一条记录
+    jdbcOperations.update(psc, keyHolder);
+      //获得新增记录的id
+    long orderId = keyHolder.getKey().longValue();
+      //将id值赋值给order
+    order.setId(orderId);
+
+    List&lt;Taco&gt; tacos = order.getTacos();
+    int i=0;
+    for (Taco taco : tacos) {
+      saveTaco(orderId, i++, taco);
+    }
+
+    return order;
+  }
+
+  private long saveTaco(Long orderId, int orderKey, Taco taco) {
+    taco.setCreatedAt(new Date());
+    PreparedStatementCreatorFactory pscf =
+            new PreparedStatementCreatorFactory(
+        &quot;insert into Taco &quot;
+        + &quot;(name, created_at, taco_order, taco_order_key) &quot;
+        + &quot;values (?, ?, ?, ?)&quot;,
+        Types.VARCHAR, Types.TIMESTAMP, Type.LONG, Type.LONG
+    );
+    pscf.setReturnGeneratedKeys(true);
+
+    PreparedStatementCreator psc =
+        pscf.newPreparedStatementCreator(
+            Arrays.asList(
+                taco.getName(),
+                taco.getCreatedAt(),
+                orderId,
+                orderKey));
+
+    GeneratedKeyHolder keyHolder = new GeneratedKeyHolder();
+    jdbcOperations.update(psc, keyHolder);
+    long tacoId = keyHolder.getKey().longValue();
+    taco.setId(tacoId);
+
+    saveIngredientRefs(tacoId, taco.getIngredients());
+
+    return tacoId;
+  }
+
+  private void saveIngredientRefs(
+      long tacoId, List&lt;IngredientRef&gt; ingredientRefs) {
+    int key = 0;
+    for (IngredientRef ingredientRef : ingredientRefs) {
+      jdbcOperations.update(
+          &quot;insert into Ingredient_Ref (ingredient, taco, taco_key) &quot;
+          + &quot;values (?, ?, ?)&quot;,
+          ingredientRef.getIngredient(), tacoId, key++);
+    }
+  }
+
+  @Override
+  public Optional&lt;TacoOrder&gt; findById(Long id) {
+    try {
+      TacoOrder order = jdbcOperations.queryForObject(
+          &quot;select id, delivery_name, delivery_street, delivery_city, &quot;
+              + &quot;delivery_state, delivery_zip, cc_number, cc_expiration, &quot;
+              + &quot;cc_cvv, placed_at from Taco_Order where id=?&quot;,
+          (row, rowNum) -&gt; {
+            TacoOrder tacoOrder = new TacoOrder();
+            tacoOrder.setId(row.getLong(&quot;id&quot;));
+            tacoOrder.setDeliveryName(row.getString(&quot;delivery_name&quot;));
+            tacoOrder.setDeliveryStreet(row.getString(&quot;delivery_street&quot;));
+            tacoOrder.setDeliveryCity(row.getString(&quot;delivery_city&quot;));
+            tacoOrder.setDeliveryState(row.getString(&quot;delivery_state&quot;));
+            tacoOrder.setDeliveryZip(row.getString(&quot;delivery_zip&quot;));
+            tacoOrder.setCcNumber(row.getString(&quot;cc_number&quot;));
+            tacoOrder.setCcExpiration(row.getString(&quot;cc_expiration&quot;));
+            tacoOrder.setCcCVV(row.getString(&quot;cc_cvv&quot;));
+            tacoOrder.setPlacedAt(new Date(row.getTimestamp(&quot;placed_at&quot;).getTime()));
+            tacoOrder.setTacos(findTacosByOrderId(row.getLong(&quot;id&quot;)));
+            return tacoOrder;
+          }, id);
+      return Optional.of(order);
+    } catch (IncorrectResultSizeDataAccessException e) {
+      return Optional.empty();
+    }
+  }
+
+  private List&lt;Taco&gt; findTacosByOrderId(long orderId) {
+    return jdbcOperations.query(
+        &quot;select id, name, created_at from Taco &quot;
+        + &quot;where taco_order=? order by taco_order_key&quot;,
+        (row, rowNum) -&gt; {
+          Taco taco = new Taco();
+          taco.setId(row.getLong(&quot;id&quot;));
+          taco.setName(row.getString(&quot;name&quot;));
+          taco.setCreatedAt(new Date(row.getTimestamp(&quot;created_at&quot;).getTime()));
+          taco.setIngredients(findIngredientsByTacoId(row.getLong(&quot;id&quot;)));
+          return taco;
+        },
+        orderId);
+  }
+
+  private List&lt;IngredientRef&gt; findIngredientsByTacoId(long tacoId) {
+    return jdbcOperations.query(
+        &quot;select ingredient from Ingredient_Ref &quot;
+        + &quot;where taco = ? order by taco_key&quot;,
+        (row, rowNum) -&gt; {
+          return new IngredientRef(row.getString(&quot;ingredient&quot;));
+        },
+        tacoId);
+  }
+}
+</code></pre>
+<p>JDBC的方式：RawJdbcIngredientRepository</p>
+<p>核心、模板化的、最原始的</p>
+<pre><code class="language-java">package tacos.data;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Optional;
+
+import javax.sql.DataSource;
+
+import org.springframework.jdbc.core.JdbcTemplate;
+
+import tacos.Ingredient;
+
+/**
+ * Raw implementation of {@link IngredientRepository} for
+ * comparison with {@link JdbcIngredientRepository} to illustrate
+ * the power of using {@link JdbcTemplate}.
+ * @author habuma
+ */
+public class RawJdbcIngredientRepository implements IngredientRepository {
+
+  private DataSource dataSource;
+
+  public RawJdbcIngredientRepository(DataSource dataSource) {
+    this.dataSource = dataSource;
+  }
+
+  @Override
+  public Iterable&lt;Ingredient&gt; findAll() {
+    List&lt;Ingredient&gt; ingredients = new ArrayList&lt;&gt;();
+    Connection connection = null;
+    PreparedStatement statement = null;
+    ResultSet resultSet = null;
+    try {
+        //先建立连接
+      connection = dataSource.getConnection();
+        //创建statement：查询语句
+      statement = connection.prepareStatement(
+          &quot;select id, name, type from Ingredient&quot;);
+        //执行所定义的查询
+      resultSet = statement.executeQuery();
+        //将查询的结果转化为所需要的java对象
+      while(resultSet.next()) {
+        Ingredient ingredient = new Ingredient(
+            resultSet.getString(&quot;id&quot;),
+            resultSet.getString(&quot;name&quot;),
+            Ingredient.Type.valueOf(resultSet.getString(&quot;type&quot;)));
+        ingredients.add(ingredient);
+      }
+    } catch (SQLException e) {
+      // ??? What should be done here ???
+    } finally {
+        //及时关闭连接
+      if (resultSet != null) {
+        try {
+          resultSet.close();
+        } catch (SQLException e) {}
+      }
+      if (statement != null) {
+        try {
+          statement.close();
+        } catch (SQLException e) {}
+      }
+      if (connection != null) {
+        try {
+          connection.close();
+        } catch (SQLException e) {}
+      }
+    }
+    return ingredients;
+  }
+
+  @Override
+  public Optional&lt;Ingredient&gt; findById(String id) {
+    Connection connection = null;
+    PreparedStatement statement = null;
+    ResultSet resultSet = null;
+    try {
+      connection = dataSource.getConnection();
+      statement = connection.prepareStatement(
+          &quot;select id, name, type from Ingredient where id=?&quot;);
+      statement.setString(1, id);
+      resultSet = statement.executeQuery();
+      Ingredient ingredient = null;
+      if(resultSet.next()) {
+        ingredient = new Ingredient(
+            resultSet.getString(&quot;id&quot;),
+            resultSet.getString(&quot;name&quot;),
+            Ingredient.Type.valueOf(resultSet.getString(&quot;type&quot;)));
+      }
+      return Optional.of(ingredient);
+    } catch (SQLException e) {
+      // ??? What should be done here ???
+    } finally {
+      if (resultSet != null) {
+        try {
+          resultSet.close();
+        } catch (SQLException e) {}
+      }
+      if (statement != null) {
+        try {
+          statement.close();
+        } catch (SQLException e) {}
+      }
+      if (connection != null) {
+        try {
+          connection.close();
+        } catch (SQLException e) {}
+      }
+    }
+    return Optional.empty();
+  }
+  
+  @Override
+  public Ingredient save(Ingredient ingredient) {
+    // TODO: I only needed one method for comparison purposes, so
+    //       I've not bothered implementing this one (yet).
+    return null;
+  }
+}
+</code></pre>
+<h2 id="%E4%B8%9A%E5%8A%A1%E5%B1%82%E5%AE%9E%E7%8E%B0" tabindex="-1"><a class="header-anchor" href="#%E4%B8%9A%E5%8A%A1%E5%B1%82%E5%AE%9E%E7%8E%B0">#</a> 业务层实现</h2>
+<h3 id="controller" tabindex="-1"><a class="header-anchor" href="#controller">#</a> controller</h3>
+<p>DesignTacoController</p>
+<pre><code class="language-java">package tacos.web;
+
+import java.util.stream.Collectors;
+import java.util.stream.StreamSupport;
+
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.Errors;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
+
+import tacos.Ingredient;
+import tacos.Ingredient.Type;
+import tacos.TacoOrder;
+import tacos.Taco;
+import tacos.data.IngredientRepository;
+
+@Controller
+@RequestMapping(&quot;/design&quot;)
+@SessionAttributes(&quot;tacoOrder&quot;)
+public class DesignTacoController {
+
+  private final IngredientRepository ingredientRepo;
+
+  @Autowired
+  public DesignTacoController(
+        IngredientRepository ingredientRepo) {
+    this.ingredientRepo = ingredientRepo;
+  }
+
+  @ModelAttribute
+  public void addIngredientsToModel(Model model) {
+    Iterable&lt;Ingredient&gt; ingredients = ingredientRepo.findAll();
+    Type[] types = Ingredient.Type.values();
+    for (Type type : types) {
+      model.addAttribute(type.toString().toLowerCase(),
+          filterByType(ingredients, type));
+    }
+  }
+
+  @ModelAttribute(name = &quot;tacoOrder&quot;)
+  public TacoOrder order() {
+    return new TacoOrder();
+  }
+
+  @ModelAttribute(name = &quot;taco&quot;)
+  public Taco taco() {
+    return new Taco();
+  }
+
+  @GetMapping
+  public String showDesignForm() {
+    return &quot;design&quot;;
+  }
+
+  @PostMapping
+  public String processTaco(
+      @Valid Taco taco, Errors errors,
+      @ModelAttribute TacoOrder tacoOrder) {
+
+    if (errors.hasErrors()) {
+      return &quot;design&quot;;
+    }
+
+    tacoOrder.addTaco(taco);
+
+    return &quot;redirect:/orders/current&quot;;
+  }
+
+  private Iterable&lt;Ingredient&gt; filterByType(
+      Iterable&lt;Ingredient&gt; ingredients, Type type) {
+    return StreamSupport.stream(ingredients.spliterator(), false)
+              .filter(i -&gt; i.getType().equals(type))
+              .collect(Collectors.toList());
+  }
+}
+</code></pre>
+<p>OrderController</p>
+<pre><code class="language-java">package tacos.web;
+import javax.validation.Valid;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.validation.Errors;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
+
+import tacos.TacoOrder;
+import tacos.data.OrderRepository;
+
+@Controller
+@RequestMapping(&quot;/orders&quot;)
+@SessionAttributes(&quot;tacoOrder&quot;)
+public class OrderController {
+
+  private OrderRepository orderRepo;
+
+  public OrderController(OrderRepository orderRepo) {
+    this.orderRepo = orderRepo;
+  }
+
+  @GetMapping(&quot;/current&quot;)
+  public String orderForm() {
+    return &quot;orderForm&quot;;
+  }
+
+  @PostMapping
+  public String processOrder(@Valid TacoOrder order, Errors errors, SessionStatus sessionStatus) {
+    if (errors.hasErrors()) {
+      return &quot;orderForm&quot;;
+    }
+
+    orderRepo.save(order);
+    sessionStatus.setComplete();
+
+    return &quot;redirect:/&quot;;
+  }
+}
+</code></pre>
+<p>附带tacoOrder类</p>
+<pre><code class="language-java">package tacos;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
+
+import org.hibernate.validator.constraints.CreditCardNumber;
+
+import lombok.Data;
+
+@Data
+public class TacoOrder implements Serializable {
+
+  private static final long serialVersionUID = 1L;
+
+  private Long id;
+
+  private Date placedAt;
+
+
+  @NotBlank(message=&quot;Delivery name is required&quot;)
+  private String deliveryName;
+
+  @NotBlank(message=&quot;Street is required&quot;)
+  private String deliveryStreet;
+
+  @NotBlank(message=&quot;City is required&quot;)
+  private String deliveryCity;
+
+  @NotBlank(message=&quot;State is required&quot;)
+  private String deliveryState;
+
+  @NotBlank(message=&quot;Zip code is required&quot;)
+  private String deliveryZip;
+
+  @CreditCardNumber(message=&quot;Not a valid credit card number&quot;)
+  private String ccNumber;
+
+  @Pattern(regexp=&quot;^(0[1-9]|1[0-2])([\\/])([2-9][0-9])$&quot;,
+           message=&quot;Must be formatted MM/YY&quot;)
+  private String ccExpiration;
+
+  @Digits(integer=3, fraction=0, message=&quot;Invalid CVV&quot;)
+  private String ccCVV;
+
+  private List&lt;Taco&gt; tacos = new ArrayList&lt;&gt;();
+
+  public void addTaco(Taco taco) {
+    this.tacos.add(taco);
+  }
+}
+</code></pre>
+<p>附带taco类</p>
+<pre><code class="language-java">package tacos;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import lombok.Data;
+
+@Data
+public class Taco {
+
+  private Long id;
+
+  private Date createdAt = new Date();
+
+  @NotNull
+  @Size(min=5, message=&quot;Name must be at least 5 characters long&quot;)
+  private String name;
+
+  @Size(min=1, message=&quot;You must choose at least 1 ingredient&quot;)
+  private List&lt;IngredientRef&gt; ingredients = new ArrayList&lt;&gt;();
+
+  public void addIngredient(Ingredient taco) {
+    this.ingredients.add(new IngredientRef(taco.getId()));
+  }
+}
+</code></pre>
+<p>IngredientRef：用配料的id唯一标识引用一个配料</p>
+<pre><code class="language-java">package tacos;
+
+import lombok.Data;
+
+@Data
+public class IngredientRef {
+  private final String ingredient;
+}
+</code></pre>
+<h3 id="%E8%BD%AC%E5%8C%96%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%BAingredient%E7%9A%84%E5%AF%B9%E8%B1%A1" tabindex="-1"><a class="header-anchor" href="#%E8%BD%AC%E5%8C%96%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%9A%84%E5%AD%97%E7%AC%A6%E4%B8%B2%E4%B8%BAingredient%E7%9A%84%E5%AF%B9%E8%B1%A1">#</a> 转化客户端的字符串为ingredient的对象</h3>
+<p>IngredientByIdConverter</p>
+<p>控制器层无需知道repo的具体实现，只需要知道接口就好</p>
+<p>@Component &amp;&amp; @Autowired：自动注入的方式</p>
+<pre><code class="language-java">package tacos.web;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.convert.converter.Converter;
+import org.springframework.stereotype.Component;
+
+import tacos.Ingredient;
+import tacos.data.IngredientRepository;
+
+@Component
+public class IngredientByIdConverter implements Converter&lt;String, Ingredient&gt; {
+
+  private IngredientRepository ingredientRepo;
+
+  @Autowired
+  public IngredientByIdConverter(IngredientRepository ingredientRepo) {
+    this.ingredientRepo = ingredientRepo;
+  }
+
+  @Override
+  public Ingredient convert(String id) {
+    return ingredientRepo.findById(id).orElse(null);
+  }
+}
+</code></pre>
+<h2 id="h2%E8%AE%BF%E9%97%AE" tabindex="-1"><a class="header-anchor" href="#h2%E8%AE%BF%E9%97%AE">#</a> H2访问</h2>
+<ul>
+<li><a href="http://localhost:8080/h2-console">http://localhost:8080/h2-console</a></li>
+<li>驱动：org.h2.Driver</li>
+<li>JDBC URL：jdbc:h2:mem:tacocloud</li>
+<li>用户名：sa</li>
+</ul>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h2 id="spring-data%E9%A1%B9%E7%9B%AE" tabindex="-1"><a class="header-anchor" href="#spring-data%E9%A1%B9%E7%9B%AE">#</a> Spring Data项目</h2>
+<p>属于Spring Data项目，和上面的JDBC不一样。进一步简化，只需要提供接口。</p>
+<h3 id="%E5%BC%82%E5%90%8C" tabindex="-1"><a class="header-anchor" href="#%E5%BC%82%E5%90%8C">#</a> 异同</h3>
+<ul>
+<li>异
+<ul>
+<li>只定义了一个接口</li>
+<li><code>CrudRepository</code></li>
+</ul>
+</li>
+<li>同
+<ul>
+<li>需要自己创建表（scheme.sql脚本定义表结构）,data.sql初始化数据</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>Spring Data JDBC</li>
+<li>Spring Data JPA</li>
+<li>Spring Data MongoDB</li>
+<li>Spring Data Neo4j</li>
+<li>Spring Data Redis</li>
+<li>Spring Data Cassandr</li>
+</ul>
+<h2 id="spring-data-jdbc" tabindex="-1"><a class="header-anchor" href="#spring-data-jdbc">#</a> Spring Data JDBC</h2>
+<p>添加依赖</p>
+<pre><code class="language-xml">&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-data-jdbc&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+<h3 id="%E6%AD%A5%E9%AA%A4" tabindex="-1"><a class="header-anchor" href="#%E6%AD%A5%E9%AA%A4">#</a> 步骤</h3>
+<ol>
+<li>添加依赖</li>
+<li>定义存储库接口</li>
+<li>为领域类添加持久化注解</li>
+</ol>
+<h3 id="%E5%AD%98%E5%82%A8%E5%BA%93%E6%8E%A5%E5%8F%A3" tabindex="-1"><a class="header-anchor" href="#%E5%AD%98%E5%82%A8%E5%BA%93%E6%8E%A5%E5%8F%A3">#</a> 存储库接口</h3>
+<ol>
+<li>Spring Data会在运行时<strong>自动生成存储库接口的实现</strong>。但是，只有当<strong>接口扩展自Spring Data提供的存储库接口</strong>时，它才会帮我们实现这一点。</li>
+<li>Repository接口是参数化的，其中第一个参数是该存储库要<strong>持久化的对象类型</strong>；第二个参数是要持久化对象的<strong>ID字段的类型</strong>。</li>
+</ol>
+<pre><code class="language-java">public interface IngredientRepository extends Repository&lt;Ingredient, String&gt; {
+  Iterable&lt;Ingredient&gt; findAll();
+
+  Optional&lt;Ingredient&gt; findById(String id);
+
+  Ingredient save(Ingredient ingredient);
+}
+</code></pre>
+<pre><code class="language-java">public interface IngredientRepository extends CrudRepository&lt;Ingredient, String&gt; {
+}
+</code></pre>
+<p><strong>CrudRepository</strong>接口包含了增删改查等基础操作
+当应用启动的时候，Spring Data会在运行时自动生成一个实现。这意味着存储库已经准备就绪，我们将其注入控制器就可以了。</p>
+<h3 id="%E5%AE%9E%E7%8E%B0" tabindex="-1"><a class="header-anchor" href="#%E5%AE%9E%E7%8E%B0">#</a> 实现</h3>
+<p>详细解释不同之处：<strong>只需要一个接口不需要实现，拓展自CrudRepository</strong></p>
+<p><strong>IngredientRepository</strong></p>
+<pre><code class="language-java">package tacos.data;
+
+import org.springframework.data.repository.CrudRepository;
+
+import tacos.Ingredient;
+
+public interface IngredientRepository 
+         extends CrudRepository&lt;Ingredient, String&gt; {
+}
+</code></pre>
+<p><strong>crud：增删改查</strong></p>
+<p>这样写<strong>spring会自动实现增删改查</strong></p>
+<p>需要额外告诉spring一些信息：java对象与数据库中的表的对应关系，如果名字一样可以省略注解</p>
+<p><strong>Ingredient</strong></p>
+<pre><code class="language-java">package tacos;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.domain.Persistable;
+import org.springframework.data.relational.core.mapping.Table;
+
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@Table
+@AllArgsConstructor
+@NoArgsConstructor(access=AccessLevel.PRIVATE, force=true)
+public class Ingredient implements Persistable&lt;String&gt; {
+
+  @Id
+  private String id;
+
+  private String name;
+  private Type type;
+
+  @Override
+	public boolean isNew() {
+		return true;
+	}
+
+  public enum Type {
+    WRAP, PROTEIN, VEGGIES, CHEESE, SAUCE
+  }
+}
+</code></pre>
+<p><strong>OrderRepository</strong></p>
+<pre><code class="language-java">package tacos.data;
+
+import org.springframework.data.repository.CrudRepository;
+
+import tacos.TacoOrder;
+
+public interface OrderRepository 
+         extends CrudRepository&lt;TacoOrder, Long&gt; {
+
+}
+
+</code></pre>
+<h3 id="%E4%B8%BA%E9%A2%86%E5%9F%9F%E7%B1%BB%E6%B7%BB%E5%8A%A0%E6%8C%81%E4%B9%85%E5%8C%96%E7%9A%84%E6%B3%A8%E8%A7%A3" tabindex="-1"><a class="header-anchor" href="#%E4%B8%BA%E9%A2%86%E5%9F%9F%E7%B1%BB%E6%B7%BB%E5%8A%A0%E6%8C%81%E4%B9%85%E5%8C%96%E7%9A%84%E6%B3%A8%E8%A7%A3">#</a> 为领域类添加持久化的注解</h3>
+<ul>
+<li>@Table，对象会基于领域类的名称映射到数据库的表上
+<ul>
+<li>TacoOrder会映射到Taco_Order表</li>
+</ul>
+</li>
+<li>@Id</li>
+<li>@Column
+<ul>
+<li>deliveryName会映射到delivery_Name列</li>
+</ul>
+</li>
+</ul>
+<h2 id="%E7%A8%8B%E5%BA%8F%E9%A2%84%E5%8A%A0%E8%BD%BD" tabindex="-1"><a class="header-anchor" href="#%E7%A8%8B%E5%BA%8F%E9%A2%84%E5%8A%A0%E8%BD%BD">#</a> 程序预加载</h2>
+<ul>
+<li>org.springframework.boot.CommandLineRunner</li>
+<li>org.springframework.boot.ApplicationRunner</li>
+</ul>
+<p>TacoCloudApplication</p>
+<pre><code class="language-java">package tacos;
+
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+
+import tacos.Ingredient.Type;
+import tacos.data.IngredientRepository;
+
+@SpringBootApplication
+public class TacoCloudApplication {
+
+  public static void main(String[] args) {
+    SpringApplication.run(TacoCloudApplication.class, args);
+  }
+
+  @Bean
+  public CommandLineRunner dataLoader(IngredientRepository repo) {
+    return args -&gt; {
+      repo.deleteAll(); // TODO: Quick hack to avoid tests from stepping on each other with constraint violations
+      repo.save(new Ingredient(&quot;FLTO&quot;, &quot;Flour Tortilla&quot;, Type.WRAP));
+      repo.save(new Ingredient(&quot;COTO&quot;, &quot;Corn Tortilla&quot;, Type.WRAP));
+      repo.save(new Ingredient(&quot;GRBF&quot;, &quot;Ground Beef&quot;, Type.PROTEIN));
+      repo.save(new Ingredient(&quot;CARN&quot;, &quot;Carnitas&quot;, Type.PROTEIN));
+      repo.save(new Ingredient(&quot;TMTO&quot;, &quot;Diced Tomatoes&quot;, Type.VEGGIES));
+      repo.save(new Ingredient(&quot;LETC&quot;, &quot;Lettuce&quot;, Type.VEGGIES));
+      repo.save(new Ingredient(&quot;CHED&quot;, &quot;Cheddar&quot;, Type.CHEESE));
+      repo.save(new Ingredient(&quot;JACK&quot;, &quot;Monterrey Jack&quot;, Type.CHEESE));
+      repo.save(new Ingredient(&quot;SLSA&quot;, &quot;Salsa&quot;, Type.SAUCE));
+      repo.save(new Ingredient(&quot;SRCR&quot;, &quot;Sour Cream&quot;, Type.SAUCE));
+    };
+  }
+}
+</code></pre>
+<h2 id="spring-data-jpa" tabindex="-1"><a class="header-anchor" href="#spring-data-jpa">#</a> Spring Data JPA</h2>
+<ul>
+<li>JPA：Java Persistence API</li>
+<li>JPA的宗旨是为POJO提供持久化标准规范</li>
+<li>JPQL是一种面向对象的查询语言</li>
+<li>依赖</li>
+</ul>
+<pre><code class="language-xml">&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-data-jpa&lt;/artifactId&gt;
+&lt;/dependency&gt;
+
+</code></pre>
+<h3 id="%E5%AE%9E%E7%8E%B0-1" tabindex="-1"><a class="header-anchor" href="#%E5%AE%9E%E7%8E%B0-1">#</a> 实现</h3>
+<ol>
+<li>添加依赖</li>
+<li>定义接口：接口跟spring data jdbc一致，业务层和控制器层无需修改</li>
+<li>在实体类中指定对应关系，打上**@Entity**，见<strong>Ingredient</strong>， <strong>scheme.sql不用手写，根据java对象的定义自动生成表结构</strong></li>
+<li>id属性需要使用@Id注解，以便于将其指定为数据库中唯一标识该实体的属性</li>
+<li><code>@GeneratedValue(strategy = GenerationType.AUTO)</code>
+<ul>
+<li>依赖数据库自动生成ID值</li>
+</ul>
+</li>
+</ol>
+<pre><code class="language-java">package tacos;
+
+import javax.persistence.Entity;
+import javax.persistence.Id;
+
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@Entity
+@AllArgsConstructor
+@NoArgsConstructor(access=AccessLevel.PRIVATE, force=true)
+public class Ingredient {
+
+  @Id
+  private String id;
+  private String name;
+  private Type type;
+
+  public enum Type {
+    WRAP, PROTEIN, VEGGIES, CHEESE, SAUCE
+  }
+}
+</code></pre>
+<p>taco</p>
+<ul>
+<li><code>@ManyToMany()</code>：多对多，表与taco多对多</li>
+</ul>
+<pre><code class="language-java">package tacos;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import lombok.Data;
+
+@Data
+@Entity
+public class Taco {
+
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private Long id;
+
+  @NotNull
+  @Size(min=5, message=&quot;Name must be at least 5 characters long&quot;)
+  private String name;
+
+  private Date createdAt = new Date();
+
+  @Size(min=1, message=&quot;You must choose at least 1 ingredient&quot;)
+  @ManyToMany()
+  private List&lt;Ingredient&gt; ingredients = new ArrayList&lt;&gt;();
+  
+  public void addIngredient(Ingredient ingredient) {
+    this.ingredients.add(ingredient);
+  }
+}
+</code></pre>
+<p>tacoOrder</p>
+<p>@OneToMany(cascade = CascadeType.ALL)一对多</p>
+<p>all是级联，tacoOrder不存在，taco也不存在</p>
+<pre><code class="language-java">package tacos;
+import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.validation.constraints.Digits;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
+
+import org.hibernate.validator.constraints.CreditCardNumber;
+
+import lombok.Data;
+
+@Data
+@Entity
+public class TacoOrder implements Serializable {
+
+  private static final long serialVersionUID = 1L;
+
+  @Id
+  @GeneratedValue(strategy = GenerationType.AUTO)
+  private Long id;
+
+  private Date placedAt = new Date();
+
+  @NotBlank(message=&quot;Delivery name is required&quot;)
+  private String deliveryName;
+
+  @NotBlank(message=&quot;Street is required&quot;)
+  private String deliveryStreet;
+
+  @NotBlank(message=&quot;City is required&quot;)
+  private String deliveryCity;
+
+  @NotBlank(message=&quot;State is required&quot;)
+  private String deliveryState;
+
+  @NotBlank(message=&quot;Zip code is required&quot;)
+  private String deliveryZip;
+
+  @CreditCardNumber(message=&quot;Not a valid credit card number&quot;)
+  private String ccNumber;
+
+  @Pattern(regexp=&quot;^(0[1-9]|1[0-2])([\\/])([2-9][0-9])$&quot;,
+           message=&quot;Must be formatted MM/YY&quot;)
+  private String ccExpiration;
+
+  @Digits(integer=3, fraction=0, message=&quot;Invalid CVV&quot;)
+  private String ccCVV;
+
+  @OneToMany(cascade = CascadeType.ALL)
+  private List&lt;Taco&gt; tacos = new ArrayList&lt;&gt;();
+
+  public void addTaco(Taco taco) {
+    this.tacos.add(taco);
+  }
+}
+</code></pre>
+<h2 id="%E8%87%AA%E5%AE%9A%E4%B9%89jpa%E5%AD%98%E5%82%A8%E5%BA%93" tabindex="-1"><a class="header-anchor" href="#%E8%87%AA%E5%AE%9A%E4%B9%89jpa%E5%AD%98%E5%82%A8%E5%BA%93">#</a> 自定义JPA存储库</h2>
+<h3 id="dsl" tabindex="-1"><a class="header-anchor" href="#dsl">#</a> DSL</h3>
+<ul>
+<li>Spring Data定义了一组小型的<strong>领域特定语言(Domain-Specific Language,DSL)</strong>，在这里，持久化的细节都是通过存储库方法的签名来描述的。</li>
+<li><strong>存储库的方法</strong>由一个<strong>动词</strong>、一个<strong>可选的主题(subject)、关键词By</strong>，以及一个<strong>断言</strong>组成。
+<ul>
+<li>常用动词：get、read、find、count</li>
+</ul>
+</li>
+<li>例子:</li>
+</ul>
+<pre><code>List&lt;TacoOrder&gt; findByDeliveryZip(String deliveryZip);
+</code></pre>
+<p>在findByDeliveryZip()这个样例中，动词是find，断言是DeliveryZip，主题并没有指定，暗含的主题是TacoOrder。</p>
+<h3 id="jpql" tabindex="-1"><a class="header-anchor" href="#jpql">#</a> JPQL</h3>
+<ul>
+<li>
+<pre><code>@Query
+</code></pre>
+<ul>
+<li>在查询语句中写SQL语句</li>
+</ul>
+</li>
+</ul>
+<pre><code>@Query(&quot;Order o where o.deliveryCity = 'Seattle'&quot;)
+List&lt;TacoOrder&gt; readOrdersDeliveredInSeattle();
+</code></pre>
+<ul>
+<li>同样适用于Spring DataJDBC,但存在以下差异
+<ol>
+<li>在@Query中声明的必须全部是<strong>SQL查询</strong>，不允许使用JPA查询</li>
+<li>所有的自定义方法都需要使用@Query。这是因为，与JPA不同，我们没有映射元数据帮助Spring Data JDBC根据方法名自动推断查询。</li>
+</ol>
+</li>
+</ul>
+<h2 id="%E6%95%B0%E6%8D%AE%E8%AE%BF%E9%97%AE%E5%AF%B9%E8%B1%A1%E6%A8%A1%E6%8B%9F" tabindex="-1"><a class="header-anchor" href="#%E6%95%B0%E6%8D%AE%E8%AE%BF%E9%97%AE%E5%AF%B9%E8%B1%A1%E6%A8%A1%E6%8B%9F">#</a> 数据访问对象模拟</h2>
+<p>常用工具<strong>Mockito</strong></p>
+<ul>
+<li>
+<p>业务层依赖接口</p>
+<p>（依赖倒置）</p>
+<ul>
+<li>接口实现可以替换不需要修改业务层</li>
+<li>方便测试</li>
+</ul>
+</li>
+</ul>
+<h2 id="%E4%B8%89%E7%A7%8D%E6%96%B9%E6%B3%95%E5%8C%BA%E5%88%AB%E3%80%81%E7%9B%B8%E5%90%8C%E7%82%B9%F0%9F%91%8D" tabindex="-1"><a class="header-anchor" href="#%E4%B8%89%E7%A7%8D%E6%96%B9%E6%B3%95%E5%8C%BA%E5%88%AB%E3%80%81%E7%9B%B8%E5%90%8C%E7%82%B9%F0%9F%91%8D">#</a> 三种方法区别、相同点👍</h2>
+<ol>
+<li>数据表生成：1、2需要scheme脚本，3不需要（根据领域类自动生成）</li>
+<li>数据库访问层：1需要自己实现接口，2、3不需要</li>
+<li>领域类注解：1不需要为领域类加注解，2、3要为领域类加注解（提供领域类和表结构的映射关系）
+<ul>
+<li>2： @Id</li>
+<li>3: @Entity, @Id</li>
+</ul>
+</li>
+<li>自定义查询：2、3都可以使用@Querry定义查询逻辑，但3还可以使用基于方法名的DSL自定义查询</li>
+<li>ID字段的处理：1需要手动获取数据库生成的Id，2、3不需要</li>
+<li>存储库接口：2、3都继承自CrudRepository接口</li>
+<li>包路径：2、3为领域类添加持久化的注解包路径不一样
+<ul>
+<li>JPA中的规范注解都来自javax.persisitence.* ，因为不是Spring自己实现</li>
+<li>@Table，对象会基于领域类的名称映射到数据库的表上</li>
+<li>@Id
+<ul>
+<li>有两个来自不同包的@Id，主义区别</li>
+</ul>
+</li>
+<li>@Column</li>
+</ul>
+</li>
+</ol>
+<h2 id="jpa%E3%80%81hibernate%E3%80%81spring-data-jpa%E4%B8%89%E8%80%85%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB" tabindex="-1"><a class="header-anchor" href="#jpa%E3%80%81hibernate%E3%80%81spring-data-jpa%E4%B8%89%E8%80%85%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB">#</a> Jpa、Hibernate、Spring Data Jpa三者之间的关系</h2>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h2 id="%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8" tabindex="-1"><a class="header-anchor" href="#%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E7%9A%84%E6%95%B0%E6%8D%AE%E5%BA%93%E8%A1%A8">#</a> 自动生成的数据库表</h2>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h2 id="%E5%AE%9A%E4%B9%89%E7%9A%84%E6%9F%A5%E8%AF%A2%E6%96%B9%E6%B3%95" tabindex="-1"><a class="header-anchor" href="#%E5%AE%9A%E4%B9%89%E7%9A%84%E6%9F%A5%E8%AF%A2%E6%96%B9%E6%B3%95">#</a> 定义的查询方法</h2>
+<ul>
+<li>定义查询方法，无需实现
+<ul>
+<li>领域特定语言（domain-specific language，DSL)，spring data的命名约定</li>
+<li>查询动词 + 主题 + 断言</li>
+<li>查询动词：get、read、find、count</li>
+<li>例子： List findByDeliveryZip( String deliveryZip );</li>
+</ul>
+</li>
+<li>声明自定义查询
+<ul>
+<li>不符合方法命名约定时，或者命名太长时</li>
+<li>@Query(“Order o where o.deliveryCity = ‘Seattle’”) List readOrdersDeliveredInSeattle( );</li>
+</ul>
+</li>
+</ul>
+
+      </div>
+
+      <footer class="post-footer">
+        <div class="post-nav">
+          <a href="/" class="post-nav-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            返回首页
+          </a>
+        </div>
+      </footer>
+    </article>
+  </main>
+</div>
+
+
+  <footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <span class="footer-logo">AI Blog</span>
+        <p class="footer-desc">一个由AI驱动的个人博客</p>
+        <div class="footer-social">
+          
+            <a href="https://github.com/yourname" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+          
+          
+            <a href="https://twitter.com/yourname" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          
+          
+            <a href="mailto:your@email.com" class="social-link" aria-label="Email">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </a>
+          
+          
+            <a href="/feed.xml" class="social-link" aria-label="RSS">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20C5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1z"/></svg>
+            </a>
+          
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">导航</h4>
+        <ul class="footer-links">
+          
+            <li><a href="/">首页</a></li>
+          
+            <li><a href="/archive/">归档</a></li>
+          
+            <li><a href="/tags/">标签</a></li>
+          
+            <li><a href="/categories/">分类</a></li>
+          
+          <li><a href="/archive/">归档</a></li>
+          <li><a href="/tags/">标签</a></li>
+          <li><a href="/categories/">分类</a></li>
+        </ul>
+      </div>
+
+      
+      <div class="footer-col">
+        <h4 class="footer-heading">友链</h4>
+        <ul class="footer-links">
+          
+            <li><a href="https://example.com" target="_blank" rel="noopener noreferrer">示例友链</a></li>
+          
+        </ul>
+      </div>
+      
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 AI Blog</p>
+      
+    </div>
+  </div>
+</footer>
+
+
+  <button class="back-to-top" aria-label="返回顶部">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+  </button>
+
+  <script src="/assets/js/main.js" defer></script>
+</body>
+</html>

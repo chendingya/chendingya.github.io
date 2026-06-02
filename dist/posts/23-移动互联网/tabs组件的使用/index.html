@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="一个由AI驱动的个人博客">
+  <title>Tabs组件的使用 - AI Blog</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Noto+Serif+SC:wght@400;500;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/css/style.css">
+  
+  <link rel="stylesheet" href="/assets/css/highlight.css">
+  
+
+  
+  <style>:root {
+  --font-display: 'Playfair Display', 'Noto Serif SC', Georgia, 'Times New Roman', serif;
+  --font-body: 'Public Sans', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'Fira Code', 'Cascadia Code', 'JetBrains Mono', monospace;
+  --bg-cream: #FEFAF6;
+  --bg-surface: #FFFFFF;
+  --bg-warm: #FDF5EB;
+  --text-primary: #2C1810;
+  --text-secondary: #8B7355;
+  --text-muted: #C4A882;
+  --border: #E8D5C4;
+  --border-light: #F0E3D5;
+  --shadow-sm: 0 1px 2px rgba(44,24,16,0.04);
+  --shadow-md: 0 4px 12px rgba(44,24,16,0.06);
+  --shadow-lg: 0 12px 32px rgba(44,24,16,0.08);
+  --brand: var(--accent-coral);
+  --brand-hover: #FF5252;
+  --accent-coral: #FF6B6B;
+  --accent-coral-hover: #FF5252;
+  --accent-amber: #F4A261;
+  --accent-mint: #90BE6D;
+  --accent-lavender: #9B72AA;
+  --accent-sky: #4ECDC4;
+  --accent-sun: #F9C74F;
+  --accent-rose: #FF6B8A;
+  --accent-blue: #577590;
+  --max-width: 1200px;
+  --content-width: 720px;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 5rem;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+}
+
+[data-theme="dark"] {
+  --bg-cream: #1A1614;
+  --bg-surface: #2C2420;
+  --bg-warm: #241E1A;
+  --text-primary: #E8D5C4;
+  --text-secondary: #B8A088;
+  --text-muted: #8B7355;
+  --border: #3D3028;
+  --border-light: #332A22;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.25);
+  --shadow-lg: 0 12px 32px rgba(0,0,0,0.3);
+  --brand: var(--accent-coral);
+  --brand-hover: #FF8A8A;
+}</style>
+  
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23FF6B6B'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='20' fill='white'>A</text></svg>">
+
+  
+  <link rel="alternate" type="application/rss+xml" title="AI Blog" href="/feed.xml">
+  
+
+  <meta property="og:title" content="Tabs组件的使用">
+  <meta property="og:description" content="一个由AI驱动的个人博客">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://username.github.io/ai-blog/posts/23-移动互联网/tabs组件的使用/">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Tabs组件的使用">
+  <meta name="twitter:description" content="一个由AI驱动的个人博客">
+  
+</head>
+<body class="post-page">
+  <div class="reading-progress"></div>
+
+  <header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="/" class="site-brand">
+        
+          <span class="brand-title">AI Blog</span>
+        
+      </a>
+
+      <nav class="site-nav" data-target="main-nav">
+        <ul class="nav-list">
+          
+            <li class="nav-item">
+              <a href="/" class="nav-link">首页</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/archive/" class="nav-link">归档</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/tags/" class="nav-link">标签</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/categories/" class="nav-link">分类</a>
+            </li>
+          
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" data-action="toggle-theme" aria-label="切换暗色模式">
+          <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+
+        <button class="icon-btn menu-btn" data-action="toggle-menu" aria-label="菜单">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  <div class="container">
+  <main class="main-content">
+    <article class="post-article">
+      <header class="post-header">
+        
+          <div class="post-header-cats">
+            
+              <a href="/categories/openharmony/" class="meta-cat accent">openharmony</a>
+            
+          </div>
+        
+        <h1 class="post-title">Tabs组件的使用</h1>
+        <div class="post-meta">
+          <time datetime="2023-10-04T11:40:36.000Z">
+            2023年10月4日
+          </time>
+          
+            <span class="meta-divider">&middot;</span>
+            <span class="post-author">Your Name</span>
+          
+        </div>
+        
+          <div class="post-header-tags">
+            
+              <a href="/tags/openharmony/" class="tag">openharmony</a>
+            
+          </div>
+        
+      </header>
+
+      
+
+      <div class="post-body">
+        <h1 id="tabs%E7%BB%84%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8" tabindex="-1"><a class="header-anchor" href="#tabs%E7%BB%84%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8">#</a> Tabs组件的使用</h1>
+<h2 id="%E6%A6%82%E8%BF%B0" tabindex="-1"><a class="header-anchor" href="#%E6%A6%82%E8%BF%B0">#</a> 概述</h2>
+<p>在我们常用的应用中，经常会有视图内容切换的场景，来展示更加丰富的内容。比如下面这个页面，点击底部的页签的选项，可以实现“首页”和“我的”</p>
+<p>两个内容视图的切换。</p>
+<p><img src="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230825095807.10675087033812740546765568274652:50001231000000:2800:55D5F40686426C15CEFEEB1DA1B6E8DC5444BAD76DA48675280990CBD7102A4A.png?needInitFileName=true?needInitFileName=true" alt="" class="" loading="lazy"></p>
+<p>ArkUI开发框架提供了一种页签容器组件Tabs，开发者通过Tabs组件可以很容易的实现内容视图的切换。页签容器Tabs的形式多种多样，不同的页面设计页签不一样，可以把页签设置在底部、顶部或者侧边。</p>
+<p><img src="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230825095807.12368863602783652833497013616567:50001231000000:2800:DC558612C78E3C7A5C0E998D811A266C5CFA453FDD8FC7281142AE9A8F331B01.png?needInitFileName=true?needInitFileName=true" alt="" class="" loading="lazy"></p>
+<p>本文将详细介绍Tabs组件的使用。</p>
+<h2 id="tabs%E7%BB%84%E4%BB%B6%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8" tabindex="-1"><a class="header-anchor" href="#tabs%E7%BB%84%E4%BB%B6%E7%9A%84%E7%AE%80%E5%8D%95%E4%BD%BF%E7%94%A8">#</a> Tabs组件的简单使用</h2>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p>Tabs组件仅可包含子组件TabContent，每一个页签对应一个内容视图即TabContent组件。下面的示例代码构建了一个简单的页签页面：</p>
+<pre><code>@Entry
+@Component
+struct TabsExample {
+  private controller: TabsController = new TabsController()
+
+  build() {
+    Column() {
+      Tabs({ barPosition: BarPosition.Start, controller: this.controller }) {
+        TabContent() {
+          Column().width('100%').height('100%').backgroundColor(Color.Green)
+        }
+        .tabBar('green')
+
+        TabContent() {
+          Column().width('100%').height('100%').backgroundColor(Color.Blue)
+        }
+        .tabBar('blue')
+
+        TabContent() {
+          Column().width('100%').height('100%').backgroundColor(Color.Yellow)
+        }
+        .tabBar('yellow')
+
+        TabContent() {
+          Column().width('100%').height('100%').backgroundColor(Color.Pink)
+        }
+        .tabBar('pink')
+      }
+      .barWidth('100%') // 设置TabBar宽度
+      .barHeight(60) // 设置TabBar高度
+      .width('100%') // 设置Tabs组件宽度
+      .height('100%') // 设置Tabs组件高度
+      .backgroundColor(0xF5F5F5) // 设置Tabs组件背景颜色
+    }
+    .width('100%')
+    .height('100%')
+  }
+}
+</code></pre>
+<p>效果图如下：</p>
+<p><img src="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230825095807.31950829387881478621575784553325:50001231000000:2800:F181D99796490EB1E31A182FC322F9BBEEB65EC7DDAC677D61BCE1481E019463.png?needInitFileName=true?needInitFileName=true" alt="" class="" loading="lazy"></p>
+<p>上面示例代码中，Tabs组件中包含4个子组件TabContent，通过TabContent的tabBar属性设置TabBar的显示内容。使用通用属性width和height设置了Tabs组件的宽高，使用barWidth和barHeight设置了TabBar的宽度和高度。</p>
+<p><img src="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230825095808.34308438410140299640809655591367:50001231000000:2800:0B0230E394748986296655A9D49ACBB431EAC6B9527ABA62CB0DF318A0EA836F.png?needInitFileName=true?needInitFileName=true" alt="" class="" loading="lazy"></p>
+<p>说明</p>
+<ul>
+<li>TabContent组件不支持设置通用宽度属性，其宽度默认撑满Tabs父组件。</li>
+<li>TabContent组件不支持设置通用高度属性，其高度由Tabs父组件高度与TabBar组件高度决定。</li>
+</ul>
+<h2 id="%E8%AE%BE%E7%BD%AEtabbar%E5%B8%83%E5%B1%80%E6%A8%A1%E5%BC%8F" tabindex="-1"><a class="header-anchor" href="#%E8%AE%BE%E7%BD%AEtabbar%E5%B8%83%E5%B1%80%E6%A8%A1%E5%BC%8F">#</a> 设置TabBar布局模式</h2>
+<p>因为Tabs的布局模式默认是Fixed的，所以Tabs的页签是不可滑动的。当页签比较多的时候，可能会导致页签显示不全，将布局模式设置为Scrollable的话，可以实现页签的滚动。</p>
+<p>Tabs的布局模式有Fixed（默认）和Scrollable两种：</p>
+<ul>
+<li>
+<p>BarMode.Fixed：所有TabBar平均分配barWidth宽度（纵向时平均分配barHeight高度）,页签不可滚动，效果图如下：</p>
+<p><img src="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230825095808.48112785360201313752530223996514:50001231000000:2800:53F3AD21A3EE06AC99E86932637AC3EDF2E7C711A9B346655E81924324AEFB47.png?needInitFileName=true?needInitFileName=true" alt="" class="" loading="lazy"></p>
+</li>
+<li>
+<p>BarMode.Scrollable：每一个TabBar均使用实际布局宽度，超过总长度（横向Tabs的barWidth，纵向Tabs的barHeight）后可滑动。</p>
+<p><img src="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230825095808.92022442810286737896142309032705:50001231000000:2800:9D99A428FE43D17907321EDC3766D2A48AB5016C1E7993EFFF95A1703EDC1789.png?needInitFileName=true?needInitFileName=true" alt="" class="" loading="lazy"></p>
+</li>
+<li>
+<p>当页签比较多的时候，可以滑动页签，下面的示例代码将barMode设置为BarMode.Scrollable，实现了可滚动的页签：</p>
+</li>
+</ul>
+<pre><code>@Entry
+@Component
+struct TabsExample {
+  private controller: TabsController = new TabsController()
+
+  build() {
+    Column() {
+      Tabs({ barPosition: BarPosition.Start, controller: this.controller }) {
+        TabContent() {
+          Column()
+            .width('100%')
+            .height('100%')
+            .backgroundColor(Color.Green)
+        }
+        .tabBar('green')
+
+        TabContent() {
+          Column()
+            .width('100%')
+            .height('100%')
+            .backgroundColor(Color.Blue)
+        }
+        .tabBar('blue')
+
+        ...
+
+      }
+      .barMode(BarMode.Scrollable)
+      .barWidth('100%')
+      .barHeight(60)
+      .width('100%')
+      .height('100%')
+    }
+  }
+}
+</code></pre>
+<h2 id="%E8%AE%BE%E7%BD%AEtabbar%E4%BD%8D%E7%BD%AE%E5%92%8C%E6%8E%92%E5%88%97%E6%96%B9%E5%90%91" tabindex="-1"><a class="header-anchor" href="#%E8%AE%BE%E7%BD%AEtabbar%E4%BD%8D%E7%BD%AE%E5%92%8C%E6%8E%92%E5%88%97%E6%96%B9%E5%90%91">#</a> 设置TabBar位置和排列方向</h2>
+<p>Tabs组件页签默认显示在顶部，某些场景下您可能希望Tabs页签出现在底部或者侧边，您可以使用Tabs组件接口中的参数barPosition设置页签位置。此外页签显示位置还与vertical属性相关联，vertical属性用于设置页签的排列方向，当vertical的属性值为false（默认值）时页签横向排列，为true时页签纵向排列。</p>
+<p>barPosition的值可以设置为BarPosition.Start（默认值）和BarPosition.End：</p>
+<ul>
+<li>
+<p>BarPosition.Start</p>
+<p>vertical属性方法设置为false（默认值）时，页签位于容器顶部。</p>
+<pre><code>Tabs({ barPosition: BarPosition.Start }) {
+  ...
+}
+.vertical(false) 
+.barWidth('100%') 
+.barHeight(60)  
+</code></pre>
+<p>效果图如下：</p>
+<p><img src="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230825095808.72778768372105901553037333470751:50001231000000:2800:8C165624EEDF2FE19306998F181A3A5C4227CC89FB5E61299E2A03E92FDEBCDB.png?needInitFileName=true?needInitFileName=true" alt="" class="" loading="lazy"></p>
+<p>vertical属性方法设置为true时，页签位于容器左侧。</p>
+<pre><code>Tabs({ barPosition: BarPosition.Start }) {
+  ...
+}
+.vertical(true) 
+.barWidth(100) 
+.barHeight(200)  
+</code></pre>
+<p>效果图如下：</p>
+<p><img src="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230825095808.10119409026063761448992570109942:50001231000000:2800:BA98E32AC03E91036DFCF470E0443A80A407EC12F2169DA19A0D1DBDB5331B33.png?needInitFileName=true?needInitFileName=true" alt="" class="" loading="lazy"></p>
+</li>
+<li>
+<p>BarPosition.End</p>
+<p>vertical属性方法设置为false时，页签位于容器底部。</p>
+<pre><code>Tabs({ barPosition: BarPosition.End }) {
+  ...
+}
+.vertical(false) 
+.barWidth('100%') 
+.barHeight(60)
+</code></pre>
+<p>效果图如下：</p>
+<p><img src="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230825095808.24574751779200243897542471493810:50001231000000:2800:9F3AB540A6101C773D596EC27FE904A0E6B83D37B92809FBE55187D9132B2EF2.png?needInitFileName=true?needInitFileName=true" alt="" class="" loading="lazy"></p>
+<p>vertical属性方法设置为true时，页签位于容器右侧。</p>
+<pre><code>Tabs({ barPosition: BarPosition.End}) {
+  ...
+}
+.vertical(true) 
+.barWidth(100) 
+.barHeight(200)
+</code></pre>
+<p>效果图如下：</p>
+<p><img src="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230825095808.86916886621000440214736825231438:50001231000000:2800:F260723F2DA298F3FD950D675267CFC542403C8D276279D9AEEFB68CC172469D.png?needInitFileName=true?needInitFileName=true" alt="" class="" loading="lazy"></p>
+</li>
+</ul>
+<h2 id="%E8%87%AA%E5%AE%9A%E4%B9%89tabbar%E6%A0%B7%E5%BC%8F" tabindex="-1"><a class="header-anchor" href="#%E8%87%AA%E5%AE%9A%E4%B9%89tabbar%E6%A0%B7%E5%BC%8F">#</a> 自定义TabBar样式</h2>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p>TabBar的默认显示效果如下所示：</p>
+<p><img src="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230825095808.78625163906934072969461018152482:50001231000000:2800:5E93DE7087BFDADE70F04C986B512C6C9266ED9EB1B5E9048C47743F38977A0D.png?needInitFileName=true?needInitFileName=true" alt="" class="" loading="lazy"></p>
+<p>往往开发过程中，UX给我们的设计效果可能并不是这样的，比如下面的这种底部页签效果：</p>
+<p><img src="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/011/111/111/0000000000011111111.20230825095808.43360920151528774385910803735692:50001231000000:2800:114C927A11E6068006464B5FFE4FBDC1C961CBAF89933BBC656A54559F40A3A5.png?needInitFileName=true?needInitFileName=true" alt="" class="" loading="lazy"></p>
+<p>TabContent的tabBar属性除了支持string类型，还支持使用@Builder装饰器修饰的函数。您可以使用@Builder装饰器，构造一个生成自定义TabBar样式的函数，实现上面的底部页签效果，示例代码如下：</p>
+<pre><code>@Entry
+@Component
+struct TabsExample {
+  @State currentIndex: number = 0;
+  private tabsController: TabsController = new TabsController();
+
+  @Builder TabBuilder(title: string, targetIndex: number, selectedImg: Resource, normalImg: Resource) {
+    Column() {
+      Image(this.currentIndex === targetIndex ? selectedImg : normalImg)
+        .size({ width: 25, height: 25 })
+      Text(title)
+        .fontColor(this.currentIndex === targetIndex ? '#1698CE' : '#6B6B6B')
+    }
+    .width('100%')
+    .height(50)
+    .justifyContent(FlexAlign.Center)
+    .onClick(() =&gt; {
+      this.currentIndex = targetIndex;
+      this.tabsController.changeIndex(this.currentIndex);
+    })
+  }
+
+  build() {
+    Tabs({ barPosition: BarPosition.End, controller: this.tabsController }) {
+      TabContent() {
+        Column().width('100%').height('100%').backgroundColor('#00CB87')
+      }
+      .tabBar(this.TabBuilder('首页', 0, $r('app.media.home_selected'), $r('app.media.home_normal')))
+
+      TabContent() {
+        Column().width('100%').height('100%').backgroundColor('#007DFF')
+      }
+      .tabBar(this.TabBuilder('我的', 1, $r('app.media.mine_selected'), $r('app.media.mine_normal')))
+    }
+    .barWidth('100%')
+    .barHeight(50)
+    .onChange((index: number) =&gt; {
+      this.currentIndex = index;
+    })
+  }
+}
+</code></pre>
+<p>示例代码中将barPosition的值设置为BarPosition.End，使页签显示在底部。使用@Builder修饰TabBuilder函数，生成由Image和Text组成的页签。同时也给Tabs组件设置了TabsController控制器，当点击某个页签时，调用changeIndex方法进行页签内容切换。</p>
+<p>最后还需要给Tabs添加onChange事件，Tab页签切换后触发该事件，这样当我们左右滑动内容视图的时候，页签样式也会跟着改变。</p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h2 id="%E5%8F%82%E8%80%83" tabindex="-1"><a class="header-anchor" href="#%E5%8F%82%E8%80%83">#</a> 参考</h2>
+<ul>
+<li>Tabs组件的更多属性和参数的使用，可以参考API：<a href="https://developer.harmonyos.com/cn/docs/documentation/doc-references-V3/ts-container-tabs-0000001478181433-V3?catalogVersion=V3">Tabs</a>。</li>
+<li>@Builder装饰器的使用，可以参考：<a href="https://developer.harmonyos.com/cn/docs/documentation/doc-guides-V3/arkts-dynamic-ui-elememt-building-0000001427584592-V3?catalogVersion=V3#ZH-CN_TOPIC_0000001427584592__builder">@Builder</a>。</li>
+</ul>
+
+      </div>
+
+      <footer class="post-footer">
+        <div class="post-nav">
+          <a href="/" class="post-nav-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            返回首页
+          </a>
+        </div>
+      </footer>
+    </article>
+  </main>
+</div>
+
+
+  <footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <span class="footer-logo">AI Blog</span>
+        <p class="footer-desc">一个由AI驱动的个人博客</p>
+        <div class="footer-social">
+          
+            <a href="https://github.com/yourname" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+          
+          
+            <a href="https://twitter.com/yourname" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          
+          
+            <a href="mailto:your@email.com" class="social-link" aria-label="Email">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </a>
+          
+          
+            <a href="/feed.xml" class="social-link" aria-label="RSS">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20C5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1z"/></svg>
+            </a>
+          
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">导航</h4>
+        <ul class="footer-links">
+          
+            <li><a href="/">首页</a></li>
+          
+            <li><a href="/archive/">归档</a></li>
+          
+            <li><a href="/tags/">标签</a></li>
+          
+            <li><a href="/categories/">分类</a></li>
+          
+          <li><a href="/archive/">归档</a></li>
+          <li><a href="/tags/">标签</a></li>
+          <li><a href="/categories/">分类</a></li>
+        </ul>
+      </div>
+
+      
+      <div class="footer-col">
+        <h4 class="footer-heading">友链</h4>
+        <ul class="footer-links">
+          
+            <li><a href="https://example.com" target="_blank" rel="noopener noreferrer">示例友链</a></li>
+          
+        </ul>
+      </div>
+      
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 AI Blog</p>
+      
+    </div>
+  </div>
+</footer>
+
+
+  <button class="back-to-top" aria-label="返回顶部">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+  </button>
+
+  <script src="/assets/js/main.js" defer></script>
+</body>
+</html>

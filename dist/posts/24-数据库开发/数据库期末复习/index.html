@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="一个由AI驱动的个人博客">
+  <title>AI Blog</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Noto+Serif+SC:wght@400;500;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/css/style.css">
+  
+  <link rel="stylesheet" href="/assets/css/highlight.css">
+  
+
+  
+  <style>:root {
+  --font-display: 'Playfair Display', 'Noto Serif SC', Georgia, 'Times New Roman', serif;
+  --font-body: 'Public Sans', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'Fira Code', 'Cascadia Code', 'JetBrains Mono', monospace;
+  --bg-cream: #FEFAF6;
+  --bg-surface: #FFFFFF;
+  --bg-warm: #FDF5EB;
+  --text-primary: #2C1810;
+  --text-secondary: #8B7355;
+  --text-muted: #C4A882;
+  --border: #E8D5C4;
+  --border-light: #F0E3D5;
+  --shadow-sm: 0 1px 2px rgba(44,24,16,0.04);
+  --shadow-md: 0 4px 12px rgba(44,24,16,0.06);
+  --shadow-lg: 0 12px 32px rgba(44,24,16,0.08);
+  --brand: var(--accent-coral);
+  --brand-hover: #FF5252;
+  --accent-coral: #FF6B6B;
+  --accent-coral-hover: #FF5252;
+  --accent-amber: #F4A261;
+  --accent-mint: #90BE6D;
+  --accent-lavender: #9B72AA;
+  --accent-sky: #4ECDC4;
+  --accent-sun: #F9C74F;
+  --accent-rose: #FF6B8A;
+  --accent-blue: #577590;
+  --max-width: 1200px;
+  --content-width: 720px;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 5rem;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+}
+
+[data-theme="dark"] {
+  --bg-cream: #1A1614;
+  --bg-surface: #2C2420;
+  --bg-warm: #241E1A;
+  --text-primary: #E8D5C4;
+  --text-secondary: #B8A088;
+  --text-muted: #8B7355;
+  --border: #3D3028;
+  --border-light: #332A22;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.25);
+  --shadow-lg: 0 12px 32px rgba(0,0,0,0.3);
+  --brand: var(--accent-coral);
+  --brand-hover: #FF8A8A;
+}</style>
+  
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23FF6B6B'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='20' fill='white'>A</text></svg>">
+
+  
+  <link rel="alternate" type="application/rss+xml" title="AI Blog" href="/feed.xml">
+  
+
+  <meta property="og:title" content="AI Blog">
+  <meta property="og:description" content="一个由AI驱动的个人博客">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://username.github.io/ai-blog/posts/24-数据库开发/数据库期末复习/">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="AI Blog">
+  <meta name="twitter:description" content="一个由AI驱动的个人博客">
+  
+</head>
+<body class="post-page">
+  <div class="reading-progress"></div>
+
+  <header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="/" class="site-brand">
+        
+          <span class="brand-title">AI Blog</span>
+        
+      </a>
+
+      <nav class="site-nav" data-target="main-nav">
+        <ul class="nav-list">
+          
+            <li class="nav-item">
+              <a href="/" class="nav-link">首页</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/archive/" class="nav-link">归档</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/tags/" class="nav-link">标签</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/categories/" class="nav-link">分类</a>
+            </li>
+          
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" data-action="toggle-theme" aria-label="切换暗色模式">
+          <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+
+        <button class="icon-btn menu-btn" data-action="toggle-menu" aria-label="菜单">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  <div class="container">
+  <main class="main-content">
+    <article class="post-article">
+      <header class="post-header">
+        
+        <h1 class="post-title"></h1>
+        <div class="post-meta">
+          <time datetime="2026-06-02T07:50:48.418Z">
+            2026年6月2日
+          </time>
+          
+            <span class="meta-divider">&middot;</span>
+            <span class="post-author">Your Name</span>
+          
+        </div>
+        
+      </header>
+
+      
+
+      <div class="post-body">
+        <h1 id="%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9C%9F%E6%9C%AB%E9%87%8D%E7%82%B9" tabindex="-1"><a class="header-anchor" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E6%9C%9F%E6%9C%AB%E9%87%8D%E7%82%B9">#</a> 数据库期末重点</h1>
+<p>100</p>
+<p>20机试</p>
+<p>80笔试</p>
+<h1 id="sql" tabindex="-1"><a class="header-anchor" href="#sql">#</a> SQL</h1>
+<ul>
+<li>三道题 时间 字符串 数值（考虑空值）三选二 常见函数</li>
+<li>日期索引的三种写法</li>
+<li>标注选择的数据库</li>
+<li>递归查询可能会考一个 withas</li>
+<li>外连接和数值在一起</li>
+<li>结构和关键字合理就有分，细节全对全部分</li>
+</ul>
+<h2 id="%E5%AD%97%E7%AC%A6%E4%B8%B2%E2%80%94%E2%80%94replace%EF%BC%88a%EF%BC%8C%E2%80%9C%EF%BC%8C%E2%80%9D%EF%BC%8C%E2%80%9C%E2%80%9D%EF%BC%89%EF%BC%8C%E8%AE%A1%E6%95%B0%E9%9C%80%E8%A6%81%2Flength%EF%BC%88%E2%80%9C%EF%BC%8C%E2%80%9D%EF%BC%89" tabindex="-1"><a class="header-anchor" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E2%80%94%E2%80%94replace%EF%BC%88a%EF%BC%8C%E2%80%9C%EF%BC%8C%E2%80%9D%EF%BC%8C%E2%80%9C%E2%80%9D%EF%BC%89%EF%BC%8C%E8%AE%A1%E6%95%B0%E9%9C%80%E8%A6%81%2Flength%EF%BC%88%E2%80%9C%EF%BC%8C%E2%80%9D%EF%BC%89">#</a> 字符串——replace（a，“，”，“”），计数需要/length（“，”）</h2>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h2 id="%E6%97%A5%E6%9C%9F" tabindex="-1"><a class="header-anchor" href="#%E6%97%A5%E6%9C%9F">#</a> 日期</h2>
+<ul>
+<li>直接加减——date_add(日期，interval -5 day)</li>
+</ul>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<ul>
+<li>日期之差</li>
+</ul>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<ul>
+<li>日期格式化</li>
+</ul>
+<p>date_format(‘data’,‘format’)</p>
+<p>Format:</p>
+<ul>
+<li>%a Mon</li>
+<li>%b Jan</li>
+<li>%W Monday</li>
+<li>%M January</li>
+<li>%D 一个月中的第几天</li>
+<li>%Y-%m-%d ： 2017/4/30</li>
+<li>当前日期——current_date</li>
+<li>一年已经过了多少天——dayofyear()</li>
+</ul>
+<h2 id="%E5%B9%B3%E5%9D%87%E5%80%BC%E2%80%94%E2%80%94coalesce%EF%BC%88sal%EF%BC%8C0%EF%BC%89" tabindex="-1"><a class="header-anchor" href="#%E5%B9%B3%E5%9D%87%E5%80%BC%E2%80%94%E2%80%94coalesce%EF%BC%88sal%EF%BC%8C0%EF%BC%89">#</a> 平均值——coalesce（sal，0）</h2>
+<p>avg(sal)如果有null，不会被统计在里面，所以要用avg(coalesce(sal, 0))</p>
+<h2 id="%E4%B8%AD%E4%BD%8D%E6%95%B0%E2%80%94%E2%80%94%E5%A4%A7%E5%B0%8F%E4%B8%80%E8%87%B4%E2%80%94%E2%80%94%E6%AD%A3%E8%B4%9Fsum" tabindex="-1"><a class="header-anchor" href="#%E4%B8%AD%E4%BD%8D%E6%95%B0%E2%80%94%E2%80%94%E5%A4%A7%E5%B0%8F%E4%B8%80%E8%87%B4%E2%80%94%E2%80%94%E6%AD%A3%E8%B4%9Fsum">#</a> 中位数——大小一致——正负sum</h2>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h2 id="%E4%BC%97%E6%95%B0%E2%80%94%E2%80%94%E6%95%B0%E7%9B%AE%E6%9C%80%E5%A4%9A%E2%80%94%E2%80%94count" tabindex="-1"><a class="header-anchor" href="#%E4%BC%97%E6%95%B0%E2%80%94%E2%80%94%E6%95%B0%E7%9B%AE%E6%9C%80%E5%A4%9A%E2%80%94%E2%80%94count">#</a> 众数——数目最多——count</h2>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p>注意标注使用哪个数据库</p>
+<h2 id="%E9%80%92%E5%BD%92%E6%9F%A5%E8%AF%A2-with-as-%E6%A0%91%E7%8A%B6%E7%BB%93%E6%9E%84%E9%80%92%E5%BD%92%E6%9F%A5%E8%AF%A2" tabindex="-1"><a class="header-anchor" href="#%E9%80%92%E5%BD%92%E6%9F%A5%E8%AF%A2-with-as-%E6%A0%91%E7%8A%B6%E7%BB%93%E6%9E%84%E9%80%92%E5%BD%92%E6%9F%A5%E8%AF%A2">#</a> 递归查询 with as 树状结构递归查询</h2>
+<p>例如：查询递归查询所有员工</p>
+<pre><code class="language-plain"># Write your MySQL query statement below
+with recursive temp as (
+    select e.employee_id from Employees e where e.employee_id!=1 and manager_id=1
+    union all 
+    select e.employee_id from Employees e join temp t on t.employee_id=e.manager_id
+)
+select * from temp
+</code></pre>
+<p>格式：</p>
+<pre><code class="language-sql">with recursive 递归名字(a1, a2, a3)(
+  // 第一层
+  select a1 from where conditon
+  union all
+  Select a1
+  from 表 left join 递归名字 on 递归表.父 = 表.子
+) 
+select * from 递归名字
+</code></pre>
+<h1 id="%E8%AE%BA%E8%BF%B0%E3%80%81%E7%AE%80%E7%AD%94" tabindex="-1"><a class="header-anchor" href="#%E8%AE%BA%E8%BF%B0%E3%80%81%E7%AE%80%E7%AD%94">#</a> 论述、简答</h1>
+<h2 id="%E7%B4%A2%E5%BC%95" tabindex="-1"><a class="header-anchor" href="#%E7%B4%A2%E5%BC%95">#</a> 索引</h2>
+<ul>
+<li>索引的叶节点，不同的区域，有link</li>
+<li>N节点，N+1link</li>
+<li>节点的分裂与合并，在叶节点和内部节点，如何影响上一层的节点（必考）</li>
+</ul>
+<h3 id="b%E6%A0%91%E4%B8%8Eb%2B%E6%A0%91" tabindex="-1"><a class="header-anchor" href="#b%E6%A0%91%E4%B8%8Eb%2B%E6%A0%91">#</a> B树与B+树</h3>
+<p><a href="https://www.cnblogs.com/nullzx/p/8729425.html">B树和B+树的插入、删除图文详解 - nullzx - 博客园</a></p>
+<p><a href="https://blog.csdn.net/Weixiaohuai/article/details/109493541">数据结构之B+树插入详解-CSDN博客</a></p>
+<p><a href="https://blog.csdn.net/Weixiaohuai/article/details/109494006?ops_request_misc=&amp;request_id=&amp;biz_id=102&amp;utm_term=%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B9%8BB+%E6%A0%91%E5%88%A0%E9%99%A4%E8%AF%A6%E8%A7%A3&amp;utm_medium=distribute.pc_search_result.none-task-blog-2~blog~sobaiduweb~default-1-109494006.nonecase&amp;spm=1018.2226.3001.4450">数据结构之B+树删除详解-CSDN博客</a></p>
+<p>B树的插入</p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p>B树的删除</p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h3 id="1%EF%BC%89%E4%BD%8D%E5%9B%BE%E7%B4%A2%E5%BC%95%E7%9A%84%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84%E5%92%8C%E7%94%A8%E9%80%94" tabindex="-1"><a class="header-anchor" href="#1%EF%BC%89%E4%BD%8D%E5%9B%BE%E7%B4%A2%E5%BC%95%E7%9A%84%E5%AD%98%E5%82%A8%E7%BB%93%E6%9E%84%E5%92%8C%E7%94%A8%E9%80%94">#</a> 1）位图索引的存储结构和用途</h3>
+<p>存储结构：</p>
+<ol>
+<li>位图索引的索引存储指向多行的指针；</li>
+<li>位图索引每次进行修改都会锁住全部的索引；</li>
+</ol>
+<p>用途：</p>
+<ol>
+<li>相异基数低：字段可以取用的值比较少；</li>
+<li>大量临时查询的聚合；</li>
+</ol>
+<h3 id="2%EF%BC%89%E5%87%BD%E6%95%B0%E7%B4%A2%E5%BC%95%E7%9A%84%E5%90%AB%E4%B9%89%E5%92%8C%E7%94%A8%E9%80%94" tabindex="-1"><a class="header-anchor" href="#2%EF%BC%89%E5%87%BD%E6%95%B0%E7%B4%A2%E5%BC%95%E7%9A%84%E5%90%AB%E4%B9%89%E5%92%8C%E7%94%A8%E9%80%94">#</a> 2）函数索引的含义和用途</h3>
+<p>含义：对F(x)的值构建索引，在通过对索引读取x所指向的记录行；</p>
+<p>用途：</p>
+<ol>
+<li>不区分大小写的查询：使用函数输入；</li>
+<li>T、F的巨大差异下的索引：如何找到少量的F；</li>
+<li>有选择的唯一性：Active的活动的名称不能相同；</li>
+</ol>
+<h3 id="3%EF%BC%89%E5%8F%8D%E5%90%91%E9%94%AE%E7%B4%A2%E5%BC%95%E6%88%96%E9%80%86%E5%90%91%E7%B4%A2%E5%BC%95%E7%9A%84%E5%90%AB%E4%B9%89%E5%92%8C%E7%94%A8%E9%80%94" tabindex="-1"><a class="header-anchor" href="#3%EF%BC%89%E5%8F%8D%E5%90%91%E9%94%AE%E7%B4%A2%E5%BC%95%E6%88%96%E9%80%86%E5%90%91%E7%B4%A2%E5%BC%95%E7%9A%84%E5%90%AB%E4%B9%89%E5%92%8C%E7%94%A8%E9%80%94">#</a> 3）反向键索引或逆向索引的含义和用途</h3>
+<p>含义：将索引的字段翻转过来作为索引的键值；</p>
+<p>用途：用来解决高并发下的系统生成键的创建和插入问题；</p>
+<h3 id="4%EF%BC%89%E8%BF%98%E7%9F%A5%E9%81%93%E4%BB%80%E4%B9%88%E7%B4%A2%E5%BC%95%EF%BC%9F" tabindex="-1"><a class="header-anchor" href="#4%EF%BC%89%E8%BF%98%E7%9F%A5%E9%81%93%E4%BB%80%E4%B9%88%E7%B4%A2%E5%BC%95%EF%BC%9F">#</a> 4）还知道什么索引？</h3>
+<p>B+树索引、哈希索引、聚簇索引、辅助索引、稀疏索引（部分数据建立索引）、密集索引（全部）</p>
+<h2 id="%E6%97%A5%E5%BF%97" tabindex="-1"><a class="header-anchor" href="#%E6%97%A5%E5%BF%97">#</a> 日志</h2>
+<ul>
+<li>redo undo 如何实现，什么区别，有什么问题</li>
+</ul>
+<h3 id="redo" tabindex="-1"><a class="header-anchor" href="#redo">#</a> redo</h3>
+<p>如何实现</p>
+<ul>
+<li>Redo Log记录的是对数据库页的物理修改操作，即每次事务对数据页进行更改后，都会将变更以“redo record”的形式写入Redo Log。可以保证事务的持久性</li>
+</ul>
+<h3 id="undo" tabindex="-1"><a class="header-anchor" href="#undo">#</a> undo</h3>
+<h4 id="%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0" tabindex="-1"><a class="header-anchor" href="#%E5%A6%82%E4%BD%95%E5%AE%9E%E7%8E%B0">#</a> 如何实现</h4>
+<ul>
+<li>设计与功能：Undo Log用于实现事务原子性和一致性的重要机制，它记录了事务对数据库所做的更改的相反操作。例如，如果事务执行了一条INSERT语句，那么Undo Log会记录一个DELETE操作；若执行UPDATE，则记录一个相反的UPDATE操作</li>
+</ul>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h2 id="%E5%88%86%E5%8C%BA%E5%88%86%E8%A1%A8" tabindex="-1"><a class="header-anchor" href="#%E5%88%86%E5%8C%BA%E5%88%86%E8%A1%A8">#</a> 分区分表</h2>
+<ul>
+<li>原因</li>
+<li>解决的问题</li>
+<li>带来的问题</li>
+</ul>
+<p><a href="https://cloud.tencent.com/developer/article/1849822">https://cloud.tencent.com/developer/article/1849822</a></p>
+<h2 id="%E5%88%86%E5%8C%BA" tabindex="-1"><a class="header-anchor" href="#%E5%88%86%E5%8C%BA">#</a> 分区</h2>
+<h3 id="%E5%8E%9F%E5%9B%A0" tabindex="-1"><a class="header-anchor" href="#%E5%8E%9F%E5%9B%A0">#</a> 原因</h3>
+<p>表数据量太大，查询速度变慢。在物理上将这一张表对应的三个文件，分割成许多个小块，这样呢，我们查找一条数据时，就不用全部查找了，只要知道这条数据在哪一块，然后在那一块找就行了。另一方面，如果表的数据太大，可能一个磁盘放不下，这个时候，我们可以把数据分配到不同的磁盘里面去。</p>
+<p>通俗地讲表分区是将一大表，根据条件分割成若干个小表。mysql5.1开始支持数据表分区了。如：某用户表的记录超过了600万条，那么就可以根据入库日期将表分区，也可以根据所在地将表分区。当然也可根据其他的条件分区。</p>
+<p>当表非常大，或者表中有大量的历史记录，而“热数据”却位于表的末尾。如日志系统、新闻。此时就可以考虑分区表。【注：此处也可以使用分表，但是会增加业务的复杂性</p>
+<h3 id="%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98" tabindex="-1"><a class="header-anchor" href="#%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98">#</a> 解决问题</h3>
+<p>查询能过滤掉很多额外分区、分区本身不会带来很多额外代价</p>
+<p>能解决并发问题 ：通过分区键让数据聚集，利于检索。但对于并发执行的更改操作，分散的数据可以避免访问过于集中的问题</p>
+<h3 id="%E5%88%86%E5%8C%BA%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F%EF%BC%9A" tabindex="-1"><a class="header-anchor" href="#%E5%88%86%E5%8C%BA%E7%9A%84%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F%EF%BC%9A">#</a> 分区的实现方式：</h3>
+<ul>
+<li>
+<p>哈希分区</p>
+</li>
+<li>
+<p><strong>HASH分区</strong>：基于用户定义的表达式的返回值来进行选择的分区，该表达式使用将要插入到表中的这些行的列值进行计算。这个函数可以包含MySQL 中有效的、产生非负整数值的任何表达式。 hash 分发，好处在于说，可以平均分配每个库的数据量和请求压力；坏处在于说扩容起来比较麻烦，会有一个数据迁移的过程，之前的数据需要重新计算 hash 值重新分配到不同的库或表</p>
+</li>
+<li>
+<p>范围分区</p>
+</li>
+<li>
+<p><strong>RANGE分区</strong>：基于属于一个给定连续区间的列值，把多行分配给分区。mysql将会根据指定的拆分策略，,把数据放在不同的表文件上。相当于在文件上,被拆成了小块.但是,对外给客户的感觉还是一张表，透明的。</p>
+</li>
+<li>
+<p>列表分区</p>
+</li>
+<li>
+<p><strong>LIST分区</strong>：类似于按RANGE分区，每个分区必须明确定义。它们的主要区别在于，LIST分区中每个分区的定义和选择是基于某列的值从属于一个值列表集中的一个值（例如地区），而RANGE分区是从属于一个连续区间值（例如时间）的集合。</p>
+</li>
+</ul>
+<h3 id="%E5%B8%A6%E6%9D%A5%E7%9A%84%E9%97%AE%E9%A2%98" tabindex="-1"><a class="header-anchor" href="#%E5%B8%A6%E6%9D%A5%E7%9A%84%E9%97%AE%E9%A2%98">#</a> 带来的问题</h3>
+<ul>
+<li>
+<p>存在冲突——不能解决并发问题</p>
+</li>
+<li>
+<p>通过分区键让数据聚集，利于检索。但对于并发执行的更改操作，分散的数据可以避免访问过于集中的问题</p>
+</li>
+<li>
+<p>NULL值会让分区过滤无效</p>
+</li>
+<li>
+<p>分区列和索引列不匹配</p>
+</li>
+<li>
+<p>选择分区的代价很高</p>
+</li>
+<li>
+<p>很可能打开并锁住所有底层表（读写锁问题）</p>
+</li>
+<li>
+<p>维护分区成本很高</p>
+</li>
+</ul>
+<h2 id="%E5%88%86%E8%A1%A8" tabindex="-1"><a class="header-anchor" href="#%E5%88%86%E8%A1%A8">#</a> 分表</h2>
+<h3 id="%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F" tabindex="-1"><a class="header-anchor" href="#%E5%AE%9E%E7%8E%B0%E6%96%B9%E5%BC%8F">#</a> 实现方式</h3>
+<p>分表有两种分割方式，一种垂直拆分，另一种水平拆分。</p>
+<ul>
+<li>
+<p><strong>垂直拆分</strong> 垂直分表，通常是按照业务功能的使用频次，把主要的、热门的字段放在一起做为主要表。然后把不常用的，按照各自的业务属性进行聚集，拆分到不同的次要表中；主要表和次要表的关系一般都是一对一的。</p>
+</li>
+<li>
+<p><strong>水平拆分(数据分片)</strong> 单表的容量不超过500W，否则建议水平拆分。是把一个表复制成同样表结构的不同表，然后把数据按照一定的规则划分，分别存储到这些表中，从而保证单表的容量不会太大，提升性能；当然这些结构一样的表，可以放在一个或多个数据库中。 水平分割的几种方法：</p>
+</li>
+<li>
+<p>使用MD5哈希，做法是对UID进行md5加密，然后取前几位（我们这里取前两位），然后就可以将不同的UID哈希到不同的用户表（user_xx）中了。</p>
+</li>
+<li>
+<p>还可根据时间放入不同的表，比如：article_201601，article_201602。</p>
+</li>
+<li>
+<p>按热度拆分，高点击率的词条生成各自的一张表，低热度的词条都放在一张大表里，待低热度的词条达到一定的贴数后，再把低热度的表单独拆分成一张表。</p>
+</li>
+<li>
+<p>根据ID的值放入对应的表，第一个表user_0000，第二个100万的用户数据放在第二 个表user_0001中，随用户增加，直接添加用户表就行了。</p>
+</li>
+</ul>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h3 id="%E8%A7%A3%E5%86%B3%E7%9A%84%E9%97%AE%E9%A2%98" tabindex="-1"><a class="header-anchor" href="#%E8%A7%A3%E5%86%B3%E7%9A%84%E9%97%AE%E9%A2%98">#</a> 解决的问题</h3>
+<ul>
+<li>单表并发提高</li>
+<li>数据存储在不同文件，磁盘IO性能提高</li>
+<li>读写锁影响的数据减少</li>
+<li>插入数据库需要建立索引的数据减少</li>
+</ul>
+<h3 id="%E5%B8%A6%E6%9D%A5%E7%9A%84%E9%97%AE%E9%A2%98-1" tabindex="-1"><a class="header-anchor" href="#%E5%B8%A6%E6%9D%A5%E7%9A%84%E9%97%AE%E9%A2%98-1">#</a> 带来的问题</h3>
+<ul>
+<li>实现方式复杂，需要配合业务实现</li>
+</ul>
+<h2 id="%E5%88%86%E5%8C%BA%E5%92%8C%E5%88%86%E8%A1%A8%E7%9A%84%E8%81%94%E7%B3%BB" tabindex="-1"><a class="header-anchor" href="#%E5%88%86%E5%8C%BA%E5%92%8C%E5%88%86%E8%A1%A8%E7%9A%84%E8%81%94%E7%B3%BB">#</a> 分区和分表的联系</h2>
+<ul>
+<li>
+<p>目的相同：分区和分表的目的都是减少数据库的负担，提高表的增删改查效率</p>
+</li>
+<li>
+<p>实现区别：分区只是一张表中的数据的存储位置发生改变，分表是将一张表分成多张表</p>
+</li>
+<li>
+<p>如何使用</p>
+</li>
+<li>
+<p>访问大，数据大——配合使用</p>
+</li>
+<li>
+<p>访问不大，数据大——分区</p>
+</li>
+</ul>
+<h2 id="%E5%88%86%E5%BA%93" tabindex="-1"><a class="header-anchor" href="#%E5%88%86%E5%BA%93">#</a> 分库</h2>
+<h3 id="%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF" tabindex="-1"><a class="header-anchor" href="#%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF">#</a> 适用场景</h3>
+<ul>
+<li>单台DB空间不足</li>
+<li>查询量增加，单台数据库服务器无法支撑</li>
+</ul>
+<h3 id="%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98-1" tabindex="-1"><a class="header-anchor" href="#%E8%A7%A3%E5%86%B3%E9%97%AE%E9%A2%98-1">#</a> 解决问题</h3>
+<ul>
+<li>为突破单节点数据库服务器的 I/O 能力限制，解决数据库扩展性问题</li>
+</ul>
+<h3 id="%E5%B8%A6%E6%9D%A5%E9%97%AE%E9%A2%98" tabindex="-1"><a class="header-anchor" href="#%E5%B8%A6%E6%9D%A5%E9%97%AE%E9%A2%98">#</a> 带来问题</h3>
+<ul>
+<li>事务的支持，分库分表，就变成了分布式事务</li>
+<li>join时跨库，跨表的问题</li>
+<li>分库分表，读写分离使用了分布式，分布式为了保证强一致性，必然带来延迟，导致性能降低，系统的复杂度变高</li>
+</ul>
+<h3 id="%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88" tabindex="-1"><a class="header-anchor" href="#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88">#</a> 解决方案</h3>
+<ul>
+<li>选用第三方的数据库中间件提高效率，同时业务系统需要配合数据存储的升级</li>
+</ul>
+<h3 id="%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E4%B8%89%E4%B8%AA%E8%8C%83%E5%BC%8F%EF%BC%88%E4%B8%8D%E8%80%83%EF%BC%89" tabindex="-1"><a class="header-anchor" href="#%E6%95%B0%E6%8D%AE%E5%BA%93%E7%9A%84%E4%B8%89%E4%B8%AA%E8%8C%83%E5%BC%8F%EF%BC%88%E4%B8%8D%E8%80%83%EF%BC%89">#</a> 数据库的三个范式（不考）</h3>
+<ul>
+<li>第一范式（1NF）：数据库表中的字段都是单一属性的，不可再分。这个单一属性由基本类型构成，包括整型、实数、字符型、逻辑型、日期型等。</li>
+<li>第二范式（2NF）：数据库表中不存在非关键字段对任一候选关键字段的部分函数依赖（部分函数依赖指的是存在组合关键字中的某些字段决定非关键字段的情况），也即所有非关键字段都完全依赖于任意一组候选关键字。</li>
+<li>第三范式（3NF）：在第二范式的基础上，数据表中如果不存在非关键字段对任一候选关键字段的传递函数依赖则符合第三范式。所谓传递函数依赖，指的是如果存在&quot;A → B → C&quot;的决定关系，则C传递函数依赖于A。因此，满足第三范式的数据库表应该不存在如下依赖关系：关键字段 → 非关键字段 x → 非关键字段y</li>
+</ul>
+<h2 id="sql%E8%A7%A3%E9%87%8A%E5%99%A8" tabindex="-1"><a class="header-anchor" href="#sql%E8%A7%A3%E9%87%8A%E5%99%A8">#</a> SQL解释器</h2>
+<ul>
+<li>成本优化器、规则优化器</li>
+<li>优化的基本逻辑</li>
+<li>考一个基于成本优化器的计算方式</li>
+</ul>
+<h3 id="sql%E8%A7%A3%E9%87%8A%E8%BF%87%E7%A8%8B" tabindex="-1"><a class="header-anchor" href="#sql%E8%A7%A3%E9%87%8A%E8%BF%87%E7%A8%8B">#</a> SQL解释过程</h3>
+<ol>
+<li>
+<p><strong>语法分析</strong>
+分析语句的语法是否符合规范；衡量语句中各个表达式的意义；</p>
+</li>
+<li>
+<p><strong>语义分析</strong>
+检查语句中设计的所有数据库对象是否存在，且用户有相应的权限；</p>
+</li>
+<li>
+<p><strong>执行解析</strong>
+优化器对每一个表达式的等价变化生成解析树，然后进行评估，由优化器选择一个最优的执行路径来生成执行计划。
+执行路径选择中会经历：</p>
+</li>
+<li>
+<p><strong>视图转换</strong>
+将涉及视图的查询语句转换为相应的对基表查询语句；</p>
+</li>
+<li>
+<p><strong>表达式转换</strong>
+将复杂的SQL表达式转换为较简单的等效连接表达式；</p>
+</li>
+<li>
+<p><strong>选择优化器</strong>
+不同的优化器一般会生成不同的“执行计划”；</p>
+</li>
+<li>
+<p><strong>选择连接方式</strong>
+对多表连接选择适当的连接方式；</p>
+</li>
+<li>
+<p><strong>选择连接顺序</strong>
+对多表连接，选择哪一对表先连接，选择这两表中哪个表作为源数据表；</p>
+</li>
+<li>
+<p><strong>选择数据的搜索路径</strong>
+根据以上条件选择合适的数据搜索路径，如果是选用全表搜索还是利用索引或者是其他的运行方式；</p>
+</li>
+<li>
+<p><strong>运行“执行计划”</strong></p>
+</li>
+</ol>
+<p>语法分析：分析语法是否符合规范，代价小；</p>
+<p>语义分析：分析语句含义，检查用户对数据库是否有相应权限，代价小；</p>
+<p>解析：分为硬解析和软解析。若在共享池中没找到已有的执行计划则硬解析，否则软解析。硬解析指使用优化器对SQL语句进行优化，将SQL转化为一些等价语句，并选择代价最小的语句生成执行计划。软解析指在共享池中已经存在对应的执行计划，则不再进行优化，直接使用该执行计划。硬解析的代价最大，软解析较小。</p>
+<p>执行计划，返回执行结果。代价根据SQL语句不同可大可小。</p>
+<h3 id="%E6%88%90%E6%9C%AC%E4%BC%98%E5%8C%96%E5%99%A8" tabindex="-1"><a class="header-anchor" href="#%E6%88%90%E6%9C%AC%E4%BC%98%E5%8C%96%E5%99%A8">#</a> 成本优化器</h3>
+<p><a href="https://juejin.cn/post/6990669704457093134">https://juejin.cn/post/6990669704457093134</a></p>
+<p>成本优化器考虑到io成本和cpu成本</p>
+<p>成本常数：</p>
+<ul>
+<li>1.0 读取一个页面花费的成本</li>
+<li>0.2 读取并检测一条记录是否符合搜索条件</li>
+</ul>
+<p>查找流程</p>
+<ol>
+<li>
+<p>根据搜索条件，找出所有可能使用的索引</p>
+</li>
+<li>
+<p><strong>计算<strong><strong>全表扫描</strong></strong>的代价</strong></p>
+</li>
+<li>
+<p><strong>计算****使用不同索引执行查询的代价</strong></p>
+</li>
+<li>
+<p>对比各种执行方案的代价，找出成本最低的那一个</p>
+</li>
+</ol>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h2 id="%E4%BD%A0%E5%AF%B9%E8%BF%99%E9%97%A8%E8%AF%BE%E6%9C%89%E4%BB%80%E4%B9%88%E5%BB%BA%E8%AE%AE%E5%92%8C%E6%83%B3%E6%B3%95" tabindex="-1"><a class="header-anchor" href="#%E4%BD%A0%E5%AF%B9%E8%BF%99%E9%97%A8%E8%AF%BE%E6%9C%89%E4%BB%80%E4%B9%88%E5%BB%BA%E8%AE%AE%E5%92%8C%E6%83%B3%E6%B3%95">#</a> 你对这门课有什么建议和想法</h2>
+<p>唉</p>
+
+      </div>
+
+      <footer class="post-footer">
+        <div class="post-nav">
+          <a href="/" class="post-nav-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            返回首页
+          </a>
+        </div>
+      </footer>
+    </article>
+  </main>
+</div>
+
+
+  <footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <span class="footer-logo">AI Blog</span>
+        <p class="footer-desc">一个由AI驱动的个人博客</p>
+        <div class="footer-social">
+          
+            <a href="https://github.com/yourname" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+          
+          
+            <a href="https://twitter.com/yourname" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          
+          
+            <a href="mailto:your@email.com" class="social-link" aria-label="Email">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </a>
+          
+          
+            <a href="/feed.xml" class="social-link" aria-label="RSS">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20C5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1z"/></svg>
+            </a>
+          
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">导航</h4>
+        <ul class="footer-links">
+          
+            <li><a href="/">首页</a></li>
+          
+            <li><a href="/archive/">归档</a></li>
+          
+            <li><a href="/tags/">标签</a></li>
+          
+            <li><a href="/categories/">分类</a></li>
+          
+          <li><a href="/archive/">归档</a></li>
+          <li><a href="/tags/">标签</a></li>
+          <li><a href="/categories/">分类</a></li>
+        </ul>
+      </div>
+
+      
+      <div class="footer-col">
+        <h4 class="footer-heading">友链</h4>
+        <ul class="footer-links">
+          
+            <li><a href="https://example.com" target="_blank" rel="noopener noreferrer">示例友链</a></li>
+          
+        </ul>
+      </div>
+      
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 AI Blog</p>
+      
+    </div>
+  </div>
+</footer>
+
+
+  <button class="back-to-top" aria-label="返回顶部">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+  </button>
+
+  <script src="/assets/js/main.js" defer></script>
+</body>
+</html>

@@ -124,6 +124,7 @@ class AIBlog {
       }
       
       console.log('图片处理完成');
+      this.imageProcessor.summary();
     } catch (error) {
       console.error('处理图片失败:', error.message);
       throw error;

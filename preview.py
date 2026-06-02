@@ -40,7 +40,7 @@ def main():
         print('标签页截图已保存: preview-tags.png')
         
         # 测试暗色模式
-        dark_mode_button = page.locator('#darkModeToggle')
+        dark_mode_button = page.locator('[data-action="toggle-theme"]')
         if dark_mode_button:
             dark_mode_button.click()
             time.sleep(1)

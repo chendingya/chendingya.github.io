@@ -1,6 +1,7 @@
 const fs = require('fs-extra');
 const path = require('path');
 const ejs = require('ejs');
+const yaml = require('js-yaml');
 
 class TemplateEngine {
   constructor(config) {
@@ -9,9 +10,54 @@ class TemplateEngine {
     this.layoutsDir = path.join(this.templatesDir, 'layouts');
     this.partialsDir = path.join(this.templatesDir, 'partials');
     this.themesDir = path.join(this.templatesDir, 'themes');
-    
-    // 缓存编译后的模板
+    this.configThemesDir = path.resolve('config/themes');
+
     this.templateCache = new Map();
+    this.theme = this.loadTheme();
+  }
+
+  loadTheme() {
+    const themeName = this.config.theme || 'default';
+    const themeFile = path.join(this.configThemesDir, `${themeName}.yml`);
+
+    try {
+      if (fs.pathExistsSync(themeFile)) {
+        const raw = fs.readFileSync(themeFile, 'utf8');
+        return yaml.load(raw);
+      }
+    } catch (e) {
+      console.warn(`加载主题配置失败: ${themeFile}`, e.message);
+    }
+    return null;
+  }
+
+  generateThemeCSS() {
+    if (!this.theme) return '';
+
+    const t = this.theme;
+    const collect = (obj) => {
+      if (!obj) return [];
+      return Object.entries(obj).map(([k, v]) => `${k}: ${v};`);
+    };
+
+    const css = [
+      ...collect(t.fonts),
+      ...collect(t.light),
+      ...collect(t.accent),
+      ...collect(t.layout),
+      ...collect(t.space),
+      ...collect(t.radius),
+      ...collect(t.easing)
+    ];
+
+    let output = `:root {\n  ${css.join('\n  ')}\n}`;
+
+    const darkCss = collect(t.dark);
+    if (darkCss.length) {
+      output += `\n\n[data-theme="dark"] {\n  ${darkCss.join('\n  ')}\n}`;
+    }
+
+    return output;
   }
 
   async render(templateName, data = {}) {
@@ -79,7 +125,6 @@ class TemplateEngine {
   }
 
   prepareTemplateData(data) {
-    // 准备基础数据
     const templateData = {
       site: {
         title: this.config.site.title,
@@ -107,13 +152,11 @@ class TemplateEngine {
       navigation: this.config.navigation || [],
       social: this.config.social || {},
       links: this.config.links || [],
-      theme: this.config.theme,
-      markdown: this.config.markdown,
-      rss: this.config.rss,
+      themeCSS: this.generateThemeCSS(),
       year: new Date().getFullYear(),
       ...data
     };
-    
+
     return templateData;
   }
 

@@ -1,95 +1,5 @@
-/* 奶油杂志 × 多巴胺 — AI Blog 主题 */
-/* Cream Magazine × Dopamine Color System */
-
-/* ================ CSS 变量 ================ */
-:root {
-  /* 奶油底色系 */
-  --bg-cream: #FEFAF6;
-  --bg-surface: #FFFFFF;
-  --bg-warm: #FDF5EB;
-
-  /* 文字色系（巧克力色阶） */
-  --text-primary: #2C1810;
-  --text-secondary: #8B7355;
-  --text-muted: #C4A882;
-
-  /* 多巴胺点缀色 */
-  --accent-coral: #FF6B6B;
-  --accent-amber: #F4A261;
-  --accent-mint: #90BE6D;
-  --accent-lavender: #9B72AA;
-  --accent-sky: #4ECDC4;
-  --accent-sun: #F9C74F;
-  --accent-rose: #FF6B8A;
-  --accent-blue: #577590;
-
-  /* 主品牌色 — 珊瑚红 */
-  --brand: var(--accent-coral);
-  --brand-hover: #FF5252;
-
-  /* 边框 */
-  --border: #E8D5C4;
-  --border-light: #F0E3D5;
-
-  /* 阴影 */
-  --shadow-sm: 0 1px 2px rgba(44, 24, 16, 0.04);
-  --shadow-md: 0 4px 12px rgba(44, 24, 16, 0.06);
-  --shadow-lg: 0 12px 32px rgba(44, 24, 16, 0.08);
-
-  /* 排版 */
-  --font-display: 'Playfair Display', 'Noto Serif SC', Georgia, 'Times New Roman', serif;
-  --font-body: 'Public Sans', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  --font-mono: 'Fira Code', 'Cascadia Code', 'JetBrains Mono', monospace;
-  --font-cjk-serif: 'Noto Serif SC', 'Source Han Serif SC', 'SimSun', serif;
-  --font-cjk-sans: 'Noto Sans SC', 'Source Han Sans SC', 'PingFang SC', 'Microsoft YaHei', sans-serif;
-
-  /* 间距 */
-  --space-xs: 0.25rem;
-  --space-sm: 0.5rem;
-  --space-md: 1rem;
-  --space-lg: 1.5rem;
-  --space-xl: 2rem;
-  --space-2xl: 3rem;
-  --space-3xl: 5rem;
-
-  /* 圆角 */
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 16px;
-  --radius-xl: 24px;
-
-  /* 过渡 */
-  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
-  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
-  --duration-fast: 150ms;
-  --duration-normal: 300ms;
-  --duration-slow: 500ms;
-
-  /* 布局 */
-  --max-width: 1200px;
-  --content-width: 720px;
-}
-
-/* ================ 暗色模式 ================ */
-[data-theme="dark"] {
-  --bg-cream: #1A1614;
-  --bg-surface: #2C2420;
-  --bg-warm: #241E1A;
-
-  --text-primary: #E8D5C4;
-  --text-secondary: #B8A088;
-  --text-muted: #8B7355;
-
-  --border: #3D3028;
-  --border-light: #332A22;
-
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
-  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.25);
-  --shadow-lg: 0 12px 32px rgba(0, 0, 0, 0.3);
-
-  --brand: var(--accent-coral);
-  --brand-hover: #FF8A8A;
-}
+/* 奶油杂志 × 多巴胺 — 样式规则 */
+/* CSS 变量由构建时从 config/themes/ 注入，此处只定义规则 */
 
 /* ================ 基础重置 ================ */
 *,
@@ -112,20 +22,6 @@ html {
 }
 
 body {
-  font-family: var(--font-body);
-  font-size: 1rem;
-  line-height: 1.75;
-  color: var(--text-primary);
-  background-color: var(--bg-cream);
-  overflow-x: hidden;
-}
-
-/* 中文专用字体栈 */
-body:lang(zh),
-[lang="zh-CN"],
-[lang="zh-TW"] {
-  font-family: var(--font-cjk-sans), var(--font-body);
-}
 
 .container {
   max-width: var(--max-width);
@@ -1312,7 +1208,14 @@ pre:hover .copy-code-btn { opacity: 1; }
     display: none !important;
   }
 
-  body {
+body {
+  font-family: var(--font-body);
+  font-size: 1rem;
+  line-height: 1.75;
+  color: var(--text-primary);
+  background-color: var(--bg-cream);
+  overflow-x: hidden;
+}
     background: #fff;
     color: #000;
     font-size: 12pt;

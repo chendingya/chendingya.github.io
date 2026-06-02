@@ -1,0 +1,2283 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="一个由AI驱动的个人博客">
+  <title>软件系统设计-原则模式期末复习 - AI Blog</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Noto+Serif+SC:wght@400;500;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/css/style.css">
+  
+  <link rel="stylesheet" href="/assets/css/highlight.css">
+  
+
+  
+  <style>:root {
+  --font-display: 'Playfair Display', 'Noto Serif SC', Georgia, 'Times New Roman', serif;
+  --font-body: 'Public Sans', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'Fira Code', 'Cascadia Code', 'JetBrains Mono', monospace;
+  --bg-cream: #FEFAF6;
+  --bg-surface: #FFFFFF;
+  --bg-warm: #FDF5EB;
+  --text-primary: #2C1810;
+  --text-secondary: #8B7355;
+  --text-muted: #C4A882;
+  --border: #E8D5C4;
+  --border-light: #F0E3D5;
+  --shadow-sm: 0 1px 2px rgba(44,24,16,0.04);
+  --shadow-md: 0 4px 12px rgba(44,24,16,0.06);
+  --shadow-lg: 0 12px 32px rgba(44,24,16,0.08);
+  --brand: var(--accent-coral);
+  --brand-hover: #FF5252;
+  --accent-coral: #FF6B6B;
+  --accent-coral-hover: #FF5252;
+  --accent-amber: #F4A261;
+  --accent-mint: #90BE6D;
+  --accent-lavender: #9B72AA;
+  --accent-sky: #4ECDC4;
+  --accent-sun: #F9C74F;
+  --accent-rose: #FF6B8A;
+  --accent-blue: #577590;
+  --max-width: 1200px;
+  --content-width: 720px;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 5rem;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+}
+
+[data-theme="dark"] {
+  --bg-cream: #1A1614;
+  --bg-surface: #2C2420;
+  --bg-warm: #241E1A;
+  --text-primary: #E8D5C4;
+  --text-secondary: #B8A088;
+  --text-muted: #8B7355;
+  --border: #3D3028;
+  --border-light: #332A22;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.25);
+  --shadow-lg: 0 12px 32px rgba(0,0,0,0.3);
+  --brand: var(--accent-coral);
+  --brand-hover: #FF8A8A;
+}</style>
+  
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23FF6B6B'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='20' fill='white'>A</text></svg>">
+
+  
+  <link rel="alternate" type="application/rss+xml" title="AI Blog" href="/feed.xml">
+  
+
+  <meta property="og:title" content="软件系统设计-原则模式期末复习">
+  <meta property="og:description" content="一个由AI驱动的个人博客">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://username.github.io/ai-blog/posts/24-软件系统设计/软件系统设计期末复习-原则模式/">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="软件系统设计-原则模式期末复习">
+  <meta name="twitter:description" content="一个由AI驱动的个人博客">
+  
+</head>
+<body class="post-page">
+  <div class="reading-progress"></div>
+
+  <header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="/" class="site-brand">
+        
+          <span class="brand-title">AI Blog</span>
+        
+      </a>
+
+      <nav class="site-nav" data-target="main-nav">
+        <ul class="nav-list">
+          
+            <li class="nav-item">
+              <a href="/" class="nav-link">首页</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/archive/" class="nav-link">归档</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/tags/" class="nav-link">标签</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/categories/" class="nav-link">分类</a>
+            </li>
+          
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" data-action="toggle-theme" aria-label="切换暗色模式">
+          <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+
+        <button class="icon-btn menu-btn" data-action="toggle-menu" aria-label="菜单">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  <div class="container">
+  <main class="main-content">
+    <article class="post-article">
+      <header class="post-header">
+        
+          <div class="post-header-cats">
+            
+              <a href="/categories/软件系统设计/" class="meta-cat accent">软件系统设计</a>
+            
+          </div>
+        
+        <h1 class="post-title">软件系统设计-原则模式期末复习</h1>
+        <div class="post-meta">
+          <time datetime="2024-06-24T10:11:44.000Z">
+            2024年6月24日
+          </time>
+          
+            <span class="meta-divider">&middot;</span>
+            <span class="post-author">Your Name</span>
+          
+        </div>
+        
+          <div class="post-header-tags">
+            
+              <a href="/tags/系统架构/" class="tag">系统架构</a>
+            
+          </div>
+        
+      </header>
+
+      
+
+      <div class="post-body">
+        <p><a href="https://wbl-z.github.io/%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1/%E8%BD%AF%E4%BB%B6%E7%B3%BB%E7%BB%9F%E8%AE%BE%E8%AE%A1%E5%A4%8D%E4%B9%A0%E5%BE%80%E5%B9%B4%E9%A2%98/#">软件系统设计复习往年题 | wbl-z’s Blog</a></p>
+<p>设计原则、设计模式</p>
+<p>考试题型：</p>
+<p>简答：设计原则本身间的关系、设计模式之间的关系、设计原则与模式之间的关系</p>
+<p>设计：设计问题-》设计方案 出题时问题描述和前提条件锁死，只能推导出一个答案，复习时重点了解适应环境和后果</p>
+<h1 id="%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99" tabindex="-1"><a class="header-anchor" href="#%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99">#</a> 设计原则</h1>
+<p>考在简答</p>
+<p>设计原则之间的关系</p>
+<p>如果要实现一个目标，哪些原则是必须的，相互的关系</p>
+<p>设计模式提现了哪些原则</p>
+<p>模式与模式之间的变体，策略和状态有什么相同和不同</p>
+<p><a href="https://blog.csdn.net/qq_25091281/article/details/123801862">UML-认识六种箭头，轻松读懂UML图_uml图六种箭头的含义-CSDN博客</a></p>
+<h2 id="%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB" tabindex="-1"><a class="header-anchor" href="#%E8%AE%BE%E8%AE%A1%E5%8E%9F%E5%88%99%E4%B9%8B%E9%97%B4%E7%9A%84%E5%85%B3%E7%B3%BB">#</a> 设计原则之间的关系</h2>
+<p>目标：开闭原则</p>
+<p>指导：迪米特法则（最小知识原则）</p>
+<p>基础：单一职责原则、可变性封装原则</p>
+<p>实现：依赖倒转原则、合成复用原则、里氏代换原则、接口隔离原则</p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h2 id="%E5%8D%95%E4%B8%80%E8%81%8C%E8%B4%A3%E5%8E%9F%E5%88%99" tabindex="-1"><a class="header-anchor" href="#%E5%8D%95%E4%B8%80%E8%81%8C%E8%B4%A3%E5%8E%9F%E5%88%99">#</a> 单一职责原则</h2>
+<p>Single Responsibility Principle</p>
+<p>⼀个对象应该只包含单⼀的职责，并且该职责被完整地封装在⼀个类中；</p>
+<p>就一个类而言，应该仅有一个引起它变化的原因。</p>
+<h3 id="%E5%8D%95%E4%B8%80%E8%81%8C%E8%B4%A3%E5%8E%9F%E5%88%99%E5%AE%9E%E4%BE%8B" tabindex="-1"><a class="header-anchor" href="#%E5%8D%95%E4%B8%80%E8%81%8C%E8%B4%A3%E5%8E%9F%E5%88%99%E5%AE%9E%E4%BE%8B">#</a> 单一职责原则实例</h3>
+<p>某基于 Java 的 C/S 系统的“登录功能”通过如下登录类（Login）实现：</p>
+<ol>
+<li>init：用来初始化界面控件，如按钮等</li>
+<li>diaplay：显示提示窗口，添加控件</li>
+<li>validata：是供界面检查使用的</li>
+<li>getConnection：用来连接数据库</li>
+<li>findUser：用来查询用户</li>
+<li>main：主函数</li>
+</ol>
+<p>这样的设计是不好的，这个类包含了过多的职责</p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p>现使用单一职责原则对其进行重构：</p>
+<ol>
+<li>我们将 login 类拆分成了三个类</li>
+<li>使用分层的方式修改</li>
+</ol>
+<p>软件设计的复杂性不可消解但是可以分解。</p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h2 id="%E5%BC%80%E9%97%AD%E5%8E%9F%E5%88%99%EF%BC%9A%E5%AF%B9%E5%8F%AF%E5%8F%98%E6%80%A7%E5%B0%81%E8%A3%85%E5%8E%9F%E5%88%99" tabindex="-1"><a class="header-anchor" href="#%E5%BC%80%E9%97%AD%E5%8E%9F%E5%88%99%EF%BC%9A%E5%AF%B9%E5%8F%AF%E5%8F%98%E6%80%A7%E5%B0%81%E8%A3%85%E5%8E%9F%E5%88%99">#</a> 开闭原则：对可变性封装原则</h2>
+<p>（Open-Closed Principle, OCP）</p>
+<p>一个软件实体应当对扩展开放，对修改关闭。也就是说在设计一个模块的时候，应当使这个模块可以在不被修改的前提下被扩展，即实现在不修改源代码的情况下改变这个模块的行为。</p>
+<p>对可变性封装原则（Principle of Encapsulation of Variation, EVP）要求找到系统的可变因素并将其封装起来。</p>
+<h3 id="%E7%A4%BA%E4%BE%8B" tabindex="-1"><a class="header-anchor" href="#%E7%A4%BA%E4%BE%8B">#</a> 示例</h3>
+<p>某图形界面系统提供了各种不同形状的按钮，客户端代码可针对这些按钮进行编程，用户可能会改变需求要求使用不同的按钮，原始设计方案如图所示：</p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p>现对该系统进行重构，使之满足开闭原则的要求：尝试将代码变为数据（配置文件，Config.xml），结合 Java 的反射机制来完成。</p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h2 id="%E9%87%8C%E6%B0%8F%E4%BB%A3%E6%8D%A2%E5%8E%9F%E5%88%99" tabindex="-1"><a class="header-anchor" href="#%E9%87%8C%E6%B0%8F%E4%BB%A3%E6%8D%A2%E5%8E%9F%E5%88%99">#</a> 里氏代换原则</h2>
+<p>里氏代换原则（Liskov Substitution Principle, LSP）</p>
+<p>所有引用基类（父类）的地方必须能透明地使用其子类的对象。</p>
+<p>在软件中如果能够使用基类对象，那么一定能够使用其子类对象。把基类都替换成它的子类，程序将不会产生任何错误和异常。反过来则不成立：如果一个软件实体使用的是一个子类的话，那么它不一定能够使用基类。</p>
+<h3 id="%E7%A4%BA%E4%BE%8B-1" tabindex="-1"><a class="header-anchor" href="#%E7%A4%BA%E4%BE%8B-1">#</a> 示例</h3>
+<p>某系统需要实现对重要数据（如用户密码）的加密处理，在数据操作类（DataOperator）中需要调用加密类中定义的加密算法，系统提供了两个不同的加密类，CipherA 和 CipherB，它们实现不同的加密方法，在 DataOperator 中可以选择其中的一个实现加密操作。如图所示：</p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p>也可以为 CipherA 和 CipherB 设计一个共同的父类，下面是指 CipherB 是在 CipherA 的基础上加密。</p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h2 id="%E4%BE%9D%E8%B5%96%E5%80%92%E8%BD%AC" tabindex="-1"><a class="header-anchor" href="#%E4%BE%9D%E8%B5%96%E5%80%92%E8%BD%AC">#</a> 依赖倒转</h2>
+<p>依赖倒转原则（Dependence Inversion Principle, DIP）的定义如下：高层模块不应该依赖低层模块，它们都应该依赖抽象。抽象不应该依赖于细节，细节应该依赖于抽象。</p>
+<p>要针对接口编程，不要针对实现编程。</p>
+<p>依赖倒转原则的常用实现方式之一是在代码中使用抽象类，而将具体类放在配置文件</p>
+<ol>
+<li>
+<p>实现开闭原则的关键是抽象化，并且从抽象化导出具体化实现，如果说开闭原则是面向对象设计的目标的话，那么依赖倒转原则就是面向对象设计的主要手段。</p>
+</li>
+<li>
+<p>代码要依赖于抽象的类，而不要依赖于具体的类；要针对接口或抽象类编程，而不是针对具体类编程。</p>
+</li>
+<li>
+<p>依赖注入</p>
+</li>
+<li>
+<p>构造注入（Constructor Injection）：通过构造函数注入实例变量。</p>
+</li>
+<li>
+<p>设值注入（Setter Injection）：通过 Setter 方法注入实例变量</p>
+</li>
+<li>
+<p>接口注入（Interface Injection）：通过接口方法注入实例变量。</p>
+</li>
+</ol>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p>把高层模块和低层模块交互行为抽象出来，做到互不依赖，都依赖于提取出来的抽象。</p>
+<p><strong>即：无论高层模块或低层模块实现的细节，都依赖于抽象</strong>。</p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p>高层模块和低层模块彻底解耦，都很容易实现扩展；</p>
+<p>而抽象模块具有很高的稳定性、可重用性，对高/低层模块来说才是真正&quot;可依赖的&quot;</p>
+<p>增加了一层抽象层，增加实现难度；</p>
+<p>对一些简单的调用关系来说，可能是得不偿失的。</p>
+<h3 id="%E7%A4%BA%E4%BE%8B-2" tabindex="-1"><a class="header-anchor" href="#%E7%A4%BA%E4%BE%8B-2">#</a> 示例</h3>
+<p>某系统提供一个数据转换模块，可以将来自不同数据源的数据转换成多种格式，如可以转换来自数据库的数据（DatabaseSource）、也可以转换来自文本文件的数据（TextSource），转换后的格式可以是 XML 文件（XMLTransformer）、也可以是 XLS 文件（XLSTransformer）等。</p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p>由于需求的变化，该系统可能需要增加新的数据源或者新的文件格式，每增加一个新的类型的数据源或者新的类型的文件格式，客户类 MainClass 都需要修改源代码，以便使用新的类，但违背了开闭原则。现使用依赖倒转原则对其进行重构。</p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h2 id="%E6%8E%A5%E5%8F%A3%E9%9A%94%E7%A6%BB" tabindex="-1"><a class="header-anchor" href="#%E6%8E%A5%E5%8F%A3%E9%9A%94%E7%A6%BB">#</a> 接口隔离</h2>
+<ol>
+<li>接口隔离原则（Interface Segregation Principle, ISP）的定义如下：客户端不应该依赖那些它不需要的接口。</li>
+<li>一个接口就只代表一个角色，每个角色都有它特定的一个接口，此时这个原则可以叫做“角色隔离原则”。</li>
+<li>使用接口隔离原则拆分接口时，首先必须满足单一职责原则，将一组相关的操作定义在一个接口中，且在满足高内聚的前提下，接口中的方法越少越好。</li>
+</ol>
+<h3 id="%E7%A4%BA%E4%BE%8B-3" tabindex="-1"><a class="header-anchor" href="#%E7%A4%BA%E4%BE%8B-3">#</a> 示例</h3>
+<ol>
+<li>下图展示了一个拥有多个客户类的系统，在系统中定义了一个巨大的接口（胖接口）AbstractService 来服务所有的客户类。可以使用接口隔离原则对其进行重构。</li>
+</ol>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h2 id="%E5%90%88%E6%88%90%E5%A4%8D%E7%94%A8" tabindex="-1"><a class="header-anchor" href="#%E5%90%88%E6%88%90%E5%A4%8D%E7%94%A8">#</a> 合成复用</h2>
+<ol>
+<li>
+<p>合成复用原则（Composite Reuse Principle, CRP）又称为组合/聚合复用原则（Composition/Aggregate Reuse Principle，CARP）</p>
+</li>
+<li>
+<p>尽量使用对象组合，而不是继承来达到复用的目的。</p>
+</li>
+<li>
+<p>聚合和组合的区别：</p>
+</li>
+<li>
+<p>聚合是独立的，组合局部不能离开总体（往往只属于一个组合对象，组合关系更强）。</p>
+</li>
+<li>
+<p>聚合是空心菱形箭头，组合是实心菱形箭头</p>
+</li>
+<li>
+<p>合成复用原则就是指在一个新的对象里通过关联关系（包括组合关系和聚合关系）来使用一些已有的对象，使之成为新对象的一部分；新对象通过委派调用已有对象的方法达到复用其已有功能的目的。简言之：要尽量使用组合/聚合关系，少用继承。</p>
+</li>
+<li>
+<p>继承复用：实现简单，易于扩展。破坏系统的封装性；从基类继承而来的实现是静态的，不可能在运行时发生改变，没有足够的灵活性；只能在有限的环境中使用。（“白箱”复用）</p>
+</li>
+<li>
+<p>组合/聚合复用：耦合度相对较低，选择性地调用成员对象的操作；可以在运行时动态进行。（“黑箱”复用）</p>
+</li>
+<li>
+<p>组合/聚合可以使系统更加灵活，类与类之间的耦合度降低，一个类的变化对其他类造成的影响相对较少，因此一般首选使用组合/聚合来实现复用；其次才考虑继承，在使用继承时，需要严格遵循里氏代换原则，有效使用继承会有助于对问题的理解，降低复杂度，而滥用继承反而会增加系统构建和维护的难度以及系统的复杂度，因此需要慎重使用继承复用。</p>
+</li>
+</ol>
+<h3 id="%E7%A4%BA%E4%BE%8B-4" tabindex="-1"><a class="header-anchor" href="#%E7%A4%BA%E4%BE%8B-4">#</a> 示例</h3>
+<ol>
+<li>某教学管理系统部分数据库访问类设计如图所示：</li>
+</ol>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<ol>
+<li>如果需要更换数据库连接方式，如原来采用 JDBC 连接数据库，现在采用数据库连接池连接，则需要修改 DBUtil 类源代码。如果 StudentDAO 采用 JDBC 连接，但是 TeacherDAO 采用连接池连接，则需要增加一个新的 DBUtil 类，并修改 StudentDAO 或 TeacherDAO 的源代码，使之继承新的数据库连接类，这将违背开闭原则，系统扩展性较差。</li>
+<li>现使用合成复用原则对其进行重构。</li>
+</ol>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h2 id="%E8%BF%AA%E7%B1%B3%E7%89%B9%E6%B3%95%E5%88%99" tabindex="-1"><a class="header-anchor" href="#%E8%BF%AA%E7%B1%B3%E7%89%B9%E6%B3%95%E5%88%99">#</a> 迪米特法则</h2>
+<p>最少知识原则（Least Knowledge Principle, LKP）</p>
+<ol>
+<li>
+<p>不要和“陌生人”说话。英文定义为：Don’t talk to strangers.</p>
+</li>
+<li>
+<p>只与你的直接朋友通信。英文定义为：Talk only to your immediate friends.</p>
+</li>
+<li>
+<p>每一个软件单位对其他的单位都只有最少的知识，而且局限于那些与本单位密切相关的软件单位。</p>
+</li>
+<li>
+<p>简单地说，迪米特法则就是指一个软件实体应当尽可能少的与其他实体发生相互作用。</p>
+</li>
+<li>
+<p>在迪米特法则中，对于一个对象，其朋友包括以下几类：</p>
+</li>
+<li>
+<p>当前对象本身（this）</p>
+</li>
+<li>
+<p>以参数形式传入到当前对象方法中的对象</p>
+</li>
+<li>
+<p>当前对象的成员对象</p>
+</li>
+<li>
+<p>如果当前对象的成员对象是一个集合，那么集合中的元素也都是朋友</p>
+</li>
+<li>
+<p>当前对象所创建的对象。</p>
+</li>
+<li>
+<p>迪米特法则可分为狭义法则和广义法则。在狭义的迪米特法则中，如果两个类之间不必彼此直接通信，那么这两个类就不应当发生直接的相互作用，如果其中的一个类需要调用另一个类的某一个方法的话，可以通过第三者转发这个调用。下图中，只允许 A 调用 B 对象的方法，但是不能调用 C 对象的方法（但是我们可以通过在 B 中添加一个 Wrapper 方法来间接调用 C）</p>
+</li>
+</ol>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<ol>
+<li>
+<p>狭义的迪米特法则：可以降低类之间的耦合，但是会在系统中增加大量的小方法并散落在系统的各个角落，它可以使一个系统的局部设计简化，因为每一个局部都不会和远距离的对象有直接的关联，但是也会造成系统的不同模块之间的通信效率降低，使得系统的不同模块之间不容易协调。</p>
+</li>
+<li>
+<p>广义的迪米特法则：指对对象之间的信息流量、流向以及信息的影响的控制，主要是对信息隐藏的控制。信息的隐藏可以使各个子系统之间脱耦，从而允许它们独立地被开发、优化、使用和修改，同时可以促进软件的复用，由于每一个模块都不依赖于其他模块而存在，因此每一个模块都可以独立地在其他的地方使用。一个系统的规模越大，信息的隐藏就越重要，而信息隐藏的重要性也就越明显。</p>
+</li>
+<li>
+<p>迪米特法则的主要用途在于控制信息的过载：</p>
+</li>
+<li>
+<p>在类的划分上，应当尽量创建松耦合的类，类之间的耦合度越低，就越有利于复用，一个处在松耦合中的类一旦被修改，不会对关联的类造成太大波及</p>
+</li>
+<li>
+<p>在类的结构设计上，每一个类都应当尽量降低其成员变量和成员函数的访问权限</p>
+</li>
+<li>
+<p>在类的设计上，只要有可能，一个类型应当设计成不变类</p>
+</li>
+<li>
+<p>在对其他类的引用上，一个对象对其他对象的引用应当降到最低</p>
+</li>
+</ol>
+<h3 id="%E7%A4%BA%E4%BE%8B-5" tabindex="-1"><a class="header-anchor" href="#%E7%A4%BA%E4%BE%8B-5">#</a> 示例</h3>
+<p>某系统界面类（如 Form1、Form2 等类）与数据访问类（如 DAO1、DAO2 等类）之间的调用关系较为复杂，如图所示：</p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h1 id="%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F" tabindex="-1"><a class="header-anchor" href="#%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">#</a> 设计模式</h1>
+<p>定义： Design Pattern 是⼀套被反复使用、多数人知晓的、经过分类编目 的、代码设计经验的总结</p>
+<p>目的：可重用代码、更好被他人理解，更好可靠性</p>
+<ol>
+<li>
+<p>根据其目的 ( 模式是用来做什么的 ) 可分为创建型 (Creational)，结构型 (Structural) 和行为型 (Behavioral) 三种：</p>
+</li>
+<li>
+<p>创建型模式主要用于创建对象。</p>
+</li>
+<li>
+<p>结构型模式主要用于处理类或对象的组合。</p>
+</li>
+<li>
+<p>行为型模式主要用于描述对类或对象怎样交互和怎样分配职责。</p>
+</li>
+<li>
+<p>根据范围，即模式主要是用于处理类之间关系还是处理对象之间的关系，可分为类模式和对象模式两种：</p>
+</li>
+<li>
+<p>类模式处理类和子类之间的关系，这些关系通过继承建立，在编译时刻就被确定下来，是属于静态的。</p>
+</li>
+<li>
+<p>对象模式处理对象间的关系，这些关系在运行时刻变化，更具动态性。</p>
+</li>
+</ol>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h2 id="%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F-%EF%BC%9A%E8%A1%8C%E4%B8%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F%E3%80%81%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%BC%8F" tabindex="-1"><a class="header-anchor" href="#%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F-%EF%BC%9A%E8%A1%8C%E4%B8%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F%E3%80%81%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%BC%8F">#</a> 策略模式 ：行为型模式、对象模式</h2>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p>Strategy，也叫 Policy</p>
+<ol>
+<li><strong>策略接口（Strategy）</strong>：定义所有支持的算法或操作的接口。</li>
+<li><strong>具体策略（Concrete Strategy）</strong>：实现策略接口的类。</li>
+<li><strong>上下文（Context）</strong>：使用策略对象的类，它可以根据需要切换策略。</li>
+</ol>
+<h3 id="%E4%BC%98%E7%82%B9" tabindex="-1"><a class="header-anchor" href="#%E4%BC%98%E7%82%B9">#</a> 优点</h3>
+<ul>
+<li><strong>松耦合</strong>：策略模式将不同的策略封装在独立的类中，与上下文对象解耦，增加了代码的灵活性和可维护性。</li>
+<li><strong>易于扩展</strong>：可以通过添加新的策略类来扩展系统的功能，无需修改现有代码。</li>
+<li><strong>符合开闭原则</strong>：对于新的策略，无需修改上下文对象，只需要实现新的策略接口即可。</li>
+</ul>
+<h3 id="%E7%AC%A6%E5%90%88%E5%8E%9F%E5%88%99" tabindex="-1"><a class="header-anchor" href="#%E7%AC%A6%E5%90%88%E5%8E%9F%E5%88%99">#</a> 符合原则</h3>
+<ol>
+<li>单一职责</li>
+<li>依赖倒转</li>
+<li>合成复用</li>
+</ol>
+<h3 id="%E7%BC%BA%E7%82%B9%EF%BC%9A" tabindex="-1"><a class="header-anchor" href="#%E7%BC%BA%E7%82%B9%EF%BC%9A">#</a> 缺点：</h3>
+<ul>
+<li><strong>客户端必须知道所有的策略类</strong>：并自行决定使用哪一个策略类。</li>
+<li><strong>策略类数量增多</strong>：每个策略都是一个类，增加了系统的复杂性。</li>
+</ul>
+<h3 id="%E7%A4%BA%E4%BE%8B%EF%BC%9A" tabindex="-1"><a class="header-anchor" href="#%E7%A4%BA%E4%BE%8B%EF%BC%9A">#</a> 示例：</h3>
+<p>假设我们有一个购物车应用，需要根据不同的促销策略计算总价格。</p>
+<p><strong>策略接口（DiscountStrategy）</strong>：</p>
+<pre><code class="language-java">public interface DiscountStrategy {
+    double applyDiscount(double originalPrice);
+}
+</code></pre>
+<p><strong>具体策略（NoDiscount、SeasonalDiscount、BulkPurchaseDiscount）</strong>：</p>
+<pre><code class="language-java">public class NoDiscount implements DiscountStrategy {
+    public double applyDiscount(double originalPrice) {
+        return originalPrice;
+    }
+}
+
+public class SeasonalDiscount implements DiscountStrategy {
+    public double applyDiscount(double originalPrice) {
+        return originalPrice * 0.8; // 20% discount
+    }
+}
+
+public class BulkPurchaseDiscount implements DiscountStrategy {
+    public double applyDiscount(double originalPrice) {
+        return originalPrice - 50; // $50 discount for bulk purchase
+    }
+}
+</code></pre>
+<p><strong>上下文（ShoppingCart）</strong>：</p>
+<pre><code class="language-java">public class ShoppingCart {
+    private List&lt;Double&gt; prices;
+    private DiscountStrategy discountStrategy;
+
+    public ShoppingCart(DiscountStrategy discountStrategy) {
+        this.discountStrategy = discountStrategy;
+        prices = new ArrayList&lt;&gt;();
+    }
+
+    public void addPrice(double price) {
+        prices.add(price);
+    }
+
+    public double calculateTotal() {
+        double total = 0;
+        for (double price : prices) {
+            total += discountStrategy.applyDiscount(price);
+        }
+        return total;
+    }
+
+    public void setDiscountStrategy(DiscountStrategy discountStrategy) {
+        this.discountStrategy = discountStrategy;
+    }
+}
+</code></pre>
+<p><strong>使用示例</strong>：</p>
+<pre><code class="language-java">public class Main {
+    public static void main(String[] args) {
+        ShoppingCart cart = new ShoppingCart(new NoDiscount());
+        cart.addPrice(100);
+        cart.addPrice(200);
+
+        System.out.println(&quot;Total without discount: &quot; + cart.calculateTotal());
+
+        cart.setDiscountStrategy(new SeasonalDiscount());
+        System.out.println(&quot;Total with seasonal discount: &quot; + cart.calculateTotal());
+
+        cart.setDiscountStrategy(new BulkPurchaseDiscount());
+        System.out.println(&quot;Total with bulk purchase discount: &quot; + cart.calculateTotal());
+    }
+}
+</code></pre>
+<h2 id="%E7%8A%B6%E6%80%81%E6%A8%A1%E5%BC%8F%EF%BC%9A%E8%A1%8C%E4%B8%BA%E5%9E%8B%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%BC%8F" tabindex="-1"><a class="header-anchor" href="#%E7%8A%B6%E6%80%81%E6%A8%A1%E5%BC%8F%EF%BC%9A%E8%A1%8C%E4%B8%BA%E5%9E%8B%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%BC%8F">#</a> 状态模式：行为型对象模式</h2>
+<p>不需要清楚状态的改变，它只用调用状态的行为方法就行。状态的改变是在状态内部发生的</p>
+<p>允许一个对象在其内部状态改变时改变它的行为，对象看起来似乎修改了它的类。其别名为状态对象（Objects for States），状态模式是一种对象行为型模式。</p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h3 id="%E4%B8%BB%E8%A6%81%E8%A7%92%E8%89%B2%EF%BC%9A" tabindex="-1"><a class="header-anchor" href="#%E4%B8%BB%E8%A6%81%E8%A7%92%E8%89%B2%EF%BC%9A">#</a> 主要角色：</h3>
+<ol>
+<li><strong>环境（Context）</strong>：维护一个当前状态类的实例，这个实例定义了当前的状态。</li>
+<li><strong>状态接口（State）</strong>：定义所有具体状态的共同接口。</li>
+<li><strong>具体状态（Concrete State）</strong>：实现状态接口，定义了对象在特定状态下的行为。</li>
+</ol>
+<h3 id="%E4%BC%98%E7%82%B9%EF%BC%9A" tabindex="-1"><a class="header-anchor" href="#%E4%BC%98%E7%82%B9%EF%BC%9A">#</a> 优点：</h3>
+<ul>
+<li><strong>单一职责原则</strong>：每个状态类负责自己的行为，易于维护。</li>
+<li><strong>开闭原则</strong>：容易添加新的状态类。</li>
+<li><strong>封装性</strong>：状态转换逻辑被封装在状态类中，外部不需要知道状态转换的细节。</li>
+</ul>
+<h3 id="%E5%8E%9F%E5%88%99" tabindex="-1"><a class="header-anchor" href="#%E5%8E%9F%E5%88%99">#</a> 原则</h3>
+<ol>
+<li>依赖倒转原则</li>
+<li>单一职责原则：把不同状态下的行为封装到单一状态类里</li>
+</ol>
+<h3 id="%E7%BC%BA%E7%82%B9%EF%BC%9A-1" tabindex="-1"><a class="header-anchor" href="#%E7%BC%BA%E7%82%B9%EF%BC%9A-1">#</a> 缺点：</h3>
+<ul>
+<li><strong>状态模式对“开闭原则”的支持并不太好</strong>，对于可以切换状态的状态模式，增加新的状态类需要修改那些负责状态转换的源代码，否则无法切换到新增状态；而且修改某个状态类的行为也需修改对应类的源代码。</li>
+<li><strong>类数量增加</strong>：每个状态都需要一个具体的状态类，可能导致类的数量增加。</li>
+<li><strong>状态之间的依赖关系</strong>：状态类之间可能存在依赖关系，这可能导致复杂的状态转换逻辑。</li>
+</ul>
+<h3 id="%E7%A4%BA%E4%BE%8B%EF%BC%9A-1" tabindex="-1"><a class="header-anchor" href="#%E7%A4%BA%E4%BE%8B%EF%BC%9A-1">#</a> 示例：</h3>
+<p>业务场景 :</p>
+<p>视频播放器 , 有 : 暂停 , 播放 , 快进 , 停止 , 四个状态 ;</p>
+<p>在 停止 状态下 , 无法快进 , 如果当前是 停止 状态 , 此时要转为 快进 状态 , 需要进行校验 ;</p>
+<p>如果不使用 状态模式 , 则需要进行 if else 判断 ;</p>
+<p>如果使用 状态模式 , 就很容易实现 ;</p>
+<p>状态类 :</p>
+<p>定义状态父类抽象类 , 抽象方法是各个状态对应的方法 ;</p>
+<p>定义状态子类 , 每个状态对应一个子类对象 ;</p>
+<p>上下文类 :</p>
+<p>在该类中封装 所有的状态实例 , 以及定义 状态改变方法 ;</p>
+<p>封装当前状态类 , 状态改变方法 调用时 , 实际上调用的是 当前状态类的 对应方法 ;</p>
+<p>原文链接：<a href="https://blog.csdn.net/shulianghan/article/details/119684989">https://blog.csdn.net/shulianghan/article/details/119684989</a></p>
+<p><strong>状态</strong></p>
+<pre><code class="language-java">package state;
+
+/**
+ * 视频状态 父类
+ *      所有的视频状态 , 都要继承该类
+ */
+public abstract class VedioState {
+    /**
+     * 视频播放上下文
+     *      声明为 protected , 子类可以拿到该成员变量
+     */
+    protected VedioContext vedioContext;
+
+    public void setVedioContext(VedioContext vedioContext) {
+        this.vedioContext = vedioContext;
+    }
+
+    /**
+     * 播放
+     *      对应播放状态
+     */
+    public abstract void play();
+
+    /**
+     * 停止
+     *      对应停止状态
+     */
+    public abstract void pause();
+
+    /**
+     * 快进
+     *      对应快进状态
+     */
+    public abstract void speed();
+
+    /**
+     * 停止
+     *      对应停止状态
+     */
+    public abstract void stop();
+}
+</code></pre>
+<p><strong>具体状态类</strong></p>
+<pre><code class="language-java">package state;
+
+/**
+ * 视频的播放状态
+ *      可以进行 快进 , 暂停 , 停止 操作
+ */
+public class PlayState extends VedioState{
+    @Override
+    public void play() {
+        System.out.println(&quot;正常播放视频&quot;);
+    }
+
+    /**
+     * 暂停时 , 只需要调用 PlayState 父类 VedioState 的上下文 VedioContext
+     *      将上下文 VedioContext 中的状态 , 设置为 暂停 的状态即可
+     */
+    @Override
+    public void pause() {
+        super.vedioContext.setVedioState(VedioContext.PAUSE_STATE);
+    }
+
+    /**
+     * 快进时 , 只需要调用 PlayState 父类 VedioState 的上下文 VedioContext
+     *      将上下文 VedioContext 中的状态 , 设置为 快进 的状态即可
+     */
+    @Override
+    public void speed() {
+        super.vedioContext.setVedioState(VedioContext.SPEED_STATE);
+    }
+
+    /**
+     * 停止时 , 只需要调用 PlayState 父类 VedioState 的上下文 VedioContext
+     *      将上下文 VedioContext 中的状态 , 设置为 停止 的状态即可
+     */
+    @Override
+    public void stop() {
+        super.vedioContext.setVedioState(VedioContext.STOP_STATE);
+    }
+}
+
+package state;
+
+/**
+ * 视频暂停状态
+ *      暂停状态 可以 切换到 播放 , 快进 , 停止 状态
+ */
+public class PauseState extends VedioState{
+    /**
+     * 播放时 , 只需要调用 PlayState 父类 VedioState 的上下文 VedioContext
+     *      将上下文 VedioContext 中的状态 , 设置为 播放 的状态即可
+     */
+    @Override
+    public void play() {
+        super.vedioContext.setVedioState(VedioContext.PLAY_STATE);
+    }
+
+    /**
+     * 暂停时 , 只需要调用 PlayState 父类 VedioState 的上下文 VedioContext
+     *      将上下文 VedioContext 中的状态 , 设置为 暂停 的状态即可
+     */
+    @Override
+    public void pause() {
+        System.out.println(&quot;暂停播放视频&quot;);
+    }
+
+    /**
+     * 快进时 , 只需要调用 PlayState 父类 VedioState 的上下文 VedioContext
+     *      将上下文 VedioContext 中的状态 , 设置为 快进 的状态即可
+     */
+    @Override
+    public void speed() {
+        super.vedioContext.setVedioState(VedioContext.SPEED_STATE);
+    }
+
+    /**
+     * 停止时 , 只需要调用 PlayState 父类 VedioState 的上下文 VedioContext
+     *      将上下文 VedioContext 中的状态 , 设置为 停止 的状态即可
+     */
+    @Override
+    public void stop() {
+        super.vedioContext.setVedioState(VedioContext.STOP_STATE);
+    }
+}
+
+package state;
+
+/**
+ * 视频快进状态
+ *      快进状态下 , 可以进行 播放 , 暂停 , 停止操作
+ */
+public class SpeedState extends VedioState{
+    /**
+     * 播放时 , 只需要调用 PlayState 父类 VedioState 的上下文 VedioContext
+     *      将上下文 VedioContext 中的状态 , 设置为 播放 的状态即可
+     */
+    @Override
+    public void play() {
+        super.vedioContext.setVedioState(VedioContext.PLAY_STATE);
+    }
+
+    /**
+     * 暂停时 , 只需要调用 PlayState 父类 VedioState 的上下文 VedioContext
+     *      将上下文 VedioContext 中的状态 , 设置为 暂停 的状态即可
+     */
+    @Override
+    public void pause() {
+        System.out.println(&quot;快进播放视频&quot;);
+    }
+
+    /**
+     * 快进时 , 只需要调用 PlayState 父类 VedioState 的上下文 VedioContext
+     *      将上下文 VedioContext 中的状态 , 设置为 快进 的状态即可
+     */
+    @Override
+    public void speed() {
+        super.vedioContext.setVedioState(VedioContext.SPEED_STATE);
+    }
+
+    /**
+     * 停止时 , 只需要调用 PlayState 父类 VedioState 的上下文 VedioContext
+     *      将上下文 VedioContext 中的状态 , 设置为 停止 的状态即可
+     */
+    @Override
+    public void stop() {
+        super.vedioContext.setVedioState(VedioContext.STOP_STATE);
+    }
+}
+
+package state;
+
+/**
+ * 视频的停止状态
+ *      可以进行 播放 操作
+ *      不能进行 快进 , 暂停 操作
+ */
+public class StopState extends VedioState{
+    /**
+     * 播放时 , 只需要调用 PlayState 父类 VedioState 的上下文 VedioContext
+     *      将上下文 VedioContext 中的状态 , 设置为 播放 的状态即可
+     */
+    @Override
+    public void play() {
+        super.vedioContext.setVedioState(VedioContext.PLAY_STATE);
+    }
+
+    /**
+     * 不能暂停
+     */
+    @Override
+    public void pause() {
+        System.out.println(&quot;停止状态不能暂停&quot;);
+    }
+
+    /**
+     * 不能快进
+     */
+    @Override
+    public void speed() {
+        System.out.println(&quot;停止状态不能快进&quot;);
+    }
+
+    /**
+     * 停止时 , 只需要调用 PlayState 父类 VedioState 的上下文 VedioContext
+     *      将上下文 VedioContext 中的状态 , 设置为 停止 的状态即可
+     */
+    @Override
+    public void stop() {
+        System.out.println(&quot;停止播放视频&quot;);
+    }
+}
+</code></pre>
+<p><strong>环境上下文</strong></p>
+<pre><code class="language-java">package state;
+
+/**
+ * 使用享元模式 , 共享同一个对象
+ *
+ * 上下文也有 play , pause , speed , stop 等状态
+ *      执行这些方法时 , 调用状态的相应方法
+ */
+public class VedioContext {
+
+    /**
+     * 当前的状态
+     */
+    private VedioState mVedioState;
+    public final static PlayState PLAY_STATE = new PlayState();
+    public final static PauseState PAUSE_STATE = new PauseState();
+    public final static SpeedState SPEED_STATE = new SpeedState();
+    public final static StopState STOP_STATE = new StopState();
+
+    public VedioState getVedioState() {
+        return mVedioState;
+    }
+
+    /**
+     * 将传入的 VedioState , 赋值给当前的 VedioState mVedioState 成员
+     *      除此之外 , 还要设置 VedioState 的上下文 , 即该类本身
+     *      将当前的环境 VedioContext , 通知到各个状态实现类
+     * @param mVedioState
+     */
+    public void setVedioState(VedioState mVedioState) {
+        this.mVedioState = mVedioState;
+        this.mVedioState.setVedioContext(this);
+    }
+
+    public void play() {
+        this.mVedioState.play();
+    }
+
+    public void pause() {
+        this.mVedioState.pause();
+    }
+
+    public void speed() {
+        this.mVedioState.speed();
+    }
+
+    public void stop() {
+        this.mVedioState.stop();
+    }
+}
+</code></pre>
+<p><strong>示例调用代码</strong></p>
+<pre><code class="language-java">package state;
+
+public class Main {
+    public static void main(String[] args) {
+        VedioContext vedioContext = new VedioContext();
+        vedioContext.setVedioState(VedioContext.PLAY_STATE);
+        System.out.println(&quot;当前视频状态 : &quot; + vedioContext.getVedioState().getClass().getSimpleName());
+
+        vedioContext.pause();
+        System.out.println(&quot;当前视频状态 : &quot; + vedioContext.getVedioState().getClass().getSimpleName());
+
+        vedioContext.speed();
+        System.out.println(&quot;当前视频状态 : &quot; + vedioContext.getVedioState().getClass().getSimpleName());
+
+        vedioContext.stop();
+        System.out.println(&quot;当前视频状态 : &quot; + vedioContext.getVedioState().getClass().getSimpleName());
+
+        vedioContext.speed();
+        System.out.println(&quot;当前视频状态 : &quot; + vedioContext.getVedioState().getClass().getSimpleName());
+    }
+}
+</code></pre>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h2 id="%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F%EF%BC%9A%E7%B1%BB%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F" tabindex="-1"><a class="header-anchor" href="#%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F%EF%BC%9A%E7%B1%BB%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F">#</a> 简单工厂模式：类创建型模式</h2>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p>简单工厂模式包含如下角色：</p>
+<p>Factory：工厂角色</p>
+<p>Product：抽象产品角色</p>
+<p>ConcreteProduct：具体产品角色</p>
+<h3 id="%E4%BC%98%E7%82%B9%EF%BC%9A-1" tabindex="-1"><a class="header-anchor" href="#%E4%BC%98%E7%82%B9%EF%BC%9A-1">#</a> 优点：</h3>
+<ul>
+<li><strong>封装创建逻辑</strong>：客户端不需要知道创建对象的细节。</li>
+<li><strong>易于理解和使用</strong>：相对于其他复杂的工厂模式，简单工厂更容易实现。</li>
+</ul>
+<h3 id="%E7%BC%BA%E7%82%B9%EF%BC%9A-2" tabindex="-1"><a class="header-anchor" href="#%E7%BC%BA%E7%82%B9%EF%BC%9A-2">#</a> 缺点：</h3>
+<ul>
+<li><strong>违反开闭原则</strong>：添加新产品时需要修改工厂类的逻辑，增加了维护的难度。</li>
+</ul>
+<h2 id="%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%EF%BC%9A%E7%B1%BB%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F" tabindex="-1"><a class="header-anchor" href="#%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%EF%BC%9A%E7%B1%BB%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F">#</a> 工厂方法：类创建型模式</h2>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p>称为工厂模式，也叫虚拟构造器（Virtual Constructor）模式或者多态工厂（Polymorphic Factory）模式，它属于类创建型模式。</p>
+<ol>
+<li><strong>抽象工厂（Abstract Factory）</strong>：声明一个工厂方法，该方法返回一个产品类型的对象。</li>
+<li><strong>具体工厂（Concrete Factory）</strong>：实现抽象工厂中定义的工厂方法，创建并返回具体产品对象。</li>
+<li><strong>抽象产品（Product）</strong>：定义产品的接口。</li>
+<li><strong>具体产品（Concrete Product）</strong>：实现产品接口的类。</li>
+</ol>
+<h3 id="%E4%BC%98%E7%82%B9%EF%BC%9A-2" tabindex="-1"><a class="header-anchor" href="#%E4%BC%98%E7%82%B9%EF%BC%9A-2">#</a> 优点：</h3>
+<ul>
+<li><strong>扩展性好</strong>：新增产品类时不需要修改现有系统。</li>
+<li><strong>遵循开闭原则</strong>：新增产品类时只需新增相应的具体工厂类。</li>
+<li>**解耦：**客户端和产品实现类之间解耦。用户只需要关心所需产品对应的工厂，无须关心创建细节，甚至无须知道具体产品类的类名。</li>
+</ul>
+<h3 id="%E7%BC%BA%E7%82%B9%EF%BC%9A-3" tabindex="-1"><a class="header-anchor" href="#%E7%BC%BA%E7%82%B9%EF%BC%9A-3">#</a> 缺点：</h3>
+<ul>
+<li><strong>类的数量增多</strong>：每增加一个产品类，都需要增加一个具体工厂类和一个具体产品类。</li>
+</ul>
+<h3 id="%E7%A4%BA%E4%BE%8B%EF%BC%9A-2" tabindex="-1"><a class="header-anchor" href="#%E7%A4%BA%E4%BE%8B%EF%BC%9A-2">#</a> 示例：</h3>
+<p>假设我们有一个工厂，可以生产不同类型的交通工具（汽车、自行车）。</p>
+<p><strong>抽象产品（Vehicle）</strong>：</p>
+<pre><code class="language-java">public interface Vehicle {
+    void drive();
+}
+</code></pre>
+<p><strong>具体产品（Car、Bicycle）</strong>：</p>
+<pre><code class="language-java">public class Car implements Vehicle {
+    public void drive() {
+        System.out.println(&quot;Driving a car.&quot;);
+    }
+}
+
+public class Bicycle implements Vehicle {
+    public void drive() {
+        System.out.println(&quot;Riding a bicycle.&quot;);
+    }
+}
+</code></pre>
+<p><strong>抽象工厂（VehicleFactory）</strong>：</p>
+<pre><code class="language-java">public abstract class VehicleFactory {
+    public abstract Vehicle createVehicle();
+}
+</code></pre>
+<p><strong>具体工厂（CarFactory、BicycleFactory）</strong>：</p>
+<pre><code class="language-java">public class CarFactory extends VehicleFactory {
+    public Vehicle createVehicle() {
+        return new Car();
+    }
+}
+
+public class BicycleFactory extends VehicleFactory {
+    public Vehicle createVehicle() {
+        return new Bicycle();
+    }
+}
+</code></pre>
+<p><strong>使用示例</strong>：</p>
+<pre><code class="language-java">public class FactoryMethodDemo {
+
+    public static void main(String[] args) {
+        VehicleFactory carFactory = new CarFactory();
+        Vehicle car = carFactory.createVehicle();
+        car.drive();
+
+        VehicleFactory bicycleFactory = new BicycleFactory();
+        Vehicle bicycle = bicycleFactory.createVehicle();
+        bicycle.drive();
+    }
+}
+</code></pre>
+<p>当系统扩展需要添加新的产品对象时，仅仅需要添加一个具体产品对象以及一个具体工厂对象，原有工厂对象不需要进行任何修改，也不需要修改客户端，很好地符合了“开闭原则”。</p>
+<p>为了提高系统的可扩展性和灵活性，在定义工厂和产品时都必须使用抽象层，如果需要更换产品类，只需要更换对应的工厂即可，其他代码不需要进行任何修改。</p>
+<h3 id="%E9%80%82%E7%94%A8%E7%8E%AF%E5%A2%83" tabindex="-1"><a class="header-anchor" href="#%E9%80%82%E7%94%A8%E7%8E%AF%E5%A2%83">#</a> 适用环境</h3>
+<p>在以下情况下可以使用工厂方法模式：</p>
+<ol>
+<li>一个类不知道它所需要的对象的类：在工厂方法模式中，客户端不需要知道具体产品类的类名，只需要知道所对应的工厂即可，具体的产品对象由具体工厂类创建；客户端需要知道创建具体产品的工厂类。</li>
+<li>一个类通过其子类来指定创建哪个对象：在工厂方法模式中，对于抽象工厂类只需要提供一个创建产品的接口，而由其子类来确定具体要创建的对象，利用面向对象的多态性和里氏代换原则，在程序运行时，子类对象将覆盖父类对象，从而使得系统更容易扩展。</li>
+<li>将创建对象的任务委托给多个工厂子类中的某一个，客户端在使用时可以无须关心是哪一个工厂子类创建产品子类，需要时再动态指定，可将具体工厂类的类名存储在配置文件或数据库中。</li>
+<li>希望能够推迟创建的时候</li>
+</ol>
+<h2 id="%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F%EF%BC%9A%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1" tabindex="-1"><a class="header-anchor" href="#%E6%8A%BD%E8%B1%A1%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F%EF%BC%9A%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1">#</a> 抽象工厂模式：创建对象</h2>
+<ol>
+<li>产品等级结构：产品等级结构即产品的继承结构，如一个抽象类是电视机，其子类有海尔电视机、海信电视机、TCL 电视机，则抽象电视机与具体品牌的电视机之间构成了一个产品等级结构，抽象电视机是父类，而具体品牌的电视机是其子类。</li>
+<li>产品族：在抽象工厂模式中，产品族是指由同一个工厂生产的，位于不同产品等级结构中的一组产品，如海尔电器工厂生产的海尔电视机、海尔电冰箱，海尔电视机位于电视机产品等级结构中，海尔电冰箱位于电冰箱产品等级结构中。</li>
+</ol>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p>AbstractFactory：抽象工厂</p>
+<p>ConcreteFactory：具体工厂</p>
+<p>AbstractProduct：抽象产品</p>
+<p>Product：具体产品</p>
+<h3 id="%E7%A4%BA%E4%BE%8B-6" tabindex="-1"><a class="header-anchor" href="#%E7%A4%BA%E4%BE%8B-6">#</a> 示例</h3>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p>抽象工厂类的典型代码如下：</p>
+<pre><code class="language-java">public abstract class AbstractFactory{
+    public abstract AbstractProductA createProductA();
+    public abstract AbstractProductB createProductB();
+}
+</code></pre>
+<p>具体工厂类的典型代码如下：</p>
+<pre><code class="language-java">public class ConcreteFactory1 extends AbstractFactory{
+    public AbstractProductA createProductA(){
+        return new ConcreteProductA1();
+    }
+    public AbstractProductB createProductB(){
+        return new ConcreteProductB1();
+    }
+}
+</code></pre>
+<h3 id="%E4%BC%98%E7%82%B9%EF%BC%9A-3" tabindex="-1"><a class="header-anchor" href="#%E4%BC%98%E7%82%B9%EF%BC%9A-3">#</a> 优点：</h3>
+<ul>
+<li><strong>隔离了具体类的生成</strong>：客户端不需要知道具体产品的类名。</li>
+<li><strong>易于交换产品系列</strong>：只需改变具体工厂即可改变产品系列。</li>
+<li><strong>有利于产品的一致性</strong>：当一个产品族的对象被设计成一起工作时，一个应用一次只能使用同一个产品族的产品对象。</li>
+</ul>
+<h3 id="%E5%8E%9F%E5%88%99-1" tabindex="-1"><a class="header-anchor" href="#%E5%8E%9F%E5%88%99-1">#</a> 原则</h3>
+<ol>
+<li>依赖倒转原则：有抽象工厂类和产品类</li>
+<li>单一职责原则：每个具体工厂只生产一个具体产品族</li>
+</ol>
+<h3 id="%E7%BC%BA%E7%82%B9%EF%BC%9A-4" tabindex="-1"><a class="header-anchor" href="#%E7%BC%BA%E7%82%B9%EF%BC%9A-4">#</a> 缺点：</h3>
+<ul>
+<li>
+<p>增加新的具体工厂和产品族很方便，无须修改已有系统，符合“开闭原则”。</p>
+</li>
+<li>
+<p>增加新的产品族符合开闭原则</p>
+</li>
+<li>
+<p>增加新的产品等级结构麻烦</p>
+</li>
+<li>
+<p><strong>增加系统的抽象性和理解难度</strong>。</p>
+</li>
+</ul>
+<p>在添加新的产品对象时，难以扩展抽象工厂来生产新种类的产品，这是因为在抽象工厂角色中规定了所有可能被创建的产品集合，要支持新种类的产品就意味着要对该接口进行扩展，而这将涉及到对抽象工厂角色及其所有子类的修改，显然会带来较大的不便。开闭原则的倾斜性（增加新的工厂和产品族容易，增加新的产品等级结构麻烦）</p>
+<p>工厂模式一个工厂类就负责创建一个类，创建的对象类型是确定的，所以是类创建模式</p>
+<p>抽象工厂模式一个工厂类可以创建多个相关的类，创建的对象类型是不确定的，所以是对象创建模式</p>
+<h2 id="%E5%BB%BA%E9%80%A0%E8%80%85%E6%A8%A1%E5%BC%8F%EF%BC%9A%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1" tabindex="-1"><a class="header-anchor" href="#%E5%BB%BA%E9%80%A0%E8%80%85%E6%A8%A1%E5%BC%8F%EF%BC%9A%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1">#</a> 建造者模式：创建对象</h2>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p>将一个复杂对象的构建与它的表示分离，使得同样的构建过程可以创建不同的表示。</p>
+<ol>
+<li><strong>产品（Product）</strong>：要构建的复杂对象。</li>
+<li><strong>建造者（Builder）</strong>：为创建一个产品对象的各个部件提供接口。</li>
+<li><strong>具体建造者（Concrete Builder）</strong>：实现建造者接口以构造和装配产品的各个部分。</li>
+<li><strong>导演（Director）</strong>：构造一个使用建造者接口的对象。</li>
+<li><strong>客户端（Client）</strong>：使用建造者创建对象。</li>
+</ol>
+<h3 id="%E4%BC%98%E7%82%B9%EF%BC%9A-4" tabindex="-1"><a class="header-anchor" href="#%E4%BC%98%E7%82%B9%EF%BC%9A-4">#</a> 优点：</h3>
+<ul>
+<li><strong>封装性</strong>：客户端不需要知道产品内部组成的细节。</li>
+<li><strong>建造和表示分离</strong>：建造者独立于产品的表示，使得相同的建造过程可以创建不同的表示。</li>
+<li><strong>扩展性好</strong>：可以很容易地增加新的具体建造者。</li>
+</ul>
+<h3 id="%E7%BC%BA%E7%82%B9%EF%BC%9A-5" tabindex="-1"><a class="header-anchor" href="#%E7%BC%BA%E7%82%B9%EF%BC%9A-5">#</a> 缺点：</h3>
+<ul>
+<li><strong>产生多余的Builder对象</strong>：如果产品内部变化复杂，可能会导致需要创建多个具体建造者类，增加了系统的复杂度。</li>
+</ul>
+<h3 id="%E7%A4%BA%E4%BE%8B%EF%BC%9A-3" tabindex="-1"><a class="header-anchor" href="#%E7%A4%BA%E4%BE%8B%EF%BC%9A-3">#</a> 示例：</h3>
+<p>假设我们正在构建一个复杂的对象——电脑。电脑由多个部分组成，如CPU、内存、硬盘等。</p>
+<p>不同品牌的cpu ram hdd可以组成不同品牌的电脑</p>
+<p><strong>产品（Computer）</strong>：</p>
+<pre><code class="language-java">public class Computer {
+    private String cpu;
+    private String ram;
+    private String hdd;
+
+    public void setCpu(String cpu) {
+        this.cpu = cpu;
+    }
+
+    public void setRam(String ram) {
+        this.ram = ram;
+    }
+
+    public void setHdd(String hdd) {
+        this.hdd = hdd;
+    }
+}
+</code></pre>
+<p><strong>建造者（ComputerBuilder）</strong>：</p>
+<pre><code class="language-java">public abstract class ComputerBuilder {
+    protected Computer computer;
+
+    public ComputerBuilder() {
+        computer = new Computer();
+    }
+
+    public abstract void buildCpu();
+    public abstract void buildRam();
+    public abstract void buildHdd();
+
+    public Computer getComputer() {
+        return computer;
+    }
+}
+</code></pre>
+<p><strong>具体建造者（DellComputerBuilder、HpComputerBuilder）</strong>：</p>
+<pre><code class="language-java">public class DellComputerBuilder extends ComputerBuilder {
+    public void buildCpu() {
+        computer.setCpu(&quot;Dell CPU&quot;);
+    }
+
+    public void buildRam() {
+        computer.setRam(&quot;Dell RAM&quot;);
+    }
+
+    public void buildHdd() {
+        computer.setHdd(&quot;Dell HDD&quot;);
+    }
+}
+
+public class HpComputerBuilder extends ComputerBuilder {
+    public void buildCpu() {
+        computer.setCpu(&quot;HP CPU&quot;);
+    }
+
+    public void buildRam() {
+        computer.setRam(&quot;HP RAM&quot;);
+    }
+
+    public void buildHdd() {
+        computer.setHdd(&quot;HP HDD&quot;);
+    }
+}
+</code></pre>
+<p><strong>导演（ComputerDirector）</strong>：</p>
+<pre><code class="language-java">public class ComputerDirector {
+    private Builder builder;
+
+	public Director(Builder builder) {
+		this.builder = builder;
+	}
+
+	public void setBuilder(Builder builder) {
+		this.builder = builer;
+	}
+
+    public Computer construct(ComputerBuilder builder) {
+        builder.buildCpu();
+        builder.buildRam();
+        builder.buildHdd();
+        return builder.getComputer();
+    }
+}
+</code></pre>
+<p><strong>使用示例</strong>：</p>
+<pre><code class="language-java">public class BuilderPatternDemo {
+    public static void main(String[] args) {
+        ComputerDirector director = new ComputerDirector();
+        ComputerBuilder dellBuilder = new DellComputerBuilder();
+        Computer dellComputer = director.construct(dellBuilder);
+        System.out.println(&quot;Dell Computer: &quot; + dellComputer.getCpu() + &quot;, &quot; + dellComputer.getRam() + &quot;, &quot; + dellComputer.getHdd());
+
+        ComputerBuilder hpBuilder = new HpComputerBuilder();
+        Computer hpComputer = director.construct(hpBuilder);
+        System.out.println(&quot;HP Computer: &quot; + hpComputer.getCpu() + &quot;, &quot; + hpComputer.getRam() + &quot;, &quot; + hpComputer.getHdd());
+    }
+}
+</code></pre>
+<h2 id="%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F%EF%BC%9A%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1" tabindex="-1"><a class="header-anchor" href="#%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F%EF%BC%9A%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1">#</a> 原型模式：创建对象</h2>
+<p>在面向对象系统中，使用原型模式来复制一个对象自身，从而克隆出多个与原型对象一模一样的对象。</p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p>原型模式包含如下角色：</p>
+<p>Prototype：抽象原型类</p>
+<p>ConcretePrototype：具体原型类</p>
+<p>Client：客户类</p>
+<ol>
+<li>在原型模式结构中定义了一个抽象原型类，所有的 Java 类都继承自 java.lang.Object，而 Object 类提供一个 clone() 方法，可以将一个 Java 对象复制一份。因此在 Java 中可以直接使用 Object 提供的 clone() 方法来实现对象的克隆，Java 语言中的原型模式实现很简单。</li>
+<li>能够实现克隆的 Java 类必须实现一个标识接口 Cloneable，表示这个 Java 类支持复制。如果一个类没有实现这个接口但是调用了 clone() 方法，Java 编译器将抛出一个 CloneNotSupportedException 异常。</li>
+<li>实例代码：</li>
+</ol>
+<pre><code class="language-java">public class PrototypeDemo implements Cloneable {
+    public Object clone() {
+        Object object = null;
+        try {
+            object = super.clone();
+        } catch (CloneNotSupportedException exception) {
+            System.err.println(&quot;Not support cloneable&quot;);
+        }
+        return object;
+    }
+}
+</code></pre>
+<ol>
+<li>
+<p>通常情况下，一个类包含一些成员对象，在使用原型模式克隆对象时，根据其成员对象是否也克隆，原型模式可以分为两种形式：深克隆和浅克隆。</p>
+</li>
+<li>
+<p>Java 语言提供的 clone() 方法将对象复制了一份并返回给调用者。一般而言，clone() 方法满足:</p>
+</li>
+<li>
+<p>对任何的对象 x，都有 x.clone() != x，即克隆对象与原对象不是同一个对象。</p>
+</li>
+<li>
+<p>对任何的对象 x，都有 x.clone().getClass()==x.getClass()，即克隆对象与原对象的类型一样。</p>
+</li>
+<li>
+<p>如果对象 x 的 equals() 方法定义恰当，那么 x.clone().equals(x) 应该成立。</p>
+</li>
+</ol>
+<h3 id="%E7%A4%BA%E4%BE%8B-7" tabindex="-1"><a class="header-anchor" href="#%E7%A4%BA%E4%BE%8B-7">#</a> 示例</h3>
+<p>由于邮件对象包含的内容较多（如发送者、接收者、标题、内容、日期、附件等），某系统中现需要提供一个邮件复制功能，对于已经创建好的邮件对象，可以通过复制的方式创建一个新的邮件对象，如果需要改变某部分内容，无须修改原始的邮件对象，只需要修改复制后得到的邮件对象即可。使用原型模式设计该系统。在本实例中使用浅克隆实现邮件复制，即复制邮件（Email）的同时不复制附件（Attachment）。</p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h3 id="%E4%BC%98%E7%82%B9%EF%BC%9A-5" tabindex="-1"><a class="header-anchor" href="#%E4%BC%98%E7%82%B9%EF%BC%9A-5">#</a> 优点：</h3>
+<ol>
+<li>当创建新的对象实例较为复杂时，使用原型模式可以简化对象的创建过程，通过一个已有实例可以提高新实例的创建效率。</li>
+<li>可以动态增加或减少产品类。</li>
+<li>原型模式提供了简化的创建结构。</li>
+<li>可以使用深克隆的方式保存对象的状态。</li>
+</ol>
+<h3 id="%E7%BC%BA%E7%82%B9%EF%BC%9A-6" tabindex="-1"><a class="header-anchor" href="#%E7%BC%BA%E7%82%B9%EF%BC%9A-6">#</a> 缺点：</h3>
+<ol>
+<li>需要为每一个类配备一个克隆方法，而且这个克隆方法需要对类的功能进行通盘考虑，这对全新的类来说不是很难，但对已有的类进行改造时，不一定是件容易的事，必须修改其源代码，违背了“开闭原则”。</li>
+<li>在实现深克隆时需要编写较为复杂的代码。</li>
+</ol>
+<h2 id="%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F%EF%BC%9A%E8%A1%8C%E4%B8%BA%E5%AF%B9%E8%B1%A1" tabindex="-1"><a class="header-anchor" href="#%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F%EF%BC%9A%E8%A1%8C%E4%B8%BA%E5%AF%B9%E8%B1%A1">#</a> 命令模式：行为对象</h2>
+<p>将一个请求封装为一个对象，从而使我们可用不同的请求对客户进行参数化；对请求排队或者记录请求日志，以及支持可撤销的操作。命令模式是一种对象行为型模式，其别名为动作（Action）模式或事务（Transaction）模式。</p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p>命令模式包含如下角色：</p>
+<ol>
+<li>Command：抽象命令类</li>
+<li>ConcreteCommand：具体命令类</li>
+<li>Invoker：调用者</li>
+<li>Receiver：接收者</li>
+<li>Client：客户类</li>
+</ol>
+<h3 id="%E4%BC%98%E7%82%B9%EF%BC%9A-6" tabindex="-1"><a class="header-anchor" href="#%E4%BC%98%E7%82%B9%EF%BC%9A-6">#</a> 优点：</h3>
+<ol>
+<li>降低系统的耦合度。</li>
+<li>新的命令可以很容易地加入到系统中。</li>
+<li>可以比较容易地设计一个命令队列和宏命令（组合命令）。</li>
+<li>可以方便地实现对请求的 Undo 和 Redo。</li>
+</ol>
+<h3 id="%E7%BC%BA%E7%82%B9%EF%BC%9A-7" tabindex="-1"><a class="header-anchor" href="#%E7%BC%BA%E7%82%B9%EF%BC%9A-7">#</a> 缺点：</h3>
+<ul>
+<li><strong>类数量增加</strong>：使用命令模式可能会导致某些系统有过多的具体命令类。因为针对每一个命令都需要设计一个具体命令类，因此某些系统可能需要大量具体命令类，这将影响命令模式的使用。</li>
+</ul>
+<h3 id="%E5%8E%9F%E5%88%99-2" tabindex="-1"><a class="header-anchor" href="#%E5%8E%9F%E5%88%99-2">#</a> 原则</h3>
+<ol>
+<li>单一职责原则：解耦触发和执行命令的类</li>
+<li>开闭原则：可以在不修改客户端原有代码的情况下创建新的命令</li>
+</ol>
+<h3 id="%E7%A4%BA%E4%BE%8B%EF%BC%9A-4" tabindex="-1"><a class="header-anchor" href="#%E7%A4%BA%E4%BE%8B%EF%BC%9A-4">#</a> 示例：</h3>
+<p>假设我们有一个遥控器，可以控制电灯的开和关。</p>
+<p><strong>命令接口（Command）</strong>：</p>
+<pre><code class="language-java">public interface Command {
+    void execute();
+}
+</code></pre>
+<p><strong>具体命令（LightOnCommand、LightOffCommand）</strong>：</p>
+<pre><code class="language-java">public class LightOnCommand implements Command {
+    private Light light;
+
+    public LightOnCommand(Light light) {
+        this.light = light;
+    }
+
+    @Override
+    public void execute() {
+        light.turnOn();
+    }
+}
+
+public class LightOffCommand implements Command {
+    private Light light;
+
+    public LightOffCommand(Light light) {
+        this.light = light;
+    }
+
+    @Override
+    public void execute() {
+        light.turnOff();
+    }
+}
+</code></pre>
+<p><strong>接收者（Light）</strong>：</p>
+<pre><code class="language-java">public class Light {
+    public void turnOn() {
+        System.out.println(&quot;Light is on.&quot;);
+    }
+
+    public void turnOff() {
+        System.out.println(&quot;Light is off.&quot;);
+    }
+}
+</code></pre>
+<p><strong>请求者（RemoteControl）</strong>：</p>
+<pre><code class="language-java">public class RemoteControl {
+    private Command command;
+
+    public void setCommand(Command command) {
+        this.command = command;
+    }
+
+    public void pressButton() {
+        command.execute();
+    }
+}
+</code></pre>
+<p><strong>客户端（Client）</strong>：</p>
+<pre><code class="language-java">public class CommandPatternDemo {
+    public static void main(String[] args) {
+        Light light = new Light();
+        Command lightOnCommand = new LightOnCommand(light);
+        Command lightOffCommand = new LightOffCommand(light);
+
+        RemoteControl remoteControl = new RemoteControl();
+        remoteControl.setCommand(lightOnCommand);
+        remoteControl.pressButton(); // 输出：Light is on.
+
+        remoteControl.setCommand(lightOffCommand);
+        remoteControl.pressButton(); // 输出：Light is off.
+    }
+}
+</code></pre>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h3 id="%E6%92%A4%E9%94%80%E5%91%BD%E4%BB%A4%E7%9A%84%E5%AE%9E%E7%8E%B0" tabindex="-1"><a class="header-anchor" href="#%E6%92%A4%E9%94%80%E5%91%BD%E4%BB%A4%E7%9A%84%E5%AE%9E%E7%8E%B0">#</a> 撤销命令的实现</h3>
+<pre><code class="language-java">public interface Command {
+    void execute();
+    void undo();
+}
+
+public class LightOnCommand implements Command {
+    private Light light;
+
+    public LightOnCommand(Light light) {
+        this.light = light;
+    }
+
+    @Override
+    public void execute() {
+        light.turnOn();
+    }
+
+    @Override
+    public void undo() {
+        light.turnOff();
+    }
+}
+
+public class LightOffCommand implements Command {
+    private Light light;
+
+    public LightOffCommand(Light light) {
+        this.light = light;
+    }
+
+    @Override
+    public void execute() {
+        light.turnOff();
+    }
+
+    @Override
+    public void undo() {
+        light.turnOn();
+    }
+}
+
+public class Light {
+    public void turnOn() {
+        System.out.println(&quot;Light is on.&quot;);
+    }
+
+    public void turnOff() {
+        System.out.println(&quot;Light is off.&quot;);
+    }
+}
+
+public class RemoteControl {
+    private Command command;
+
+    public void setCommand(Command command) {
+        this.command = command;
+    }
+
+    public void pressButton() {
+        command.execute();
+    }
+
+    public void pressUndoButton() {
+        command.undo();
+    }
+}
+
+public class CommandPatternDemo {
+    public static void main(String[] args) {
+        Light light = new Light();
+        LightOnCommand lightOnCommand = new LightOnCommand(light);
+        LightOffCommand lightOffCommand = new LightOffCommand(light);
+
+        RemoteControl remoteControl = new RemoteControl();
+        remoteControl.setCommand(lightOnCommand);
+        remoteControl.pressButton(); // 输出：Light is on.
+
+        remoteControl.setCommand(lightOffCommand);
+        remoteControl.pressButton(); // 输出：Light is off.
+
+        remoteControl.pressUndoButton(); // 输出：Light is on.
+    }
+}
+</code></pre>
+<h2 id="%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F%EF%BC%9A%E8%A1%8C%E4%B8%BA%E5%AF%B9%E8%B1%A1" tabindex="-1"><a class="header-anchor" href="#%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F%EF%BC%9A%E8%A1%8C%E4%B8%BA%E5%AF%B9%E8%B1%A1">#</a> 观察者模式：行为对象</h2>
+<p>定义对象间的一种一对多依赖关系，使得每当一个对象状态发生改变时，其相关依赖对象皆得到通知并被自动更新。</p>
+<p>发布-订阅（Publish/Subscribe）模式、模型-视图（Model/View）模式、源-监听器（Source/Listener）模式或从属者（Dependents）模式。</p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h3 id="%E4%B8%BB%E8%A6%81%E8%A7%92%E8%89%B2%EF%BC%9A-1" tabindex="-1"><a class="header-anchor" href="#%E4%B8%BB%E8%A6%81%E8%A7%92%E8%89%B2%EF%BC%9A-1">#</a> 主要角色：</h3>
+<ol>
+<li><strong>主题（Subject）</strong>：定义了注册观察者对象和注销观察者对象的方法，以及通知所有观察者对象的方法。</li>
+<li><strong>具体主题（Concrete Subject）</strong>：实现主题接口，并通常维护一个观察者对象的集合。</li>
+<li><strong>观察者（Observer）</strong>：定义了更新观察者的接口，通常会定义一个更新方法，用于接收主题的通知。</li>
+<li><strong>具体观察者（Concrete Observer）</strong>：实现观察者接口，通常会维护一个与主题对象关联的状态，并在接收到通知时更新自己的状态。</li>
+</ol>
+<h3 id="%E4%BC%98%E7%82%B9%EF%BC%9A-7" tabindex="-1"><a class="header-anchor" href="#%E4%BC%98%E7%82%B9%EF%BC%9A-7">#</a> 优点：</h3>
+<ul>
+<li><strong>低耦合</strong>：观察者和主题之间的依赖关系被最小化，观察者可以独立于主题被复用。</li>
+<li>观察者模式符合<strong>开闭原则</strong>的要求。</li>
+<li><strong>动态管理</strong>：可以动态地添加或移除观察者，主题对象不需要知道具体有哪些观察者。</li>
+<li><strong>事件驱动</strong>：符合事件驱动编程思想，可以很容易地与事件机制结合。</li>
+</ul>
+<h3 id="%E5%8E%9F%E5%88%99-3" tabindex="-1"><a class="header-anchor" href="#%E5%8E%9F%E5%88%99-3">#</a> 原则</h3>
+<ol>
+<li>最小知识原则：实现了观察者和目标对象的松耦合</li>
+<li>单一职责原则：观察目标集中管理数据，观察者只有行为职责</li>
+<li>合成复用原则：变更管理器中使用。
+开闭原则：支持好</li>
+</ol>
+<h3 id="%E7%BC%BA%E7%82%B9%EF%BC%9A-8" tabindex="-1"><a class="header-anchor" href="#%E7%BC%BA%E7%82%B9%EF%BC%9A-8">#</a> 缺点：</h3>
+<ul>
+<li><strong>观察者模式会使得观察者对象的数量变得庞大</strong>，特别是当观察者数量很多时，可能会导致代码难以维护。</li>
+<li><strong>如果观察者之间存在循环依赖，可能会导致系统进入无限循环</strong>。</li>
+<li>观察者模式没有相应的机制让观察者知道所观察的目标对象是怎么发生变化的，而仅仅只是知道观察目标发生了变化。</li>
+</ul>
+<h3 id="%E7%A4%BA%E4%BE%8B%EF%BC%9A-5" tabindex="-1"><a class="header-anchor" href="#%E7%A4%BA%E4%BE%8B%EF%BC%9A-5">#</a> 示例：</h3>
+<p><strong>主题（MailSystem）</strong>：</p>
+<pre><code class="language-java">public interface MailSystem {
+    void addObserver(Observer observer);
+    void removeObserver(Observer observer);
+    void notifyObservers();
+}
+</code></pre>
+<p><strong>具体主题（ConcreteMailSystem）</strong>：</p>
+<pre><code class="language-java">public class ConcreteMailSystem implements MailSystem {
+    private List&lt;Observer&gt; observers;
+    private String message;
+
+    public ConcreteMailSystem() {
+        observers = new ArrayList&lt;&gt;();
+    }
+
+    @Override
+    public void addObserver(Observer observer) {
+        observers.add(observer);
+    }
+
+    @Override
+    public void removeObserver(Observer observer) {
+        observers.remove(observer);
+    }
+
+    @Override
+    public void notifyObservers() {
+        for (Observer observer : observers) {
+            observer.update(message);
+        }
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+        notifyObservers();
+    }
+}
+</code></pre>
+<p><strong>观察者（Observer）</strong>：</p>
+<pre><code class="language-java">public interface Observer {
+    void update(String message);
+}
+</code></pre>
+<p><strong>具体观察者（ConcreteObserver）</strong>：</p>
+<pre><code class="language-java">public class User implements Observer {
+    private String name;
+
+    public User(String name) {
+        this.name = name;
+    }
+
+    @Override
+    public void update(String message) {
+        System.out.println(&quot;User &quot; + name + &quot; received a new message: &quot; + message);
+    }
+}
+</code></pre>
+<p><strong>使用示例</strong>：</p>
+<pre><code class="language-java">public class ObserverPatternDemo {
+    public static void main(String[] args) {
+        MailSystem mailSystem = new ConcreteMailSystem();
+        User user1 = new User(&quot;User 1&quot;);
+        User user2 = new User(&quot;User 2&quot;);
+
+        mailSystem.addObserver(user1);
+        mailSystem.addObserver(user2);
+
+        mailSystem.setMessage(&quot;New email received!&quot;);
+    }
+}
+</code></pre>
+<h2 id="%E4%B8%AD%E4%BB%8B%E8%80%85%E6%A8%A1%E5%BC%8F%EF%BC%9A%E8%A1%8C%E4%B8%BA%E5%AF%B9%E8%B1%A1" tabindex="-1"><a class="header-anchor" href="#%E4%B8%AD%E4%BB%8B%E8%80%85%E6%A8%A1%E5%BC%8F%EF%BC%9A%E8%A1%8C%E4%B8%BA%E5%AF%B9%E8%B1%A1">#</a> 中介者模式：行为对象</h2>
+<p>为了解决以下问题：</p>
+<ol>
+<li><strong>系统结构复杂</strong>：对象之间存在大量的相互关联和调用，若有一个对象发生变化，则需要跟踪和该对象关联的其他所有对象，并进行适当处理。</li>
+<li><strong>对象可重用性差</strong>：由于一个对象和其他对象具有很强的关联，若没有其他对象的支持，一个对象很难被另一个系统或模块重用，这些对象表现出来更像一个不可分割的整体，职责较为混乱。</li>
+<li><strong>系统扩展性低</strong>：增加一个新的对象需要在原有相关对象上增加引用，增加新的引用关系也需要调整原有对象，系统耦合度很高，对象操作很不灵活，扩展性差。</li>
+</ol>
+<p>为了减少对象两两之间复杂的引用关系，使之成为一个松耦合的系统，我们需要使用中介者模式，这就是中介者模式的模式动机</p>
+<p>在以下情况下可以使用中介者模式：</p>
+<ol>
+<li>系统中对象之间存在复杂的引用关系，产生的相互依赖关系结构混乱且难以理解。</li>
+<li>一个对象由于引用了其他很多对象并且直接和这些对象通信，导致难以复用该对象。</li>
+<li>想通过一个中间类来封装多个类中的行为，而又不想生成太多的子类。可以通过引入中介者类来实现，在中介者中定义对象交互的公共行为，如果需要改变行为则可以增加新的中介者类。</li>
+</ol>
+<h3 id="%E5%AE%9A%E4%B9%89" tabindex="-1"><a class="header-anchor" href="#%E5%AE%9A%E4%B9%89">#</a> 定义</h3>
+<p>用一个中介对象来封装一系列的对象交互，中介者使各对象不需要显式地相互引用，从而使其耦合松散，而且可以独立地改变它们之间的交互。中介者模式又称为调停者模式，它是一种对象行为型模式。</p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h3 id="%E4%B8%BB%E8%A6%81%E8%A7%92%E8%89%B2%EF%BC%9A-2" tabindex="-1"><a class="header-anchor" href="#%E4%B8%BB%E8%A6%81%E8%A7%92%E8%89%B2%EF%BC%9A-2">#</a> 主要角色：</h3>
+<ol>
+<li><strong>中介者（Mediator）</strong>：定义了所有同事对象之间的通信接口，通常包含一个方法，用于处理同事对象之间的交互。</li>
+<li><strong>具体中介者（Concrete Mediator）</strong>：实现中介者接口，通常维护对所有同事对象的引用，并负责协调它们之间的交互。</li>
+<li><strong>同事（Colleague）</strong>：定义了与中介者进行通信的方法，并通常包含一个对中介者的引用。</li>
+<li><strong>具体同事（Concrete Colleague）</strong>：实现同事接口，并通常包含一个对中介者的引用。</li>
+</ol>
+<h3 id="%E4%BC%98%E7%82%B9%EF%BC%9A-8" tabindex="-1"><a class="header-anchor" href="#%E4%BC%98%E7%82%B9%EF%BC%9A-8">#</a> 优点：</h3>
+<ul>
+<li><strong>降低耦合</strong>：通过中介者对象，降低了同事对象之间的耦合度。</li>
+<li><strong>可扩展性</strong>：添加新的同事对象时，不需要修改现有系统，只需创建新的具体同事类并将其添加到中介者对象中。</li>
+<li><strong>易于维护</strong>：当系统中的同事对象增多时，中介者模式可以很好地管理它们之间的交互。</li>
+</ul>
+<h3 id="%E7%BC%BA%E7%82%B9%EF%BC%9A-9" tabindex="-1"><a class="header-anchor" href="#%E7%BC%BA%E7%82%B9%EF%BC%9A-9">#</a> 缺点：</h3>
+<ul>
+<li><strong>中介者可能过于复杂</strong>：如果系统中有很多同事对象，中介者可能会变得非常复杂，导致维护困难。</li>
+<li><strong>中介者模式可能会隐藏一些细节</strong>：客户端可能需要通过中介者来与同事对象交互，这可能会增加客户端的复杂性。</li>
+</ul>
+<h3 id="%E4%B8%AD%E4%BB%8B%E8%80%85%E7%9A%84%E8%81%8C%E8%B4%A3" tabindex="-1"><a class="header-anchor" href="#%E4%B8%AD%E4%BB%8B%E8%80%85%E7%9A%84%E8%81%8C%E8%B4%A3">#</a> 中介者的职责</h3>
+<ol>
+<li>中转作用（结构性）：通过中介者提供的中转作用，各个同事对象就不再需要显式引用其他同事，当需要和其他同事进行通信时，通过中介者即可。该中转作用属于中介者在结构上的支持。</li>
+<li>协调作用（行为性）：中介者可以更进一步的对同事之间的关系进行封装，同事可以一致地和中介者进行交互，而不需要指明中介者需要具体怎么做，中介者根据封装在自身内部的协调逻辑，对同事的请求进行进一步处理，将同事成员之间的关系行为进行分离和封装。该协调作用属于中介者在行为上的支持。</li>
+</ol>
+<h3 id="%E7%A4%BA%E4%BE%8B-8" tabindex="-1"><a class="header-anchor" href="#%E7%A4%BA%E4%BE%8B-8">#</a> 示例</h3>
+<pre><code class="language-java">public abstract class Mediator {
+    protected ArrayList colleagues;
+
+    public void register(Colleague colleague) {
+        colleagues.add(colleague);
+    }
+
+    public abstract void operation();
+}
+
+public class ConcreteMediator extends Mediator {
+    public void operation() {
+      ......
+        ((Colleague) (colleagues.get(0))).method1();
+      ......
+    }
+}
+
+public abstract class Colleague {
+    protected Mediator mediator;
+
+    public Colleague(Mediator mediator) {
+        this.mediator = mediator;
+    }
+
+    public abstract void method1();
+
+    public abstract void method2();
+}
+
+public class ConcreteColleague extends Colleague {
+    public ConcreteColleague(Mediator mediator) {
+        super(mediator);
+    }
+
+    public void method1() {
+      ......
+    }
+
+    public void method2() {
+        mediator.operation1();
+    }
+}
+</code></pre>
+<p>某论坛系统欲增加一个虚拟聊天室，允许论坛会员通过该聊天室进行信息交流，普通会员（CommonMember）可以给其他会员发送文本信息，钻石会员（DiamondMember）既可以给其他会员发送文本信息，还可以发送图片信息。该聊天室可以对不雅字符进行过滤，如“日”等字符；还可以对发送的图片大小进行控制。用中介者模式设计该虚拟聊天室。</p>
+<p>chatroom have n member</p>
+<p>member have a chatroom</p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h2 id="%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F%EF%BC%9A%E7%B1%BB%E8%A1%8C%E4%B8%BA" tabindex="-1"><a class="header-anchor" href="#%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F%EF%BC%9A%E7%B1%BB%E8%A1%8C%E4%B8%BA">#</a> 模板方法模式：类行为</h2>
+<ol>
+<li>模板方法模式是基于继承的代码复用基本技术，模板方法模式的结构和用法也是面向对象设计的核心之一。在模板方法模式中，可以将相同的代码放在父类中，而将不同的方法实现放在不同的子类中。</li>
+<li>在模板方法模式中，我们需要准备一个抽象类，将部分逻辑以具体方法以及具体构造函数的形式实现，然后声明一些抽象方法来让子类实现剩余的逻辑。不同的子类可以以不同的方式实现这些抽象方法，从而对剩余的逻辑有不同的实现，这就是模板方法模式的用意。模板方法模式体现了面向对象的诸多重要思想，是一种使用频率较高的模式。</li>
+</ol>
+<p><strong>定义一个操作中算法的骨架，而将一些步骤延迟到子类中，模板方法使得子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤。模板方法是一种类行为型模式</strong></p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<ol>
+<li>
+<p>模板方法模式是一种类的行为型模式，在它的结构图中只有类之间的继承关系，没有对象关联关系。</p>
+</li>
+<li>
+<p>抽象方法（Abstract Method）</p>
+</li>
+<li>
+<p>具体方法（Concrete Method）</p>
+</li>
+<li>
+<p>钩子方法（Hook Method）：“挂钩”方法和空方法</p>
+</li>
+<li>
+<p>钩子方法的使用</p>
+</li>
+<li>
+<p>钩子方法的引入使得子类可以控制父类的行为。</p>
+</li>
+<li>
+<p>最简单的钩子方法就是空方法，也可以在钩子方法中定义一个默认的实现，如果子类不覆盖钩子方法，则执行父类的默认实现代码。</p>
+</li>
+<li>
+<p>比较复杂一点的钩子方法可以对其他方法进行约束，这种钩子方法通常返回一个 boolean 类型，即返回 true 或 false，用来判断是否执行某一个基本方法。</p>
+</li>
+</ol>
+<h3 id="%E4%BC%98%E7%82%B9%EF%BC%9A-9" tabindex="-1"><a class="header-anchor" href="#%E4%BC%98%E7%82%B9%EF%BC%9A-9">#</a> 优点：</h3>
+<ul>
+<li><strong>提高代码复用性 :</strong> 将 相同部分代码 , 放在抽象的父类中 ;</li>
+<li><strong>提高扩展型 :</strong> 将 不同的代码 , 放在不同的子类中 , 通过对子类的扩展 , 增加新的行为 ;</li>
+<li><strong>符合开闭原则 :</strong> 通过 父类 调用 子类的操作 , 通过 对子类的扩展 来 增加新的行为 ;</li>
+</ul>
+<h3 id="%E7%BC%BA%E7%82%B9%EF%BC%9A-10" tabindex="-1"><a class="header-anchor" href="#%E7%BC%BA%E7%82%B9%EF%BC%9A-10">#</a> 缺点：</h3>
+<ul>
+<li>每个不同的实现都需要定义一个子类，这会导致类的个数增加，系统更加庞大，设计也更加抽象，但是更加符合“单一职责原则”，使得类的内聚性得以提高。</li>
+</ul>
+<h3 id="%E7%A4%BA%E4%BE%8B-9" tabindex="-1"><a class="header-anchor" href="#%E7%A4%BA%E4%BE%8B-9">#</a> 示例</h3>
+<pre><code class="language-java">public abstract class AbstractClass {
+    public void templateMethod() {
+        primitiveOperation1();
+        primitiveOperation2();
+        primitiveOperation3();
+    }
+
+    public void primitiveOperation1() {
+        // implement here
+    }
+
+    public abstract void primitiveOperation2();
+
+    public void primitiveOperation3() {
+    }
+}
+
+public class ConcreteClass extends AbstractClass {
+    public void primitiveOperation2() {
+        //实现代码
+    }
+
+    public void primitiveOperation3() {
+        //实现代码
+    }
+}
+
+// hook
+public void template() {
+    open();
+    display();
+    if (isPrint()) {
+        print();
+    }
+}
+
+public boolean isPrint() {
+    return true;
+}
+</code></pre>
+<p>在银行办理业务时，一般都包含几个基本步骤，首先需要取号排队，然后办理具体业务，最后需要对银行工作人员进行评分。无论具体业务是取款、存款还是转账，其基本流程都一样。现使用模板方法模式模拟银行业务办理流程。</p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h2 id="%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F%EF%BC%9A%E5%AF%B9%E8%B1%A1%E7%BB%93%E6%9E%84" tabindex="-1"><a class="header-anchor" href="#%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F%EF%BC%9A%E5%AF%B9%E8%B1%A1%E7%BB%93%E6%9E%84">#</a> 外观模式：对象结构</h2>
+<p>外部与一个子系统的通信必须通过一个统一的外观对象进行，为子系统中的一组接口提供一个一致的界面，外观模式定义了一个高层接口，这个接口使得这一子系统更加容易使用。外观模式又称为门面模式，它是一种对象结构型模式。</p>
+<h3 id="%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF" tabindex="-1"><a class="header-anchor" href="#%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF">#</a> 使用场景</h3>
+<ol>
+<li>
+<p>当要为一个复杂子系统提供一个简单接口时可以使用外观模式。该接口可以满足大多数用户的需求，而且用户也可以越过外观类直接访问子系统。</p>
+</li>
+<li>
+<p>客户程序与多个子系统之间存在很大的依赖性。引入外观类将子系统与客户以及其他子系统解耦，可以提高子系统的独立性和可移植性。</p>
+</li>
+<li>
+<p>在层次化结构中，可以使用外观模式定义系统中每一层的入口，层与层之间不直接产生联系，而通过外观类建立联系，降低层之间的耦合度。</p>
+</li>
+<li>
+<p>接口相关模式：适配器模式、外观模式，变化决定了要使用哪个模式</p>
+</li>
+<li>
+<p>外观模式包含如下角色：</p>
+</li>
+<li>
+<p>Facade：外观角色</p>
+</li>
+<li>
+<p>SubSystem：子系统角色</p>
+</li>
+<li>
+<p>使用的设计思想：迪米特法则</p>
+</li>
+</ol>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<ol>
+<li>根据“单一职责原则”，在软件中将一个系统划分为若干个子系统有利于降低整个系统的复杂性，一个常见的设计目标是使子系统间的通信和相互依赖关系达到最小，而达到该目标的途径之一就是引入一个外观对象，它为子系统的访问提供了一个简单而单一的入口。</li>
+<li>外观模式也是“迪米特法则”的体现，通过引入一个新的外观类可以降低原有系统的复杂度，同时降低客户类与子系统类的耦合度。</li>
+<li>外观模式要求一个子系统的外部与其内部的通信通过一个统一的外观对象进行，外观类将客户端与子系统的内部复杂性分隔开，使得客户端只需要与外观对象打交道，而不需要与子系统内部的很多对象打交道。</li>
+<li>外观模式的目的在于降低系统的复杂程度。</li>
+<li>外观模式从很大程度上提高了客户端使用的便捷性，使得客户端无须关心子系统的工作细节，通过外观角色即可调用相关功能。</li>
+</ol>
+<h3 id="%E4%BC%98%E7%82%B9%EF%BC%9A-10" tabindex="-1"><a class="header-anchor" href="#%E4%BC%98%E7%82%B9%EF%BC%9A-10">#</a> 优点：</h3>
+<ul>
+<li><strong>简化接口</strong>：客户端通过外观类来访问子系统组件，不需要了解子系统内部的复杂性。</li>
+<li><strong>解耦</strong>：子系统组件和客户端之间的耦合度降低，子系统组件的变化不会影响客户端。</li>
+<li><strong>可扩展性</strong>：新的子系统组件可以很容易地添加到外观模式中。</li>
+</ul>
+<h3 id="%E7%BC%BA%E7%82%B9%EF%BC%9A-11" tabindex="-1"><a class="header-anchor" href="#%E7%BC%BA%E7%82%B9%EF%BC%9A-11">#</a> 缺点：</h3>
+<ul>
+<li><strong>增加系统复杂性</strong>：外观模式可能会增加系统的复杂性，因为需要维护一个外观类。</li>
+<li><strong>依赖性</strong>：客户端依赖于外观类，如果外观类的接口发生变化，客户端可能需要修改。</li>
+</ul>
+<h3 id="%E7%A4%BA%E4%BE%8B-10" tabindex="-1"><a class="header-anchor" href="#%E7%A4%BA%E4%BE%8B-10">#</a> 示例</h3>
+<p><strong>子系统（Printer、Scanner、FileSystem）</strong>：</p>
+<pre><code class="language-java">public class Printer {
+    public void print() {
+        System.out.println(&quot;Printing...&quot;);
+    }
+}
+
+public class Scanner {
+    public void scan() {
+        System.out.println(&quot;Scanning...&quot;);
+    }
+}
+
+public class FileSystem {
+    public void save() {
+        System.out.println(&quot;Saving to file...&quot;);
+    }
+}
+</code></pre>
+<p><strong>外观（OfficeFacade）</strong>：</p>
+<pre><code class="language-java">public class OfficeFacade {
+    private Printer printer;
+    private Scanner scanner;
+    private FileSystem fileSystem;
+
+    public OfficeFacade() {
+        printer = new Printer();
+        scanner = new Scanner();
+        fileSystem = new FileSystem();
+    }
+
+    public void printAndSave() {
+        printer.print();
+        scanner.scan();
+        fileSystem.save();
+    }
+}
+</code></pre>
+<p><strong>使用</strong></p>
+<pre><code class="language-java">public class FacadePatternDemo {
+    public static void main(String[] args) {
+        OfficeFacade officeFacade = new OfficeFacade();
+        officeFacade.printAndSave(); // 输出：Printing..., Scanning..., Saving to file...
+    }
+}
+</code></pre>
+<p>现在考察一个电源总开关的例子，以便进一步说明外观模式。为了使用方便，一个电源总开关可以控制四盏灯、一个风扇、一台空调和一台电视机的启动和关闭。通过该电源总开关可以同时控制上述所有电器设备，使用外观模式设计该系统。<img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h3 id="%E6%8A%BD%E8%B1%A1%E5%A4%96%E8%A7%82%E7%B1%BB%E7%9A%84%E5%BC%95%E5%85%A5" tabindex="-1"><a class="header-anchor" href="#%E6%8A%BD%E8%B1%A1%E5%A4%96%E8%A7%82%E7%B1%BB%E7%9A%84%E5%BC%95%E5%85%A5">#</a> 抽象外观类的引入</h3>
+<p>外观模式最大的缺点在于违背了“开闭原则”，当增加新的子系统或者移除子系统时需要修改外观类，可以通过引入抽象外观类在一定程度上解决该问题，客户端针对抽象外观类进行编程。对于新的业务需求，不修改原有外观类，而对应增加一个新的具体外观类，由新的具体外观类来关联新的子系统对象，同时通过修改配置文件来达到不修改源代码并更换外观类的目的。</p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h2 id="%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F%EF%BC%9A%E7%BB%93%E6%9E%84%2F%E5%AF%B9%E8%B1%A1" tabindex="-1"><a class="header-anchor" href="#%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F%EF%BC%9A%E7%BB%93%E6%9E%84%2F%E5%AF%B9%E8%B1%A1">#</a> 适配器模式：结构/对象</h2>
+<p>将一个接口转换成客户希望的另一个接口，适配器模式使接口不兼容的那些类可以一起工作，其别名为包装器（Wrapper）。适配器模式既可以作为类结构型模式，也可以作为对象结构型模式。</p>
+<p>系统需要使用现有的类，而这些类的接口不符合系统的需要。</p>
+<p>想要建立一个可以重复使用的类，用于与一些彼此之间没有太大关联的一些类，包括一些可能在将来引进的类一起工作。</p>
+<h3 id="%E7%AC%A6%E5%90%88%E5%8E%9F%E5%88%99-1" tabindex="-1"><a class="header-anchor" href="#%E7%AC%A6%E5%90%88%E5%8E%9F%E5%88%99-1">#</a> 符合原则</h3>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h3 id="%E5%AF%B9%E8%B1%A1%E9%80%82%E9%85%8D%E5%99%A8" tabindex="-1"><a class="header-anchor" href="#%E5%AF%B9%E8%B1%A1%E9%80%82%E9%85%8D%E5%99%A8">#</a> 对象适配器</h3>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h3 id="%E7%B1%BB%E9%80%82%E9%85%8D%E5%99%A8" tabindex="-1"><a class="header-anchor" href="#%E7%B1%BB%E9%80%82%E9%85%8D%E5%99%A8">#</a> 类适配器</h3>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p>适配器模式包含如下角色：</p>
+<ol>
+<li>Target：目标抽象类</li>
+<li>Adapter：适配器类</li>
+<li>Adaptee：适配者类</li>
+<li>Client：客户类</li>
+</ol>
+<h3 id="%E7%B1%BB%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F%E8%BF%98%E5%85%B7%E6%9C%89%E5%A6%82%E4%B8%8B%E4%BC%98%E7%82%B9" tabindex="-1"><a class="header-anchor" href="#%E7%B1%BB%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F%E8%BF%98%E5%85%B7%E6%9C%89%E5%A6%82%E4%B8%8B%E4%BC%98%E7%82%B9">#</a> 类适配器模式还具有如下优点</h3>
+<p>由于适配器类是适配者类的子类，因此可以在适配器类中置换一些适配者的方法，使得适配器的灵活性更强。</p>
+<h3 id="%E7%B1%BB%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F%E7%9A%84%E7%BC%BA%E7%82%B9%E5%A6%82%E4%B8%8B" tabindex="-1"><a class="header-anchor" href="#%E7%B1%BB%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F%E7%9A%84%E7%BC%BA%E7%82%B9%E5%A6%82%E4%B8%8B">#</a> 类适配器模式的缺点如下</h3>
+<p>对于 Java、C# 等不支持多重继承的语言，一次最多只能适配一个适配者类，而且目标抽象类只能为抽象类，不能为具体类，其使用有一定的局限性，不能将一个适配者类和它的子类都适配到目标接口。</p>
+<h3 id="%E5%AF%B9%E8%B1%A1%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F%E8%BF%98%E5%85%B7%E6%9C%89%E5%A6%82%E4%B8%8B%E4%BC%98%E7%82%B9" tabindex="-1"><a class="header-anchor" href="#%E5%AF%B9%E8%B1%A1%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F%E8%BF%98%E5%85%B7%E6%9C%89%E5%A6%82%E4%B8%8B%E4%BC%98%E7%82%B9">#</a> 对象适配器模式还具有如下优点</h3>
+<p>一个对象适配器可以把多个不同的适配者适配到同一个目标，也就是说，同一个适配器可以把适配者类和它的子类都适配到目标接口。</p>
+<h3 id="%E5%AF%B9%E8%B1%A1%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F%E7%9A%84%E7%BC%BA%E7%82%B9%E5%A6%82%E4%B8%8B" tabindex="-1"><a class="header-anchor" href="#%E5%AF%B9%E8%B1%A1%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F%E7%9A%84%E7%BC%BA%E7%82%B9%E5%A6%82%E4%B8%8B">#</a> 对象适配器模式的缺点如下</h3>
+<p>与类适配器模式相比，要想置换适配者类的方法就不容易。如果一定要置换掉适配者类的一个或多个方法，就只好先做一个适配者类的子类，将适配者类的方法置换掉，然后再把适配者类的子类当做真正的适配者进行适配，实现过程较为复杂。</p>
+<h3 id="%E7%A4%BA%E4%BE%8B-11" tabindex="-1"><a class="header-anchor" href="#%E7%A4%BA%E4%BE%8B-11">#</a> 示例</h3>
+<p>现需要设计一个可以模拟各种动物行为的机器人，在机器人中定义了一系列方法，如机器人叫喊方法 cry()、机器人移动方法 move() 等。如果希望在不修改已有代码的基础上使得机器人能够像狗一样叫，像狗一样跑，使用适配器模式进行系统设计。</p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<pre><code class="language-java">// 机器人接口
+public interface Robot {
+    void cry();
+    void move();
+}
+
+// 具体机器人实现类
+public class SimpleRobot implements Robot {
+    @Override
+    public void cry() {
+        System.out.println(&quot;Robot: Crying...&quot;);
+    }
+
+    @Override
+    public void move() {
+        System.out.println(&quot;Robot: Moving...&quot;);
+    }
+}
+
+// 狗行为的适配器类
+public class DogBehaviorAdapter implements Robot {
+    private Dog dog;
+
+    public DogBehaviorAdapter(Dog dog) {
+        this.dog = dog;
+    }
+
+    @Override
+    public void cry() {
+        dog.bark();
+    }
+
+    @Override
+    public void move() {
+        dog.run();
+    }
+}
+
+// 狗类
+public class Dog {
+    public void bark() {
+        System.out.println(&quot;Dog: Barking...&quot;);
+    }
+
+    public void run() {
+        System.out.println(&quot;Dog: Running...&quot;);
+    }
+}
+
+// 使用示例
+public class AdapterPatternDemo {
+    public static void main(String[] args) {
+        Robot robot = new SimpleRobot();
+        robot.cry();
+        robot.move();
+
+        Dog dog = new Dog();
+        Robot dogBehaviorAdapter = new DogBehaviorAdapter(dog);
+        dogBehaviorAdapter.cry();
+        dogBehaviorAdapter.move();
+    }
+}
+</code></pre>
+<p>某系统需要提供一个加密模块，将用户信息（如密码等机密信息）加密之后再存储在数据库中，系统已经定义好了数据库操作类。为了提高开发效率，现需要重用已有的加密算法，这些算法封装在一些由第三方提供的类中，有些甚至没有源代码。使用适配器模式设计该加密模块，实现在不修改现有类的基础上重用第三方加密方法。</p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h2 id="%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F%EF%BC%9A%E5%AF%B9%E8%B1%A1%E7%BB%93%E6%9E%84" tabindex="-1"><a class="header-anchor" href="#%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F%EF%BC%9A%E5%AF%B9%E8%B1%A1%E7%BB%93%E6%9E%84">#</a> 组合模式：对象结构</h2>
+<p>组合多个对象形成树形结构以表示“整体-部分”的结构层次。组合模式对单个对象（即叶子对象）和组合对象（即容器对象）的使用具有一致性。</p>
+<p>组合模式又可以称为整体-部分（Part-Whole）模式，属于对象的结构模式，它将对象组织到树结构中，可以用来描述整体与部分的关系。</p>
+<ol>
+<li>需要表示一个对象整体或部分层次，在具有整体和部分的层次结构中，希望通过一种方式忽略整体与部分的差异，可以一致地对待它们。</li>
+<li>让客户能够忽略不同对象层次的变化，客户端可以针对抽象构件编程，无须关心对象层次结构的细节。</li>
+<li>对象的结构是动态的并且复杂程度不一样，但客户需要一致地处理它们。</li>
+</ol>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<ol>
+<li>
+<p>组合模式包含如下角色：</p>
+</li>
+<li>
+<p>Component：抽象构件</p>
+</li>
+<li>
+<p>Leaf：叶子构件</p>
+</li>
+<li>
+<p>Composite：容器构件</p>
+</li>
+<li>
+<p>Client：客户类</p>
+</li>
+</ol>
+<h3 id="%E4%BC%98%E7%82%B9-1" tabindex="-1"><a class="header-anchor" href="#%E4%BC%98%E7%82%B9-1">#</a> 优点</h3>
+<ul>
+<li>更容易在组合体内加入对象构件，客户端不必因为加入了新的对象构件而更改原有代码。</li>
+<li>客户端调用简单，客户端可以一致的使用组合结构或其中单个对象。</li>
+<li>定义了包含叶子对象和容器对象的类层次结构，叶子对象可以被组合成更复杂的容器对象，而这个容器对象又可以被组合，这样不断递归下去，可以形成复杂的树形结构。</li>
+</ul>
+<h3 id="%E4%BD%BF%E7%94%A8%E5%8E%9F%E5%88%99" tabindex="-1"><a class="header-anchor" href="#%E4%BD%BF%E7%94%A8%E5%8E%9F%E5%88%99">#</a> 使用原则</h3>
+<ol>
+<li>依赖倒转：使用抽象的componet接口，实现递归结构</li>
+<li>开闭原则支持好：无需更改现有代码， 你就可以在应用中添加新元素， 使其成为对象
+树的一部分。</li>
+<li>违反最小接口原则：leaf和composite都会继承一些不属于自己的方法</li>
+</ol>
+<h3 id="%E7%BC%BA%E7%82%B9" tabindex="-1"><a class="header-anchor" href="#%E7%BC%BA%E7%82%B9">#</a> 缺点</h3>
+<ul>
+<li>使设计变得更加抽象，对象的业务规则如果很复杂，则实现组合模式具有很大挑战性</li>
+<li>增加新构件时可能会产生一些问题，很难对容器中的构件类型进行限制</li>
+</ul>
+<h3 id="%E7%A4%BA%E4%BE%8B-12" tabindex="-1"><a class="header-anchor" href="#%E7%A4%BA%E4%BE%8B-12">#</a> 示例</h3>
+<pre><code class="language-java">public abstract class Component {
+    public abstract void add(Component c);
+
+    public abstract void remove(Component c);
+
+    public abstract Component getChild(int i);
+
+    public abstract void operation();
+}
+
+
+public class Leaf extends Component {
+    public void add(Component c) { //异常处理或错误提示
+    }
+
+    public void remove(Component c) { //异常处理或错误提示
+    }
+
+    public Component getChild(int i) { //异常处理或错误提示
+    }
+
+    public void operation() {
+        //实现代码
+    }
+}
+
+
+public class Composite extends Component {
+    private ArrayList list = new ArrayList();
+
+    public void add(Component c) {
+        list.add(c);
+    }
+
+    public void remove(Component c) {
+        list.remove(c);
+    }
+
+    public Component getChild(int i) {
+        (Component) list.get(i);
+    }
+
+    public void operation() {
+        for (Object obj : list) {
+            ((Component) obj).operation();
+        }
+    }
+}
+</code></pre>
+<p>在水果盘（Plate）中有一些水果，如苹果（Apple）、香蕉（Banana）、梨子（Pear），当然大水果盘中还可以有小水果盘，现需要对盘中的水果进行遍历（吃），当然如果对一个水果盘执行&quot;吃&quot;方法，实际上就是吃其中的水果。使用组合模式模拟该场景。</p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p>文件有不同类型，不同类型的文件其浏览方式有所区别，如文本文件和图片文件的浏览方式就不相同。对文件夹的浏览实际上就是对其中所包含文件的浏览，而客户端可以一致地对文件和文件夹进行操作，无须关心它们的区别。使用组合模式来模拟文件的浏览操作。</p>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h2 id="%E8%A3%85%E9%A5%B0%E6%A8%A1%E5%BC%8F%EF%BC%9A%E7%BB%93%E6%9E%84%E5%AF%B9%E8%B1%A1" tabindex="-1"><a class="header-anchor" href="#%E8%A3%85%E9%A5%B0%E6%A8%A1%E5%BC%8F%EF%BC%9A%E7%BB%93%E6%9E%84%E5%AF%B9%E8%B1%A1">#</a> 装饰模式：结构对象</h2>
+<p>动态地给一个对象增加一些额外的职责（Responsibility），就增加对象功能来说，装饰模式比生成子类实现更为灵活。其别名也可以称为包装器（Wrapper），与适配器模式的别名相同，但它们适用于不同的场合。根据翻译的不同，装饰模式也有人称之为“油漆工模式”，它是一种对象结构型模式。</p>
+<p>与继承关系相比，关联关系的主要优势在于不会破坏类的封装性，而且继承是一种耦合度较大的静态关系，无法在程序运行时动态扩展。</p>
+<p>装饰模式可以在不需要创造更多子类的情况下，将对象的功能加以扩展。</p>
+<ol>
+<li>在不影响其他对象的情况下，以动态、透明的方式给单个对象添加职责。</li>
+<li>需要动态地给一个对象增加功能，这些功能也可以动态地被撤销。</li>
+<li>当不能采用继承的方式对系统进行扩充或者采用继承不利于系统扩展和维护时。不能采用继承的情况主要有两类：第一类是系统中存在大量独立的扩展，为支持每一种组合将产生大量的子类，使得子类数目呈爆炸性增长；第二类是因为类定义不能继承（如 final 类）。</li>
+</ol>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<h3 id="%E4%B8%BB%E8%A6%81%E8%A7%92%E8%89%B2%EF%BC%9A-3" tabindex="-1"><a class="header-anchor" href="#%E4%B8%BB%E8%A6%81%E8%A7%92%E8%89%B2%EF%BC%9A-3">#</a> 主要角色：</h3>
+<ol>
+<li><strong>抽象构件（Component）</strong>：定义了对象接口，可以包含一个或多个方法。</li>
+<li><strong>具体构件（ConcreteComponent）</strong>：实现了抽象构件接口，通常由具体的对象实现。</li>
+<li><strong>抽象装饰（Decorator）</strong>：继承自抽象构件，用于定义装饰器接口。</li>
+<li><strong>具体装饰（ConcreteDecorator）</strong>：继承自抽象装饰，并实现抽象装饰接口。具体装饰通常包含一个具体构件对象，并添加额外的功能。</li>
+</ol>
+<h3 id="%E4%BC%98%E7%82%B9%EF%BC%9A-11" tabindex="-1"><a class="header-anchor" href="#%E4%BC%98%E7%82%B9%EF%BC%9A-11">#</a> 优点：</h3>
+<ul>
+<li><strong>增强性</strong>：允许增加新的功能，同时保持类的核心职责不变。</li>
+<li><strong>可替换性</strong>：允许用不同的装饰类来替换，从而实现不同的行为组合。</li>
+<li>装饰模式与继承关系的目的都是要扩展对象的功能，但是装饰模式可以提供比继承更多的灵活性。</li>
+<li>符合开闭原则</li>
+</ul>
+<h3 id="%E7%BC%BA%E7%82%B9%EF%BC%9A-12" tabindex="-1"><a class="header-anchor" href="#%E7%BC%BA%E7%82%B9%EF%BC%9A-12">#</a> 缺点：</h3>
+<ul>
+<li><strong>类膨胀</strong>：可能会导致大量的装饰类，使得系统变得复杂。</li>
+<li><strong>功能扩散</strong>：装饰类可能会承担过多的职责，导致功能扩散。</li>
+</ul>
+<h3 id="%E7%AC%A6%E5%90%88%E5%8E%9F%E5%88%99-2" tabindex="-1"><a class="header-anchor" href="#%E7%AC%A6%E5%90%88%E5%8E%9F%E5%88%99-2">#</a> 符合原则</h3>
+<ol>
+<li><strong>开闭原则（Open/Closed Principle）</strong>:</li>
+</ol>
+<ul>
+<li>装饰器模式允许对象在不改变其结构的情况下，通过添加新的装饰器来增加新的功能。这意味着原始的类是开放的扩展，但关闭修改，因为不需要修改现有代码来添加新功能。</li>
+</ul>
+<ol>
+<li><strong>单一职责原则（Single Responsibility Principle）</strong>:</li>
+</ol>
+<ul>
+<li>每个装饰器都负责一个特定的功能，它们将功能细分为单独的类。这样，每个类都有一个且只有一个改变的理由，从而遵循单一职责原则。</li>
+</ul>
+<ol>
+<li><strong>依赖倒置原则（Dependency Inversion Principle）</strong>:</li>
+</ol>
+<ul>
+<li>装饰器模式通常使用抽象组件和装饰器接口来实现，这有助于高层模块（如客户端代码）依赖于抽象，而不是具体实现。</li>
+</ul>
+<ol>
+<li><strong>里氏替换原则（Liskov Substitution Principle）</strong>:</li>
+</ol>
+<ul>
+<li>装饰器模式要求装饰器类和被装饰的类实现相同的接口，这样可以确保装饰器对象可以被替换为被装饰的对象，而不影响程序的正确性。</li>
+</ul>
+<ol>
+<li><strong>接口隔离原则（Interface Segregation Principle）</strong>:</li>
+</ol>
+<ul>
+<li>装饰器模式通常要求有一个小的、专注的接口，装饰器和被装饰的对象都实现这个接口。这样可以避免客户端依赖它们不需要的方法。</li>
+</ul>
+<h3 id="%E7%A4%BA%E4%BE%8B-13" tabindex="-1"><a class="header-anchor" href="#%E7%A4%BA%E4%BE%8B-13">#</a> 示例</h3>
+<p>变形金刚在变形之前是一辆汽车，它可以在陆地上移动。当它变成机器人之后除了能够在陆地上移动之外，还可以说话；如果需要，它还可以变成飞机，除了在陆地上移动还可以在天空中飞翔。</p>
+<ul>
+<li>Q：为什么 Changer 在继承自 Transform 的同时还要有一个 Transform？</li>
+<li>A：因为我们希望 Changer 能够装饰 Car 或其他的 Transform （如果有，例如 Bicycle），因此需要组合一个 transform。</li>
+</ul>
+<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p>每个模式的复习</p>
+<p>模式名称</p>
+<p>问题：约束和适应环境</p>
+<p>解决方案：角色、关系、如何映射到解决问题的领域</p>
+<p>效果：可以作为题干约束条件的一部分</p>
+<p>根据目的划分为：</p>
+<p>创建型</p>
+<p>结构型</p>
+<p>行为型</p>
+<p>根据范围：</p>
+<p>类模式：继承，静态</p>
+<p>对象关系：对象组合，动态</p>
+<p><strong>教学立方上会更新设计模式的分类</strong></p>
+<p><strong>要关注哪些模式容易组合</strong></p>
+<p>创建型经常跟结构型组合，创建型内部不容易</p>
+<ol>
+<li>
+<p>【2019】【2023】策略模式和状态模式的区别？</p>
+</li>
+<li>
+<p>在状态模式中，具体状态类的方法参数中包含上下文对象，需要在状态处理完成后完成状态切换。</p>
+</li>
+<li>
+<p>在策略模式中，直接对上下文类调用 set 方法设置策略即可，不涉及到策略的切换。</p>
+</li>
+<li>
+<p>【2019】最小知识原则在设计模式中的应用？</p>
+</li>
+<li>
+<p>中介者模式</p>
+</li>
+<li>
+<p>外观模式</p>
+</li>
+<li>
+<p>【2023】装饰者模式为什么比用子类扩展功能有更好的灵活性？</p>
+</li>
+</ol>
+<p>与继承关系相比，关联关系的主要优势在于不会破坏类的封装性，而且继承是一种耦合度较大的静态关系，无法在程序运行时动态扩展。在软件开发阶段，关联关系虽然不会比继承关系减少编码量，但是到了软件维护阶段，由于关联关系使系统具有较好的松耦合性因此使得系统更加容易维护。当然，关联关系的缺点是比继承关系要创建更多的对象。</p>
+<p>使用装饰模式来实现扩展比继承更加灵活，它以对客户透明的方式动态地给一个对象附加更多的责任。装饰模式可以在不需要创造更多子类的情况下，将对象的功能加以扩展。</p>
+<ol>
+<li>【2023】为什么最小知识原则可以帮助构建高内聚、低耦合的系统？用代码举一个违背的例子</li>
+</ol>
+<p>最小知识原则（Law of Demeter），也被称为最少知识原则或迪米特法则，是指一个对象应该对其他对象有最少的了解。具体来说，一个对象只能直接调用它直接拥有的对象的方法，而不应该调用其他对象的方法，也不应该访问其他对象的内部数据。这个原则旨在减少对象之间的耦合，提高模块的内聚性。</p>
+<p>最小知识原则帮助构建高内聚、低耦合的系统，因为它：</p>
+<ol>
+<li><strong>限制对象之间的交互</strong>:</li>
+</ol>
+<ul>
+<li>通过限制对象之间的直接交互，减少了对象之间的依赖关系，从而降低了耦合度。</li>
+</ul>
+<ol>
+<li><strong>提高模块独立性</strong>:</li>
+</ol>
+<ul>
+<li>每个对象只关心自己的职责和与自己直接交互的对象，这使得每个模块更加独立和内聚。</li>
+</ul>
+<ol>
+<li><strong>增强系统的可维护性和可扩展性</strong>:</li>
+</ol>
+<ul>
+<li>由于对象之间的依赖关系减少，修改一个对象对其他对象的影响也会减少，这使得系统更易于维护和扩展。</li>
+</ul>
+<ol>
+<li><strong>降低系统的复杂性</strong>:</li>
+</ol>
+<ul>
+<li>最小知识原则鼓励将复杂的交互分解为简单的交互，这有助于降低整个系统的复杂性。</li>
+</ul>
+<pre><code class="language-java">class Order {
+    private Customer customer;
+
+    public Order(Customer customer) {
+        this.customer = customer;
+    }
+
+    public double calculateTotalPrice() {
+        // 违背了最小知识原则，因为Order对象直接访问了Customer对象的内部数据
+        return customer.getCart().calculateTotal();
+    }
+}
+
+class Customer {
+    private Cart cart;
+
+    public Customer(Cart cart) {
+        this.cart = cart;
+    }
+
+    public Cart getCart() {
+        return cart;
+    }
+}
+
+class Cart {
+    // Cart的细节...
+    public double calculateTotal() {
+        // 计算购物车中商品的总价
+    }
+}
+</code></pre>
+<ol>
+<li>
+<p>【2022】【2023】What is the benefit of decoupling the Receiver from the Invoker in the Command Pattern?</p>
+</li>
+<li>
+<p><strong>灵活性和可扩展性</strong>：</p>
+</li>
+</ol>
+<ul>
+<li>命令模式允许在不修改调用者的情况下扩展其功能。你可以添加新的命令或者修改现有命令，而不必影响调用者的实现。这使得系统更加灵活，更容易扩展。</li>
+</ul>
+<ol>
+<li><strong>松耦合</strong>：</li>
+</ol>
+<ul>
+<li>调用者不需要知道接收者的具体实现。它只需要知道如何执行命令。这种松耦合减少了组件之间的依赖，使得系统更易于维护和更改。</li>
+</ul>
+<ol>
+<li><strong>封装</strong>：</li>
+</ol>
+<ul>
+<li>命令对象封装了请求和接收者。这种封装隐藏了接收者的实现细节，使得调用者和其他组件不需要了解接收者的具体实现。它还允许通过组合简单的命令来实现复杂的操作。</li>
+</ul>
+<ol>
+<li><strong>支持可撤销的操作</strong>：</li>
+</ol>
+<ul>
+<li>命令模式使得实现可撤销操作变得简单。你可以存储命令，并按照相反的顺序执行它们来实现撤销。这在需要支持撤销和重做操作的场景中特别有用。</li>
+</ul>
+<ol>
+<li>【2023】设计一个系统，有很多的机器人，他们有不同的功能，在未来会拓展这些功能或功能的复杂性，同时有一批保留了旧接口的老机器人，也希望能加入到这个系统中。系统还能将所有的机器人看作一个 unit 来统一的控制。1. 列出使用的设计模式和类图 2.说明你的设计如何有利于未来拓展功能</li>
+</ol>
+<p>组合 + 适配器 + 装饰器（拓展）</p>
+<ol>
+<li>【2019】一个游戏，有几种人类角色：骑士、骑兵、步兵，持有不同的武器 ( 矛、剑、斧 )，拥有 fight 方法；有一个非人类角色巨魔，可以持有武器，但攻击方法不同 (beat)。现在希望让巨魔和其他人类角色一起进行游戏，并且要求有角色死亡时其他活着的角色要收到通知。运用设计模式进行设计，并画出类图。</li>
+</ol>
+<p>适配器 + 中介者</p>
+<ol>
+<li>【2022】【2023】观察者设计模式中有两种方法用于向观察者传播数据：推模型（Push Model）和拉模型（Pull Model）。为什么有些情况下一个模型会比另一个模型更可取？每个模型的权衡是什么？</li>
+</ol>
+<p>推模型和拉模型的选择取决于应用程序的需求和设计考虑。下面是每个模型的优势和权衡：</p>
+<ol>
+<li>
+<p>推模型：</p>
+</li>
+<li>
+<p>优势：</p>
+</li>
+<li>
+<p>简单直接：数据由主题（被观察者）直接推送给观察者，观察者不需要主动请求数据。</p>
+</li>
+<li>
+<p>即时性：数据推送是实时的，观察者可以立即收到最新的数据更新。</p>
+</li>
+<li>
+<p>权衡：</p>
+</li>
+<li>
+<p><strong>无法控制数据量</strong>：在推模型中，主题通常将所有数据推送给所有观察者，无论观察者是否需要这些数据。这可能会导致数据传输过程中的浪费。</p>
+</li>
+<li>
+<p>安全性和隐私问题：如果数据包含敏感信息，推模型可能会引发安全和隐私问题，因为数据在推送过程中可能会被截获或访问到。</p>
+</li>
+<li>
+<p>拉模型：</p>
+</li>
+<li>
+<p>优势：</p>
+</li>
+<li>
+<p>灵活性：观察者可以根据需要主动拉取所需的数据，可以减少不必要的数据传输。</p>
+</li>
+<li>
+<p>数据控制：观察者可以根据具体情况控制拉取数据的频率和量，从而减少网络带宽和资源消耗。</p>
+</li>
+<li>
+<p>权衡：</p>
+</li>
+<li>
+<p><strong>延迟性</strong>：拉模型需要观察者主动发起请求才能获取数据，可能会引入一定的延迟。</p>
+</li>
+<li>
+<p>实时性限制：观察者只能获取其主动请求的数据更新，无法立即获知所有最新的数据。</p>
+</li>
+<li>
+<p>【2021】软件模式是什么? 能提供架构吗?</p>
+</li>
+</ol>
+<p>软件模式是将模式的一般概念应用于软件开发领域，即软件开发的总体指导思路或参照样板。软件模式并非仅限于设计模式，还包括架构模式、分析模式和过程模式等，实际上，在软件生存期的每一个阶段都存在着一些被认同的模式</p>
+<p>软件模式可以认为是对软件开发这一特定“问题”的“解法”的某种统一表示，软件模式等于一定条件下的出现的问题以及解法。软件模式的基础结构由4个部分构成:问题描述、前提条件(环境或约束条件)、解法和效果。</p>
+
+      </div>
+
+      <footer class="post-footer">
+        <div class="post-nav">
+          <a href="/" class="post-nav-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            返回首页
+          </a>
+        </div>
+      </footer>
+    </article>
+  </main>
+</div>
+
+
+  <footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <span class="footer-logo">AI Blog</span>
+        <p class="footer-desc">一个由AI驱动的个人博客</p>
+        <div class="footer-social">
+          
+            <a href="https://github.com/yourname" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+          
+          
+            <a href="https://twitter.com/yourname" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          
+          
+            <a href="mailto:your@email.com" class="social-link" aria-label="Email">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </a>
+          
+          
+            <a href="/feed.xml" class="social-link" aria-label="RSS">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20C5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1z"/></svg>
+            </a>
+          
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">导航</h4>
+        <ul class="footer-links">
+          
+            <li><a href="/">首页</a></li>
+          
+            <li><a href="/archive/">归档</a></li>
+          
+            <li><a href="/tags/">标签</a></li>
+          
+            <li><a href="/categories/">分类</a></li>
+          
+          <li><a href="/archive/">归档</a></li>
+          <li><a href="/tags/">标签</a></li>
+          <li><a href="/categories/">分类</a></li>
+        </ul>
+      </div>
+
+      
+      <div class="footer-col">
+        <h4 class="footer-heading">友链</h4>
+        <ul class="footer-links">
+          
+            <li><a href="https://example.com" target="_blank" rel="noopener noreferrer">示例友链</a></li>
+          
+        </ul>
+      </div>
+      
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 AI Blog</p>
+      
+    </div>
+  </div>
+</footer>
+
+
+  <button class="back-to-top" aria-label="返回顶部">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+  </button>
+
+  <script src="/assets/js/main.js" defer></script>
+</body>
+</html>

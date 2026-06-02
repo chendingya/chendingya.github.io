@@ -9,7 +9,7 @@
         <% } %>
       </a>
 
-      <nav class="site-nav" id="siteNav">
+      <nav class="site-nav" data-target="main-nav">
         <ul class="nav-list">
           <% if (site.navigation) { site.navigation.forEach(item => { %>
             <li class="nav-item<%= (page.url === item.url) ? ' active' : '' %>">
@@ -20,12 +20,12 @@
       </nav>
 
       <div class="header-actions">
-        <button id="themeToggle" class="icon-btn" aria-label="切换暗色模式">
+        <button class="icon-btn" data-action="toggle-theme" aria-label="切换暗色模式">
           <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
           <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         </button>
 
-        <button id="menuToggle" class="icon-btn menu-btn" aria-label="菜单">
+        <button class="icon-btn menu-btn" data-action="toggle-menu" aria-label="菜单">
           <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
         </button>
       </div>

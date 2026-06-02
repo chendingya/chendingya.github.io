@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="一个由AI驱动的个人博客">
+  <title>Column&amp;Row组件的使用 - AI Blog</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Noto+Serif+SC:wght@400;500;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/css/style.css">
+  
+  <link rel="stylesheet" href="/assets/css/highlight.css">
+  
+
+  
+  <style>:root {
+  --font-display: 'Playfair Display', 'Noto Serif SC', Georgia, 'Times New Roman', serif;
+  --font-body: 'Public Sans', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'Fira Code', 'Cascadia Code', 'JetBrains Mono', monospace;
+  --bg-cream: #FEFAF6;
+  --bg-surface: #FFFFFF;
+  --bg-warm: #FDF5EB;
+  --text-primary: #2C1810;
+  --text-secondary: #8B7355;
+  --text-muted: #C4A882;
+  --border: #E8D5C4;
+  --border-light: #F0E3D5;
+  --shadow-sm: 0 1px 2px rgba(44,24,16,0.04);
+  --shadow-md: 0 4px 12px rgba(44,24,16,0.06);
+  --shadow-lg: 0 12px 32px rgba(44,24,16,0.08);
+  --brand: var(--accent-coral);
+  --brand-hover: #FF5252;
+  --accent-coral: #FF6B6B;
+  --accent-coral-hover: #FF5252;
+  --accent-amber: #F4A261;
+  --accent-mint: #90BE6D;
+  --accent-lavender: #9B72AA;
+  --accent-sky: #4ECDC4;
+  --accent-sun: #F9C74F;
+  --accent-rose: #FF6B8A;
+  --accent-blue: #577590;
+  --max-width: 1200px;
+  --content-width: 720px;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 5rem;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+}
+
+[data-theme="dark"] {
+  --bg-cream: #1A1614;
+  --bg-surface: #2C2420;
+  --bg-warm: #241E1A;
+  --text-primary: #E8D5C4;
+  --text-secondary: #B8A088;
+  --text-muted: #8B7355;
+  --border: #3D3028;
+  --border-light: #332A22;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.25);
+  --shadow-lg: 0 12px 32px rgba(0,0,0,0.3);
+  --brand: var(--accent-coral);
+  --brand-hover: #FF8A8A;
+}</style>
+  
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23FF6B6B'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='20' fill='white'>A</text></svg>">
+
+  
+  <link rel="alternate" type="application/rss+xml" title="AI Blog" href="/feed.xml">
+  
+
+  <meta property="og:title" content="Column&amp;Row组件的使用">
+  <meta property="og:description" content="一个由AI驱动的个人博客">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://username.github.io/ai-blog/posts/23-移动互联网/column-row组件的使用/">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Column&amp;Row组件的使用">
+  <meta name="twitter:description" content="一个由AI驱动的个人博客">
+  
+</head>
+<body class="post-page">
+  <div class="reading-progress"></div>
+
+  <header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="/" class="site-brand">
+        
+          <span class="brand-title">AI Blog</span>
+        
+      </a>
+
+      <nav class="site-nav" data-target="main-nav">
+        <ul class="nav-list">
+          
+            <li class="nav-item">
+              <a href="/" class="nav-link">首页</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/archive/" class="nav-link">归档</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/tags/" class="nav-link">标签</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/categories/" class="nav-link">分类</a>
+            </li>
+          
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" data-action="toggle-theme" aria-label="切换暗色模式">
+          <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+
+        <button class="icon-btn menu-btn" data-action="toggle-menu" aria-label="菜单">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  <div class="container">
+  <main class="main-content">
+    <article class="post-article">
+      <header class="post-header">
+        
+          <div class="post-header-cats">
+            
+              <a href="/categories/openharmony/" class="meta-cat accent">openharmony</a>
+            
+          </div>
+        
+        <h1 class="post-title">Column&amp;Row组件的使用</h1>
+        <div class="post-meta">
+          <time datetime="2023-10-04T11:40:36.000Z">
+            2023年10月4日
+          </time>
+          
+            <span class="meta-divider">&middot;</span>
+            <span class="post-author">Your Name</span>
+          
+        </div>
+        
+          <div class="post-header-tags">
+            
+              <a href="/tags/openharmony/" class="tag">openharmony</a>
+            
+          </div>
+        
+      </header>
+
+      
+
+      <div class="post-body">
+        <h1 id="column%26row%E7%BB%84%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8" tabindex="-1"><a class="header-anchor" href="#column%26row%E7%BB%84%E4%BB%B6%E7%9A%84%E4%BD%BF%E7%94%A8">#</a> Column&amp;Row组件的使用</h1>
+<h1 id="1-%E6%A6%82%E8%BF%B0" tabindex="-1"><a class="header-anchor" href="#1-%E6%A6%82%E8%BF%B0">#</a> 1 概述</h1>
+<p>一个丰富的页面需要很多组件组成，那么，我们如何才能让这些组件有条不紊地在页面上布局呢？这就需要借助容器组件来实现。</p>
+<p>容器组件是一种比较特殊的组件，它可以包含其他的组件，而且按照一定的规律布局，帮助开发者生成精美的页面。容器组件除了放置基础组件外，也可以放置容器组件，通过多层布局的嵌套，可以布局出更丰富的页面。</p>
+<p>ArkTS为我们提供了丰富的容器组件来布局页面，本文将以构建登录页面为例，介绍Column和Row组件的属性与使用。</p>
+<p><img src="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/103/404/958/0260086000103404958.20221102115843.56869299768090628795048614168558:50001231000000:2800:FF53A5245D2813CE1EB2CBCE12EC3C1B5311CE160DCB25180A25008353C9FE49.png" alt="" class="" loading="lazy"></p>
+<h1 id="2-%E7%BB%84%E4%BB%B6%E4%BB%8B%E7%BB%8D" tabindex="-1"><a class="header-anchor" href="#2-%E7%BB%84%E4%BB%B6%E4%BB%8B%E7%BB%8D">#</a> 2 组件介绍</h1>
+<h2 id="%E5%B8%83%E5%B1%80%E5%AE%B9%E5%99%A8%E6%A6%82%E5%BF%B5" tabindex="-1"><a class="header-anchor" href="#%E5%B8%83%E5%B1%80%E5%AE%B9%E5%99%A8%E6%A6%82%E5%BF%B5">#</a> 布局容器概念</h2>
+<p>线性布局容器表示按照垂直方向或者水平方向排列子组件的容器，ArkTS提供了Column和Row容器来实现线性布局。</p>
+<ul>
+<li>Column表示沿垂直方向布局的容器。</li>
+<li>Row表示沿水平方向布局的容器。</li>
+</ul>
+<h2 id="%E4%B8%BB%E8%BD%B4%E5%92%8C%E4%BA%A4%E5%8F%89%E8%BD%B4%E6%A6%82%E5%BF%B5" tabindex="-1"><a class="header-anchor" href="#%E4%B8%BB%E8%BD%B4%E5%92%8C%E4%BA%A4%E5%8F%89%E8%BD%B4%E6%A6%82%E5%BF%B5">#</a> 主轴和交叉轴概念</h2>
+<p>在布局容器中，默认存在两根轴，分别是主轴和交叉轴，这两个轴始终是相互垂直的。不同的容器中主轴的方向不一样的。</p>
+<ul>
+<li><strong>主轴</strong>：在Column容器中的子组件是按照从上到下的垂直方向布局的，其主轴的方向是垂直方向；在Row容器中的组件是按照从左到右的水平方向布局的，其主轴的方向是水平方向。</li>
+</ul>
+<p>图2-1 Column容器&amp;Row容器主轴</p>
+<p><img src="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/103/404/958/0260086000103404958.20221102115909.22873051359993638219253132361587:50001231000000:2800:DD239797D663EF0C454A0344974110E18232305E2A48C465CB8104AB7AF3B76D.png" alt="" class="" loading="lazy"></p>
+<ul>
+<li><strong>交叉轴</strong>：与主轴垂直相交的轴线，如果主轴是垂直方向，则交叉轴就是水平方向；如果主轴是水平方向，则交叉轴是垂直方向。</li>
+</ul>
+<p>图2-2 Column容器&amp;Row容器交叉轴</p>
+<p><img src="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/103/404/958/0260086000103404958.20221102115920.30331924582664597826254415316555:50001231000000:2800:3531A948E66A8AEFBC7ACD4C60C8412D31B655FF90C52DCA0F06B4E8C6B1DE16.png" alt="" class="" loading="lazy"></p>
+<h2 id="%E5%B1%9E%E6%80%A7%E4%BB%8B%E7%BB%8D" tabindex="-1"><a class="header-anchor" href="#%E5%B1%9E%E6%80%A7%E4%BB%8B%E7%BB%8D">#</a> 属性介绍</h2>
+<p>了解布局容器的主轴和交叉轴，主要是为了让大家更好地理解子组件在主轴和交叉轴的排列方式。</p>
+<p>接下来，我们将详细讲解Column和Row容器的两个属性justifyContent和alignItems。</p>
+<table>
+<thead>
+<tr>
+<th>属性名称</th>
+<th>描述</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>justifyContent</td>
+<td>设置子组件在主轴方向上的对齐格式。</td>
+</tr>
+<tr>
+<td>alignItems</td>
+<td>设置子组件在交叉轴方向上的对齐格式。</td>
+</tr>
+</tbody>
+</table>
+<p>\1. 主轴方向的对齐（justifyContent）</p>
+<p>子组件在主轴方向上的对齐使用justifyContent属性来设置，其参数类型是<a href="https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-appendix-enums-0000001281201130#ZH-CN_TOPIC_0000001281201130__flexalign">FlexAlign</a>。FlexAlign定义了以下几种类型：</p>
+<ul>
+<li>Start：元素在主轴方向首端对齐，第一个元素与行首对齐，同时后续的元素与前一个对齐。</li>
+</ul>
+<p><img src="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/103/404/958/0260086000103404958.20221102120034.55002488649666187375452743115722:50001231000000:2800:976A64244DB1E53DBC7A14E86E8F112B367438881EA17072BCD99E5055D7AFC7.png" alt="" class="" loading="lazy"></p>
+<ul>
+<li>Center：元素在主轴方向中心对齐，第一个元素与行首的距离以及最后一个元素与行尾距离相同。</li>
+</ul>
+<p><img src="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/103/404/958/0260086000103404958.20221102120046.20470396574913051754264941328891:50001231000000:2800:4649A1983ADC5F536F5BFB50A8BD04A252B37F9AB8E77022FAFF8BAB5AAD0452.png" alt="" class="" loading="lazy"></p>
+<ul>
+<li>End：元素在主轴方向尾部对齐，最后一个元素与行尾对齐，其他元素与后一个对齐。</li>
+</ul>
+<p><img src="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/103/404/958/0260086000103404958.20221102120054.44350106670787534871004252237249:50001231000000:2800:597FEE07999060038975E0A285F22F073C2136A3C0E4CA01233DFF0B42A7C4E7.png" alt="" class="" loading="lazy"></p>
+<ul>
+<li>SpaceBetween：元素在主轴方向均匀分配弹性元素，相邻元素之间距离相同。 第一个元素与行首对齐，最后一个元素与行尾对齐。</li>
+</ul>
+<p><img src="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/103/404/958/0260086000103404958.20221102120104.61306639232139542053660772535451:50001231000000:2800:FACFD1B00005797C0D61BF2251FF367148A168AC095028E9D9E75BE7E1B3B265.png" alt="" class="" loading="lazy"></p>
+<ul>
+<li>SpaceAround：元素在主轴方向均匀分配弹性元素，相邻元素之间距离相同。 第一个元素到行首的距离和最后一个元素到行尾的距离是相邻元素之间距离的一半。</li>
+</ul>
+<p><img src="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/103/404/958/0260086000103404958.20221102120116.52750004019093798708346178362676:50001231000000:2800:DA370AD7DEA8F643106B77791FA2F7615794BEB0131FB0592BC29E1CFB26CDE8.png" alt="" class="" loading="lazy"></p>
+<ul>
+<li>SpaceEvenly：元素在主轴方向等间距布局，无论是相邻元素还是边界元素到容器的间距都一样。</li>
+</ul>
+<p><img src="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/103/404/958/0260086000103404958.20221102120152.44741357072809756514190316665580:50001231000000:2800:8E31F05211B1741DCA78E90C063CDEB3CA69288D8F7382A2FA3BC771E446FE9E.png" alt="" class="" loading="lazy"></p>
+<p>\2. 交叉轴方向的对齐（alignItems）</p>
+<p>子组件在交叉轴方向上的对齐方式使用alignItems属性来设置。</p>
+<p>Column容器的主轴是垂直方向，交叉轴是水平方向，其参数类型为HorizontalAlign（水平对齐），HorizontalAlign定义了以下几种类型：</p>
+<ul>
+<li>Start：设置子组件在水平方向上按照起始端对齐。</li>
+</ul>
+<p><img src="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/103/404/958/0260086000103404958.20221102120211.31994376220784208696781894804465:50001231000000:2800:A8A75840C5F94CCB04EB7AC2DB6B149D2F5D5D1ED3235EFE280BC5626540BDE3.png" alt="" class="" loading="lazy"></p>
+<ul>
+<li>Center（默认值）：设置子组件在水平方向上居中对齐。</li>
+</ul>
+<p><img src="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/103/404/958/0260086000103404958.20221102120220.73077653691423267775452046266338:50001231000000:2800:83604C691A921D5058905270A365B0680FF1439AE1F633AD43B6E771FCFFCB13.png" alt="" class="" loading="lazy"></p>
+<ul>
+<li>End：设置子组件在水平方向上按照末端对齐。</li>
+</ul>
+<p><img src="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/103/404/958/0260086000103404958.20221102120231.65240250845776209940244577183907:50001231000000:2800:94F40FCB4DE8E3960D9AF78074611ACB80ABD642D779C0EC4F8932A662CF5853.png" alt="" class="" loading="lazy"></p>
+<p>Row容器的主轴是水平方向，交叉轴是垂直方向，其参数类型为VerticalAlign（垂直对齐），VerticalAlign定义了以下几种类型：</p>
+<ul>
+<li>Top：设置子组件在垂直方向上居顶部对齐。</li>
+</ul>
+<p><img src="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/103/404/958/0260086000103404958.20221102120244.63498934647274355019879968073116:50001231000000:2800:31FACC5011AC5DFE44996316747E28DFEBDCC20262ABAC9B6ADAFB8ACD78165D.png" alt="" class="" loading="lazy"></p>
+<ul>
+<li>Center（默认值）：设置子组件在竖直方向上居中对齐。</li>
+</ul>
+<p><img src="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/103/404/958/0260086000103404958.20221102120303.35457043976848012752874761084865:50001231000000:2800:08FB1D45111107EFDC181C535AD817C051FE8D668AB08B096554009E57B96E5D.png" alt="" class="" loading="lazy"></p>
+<ul>
+<li>Bottom：设置子组件在竖直方向上居底部对齐。</li>
+</ul>
+<p><img src="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/103/404/958/0260086000103404958.20221102120311.16840084438584689920641238749604:50001231000000:2800:F0091640561F333A2BB462FCF6420DCB08670B2D1EFE4B0722BFCE88CA4C0859.png" alt="" class="" loading="lazy"></p>
+<h2 id="%E6%8E%A5%E5%8F%A3%E4%BB%8B%E7%BB%8D" tabindex="-1"><a class="header-anchor" href="#%E6%8E%A5%E5%8F%A3%E4%BB%8B%E7%BB%8D">#</a> 接口介绍</h2>
+<p>接下来，我们介绍Column和Row容器的接口。</p>
+<table>
+<thead>
+<tr>
+<th>容器组件</th>
+<th>接口</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Column</td>
+<td>Column(value?:{space?: string | number})</td>
+</tr>
+<tr>
+<td>Row</td>
+<td>Row(value?:{space?: string | number})</td>
+</tr>
+</tbody>
+</table>
+<p>Column和Row容器的接口都有一个可选参数space，表示子组件在主轴方向上的间距。</p>
+<p>效果如下：</p>
+<p><img src="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/103/404/958/0260086000103404958.20221102120341.29998493080685429299217527032153:50001231000000:2800:F722E0E366A541021F8FF33486CD9177134A9F1C588090C7669DEE216D0E92FE.png" alt="" class="" loading="lazy"></p>
+<h1 id="3-%E7%BB%84%E4%BB%B6%E4%BD%BF%E7%94%A8" tabindex="-1"><a class="header-anchor" href="#3-%E7%BB%84%E4%BB%B6%E4%BD%BF%E7%94%A8">#</a> 3 组件使用</h1>
+<p>我们来具体讲解如何高效的使用Column和Row容器组件来构建这个登录页面。</p>
+<p>当我们从设计同学那拿到一个页面设计图时，我们需要对页面进行拆解，先确定页面的布局，再分析页面上的内容分别使用哪些组件来实现。</p>
+<p>我们仔细分析这个登录页面。在静态布局中，组件整体是从上到下布局的，因此构建该页面可以使用Column来构建。在此基础上，我们可以看到有部分内容在水平方向上由几个基础组件构成，例如页面中间的短信验证码登录与忘记密码以及页面最下方的其他方式登录，那么构建这些内容的时候，可以在Column组件中嵌套Row组件，继而在Row组件中实现水平方向的布局。</p>
+<p><img src="https://alliance-communityfile-drcn.dbankcdn.com/FileServer/getFile/cmtyPub/103/404/958/0260086000103404958.20221102120349.33899634270625091234160890072156:50001231000000:2800:4959D75213902E59FC842C767ADF8643A9B8B50D2ECBF4E84A0DB82D4766B133.png" alt="" class="" loading="lazy"></p>
+<p>根据上述页面拆解，在Column容器里，依次是Image、Text、TextInput、Button等基础组件，还有两组组件是使用Row容器组件来实现的，主要代码如下：</p>
+<pre><code>@Entry
+@Component
+export struct LoginPage {
+  build() {
+    Column() {
+      Image($r('app.media.logo'))
+        ...
+      Text($r('app.string.login_page'))
+        ...
+      Text($r('app.string.login_more'))
+        ...
+      TextInput({ placeholder: $r('app.string.account') })
+        ...
+      TextInput({ placeholder: $r('app.string.password') })
+        ...
+      Row() {
+        Text($r(…)) 
+        Text($r(…)) 
+      }
+      Button($r('app.string.login'), { type: ButtonType.Capsule, stateEffect: true })
+        ...
+      Row() {
+        this.imageButton($r(…))
+        this.imageButton($r(…))
+        this.imageButton($r(…))
+      }
+      ...
+    }
+    ...
+  }
+} 
+</code></pre>
+<p>我们详细看一下使用Row容器的两组组件。</p>
+<p>两个文本组件展示的内容是按水平方向布局的，使用两端对齐的方式。这里我们使用Row容器组件，并且需要配置主轴上（水平方向）的对齐格式justifyContent为FlexAlign.SpaceBetween（两端对齐）。</p>
+<pre><code>Row() {
+  Text($r(…)) 
+  Text($r(…)) 
+  }
+  .justifyContent(FlexAlign.SpaceBetween)
+  .width('100%')
+</code></pre>
+<p>其他登录方式的三个按钮也是按水平方向布局的，同样使用Row容器组件。这里按钮的间距是一致的，我们可以通过配置可选参数space来设置按钮间距，使子组件间距一致。</p>
+<pre><code>Row({ space: CommonConstants.LOGIN_METHODS_SPACE }) {
+  this.imageButton($r(…))
+  this.imageButton($r(…))
+  this.imageButton($r(…))
+}
+</code></pre>
+<p>至此，你已经完成这个登录页面的简单布局实现了。你可以参考<a href="https://developer.huawei.com/consumer/cn/codelabsPortal/carddetails/tutorials_ArkTSComponents">《常用组件与布局》</a>这个Codelab验证一下页面效果。</p>
+<p>另外，你也可以通过<a href="https://developer.huawei.com/consumer/cn/codelabsPortal/carddetails/tutorials_LayoutAlignETS">《常用布局容器对齐方式》</a>这个Codelab来深入学习Column、Row、Flex、Stack容器组件的对齐方式，掌握更多布局容器的使用方法。</p>
+<h1 id="4-%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5" tabindex="-1"><a class="header-anchor" href="#4-%E5%8F%82%E8%80%83%E9%93%BE%E6%8E%A5">#</a> 4 参考链接</h1>
+<ul>
+<li>Column组件的相关API参考：<a href="https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-container-column-0000001333641085">Column组件</a>。</li>
+<li>Row组件的相关API参考：<a href="https://developer.harmonyos.com/cn/docs/documentation/doc-references/ts-container-row-0000001281480714">Row组件</a>。</li>
+</ul>
+
+      </div>
+
+      <footer class="post-footer">
+        <div class="post-nav">
+          <a href="/" class="post-nav-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            返回首页
+          </a>
+        </div>
+      </footer>
+    </article>
+  </main>
+</div>
+
+
+  <footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <span class="footer-logo">AI Blog</span>
+        <p class="footer-desc">一个由AI驱动的个人博客</p>
+        <div class="footer-social">
+          
+            <a href="https://github.com/yourname" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+          
+          
+            <a href="https://twitter.com/yourname" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          
+          
+            <a href="mailto:your@email.com" class="social-link" aria-label="Email">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </a>
+          
+          
+            <a href="/feed.xml" class="social-link" aria-label="RSS">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20C5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1z"/></svg>
+            </a>
+          
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">导航</h4>
+        <ul class="footer-links">
+          
+            <li><a href="/">首页</a></li>
+          
+            <li><a href="/archive/">归档</a></li>
+          
+            <li><a href="/tags/">标签</a></li>
+          
+            <li><a href="/categories/">分类</a></li>
+          
+          <li><a href="/archive/">归档</a></li>
+          <li><a href="/tags/">标签</a></li>
+          <li><a href="/categories/">分类</a></li>
+        </ul>
+      </div>
+
+      
+      <div class="footer-col">
+        <h4 class="footer-heading">友链</h4>
+        <ul class="footer-links">
+          
+            <li><a href="https://example.com" target="_blank" rel="noopener noreferrer">示例友链</a></li>
+          
+        </ul>
+      </div>
+      
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 AI Blog</p>
+      
+    </div>
+  </div>
+</footer>
+
+
+  <button class="back-to-top" aria-label="返回顶部">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+  </button>
+
+  <script src="/assets/js/main.js" defer></script>
+</body>
+</html>
