@@ -34,15 +34,11 @@ body {
   position: sticky;
   top: 0;
   z-index: 100;
-  background-color: rgba(254, 250, 246, 0.85);
+  background-color: var(--bg-cream-alpha);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--border-light);
   transition: box-shadow var(--duration-normal) var(--ease-out);
-}
-
-[data-theme="dark"] .site-header {
-  background-color: rgba(26, 22, 20, 0.85);
 }
 
 .site-header.scrolled {
@@ -104,7 +100,7 @@ body {
 .nav-link:hover,
 .nav-item.active .nav-link {
   color: var(--brand);
-  background-color: rgba(255, 107, 107, 0.08);
+  background-color: var(--brand-alpha);
 }
 
 .header-actions {
@@ -129,7 +125,7 @@ body {
 
 .icon-btn:hover {
   color: var(--brand);
-  background-color: rgba(255, 107, 107, 0.08);
+  background-color: var(--brand-alpha);
 }
 
 /* 暗色模式图标切换 */
@@ -306,7 +302,7 @@ body {
 
 .tag:hover {
   background-color: var(--brand);
-  color: #fff;
+  color: var(--text-on-accent);
 }
 
 .read-more {
@@ -506,7 +502,7 @@ body {
 .post-body a {
   color: var(--brand);
   text-decoration: none;
-  border-bottom: 1px solid rgba(255, 107, 107, 0.3);
+  border-bottom: 1px solid var(--brand-alpha-heavy);
   transition: border-color var(--duration-fast);
 }
 
@@ -556,18 +552,14 @@ body {
 
 /* 代码块 */
 .post-body pre {
-  background: #1E1E1E;
-  color: #E0E0E0;
+  background: var(--code-bg);
+  color: var(--code-text);
   border-radius: var(--radius-md);
   padding: var(--space-xl);
   overflow-x: auto;
   margin: var(--space-xl) 0;
   font-size: 0.88rem;
   line-height: 1.6;
-}
-
-[data-theme="dark"] .post-body pre {
-  background: #111;
 }
 
 .post-body pre code {
@@ -700,7 +692,7 @@ body {
 
 .tag-cloud-item:hover {
   border-color: var(--accent-coral);
-  background: rgba(255, 107, 107, 0.05);
+  background: var(--brand-alpha);
   transform: translateY(-1px);
 }
 
@@ -713,7 +705,7 @@ body {
   font-size: 0.75rem;
   color: var(--accent-coral);
   font-weight: 600;
-  background: rgba(255, 107, 107, 0.1);
+  background: var(--brand-alpha-heavy);
   padding: 1px 8px;
   border-radius: 100px;
 }
@@ -890,7 +882,7 @@ body {
 
 .btn-primary {
   background: var(--brand);
-  color: #fff;
+  color: var(--text-on-accent);
 }
 
 .btn-primary:hover {
@@ -974,7 +966,7 @@ body {
 
 .social-link:hover {
   background: var(--brand);
-  color: #fff;
+  color: var(--text-on-accent);
   transform: translateY(-2px);
 }
 
@@ -1068,8 +1060,8 @@ body {
   padding: 4px 10px;
   font-size: 0.75rem;
   font-family: var(--font-mono);
-  background: rgba(255, 255, 255, 0.1);
-  color: rgba(255, 255, 255, 0.6);
+  background: var(--brand-alpha);
+  color: var(--text-on-accent);
   border: none;
   border-radius: var(--radius-sm);
   cursor: pointer;
@@ -1079,12 +1071,12 @@ body {
 
 pre:hover .copy-code-btn { opacity: 1; }
 .copy-code-btn:hover {
-  background: rgba(255, 255, 255, 0.2);
-  color: #fff;
+  background: var(--brand-alpha-heavy);
+  color: var(--text-on-accent);
 }
 .copy-code-btn.copied {
   background: var(--accent-mint);
-  color: #fff;
+  color: var(--text-on-accent);
 }
 
 /* ================ 滚动条 ================ */
@@ -1098,7 +1090,7 @@ pre:hover .copy-code-btn { opacity: 1; }
 
 /* 选中 */
 ::selection {
-  background: rgba(255, 107, 107, 0.2);
+  background: var(--selection-bg);
   color: var(--text-primary);
 }
 
