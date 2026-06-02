@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="一个由AI驱动的个人博客">
-  <title>软件系统设计-原则模式期末复习 - AI Blog</title>
+  <meta name="description" content="ASIMOV的老巢">
+  <title>软件系统设计-原则模式期末复习 - ASIMOV&#39;S Blog</title>
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -96,17 +96,17 @@
   <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23FF6B6B'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='20' fill='white'>A</text></svg>">
 
   
-  <link rel="alternate" type="application/rss+xml" title="AI Blog" href="/feed.xml">
+  <link rel="alternate" type="application/rss+xml" title="ASIMOV&#39;S Blog" href="/feed.xml">
   
 
   <meta property="og:title" content="软件系统设计-原则模式期末复习">
-  <meta property="og:description" content="一个由AI驱动的个人博客">
+  <meta property="og:description" content="ASIMOV的老巢">
   <meta property="og:type" content="article">
-  <meta property="og:url" content="https://username.github.io/ai-blog/posts/24-软件系统设计/软件系统设计期末复习-原则模式/">
+  <meta property="og:url" content="https://chendingya.github.io//posts/24-软件系统设计/软件系统设计期末复习-原则模式/">
   
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="软件系统设计-原则模式期末复习">
-  <meta name="twitter:description" content="一个由AI驱动的个人博客">
+  <meta name="twitter:description" content="ASIMOV的老巢">
   
 </head>
 <body class="post-page">
@@ -117,7 +117,7 @@
     <div class="header-inner">
       <a href="/" class="site-brand">
         
-          <span class="brand-title">AI Blog</span>
+          <span class="brand-title">ASIMOV&#39;S Blog</span>
         
       </a>
 
@@ -176,7 +176,7 @@
           </time>
           
             <span class="meta-divider">&middot;</span>
-            <span class="post-author">Your Name</span>
+            <span class="post-author">ASIMOV</span>
           
         </div>
         
@@ -208,7 +208,7 @@
 <p>指导：迪米特法则（最小知识原则）</p>
 <p>基础：单一职责原则、可变性封装原则</p>
 <p>实现：依赖倒转原则、合成复用原则、里氏代换原则、接口隔离原则</p>
-<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="/24-软件系统设计/软件系统设计期末复习-原则模式/1718712093864-4038f724-6fcd-4bb2-be80-72a90b79b5b1.png" alt="" class="" loading="lazy"></p>
 <h2 id="%E5%8D%95%E4%B8%80%E8%81%8C%E8%B4%A3%E5%8E%9F%E5%88%99" tabindex="-1"><a class="header-anchor" href="#%E5%8D%95%E4%B8%80%E8%81%8C%E8%B4%A3%E5%8E%9F%E5%88%99">#</a> 单一职责原则</h2>
 <p>Single Responsibility Principle</p>
 <p>⼀个对象应该只包含单⼀的职责，并且该职责被完整地封装在⼀个类中；</p>
@@ -224,33 +224,33 @@
 <li>main：主函数</li>
 </ol>
 <p>这样的设计是不好的，这个类包含了过多的职责</p>
-<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="/24-软件系统设计/软件系统设计期末复习-原则模式/1718714151414-addf888a-0ac8-4c4d-9542-88084067fcb9.png" alt="" class="" loading="lazy"></p>
 <p>现使用单一职责原则对其进行重构：</p>
 <ol>
 <li>我们将 login 类拆分成了三个类</li>
 <li>使用分层的方式修改</li>
 </ol>
 <p>软件设计的复杂性不可消解但是可以分解。</p>
-<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="/24-软件系统设计/软件系统设计期末复习-原则模式/1718714151299-16b744ef-26c8-4ffc-8776-87b1d794f161.png" alt="" class="" loading="lazy"></p>
 <h2 id="%E5%BC%80%E9%97%AD%E5%8E%9F%E5%88%99%EF%BC%9A%E5%AF%B9%E5%8F%AF%E5%8F%98%E6%80%A7%E5%B0%81%E8%A3%85%E5%8E%9F%E5%88%99" tabindex="-1"><a class="header-anchor" href="#%E5%BC%80%E9%97%AD%E5%8E%9F%E5%88%99%EF%BC%9A%E5%AF%B9%E5%8F%AF%E5%8F%98%E6%80%A7%E5%B0%81%E8%A3%85%E5%8E%9F%E5%88%99">#</a> 开闭原则：对可变性封装原则</h2>
 <p>（Open-Closed Principle, OCP）</p>
 <p>一个软件实体应当对扩展开放，对修改关闭。也就是说在设计一个模块的时候，应当使这个模块可以在不被修改的前提下被扩展，即实现在不修改源代码的情况下改变这个模块的行为。</p>
 <p>对可变性封装原则（Principle of Encapsulation of Variation, EVP）要求找到系统的可变因素并将其封装起来。</p>
 <h3 id="%E7%A4%BA%E4%BE%8B" tabindex="-1"><a class="header-anchor" href="#%E7%A4%BA%E4%BE%8B">#</a> 示例</h3>
 <p>某图形界面系统提供了各种不同形状的按钮，客户端代码可针对这些按钮进行编程，用户可能会改变需求要求使用不同的按钮，原始设计方案如图所示：</p>
-<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
-<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="/24-软件系统设计/软件系统设计期末复习-原则模式/1718714257371-fe9356a6-2cc1-4795-be79-65d9fa14b274.png" alt="" class="" loading="lazy"></p>
+<p><img src="/24-软件系统设计/软件系统设计期末复习-原则模式/1718714257555-b6fdb885-dcdd-429b-adf5-83670ce558c4.png" alt="" class="" loading="lazy"></p>
 <p>现对该系统进行重构，使之满足开闭原则的要求：尝试将代码变为数据（配置文件，Config.xml），结合 Java 的反射机制来完成。</p>
-<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="/24-软件系统设计/软件系统设计期末复习-原则模式/1718714257452-90da64bf-8ad3-45bd-9eb8-472276f1c288.png" alt="" class="" loading="lazy"></p>
 <h2 id="%E9%87%8C%E6%B0%8F%E4%BB%A3%E6%8D%A2%E5%8E%9F%E5%88%99" tabindex="-1"><a class="header-anchor" href="#%E9%87%8C%E6%B0%8F%E4%BB%A3%E6%8D%A2%E5%8E%9F%E5%88%99">#</a> 里氏代换原则</h2>
 <p>里氏代换原则（Liskov Substitution Principle, LSP）</p>
 <p>所有引用基类（父类）的地方必须能透明地使用其子类的对象。</p>
 <p>在软件中如果能够使用基类对象，那么一定能够使用其子类对象。把基类都替换成它的子类，程序将不会产生任何错误和异常。反过来则不成立：如果一个软件实体使用的是一个子类的话，那么它不一定能够使用基类。</p>
 <h3 id="%E7%A4%BA%E4%BE%8B-1" tabindex="-1"><a class="header-anchor" href="#%E7%A4%BA%E4%BE%8B-1">#</a> 示例</h3>
 <p>某系统需要实现对重要数据（如用户密码）的加密处理，在数据操作类（DataOperator）中需要调用加密类中定义的加密算法，系统提供了两个不同的加密类，CipherA 和 CipherB，它们实现不同的加密方法，在 DataOperator 中可以选择其中的一个实现加密操作。如图所示：</p>
-<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="/24-软件系统设计/软件系统设计期末复习-原则模式/1718714338794-d79a7952-1224-41ef-a1f0-7eb967e40748.png" alt="" class="" loading="lazy"></p>
 <p>也可以为 CipherA 和 CipherB 设计一个共同的父类，下面是指 CipherB 是在 CipherA 的基础上加密。</p>
-<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="/24-软件系统设计/软件系统设计期末复习-原则模式/1718714338902-8d00762b-3cfa-4362-8bb7-74b6aa7a01db.png" alt="" class="" loading="lazy"></p>
 <h2 id="%E4%BE%9D%E8%B5%96%E5%80%92%E8%BD%AC" tabindex="-1"><a class="header-anchor" href="#%E4%BE%9D%E8%B5%96%E5%80%92%E8%BD%AC">#</a> 依赖倒转</h2>
 <p>依赖倒转原则（Dependence Inversion Principle, DIP）的定义如下：高层模块不应该依赖低层模块，它们都应该依赖抽象。抽象不应该依赖于细节，细节应该依赖于抽象。</p>
 <p>要针对接口编程，不要针对实现编程。</p>
@@ -275,19 +275,19 @@
 <p>接口注入（Interface Injection）：通过接口方法注入实例变量。</p>
 </li>
 </ol>
-<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="/24-软件系统设计/软件系统设计期末复习-原则模式/1718973825334-9fb2bd75-8347-4db0-be26-b2ab5454ac9c.png" alt="" class="" loading="lazy"></p>
 <p>把高层模块和低层模块交互行为抽象出来，做到互不依赖，都依赖于提取出来的抽象。</p>
 <p><strong>即：无论高层模块或低层模块实现的细节，都依赖于抽象</strong>。</p>
-<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="/24-软件系统设计/软件系统设计期末复习-原则模式/1718973893916-e5e77934-d0ee-403b-af62-6ed3462f0dec.png" alt="" class="" loading="lazy"></p>
 <p>高层模块和低层模块彻底解耦，都很容易实现扩展；</p>
 <p>而抽象模块具有很高的稳定性、可重用性，对高/低层模块来说才是真正&quot;可依赖的&quot;</p>
 <p>增加了一层抽象层，增加实现难度；</p>
 <p>对一些简单的调用关系来说，可能是得不偿失的。</p>
 <h3 id="%E7%A4%BA%E4%BE%8B-2" tabindex="-1"><a class="header-anchor" href="#%E7%A4%BA%E4%BE%8B-2">#</a> 示例</h3>
 <p>某系统提供一个数据转换模块，可以将来自不同数据源的数据转换成多种格式，如可以转换来自数据库的数据（DatabaseSource）、也可以转换来自文本文件的数据（TextSource），转换后的格式可以是 XML 文件（XMLTransformer）、也可以是 XLS 文件（XLSTransformer）等。</p>
-<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="/24-软件系统设计/软件系统设计期末复习-原则模式/1718714410934-c50062f4-6fb5-45cd-af2e-523989c03b70.png" alt="" class="" loading="lazy"></p>
 <p>由于需求的变化，该系统可能需要增加新的数据源或者新的文件格式，每增加一个新的类型的数据源或者新的类型的文件格式，客户类 MainClass 都需要修改源代码，以便使用新的类，但违背了开闭原则。现使用依赖倒转原则对其进行重构。</p>
-<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="/24-软件系统设计/软件系统设计期末复习-原则模式/1718714410916-a517a9e9-ab2e-4cef-9bc0-2dfa92487254.png" alt="" class="" loading="lazy"></p>
 <h2 id="%E6%8E%A5%E5%8F%A3%E9%9A%94%E7%A6%BB" tabindex="-1"><a class="header-anchor" href="#%E6%8E%A5%E5%8F%A3%E9%9A%94%E7%A6%BB">#</a> 接口隔离</h2>
 <ol>
 <li>接口隔离原则（Interface Segregation Principle, ISP）的定义如下：客户端不应该依赖那些它不需要的接口。</li>
@@ -298,8 +298,8 @@
 <ol>
 <li>下图展示了一个拥有多个客户类的系统，在系统中定义了一个巨大的接口（胖接口）AbstractService 来服务所有的客户类。可以使用接口隔离原则对其进行重构。</li>
 </ol>
-<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
-<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="/24-软件系统设计/软件系统设计期末复习-原则模式/1718721703771-45748098-5f01-4524-80ea-f124374a3d89.png" alt="" class="" loading="lazy"></p>
+<p><img src="/24-软件系统设计/软件系统设计期末复习-原则模式/1718721703757-a02ded6a-f107-4135-acdb-586539a7519e.png" alt="" class="" loading="lazy"></p>
 <h2 id="%E5%90%88%E6%88%90%E5%A4%8D%E7%94%A8" tabindex="-1"><a class="header-anchor" href="#%E5%90%88%E6%88%90%E5%A4%8D%E7%94%A8">#</a> 合成复用</h2>
 <ol>
 <li>
@@ -334,12 +334,12 @@
 <ol>
 <li>某教学管理系统部分数据库访问类设计如图所示：</li>
 </ol>
-<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="/24-软件系统设计/软件系统设计期末复习-原则模式/1718721841599-45c5342c-63b9-4f7e-8447-1846f2c1ed33.png" alt="" class="" loading="lazy"></p>
 <ol>
 <li>如果需要更换数据库连接方式，如原来采用 JDBC 连接数据库，现在采用数据库连接池连接，则需要修改 DBUtil 类源代码。如果 StudentDAO 采用 JDBC 连接，但是 TeacherDAO 采用连接池连接，则需要增加一个新的 DBUtil 类，并修改 StudentDAO 或 TeacherDAO 的源代码，使之继承新的数据库连接类，这将违背开闭原则，系统扩展性较差。</li>
 <li>现使用合成复用原则对其进行重构。</li>
 </ol>
-<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="/24-软件系统设计/软件系统设计期末复习-原则模式/1718721841793-0789135c-9382-42db-bb0f-02259946a125.png" alt="" class="" loading="lazy"></p>
 <h2 id="%E8%BF%AA%E7%B1%B3%E7%89%B9%E6%B3%95%E5%88%99" tabindex="-1"><a class="header-anchor" href="#%E8%BF%AA%E7%B1%B3%E7%89%B9%E6%B3%95%E5%88%99">#</a> 迪米特法则</h2>
 <p>最少知识原则（Least Knowledge Principle, LKP）</p>
 <ol>
@@ -377,7 +377,7 @@
 <p>迪米特法则可分为狭义法则和广义法则。在狭义的迪米特法则中，如果两个类之间不必彼此直接通信，那么这两个类就不应当发生直接的相互作用，如果其中的一个类需要调用另一个类的某一个方法的话，可以通过第三者转发这个调用。下图中，只允许 A 调用 B 对象的方法，但是不能调用 C 对象的方法（但是我们可以通过在 B 中添加一个 Wrapper 方法来间接调用 C）</p>
 </li>
 </ol>
-<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="/24-软件系统设计/软件系统设计期末复习-原则模式/1718722141389-7c67911b-1960-4ceb-8493-785db9343f5c.png" alt="" class="" loading="lazy"></p>
 <ol>
 <li>
 <p>狭义的迪米特法则：可以降低类之间的耦合，但是会在系统中增加大量的小方法并散落在系统的各个角落，它可以使一个系统的局部设计简化，因为每一个局部都不会和远距离的对象有直接的关联，但是也会造成系统的不同模块之间的通信效率降低，使得系统的不同模块之间不容易协调。</p>
@@ -403,8 +403,8 @@
 </ol>
 <h3 id="%E7%A4%BA%E4%BE%8B-5" tabindex="-1"><a class="header-anchor" href="#%E7%A4%BA%E4%BE%8B-5">#</a> 示例</h3>
 <p>某系统界面类（如 Form1、Form2 等类）与数据访问类（如 DAO1、DAO2 等类）之间的调用关系较为复杂，如图所示：</p>
-<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
-<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="/24-软件系统设计/软件系统设计期末复习-原则模式/1718722223447-3c59c473-b9e0-4037-938b-ff033de0ff73.png" alt="" class="" loading="lazy"></p>
+<p><img src="/24-软件系统设计/软件系统设计期末复习-原则模式/1718722223556-67ce11ac-5739-4042-92ae-4e3ec0c727d7.png" alt="" class="" loading="lazy"></p>
 <h1 id="%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F" tabindex="-1"><a class="header-anchor" href="#%E8%AE%BE%E8%AE%A1%E6%A8%A1%E5%BC%8F">#</a> 设计模式</h1>
 <p>定义： Design Pattern 是⼀套被反复使用、多数人知晓的、经过分类编目 的、代码设计经验的总结</p>
 <p>目的：可重用代码、更好被他人理解，更好可靠性</p>
@@ -431,9 +431,9 @@
 <p>对象模式处理对象间的关系，这些关系在运行时刻变化，更具动态性。</p>
 </li>
 </ol>
-<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="/24-软件系统设计/软件系统设计期末复习-原则模式/1718784290700-3e523774-f637-426e-af36-b6d9d70795a5.png" alt="" class="" loading="lazy"></p>
 <h2 id="%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F-%EF%BC%9A%E8%A1%8C%E4%B8%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F%E3%80%81%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%BC%8F" tabindex="-1"><a class="header-anchor" href="#%E7%AD%96%E7%95%A5%E6%A8%A1%E5%BC%8F-%EF%BC%9A%E8%A1%8C%E4%B8%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F%E3%80%81%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%BC%8F">#</a> 策略模式 ：行为型模式、对象模式</h2>
-<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="/24-软件系统设计/软件系统设计期末复习-原则模式/1718784402761-e201e33b-5ab9-4240-b09c-46221f4fc995.png" alt="" class="" loading="lazy"></p>
 <p>Strategy，也叫 Policy</p>
 <ol>
 <li><strong>策略接口（Strategy）</strong>：定义所有支持的算法或操作的接口。</li>
@@ -530,7 +530,7 @@ public class BulkPurchaseDiscount implements DiscountStrategy {
 <h2 id="%E7%8A%B6%E6%80%81%E6%A8%A1%E5%BC%8F%EF%BC%9A%E8%A1%8C%E4%B8%BA%E5%9E%8B%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%BC%8F" tabindex="-1"><a class="header-anchor" href="#%E7%8A%B6%E6%80%81%E6%A8%A1%E5%BC%8F%EF%BC%9A%E8%A1%8C%E4%B8%BA%E5%9E%8B%E5%AF%B9%E8%B1%A1%E6%A8%A1%E5%BC%8F">#</a> 状态模式：行为型对象模式</h2>
 <p>不需要清楚状态的改变，它只用调用状态的行为方法就行。状态的改变是在状态内部发生的</p>
 <p>允许一个对象在其内部状态改变时改变它的行为，对象看起来似乎修改了它的类。其别名为状态对象（Objects for States），状态模式是一种对象行为型模式。</p>
-<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="/24-软件系统设计/软件系统设计期末复习-原则模式/1718798659632-306266f5-7a64-4115-a77b-ad47d58157f1.png" alt="" class="" loading="lazy"></p>
 <h3 id="%E4%B8%BB%E8%A6%81%E8%A7%92%E8%89%B2%EF%BC%9A" tabindex="-1"><a class="header-anchor" href="#%E4%B8%BB%E8%A6%81%E8%A7%92%E8%89%B2%EF%BC%9A">#</a> 主要角色：</h3>
 <ol>
 <li><strong>环境（Context）</strong>：维护一个当前状态类的实例，这个实例定义了当前的状态。</li>
@@ -857,9 +857,9 @@ public class Main {
     }
 }
 </code></pre>
-<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="/24-软件系统设计/软件系统设计期末复习-原则模式/1718799988786-d3ed36f1-6dee-4c8b-8aab-1a3413eb08b1.png" alt="" class="" loading="lazy"></p>
 <h2 id="%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F%EF%BC%9A%E7%B1%BB%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F" tabindex="-1"><a class="header-anchor" href="#%E7%AE%80%E5%8D%95%E5%B7%A5%E5%8E%82%E6%A8%A1%E5%BC%8F%EF%BC%9A%E7%B1%BB%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F">#</a> 简单工厂模式：类创建型模式</h2>
-<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="/24-软件系统设计/软件系统设计期末复习-原则模式/1718784499605-62969586-90db-4653-b921-acfd6d0d2ed4.png" alt="" class="" loading="lazy"></p>
 <p>简单工厂模式包含如下角色：</p>
 <p>Factory：工厂角色</p>
 <p>Product：抽象产品角色</p>
@@ -874,7 +874,7 @@ public class Main {
 <li><strong>违反开闭原则</strong>：添加新产品时需要修改工厂类的逻辑，增加了维护的难度。</li>
 </ul>
 <h2 id="%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%EF%BC%9A%E7%B1%BB%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F" tabindex="-1"><a class="header-anchor" href="#%E5%B7%A5%E5%8E%82%E6%96%B9%E6%B3%95%EF%BC%9A%E7%B1%BB%E5%88%9B%E5%BB%BA%E5%9E%8B%E6%A8%A1%E5%BC%8F">#</a> 工厂方法：类创建型模式</h2>
-<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="/24-软件系统设计/软件系统设计期末复习-原则模式/1718785176924-83bf373f-4966-45b4-b990-ffa02ba9a189.png" alt="" class="" loading="lazy"></p>
 <p>称为工厂模式，也叫虚拟构造器（Virtual Constructor）模式或者多态工厂（Polymorphic Factory）模式，它属于类创建型模式。</p>
 <ol>
 <li><strong>抽象工厂（Abstract Factory）</strong>：声明一个工厂方法，该方法返回一个产品类型的对象。</li>
@@ -959,13 +959,13 @@ public class BicycleFactory extends VehicleFactory {
 <li>产品等级结构：产品等级结构即产品的继承结构，如一个抽象类是电视机，其子类有海尔电视机、海信电视机、TCL 电视机，则抽象电视机与具体品牌的电视机之间构成了一个产品等级结构，抽象电视机是父类，而具体品牌的电视机是其子类。</li>
 <li>产品族：在抽象工厂模式中，产品族是指由同一个工厂生产的，位于不同产品等级结构中的一组产品，如海尔电器工厂生产的海尔电视机、海尔电冰箱，海尔电视机位于电视机产品等级结构中，海尔电冰箱位于电冰箱产品等级结构中。</li>
 </ol>
-<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="/24-软件系统设计/软件系统设计期末复习-原则模式/1718785618288-dddeddd7-44d3-4420-a780-0db8823d24c9.png" alt="" class="" loading="lazy"></p>
 <p>AbstractFactory：抽象工厂</p>
 <p>ConcreteFactory：具体工厂</p>
 <p>AbstractProduct：抽象产品</p>
 <p>Product：具体产品</p>
 <h3 id="%E7%A4%BA%E4%BE%8B-6" tabindex="-1"><a class="header-anchor" href="#%E7%A4%BA%E4%BE%8B-6">#</a> 示例</h3>
-<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="/24-软件系统设计/软件系统设计期末复习-原则模式/1718785678952-d27afd23-827e-40cd-bcaa-a8c93f4103e4.png" alt="" class="" loading="lazy"></p>
 <p>抽象工厂类的典型代码如下：</p>
 <pre><code class="language-java">public abstract class AbstractFactory{
     public abstract AbstractProductA createProductA();
@@ -1012,7 +1012,7 @@ public class BicycleFactory extends VehicleFactory {
 <p>工厂模式一个工厂类就负责创建一个类，创建的对象类型是确定的，所以是类创建模式</p>
 <p>抽象工厂模式一个工厂类可以创建多个相关的类，创建的对象类型是不确定的，所以是对象创建模式</p>
 <h2 id="%E5%BB%BA%E9%80%A0%E8%80%85%E6%A8%A1%E5%BC%8F%EF%BC%9A%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1" tabindex="-1"><a class="header-anchor" href="#%E5%BB%BA%E9%80%A0%E8%80%85%E6%A8%A1%E5%BC%8F%EF%BC%9A%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1">#</a> 建造者模式：创建对象</h2>
-<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="/24-软件系统设计/软件系统设计期末复习-原则模式/1718787102009-3ea9d1e8-62b5-4745-8a64-3fbf5ebe6969.png" alt="" class="" loading="lazy"></p>
 <p>将一个复杂对象的构建与它的表示分离，使得同样的构建过程可以创建不同的表示。</p>
 <ol>
 <li><strong>产品（Product）</strong>：要构建的复杂对象。</li>
@@ -1135,7 +1135,7 @@ public class HpComputerBuilder extends ComputerBuilder {
 </code></pre>
 <h2 id="%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F%EF%BC%9A%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1" tabindex="-1"><a class="header-anchor" href="#%E5%8E%9F%E5%9E%8B%E6%A8%A1%E5%BC%8F%EF%BC%9A%E5%88%9B%E5%BB%BA%E5%AF%B9%E8%B1%A1">#</a> 原型模式：创建对象</h2>
 <p>在面向对象系统中，使用原型模式来复制一个对象自身，从而克隆出多个与原型对象一模一样的对象。</p>
-<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="/24-软件系统设计/软件系统设计期末复习-原则模式/1718787359300-abefd74f-1151-4ad0-b46b-d73bd84627ff.png" alt="" class="" loading="lazy"></p>
 <p>原型模式包含如下角色：</p>
 <p>Prototype：抽象原型类</p>
 <p>ConcretePrototype：具体原型类</p>
@@ -1176,7 +1176,7 @@ public class HpComputerBuilder extends ComputerBuilder {
 </ol>
 <h3 id="%E7%A4%BA%E4%BE%8B-7" tabindex="-1"><a class="header-anchor" href="#%E7%A4%BA%E4%BE%8B-7">#</a> 示例</h3>
 <p>由于邮件对象包含的内容较多（如发送者、接收者、标题、内容、日期、附件等），某系统中现需要提供一个邮件复制功能，对于已经创建好的邮件对象，可以通过复制的方式创建一个新的邮件对象，如果需要改变某部分内容，无须修改原始的邮件对象，只需要修改复制后得到的邮件对象即可。使用原型模式设计该系统。在本实例中使用浅克隆实现邮件复制，即复制邮件（Email）的同时不复制附件（Attachment）。</p>
-<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="/24-软件系统设计/软件系统设计期末复习-原则模式/1718798049081-db381852-61a8-41b7-b931-4276ff9a0554.png" alt="" class="" loading="lazy"></p>
 <h3 id="%E4%BC%98%E7%82%B9%EF%BC%9A-5" tabindex="-1"><a class="header-anchor" href="#%E4%BC%98%E7%82%B9%EF%BC%9A-5">#</a> 优点：</h3>
 <ol>
 <li>当创建新的对象实例较为复杂时，使用原型模式可以简化对象的创建过程，通过一个已有实例可以提高新实例的创建效率。</li>
@@ -1191,7 +1191,7 @@ public class HpComputerBuilder extends ComputerBuilder {
 </ol>
 <h2 id="%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F%EF%BC%9A%E8%A1%8C%E4%B8%BA%E5%AF%B9%E8%B1%A1" tabindex="-1"><a class="header-anchor" href="#%E5%91%BD%E4%BB%A4%E6%A8%A1%E5%BC%8F%EF%BC%9A%E8%A1%8C%E4%B8%BA%E5%AF%B9%E8%B1%A1">#</a> 命令模式：行为对象</h2>
 <p>将一个请求封装为一个对象，从而使我们可用不同的请求对客户进行参数化；对请求排队或者记录请求日志，以及支持可撤销的操作。命令模式是一种对象行为型模式，其别名为动作（Action）模式或事务（Transaction）模式。</p>
-<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="/24-软件系统设计/软件系统设计期末复习-原则模式/1718801390491-16def183-3489-4794-b399-aeaddb0c9c19.png" alt="" class="" loading="lazy"></p>
 <p>命令模式包含如下角色：</p>
 <ol>
 <li>Command：抽象命令类</li>
@@ -1290,7 +1290,7 @@ public class LightOffCommand implements Command {
     }
 }
 </code></pre>
-<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="/24-软件系统设计/软件系统设计期末复习-原则模式/1718852345899-0979e70e-e758-4d7f-b2b4-e72fba93e84b.png" alt="" class="" loading="lazy"></p>
 <h3 id="%E6%92%A4%E9%94%80%E5%91%BD%E4%BB%A4%E7%9A%84%E5%AE%9E%E7%8E%B0" tabindex="-1"><a class="header-anchor" href="#%E6%92%A4%E9%94%80%E5%91%BD%E4%BB%A4%E7%9A%84%E5%AE%9E%E7%8E%B0">#</a> 撤销命令的实现</h3>
 <pre><code class="language-java">public interface Command {
     void execute();
@@ -1379,7 +1379,7 @@ public class CommandPatternDemo {
 <h2 id="%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F%EF%BC%9A%E8%A1%8C%E4%B8%BA%E5%AF%B9%E8%B1%A1" tabindex="-1"><a class="header-anchor" href="#%E8%A7%82%E5%AF%9F%E8%80%85%E6%A8%A1%E5%BC%8F%EF%BC%9A%E8%A1%8C%E4%B8%BA%E5%AF%B9%E8%B1%A1">#</a> 观察者模式：行为对象</h2>
 <p>定义对象间的一种一对多依赖关系，使得每当一个对象状态发生改变时，其相关依赖对象皆得到通知并被自动更新。</p>
 <p>发布-订阅（Publish/Subscribe）模式、模型-视图（Model/View）模式、源-监听器（Source/Listener）模式或从属者（Dependents）模式。</p>
-<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="/24-软件系统设计/软件系统设计期末复习-原则模式/1718854730857-9f4a0554-cd3f-447d-8444-be32ee052190.png" alt="" class="" loading="lazy"></p>
 <h3 id="%E4%B8%BB%E8%A6%81%E8%A7%92%E8%89%B2%EF%BC%9A-1" tabindex="-1"><a class="header-anchor" href="#%E4%B8%BB%E8%A6%81%E8%A7%92%E8%89%B2%EF%BC%9A-1">#</a> 主要角色：</h3>
 <ol>
 <li><strong>主题（Subject）</strong>：定义了注册观察者对象和注销观察者对象的方法，以及通知所有观察者对象的方法。</li>
@@ -1496,8 +1496,8 @@ public class CommandPatternDemo {
 </ol>
 <h3 id="%E5%AE%9A%E4%B9%89" tabindex="-1"><a class="header-anchor" href="#%E5%AE%9A%E4%B9%89">#</a> 定义</h3>
 <p>用一个中介对象来封装一系列的对象交互，中介者使各对象不需要显式地相互引用，从而使其耦合松散，而且可以独立地改变它们之间的交互。中介者模式又称为调停者模式，它是一种对象行为型模式。</p>
-<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
-<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="/24-软件系统设计/软件系统设计期末复习-原则模式/1718861129423-fe60fb92-2fc9-432d-8647-76e2875892de.png" alt="" class="" loading="lazy"></p>
+<p><img src="/24-软件系统设计/软件系统设计期末复习-原则模式/1718861168944-350dff17-5b3c-4521-915a-4efe1a21636a.png" alt="" class="" loading="lazy"></p>
 <h3 id="%E4%B8%BB%E8%A6%81%E8%A7%92%E8%89%B2%EF%BC%9A-2" tabindex="-1"><a class="header-anchor" href="#%E4%B8%BB%E8%A6%81%E8%A7%92%E8%89%B2%EF%BC%9A-2">#</a> 主要角色：</h3>
 <ol>
 <li><strong>中介者（Mediator）</strong>：定义了所有同事对象之间的通信接口，通常包含一个方法，用于处理同事对象之间的交互。</li>
@@ -1569,14 +1569,14 @@ public class ConcreteColleague extends Colleague {
 <p>某论坛系统欲增加一个虚拟聊天室，允许论坛会员通过该聊天室进行信息交流，普通会员（CommonMember）可以给其他会员发送文本信息，钻石会员（DiamondMember）既可以给其他会员发送文本信息，还可以发送图片信息。该聊天室可以对不雅字符进行过滤，如“日”等字符；还可以对发送的图片大小进行控制。用中介者模式设计该虚拟聊天室。</p>
 <p>chatroom have n member</p>
 <p>member have a chatroom</p>
-<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="/24-软件系统设计/软件系统设计期末复习-原则模式/1718861294865-f39634e5-a3ac-4392-853f-c7ae4a964d75.png" alt="" class="" loading="lazy"></p>
 <h2 id="%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F%EF%BC%9A%E7%B1%BB%E8%A1%8C%E4%B8%BA" tabindex="-1"><a class="header-anchor" href="#%E6%A8%A1%E6%9D%BF%E6%96%B9%E6%B3%95%E6%A8%A1%E5%BC%8F%EF%BC%9A%E7%B1%BB%E8%A1%8C%E4%B8%BA">#</a> 模板方法模式：类行为</h2>
 <ol>
 <li>模板方法模式是基于继承的代码复用基本技术，模板方法模式的结构和用法也是面向对象设计的核心之一。在模板方法模式中，可以将相同的代码放在父类中，而将不同的方法实现放在不同的子类中。</li>
 <li>在模板方法模式中，我们需要准备一个抽象类，将部分逻辑以具体方法以及具体构造函数的形式实现，然后声明一些抽象方法来让子类实现剩余的逻辑。不同的子类可以以不同的方式实现这些抽象方法，从而对剩余的逻辑有不同的实现，这就是模板方法模式的用意。模板方法模式体现了面向对象的诸多重要思想，是一种使用频率较高的模式。</li>
 </ol>
 <p><strong>定义一个操作中算法的骨架，而将一些步骤延迟到子类中，模板方法使得子类可以不改变一个算法的结构即可重定义该算法的某些特定步骤。模板方法是一种类行为型模式</strong></p>
-<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="/24-软件系统设计/软件系统设计期末复习-原则模式/1718864914594-d60f3bea-8026-4382-9172-7492c9b25103.png" alt="" class="" loading="lazy"></p>
 <ol>
 <li>
 <p>模板方法模式是一种类的行为型模式，在它的结构图中只有类之间的继承关系，没有对象关联关系。</p>
@@ -1655,7 +1655,7 @@ public boolean isPrint() {
 }
 </code></pre>
 <p>在银行办理业务时，一般都包含几个基本步骤，首先需要取号排队，然后办理具体业务，最后需要对银行工作人员进行评分。无论具体业务是取款、存款还是转账，其基本流程都一样。现使用模板方法模式模拟银行业务办理流程。</p>
-<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="/24-软件系统设计/软件系统设计期末复习-原则模式/1718866639319-3e6fec7e-2d55-4fbc-a3c6-38b0fd0668f0.png" alt="" class="" loading="lazy"></p>
 <h2 id="%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F%EF%BC%9A%E5%AF%B9%E8%B1%A1%E7%BB%93%E6%9E%84" tabindex="-1"><a class="header-anchor" href="#%E5%A4%96%E8%A7%82%E6%A8%A1%E5%BC%8F%EF%BC%9A%E5%AF%B9%E8%B1%A1%E7%BB%93%E6%9E%84">#</a> 外观模式：对象结构</h2>
 <p>外部与一个子系统的通信必须通过一个统一的外观对象进行，为子系统中的一组接口提供一个一致的界面，外观模式定义了一个高层接口，这个接口使得这一子系统更加容易使用。外观模式又称为门面模式，它是一种对象结构型模式。</p>
 <h3 id="%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF" tabindex="-1"><a class="header-anchor" href="#%E4%BD%BF%E7%94%A8%E5%9C%BA%E6%99%AF">#</a> 使用场景</h3>
@@ -1685,7 +1685,7 @@ public boolean isPrint() {
 <p>使用的设计思想：迪米特法则</p>
 </li>
 </ol>
-<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="/24-软件系统设计/软件系统设计期末复习-原则模式/1718867658731-96bb4c87-e4c6-4123-acda-460e2260d47c.png" alt="" class="" loading="lazy"></p>
 <ol>
 <li>根据“单一职责原则”，在软件中将一个系统划分为若干个子系统有利于降低整个系统的复杂性，一个常见的设计目标是使子系统间的通信和相互依赖关系达到最小，而达到该目标的途径之一就是引入一个外观对象，它为子系统的访问提供了一个简单而单一的入口。</li>
 <li>外观模式也是“迪米特法则”的体现，通过引入一个新的外观类可以降低原有系统的复杂度，同时降低客户类与子系统类的耦合度。</li>
@@ -1751,20 +1751,20 @@ public class FileSystem {
     }
 }
 </code></pre>
-<p>现在考察一个电源总开关的例子，以便进一步说明外观模式。为了使用方便，一个电源总开关可以控制四盏灯、一个风扇、一台空调和一台电视机的启动和关闭。通过该电源总开关可以同时控制上述所有电器设备，使用外观模式设计该系统。<img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p>现在考察一个电源总开关的例子，以便进一步说明外观模式。为了使用方便，一个电源总开关可以控制四盏灯、一个风扇、一台空调和一台电视机的启动和关闭。通过该电源总开关可以同时控制上述所有电器设备，使用外观模式设计该系统。<img src="/24-软件系统设计/软件系统设计期末复习-原则模式/1718867783204-7600aa40-9523-4529-90c1-b628c19cd870.png" alt="" class="" loading="lazy"></p>
 <h3 id="%E6%8A%BD%E8%B1%A1%E5%A4%96%E8%A7%82%E7%B1%BB%E7%9A%84%E5%BC%95%E5%85%A5" tabindex="-1"><a class="header-anchor" href="#%E6%8A%BD%E8%B1%A1%E5%A4%96%E8%A7%82%E7%B1%BB%E7%9A%84%E5%BC%95%E5%85%A5">#</a> 抽象外观类的引入</h3>
 <p>外观模式最大的缺点在于违背了“开闭原则”，当增加新的子系统或者移除子系统时需要修改外观类，可以通过引入抽象外观类在一定程度上解决该问题，客户端针对抽象外观类进行编程。对于新的业务需求，不修改原有外观类，而对应增加一个新的具体外观类，由新的具体外观类来关联新的子系统对象，同时通过修改配置文件来达到不修改源代码并更换外观类的目的。</p>
-<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="/24-软件系统设计/软件系统设计期末复习-原则模式/1718868037660-519e6f08-daf3-461c-a2e9-b6684c14f0eb.png" alt="" class="" loading="lazy"></p>
 <h2 id="%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F%EF%BC%9A%E7%BB%93%E6%9E%84%2F%E5%AF%B9%E8%B1%A1" tabindex="-1"><a class="header-anchor" href="#%E9%80%82%E9%85%8D%E5%99%A8%E6%A8%A1%E5%BC%8F%EF%BC%9A%E7%BB%93%E6%9E%84%2F%E5%AF%B9%E8%B1%A1">#</a> 适配器模式：结构/对象</h2>
 <p>将一个接口转换成客户希望的另一个接口，适配器模式使接口不兼容的那些类可以一起工作，其别名为包装器（Wrapper）。适配器模式既可以作为类结构型模式，也可以作为对象结构型模式。</p>
 <p>系统需要使用现有的类，而这些类的接口不符合系统的需要。</p>
 <p>想要建立一个可以重复使用的类，用于与一些彼此之间没有太大关联的一些类，包括一些可能在将来引进的类一起工作。</p>
 <h3 id="%E7%AC%A6%E5%90%88%E5%8E%9F%E5%88%99-1" tabindex="-1"><a class="header-anchor" href="#%E7%AC%A6%E5%90%88%E5%8E%9F%E5%88%99-1">#</a> 符合原则</h3>
-<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="/24-软件系统设计/软件系统设计期末复习-原则模式/1719132251077-471106a4-8515-4e8f-81d1-bbbca62e1d7c.png" alt="" class="" loading="lazy"></p>
 <h3 id="%E5%AF%B9%E8%B1%A1%E9%80%82%E9%85%8D%E5%99%A8" tabindex="-1"><a class="header-anchor" href="#%E5%AF%B9%E8%B1%A1%E9%80%82%E9%85%8D%E5%99%A8">#</a> 对象适配器</h3>
-<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="/24-软件系统设计/软件系统设计期末复习-原则模式/1718869196945-c062a59c-cd74-47e6-ab74-e96e1422ade6.png" alt="" class="" loading="lazy"></p>
 <h3 id="%E7%B1%BB%E9%80%82%E9%85%8D%E5%99%A8" tabindex="-1"><a class="header-anchor" href="#%E7%B1%BB%E9%80%82%E9%85%8D%E5%99%A8">#</a> 类适配器</h3>
-<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="/24-软件系统设计/软件系统设计期末复习-原则模式/1718869220555-0ea03409-9563-46d0-9af5-2625ca3ba175.png" alt="" class="" loading="lazy"></p>
 <p>适配器模式包含如下角色：</p>
 <ol>
 <li>Target：目标抽象类</li>
@@ -1782,7 +1782,7 @@ public class FileSystem {
 <p>与类适配器模式相比，要想置换适配者类的方法就不容易。如果一定要置换掉适配者类的一个或多个方法，就只好先做一个适配者类的子类，将适配者类的方法置换掉，然后再把适配者类的子类当做真正的适配者进行适配，实现过程较为复杂。</p>
 <h3 id="%E7%A4%BA%E4%BE%8B-11" tabindex="-1"><a class="header-anchor" href="#%E7%A4%BA%E4%BE%8B-11">#</a> 示例</h3>
 <p>现需要设计一个可以模拟各种动物行为的机器人，在机器人中定义了一系列方法，如机器人叫喊方法 cry()、机器人移动方法 move() 等。如果希望在不修改已有代码的基础上使得机器人能够像狗一样叫，像狗一样跑，使用适配器模式进行系统设计。</p>
-<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="/24-软件系统设计/软件系统设计期末复习-原则模式/1718871852913-70c55fb6-196c-48b2-8f36-dc4f73ff4be9.png" alt="" class="" loading="lazy"></p>
 <pre><code class="language-java">// 机器人接口
 public interface Robot {
     void cry();
@@ -1847,7 +1847,7 @@ public class AdapterPatternDemo {
 }
 </code></pre>
 <p>某系统需要提供一个加密模块，将用户信息（如密码等机密信息）加密之后再存储在数据库中，系统已经定义好了数据库操作类。为了提高开发效率，现需要重用已有的加密算法，这些算法封装在一些由第三方提供的类中，有些甚至没有源代码。使用适配器模式设计该加密模块，实现在不修改现有类的基础上重用第三方加密方法。</p>
-<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="/24-软件系统设计/软件系统设计期末复习-原则模式/1718871992679-6bba1a14-0c31-46a4-93eb-fd0b55fe35fe.png" alt="" class="" loading="lazy"></p>
 <h2 id="%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F%EF%BC%9A%E5%AF%B9%E8%B1%A1%E7%BB%93%E6%9E%84" tabindex="-1"><a class="header-anchor" href="#%E7%BB%84%E5%90%88%E6%A8%A1%E5%BC%8F%EF%BC%9A%E5%AF%B9%E8%B1%A1%E7%BB%93%E6%9E%84">#</a> 组合模式：对象结构</h2>
 <p>组合多个对象形成树形结构以表示“整体-部分”的结构层次。组合模式对单个对象（即叶子对象）和组合对象（即容器对象）的使用具有一致性。</p>
 <p>组合模式又可以称为整体-部分（Part-Whole）模式，属于对象的结构模式，它将对象组织到树结构中，可以用来描述整体与部分的关系。</p>
@@ -1856,7 +1856,7 @@ public class AdapterPatternDemo {
 <li>让客户能够忽略不同对象层次的变化，客户端可以针对抽象构件编程，无须关心对象层次结构的细节。</li>
 <li>对象的结构是动态的并且复杂程度不一样，但客户需要一致地处理它们。</li>
 </ol>
-<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="/24-软件系统设计/软件系统设计期末复习-原则模式/1718873162727-43036224-a57e-47f3-bd78-28307b8f999c.png" alt="" class="" loading="lazy"></p>
 <ol>
 <li>
 <p>组合模式包含如下角色：</p>
@@ -1943,9 +1943,9 @@ public class Composite extends Component {
 }
 </code></pre>
 <p>在水果盘（Plate）中有一些水果，如苹果（Apple）、香蕉（Banana）、梨子（Pear），当然大水果盘中还可以有小水果盘，现需要对盘中的水果进行遍历（吃），当然如果对一个水果盘执行&quot;吃&quot;方法，实际上就是吃其中的水果。使用组合模式模拟该场景。</p>
-<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="/24-软件系统设计/软件系统设计期末复习-原则模式/1718885407344-0af6a296-4bdc-4696-9acc-43aa64712747.png" alt="" class="" loading="lazy"></p>
 <p>文件有不同类型，不同类型的文件其浏览方式有所区别，如文本文件和图片文件的浏览方式就不相同。对文件夹的浏览实际上就是对其中所包含文件的浏览，而客户端可以一致地对文件和文件夹进行操作，无须关心它们的区别。使用组合模式来模拟文件的浏览操作。</p>
-<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="/24-软件系统设计/软件系统设计期末复习-原则模式/1718885624251-5a39bb45-8af8-4dfa-b3d5-d7df478362a9.png" alt="" class="" loading="lazy"></p>
 <h2 id="%E8%A3%85%E9%A5%B0%E6%A8%A1%E5%BC%8F%EF%BC%9A%E7%BB%93%E6%9E%84%E5%AF%B9%E8%B1%A1" tabindex="-1"><a class="header-anchor" href="#%E8%A3%85%E9%A5%B0%E6%A8%A1%E5%BC%8F%EF%BC%9A%E7%BB%93%E6%9E%84%E5%AF%B9%E8%B1%A1">#</a> 装饰模式：结构对象</h2>
 <p>动态地给一个对象增加一些额外的职责（Responsibility），就增加对象功能来说，装饰模式比生成子类实现更为灵活。其别名也可以称为包装器（Wrapper），与适配器模式的别名相同，但它们适用于不同的场合。根据翻译的不同，装饰模式也有人称之为“油漆工模式”，它是一种对象结构型模式。</p>
 <p>与继承关系相比，关联关系的主要优势在于不会破坏类的封装性，而且继承是一种耦合度较大的静态关系，无法在程序运行时动态扩展。</p>
@@ -1955,7 +1955,7 @@ public class Composite extends Component {
 <li>需要动态地给一个对象增加功能，这些功能也可以动态地被撤销。</li>
 <li>当不能采用继承的方式对系统进行扩充或者采用继承不利于系统扩展和维护时。不能采用继承的情况主要有两类：第一类是系统中存在大量独立的扩展，为支持每一种组合将产生大量的子类，使得子类数目呈爆炸性增长；第二类是因为类定义不能继承（如 final 类）。</li>
 </ol>
-<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="/24-软件系统设计/软件系统设计期末复习-原则模式/1718885950184-8b8eb44c-88bf-4bba-8ff8-6abf9ee2a712.png" alt="" class="" loading="lazy"></p>
 <h3 id="%E4%B8%BB%E8%A6%81%E8%A7%92%E8%89%B2%EF%BC%9A-3" tabindex="-1"><a class="header-anchor" href="#%E4%B8%BB%E8%A6%81%E8%A7%92%E8%89%B2%EF%BC%9A-3">#</a> 主要角色：</h3>
 <ol>
 <li><strong>抽象构件（Component）</strong>：定义了对象接口，可以包含一个或多个方法。</li>
@@ -2012,7 +2012,7 @@ public class Composite extends Component {
 <li>Q：为什么 Changer 在继承自 Transform 的同时还要有一个 Transform？</li>
 <li>A：因为我们希望 Changer 能够装饰 Car 或其他的 Transform （如果有，例如 Bicycle），因此需要组合一个 transform。</li>
 </ul>
-<p><img src="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%22400%22%20viewBox%3D%220%200%20800%20400%22%3E%3Crect%20width%3D%22800%22%20height%3D%22400%22%20fill%3D%22%23F0E3D5%22%2F%3E%3Ctext%20x%3D%22400%22%20y%3D%22185%22%20text-anchor%3D%22middle%22%20fill%3D%22%23C4A882%22%20font-size%3D%2216%22%20font-family%3D%22sans-serif%22%3E%E5%9B%BE%E7%89%87%E7%BC%BA%E5%A4%B1%3C%2Ftext%3E%3Ctext%20x%3D%22400%22%20y%3D%22215%22%20text-anchor%3D%22middle%22%20fill%3D%22%23E8D5C4%22%20font-size%3D%2212%22%20font-family%3D%22sans-serif%22%3Eimage%20not%20found%3C%2Ftext%3E%3C%2Fsvg%3E" alt="" class="" loading="lazy"></p>
+<p><img src="/24-软件系统设计/软件系统设计期末复习-原则模式/1718890661555-82f92ab0-2561-46de-8e2f-26d3e5103f8b.png" alt="" class="" loading="lazy"></p>
 <p>每个模式的复习</p>
 <p>模式名称</p>
 <p>问题：约束和适应环境</p>
@@ -2224,11 +2224,11 @@ class Cart {
   <div class="container">
     <div class="footer-grid">
       <div class="footer-col footer-brand">
-        <span class="footer-logo">AI Blog</span>
-        <p class="footer-desc">一个由AI驱动的个人博客</p>
+        <span class="footer-logo">ASIMOV&#39;S Blog</span>
+        <p class="footer-desc">ASIMOV的老巢</p>
         <div class="footer-social">
           
-            <a href="https://github.com/yourname" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+            <a href="https://github.com/chendingya" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
             </a>
           
@@ -2281,7 +2281,7 @@ class Cart {
     </div>
 
     <div class="footer-bottom">
-      <p class="footer-copy">&copy; 2026 AI Blog</p>
+      <p class="footer-copy">&copy; 2026 ASIMOV&#39;S Blog</p>
       
     </div>
   </div>
