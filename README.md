@@ -163,7 +163,9 @@ module.exports = {
       title: '我的页面',
       description: '页面描述',
       bodyClass: 'my-page',
-      content: '<h2>Hello</h2>'  // 原始 HTML
+      content: '<h2>Hello</h2>'        // 内联 HTML
+      // contentFile: 'my-page.html'    // 或从外部 HTML 文件加载
+      // template: 'my-page',           // 或用 EJS 模板名
     }];
   },
   navigation() {
@@ -173,15 +175,15 @@ module.exports = {
 ```
 
 - `pages()` 支持 async，可用于动态数据获取
-- `content` 模式：原始 HTML → `page.ejs` 包裹 → `default.ejs` 布局
-- `template` 模式：指定 EJS 模板名，优先查找插件自带 `templates/` 目录
+- 内容三种方式：`content`（内联 HTML）、`contentFile`（外部 HTML 文件路径，相对于插件目录）、`template`（EJS 模板名）
+- `template` 模式优先查找插件自带 `templates/` 目录
 - 单个插件错误不阻断构建
 - 配置白名单/黑名单见 `config/default.yml` 的 `plugins` 段
 
 ## 部署
 
-`dist/` 即完整静态站点：
+`dist/` 即完整静态站点，由 CI 自动编译部署：
 
-- **GitHub Pages**：推送 `dist/` 到 `gh-pages` 分支，或设置 `main` 分支的 `/docs` 目录
+- **GitHub Pages**：推送 `blog` 分支 → CI 自动编译 → 部署 `dist/` 到 `main` 分支 → Settings 中 Pages Source 选 `main / (root)`。详见 `.github/workflows/deploy.yml`
 - **Vercel / Netlify**：指定输出目录为 `dist`
-- **任意服务器**：复制 `dist/` 到 Web 根目录
+- **任意服务器**：`npm run build` 后复制 `dist/` 到 Web 根目录
