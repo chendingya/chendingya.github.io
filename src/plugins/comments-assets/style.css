@@ -315,6 +315,14 @@
   color: var(--accent-coral, #FF6B6B);
 }
 
+/* 编辑器折叠 */
+.gbook-editor-wrap { overflow: hidden; transition: max-height 0.4s ease; max-height: 2000px; }
+.gbook-editor-wrap.collapsed { max-height: 0; }
+
+.gbook-footer-link { text-align: center; padding: var(--space-2xl, 48px) 0 0; margin: 0; }
+.gbook-footer-link a { font-size: 0.8rem; color: var(--text-muted, #ccc); text-decoration: none; }
+.gbook-footer-link a:hover { color: var(--text-secondary, #666); }
+
 /* 草稿 */
 .gbook-drafts {
   max-width: 860px;

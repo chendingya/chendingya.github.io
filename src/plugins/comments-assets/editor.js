@@ -5,6 +5,17 @@
   var setupEl = document.getElementById('gbookSetup');
   if (!setupEl) return;
 
+  // 折叠/展开编辑器（默认展开）
+  var editorWrap = document.getElementById('gbookEditorWrap');
+  var toggleBtn = document.getElementById('toggleEditor');
+  if (editorWrap && toggleBtn) {
+    toggleBtn.addEventListener('click', function (e) {
+      e.preventDefault();
+      var collapsed = editorWrap.classList.toggle('collapsed');
+      toggleBtn.textContent = collapsed ? '展开 ▼' : '收起 ▲';
+    });
+  }
+
   var editorEl = document.getElementById('gbookEditor');
   var draftsEl = document.getElementById('gbookDrafts');
   var titleInput = document.getElementById('noteTitle');

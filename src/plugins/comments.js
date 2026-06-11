@@ -4,17 +4,9 @@ module.exports = {
   pages() {
     return [
       {
-        url: '/guestbook/',
-        title: '留言板',
-        description: '留言板',
-        bodyClass: 'gbook-page',
-        template: 'gbook-editor',
-        templateData: { editorMode: true }
-      },
-      {
         url: '/comments/',
-        title: '留言列表',
-        description: '留言列表',
+        title: '留言',
+        description: '留言',
         bodyClass: 'comments-page',
         template: 'gbook-list',
         templateData: { editorMode: false }
@@ -24,8 +16,7 @@ module.exports = {
 
   navigation() {
     return [
-      { title: '留言', url: '/comments/' },
-      { title: '📝', url: '/guestbook/' }
+      { title: '留言', url: '/comments/' }
     ];
   },
 
