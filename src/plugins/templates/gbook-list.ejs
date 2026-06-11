@@ -1,0 +1,36 @@
+<section class="gbook-hero">
+  <h1>留言</h1>
+  <p class="gbook-subtitle">访客留言</p>
+</section>
+
+<section class="gbook-content">
+  <% const noteData = dataSources['comments']; %>
+  <% if (noteData && noteData.error) { %>
+    <div class="gbook-empty">
+      <p>暂无留言</p>
+      <p class="gbook-hint">在 <code>config/default.yml</code> 中配置 <code>plugins.config.comments.gistId</code></p>
+    </div>
+  <% } else if (noteData && noteData.notes && noteData.notes.length > 0) { %>
+    <div class="gbook-meta">
+      共 <%= noteData.notes.length %> 条
+      <% if (noteData.updated) { %>
+        · 最近 <%= new Date(noteData.updated).toLocaleString('zh-CN') %>
+      <% } %>
+    </div>
+
+    <div class="gbook-list">
+    <% noteData.notes.forEach(function(note) { %>
+      <article class="gbook-card">
+        <div class="gbook-card__header">
+          <h2><%= note.name.replace(/\.md$/i, '') %></h2>
+        </div>
+        <div class="gbook-card__body"><%- note.content %></div>
+      </article>
+    <% }) %>
+    </div>
+  <% } else { %>
+    <div class="gbook-empty">
+      <p>还没有留言</p>
+    </div>
+  <% } %>
+</section>

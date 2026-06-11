@@ -5,6 +5,16 @@ class FileGenerator {
   constructor(config) {
     this.config = config;
     this.outputDir = path.resolve(this.config.build.output);
+    this.pluginNav = [];
+    this.pluginAssets = { css: [], js: [], static: [] };
+    this.dataSources = {};
+  }
+
+  createEngine() {
+    const TemplateEngine = require('./template-engine');
+    const engine = new TemplateEngine(this.config, this.pluginNav, this.pluginAssets);
+    engine.dataSources = this.dataSources;
+    return engine;
   }
 
   async generate(posts, pages, pluginPages = []) {
@@ -51,6 +61,9 @@ class FileGenerator {
       // 复制静态资源
       await this.copyAssets();
       
+      // 复制插件静态资源
+      await this.copyPluginAssets();
+      
       // 复制图片
       await this.copyImages();
       
@@ -93,8 +106,7 @@ class FileGenerator {
         const pagePosts = posts.slice(startIndex, endIndex);
         
         // 渲染页面
-        const templateEngine = require('./template-engine');
-        const engine = new templateEngine(this.config);
+        const engine = this.createEngine();
         const html = await engine.renderIndex(pagePosts, page, totalPages);
         
         // 确定输出路径
@@ -119,8 +131,7 @@ class FileGenerator {
 
   async generatePosts(posts) {
     try {
-      const templateEngine = require('./template-engine');
-      const engine = new templateEngine(this.config);
+      const engine = this.createEngine();
       
       for (const post of posts) {
         // 渲染文章
@@ -143,8 +154,7 @@ class FileGenerator {
 
   async generatePages(pages) {
     try {
-      const templateEngine = require('./template-engine');
-      const engine = new templateEngine(this.config);
+      const engine = this.createEngine();
       
       for (const page of pages) {
         // 渲染页面
@@ -167,8 +177,7 @@ class FileGenerator {
 
   async generatePluginPages(pluginPages) {
     try {
-      const TemplateEngine = require('./template-engine');
-      const engine = new TemplateEngine(this.config, this.pluginNav || []);
+      const engine = this.createEngine();
       
       for (const page of pluginPages) {
         // 渲染插件页面
@@ -192,8 +201,7 @@ class FileGenerator {
 
   async generateArchive(posts) {
     try {
-      const templateEngine = require('./template-engine');
-      const engine = new templateEngine(this.config);
+      const engine = this.createEngine();
       
       // 渲染归档页
       const html = await engine.renderArchive(posts);
@@ -214,8 +222,7 @@ class FileGenerator {
 
   async generateTags(posts) {
     try {
-      const templateEngine = require('./template-engine');
-      const engine = new templateEngine(this.config);
+      const engine = this.createEngine();
       
       // 收集所有标签
       const tagsMap = new Map();
@@ -259,8 +266,7 @@ class FileGenerator {
 
   async generateCategories(posts) {
     try {
-      const templateEngine = require('./template-engine');
-      const engine = new templateEngine(this.config);
+      const engine = this.createEngine();
       
       // 收集所有分类
       const categoriesMap = new Map();
@@ -304,8 +310,7 @@ class FileGenerator {
 
   async generate404() {
     try {
-      const templateEngine = require('./template-engine');
-      const engine = new templateEngine(this.config);
+      const engine = this.createEngine();
       
       // 渲染404页面
       const html = await engine.render404();
@@ -325,8 +330,7 @@ class FileGenerator {
 
   async generateRSS(posts) {
     try {
-      const templateEngine = require('./template-engine');
-      const engine = new templateEngine(this.config);
+      const engine = this.createEngine();
       
       // 生成RSS
       const rss = await engine.generateRSS(posts);
@@ -363,6 +367,38 @@ class FileGenerator {
     } catch (error) {
       console.error('复制静态资源失败:', error.message);
       throw error;
+    }
+  }
+
+  async copyPluginAssets() {
+    try {
+      const assets = this.pluginAssets;
+      if (!assets) return;
+
+      const allFiles = [...assets.css, ...assets.js, ...assets.static];
+
+      for (const { src, dest } of allFiles) {
+        if (!await fs.pathExists(src)) {
+          console.warn(`插件静态资源不存在: ${src}`);
+          continue;
+        }
+
+        const destPath = path.join(this.outputDir, dest);
+        await fs.ensureDir(path.dirname(destPath));
+
+        const srcStat = await fs.stat(src);
+        if (srcStat.isDirectory()) {
+          await fs.copy(src, destPath);
+        } else {
+          await fs.copy(src, destPath);
+        }
+      }
+
+      if (allFiles.length > 0) {
+        console.log(`已复制 ${allFiles.length} 个插件静态资源`);
+      }
+    } catch (error) {
+      console.error('复制插件静态资源失败:', error.message);
     }
   }
 

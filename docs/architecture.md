@@ -31,12 +31,17 @@ AI Blog 是 Node.js 静态站点生成器。一次 `npm run build` 执行完整�
 │   └── partials/          # header / footer
 ├── src/
 │   ├── index.js           # 主入口（AIBlog 类）
-│   └── core/              # 核心模块
-│       ├── config-manager.js
-│       ├── content-parser.js
-│       ├── image-processor.js
-│       ├── template-engine.js
-│       └── file-generator.js
+│   ├── core/              # 核心模块
+│   │   ├── config-manager.js
+│   │   ├── content-parser.js
+│   │   ├── image-processor.js
+│   │   ├── template-engine.js
+│   │   ├── file-generator.js
+│   │   └── plugin-manager.js
+│   ├── plugins/           # 插件目录
+│   │   ├── _draft.js      # _开头跳过
+│   │   └── project-showcase.js
+│   └── utils/
 ├── dist/                  # 编译输出（可直接部署）
 └── docs/                  # 项目文档
 ```
@@ -157,50 +162,198 @@ content/posts/hello.md                 →  /posts/hello/
 
 ## 9. 插件系统
 
-### 架构
+### 9.1 设计目标
 
-插件系统允许通过 `src/plugins/` 下的 JS 文件注入自定义页面，构建时自动生成并注入导航菜单。
+插件系统解决"博客不仅仅是 Markdown 文章"的问题。通过插件可以注入：
+- **独立功能页面**（画廊、项目展示、友链列表等），带专属 CSS/JS
+- **动态数据**（GitHub 仓库列表、豆瓣书单、Twitter 时间线等）
+- **内容增强**（给文章加标记、修改元数据等）
+- **导航扩展**（自动在菜单中注册新入口）
 
-```
-src/plugins/*.js → PluginManager.loadPlugins() → pages() + navigation()
-    → FileGenerator.generatePluginPages() → dist/<url>/index.html
-    → TemplateEngine.prepareTemplateData() → 合并 navigation
-```
-
-### 插件接口
-
-每个插件 JS 文件导出：
-
-- `name` — 必填，插件标识符
-- `pages()` — 必填，返回页面描述数组（支持 async）
-  - `url` — 永久链接路径（如 `/projects/`）
-  - `title` / `description` — SEO 元数据
-  - `content` — 原始 HTML，用 `page.ejs` + `default.ejs` 渲染
-  - `template` — 自定义 EJS 模板名，优先查找插件自带模板
-  - `templateData` — 传给 EJS 模板的数据
-- `navigation()` — 可选，返回导航条目数组
-
-### 模板查找顺序
+### 9.2 架构概览
 
 ```
-1. src/plugins/<插件名>/templates/<名>.ejs   （插件自带）
-2. templates/themes/<主题>/layouts/<名>.ejs   （主题模板）
-3. templates/layouts/<名>.ejs                （默认模板）
+config/default.yml                      ← 插件级配置 (plugins.config)
+       │
+       ▼
+PluginManager.loadPlugins()
+  ├── 扫描 src/plugins/*.js（跳过 _开头 文件）
+  ├── 校验 name + pages() 必须存在
+  ├── 注入插件级配置 → this.config
+  ├── 解析 assets 声明 → CSS/JS/Static 映射
+  ├── collectPages() → 收集页面描述
+  └── collectNavigation() → 收集导航条目
+       │
+       ▼
+AIBlog.build()
+  ├── pluginManager.beforeBuild()        ← 构建前钩子
+  ├── pluginManager.beforeParse()        ← 解析前钩子
+  ├── pluginManager.processPost(post)    ← 逐篇文章处理
+  ├── pluginManager.processPage(page)    ← 逐页面处理
+  ├── pluginManager.afterParse(posts,pages) ← 解析后钩子
+  ├── pluginManager.collectDataSource()  ← 加载虚拟数据源
+  ├── FileGenerator.generatePluginPages()  ← 生成 dist/<url>/index.html
+  ├── FileGenerator.copyPluginAssets()   ← 复制插件 CSS/JS 到 dist
+  │       ├── 注入到 default.ejs <head>  (pluginCSS)
+  │       └── 注入到 default.ejs <body>  (pluginJS)
+  └── pluginManager.afterBuild(dist)     ← 构建后钩子
 ```
 
-### 配置
+### 9.3 插件接口（完整）
 
-`config/default.yml` 中 `plugins` 段控制启用/禁用：
+```js
+module.exports = {
+  name: 'my-plugin',           // 必填 — 插件标识符
+
+  // ========== 页面生成（必填） ==========
+  pages() {
+    return [{
+      url: '/my-page/',        // 必填 — 页面路径
+      title: '页面标题',        // SEO 标题
+      description: '描述',      // SEO 描述
+      bodyClass: 'my-page',    // <body> 附加 class
+
+      // 内容来源三选一：
+      content: '<h2>Hello</h2>',           // ① 内联 HTML
+      contentFile: 'my-page.html',          // ② 外部 HTML（相对插件目录）
+      template: 'my-template',              // ③ EJS 模板名
+      templateData: { extra: 'data' }       //    传入模板的额外数据
+    }];
+  },
+
+  // ========== 生命周期钩子（全部可选） ==========
+  afterInit(config) {},         // 配置加载、插件加载完成后
+  beforeBuild() {},             // 构建开始前
+  beforeParse() {},             // 解析文章/页面前
+  processPost(post) {},         // 每篇文章解析后（可 mutate post.metadata）
+  processPage(page) {},         // 每个页面解析后（可 mutate page.metadata）
+  afterParse(posts, pages) {},  // 所有文章/页面解析后
+  afterBuild(outputDir) {},     // 构建完成后
+  devStart() {},                // 开发服务器启动后
+
+  // ========== 导航注入（可选） ==========
+  navigation() {
+    return [{ title: '页面名', url: '/my-page/' }];
+  },
+
+  // ========== 静态资源（可选） ==========
+  assets: {
+    css: ['style.css'],         // 自动复制到 dist/plugins/<name>/ 并注入 <link>
+    js: ['script.js'],          // 自动复制并注入 <script defer>
+    static: ['images/']         // 自动复制整个目录
+  },
+
+  // ========== 虚拟数据源（可选，支持 async） ==========
+  async dataSource() {
+    // 返回的数据注入到模板 dataSources.<插件名>
+    return { repos: [...] };
+  }
+};
+```
+
+### 9.4 生命周期钩子执行顺序
+
+```
+afterInit(config)
+    ↓
+beforeBuild()
+    ↓
+beforeParse()
+    ↓
+processPost(post) × N       ← 每篇文章逐一调用
+processPage(page) × N       ← 每个页面逐一调用
+    ↓
+afterParse(posts, pages)
+    ↓
+collectDataSource()         ← 加载虚拟数据源
+    ↓
+[图片处理、模板渲染、文件生成]
+    ↓
+afterBuild(outputDir)
+    ↓
+devStart()                  ← 仅 dev 模式
+```
+
+- 所有钩子均为**可选实现**，不存在不影响运行
+- 单个插件的钩子报错**不阻断构建**，仅输出 warn
+- `processPost` / `processPage` 可直接修改 `post.metadata` / `page.metadata`
+
+### 9.5 插件级配置
+
+`config/default.yml` 中定义，构建时注入到插件的 `this.config`：
 
 ```yaml
 plugins:
-  enabled: []   # 空 = 全部加载
-  disabled: []  # 排除列表
+  enabled: []                    # 空 = 全部加载；填入名称 = 白名单模式
+  disabled: []                   # 黑名单，优先级高于 enabled
+  config:                        # 插件级配置（key = 插件 name）
+    project-showcase:
+      title: "项目展示"
+      maxProjects: 12
+    gallery:
+      apiKey: "xxx"
 ```
 
-### 设计约束
+在插件中通过 `this.config` 读取：
+```js
+pages() {
+  const cfg = this.config;  // { title: "项目展示", maxProjects: 12 }
+}
+```
 
-- 插件页面始终套 `default.ejs` 布局
-- 插件导航追加到 `navigation` 末尾，不覆盖手动配置
-- `pages()` 可为 async 函数
-- 单个插件错误不阻断构建
+### 9.6 模板查找顺序
+
+```
+1. src/plugins/<name>/templates/<template>.ejs   （插件自带）
+2. templates/themes/<theme>/layouts/<template>.ejs （主题模板）
+3. templates/layouts/<template>.ejs              （默认模板）
+```
+
+### 9.7 静态资源注入
+
+插件声明的 `assets` 在构建时自动处理：
+
+```
+src/plugins/gallery/style.css     → dist/plugins/gallery/style.css
+src/plugins/gallery/script.js     → dist/plugins/gallery/script.js
+src/plugins/gallery/images/       → dist/plugins/gallery/images/
+```
+
+同时自动注入到 `default.ejs`：
+```html
+<head>
+  <!-- 自动注入 -->
+  <link rel="stylesheet" href="/plugins/gallery/style.css">
+</head>
+<body>
+  <!-- 自动注入 -->
+  <script src="/plugins/gallery/script.js" defer></script>
+</body>
+```
+
+### 9.8 虚拟数据源
+
+`dataSource()` 返回的数据注入到所有页面模板的 `dataSources` 变量：
+
+```js
+// 插件
+async dataSource() {
+  const res = await fetch('https://api.github.com/users/chendingya/repos');
+  return { repos: await res.json() };
+}
+```
+
+```ejs
+<!-- 任意模板中 -->
+<% if (dataSources['my-plugin'] && dataSources['my-plugin'].repos) { %>
+  <% dataSources['my-plugin'].repos.forEach(function(repo) { %>
+    <div><%= repo.name %> — ★ <%= repo.stargazers_count %></div>
+  <% }) %>
+<% } %>
+```
+
+### 9.9 文件命名规则
+
+- `.js` 文件 — 有效插件（不支持 `.mjs`）
+- `_` 开头文件 — 跳过不加载（如 `_draft.js`）
+- 非 JS 文件 — 忽略（HTML/CSS 通过 `contentFile` / `assets` 引用）

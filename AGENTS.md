@@ -68,22 +68,51 @@ YAML key 即 CSS 变量名（如 `--bg-cream`、`--space-md`），不要改前�
 
 插件放在 `src/plugins/` 下，每个插件是一个 `.js` 文件（不支持 `.mjs`）。
 
-### 最小插件示例
+### 完整插件示例
 
 ```js
 module.exports = {
-  name: 'my-plugin',        // 必填，插件标识
-  pages() {                  // 必填，返回页面数组
+  name: 'my-plugin',           // 必填，插件标识
+
+  // 页面生成（必填）
+  pages() {
     return [{
       url: '/my-page/',
       title: '我的页面',
       description: '页面描述',
       bodyClass: 'my-page',
-      content: '<h2>Hello</h2>'  // 原始 HTML
+      content: '<h2>Hello</h2>'         // 内联 HTML
+      // contentFile: 'my-page.html'     // 或外部 HTML（相对插件目录）
+      // template: 'my-template',        // 或 EJS 模板名
+      // templateData: { ... },           // EJS 模板额外数据
     }];
   },
-  navigation() {             // 可选，注入导航条目
+
+  // 导航注入（可选）
+  navigation() {
     return [{ title: '我的页面', url: '/my-page/' }];
+  },
+
+  // 生命周期钩子（全部可选）
+  afterInit(config) {},         // 配置加载完成后
+  beforeBuild() {},             // 构建前
+  beforeParse() {},             // 解析文章前
+  processPost(post) {},         // 每篇文章解析后（可 mutate post.metadata）
+  processPage(page) {},         // 每个页面解析后
+  afterParse(posts, pages) {},  // 所有文章/页面解析后
+  afterBuild(outputDir) {},     // 构建完成后
+  devStart() {},                // dev 服务器启动后
+
+  // 静态资源注入（可选）
+  assets: {
+    css: ['style.css'],         // → dist/plugins/<name>/style.css + 自动 <link>
+    js: ['script.js'],          // → dist/plugins/<name>/script.js + 自动 <script defer>
+    static: ['images/']         // → 复制整个目录到 dist/plugins/<name>/images/
+  },
+
+  // 虚拟数据源（可选，支持 async）
+  async dataSource() {
+    return { repos: [...] };    // 注入到模板 dataSources.my-plugin
   }
 };
 ```
@@ -91,9 +120,13 @@ module.exports = {
 ### 关键约定
 
 - `pages()` 支持 async（返回 Promise）
-- `content` 模式：原始 HTML → `page.ejs` 包裹 → `default.ejs` 布局
-- `template` 模式：指定 EJS 模板名，优先查找 `src/plugins/<插件名>/templates/`，再 fallback 到全局 `templates/layouts/`
-- 插件导航条目追加到 `navigation` 末尾，不覆盖手动配置
+- 内容三种方式：`content`（内联 HTML）、`contentFile`（外部 HTML 文件路径）、`template`（EJS 模板名）
+- `contentFile` 路径相对于插件 JS 文件所在目录
+- `template` 查找顺序：`src/plugins/<插件名>/templates/` → `templates/themes/<主题>/layouts/` → `templates/layouts/`
+- 插件 `this.config` 来自 `config/default.yml` → `plugins.config.<插件名>`
+- 插件导航追加到 `navigation` 末尾，不覆盖手动配置
 - 单个插件错误不阻断构建（try-catch 包裹）
 - 文件名以 `_` 开头（如 `_draft.js`）不会被加载
-- 配置在 `config/default.yml` 的 `plugins` 段：`enabled` 控制白名单，`disabled` 控制黑名单
+- 配置在 `config/default.yml` 的 `plugins` 段：`enabled` 白名单，`disabled` 黑名单
+- 插件 assets 路径相对于插件 JS 文件所在目录
+- 生命周期钩子执行顺序见 `docs/architecture.md` 第 9.4 节

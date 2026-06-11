@@ -35,11 +35,15 @@ class AIBlog {
       this.pluginManager = new PluginManager(this.config);
       await this.pluginManager.loadPlugins();
       const pluginNav = this.pluginManager.getNavigation();
+      const pluginAssets = this.pluginManager.getAssets();
       
-      this.templateEngine = new TemplateEngine(this.config, pluginNav);
+      this.templateEngine = new TemplateEngine(this.config, pluginNav, pluginAssets);
       this.fileGenerator = new FileGenerator(this.config);
-      // 将 pluginNav 传递给 fileGenerator 以便 renderPluginPage 使用
       this.fileGenerator.pluginNav = pluginNav;
+      this.fileGenerator.pluginAssets = pluginAssets;
+      
+      // 调用 afterInit 钩子
+      await this.pluginManager.afterInit(this.config);
       
       console.log('AI Blog 初始化完成');
       return this.config;
@@ -56,6 +60,12 @@ class AIBlog {
       // 初始化
       await this.init();
       
+      // beforeBuild 钩子
+      await this.pluginManager.beforeBuild();
+      
+      // beforeParse 钩子
+      await this.pluginManager.beforeParse();
+      
       // 解析文章
       const posts = await this.parsePosts();
       console.log(`解析了 ${posts.length} 篇文章`);
@@ -64,11 +74,29 @@ class AIBlog {
       const pages = await this.parsePages();
       console.log(`解析了 ${pages.length} 个页面`);
       
+      // processPost 钩子
+      for (const post of posts) {
+        await this.pluginManager.processPost(post);
+      }
+      
+      // processPage 钩子
+      for (const page of pages) {
+        await this.pluginManager.processPage(page);
+      }
+      
+      // afterParse 钩子
+      await this.pluginManager.afterParse(posts, pages);
+      
       // 获取插件页面
       const pluginPages = this.pluginManager.getPages();
       if (pluginPages.length > 0) {
         console.log(`收集了 ${pluginPages.length} 个插件页面`);
       }
+      
+      // 加载虚拟数据源，注入到 templateEngine
+      const dataSource = await this.pluginManager.collectDataSource();
+      this.templateEngine.dataSources = dataSource;
+      this.fileGenerator.dataSources = dataSource;
       
       // 处理图片
       await this.processImages(posts, pages);
@@ -78,6 +106,9 @@ class AIBlog {
       
       // 生成额外的SEO文件
       await this.generateSEOFiles(posts, pages, pluginPages);
+      
+      // afterBuild 钩子
+      await this.pluginManager.afterBuild(this.config.build.output);
       
       console.log('博客构建完成!');
       return result;
@@ -179,6 +210,9 @@ class AIBlog {
       
       // 启动本地服务器
       await this.startDevServer();
+      
+      // devStart 钩子
+      await this.pluginManager.devStart();
       
     } catch (error) {
       console.error('启动开发服务器失败:', error.message);

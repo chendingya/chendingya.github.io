@@ -1,0 +1,191 @@
+/* === GitHub Repos 插件样式 === */
+
+.repos-page .main-content {
+  max-width: 860px;
+}
+
+.repos-hero {
+  text-align: center;
+  padding: var(--space-2xl, 48px) 0 var(--space-lg, 32px);
+}
+
+.repos-hero h1 {
+  font-family: var(--font-heading, 'Noto Serif SC', serif);
+  font-size: 2rem;
+  color: var(--text-primary, #2d2d2d);
+  margin: 0 0 var(--space-xs, 8px);
+}
+
+.repos-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-secondary, #666);
+  margin: 0;
+}
+
+/* ---- 工具栏 ---- */
+.repos-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: var(--space-lg, 24px);
+  padding-bottom: var(--space-md, 16px);
+  border-bottom: 1px solid var(--border-color, #e8e0d9);
+}
+
+.repos-count {
+  font-size: 0.9rem;
+  color: var(--text-secondary, #666);
+}
+
+.repos-badge {
+  font-size: 0.78rem;
+  padding: 2px 10px;
+  border-radius: var(--radius-sm, 4px);
+  background: var(--bg-warm, #fdf3e0);
+  color: var(--accent-coral, #FF6B6B);
+}
+
+.repos-sort {
+  margin-left: auto;
+  font-size: 0.85rem;
+  padding: 4px 14px;
+  border: 1px solid var(--border-color, #e8e0d9);
+  border-radius: var(--radius-sm, 6px);
+  background: transparent;
+  color: var(--text-secondary, #666);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.repos-sort:hover {
+  border-color: var(--accent-coral, #FF6B6B);
+  color: var(--accent-coral, #FF6B6B);
+}
+
+/* ---- 卡片列表 ---- */
+.repos-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md, 16px);
+}
+
+.repo-card {
+  padding: var(--space-lg, 20px);
+  border: 1px solid var(--border-color, #e8e0d9);
+  border-radius: var(--radius-md, 10px);
+  background: var(--bg-cream, #FEFAF6);
+  transition: border-color 0.25s, box-shadow 0.25s;
+}
+
+.repo-card:hover {
+  border-color: var(--accent-coral, #FF6B6B);
+  box-shadow: 0 2px 16px rgba(0,0,0,0.05);
+}
+
+.repo-card__header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: var(--space-xs, 8px);
+}
+
+.repo-card__icon {
+  color: var(--text-secondary, #666);
+  flex-shrink: 0;
+}
+
+.repo-card__header h3 {
+  margin: 0;
+  font-size: 1.08rem;
+  font-weight: 600;
+}
+
+.repo-card__header h3 a {
+  color: var(--accent-coral, #FF6B6B);
+  text-decoration: none;
+}
+
+.repo-card__header h3 a:hover {
+  text-decoration: underline;
+}
+
+.repo-card__stars {
+  margin-left: auto;
+  font-size: 0.85rem;
+  color: var(--text-secondary, #666);
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  flex-shrink: 0;
+}
+
+.repo-card__stars svg {
+  color: #e3b341;
+}
+
+.repo-card__desc {
+  font-size: 0.92rem;
+  color: var(--text-secondary, #666);
+  line-height: 1.6;
+  margin: 0 0 var(--space-sm, 12px);
+}
+
+.repo-card__footer {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+}
+
+.repo-card__lang,
+.repo-card__forks {
+  font-size: 0.8rem;
+  color: var(--text-secondary, #666);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.repo-card__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+  background: var(--accent-coral, #FF6B6B);
+}
+
+.repo-card__dot[data-lang="JavaScript"] { background: #f1e05a; }
+.repo-card__dot[data-lang="TypeScript"] { background: #3178c6; }
+.repo-card__dot[data-lang="Python"]     { background: #3572A5; }
+.repo-card__dot[data-lang="Java"]       { background: #b07219; }
+.repo-card__dot[data-lang="Go"]         { background: #00ADD8; }
+.repo-card__dot[data-lang="Rust"]       { background: #dea584; }
+.repo-card__dot[data-lang="CSS"]        { background: #563d7c; }
+.repo-card__dot[data-lang="HTML"]       { background: #e34c26; }
+
+.repo-card__topics {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+.repo-card__tag {
+  font-size: 0.72rem;
+  padding: 1px 8px;
+  border-radius: var(--radius-sm, 4px);
+  background: var(--bg-warm, #fdf3e0);
+  color: var(--accent-coral, #FF6B6B);
+}
+
+.repos-empty {
+  text-align: center;
+  padding: var(--space-2xl, 48px);
+  color: var(--text-secondary, #666);
+}
+
+/* ---- 响应式 ---- */
+@media (max-width: 640px) {
+  .repos-hero h1 { font-size: 1.5rem; }
+  .repo-card { padding: var(--space-md, 16px); }
+  .repo-card__footer { gap: 10px; }
+}

@@ -4,7 +4,7 @@ const ejs = require('ejs');
 const yaml = require('js-yaml');
 
 class TemplateEngine {
-  constructor(config, pluginNav = []) {
+  constructor(config, pluginNav = [], pluginAssets = null) {
     this.config = config;
     this.templatesDir = path.resolve('templates');
     this.layoutsDir = path.join(this.templatesDir, 'layouts');
@@ -16,6 +16,8 @@ class TemplateEngine {
     this.templateCache = new Map();
     this.theme = this.loadTheme();
     this.pluginNav = pluginNav;
+    this.pluginAssets = pluginAssets || { css: [], js: [], static: [] };
+    this.dataSources = {};
   }
 
   loadTheme() {
@@ -175,6 +177,9 @@ class TemplateEngine {
       social: this.config.social || {},
       links: this.config.links || [],
       themeCSS: this.generateThemeCSS(),
+      pluginCSS: this.getPluginCSS(),
+      pluginJS: this.getPluginJS(),
+      dataSources: this.dataSources,
       year: new Date().getFullYear(),
       ...data
     };
@@ -411,6 +416,20 @@ class TemplateEngine {
       };
       return this.renderWithLayout('page', data);
     }
+  }
+
+  getPluginCSS() {
+    if (this.pluginAssets.css.length === 0) return '';
+    return this.pluginAssets.css
+      .map(a => `<link rel="stylesheet" href="/${a.dest.replace(/\\/g, '/')}">`)
+      .join('\n    ');
+  }
+
+  getPluginJS() {
+    if (this.pluginAssets.js.length === 0) return '';
+    return this.pluginAssets.js
+      .map(a => `<script src="/${a.dest.replace(/\\/g, '/')}" defer></script>`)
+      .join('\n    ');
   }
 
   generateExcerpt(content, maxLength = 200) {

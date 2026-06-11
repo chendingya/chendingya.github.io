@@ -98,10 +98,22 @@
 
 ## 4. 待实现
 
-| 功能 | 优先级 |
-|------|--------|
-| 评论系统集成（Giscus / Disqus） | 低 |
-| 全文搜索 | 低 |
-| 多语言支持 | 低 |
-| 图片自动上传 CDN | 低 |
-| 插件系统 | ✅ | 自定义页面注入 + 导航自动合并，见 `src/plugins/` |
+| 功能 | 优先级 | 说明 |
+|------|--------|------|
+| 评论系统集成（Giscus / Disqus） | 低 | 可作为插件实现 |
+| 全文搜索 | 低 | 可作插件：生成搜索索引 JSON |
+| 多语言支持 | 低 | — |
+| 图片自动上传 CDN | 低 | — |
+
+## 5. 插件系统
+
+| 功能 | 状态 | 说明 |
+|------|------|------|
+| 独立页面生成 | ✅ | `pages()` 返回页面，三选一内容来源（内联 HTML / 外部文件 / EJS 模板） |
+| 导航注入 | ✅ | `navigation()` 自动合并到菜单末尾 |
+| 生命周期钩子 | ✅ | 8 个钩子：afterInit / beforeBuild / beforeParse / processPost / processPage / afterParse / afterBuild / devStart |
+| 插件级配置 | ✅ | `config/default.yml` → `plugins.config.<name>` → `this.config` |
+| 静态资源注入 | ✅ | `assets: { css, js, static }` 自动复制到 dist 并注入页面 |
+| 虚拟数据源 | ✅ | `async dataSource()` 对接 API，注入模板 `dataSources` |
+| 启用/禁用控制 | ✅ | `plugins.enabled` 白名单 / `plugins.disabled` 黑名单 |
+| 插件错误隔离 | ✅ | 单插件报错不阻断构建 |

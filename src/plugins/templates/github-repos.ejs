@@ -1,0 +1,60 @@
+<section class="repos-hero">
+  <h1>GitHub 仓库</h1>
+  <p class="repos-subtitle">我的开源项目</p>
+</section>
+
+<section class="repos-grid">
+  <% const repoData = dataSources['github-repos']; %>
+  <% if (repoData && repoData.repos) { %>
+    <div class="repos-toolbar">
+      <span class="repos-count"><%= repoData.repos.length %> 个仓库</span>
+      <% if (repoData.error) { %>
+        <span class="repos-badge repos-badge--fallback" data-tooltip="<%= repoData.error %>">离线数据</span>
+      <% } %>
+      <button class="repos-sort" data-action="sort-repos">★ 排序</button>
+    </div>
+
+    <div class="repos-list">
+    <% repoData.repos.forEach(function(repo) { %>
+      <article class="repo-card" data-stars="<%= repo.stargazers_count %>">
+        <div class="repo-card__header">
+          <svg class="repo-card__icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 19a2 2 0 01-2 2H4a2 2 0 01-2-2V5a2 2 0 012-2h5l2 3h9a2 2 0 012 2z"/></svg>
+          <h3>
+            <a href="<%= repo.html_url %>" target="_blank" rel="noopener"><%= repo.name %></a>
+          </h3>
+          <span class="repo-card__stars" title="<%= repo.stargazers_count %> stars">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            <%= repo.stargazers_count %>
+          </span>
+        </div>
+
+        <p class="repo-card__desc"><%= repo.description || '暂无描述' %></p>
+
+        <div class="repo-card__footer">
+          <% if (repo.language) { %>
+            <span class="repo-card__lang">
+              <span class="repo-card__dot" data-lang="<%= repo.language %>"></span>
+              <%= repo.language %>
+            </span>
+          <% } %>
+          <% if (repo.forks_count !== undefined) { %>
+            <span class="repo-card__forks">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6 3v12"/><circle cx="6" cy="3" r="2"/><circle cx="6" cy="19" r="2"/><circle cx="18" cy="9" r="2"/><path d="M6 15c-2.67 4-8 4-8 0"/><path d="M18 7v4"/><path d="M14 11h8"/></svg>
+              <%= repo.forks_count %>
+            </span>
+          <% } %>
+          <% if (repo.topics && repo.topics.length) { %>
+            <span class="repo-card__topics">
+              <% repo.topics.slice(0, 4).forEach(function(t) { %>
+                <span class="repo-card__tag"><%= t %></span>
+              <% }) %>
+            </span>
+          <% } %>
+        </div>
+      </article>
+    <% }) %>
+    </div>
+  <% } else { %>
+    <p class="repos-empty">加载仓库数据中...</p>
+  <% } %>
+</section>

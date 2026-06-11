@@ -1,0 +1,383 @@
+/* === 留言板样式 === */
+
+.gbook-hero {
+  text-align: center;
+  padding: var(--space-2xl, 48px) 0 var(--space-md, 20px);
+}
+
+.gbook-hero h1 {
+  font-family: var(--font-heading, 'Noto Serif SC', serif);
+  font-size: 2rem;
+  color: var(--text-primary, #2d2d2d);
+  margin: 0 0 var(--space-xs, 8px);
+}
+
+.gbook-subtitle {
+  font-size: 1.05rem;
+  color: var(--text-secondary, #666);
+  margin: 0;
+}
+
+/* 配置表单 */
+.gbook-setup {
+  max-width: 520px;
+  margin: 0 auto;
+  padding: var(--space-lg, 24px);
+  border: 1px solid var(--border-color, #e8e0d9);
+  border-radius: var(--radius-md, 10px);
+}
+
+.gbook-setup h2 {
+  font-size: 1.15rem;
+  margin: 0 0 var(--space-sm, 12px);
+  color: var(--text-primary, #2d2d2d);
+}
+
+.gbook-setup p {
+  font-size: 0.9rem;
+  color: var(--text-secondary, #666);
+  margin: 0 0 var(--space-md, 16px);
+}
+
+.gbook-setup label {
+  display: block;
+  font-size: 0.88rem;
+  color: var(--text-primary, #2d2d2d);
+  margin-bottom: var(--space-md, 16px);
+}
+
+.gbook-setup input {
+  display: block;
+  width: 100%;
+  margin-top: 4px;
+  padding: 8px 12px;
+  border: 1px solid var(--border-color, #e8e0d9);
+  border-radius: var(--radius-sm, 6px);
+  font-size: 0.9rem;
+  font-family: var(--font-mono, monospace);
+  background: var(--bg-cream, #FEFAF6);
+}
+
+.gbook-setup input:focus {
+  outline: none;
+  border-color: var(--accent-coral, #FF6B6B);
+}
+
+.gbook-setup small {
+  display: block;
+  margin-top: 4px;
+  color: var(--text-muted, #999);
+  font-size: 0.78rem;
+}
+
+.gbook-setup small a {
+  color: var(--accent-coral, #FF6B6B);
+}
+
+.gbook-setup small code {
+  padding: 1px 4px;
+  border-radius: 3px;
+  background: var(--bg-warm, #fdf3e0);
+  font-size: 0.8rem;
+}
+
+/* 编辑器 */
+.gbook-editor {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.gbook-editor__toolbar {
+  display: flex;
+  gap: 12px;
+  margin-bottom: var(--space-sm, 12px);
+  align-items: center;
+}
+
+.gbook-input {
+  flex: 1;
+  padding: 8px 12px;
+  border: 1px solid var(--border-color, #e8e0d9);
+  border-radius: var(--radius-sm, 6px);
+  font-size: 1rem;
+  background: var(--bg-cream, #FEFAF6);
+  color: var(--text-primary, #2d2d2d);
+}
+
+.gbook-input:focus {
+  outline: none;
+  border-color: var(--accent-coral, #FF6B6B);
+}
+
+.gbook-editor__actions {
+  display: flex;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.gbook-editor__pane {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  min-height: 420px;
+}
+
+.gbook-textarea {
+  width: 100%;
+  min-height: 420px;
+  padding: var(--space-md, 16px);
+  border: 1px solid var(--border-color, #e8e0d9);
+  border-radius: var(--radius-md, 10px);
+  font-family: var(--font-mono, monospace);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  resize: vertical;
+  background: var(--bg-cream, #FEFAF6);
+  color: var(--text-primary, #2d2d2d);
+}
+
+.gbook-textarea:focus {
+  outline: none;
+  border-color: var(--accent-coral, #FF6B6B);
+}
+
+.gbook-preview {
+  padding: var(--space-md, 16px);
+  border: 1px solid var(--border-light, #f0e3d5);
+  border-radius: var(--radius-md, 10px);
+  background: var(--bg-surface, #fff);
+  overflow-y: auto;
+  max-height: 420px;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--text-primary, #2d2d2d);
+}
+
+.gbook-preview h1 { font-size: 1.4rem; margin-top: 0; }
+.gbook-preview h2 { font-size: 1.15rem; }
+.gbook-preview code {
+  padding: 2px 6px;
+  border-radius: 3px;
+  background: var(--bg-warm, #fdf3e0);
+  font-family: var(--font-mono, monospace);
+  font-size: 0.85rem;
+}
+.gbook-preview pre {
+  padding: var(--space-md, 16px);
+  border-radius: var(--radius-sm, 6px);
+  background: var(--code-bg, #1e1e1e);
+  color: var(--code-text, #e0e0e0);
+  overflow-x: auto;
+}
+.gbook-preview pre code { background: none; padding: 0; }
+.gbook-preview blockquote {
+  margin: 0;
+  padding-left: var(--space-md, 16px);
+  border-left: 3px solid var(--accent-coral, #FF6B6B);
+  color: var(--text-secondary, #666);
+}
+
+.gbook-editor__bottom {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: var(--space-sm, 12px);
+}
+
+.gbook-status {
+  font-size: 0.85rem;
+  color: var(--text-secondary, #666);
+}
+
+.gbook-status--ok { color: var(--accent-mint, #90BE6D); }
+.gbook-status--err { color: var(--accent-coral, #FF6B6B); }
+
+.gbook-visibility {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.85rem;
+  color: var(--text-secondary, #666);
+  cursor: pointer;
+}
+
+/* 按钮 */
+.gbook-btn {
+  padding: 7px 16px;
+  border: 1px solid var(--border-color, #e8e0d9);
+  border-radius: var(--radius-sm, 6px);
+  font-size: 0.85rem;
+  background: transparent;
+  color: var(--text-secondary, #666);
+  cursor: pointer;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.gbook-btn:hover {
+  border-color: var(--accent-coral, #FF6B6B);
+  color: var(--accent-coral, #FF6B6B);
+}
+
+.gbook-btn--primary {
+  background: var(--accent-coral, #FF6B6B);
+  border-color: var(--accent-coral, #FF6B6B);
+  color: #fff;
+}
+
+.gbook-btn--primary:hover {
+  background: var(--accent-coral-hover, #FF5252);
+  color: #fff;
+}
+
+.gbook-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.hidden { display: none !important; }
+
+/* 留言列表 */
+.gbook-content { max-width: 860px; margin: 0 auto; }
+
+.gbook-meta {
+  font-size: 0.85rem;
+  color: var(--text-secondary, #666);
+  margin-bottom: var(--space-lg, 24px);
+  padding-bottom: var(--space-sm, 12px);
+  border-bottom: 1px solid var(--border-color, #e8e0d9);
+}
+
+.gbook-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md, 16px);
+}
+
+.gbook-card {
+  padding: var(--space-lg, 20px);
+  border: 1px solid var(--border-color, #e8e0d9);
+  border-radius: var(--radius-md, 10px);
+  background: var(--bg-cream, #FEFAF6);
+}
+
+.gbook-card__header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: var(--space-sm, 12px);
+  padding-bottom: var(--space-xs, 8px);
+  border-bottom: 1px solid var(--border-light, #f0e3d5);
+}
+
+.gbook-card__header h2 {
+  margin: 0;
+  font-size: 1.1rem;
+  color: var(--text-primary, #2d2d2d);
+}
+
+.gbook-card__body {
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: var(--text-primary, #2d2d2d);
+}
+
+.gbook-card__body h1 { font-size: 1.3rem; }
+.gbook-card__body h2 { font-size: 1.05rem; }
+.gbook-card__body code {
+  padding: 2px 6px;
+  border-radius: 3px;
+  background: var(--bg-warm, #fdf3e0);
+  font-family: var(--font-mono, monospace);
+}
+.gbook-card__body pre { background: var(--code-bg, #1e1e1e); color: var(--code-text, #e0e0e0); padding: 12px; border-radius: 6px; overflow-x: auto; }
+.gbook-card__body pre code { background: none; padding: 0; }
+
+.gbook-empty {
+  text-align: center;
+  padding: var(--space-2xl, 48px);
+  color: var(--text-secondary, #666);
+}
+
+.gbook-hint {
+  font-size: 0.9rem;
+  margin-top: var(--space-sm, 12px);
+}
+
+.gbook-hint code {
+  padding: 2px 6px;
+  border-radius: 3px;
+  background: var(--bg-warm, #fdf3e0);
+  font-size: 0.85rem;
+}
+
+.gbook-hint a {
+  color: var(--accent-coral, #FF6B6B);
+}
+
+/* 草稿 */
+.gbook-drafts {
+  max-width: 860px;
+  margin: var(--space-lg, 24px) auto 0;
+}
+
+.gbook-drafts h3 {
+  font-size: 1rem;
+  margin: 0 0 var(--space-sm, 12px);
+  color: var(--text-primary, #2d2d2d);
+}
+
+.draft-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  border: 1px solid var(--border-light, #f0e3d5);
+  border-radius: var(--radius-sm, 6px);
+  margin-bottom: 6px;
+  font-size: 0.9rem;
+}
+
+.draft-item__title {
+  color: var(--text-primary, #2d2d2d);
+  cursor: pointer;
+}
+
+.draft-item__title:hover {
+  color: var(--accent-coral, #FF6B6B);
+}
+
+.draft-item__actions {
+  display: flex;
+  gap: 6px;
+}
+
+.draft-item__actions button {
+  font-size: 0.78rem;
+  padding: 3px 10px;
+  border: 1px solid var(--border-color, #e8e0d9);
+  border-radius: var(--radius-sm, 4px);
+  background: transparent;
+  color: var(--text-secondary, #666);
+  cursor: pointer;
+}
+
+.draft-item__actions button:hover {
+  border-color: var(--accent-coral, #FF6B6B);
+  color: var(--accent-coral, #FF6B6B);
+}
+
+@media (max-width: 768px) {
+  .gbook-editor__pane {
+    grid-template-columns: 1fr;
+  }
+  .gbook-preview {
+    max-height: 300px;
+  }
+  .gbook-editor__toolbar {
+    flex-direction: column;
+  }
+  .gbook-editor__actions {
+    width: 100%;
+  }
+}
