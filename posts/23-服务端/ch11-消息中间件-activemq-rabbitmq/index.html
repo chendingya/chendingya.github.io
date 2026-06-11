@@ -1,0 +1,753 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ASIMOV的老巢">
+  <title>服务端-ch11-消息中间件(ActiveMQ、RabbitMQ) - ASIMOV&#39;S Blog</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Noto+Serif+SC:wght@400;500;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/css/style.css">
+  
+  <link rel="stylesheet" href="/assets/css/highlight.css">
+  
+
+  
+  <style>:root {
+  --font-display: 'Playfair Display', 'Noto Serif SC', Georgia, 'Times New Roman', serif;
+  --font-body: 'Public Sans', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'Fira Code', 'Cascadia Code', 'JetBrains Mono', monospace;
+  --bg-cream: #FEFAF6;
+  --bg-cream-alpha: rgba(254,250,246,0.85);
+  --bg-surface: #FFFFFF;
+  --bg-warm: #FDF5EB;
+  --text-primary: #2C1810;
+  --text-secondary: #8B7355;
+  --text-muted: #C4A882;
+  --text-on-accent: #FFFFFF;
+  --border: #E8D5C4;
+  --border-light: #F0E3D5;
+  --shadow-sm: 0 1px 2px rgba(44,24,16,0.04);
+  --shadow-md: 0 4px 12px rgba(44,24,16,0.06);
+  --shadow-lg: 0 12px 32px rgba(44,24,16,0.08);
+  --code-bg: #1E1E1E;
+  --code-text: #E0E0E0;
+  --brand: var(--accent-coral);
+  --brand-hover: #FF5252;
+  --brand-alpha: rgba(255,107,107,0.08);
+  --brand-alpha-heavy: rgba(255,107,107,0.15);
+  --selection-bg: rgba(255,107,107,0.2);
+  --accent-coral: #FF6B6B;
+  --accent-coral-hover: #FF5252;
+  --accent-amber: #F4A261;
+  --accent-mint: #90BE6D;
+  --accent-lavender: #9B72AA;
+  --accent-sky: #4ECDC4;
+  --accent-sun: #F9C74F;
+  --accent-rose: #FF6B8A;
+  --accent-blue: #577590;
+  --max-width: 1200px;
+  --content-width: 720px;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 5rem;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+}
+
+[data-theme="dark"] {
+  --bg-cream: #1A1614;
+  --bg-cream-alpha: rgba(26,22,20,0.85);
+  --bg-surface: #2C2420;
+  --bg-warm: #241E1A;
+  --text-primary: #E8D5C4;
+  --text-secondary: #B8A088;
+  --text-muted: #8B7355;
+  --text-on-accent: #FFFFFF;
+  --border: #3D3028;
+  --border-light: #332A22;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.25);
+  --shadow-lg: 0 12px 32px rgba(0,0,0,0.3);
+  --code-bg: #111111;
+  --code-text: #E0E0E0;
+  --brand: var(--accent-coral);
+  --brand-hover: #FF8A8A;
+  --brand-alpha: rgba(255,107,107,0.12);
+  --brand-alpha-heavy: rgba(255,107,107,0.2);
+  --selection-bg: rgba(255,107,107,0.2);
+}</style>
+  
+
+  <link rel="stylesheet" href="/plugins/comments/comments-assets/style.css">
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23FF6B6B'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='20' fill='white'>A</text></svg>">
+
+  
+  <link rel="alternate" type="application/rss+xml" title="ASIMOV&#39;S Blog" href="/feed.xml">
+  
+
+  <meta property="og:title" content="服务端-ch11-消息中间件(ActiveMQ、RabbitMQ)">
+  <meta property="og:description" content="ASIMOV的老巢">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://chendingya.github.io//posts/23-服务端/ch11-消息中间件-activemq-rabbitmq/">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="服务端-ch11-消息中间件(ActiveMQ、RabbitMQ)">
+  <meta name="twitter:description" content="ASIMOV的老巢">
+  
+</head>
+<body class="post-page">
+  <div class="reading-progress"></div>
+
+  <header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="/" class="site-brand">
+        
+          <span class="brand-title">ASIMOV&#39;S Blog</span>
+        
+      </a>
+
+      <nav class="site-nav" data-target="main-nav">
+        <ul class="nav-list">
+          
+            <li class="nav-item">
+              <a href="/" class="nav-link">首页</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/archive/" class="nav-link">归档</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/tags/" class="nav-link">标签</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/categories/" class="nav-link">分类</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/comments/" class="nav-link">留言</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/projects/" class="nav-link">项目</a>
+            </li>
+          
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" data-action="toggle-theme" aria-label="切换暗色模式">
+          <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+
+        <button class="icon-btn menu-btn" data-action="toggle-menu" aria-label="菜单">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  <div class="container">
+  <main class="main-content">
+    <article class="post-article">
+      <header class="post-header">
+        
+          <div class="post-header-cats">
+            
+              <a href="/categories/服务端开发/" class="meta-cat accent">服务端开发</a>
+            
+          </div>
+        
+        <h1 class="post-title">服务端-ch11-消息中间件(ActiveMQ、RabbitMQ)</h1>
+        <div class="post-meta">
+          <time datetime="2023-11-09T18:32:34.000Z">
+            2023年11月9日
+          </time>
+          
+            <span class="meta-divider">&middot;</span>
+            <span class="post-author">ASIMOV</span>
+          
+        </div>
+        
+          <div class="post-header-tags">
+            
+              <a href="/tags/springboot/" class="tag">springboot</a>
+            
+          </div>
+        
+      </header>
+
+      
+        <details class="toc-wrap">
+          <summary class="toc-title">目录</summary>
+          <nav class="toc-nav">
+            
+              <a href="#ch11-消息中间件-activemq-rabbitmq" class="toc-link toc-level-1">ch11-消息中间件(ActiveMQ、RabbitMQ)</a>
+            
+              <a href="#activemq" class="toc-link toc-level-1">ActiveMQ</a>
+            
+              <a href="#同步与异步" class="toc-link toc-level-2">同步与异步</a>
+            
+              <a href="#broker" class="toc-link toc-level-3">broker</a>
+            
+              <a href="#消息中间件" class="toc-link toc-level-2">消息中间件</a>
+            
+              <a href="#本节课例子" class="toc-link toc-level-1">本节课例子</a>
+            
+              <a href="#jms" class="toc-link toc-level-2">JMS</a>
+            
+              <a href="#消息代理-broker" class="toc-link toc-level-2">消息代理（broker）</a>
+            
+              <a href="#intellij-idea不能下载源代码的问题" class="toc-link toc-level-2">IntelliJ IDEA不能下载源代码的问题</a>
+            
+              <a href="#直接使用jms接口发送与接收消息" class="toc-link toc-level-2">直接使用JMS接口发送与接收消息</a>
+            
+              <a href="#关键概念" class="toc-link toc-level-2">关键概念</a>
+            
+              <a href="#配置" class="toc-link toc-level-2">配置</a>
+            
+              <a href="#使用jmstemplate" class="toc-link toc-level-2">使用JmsTemplate</a>
+            
+              <a href="#activemq-artemis" class="toc-link toc-level-1">ActiveMQ Artemis</a>
+            
+              <a href="#docker运行" class="toc-link toc-level-2">Docker运行</a>
+            
+              <a href="#控制台" class="toc-link toc-level-2">控制台</a>
+            
+              <a href="#依赖" class="toc-link toc-level-2">依赖</a>
+            
+              <a href="#代码" class="toc-link toc-level-2">代码</a>
+            
+              <a href="#发送方-不适用springboot直接使用java" class="toc-link toc-level-3">发送方：不适用springboot直接使用java</a>
+            
+              <a href="#接收端" class="toc-link toc-level-3">接收端</a>
+            
+              <a href="#订单信息" class="toc-link toc-level-3">订单信息</a>
+            
+              <a href="#消息转换器-messageconverter" class="toc-link toc-level-3">消息转换器（MessageConverter）</a>
+            
+              <a href="#kitchen代码" class="toc-link toc-level-3">kitchen代码</a>
+            
+              <a href="#接收消息-拉取模式-pull-model" class="toc-link toc-level-3">接收消息：拉取模式（pull model）</a>
+            
+              <a href="#接收消息-推送模式-push-model" class="toc-link toc-level-3">接收消息：推送模式（push model）</a>
+            
+              <a href="#rabbitmq" class="toc-link toc-level-1">RabbitMQ</a>
+            
+              <a href="#rabbitmq概念" class="toc-link toc-level-2">RabbitMQ概念</a>
+            
+              <a href="#依赖" class="toc-link toc-level-2">依赖</a>
+            
+              <a href="#配置" class="toc-link toc-level-2">配置</a>
+            
+              <a href="#接收消息-拉取模式-pull-model" class="toc-link toc-level-2">接收消息：拉取模式（pull model）</a>
+            
+              <a href="#接收消息-推送模式-push-model" class="toc-link toc-level-2">接收消息：推送模式（push model）</a>
+            
+          </nav>
+        </details>
+      
+
+      <div class="post-body">
+        <h1 id="ch11-%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6(activemq%E3%80%81rabbitmq)" tabindex="-1"><a class="header-anchor" href="#ch11-%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6(activemq%E3%80%81rabbitmq)">#</a> ch11-消息中间件(ActiveMQ、RabbitMQ)</h1>
+<h1 id="activemq" tabindex="-1"><a class="header-anchor" href="#activemq">#</a> ActiveMQ</h1>
+<h2 id="%E5%90%8C%E6%AD%A5%E4%B8%8E%E5%BC%82%E6%AD%A5" tabindex="-1"><a class="header-anchor" href="#%E5%90%8C%E6%AD%A5%E4%B8%8E%E5%BC%82%E6%AD%A5">#</a> 同步与异步</h2>
+<p><img src="/23-服务端/ch11-消息中间件(ActiveMQ、RabbitMQ)/image-20231119172721004.png" alt="" class="" loading="lazy"></p>
+<h3 id="broker" tabindex="-1"><a class="header-anchor" href="#broker">#</a> broker</h3>
+<p><img src="/23-服务端/ch11-消息中间件(ActiveMQ、RabbitMQ)/image-20231119172732660.png" alt="" class="" loading="lazy"></p>
+<ul>
+<li>好处：A与B解耦，broker是消息代理</li>
+</ul>
+<h2 id="%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6" tabindex="-1"><a class="header-anchor" href="#%E6%B6%88%E6%81%AF%E4%B8%AD%E9%97%B4%E4%BB%B6">#</a> 消息中间件</h2>
+<ul>
+<li>消息中间件<strong>主要用于组件之间的解耦</strong>，消息的发送者无需知道消息使用者的存在，反之亦然</li>
+<li>常用的消息中间件有：ActiveMQ、RabbitMQ、kafka</li>
+<li>大的系统中有很多子系统，子系统之间的解耦，使用消息中间件</li>
+</ul>
+<h1 id="%E6%9C%AC%E8%8A%82%E8%AF%BE%E4%BE%8B%E5%AD%90" tabindex="-1"><a class="header-anchor" href="#%E6%9C%AC%E8%8A%82%E8%AF%BE%E4%BE%8B%E5%AD%90">#</a> 本节课例子</h1>
+<p><img src="/23-服务端/ch11-消息中间件(ActiveMQ、RabbitMQ)/image-20231119172822031.png" alt="" class="" loading="lazy"></p>
+<ul>
+<li>postman触发api调用，生成订单</li>
+</ul>
+<p><img src="/23-服务端/ch11-消息中间件(ActiveMQ、RabbitMQ)/image-20231122150446072.png" alt="" class="" loading="lazy"></p>
+<h2 id="jms" tabindex="-1"><a class="header-anchor" href="#jms">#</a> JMS</h2>
+<ul>
+<li>Java 消息服务（Java Message Servcie）</li>
+<li>JMS是一个Java标准，定义了使用消息代理（message broker）的通用API</li>
+<li>Spring通过基于模板的抽象为JMS功能提供了支持，这个模板就是JmsTemplate</li>
+</ul>
+<h2 id="%E6%B6%88%E6%81%AF%E4%BB%A3%E7%90%86%EF%BC%88broker%EF%BC%89" tabindex="-1"><a class="header-anchor" href="#%E6%B6%88%E6%81%AF%E4%BB%A3%E7%90%86%EF%BC%88broker%EF%BC%89">#</a> 消息代理（broker）</h2>
+<ul>
+<li>Apache ActiveMQ</li>
+<li>Apache ActiveMQ Artemis，重新实现的下一代ActiveMQ</li>
+</ul>
+<h2 id="intellij-idea%E4%B8%8D%E8%83%BD%E4%B8%8B%E8%BD%BD%E6%BA%90%E4%BB%A3%E7%A0%81%E7%9A%84%E9%97%AE%E9%A2%98" tabindex="-1"><a class="header-anchor" href="#intellij-idea%E4%B8%8D%E8%83%BD%E4%B8%8B%E8%BD%BD%E6%BA%90%E4%BB%A3%E7%A0%81%E7%9A%84%E9%97%AE%E9%A2%98">#</a> IntelliJ IDEA不能下载源代码的问题</h2>
+<ul>
+<li>mvn dependency:sources</li>
+<li>翻译插件：Translation</li>
+<li>文档：<a href="https://yiiguxing.gitee.io/translation-plugin/#/docs">https://yiiguxing.gitee.io/translation-plugin/#/docs</a></li>
+<li>AI助手：Tabnine
+<ul>
+<li><a href="https://plugins.jetbrains.com/plugin/12798-tabnine-ai-code">https://plugins.jetbrains.com/plugin/12798-tabnine-ai-code</a>completion–chat-in-java-js-ts-python–more</li>
+</ul>
+</li>
+</ul>
+<h2 id="%E7%9B%B4%E6%8E%A5%E4%BD%BF%E7%94%A8jms%E6%8E%A5%E5%8F%A3%E5%8F%91%E9%80%81%E4%B8%8E%E6%8E%A5%E6%94%B6%E6%B6%88%E6%81%AF" tabindex="-1"><a class="header-anchor" href="#%E7%9B%B4%E6%8E%A5%E4%BD%BF%E7%94%A8jms%E6%8E%A5%E5%8F%A3%E5%8F%91%E9%80%81%E4%B8%8E%E6%8E%A5%E6%94%B6%E6%B6%88%E6%81%AF">#</a> 直接使用JMS接口发送与接收消息</h2>
+<ul>
+<li>JMS规范：jakarta.jms-api-2.0.3.jar</li>
+<li>artemis客户端：artemis-jms-client-2.17.0.jar</li>
+<li>ConnectionFactory connectionFactory = new ActiveMQConnectionFactory(BROKER_URL, USERNAME, PASSWORD); Connection connection = connectionFactory.createConnection(); connection.start(); Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE); Destination destination = session.createQueue(“queue.example”);</li>
+</ul>
+<h2 id="%E5%85%B3%E9%94%AE%E6%A6%82%E5%BF%B5" tabindex="-1"><a class="header-anchor" href="#%E5%85%B3%E9%94%AE%E6%A6%82%E5%BF%B5">#</a> 关键概念</h2>
+<ul>
+<li>javax.jms.Message：TextMessage、ObjectMessage</li>
+<li>javax.jms.Destination，队列或主题，如：org.apache.activemq.artemis.jms.client.ActiveMQQueue
+<ul>
+<li>3种指定方式：
+<ul>
+<li>application.yml（default-destination）</li>
+<li>@Bean（Destination对象）</li>
+<li>直接String指定</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="%E9%85%8D%E7%BD%AE" tabindex="-1"><a class="header-anchor" href="#%E9%85%8D%E7%BD%AE">#</a> 配置</h2>
+<pre><code class="language-yml">spring:
+    jms:
+        template:
+        	default-destination: tacocloud.order.queue
+    artemis:
+    host: localhost
+    port: 61616
+    user: artemis
+    password: artemis
+    embedded:
+    	enabled: false
+</code></pre>
+<h2 id="%E4%BD%BF%E7%94%A8jmstemplate" tabindex="-1"><a class="header-anchor" href="#%E4%BD%BF%E7%94%A8jmstemplate">#</a> 使用JmsTemplate</h2>
+<ul>
+<li>JmsTemplate是Spring对JMS集成支持的核心</li>
+<li>发送的两个方法：send、convertAndSend</li>
+</ul>
+<h1 id="activemq-artemis" tabindex="-1"><a class="header-anchor" href="#activemq-artemis">#</a> ActiveMQ Artemis</h1>
+<ul>
+<li><a href="https://activemq.apache.org/components/artemis/">https://activemq.apache.org/components/artemis/</a></li>
+<li>下载路径： <a href="https://activemq.apache.org/components/artemis/download/">https://activemq.apache.org/components/artemis/download/</a></li>
+<li><a href="https://github.com/apache/activemq-artemis/blob/main/docs/user-manual/docker.adoc">https://github.com/apache/activemq-artemis/blob/main/docs/user-manual/docker.adoc</a></li>
+<li>ActiveMQ Artemis 是一个优秀的跨平台、高性能、开源的消息代理系统</li>
+<li>支持的协议</li>
+<li>JMS 协议</li>
+<li>AMQP （Advanced Message Queueing Protocol）</li>
+<li>MQTT（Message Queuing Telemetry Transport）</li>
+<li>Native 内存模式与 JVM 内存模式</li>
+<li>分布式架构</li>
+<li>消息持久化</li>
+</ul>
+<h2 id="docker%E8%BF%90%E8%A1%8C" tabindex="-1"><a class="header-anchor" href="#docker%E8%BF%90%E8%A1%8C">#</a> Docker运行</h2>
+<ul>
+<li>$ docker run --detach --name mycontainer -p 61616:61616 -p 8161:8161 apache/activemq-artemis:latest-alpine</li>
+<li>docker logs -f mycontainer</li>
+<li>$ docker exec -it mycontainer /var/lib/artemis-instance/bin/artemis shell --user artemis --password  artemis</li>
+<li>管理控制台：<a href="http://localhost:8161">http://localhost:8161</a> artemis/artemis</li>
+</ul>
+<h2 id="%E6%8E%A7%E5%88%B6%E5%8F%B0" tabindex="-1"><a class="header-anchor" href="#%E6%8E%A7%E5%88%B6%E5%8F%B0">#</a> 控制台</h2>
+<p><img src="/23-服务端/ch11-消息中间件(ActiveMQ、RabbitMQ)/image-20231119174236452.png" alt="" class="" loading="lazy"></p>
+<ul>
+<li>需要先建立个会话的session</li>
+<li>然后消息会被放入队列queue：先进先出</li>
+</ul>
+<h2 id="%E4%BE%9D%E8%B5%96" tabindex="-1"><a class="header-anchor" href="#%E4%BE%9D%E8%B5%96">#</a> 依赖</h2>
+<pre><code class="language-xml">&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-artemis&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+<h2 id="%E4%BB%A3%E7%A0%81" tabindex="-1"><a class="header-anchor" href="#%E4%BB%A3%E7%A0%81">#</a> 代码</h2>
+<h3 id="%E5%8F%91%E9%80%81%E6%96%B9%EF%BC%9A%E4%B8%8D%E9%80%82%E7%94%A8springboot%E7%9B%B4%E6%8E%A5%E4%BD%BF%E7%94%A8java" tabindex="-1"><a class="header-anchor" href="#%E5%8F%91%E9%80%81%E6%96%B9%EF%BC%9A%E4%B8%8D%E9%80%82%E7%94%A8springboot%E7%9B%B4%E6%8E%A5%E4%BD%BF%E7%94%A8java">#</a> 发送方：不适用springboot直接使用java</h3>
+<p>ArtemisExampleSend</p>
+<pre><code class="language-java">package tacos.messaging;
+
+import org.apache.activemq.artemis.jms.client.ActiveMQConnectionFactory;
+
+import javax.jms.JMSException;
+import javax.jms.*;
+
+public class ArtemisExampleSend {
+    private static final String BROKER_URL = &quot;tcp://localhost:61616&quot;;
+    private static final String USERNAME = &quot;artemis&quot;;
+    private static final String PASSWORD = &quot;artemis&quot;;
+
+    public static void main(String[] args) throws JMSException {
+        ConnectionFactory connectionFactory = new ActiveMQConnectionFactory(BROKER_URL, USERNAME, PASSWORD);
+        Connection connection = connectionFactory.createConnection();
+        connection.start();
+
+        Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
+        Destination destination = session.createQueue(&quot;queue.example&quot;);
+
+        MessageProducer messageProducer = session.createProducer(destination);
+        TextMessage textMessage = session.createTextMessage();
+        textMessage.setText(&quot;Hello, Artemis!&quot;);
+
+        messageProducer.send(textMessage);
+        System.out.println(&quot;Message sent successfully!&quot;);
+
+        connection.close();
+    }
+}
+</code></pre>
+<ul>
+<li>
+<p>import org.apache.activemq.artemis.jms.client.ActiveMQConnectionFactory;  ：jar包</p>
+</li>
+<li>
+<p>运行结果：</p>
+<ul>
+<li>终端console输出：Message sent successfully!</li>
+<li>artemis终端输出：<img src="/23-服务端/ch11-消息中间件(ActiveMQ、RabbitMQ)/image-20231119175040257.png" alt="" class="" loading="lazy"><img src="/23-服务端/ch11-消息中间件(ActiveMQ、RabbitMQ)/image-20231119175110771.png" alt="" class="" loading="lazy"></li>
+</ul>
+</li>
+<li>
+<p>destination：jms中所定义的目的地，无论消息是订阅还是队列</p>
+</li>
+</ul>
+<h3 id="%E6%8E%A5%E6%94%B6%E7%AB%AF" tabindex="-1"><a class="header-anchor" href="#%E6%8E%A5%E6%94%B6%E7%AB%AF">#</a> 接收端</h3>
+<p>ArtemisExampleReceive</p>
+<pre><code class="language-java">package tacos.messaging;
+
+import org.apache.activemq.artemis.jms.client.ActiveMQConnectionFactory;
+
+import javax.jms.*;
+
+public class ArtemisExampleReceive {
+    private static final String BROKER_URL = &quot;tcp://localhost:61616&quot;;
+    private static final String USERNAME = &quot;artemis&quot;;
+    private static final String PASSWORD = &quot;artemis&quot;;
+
+    public static void main(String[] args) throws JMSException {
+        ConnectionFactory connectionFactory = new ActiveMQConnectionFactory(BROKER_URL, USERNAME, PASSWORD);
+        Connection connection = connectionFactory.createConnection();
+        connection.start();
+
+        Session session = connection.createSession(false, Session.AUTO_ACKNOWLEDGE);
+        Destination destination = session.createQueue(&quot;queue.example&quot;);
+
+        MessageConsumer messageConsumer = session.createConsumer(destination);
+        Message message = messageConsumer.receive();
+
+        if (message instanceof TextMessage) {
+            System.out.println(&quot;Message received: &quot; + ((TextMessage) message).getText());
+        }
+
+        connection.close();
+    }
+}
+</code></pre>
+<ul>
+<li>message instanceof TextMessage：还有对象类型的消息</li>
+<li>运行结果：<img src="/23-服务端/ch11-消息中间件(ActiveMQ、RabbitMQ)/image-20231119175807286.png" alt="" class="" loading="lazy"><img src="/23-服务端/ch11-消息中间件(ActiveMQ、RabbitMQ)/image-20231119175826498.png" alt="" class="" loading="lazy"></li>
+</ul>
+<h3 id="%E8%AE%A2%E5%8D%95%E4%BF%A1%E6%81%AF" tabindex="-1"><a class="header-anchor" href="#%E8%AE%A2%E5%8D%95%E4%BF%A1%E6%81%AF">#</a> 订单信息</h3>
+<p>JmsOrderMessagingService</p>
+<pre><code class="language-java">package tacos.messaging;
+
+import javax.jms.JMSException;
+import javax.jms.Message;
+import javax.jms.Session;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jms.core.JmsTemplate;
+import org.springframework.jms.core.MessageCreator;
+import org.springframework.stereotype.Service;
+
+import tacos.TacoOrder;
+
+@Service
+public class JmsOrderMessagingService implements OrderMessagingService {
+
+  private JmsTemplate jms;
+
+  @Autowired
+  public JmsOrderMessagingService(JmsTemplate jms) {
+    this.jms = jms;
+  }
+
+  @Override
+  public void sendOrder(TacoOrder order) {
+    jms.convertAndSend(&quot;tacocloud.order.queue&quot;, order,
+        this::addOrderSource);
+//    jms.send(new MessageCreator(){
+//      @Override
+//      public Message createMessage(Session session) throws JMSException {
+//        Message message = session.createObjectMessage(order);
+//        message.setStringProperty(&quot;X_ORDER_SOURCE&quot;, &quot;WEB&quot;);
+//        return message;
+//      }
+//    });
+  }
+  
+  private Message addOrderSource(Message message) throws JMSException {
+    message.setStringProperty(&quot;X_ORDER_SOURCE&quot;, &quot;WEB&quot;);
+    return message;
+  }
+}
+</code></pre>
+<ul>
+<li>添加依赖之后就可以直接注入JmsTemplate</li>
+</ul>
+<h3 id="%E6%B6%88%E6%81%AF%E8%BD%AC%E6%8D%A2%E5%99%A8%EF%BC%88messageconverter%EF%BC%89" tabindex="-1"><a class="header-anchor" href="#%E6%B6%88%E6%81%AF%E8%BD%AC%E6%8D%A2%E5%99%A8%EF%BC%88messageconverter%EF%BC%89">#</a> 消息转换器（MessageConverter）</h3>
+<ul>
+<li>SimpleMessageConverter：实现String与TextMessage的相互转换、字节数组与BytesMessage的相互转换、 Map与MapMessage的相互转换，以及Serializable对象与ObjectMessage的相互转换</li>
+<li>MappingJackson2MessageConverter：使用Jackson 2 JSON库实现消息与JSON格式的相互转换</li>
+<li>TypeId</li>
+<li>Message.setStringProperty</li>
+</ul>
+<p><img src="/23-服务端/ch11-消息中间件(ActiveMQ、RabbitMQ)/image-20231123131552636.png" alt="" class="" loading="lazy"></p>
+<p>配置类</p>
+<pre><code class="language-java">package tacos.messaging;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.jms.Destination;
+
+import org.apache.activemq.artemis.jms.client.ActiveMQQueue;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.jms.support.converter.MappingJackson2MessageConverter;
+
+import tacos.TacoOrder;
+
+@Configuration
+public class MessagingConfig {
+
+  @Bean
+  public MappingJackson2MessageConverter messageConverter() {
+    MappingJackson2MessageConverter messageConverter =
+                            new MappingJackson2MessageConverter();
+    messageConverter.setTypeIdPropertyName(&quot;_typeId&quot;);
+
+    Map&lt;String, Class&lt;?&gt;&gt; typeIdMappings = new HashMap&lt;String, Class&lt;?&gt;&gt;();
+    typeIdMappings.put(&quot;order&quot;, TacoOrder.class);
+    messageConverter.setTypeIdMappings(typeIdMappings);
+
+    return messageConverter;
+  }
+
+  @Bean
+  public Destination orderQueue() {
+    return new ActiveMQQueue(&quot;tacocloud.order.queue&quot;);
+  }
+}
+</code></pre>
+<h3 id="kitchen%E4%BB%A3%E7%A0%81" tabindex="-1"><a class="header-anchor" href="#kitchen%E4%BB%A3%E7%A0%81">#</a> kitchen代码</h3>
+<p>加上artimes的依赖</p>
+<h3 id="%E6%8E%A5%E6%94%B6%E6%B6%88%E6%81%AF%EF%BC%9A%E6%8B%89%E5%8F%96%E6%A8%A1%E5%BC%8F%EF%BC%88pull-model%EF%BC%89" tabindex="-1"><a class="header-anchor" href="#%E6%8E%A5%E6%94%B6%E6%B6%88%E6%81%AF%EF%BC%9A%E6%8B%89%E5%8F%96%E6%A8%A1%E5%BC%8F%EF%BC%88pull-model%EF%BC%89">#</a> 接收消息：拉取模式（pull model）</h3>
+<p>接收消息：拉取模式（pull model），JmsTemplate支持</p>
+<ul>
+<li>访问：<a href="http://localhost:8081/">http://localhost:8081/</a></li>
+</ul>
+<pre><code class="language-java">package tacos.kitchen;
+
+import org.springframework.context.annotation.Profile;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+import lombok.RequiredArgsConstructor;
+import tacos.TacoOrder;
+
+@Profile({&quot;jms-template&quot;, &quot;rabbitmq-template&quot;})
+@Controller
+@RequestMapping(&quot;/orders&quot;)
+@RequiredArgsConstructor
+public class OrderReceiverController {
+
+  private final OrderReceiver orderReceiver;
+
+  @GetMapping(&quot;/receive&quot;)
+  public String receiveOrder(Model model) {
+    TacoOrder order = orderReceiver.receiveOrder();
+    if (order != null) {
+      model.addAttribute(&quot;order&quot;, order);
+      return &quot;receiveOrder&quot;;
+    }
+    return &quot;noOrder&quot;;
+  }
+}
+</code></pre>
+<h3 id="%E6%8E%A5%E6%94%B6%E6%B6%88%E6%81%AF%EF%BC%9A%E6%8E%A8%E9%80%81%E6%A8%A1%E5%BC%8F%EF%BC%88push-model%EF%BC%89" tabindex="-1"><a class="header-anchor" href="#%E6%8E%A5%E6%94%B6%E6%B6%88%E6%81%AF%EF%BC%9A%E6%8E%A8%E9%80%81%E6%A8%A1%E5%BC%8F%EF%BC%88push-model%EF%BC%89">#</a> 接收消息：推送模式（push model）</h3>
+<p>需要定义消息监听器</p>
+<ul>
+<li>@JmsListener</li>
+</ul>
+<h1 id="rabbitmq" tabindex="-1"><a class="header-anchor" href="#rabbitmq">#</a> RabbitMQ</h1>
+<p>RabbitMQ</p>
+<ul>
+<li>AMQP（Advanced Message Queueing Protocol）</li>
+<li><a href="https://www.rabbitmq.com/">https://www.rabbitmq.com/</a></li>
+<li>Docker：<a href="https://registry.hub.docker.com/_/rabbitmq/">https://registry.hub.docker.com/_/rabbitmq/</a></li>
+<li>RabbitMQ基础概念详细介绍：<a href="https://www.cnblogs.com/williamjie/p/9481774.html">https://www.cnblogs.com/williamjie/p/9481774.html</a></li>
+</ul>
+<h2 id="rabbitmq%E6%A6%82%E5%BF%B5" tabindex="-1"><a class="header-anchor" href="#rabbitmq%E6%A6%82%E5%BF%B5">#</a> RabbitMQ概念</h2>
+<ul>
+<li>ConnectionFactory、Connection、Channel</li>
+<li>Exchange：Default、Direct、Topic、Fanout、Headers、Dead letter</li>
+<li>Queue</li>
+<li>routing key</li>
+<li>Binding key</li>
+</ul>
+<p><img src="/23-服务端/ch11-消息中间件(ActiveMQ、RabbitMQ)/image-20231123131758138.png" alt="" class="" loading="lazy"></p>
+<h2 id="%E4%BE%9D%E8%B5%96-1" tabindex="-1"><a class="header-anchor" href="#%E4%BE%9D%E8%B5%96-1">#</a> 依赖</h2>
+<p>代码中在api删除jms依赖，增加rabbitmq依赖</p>
+<p>在对应模块中加上amqp依赖</p>
+<pre><code class="language-xml">&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-amqp&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+<h2 id="%E9%85%8D%E7%BD%AE-1" tabindex="-1"><a class="header-anchor" href="#%E9%85%8D%E7%BD%AE-1">#</a> 配置</h2>
+<pre><code class="language-yml">spring:
+    rabbitmq:
+        host: localhost
+        port: 5672
+        username: guest
+        password: guest
+        template:
+        	exchange: tacocloud.orde
+</code></pre>
+<h2 id="%E6%8E%A5%E6%94%B6%E6%B6%88%E6%81%AF%EF%BC%9A%E6%8B%89%E5%8F%96%E6%A8%A1%E5%BC%8F%EF%BC%88pull-model%EF%BC%89-1" tabindex="-1"><a class="header-anchor" href="#%E6%8E%A5%E6%94%B6%E6%B6%88%E6%81%AF%EF%BC%9A%E6%8B%89%E5%8F%96%E6%A8%A1%E5%BC%8F%EF%BC%88pull-model%EF%BC%89-1">#</a> 接收消息：拉取模式（pull model）</h2>
+<ul>
+<li>RabbitTemplate支持</li>
+<li>访问：<a href="http://localhost:8081/">http://localhost:8081/</a></li>
+</ul>
+<p><img src="/23-服务端/ch11-消息中间件(ActiveMQ、RabbitMQ)/image-20231123174046590.png" alt="" class="" loading="lazy"></p>
+<h2 id="%E6%8E%A5%E6%94%B6%E6%B6%88%E6%81%AF%EF%BC%9A%E6%8E%A8%E9%80%81%E6%A8%A1%E5%BC%8F%EF%BC%88push-model%EF%BC%89-1" tabindex="-1"><a class="header-anchor" href="#%E6%8E%A5%E6%94%B6%E6%B6%88%E6%81%AF%EF%BC%9A%E6%8E%A8%E9%80%81%E6%A8%A1%E5%BC%8F%EF%BC%88push-model%EF%BC%89-1">#</a> 接收消息：推送模式（push model）</h2>
+<ul>
+<li>
+<p>需要定义消息监听器</p>
+</li>
+<li>
+<p>@RabbitListener</p>
+</li>
+</ul>
+
+      </div>
+
+      <footer class="post-footer">
+        <div class="post-nav">
+          <a href="/" class="post-nav-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            返回首页
+          </a>
+        </div>
+      </footer>
+    </article>
+  </main>
+</div>
+
+
+  <footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <span class="footer-logo">ASIMOV&#39;S Blog</span>
+        <p class="footer-desc">ASIMOV的老巢</p>
+        <div class="footer-social">
+          
+            <a href="https://github.com/chendingya" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+          
+          
+            <a href="https://twitter.com/yourname" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          
+          
+            <a href="mailto:your@email.com" class="social-link" aria-label="Email">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </a>
+          
+          
+            <a href="/feed.xml" class="social-link" aria-label="RSS">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20C5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1z"/></svg>
+            </a>
+          
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">导航</h4>
+        <ul class="footer-links">
+          
+            <li><a href="/">首页</a></li>
+          
+            <li><a href="/archive/">归档</a></li>
+          
+            <li><a href="/tags/">标签</a></li>
+          
+            <li><a href="/categories/">分类</a></li>
+          
+            <li><a href="/comments/">留言</a></li>
+          
+            <li><a href="/projects/">项目</a></li>
+          
+          <li><a href="/archive/">归档</a></li>
+          <li><a href="/tags/">标签</a></li>
+          <li><a href="/categories/">分类</a></li>
+        </ul>
+      </div>
+
+      
+      <div class="footer-col">
+        <h4 class="footer-heading">友链</h4>
+        <ul class="footer-links">
+          
+            <li><a href="https://example.com" target="_blank" rel="noopener noreferrer">示例友链</a></li>
+          
+        </ul>
+      </div>
+      
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 ASIMOV&#39;S Blog</p>
+      
+    </div>
+  </div>
+</footer>
+
+
+  <button class="back-to-top" aria-label="返回顶部">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+  </button>
+
+  <script src="/assets/js/main.js" defer></script>
+  <script src="/plugins/comments/comments-assets/editor.js" defer></script>
+</body>
+</html>

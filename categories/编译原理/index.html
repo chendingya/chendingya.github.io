@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="分类 编译原理 下的文章 - ASIMOV&#39;S Blog">
+  <title>分类: 编译原理 - ASIMOV&#39;S Blog</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Noto+Serif+SC:wght@400;500;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/css/style.css">
+  
+  <link rel="stylesheet" href="/assets/css/highlight.css">
+  
+
+  
+  <style>:root {
+  --font-display: 'Playfair Display', 'Noto Serif SC', Georgia, 'Times New Roman', serif;
+  --font-body: 'Public Sans', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'Fira Code', 'Cascadia Code', 'JetBrains Mono', monospace;
+  --bg-cream: #FEFAF6;
+  --bg-cream-alpha: rgba(254,250,246,0.85);
+  --bg-surface: #FFFFFF;
+  --bg-warm: #FDF5EB;
+  --text-primary: #2C1810;
+  --text-secondary: #8B7355;
+  --text-muted: #C4A882;
+  --text-on-accent: #FFFFFF;
+  --border: #E8D5C4;
+  --border-light: #F0E3D5;
+  --shadow-sm: 0 1px 2px rgba(44,24,16,0.04);
+  --shadow-md: 0 4px 12px rgba(44,24,16,0.06);
+  --shadow-lg: 0 12px 32px rgba(44,24,16,0.08);
+  --code-bg: #1E1E1E;
+  --code-text: #E0E0E0;
+  --brand: var(--accent-coral);
+  --brand-hover: #FF5252;
+  --brand-alpha: rgba(255,107,107,0.08);
+  --brand-alpha-heavy: rgba(255,107,107,0.15);
+  --selection-bg: rgba(255,107,107,0.2);
+  --accent-coral: #FF6B6B;
+  --accent-coral-hover: #FF5252;
+  --accent-amber: #F4A261;
+  --accent-mint: #90BE6D;
+  --accent-lavender: #9B72AA;
+  --accent-sky: #4ECDC4;
+  --accent-sun: #F9C74F;
+  --accent-rose: #FF6B8A;
+  --accent-blue: #577590;
+  --max-width: 1200px;
+  --content-width: 720px;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 5rem;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+}
+
+[data-theme="dark"] {
+  --bg-cream: #1A1614;
+  --bg-cream-alpha: rgba(26,22,20,0.85);
+  --bg-surface: #2C2420;
+  --bg-warm: #241E1A;
+  --text-primary: #E8D5C4;
+  --text-secondary: #B8A088;
+  --text-muted: #8B7355;
+  --text-on-accent: #FFFFFF;
+  --border: #3D3028;
+  --border-light: #332A22;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.25);
+  --shadow-lg: 0 12px 32px rgba(0,0,0,0.3);
+  --code-bg: #111111;
+  --code-text: #E0E0E0;
+  --brand: var(--accent-coral);
+  --brand-hover: #FF8A8A;
+  --brand-alpha: rgba(255,107,107,0.12);
+  --brand-alpha-heavy: rgba(255,107,107,0.2);
+  --selection-bg: rgba(255,107,107,0.2);
+}</style>
+  
+
+  <link rel="stylesheet" href="/plugins/comments/comments-assets/style.css">
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23FF6B6B'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='20' fill='white'>A</text></svg>">
+
+  
+  <link rel="alternate" type="application/rss+xml" title="ASIMOV&#39;S Blog" href="/feed.xml">
+  
+
+  <meta property="og:title" content="分类: 编译原理">
+  <meta property="og:description" content="分类 编译原理 下的文章 - ASIMOV&#39;S Blog">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://chendingya.github.io//categories/编译原理/">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="分类: 编译原理">
+  <meta name="twitter:description" content="分类 编译原理 下的文章 - ASIMOV&#39;S Blog">
+  
+</head>
+<body class="category-page">
+  <div class="reading-progress"></div>
+
+  <header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="/" class="site-brand">
+        
+          <span class="brand-title">ASIMOV&#39;S Blog</span>
+        
+      </a>
+
+      <nav class="site-nav" data-target="main-nav">
+        <ul class="nav-list">
+          
+            <li class="nav-item">
+              <a href="/" class="nav-link">首页</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/archive/" class="nav-link">归档</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/tags/" class="nav-link">标签</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/categories/" class="nav-link">分类</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/comments/" class="nav-link">留言</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/projects/" class="nav-link">项目</a>
+            </li>
+          
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" data-action="toggle-theme" aria-label="切换暗色模式">
+          <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+
+        <button class="icon-btn menu-btn" data-action="toggle-menu" aria-label="菜单">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  <div class="container">
+  <main class="main-content">
+    <div class="page-header">
+      <h1 class="page-title">编译原理</h1>
+      <p class="page-desc">13 篇文章</p>
+    </div>
+    <div class="post-list">
+      
+        <article class="post-card" style="--card-index: 0;">
+          <div class="post-card-inner">
+            <div class="post-card-body">
+              <div class="post-card-meta">
+                <time datetime="2023-04-10T10:02:34.000Z">
+                  2023年4月10日
+                </time>
+              </div>
+              <h2 class="post-card-title">
+                <a href="/posts/23-compilers/ch18-codegen-riscv-risc-v-概述/">ch18-codegen-riscv-RISC-V 概述</a>
+              </h2>
+              <p class="post-card-excerpt">ch18-codegen-riscv-RISC-V 概述 RISC: Reduced Instruction Set Computer (精简指令集计算机) V: Five  ISA是向上层提供的接口  cpu是ISA的硬件实现  提供指令、数据类型、寄存器  2017 ACM Turing Award “RISC-V 很可能发展成为世界主流 CPU 之一, 在 CPU 领域形成 Intel、...</p>
+              <a href="/posts/23-compilers/ch18-codegen-riscv-risc-v-概述/" class="read-more">
+                阅读全文
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+      
+        <article class="post-card" style="--card-index: 1;">
+          <div class="post-card-inner">
+            <div class="post-card-body">
+              <div class="post-card-meta">
+                <time datetime="2023-04-09T10:02:34.000Z">
+                  2023年4月9日
+                </time>
+              </div>
+              <h2 class="post-card-title">
+                <a href="/posts/23-compilers/ch17-lr-1-lr-1-语法分析器/">ch17-LR(1)-LR(1) 语法分析器</a>
+              </h2>
+              <p class="post-card-excerpt">ch17-LR(1)-LR(1) 语法分析器 SLR(1)  文法FOLLOW(E) !image-20230623144436433-LR(1)%20%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8/image-20230623144436433.png) SLR(1) 分析表...</p>
+              <a href="/posts/23-compilers/ch17-lr-1-lr-1-语法分析器/" class="read-more">
+                阅读全文
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+      
+        <article class="post-card" style="--card-index: 2;">
+          <div class="post-card-inner">
+            <div class="post-card-body">
+              <div class="post-card-meta">
+                <time datetime="2023-04-08T10:02:34.000Z">
+                  2023年4月8日
+                </time>
+              </div>
+              <h2 class="post-card-title">
+                <a href="/posts/23-compilers/ch16-parser-lr0-lr0-语法分析器/">ch16-parser-lr0-LR0 语法分析器</a>
+              </h2>
+              <p class="post-card-excerpt">ch16-parser-lr0-LR0 语法分析器 只考虑无二义性的文法 这意味着, 每个句子对应唯一的一棵语法分析树 !image-20230622223756217 LL(K) 特点：自顶向下的、 递归下降的、 预测分析的、 适用于LL(1) 文法的、 LL(1) 语法分析器 LL(k) 的弱点: 在仅看到右部的前 k 个词法单元时就必须预测要使用哪条产生式 LR(K) 自底向上的、...</p>
+              <a href="/posts/23-compilers/ch16-parser-lr0-lr0-语法分析器/" class="read-more">
+                阅读全文
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+      
+        <article class="post-card" style="--card-index: 3;">
+          <div class="post-card-inner">
+            <div class="post-card-body">
+              <div class="post-card-meta">
+                <time datetime="2023-04-07T10:02:34.000Z">
+                  2023年4月7日
+                </time>
+              </div>
+              <h2 class="post-card-title">
+                <a href="/posts/23-compilers/ch15-ir-backpatch控制流语句翻译中的地址回填技术/">ch15-ir-backpatch-控制流语句翻译中的地址回填技术</a>
+              </h2>
+              <p class="post-card-excerpt">ch15-ir-backpatch-控制流语句翻译中的地址回填技术 使用标签标记跳转目标 !image-20230622145609928 Java Bytecode: 使用地址值作为跳转目标 !image-20230622145746213  每条指令占据多少字节，第四条指令编号为3，占据了三个字节，下一个指令编号为6  地址是一个绝对地址 ...</p>
+              <a href="/posts/23-compilers/ch15-ir-backpatch控制流语句翻译中的地址回填技术/" class="read-more">
+                阅读全文
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+      
+        <article class="post-card" style="--card-index: 4;">
+          <div class="post-card-inner">
+            <div class="post-card-body">
+              <div class="post-card-meta">
+                <time datetime="2023-04-06T10:02:34.000Z">
+                  2023年4月6日
+                </time>
+              </div>
+              <h2 class="post-card-title">
+                <a href="/posts/23-compilers/ch14-ir-control-比较复杂的控制流翻译/">ch14-ir-control-比较复杂的控制流翻译</a>
+              </h2>
+              <p class="post-card-excerpt">ch14-ir-control-比较复杂的控制流翻译 如何生成更短、更高效的代码? !image-20230527195529306 !image-20230527172334371  t3 = true的赋值不是必须的：我只要知道根据bool表达式跳转到哪即可 直接用布尔表达式改变控制流br 使用控制流跳转间接表明布尔表达式的值 实现思路：分工 合作 父节点为子节点准备跳转指令的目标标签 ...</p>
+              <a href="/posts/23-compilers/ch14-ir-control-比较复杂的控制流翻译/" class="read-more">
+                阅读全文
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+      
+        <article class="post-card" style="--card-index: 5;">
+          <div class="post-card-inner">
+            <div class="post-card-body">
+              <div class="post-card-meta">
+                <time datetime="2023-04-05T10:02:34.000Z">
+                  2023年4月5日
+                </time>
+              </div>
+              <h2 class="post-card-title">
+                <a href="/posts/23-compilers/ch13-ir-control-控制流语句的翻译/">ch13-ir-control-控制流语句的翻译</a>
+              </h2>
+              <p class="post-card-excerpt">ch13-ir-control-控制流语句的翻译 本讲内容颇有难度, 需要多多思考 虽然有非常简单的讲法, 教材龙书偏偏采用了让初学者望而生畏的讲法。 为什么要 “创造困难”?  简单的翻译方案会产生大量冗长的代码，选择困难的翻译方案是为了生成更短、更高效的代码 control.g4和bool表达式的文法 主要关注绿框中的控制流语句，assign上节课已经讲过了所以不关注 control.g4...</p>
+              <a href="/posts/23-compilers/ch13-ir-control-控制流语句的翻译/" class="read-more">
+                阅读全文
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+      
+        <article class="post-card" style="--card-index: 6;">
+          <div class="post-card-inner">
+            <div class="post-card-body">
+              <div class="post-card-meta">
+                <time datetime="2023-04-04T10:02:34.000Z">
+                  2023年4月4日
+                </time>
+              </div>
+              <h2 class="post-card-title">
+                <a href="/posts/23-compilers/ch12-ir-expr-表达式翻译/">ch12-ir-expr-表达式翻译</a>
+              </h2>
+              <p class="post-card-excerpt">ch12-ir-expr-表达式翻译 分工和合作  父节点为子节点准备跳转指令的目标标签  子节点通过继承属性确定跳转目标 P → S  S → if (B) S1!image-20230516210447611  一部分是B的中间代码，应该由B生成    B需要有一个B.code综合属性来表示B节点所生成的对于复合表达式的中间代码  一部分是S1的中间代码    S1需要有一个S1.code ...</p>
+              <a href="/posts/23-compilers/ch12-ir-expr-表达式翻译/" class="read-more">
+                阅读全文
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+      
+        <article class="post-card" style="--card-index: 7;">
+          <div class="post-card-inner">
+            <div class="post-card-body">
+              <div class="post-card-meta">
+                <time datetime="2023-04-03T10:02:34.000Z">
+                  2023年4月3日
+                </time>
+              </div>
+              <h2 class="post-card-title">
+                <a href="/posts/23-compilers/ch11-llvm-ir/">ch11-llvm-ir-中间代码生成</a>
+              </h2>
+              <p class="post-card-excerpt">ch11-llvm-ir-中间代码生成 LLVM介绍 LLVM官网：The LLVM Compiler Infrastructure Project 与gcc相比，LLVM的模块化更好 Low Level Virtual Machine：x no 获得了ACM Software System Award 2012 LLVM IR (Intermediate Representation)...</p>
+              <a href="/posts/23-compilers/ch11-llvm-ir/" class="read-more">
+                阅读全文
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+      
+        <article class="post-card" style="--card-index: 8;">
+          <div class="post-card-inner">
+            <div class="post-card-body">
+              <div class="post-card-meta">
+                <time datetime="2023-04-02T10:02:34.000Z">
+                  2023年4月2日
+                </time>
+              </div>
+              <h2 class="post-card-title">
+                <a href="/posts/23-compilers/ch10-semantics-ag/">ch10-semantics-ag</a>
+              </h2>
+              <p class="post-card-excerpt">ch10-semantics-ag 为什么需要引入新的文法 Regular Expression (词法分析)：正则表达式 Context-Free Grammar (语法分析)：正则表达式不够用，上下文无关文法 语义分析：类型检查，属性文法 (Attribute Grammar): 为上下文无关文法赋予语义  语义：类型检查、变量使用前是否定义等 ...</p>
+              <a href="/posts/23-compilers/ch10-semantics-ag/" class="read-more">
+                阅读全文
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+      
+        <article class="post-card" style="--card-index: 9;">
+          <div class="post-card-inner">
+            <div class="post-card-body">
+              <div class="post-card-meta">
+                <time datetime="2023-04-01T10:02:34.000Z">
+                  2023年4月1日
+                </time>
+              </div>
+              <h2 class="post-card-title">
+                <a href="/posts/23-compilers/ch09-语义分析-符号表/">ch09-语义分析-符号表</a>
+              </h2>
+              <p class="post-card-excerpt">ch09-语义分析-符号表 !image-20230419152824467 符号表 (Symbol Table) 符号表是用于保存各种信息的数据结构 !image-20230419152922914 第几行进行的声明和定义，在第几行被用到过 符号表实现的难点：与作用域相关 “领域特定语言” (DSL) 通常只有单作用域 (全局作用域)  DSL: Domain-Specific...</p>
+              <a href="/posts/23-compilers/ch09-语义分析-符号表/" class="read-more">
+                阅读全文
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+      
+        <article class="post-card" style="--card-index: 10;">
+          <div class="post-card-inner">
+            <div class="post-card-body">
+              <div class="post-card-meta">
+                <time datetime="2023-03-31T10:02:34.000Z">
+                  2023年3月31日
+                </time>
+              </div>
+              <h2 class="post-card-title">
+                <a href="/posts/23-compilers/ch08/">ch08-parser-allstar</a>
+              </h2>
+              <p class="post-card-excerpt">ch08-parser-allstar  ANTLR 4 自动将类似 expr 的左递归规则重写成非左递归形式   ANTLR 4 提供优秀的错误报告功能和复杂的错误恢复机制   ANTLR 4 使用了一种名为 Adaptive LL(∗) 的新技术  ANTLR 4 几乎能处理任何文法 (二义性文法✓ 间接左递归✗) ANTLR 4 如何处理直接左递归与优先级的 写在前面就是优先级...</p>
+              <a href="/posts/23-compilers/ch08/" class="read-more">
+                阅读全文
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+      
+        <article class="post-card" style="--card-index: 11;">
+          <div class="post-card-inner">
+            <div class="post-card-body">
+              <div class="post-card-meta">
+                <time datetime="2023-03-30T10:02:34.000Z">
+                  2023年3月30日
+                </time>
+              </div>
+              <h2 class="post-card-title">
+                <a href="/posts/23-compilers/ch07/">ch07- LL(1) 语法分析器</a>
+              </h2>
+              <p class="post-card-excerpt">ch07  LL(1) 语法分析器 构建语法分析树: 自顶向下 vs. 自底向上 只考虑无二义性的文法 这意味着, 每个句子对应唯一的一棵语法分析树 自顶向下的、 递归下降的、 基于预测分析表的、 适用于LL(1) 文法的、 LL(1) 语法分析器 自顶向下构建语法分析树  根节点是文法的起始符号 S   每个中间节点表示对某个非终结符应用某个产生式进行推导 (Q : 选择哪个非终结符,...</p>
+              <a href="/posts/23-compilers/ch07/" class="read-more">
+                阅读全文
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+      
+        <article class="post-card" style="--card-index: 12;">
+          <div class="post-card-inner">
+            <div class="post-card-body">
+              <div class="post-card-meta">
+                <time datetime="2023-03-29T10:02:34.000Z">
+                  2023年3月29日
+                </time>
+              </div>
+              <h2 class="post-card-title">
+                <a href="/posts/23-compilers/ch06/">ch06-Listener &amp; Visitor &amp; 上下文无关文法</a>
+              </h2>
+              <p class="post-card-excerpt">ch06 2023.3.29 监听器模式 时机问题：监听enter还是exit CallGraphListener.java java public class CallGraphListener extends CymbolBaseListener {   private Graph graph = new Graph();   String currentFunctionName =...</p>
+              <a href="/posts/23-compilers/ch06/" class="read-more">
+                阅读全文
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+              </a>
+            </div>
+          </div>
+        </article>
+      
+    </div>
+  </main>
+</div>
+
+
+  <footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <span class="footer-logo">ASIMOV&#39;S Blog</span>
+        <p class="footer-desc">ASIMOV的老巢</p>
+        <div class="footer-social">
+          
+            <a href="https://github.com/chendingya" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+          
+          
+            <a href="https://twitter.com/yourname" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          
+          
+            <a href="mailto:your@email.com" class="social-link" aria-label="Email">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </a>
+          
+          
+            <a href="/feed.xml" class="social-link" aria-label="RSS">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20C5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1z"/></svg>
+            </a>
+          
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">导航</h4>
+        <ul class="footer-links">
+          
+            <li><a href="/">首页</a></li>
+          
+            <li><a href="/archive/">归档</a></li>
+          
+            <li><a href="/tags/">标签</a></li>
+          
+            <li><a href="/categories/">分类</a></li>
+          
+            <li><a href="/comments/">留言</a></li>
+          
+            <li><a href="/projects/">项目</a></li>
+          
+          <li><a href="/archive/">归档</a></li>
+          <li><a href="/tags/">标签</a></li>
+          <li><a href="/categories/">分类</a></li>
+        </ul>
+      </div>
+
+      
+      <div class="footer-col">
+        <h4 class="footer-heading">友链</h4>
+        <ul class="footer-links">
+          
+            <li><a href="https://example.com" target="_blank" rel="noopener noreferrer">示例友链</a></li>
+          
+        </ul>
+      </div>
+      
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 ASIMOV&#39;S Blog</p>
+      
+    </div>
+  </div>
+</footer>
+
+
+  <button class="back-to-top" aria-label="返回顶部">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+  </button>
+
+  <script src="/assets/js/main.js" defer></script>
+  <script src="/plugins/comments/comments-assets/editor.js" defer></script>
+</body>
+</html>

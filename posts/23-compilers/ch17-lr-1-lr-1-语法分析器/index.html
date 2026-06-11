@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ASIMOV的老巢">
+  <title>ch17-LR(1)-LR(1) 语法分析器 - ASIMOV&#39;S Blog</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Noto+Serif+SC:wght@400;500;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/css/style.css">
+  
+  <link rel="stylesheet" href="/assets/css/highlight.css">
+  
+
+  
+  <style>:root {
+  --font-display: 'Playfair Display', 'Noto Serif SC', Georgia, 'Times New Roman', serif;
+  --font-body: 'Public Sans', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'Fira Code', 'Cascadia Code', 'JetBrains Mono', monospace;
+  --bg-cream: #FEFAF6;
+  --bg-cream-alpha: rgba(254,250,246,0.85);
+  --bg-surface: #FFFFFF;
+  --bg-warm: #FDF5EB;
+  --text-primary: #2C1810;
+  --text-secondary: #8B7355;
+  --text-muted: #C4A882;
+  --text-on-accent: #FFFFFF;
+  --border: #E8D5C4;
+  --border-light: #F0E3D5;
+  --shadow-sm: 0 1px 2px rgba(44,24,16,0.04);
+  --shadow-md: 0 4px 12px rgba(44,24,16,0.06);
+  --shadow-lg: 0 12px 32px rgba(44,24,16,0.08);
+  --code-bg: #1E1E1E;
+  --code-text: #E0E0E0;
+  --brand: var(--accent-coral);
+  --brand-hover: #FF5252;
+  --brand-alpha: rgba(255,107,107,0.08);
+  --brand-alpha-heavy: rgba(255,107,107,0.15);
+  --selection-bg: rgba(255,107,107,0.2);
+  --accent-coral: #FF6B6B;
+  --accent-coral-hover: #FF5252;
+  --accent-amber: #F4A261;
+  --accent-mint: #90BE6D;
+  --accent-lavender: #9B72AA;
+  --accent-sky: #4ECDC4;
+  --accent-sun: #F9C74F;
+  --accent-rose: #FF6B8A;
+  --accent-blue: #577590;
+  --max-width: 1200px;
+  --content-width: 720px;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 5rem;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+}
+
+[data-theme="dark"] {
+  --bg-cream: #1A1614;
+  --bg-cream-alpha: rgba(26,22,20,0.85);
+  --bg-surface: #2C2420;
+  --bg-warm: #241E1A;
+  --text-primary: #E8D5C4;
+  --text-secondary: #B8A088;
+  --text-muted: #8B7355;
+  --text-on-accent: #FFFFFF;
+  --border: #3D3028;
+  --border-light: #332A22;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.25);
+  --shadow-lg: 0 12px 32px rgba(0,0,0,0.3);
+  --code-bg: #111111;
+  --code-text: #E0E0E0;
+  --brand: var(--accent-coral);
+  --brand-hover: #FF8A8A;
+  --brand-alpha: rgba(255,107,107,0.12);
+  --brand-alpha-heavy: rgba(255,107,107,0.2);
+  --selection-bg: rgba(255,107,107,0.2);
+}</style>
+  
+
+  <link rel="stylesheet" href="/plugins/comments/comments-assets/style.css">
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23FF6B6B'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='20' fill='white'>A</text></svg>">
+
+  
+  <link rel="alternate" type="application/rss+xml" title="ASIMOV&#39;S Blog" href="/feed.xml">
+  
+
+  <meta property="og:title" content="ch17-LR(1)-LR(1) 语法分析器">
+  <meta property="og:description" content="ASIMOV的老巢">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://chendingya.github.io//posts/23-compilers/ch17-lr-1-lr-1-语法分析器/">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ch17-LR(1)-LR(1) 语法分析器">
+  <meta name="twitter:description" content="ASIMOV的老巢">
+  
+</head>
+<body class="post-page">
+  <div class="reading-progress"></div>
+
+  <header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="/" class="site-brand">
+        
+          <span class="brand-title">ASIMOV&#39;S Blog</span>
+        
+      </a>
+
+      <nav class="site-nav" data-target="main-nav">
+        <ul class="nav-list">
+          
+            <li class="nav-item">
+              <a href="/" class="nav-link">首页</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/archive/" class="nav-link">归档</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/tags/" class="nav-link">标签</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/categories/" class="nav-link">分类</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/comments/" class="nav-link">留言</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/projects/" class="nav-link">项目</a>
+            </li>
+          
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" data-action="toggle-theme" aria-label="切换暗色模式">
+          <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+
+        <button class="icon-btn menu-btn" data-action="toggle-menu" aria-label="菜单">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  <div class="container">
+  <main class="main-content">
+    <article class="post-article">
+      <header class="post-header">
+        
+          <div class="post-header-cats">
+            
+              <a href="/categories/编译原理/" class="meta-cat accent">编译原理</a>
+            
+          </div>
+        
+        <h1 class="post-title">ch17-LR(1)-LR(1) 语法分析器</h1>
+        <div class="post-meta">
+          <time datetime="2023-04-09T10:02:34.000Z">
+            2023年4月9日
+          </time>
+          
+            <span class="meta-divider">&middot;</span>
+            <span class="post-author">ASIMOV</span>
+          
+        </div>
+        
+          <div class="post-header-tags">
+            
+              <a href="/tags/编译原理/" class="tag">编译原理</a>
+            
+          </div>
+        
+      </header>
+
+      
+        <details class="toc-wrap">
+          <summary class="toc-title">目录</summary>
+          <nav class="toc-nav">
+            
+              <a href="#ch17-lr-1-lr-1-语法分析器" class="toc-link toc-level-1">ch17-LR(1)-LR(1) 语法分析器</a>
+            
+              <a href="#slr-1" class="toc-link toc-level-2">SLR(1)</a>
+            
+              <a href="#文法follow-e" class="toc-link toc-level-3">文法FOLLOW(E)</a>
+            
+              <a href="#分析表和两种冲突" class="toc-link toc-level-3">分析表和两种冲突</a>
+            
+              <a href="#非-slr-1-文法举例" class="toc-link toc-level-4">非 SLR(1) 文法举例</a>
+            
+              <a href="#lr-1" class="toc-link toc-level-2">LR(1)</a>
+            
+              <a href="#实例演示" class="toc-link toc-level-3">实例演示</a>
+            
+              <a href="#构造规则" class="toc-link toc-level-3">构造规则：</a>
+            
+              <a href="#关于冲突的证明" class="toc-link toc-level-4">关于冲突的证明</a>
+            
+          </nav>
+        </details>
+      
+
+      <div class="post-body">
+        <h1 id="ch17-lr(1)-lr(1)-%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8" tabindex="-1"><a class="header-anchor" href="#ch17-lr(1)-lr(1)-%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8">#</a> ch17-LR(1)-LR(1) 语法分析器</h1>
+<h2 id="slr(1)" tabindex="-1"><a class="header-anchor" href="#slr(1)">#</a> SLR(1)</h2>
+<h3 id="%E6%96%87%E6%B3%95follow(e)" tabindex="-1"><a class="header-anchor" href="#%E6%96%87%E6%B3%95follow(e)">#</a> 文法FOLLOW(E)</h3>
+<p><img src="/23-Compilers/ch17-LR(1)-LR(1) 语法分析器/image-20230623144436433.png" alt="" class="" loading="lazy"></p>
+<p>SLR(1) 分析表</p>
+<p><img src="/23-Compilers/ch17-LR(1)-LR(1) 语法分析器/image-20230623144505895.png" alt="" class="" loading="lazy"></p>
+<ul>
+<li>算一下FOLLOW(A)后面能跟哪些终结符，这些终结符所对应的单元格才填规约，其他的都不规约</li>
+</ul>
+<h3 id="%E5%88%86%E6%9E%90%E8%A1%A8%E5%92%8C%E4%B8%A4%E7%A7%8D%E5%86%B2%E7%AA%81" tabindex="-1"><a class="header-anchor" href="#%E5%88%86%E6%9E%90%E8%A1%A8%E5%92%8C%E4%B8%A4%E7%A7%8D%E5%86%B2%E7%AA%81">#</a> 分析表和两种冲突</h3>
+<p><img src="/23-Compilers/ch17-LR(1)-LR(1) 语法分析器/image-20230623162238320.png" alt="" class="" loading="lazy"></p>
+<h4 id="%E9%9D%9E-slr(1)-%E6%96%87%E6%B3%95%E4%B8%BE%E4%BE%8B" tabindex="-1"><a class="header-anchor" href="#%E9%9D%9E-slr(1)-%E6%96%87%E6%B3%95%E4%B8%BE%E4%BE%8B">#</a> 非 SLR(1) 文法举例</h4>
+<p>指针文法</p>
+<p><img src="/23-Compilers/ch17-LR(1)-LR(1) 语法分析器/image-20230623162311620.png" alt="" class="" loading="lazy"></p>
+<ul>
+<li>
+<p>看到=，先移入，=也属于follow®，所以也要规约，所以冲突</p>
+</li>
+<li>
+<p>即使考虑了= ∈ Follow®, 对该文法来说仍然不够</p>
+</li>
+<li>
+<p>因为, 这仅仅说明 = 可能跟在 R 后面, 是一种 “粗糙” 的估计</p>
+</li>
+</ul>
+<p><img src="/23-Compilers/ch17-LR(1)-LR(1) 语法分析器/image-20230623162747639.png" alt="" class="" loading="lazy"></p>
+<p><strong>实际上, 该文法没有以 R = · · · 开头的最右句型</strong></p>
+<p><img src="/23-Compilers/ch17-LR(1)-LR(1) 语法分析器/image-20230623163057551.png" alt="" class="" loading="lazy"></p>
+<ul>
+<li>FIRST(γ)肯定包含在FOLLOW(A)中，所以缩小了范围</li>
+</ul>
+<p><img src="/23-Compilers/ch17-LR(1)-LR(1) 语法分析器/image-20230623164005201.png" alt="" class="" loading="lazy"></p>
+<ul>
+<li>规约的时候的依据</li>
+<li>是怎么来的，follow(A)</li>
+<li>来的时候谁跟在后面，first(γ)</li>
+</ul>
+<h2 id="lr(1)" tabindex="-1"><a class="header-anchor" href="#lr(1)">#</a> LR(1)</h2>
+<p><img src="/23-Compilers/ch17-LR(1)-LR(1) 语法分析器/image-20230623164317410.png" alt="" class="" loading="lazy"></p>
+<p>核心是看a怎么计算</p>
+<p>每一个项，都要计算 , 后面的部分</p>
+<ul>
+<li>求闭包closure</li>
+<li>从一个状态goto到另一个状态</li>
+</ul>
+<p><img src="/23-Compilers/ch17-LR(1)-LR(1) 语法分析器/image-20230623164938536.png" alt="" class="" loading="lazy"></p>
+<ul>
+<li>β有可能是空，所以FIRST(βa) != FIRST(a)</li>
+<li>这是唯一区别</li>
+</ul>
+<p><img src="/23-Compilers/ch17-LR(1)-LR(1) 语法分析器/image-20230623165244815.png" alt="" class="" loading="lazy"></p>
+<p><img src="/23-Compilers/ch17-LR(1)-LR(1) 语法分析器/image-20230623165301238.png" alt="" class="" loading="lazy"></p>
+<ul>
+<li>增广的文法，期望输入以S开头，$结束</li>
+</ul>
+<h3 id="%E5%AE%9E%E4%BE%8B%E6%BC%94%E7%A4%BA" tabindex="-1"><a class="header-anchor" href="#%E5%AE%9E%E4%BE%8B%E6%BC%94%E7%A4%BA">#</a> 实例演示</h3>
+<p><img src="/23-Compilers/ch17-LR(1)-LR(1) 语法分析器/image-20230623165522966.png" alt="" class="" loading="lazy"></p>
+<ul>
+<li>先算FIRST和FOLLOW</li>
+</ul>
+<h3 id="%E6%9E%84%E9%80%A0%E8%A7%84%E5%88%99%EF%BC%9A" tabindex="-1"><a class="header-anchor" href="#%E6%9E%84%E9%80%A0%E8%A7%84%E5%88%99%EF%BC%9A">#</a> 构造规则：</h3>
+<p><img src="/23-Compilers/ch17-LR(1)-LR(1) 语法分析器/image-20230623165538722.png" alt="" class="" loading="lazy"></p>
+<ul>
+<li>可能的句柄能不能规约只看是不是a，只在a这个位置上规约他</li>
+<li>a可能是集合，比如之前例子里的c/d，那么只在c和d那两个终结符的单元格里规约他</li>
+</ul>
+<p>Definition (LR(1) 文法)</p>
+<p>如果文法 G 的LR(1) 分析表是无冲突的, 则 G 是 LR(1) 文法</p>
+<p><img src="/23-Compilers/ch17-LR(1)-LR(1) 语法分析器/image-20230623171716722.png" alt="" class="" loading="lazy"></p>
+<p>对应的正则表达式：L(G) = c ∗ dc∗ d</p>
+<p>输入ccdcd$过程：</p>
+<ul>
+<li>移入0$</li>
+<li>移入c3</li>
+<li>移入c3</li>
+<li>看到d，d4</li>
+<li>看到c，弹出d，状态3，加入C，状态8</li>
+<li>看到c，规约，弹出c，C，状态0，压入C，状态2</li>
+<li>看到c，状态6</li>
+<li>看到d，状态7</li>
+<li>看到$，弹出d，状态6，移入C，状态9</li>
+<li>看到$，弹出C，c，状态,2，移入C，状态5</li>
+<li>看到$，弹出CC，状态0，移入S，状态1</li>
+<li></li>
+</ul>
+<p><img src="/23-Compilers/ch17-LR(1)-LR(1) 语法分析器/image-20230623171816213.png" alt="" class="" loading="lazy"></p>
+<p>LR(1) 虽然强大, 但是生成的 LR(1) <strong>分析表可能过大</strong>, 状态过多</p>
+<p>LALR(1) : 合并具有相同核心 LR(0)项的状态 (忽略不同的向前看符号)</p>
+<ul>
+<li>
+<p>但是合并完并不是完全的LR(0)，比如例子里的0125状态都比LR(0)有更多的信息</p>
+</li>
+<li>
+<p>36状态合并，出边都是相同的C,c,d（ LR(0)相同，决定了出边相同）</p>
+</li>
+<li>
+<p>47合并状态也是一样的，36通过d去往47，同理89状态也可以合并</p>
+</li>
+<li>
+<p><strong>合并时先选没有出边的状态</strong></p>
+</li>
+</ul>
+<p><img src="/23-Compilers/ch17-LR(1)-LR(1) 语法分析器/image-20230623172636378.png" alt="" class="" loading="lazy"></p>
+<p>LALR(1)能力比LR(1)弱，但事实上很多语言的实现都是LALR(1)</p>
+<h4 id="%E5%85%B3%E4%BA%8E%E5%86%B2%E7%AA%81%E7%9A%84%E8%AF%81%E6%98%8E" tabindex="-1"><a class="header-anchor" href="#%E5%85%B3%E4%BA%8E%E5%86%B2%E7%AA%81%E7%9A%84%E8%AF%81%E6%98%8E">#</a> 关于冲突的证明</h4>
+<p><img src="/23-Compilers/ch17-LR(1)-LR(1) 语法分析器/image-20230623172840842.png" alt="" class="" loading="lazy"></p>
+<ul>
+<li>不可能同时包含下面的两个状态，因为A表示规约，B表示移入</li>
+<li>还有一段没听懂（</li>
+</ul>
+<p><img src="/23-Compilers/ch17-LR(1)-LR(1) 语法分析器/image-20230623173217112.png" alt="" class="" loading="lazy"></p>
+<p><img src="/23-Compilers/ch17-LR(1)-LR(1) 语法分析器/image-20230623173404935.png" alt="" class="" loading="lazy"></p>
+<p>Q: 但是你却通过 LR(1) 自动机构造 LALR(1) 项集族?</p>
+<p>第 4.7.5 节 (本科教学版): 高效构造 LALR(1) 语法分析表的方法</p>
+<p><img src="/23-Compilers/ch17-LR(1)-LR(1) 语法分析器/image-20230623175153629.png" alt="" class="" loading="lazy"></p>
+<p>与直觉上认知矛盾</p>
+<p><img src="/23-Compilers/ch17-LR(1)-LR(1) 语法分析器/image-20230623195442549.png" alt="" class="" loading="lazy"></p>
+<p><img src="/23-Compilers/ch17-LR(1)-LR(1) 语法分析器/image-20230623195453068.png" alt="" class="" loading="lazy"></p>
+<p><img src="/23-Compilers/ch17-LR(1)-LR(1) 语法分析器/image-20230623195500871.png" alt="" class="" loading="lazy"></p>
+<p><img src="/23-Compilers/ch17-LR(1)-LR(1) 语法分析器/image-20230623195510420.png" alt="" class="" loading="lazy"></p>
+
+      </div>
+
+      <footer class="post-footer">
+        <div class="post-nav">
+          <a href="/" class="post-nav-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            返回首页
+          </a>
+        </div>
+      </footer>
+    </article>
+  </main>
+</div>
+
+
+  <footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <span class="footer-logo">ASIMOV&#39;S Blog</span>
+        <p class="footer-desc">ASIMOV的老巢</p>
+        <div class="footer-social">
+          
+            <a href="https://github.com/chendingya" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+          
+          
+            <a href="https://twitter.com/yourname" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          
+          
+            <a href="mailto:your@email.com" class="social-link" aria-label="Email">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </a>
+          
+          
+            <a href="/feed.xml" class="social-link" aria-label="RSS">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20C5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1z"/></svg>
+            </a>
+          
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">导航</h4>
+        <ul class="footer-links">
+          
+            <li><a href="/">首页</a></li>
+          
+            <li><a href="/archive/">归档</a></li>
+          
+            <li><a href="/tags/">标签</a></li>
+          
+            <li><a href="/categories/">分类</a></li>
+          
+            <li><a href="/comments/">留言</a></li>
+          
+            <li><a href="/projects/">项目</a></li>
+          
+          <li><a href="/archive/">归档</a></li>
+          <li><a href="/tags/">标签</a></li>
+          <li><a href="/categories/">分类</a></li>
+        </ul>
+      </div>
+
+      
+      <div class="footer-col">
+        <h4 class="footer-heading">友链</h4>
+        <ul class="footer-links">
+          
+            <li><a href="https://example.com" target="_blank" rel="noopener noreferrer">示例友链</a></li>
+          
+        </ul>
+      </div>
+      
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 ASIMOV&#39;S Blog</p>
+      
+    </div>
+  </div>
+</footer>
+
+
+  <button class="back-to-top" aria-label="返回顶部">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+  </button>
+
+  <script src="/assets/js/main.js" defer></script>
+  <script src="/plugins/comments/comments-assets/editor.js" defer></script>
+</body>
+</html>

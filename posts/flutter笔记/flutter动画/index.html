@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ASIMOV的老巢">
+  <title>Flutter动画简介 - ASIMOV&#39;S Blog</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Noto+Serif+SC:wght@400;500;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/css/style.css">
+  
+  <link rel="stylesheet" href="/assets/css/highlight.css">
+  
+
+  
+  <style>:root {
+  --font-display: 'Playfair Display', 'Noto Serif SC', Georgia, 'Times New Roman', serif;
+  --font-body: 'Public Sans', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'Fira Code', 'Cascadia Code', 'JetBrains Mono', monospace;
+  --bg-cream: #FEFAF6;
+  --bg-cream-alpha: rgba(254,250,246,0.85);
+  --bg-surface: #FFFFFF;
+  --bg-warm: #FDF5EB;
+  --text-primary: #2C1810;
+  --text-secondary: #8B7355;
+  --text-muted: #C4A882;
+  --text-on-accent: #FFFFFF;
+  --border: #E8D5C4;
+  --border-light: #F0E3D5;
+  --shadow-sm: 0 1px 2px rgba(44,24,16,0.04);
+  --shadow-md: 0 4px 12px rgba(44,24,16,0.06);
+  --shadow-lg: 0 12px 32px rgba(44,24,16,0.08);
+  --code-bg: #1E1E1E;
+  --code-text: #E0E0E0;
+  --brand: var(--accent-coral);
+  --brand-hover: #FF5252;
+  --brand-alpha: rgba(255,107,107,0.08);
+  --brand-alpha-heavy: rgba(255,107,107,0.15);
+  --selection-bg: rgba(255,107,107,0.2);
+  --accent-coral: #FF6B6B;
+  --accent-coral-hover: #FF5252;
+  --accent-amber: #F4A261;
+  --accent-mint: #90BE6D;
+  --accent-lavender: #9B72AA;
+  --accent-sky: #4ECDC4;
+  --accent-sun: #F9C74F;
+  --accent-rose: #FF6B8A;
+  --accent-blue: #577590;
+  --max-width: 1200px;
+  --content-width: 720px;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 5rem;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+}
+
+[data-theme="dark"] {
+  --bg-cream: #1A1614;
+  --bg-cream-alpha: rgba(26,22,20,0.85);
+  --bg-surface: #2C2420;
+  --bg-warm: #241E1A;
+  --text-primary: #E8D5C4;
+  --text-secondary: #B8A088;
+  --text-muted: #8B7355;
+  --text-on-accent: #FFFFFF;
+  --border: #3D3028;
+  --border-light: #332A22;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.25);
+  --shadow-lg: 0 12px 32px rgba(0,0,0,0.3);
+  --code-bg: #111111;
+  --code-text: #E0E0E0;
+  --brand: var(--accent-coral);
+  --brand-hover: #FF8A8A;
+  --brand-alpha: rgba(255,107,107,0.12);
+  --brand-alpha-heavy: rgba(255,107,107,0.2);
+  --selection-bg: rgba(255,107,107,0.2);
+}</style>
+  
+
+  <link rel="stylesheet" href="/plugins/comments/comments-assets/style.css">
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23FF6B6B'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='20' fill='white'>A</text></svg>">
+
+  
+  <link rel="alternate" type="application/rss+xml" title="ASIMOV&#39;S Blog" href="/feed.xml">
+  
+
+  <meta property="og:title" content="Flutter动画简介">
+  <meta property="og:description" content="ASIMOV的老巢">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://chendingya.github.io//posts/flutter笔记/flutter动画/">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Flutter动画简介">
+  <meta name="twitter:description" content="ASIMOV的老巢">
+  
+</head>
+<body class="post-page">
+  <div class="reading-progress"></div>
+
+  <header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="/" class="site-brand">
+        
+          <span class="brand-title">ASIMOV&#39;S Blog</span>
+        
+      </a>
+
+      <nav class="site-nav" data-target="main-nav">
+        <ul class="nav-list">
+          
+            <li class="nav-item">
+              <a href="/" class="nav-link">首页</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/archive/" class="nav-link">归档</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/tags/" class="nav-link">标签</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/categories/" class="nav-link">分类</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/comments/" class="nav-link">留言</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/projects/" class="nav-link">项目</a>
+            </li>
+          
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" data-action="toggle-theme" aria-label="切换暗色模式">
+          <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+
+        <button class="icon-btn menu-btn" data-action="toggle-menu" aria-label="菜单">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  <div class="container">
+  <main class="main-content">
+    <article class="post-article">
+      <header class="post-header">
+        
+          <div class="post-header-cats">
+            
+              <a href="/categories/Flutter/" class="meta-cat accent">Flutter</a>
+            
+          </div>
+        
+        <h1 class="post-title">Flutter动画简介</h1>
+        <div class="post-meta">
+          <time datetime="2024-06-28T18:32:34.000Z">
+            2024年6月28日
+          </time>
+          
+            <span class="meta-divider">&middot;</span>
+            <span class="post-author">ASIMOV</span>
+          
+        </div>
+        
+          <div class="post-header-tags">
+            
+              <a href="/tags/Flutter/" class="tag">Flutter</a>
+            
+              <a href="/tags/Dart/" class="tag">Dart</a>
+            
+          </div>
+        
+      </header>
+
+      
+        <details class="toc-wrap">
+          <summary class="toc-title">目录</summary>
+          <nav class="toc-nav">
+            
+              <a href="#flutter动画简介" class="toc-link toc-level-1">Flutter动画简介</a>
+            
+              <a href="#flutter中动画抽象" class="toc-link toc-level-2">Flutter中动画抽象</a>
+            
+              <a href="#animation" class="toc-link toc-level-3">Animation</a>
+            
+              <a href="#动画通知" class="toc-link toc-level-4">动画通知</a>
+            
+              <a href="#curve" class="toc-link toc-level-3">Curve</a>
+            
+              <a href="#animationcontroller" class="toc-link toc-level-3">AnimationController</a>
+            
+              <a href="#ticker" class="toc-link toc-level-4">Ticker</a>
+            
+              <a href="#tween" class="toc-link toc-level-3">Tween</a>
+            
+              <a href="#1-简介" class="toc-link toc-level-4">1）简介</a>
+            
+              <a href="#tween-animate" class="toc-link toc-level-4">Tween.animate</a>
+            
+              <a href="#线性插值lerp函数" class="toc-link toc-level-2">线性插值lerp函数</a>
+            
+              <a href="#动画基本结构及状态监听" class="toc-link toc-level-1">动画基本结构及状态监听</a>
+            
+              <a href="#动画基本结构" class="toc-link toc-level-2">动画基本结构</a>
+            
+              <a href="#基础版本" class="toc-link toc-level-3">基础版本</a>
+            
+              <a href="#使用animatedwidget简化" class="toc-link toc-level-3">使用AnimatedWidget简化</a>
+            
+              <a href="#用animatedbuilder重构" class="toc-link toc-level-3">用AnimatedBuilder重构</a>
+            
+              <a href="#动画状态监听" class="toc-link toc-level-2">动画状态监听</a>
+            
+              <a href="#示例" class="toc-link toc-level-4">示例</a>
+            
+          </nav>
+        </details>
+      
+
+      <div class="post-body">
+        <h1 id="flutter%E5%8A%A8%E7%94%BB%E7%AE%80%E4%BB%8B" tabindex="-1"><a class="header-anchor" href="#flutter%E5%8A%A8%E7%94%BB%E7%AE%80%E4%BB%8B">#</a> Flutter动画简介</h1>
+<h2 id="flutter%E4%B8%AD%E5%8A%A8%E7%94%BB%E6%8A%BD%E8%B1%A1" tabindex="-1"><a class="header-anchor" href="#flutter%E4%B8%AD%E5%8A%A8%E7%94%BB%E6%8A%BD%E8%B1%A1">#</a> Flutter中动画抽象</h2>
+<h3 id="animation" tabindex="-1"><a class="header-anchor" href="#animation">#</a> Animation</h3>
+<p><code>Animation</code>是一个抽象类，它本身和UI渲染没有任何关系，而它主要的功能是保存动画的插值和状态；</p>
+<p>其中一个比较常用的<code>Animation</code>类是<code>Animation&lt;double&gt;</code>。</p>
+<p><code>Animation</code>对象是一个在一段时间内依次生成一个区间(Tween)之间值的类。</p>
+<p><code>Animation</code>对象在整个动画执行过程中输出的值可以是线性的、曲线的、一个步进函数或者任何其他曲线函数等等，这由<code>Curve</code>来决定。</p>
+<p>根据<code>Animation</code>对象的控制方式，动画可以正向运行（从起始状态开始，到终止状态结束），也可以反向运行，甚至可以在中间切换方向。</p>
+<p><code>Animation</code>还可以生成除<code>double</code>之外的其他类型值，如：<code>Animation&lt;Color&gt;</code> 或<code>Animation&lt;Size&gt;</code>。在动画的每一帧中，我们可以通过<code>Animation</code>对象的<code>value</code>属性获取动画的当前状态值。</p>
+<h4 id="%E5%8A%A8%E7%94%BB%E9%80%9A%E7%9F%A5" tabindex="-1"><a class="header-anchor" href="#%E5%8A%A8%E7%94%BB%E9%80%9A%E7%9F%A5">#</a> 动画通知</h4>
+<p>可以通过<code>Animation</code>来监听动画每一帧以及执行状态的变化，<code>Animation</code>有如下两个方法：</p>
+<ol>
+<li><code>addListener()</code>；它可以用于给<code>Animation</code>添加<strong>帧监听器</strong>，<strong>在每一帧都会被调用</strong>。帧监听器中最常见的行为是<strong>改变状态后调用<code>setState()</code>来触发UI重建</strong>。</li>
+<li><code>addStatusListener()</code>；它可以给<code>Animation</code>添加“动画状态改变”监听器；<strong>动画开始、结束、正向或反向（见<code>AnimationStatus</code>定义）时会调用状态改变的监听器</strong>。</li>
+</ol>
+<h3 id="curve" tabindex="-1"><a class="header-anchor" href="#curve">#</a> Curve</h3>
+<p>动画过程可以是匀速的、匀加速的或者先加速后减速等。</p>
+<p>Flutter中通过<code>Curve</code>（曲线）来描述动画过程</p>
+<p>我们把匀速动画称为线性的(Curves.linear)，而非匀速动画称为非线性的。</p>
+<p>我们可以通过<code>CurvedAnimation</code>来指定动画的曲线，如：</p>
+<pre><code class="language-dart">final CurvedAnimation curve =
+    CurvedAnimation(parent: controller, curve: Curves.easeIn);
+</code></pre>
+<p><code>CurvedAnimation</code>和<code>AnimationController</code>都是<code>Animation&lt;double&gt;</code>类型。</p>
+<p><code>CurvedAnimation</code>可以通过包装<code>AnimationController</code>和<code>Curve</code>生成一个新的动画对象 ，我们正是通过这种方式来将动画和动画执行的曲线关联起来的。</p>
+<p>我们指定动画的曲线为<code>Curves.easeIn</code>，它表示动画开始时比较慢，结束时比较快。</p>
+<p><a href="https://docs.flutter.io/flutter/animation/Curves-class.html">Curves (opens new window)</a>类是一个预置的枚举类，定义了许多常用的曲线，下面列几种常用的：</p>
+<table>
+<thead>
+<tr>
+<th>Curves曲线</th>
+<th>动画过程</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>linear</td>
+<td>匀速的</td>
+</tr>
+<tr>
+<td>decelerate</td>
+<td>匀减速</td>
+</tr>
+<tr>
+<td>ease</td>
+<td>开始加速，后面减速</td>
+</tr>
+<tr>
+<td>easeIn</td>
+<td>开始慢，后面快</td>
+</tr>
+<tr>
+<td>easeOut</td>
+<td>开始快，后面慢</td>
+</tr>
+<tr>
+<td>easeInOut</td>
+<td>开始慢，然后加速，最后再减速</td>
+</tr>
+</tbody>
+</table>
+<p>除了上面列举的， <a href="https://docs.flutter.io/flutter/animation/Curves-class.html">Curves (opens new window)</a>类中还定义了许多其他的曲线，</p>
+<p>当然我们也可以创建自己Curve，例如我们定义一个正弦曲线：</p>
+<pre><code class="language-dart">class ShakeCurve extends Curve {
+  @override
+  double transform(double t) {
+    return math.sin(t * math.PI * 2);
+  }
+}
+</code></pre>
+<h3 id="animationcontroller" tabindex="-1"><a class="header-anchor" href="#animationcontroller">#</a> AnimationController</h3>
+<p><code>AnimationController</code>用于控制动画，它包含动画的启动<code>forward()</code>、停止<code>stop()</code> 、反向播放 <code>reverse()</code>等方法。</p>
+<p><code>AnimationController</code><strong>会在动画的每一帧，就会生成一个新的值。</strong></p>
+<p><strong>默认情况下，<code>AnimationController</code>在给定的时间段内线性的生成从 0.0 到1.0（默认区间）的数字。</strong></p>
+<p>例如，下面代码创建一个<code>Animation</code>对象（但不会启动动画）：</p>
+<pre><code class="language-dart">final AnimationController controller = AnimationController(
+  duration: const Duration(milliseconds: 2000),
+  vsync: this,
+);
+</code></pre>
+<p><code>AnimationController</code>生成数字的区间可以通过<code>lowerBound</code>和<code>upperBound</code>来指定，如：</p>
+<pre><code class="language-dart">final AnimationController controller = AnimationController( 
+ duration: const Duration(milliseconds: 2000), 
+ lowerBound: 10.0,
+ upperBound: 20.0,
+ vsync: this
+);
+</code></pre>
+<p><code>AnimationController</code>派生自<code>Animation&lt;double&gt;</code>，因此可以在需要<code>Animation</code>对象的任何地方使用。</p>
+<p>但是，<code>AnimationController</code>具有控制动画的其他方法，例如<code>forward()</code>方法可以启动正向动画，<code>reverse()</code>可以启动反向动画。</p>
+<p>在动画开始执行后开始生成动画帧，屏幕每刷新一次就是一个动画帧，<strong>在动画的每一帧，会随着根据动画的曲线来生成当前的动画值（<code>Animation.value</code></strong>），然后根据当前的动画值去构建UI，当所有动画帧依次触发时，动画值会依次改变，所以构建的UI也会依次变化，所以最终我们可以看到一个完成的动画。</p>
+<p><strong>另外在动画的每一帧，<code>Animation</code>对象会调用其帧监听器，等动画状态发生改变时（如动画结束）会调用状态改变监听器。</strong></p>
+<p><code>duration</code>表示动画执行的时长，通过它我们可以控制动画的速度。</p>
+<blockquote>
+<p><strong>注意</strong>： 在某些情况下，动画值可能会超出<code>AnimationController</code>的[0.0，1.0]的范围，这取决于具体的曲线。例如，<code>fling()</code>函数可以根据我们手指滑动（甩出）的速度(velocity)、力量(force)等来模拟一个手指甩出动画，因此它的动画值可以在[0.0，1.0]范围之外 。也就是说，根据选择的曲线，<code>CurvedAnimation</code>的输出可以具有比输入更大的范围。例如，Curves.elasticIn等弹性曲线会生成大于或小于默认范围的值。</p>
+</blockquote>
+<h4 id="ticker" tabindex="-1"><a class="header-anchor" href="#ticker">#</a> Ticker</h4>
+<p>当创建一个<code>AnimationController</code>时，需要传递一个<code>vsync</code>参数，它接收一个<code>TickerProvider</code>类型的对象，它的主要职责是创建<code>Ticker</code>，定义如下：</p>
+<pre><code class="language-dart">abstract class TickerProvider {
+  //通过一个回调创建一个Ticker
+  Ticker createTicker(TickerCallback onTick);
+}
+</code></pre>
+<p>Flutter 应用在启动时都会绑定一个<code>SchedulerBinding</code>，通过<code>SchedulerBinding</code>可以给每一次屏幕刷新添加回调，而<code>Ticker</code>就是通过<code>SchedulerBinding</code>来添加屏幕刷新回调，这样一来，每次屏幕刷新都会调用<code>TickerCallback</code>。使用<code>Ticker</code>(而不是<code>Timer</code>)来驱动动画会防止屏幕外动画（动画的UI不在当前屏幕时，如锁屏时）消耗不必要的资源，因为Flutter中屏幕刷新时会通知到绑定的<code>SchedulerBinding</code>，而<code>Ticker</code>是受<code>SchedulerBinding</code>驱动的，由于锁屏后屏幕会停止刷新，所以<code>Ticker</code>就不会再触发。</p>
+<p><strong>通常我们会将<code>SingleTickerProviderStateMixin</code>添加到<code>State</code>的定义中，然后将State对象作为<code>vsync</code>的值</strong></p>
+<h3 id="tween" tabindex="-1"><a class="header-anchor" href="#tween">#</a> Tween</h3>
+<h4 id="1%EF%BC%89%E7%AE%80%E4%BB%8B" tabindex="-1"><a class="header-anchor" href="#1%EF%BC%89%E7%AE%80%E4%BB%8B">#</a> 1）简介</h4>
+<p>默认情况下，<code>AnimationController</code>对象值的范围是[0.0，1.0]。如果我们需要构建UI的动画值在不同的范围或不同的数据类型，则可以使用<code>Tween</code>来添加映射以生成不同的范围或数据类型的值。例如，像下面示例，<code>Tween</code>生成[-200.0，0.0]的值：</p>
+<pre><code class="language-dart">final Tween doubleTween = Tween&lt;double&gt;(begin: -200.0, end: 0.0);
+</code></pre>
+<p><code>Tween</code>构造函数需要<code>begin</code>和<code>end</code>两个参数。</p>
+<p><code>Tween</code>的唯一职责就是定义从输入范围到输出范围的映射。输入范围通常为[0.0，1.0]，但这不是必须的，我们可以自定义需要的范围。</p>
+<p><code>Tween</code>继承自<code>Animatable&lt;T&gt;</code>，而不是继承自<code>Animation&lt;T&gt;</code>，<code>Animatable</code>中主要定义动画值的映射规则。</p>
+<p>下面我们看一个ColorTween将动画输入范围映射为两种颜色值之间过渡输出的例子：</p>
+<pre><code class="language-dart">final Tween colorTween =
+    ColorTween(begin: Colors.transparent, end: Colors.black54);
+</code></pre>
+<p><code>Tween</code>对象不存储任何状态，相反，它提供了<code>evaluate(Animation&lt;double&gt; animation)</code>方法，它可以获取动画当前映射值。 <code>Animation</code>对象的当前值可以通过<code>value()</code>方法取到。<code>evaluate</code>函数还执行一些其他处理，例如分别确保在动画值为0.0和1.0时返回开始和结束状态。</p>
+<h4 id="tween.animate" tabindex="-1"><a class="header-anchor" href="#tween.animate">#</a> Tween.animate</h4>
+<p>要使用 Tween 对象，需要调用其<code>animate()</code>方法，然后传入一个控制器对象。例如，以下代码在 500 毫秒内生成从 0 到 255 的整数值。</p>
+<pre><code class="language-dart">final AnimationController controller = AnimationController(
+  duration: const Duration(milliseconds: 500), 
+  vsync: this,
+);
+Animation&lt;int&gt; alpha = IntTween(begin: 0, end: 255).animate(controller);
+</code></pre>
+<p>注意<code>animate()</code>返回的是一个<code>Animation</code>，而不是一个<code>Animatable</code>。</p>
+<p>以下示例构建了一个控制器、一条曲线和一个 Tween：</p>
+<pre><code class="language-dart">final AnimationController controller = AnimationController(
+  duration: const Duration(milliseconds: 500), 
+  vsync: this,
+);
+final Animation curve = CurvedAnimation(parent: controller, curve: Curves.easeOut);
+Animation&lt;int&gt; alpha = IntTween(begin: 0, end: 255).animate(curve);
+</code></pre>
+<h2 id="%E7%BA%BF%E6%80%A7%E6%8F%92%E5%80%BClerp%E5%87%BD%E6%95%B0" tabindex="-1"><a class="header-anchor" href="#%E7%BA%BF%E6%80%A7%E6%8F%92%E5%80%BClerp%E5%87%BD%E6%95%B0">#</a> 线性插值lerp函数</h2>
+<p>动画的原理其实就是每一帧绘制不同的内容，一般都是指定起始和结束状态，然后在一段时间内从起始状态逐渐变为结束状态，而具体某一帧的状态值会根据动画的进度来算出，因此，Flutter 中给有可能会做动画的一些状态属性都定义了静态的 lerp 方法（线性插值），比如：</p>
+<pre><code class="language-dart">//a 为起始颜色，b为终止颜色，t为当前动画的进度[0,1]
+Color.lerp(a, b, t);
+</code></pre>
+<p>lerp 的计算一般遵循： 返回值 = a + (b - a) * t，其他拥有 lerp 方法的类：</p>
+<pre><code class="language-dart">// Size.lerp(a, b, t)
+// Rect.lerp(a, b, t)
+// Offset.lerp(a, b, t)
+// Decoration.lerp(a, b, t)
+// Tween.lerp(t) //起始状态和终止状态在构建 Tween 的时候已经指定了
+...
+</code></pre>
+<p>需要注意，lerp 是<strong>线性</strong>插值，意思是返回值和动画进度t是成<strong>一次函数</strong>（y = kx + b）关系，因为一次函数的图像是一条直线，所以叫线性插值。如果我们想让动画按照一个曲线来执行，我们可以对 t 进行映射，比如要实现匀加速效果，则 t’ = at²+bt+c，然后指定加速度 a 和 b 即可（大多数情况下需保证 t’ 的取值范围在[0,1]，当然也有一些情况可能会超出该取值范围，比如弹簧（bounce）效果），而不同 Curve 可以按照不同曲线执行动画的原理本质上就是对 t 按照不同映射公式进行映射实现的。</p>
+<h1 id="%E5%8A%A8%E7%94%BB%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84%E5%8F%8A%E7%8A%B6%E6%80%81%E7%9B%91%E5%90%AC" tabindex="-1"><a class="header-anchor" href="#%E5%8A%A8%E7%94%BB%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84%E5%8F%8A%E7%8A%B6%E6%80%81%E7%9B%91%E5%90%AC">#</a> 动画基本结构及状态监听</h1>
+<h2 id="%E5%8A%A8%E7%94%BB%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84" tabindex="-1"><a class="header-anchor" href="#%E5%8A%A8%E7%94%BB%E5%9F%BA%E6%9C%AC%E7%BB%93%E6%9E%84">#</a> 动画基本结构</h2>
+<p>在Flutter中我们可以通过多种方式来实现动画，下面通过一个图片逐渐放大示例的不同实现来演示Flutter中动画的不同实现方式的区别。</p>
+<h3 id="%E5%9F%BA%E7%A1%80%E7%89%88%E6%9C%AC" tabindex="-1"><a class="header-anchor" href="#%E5%9F%BA%E7%A1%80%E7%89%88%E6%9C%AC">#</a> 基础版本</h3>
+<p>下面我们演示一下最基础的动画实现方式：</p>
+<pre><code class="language-dart">class ScaleAnimationRoute extends StatefulWidget {
+  const ScaleAnimationRoute({Key? key}) : super(key: key);
+  
+  @override
+  _ScaleAnimationRouteState createState() =&gt; _ScaleAnimationRouteState();
+}
+
+//需要继承TickerProvider，如果有多个AnimationController，则应该使用TickerProviderStateMixin。
+class _ScaleAnimationRouteState extends State&lt;ScaleAnimationRoute&gt;
+    with SingleTickerProviderStateMixin {
+  late Animation&lt;double&gt; animation;
+  late AnimationController controller;
+  
+  @override
+  initState() {
+    super.initState();
+    controller = AnimationController(
+      duration: const Duration(seconds: 2),
+      vsync: this,
+    );
+
+    //匀速
+    //图片宽高从0变到300
+    animation = Tween(begin: 0.0, end: 300.0).animate(controller)
+      ..addListener(() {
+        setState(() =&gt; {});
+      });
+
+    //启动动画(正向执行)
+    controller.forward();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: Image.asset(
+        &quot;imgs/avatar.png&quot;,
+        width: animation.value,
+        height: animation.value,
+      ),
+    );
+  }
+  
+  @override
+  dispose() {
+    //路由销毁时需要释放动画资源
+    controller.dispose();
+    super.dispose();
+  }
+}
+</code></pre>
+<p><strong>上面代码中<code>addListener()</code>函数调用了<code>setState()</code>，所以每次动画生成一个新的数字时，当前帧被标记为脏(dirty)，这会导致widget的<code>build()</code>方法再次被调用</strong></p>
+<p><strong>而在<code>build()</code>中，改变Image的宽高，因为它的高度和宽度现在使用的是<code>animation.value</code> ，所以就会逐渐放大。</strong></p>
+<p><strong>值得注意的是动画完成时要释放控制器(调用<code>dispose()</code>方法)以防止内存泄漏。</strong></p>
+<p>上面的例子中并没有指定Curve，所以放大的过程是线性的（匀速），下面我们指定一个Curve，来实现一个类似于弹簧效果的动画过程，我们只需要将<code>initState</code>中的代码改为下面这样即可：</p>
+<pre><code class="language-dart">@override
+initState() {
+    super.initState();
+    controller = AnimationController(
+        duration: const Duration(seconds: 3), vsync: this);
+    //使用弹性曲线
+    animation=CurvedAnimation(parent: controller, curve: Curves.bounceIn);
+    //图片宽高从0变到300
+    animation = Tween(begin: 0.0, end: 300.0).animate(animation)
+      ..addListener(() {
+        setState(() =&gt; {});
+      });
+    //启动动画
+    controller.forward();
+  }
+</code></pre>
+<p>运行后效果如图9-1所示：</p>
+<p><img src="https://book.flutterchina.club/assets/img/9-1.e020a06d.gif" alt="" class="" loading="lazy"></p>
+<h3 id="%E4%BD%BF%E7%94%A8animatedwidget%E7%AE%80%E5%8C%96" tabindex="-1"><a class="header-anchor" href="#%E4%BD%BF%E7%94%A8animatedwidget%E7%AE%80%E5%8C%96">#</a> 使用AnimatedWidget简化</h3>
+<p>上面示例中通过<code>addListener()</code>和<code>setState()</code> 来更新UI这一步其实是通用的，如果每个动画中都加这么一句是比较繁琐的。</p>
+<p><code>AnimatedWidget</code>类封装了调用<code>setState()</code>的细节，并允许我们将 widget 分离出来，重构后的代码如下：</p>
+<pre><code class="language-dart">import 'package:flutter/material.dart';
+
+class AnimatedImage extends AnimatedWidget {
+  const AnimatedImage({
+    Key? key,
+    required Animation&lt;double&gt; animation,
+  }) : super(key: key, listenable: animation);
+
+  @override
+  Widget build(BuildContext context) {
+    final animation = listenable as Animation&lt;double&gt;;
+    return  Center(
+      child: Image.asset(
+        &quot;imgs/avatar.png&quot;,
+        width: animation.value,
+        height: animation.value,
+      ),
+    );
+  }
+}
+
+class ScaleAnimationRoute1 extends StatefulWidget {
+  const ScaleAnimationRoute1({Key? key}) : super(key: key);
+
+  @override
+  _ScaleAnimationRouteState createState() =&gt;  _ScaleAnimationRouteState();
+}
+
+class _ScaleAnimationRouteState extends State&lt;ScaleAnimationRoute1&gt;
+    with SingleTickerProviderStateMixin {
+  late Animation&lt;double&gt; animation;
+  late AnimationController controller;
+
+  @override
+  initState() {
+    super.initState();
+    controller =  AnimationController(
+        duration: const Duration(seconds: 2), vsync: this);
+    //图片宽高从0变到300
+    animation =  Tween(begin: 0.0, end: 300.0).animate(controller);
+    //启动动画
+    controller.forward();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedImage(
+      animation: animation,
+    );
+  }
+
+  @override
+  dispose() {
+    //路由销毁时需要释放动画资源
+    controller.dispose();
+    super.dispose();
+  }
+}
+</code></pre>
+<h3 id="%E7%94%A8animatedbuilder%E9%87%8D%E6%9E%84" tabindex="-1"><a class="header-anchor" href="#%E7%94%A8animatedbuilder%E9%87%8D%E6%9E%84">#</a> 用AnimatedBuilder重构</h3>
+<p>用AnimatedWidget 可以从动画中分离出 widget，而动画的渲染过程（即设置宽高）仍然在AnimatedWidget 中，假设如果我们再添加一个 widget 透明度变化的动画，那么我们需要再实现一个AnimatedWidget，这样不是很优雅，如果我们能把渲染过程也抽象出来，那就会好很多，而AnimatedBuilder正是将渲染逻辑分离出来, 上面的 build 方法中的代码可以改为：</p>
+<pre><code class="language-dart">@override
+Widget build(BuildContext context) {
+  //return AnimatedImage(animation: animation,);
+    return AnimatedBuilder(
+      animation: animation,
+      child: Image.asset(&quot;imgs/avatar.png&quot;),
+      builder: (BuildContext ctx, child) {
+        return  Center(
+          child: SizedBox(
+            height: animation.value,
+            width: animation.value,
+            child: child,
+          ),
+        );
+      },
+    );
+}
+</code></pre>
+<p>上面的代码中有一个迷惑的问题是，<code>child</code>看起来像被指定了两次。</p>
+<p><strong>但实际发生的事情是：将外部引用<code>child</code>传递给<code>AnimatedBuilder</code>后，<code>AnimatedBuilder</code>再将其传递给匿名构造器， 然后将该对象用作其子对象。最终的结果是<code>AnimatedBuilder</code>返回的对象插入到 widget 树中。</strong></p>
+<p>也许你会说这和我们刚开始的示例差不了多少，其实它会带来三个好处：</p>
+<ol>
+<li>
+<p><strong>不用显式的去添加帧监听器</strong>，然后再调用<code>setState()</code> 了，这个好处和<code>AnimatedWidget</code>是一样的。</p>
+</li>
+<li>
+<p><strong>更好的性能</strong>：因为动画每一帧需要构建的 widget 的范围缩小了，如果没有<code>builder</code>，<code>setState()</code>将会在父组件上下文中调用，这将会导致父组件的<code>build</code>方法重新调用；而有了<code>builder</code>之后，只会导致动画widget自身的<code>build</code>重新调用，避免不必要的rebuild。</p>
+</li>
+<li>
+<p>通过<code>AnimatedBuilder</code>可以封装常见的过渡效果来复用动画。下面我们通过封装一个<code>GrowTransition</code>来说明，它可以对子widget实现放大动画：</p>
+<pre><code class="language-dart">class GrowTransition extends StatelessWidget {
+  const GrowTransition({Key? key,
+    required this.animation,
+    this.child,
+  }) : super(key: key);
+
+  final Widget? child;
+  final Animation&lt;double&gt; animation;
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: AnimatedBuilder(
+        animation: animation,
+        builder: (BuildContext context, child) {
+          return SizedBox(
+            height: animation.value,
+            width: animation.value,
+            child: child,
+          );
+        },
+        child: child,
+      ),
+    );
+  }
+}
+</code></pre>
+<p>这样，最初的示例就可以改为：</p>
+<pre><code class="language-dart">...
+Widget build(BuildContext context) {
+  return GrowTransition(
+    child: Image.asset(&quot;images/avatar.png&quot;), 
+    animation: animation,
+  );
+}
+</code></pre>
+<p><strong>Flutter中正是通过这种方式封装了很多动画，如：FadeTransition、ScaleTransition、SizeTransition等，很多时候都可以复用这些预置的过渡类。</strong></p>
+</li>
+</ol>
+<h2 id="%E5%8A%A8%E7%94%BB%E7%8A%B6%E6%80%81%E7%9B%91%E5%90%AC" tabindex="-1"><a class="header-anchor" href="#%E5%8A%A8%E7%94%BB%E7%8A%B6%E6%80%81%E7%9B%91%E5%90%AC">#</a> 动画状态监听</h2>
+<p>上面说过，我们可以通过<code>Animation</code>的<code>addStatusListener()</code>方法来添加动画状态改变监听器。Flutter中，有四种动画状态，在<code>AnimationStatus</code>枚举类中定义，下面我们逐个说明：</p>
+<table>
+<thead>
+<tr>
+<th>枚举值</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>dismissed</code></td>
+<td>动画在起始点停止</td>
+</tr>
+<tr>
+<td><code>forward</code></td>
+<td>动画正在正向执行</td>
+</tr>
+<tr>
+<td><code>reverse</code></td>
+<td>动画正在反向执行</td>
+</tr>
+<tr>
+<td><code>completed</code></td>
+<td>动画在终点停止</td>
+</tr>
+</tbody>
+</table>
+<h4 id="%E7%A4%BA%E4%BE%8B" tabindex="-1"><a class="header-anchor" href="#%E7%A4%BA%E4%BE%8B">#</a> 示例</h4>
+<p>我们将上面图片放大的示例改为先放大再缩小再放大……这样的循环动画。要实现这种效果，我们只需要监听动画状态的改变即可，即：在动画正向执行结束时反转动画，在动画反向执行结束时再正向执行动画。代码如下：</p>
+<pre><code class="language-dart">  initState() {
+    super.initState();
+    controller = AnimationController(
+      duration: const Duration(seconds: 1), 
+      vsync: this,
+    );
+    //图片宽高从0变到300
+    animation = Tween(begin: 0.0, end: 300.0).animate(controller);
+    animation.addStatusListener((status) {
+      if (status == AnimationStatus.completed) {
+        //动画执行结束时反向执行动画
+        controller.reverse();
+      } else if (status == AnimationStatus.dismissed) {
+        //动画恢复到初始状态时执行动画（正向）
+        controller.forward();
+      }
+    });
+
+    //启动动画（正向）
+    controller.forward();
+  }
+</code></pre>
+
+      </div>
+
+      <footer class="post-footer">
+        <div class="post-nav">
+          <a href="/" class="post-nav-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            返回首页
+          </a>
+        </div>
+      </footer>
+    </article>
+  </main>
+</div>
+
+
+  <footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <span class="footer-logo">ASIMOV&#39;S Blog</span>
+        <p class="footer-desc">ASIMOV的老巢</p>
+        <div class="footer-social">
+          
+            <a href="https://github.com/chendingya" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+          
+          
+            <a href="https://twitter.com/yourname" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          
+          
+            <a href="mailto:your@email.com" class="social-link" aria-label="Email">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </a>
+          
+          
+            <a href="/feed.xml" class="social-link" aria-label="RSS">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20C5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1z"/></svg>
+            </a>
+          
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">导航</h4>
+        <ul class="footer-links">
+          
+            <li><a href="/">首页</a></li>
+          
+            <li><a href="/archive/">归档</a></li>
+          
+            <li><a href="/tags/">标签</a></li>
+          
+            <li><a href="/categories/">分类</a></li>
+          
+            <li><a href="/comments/">留言</a></li>
+          
+            <li><a href="/projects/">项目</a></li>
+          
+          <li><a href="/archive/">归档</a></li>
+          <li><a href="/tags/">标签</a></li>
+          <li><a href="/categories/">分类</a></li>
+        </ul>
+      </div>
+
+      
+      <div class="footer-col">
+        <h4 class="footer-heading">友链</h4>
+        <ul class="footer-links">
+          
+            <li><a href="https://example.com" target="_blank" rel="noopener noreferrer">示例友链</a></li>
+          
+        </ul>
+      </div>
+      
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 ASIMOV&#39;S Blog</p>
+      
+    </div>
+  </div>
+</footer>
+
+
+  <button class="back-to-top" aria-label="返回顶部">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+  </button>
+
+  <script src="/assets/js/main.js" defer></script>
+  <script src="/plugins/comments/comments-assets/editor.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ASIMOV的老巢">
+  <title>DDD、事件风暴与企业架构 - ASIMOV&#39;S Blog</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Noto+Serif+SC:wght@400;500;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/css/style.css">
+  
+  <link rel="stylesheet" href="/assets/css/highlight.css">
+  
+
+  
+  <style>:root {
+  --font-display: 'Playfair Display', 'Noto Serif SC', Georgia, 'Times New Roman', serif;
+  --font-body: 'Public Sans', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'Fira Code', 'Cascadia Code', 'JetBrains Mono', monospace;
+  --bg-cream: #FEFAF6;
+  --bg-cream-alpha: rgba(254,250,246,0.85);
+  --bg-surface: #FFFFFF;
+  --bg-warm: #FDF5EB;
+  --text-primary: #2C1810;
+  --text-secondary: #8B7355;
+  --text-muted: #C4A882;
+  --text-on-accent: #FFFFFF;
+  --border: #E8D5C4;
+  --border-light: #F0E3D5;
+  --shadow-sm: 0 1px 2px rgba(44,24,16,0.04);
+  --shadow-md: 0 4px 12px rgba(44,24,16,0.06);
+  --shadow-lg: 0 12px 32px rgba(44,24,16,0.08);
+  --code-bg: #1E1E1E;
+  --code-text: #E0E0E0;
+  --brand: var(--accent-coral);
+  --brand-hover: #FF5252;
+  --brand-alpha: rgba(255,107,107,0.08);
+  --brand-alpha-heavy: rgba(255,107,107,0.15);
+  --selection-bg: rgba(255,107,107,0.2);
+  --accent-coral: #FF6B6B;
+  --accent-coral-hover: #FF5252;
+  --accent-amber: #F4A261;
+  --accent-mint: #90BE6D;
+  --accent-lavender: #9B72AA;
+  --accent-sky: #4ECDC4;
+  --accent-sun: #F9C74F;
+  --accent-rose: #FF6B8A;
+  --accent-blue: #577590;
+  --max-width: 1200px;
+  --content-width: 720px;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 5rem;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+}
+
+[data-theme="dark"] {
+  --bg-cream: #1A1614;
+  --bg-cream-alpha: rgba(26,22,20,0.85);
+  --bg-surface: #2C2420;
+  --bg-warm: #241E1A;
+  --text-primary: #E8D5C4;
+  --text-secondary: #B8A088;
+  --text-muted: #8B7355;
+  --text-on-accent: #FFFFFF;
+  --border: #3D3028;
+  --border-light: #332A22;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.25);
+  --shadow-lg: 0 12px 32px rgba(0,0,0,0.3);
+  --code-bg: #111111;
+  --code-text: #E0E0E0;
+  --brand: var(--accent-coral);
+  --brand-hover: #FF8A8A;
+  --brand-alpha: rgba(255,107,107,0.12);
+  --brand-alpha-heavy: rgba(255,107,107,0.2);
+  --selection-bg: rgba(255,107,107,0.2);
+}</style>
+  
+
+  <link rel="stylesheet" href="/plugins/comments/comments-assets/style.css">
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23FF6B6B'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='20' fill='white'>A</text></svg>">
+
+  
+  <link rel="alternate" type="application/rss+xml" title="ASIMOV&#39;S Blog" href="/feed.xml">
+  
+
+  <meta property="og:title" content="DDD、事件风暴与企业架构">
+  <meta property="og:description" content="ASIMOV的老巢">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://chendingya.github.io//posts/26-软件系统架构/05-ddd-事件风暴与企业架构/">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="DDD、事件风暴与企业架构">
+  <meta name="twitter:description" content="ASIMOV的老巢">
+  
+</head>
+<body class="post-page">
+  <div class="reading-progress"></div>
+
+  <header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="/" class="site-brand">
+        
+          <span class="brand-title">ASIMOV&#39;S Blog</span>
+        
+      </a>
+
+      <nav class="site-nav" data-target="main-nav">
+        <ul class="nav-list">
+          
+            <li class="nav-item">
+              <a href="/" class="nav-link">首页</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/archive/" class="nav-link">归档</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/tags/" class="nav-link">标签</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/categories/" class="nav-link">分类</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/comments/" class="nav-link">留言</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/projects/" class="nav-link">项目</a>
+            </li>
+          
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" data-action="toggle-theme" aria-label="切换暗色模式">
+          <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+
+        <button class="icon-btn menu-btn" data-action="toggle-menu" aria-label="菜单">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  <div class="container">
+  <main class="main-content">
+    <article class="post-article">
+      <header class="post-header">
+        
+          <div class="post-header-cats">
+            
+              <a href="/categories/软件架构设计/" class="meta-cat accent">软件架构设计</a>
+            
+          </div>
+        
+        <h1 class="post-title">DDD、事件风暴与企业架构</h1>
+        <div class="post-meta">
+          <time datetime="2026-06-02T00:00:00.000Z">
+            2026年6月2日
+          </time>
+          
+            <span class="meta-divider">&middot;</span>
+            <span class="post-author">heleyang</span>
+          
+        </div>
+        
+          <div class="post-header-tags">
+            
+              <a href="/tags/软件架构设计/" class="tag">软件架构设计</a>
+            
+              <a href="/tags/期末复习/" class="tag">期末复习</a>
+            
+          </div>
+        
+      </header>
+
+      
+        <details class="toc-wrap">
+          <summary class="toc-title">目录</summary>
+          <nav class="toc-nav">
+            
+              <a href="#05-ddd-事件风暴与企业架构" class="toc-link toc-level-1">05 DDD、事件风暴与企业架构</a>
+            
+              <a href="#ddd-先判断是否值得用" class="toc-link toc-level-1">DDD：先判断是否值得用</a>
+            
+              <a href="#脑图-ddd-设计分析题怎么展开" class="toc-link toc-level-2">脑图：DDD 设计分析题怎么展开</a>
+            
+              <a href="#适用场景" class="toc-link toc-level-3">适用场景</a>
+            
+              <a href="#不宜滥用" class="toc-link toc-level-3">不宜滥用</a>
+            
+              <a href="#战略设计与战术设计" class="toc-link toc-level-2">战略设计与战术设计</a>
+            
+              <a href="#ddd-实战课补充-从概念到画图答案" class="toc-link toc-level-2">DDD 实战课补充：从概念到画图答案</a>
+            
+              <a href="#ddd-研发过程-从问题空间进入解空间" class="toc-link toc-level-3">DDD 研发过程：从问题空间进入解空间</a>
+            
+              <a href="#限界上下文-vs-模块-一个按业务语义切-一个按技术层次切" class="toc-link toc-level-3">限界上下文 vs 模块：一个按业务语义切，一个按技术层次切</a>
+            
+              <a href="#模块" class="toc-link toc-level-3">模块</a>
+            
+              <a href="#限界上下文" class="toc-link toc-level-3">限界上下文</a>
+            
+              <a href="#聚合规则-把一致性边界画出来" class="toc-link toc-level-3">聚合规则：把一致性边界画出来</a>
+            
+              <a href="#ddd-战术概念速查-实体-值对象-事件与不变量" class="toc-link toc-level-3">DDD 战术概念速查：实体、值对象、事件与不变量</a>
+            
+              <a href="#对象怎么分" class="toc-link toc-level-3">对象怎么分</a>
+            
+              <a href="#规则怎么守" class="toc-link toc-level-3">规则怎么守</a>
+            
+              <a href="#事件风暴例子-为学课堂怎么从事件走到模型" class="toc-link toc-level-3">事件风暴例子：为学课堂怎么从事件走到模型</a>
+            
+              <a href="#ddd-设计题答题模板" class="toc-link toc-level-1">DDD 设计题答题模板</a>
+            
+              <a href="#ddd-设计题例题-两篇外部案例怎么套统一模板" class="toc-link toc-level-2">DDD 设计题例题：两篇外部案例怎么套统一模板</a>
+            
+              <a href="#例题一-美团抽奖-交易系统实践型-ddd-设计题" class="toc-link toc-level-3">例题一：美团抽奖/交易系统实践型 DDD 设计题</a>
+            
+              <a href="#例题二-腾讯云-ddd-概念框架型设计题" class="toc-link toc-level-3">例题二：腾讯云 DDD 概念框架型设计题</a>
+            
+              <a href="#事件风暴简记" class="toc-link toc-level-2">事件风暴简记</a>
+            
+              <a href="#事件风暴图例速查-贴纸代表什么" class="toc-link toc-level-3">事件风暴图例速查：贴纸代表什么</a>
+            
+              <a href="#主线建模元素" class="toc-link toc-level-3">主线建模元素</a>
+            
+              <a href="#发现与边界元素" class="toc-link toc-level-3">发现与边界元素</a>
+            
+              <a href="#事件风暴画板-从业务事实到上下文边界" class="toc-link toc-level-3">事件风暴画板：从业务事实到上下文边界</a>
+            
+              <a href="#企业架构-理论题拿分框架" class="toc-link toc-level-1">企业架构：理论题拿分框架</a>
+            
+              <a href="#脑图-企业架构从战略到实施" class="toc-link toc-level-2">脑图：企业架构从战略到实施</a>
+            
+              <a href="#企业架构-4a-从战略到数字化实施" class="toc-link toc-level-2">企业架构 4A：从战略到数字化实施</a>
+            
+              <a href="#togaf" class="toc-link toc-level-3">TOGAF</a>
+            
+              <a href="#cbm" class="toc-link toc-level-3">CBM</a>
+            
+              <a href="#企业架构答题骨架-战略-能力-4a-治理" class="toc-link toc-level-2">企业架构答题骨架：战略、能力、4A、治理</a>
+            
+              <a href="#togaf-adm-cbm-定性与区分" class="toc-link toc-level-2">TOGAF / ADM / CBM：定性与区分</a>
+            
+              <a href="#togaf-管整体" class="toc-link toc-level-3">TOGAF：管整体</a>
+            
+              <a href="#adm-管流程" class="toc-link toc-level-3">ADM：管流程</a>
+            
+              <a href="#cbm-管能力拆分" class="toc-link toc-level-3">CBM：管能力拆分</a>
+            
+              <a href="#企业架构实施路径" class="toc-link toc-level-2">企业架构实施路径</a>
+            
+              <a href="#纪要补充-ddd-建模对比和设计题要点" class="toc-link toc-level-2">纪要补充：DDD 建模对比和设计题要点</a>
+            
+              <a href="#纪要补充-企业架构考核边界" class="toc-link toc-level-2">纪要补充：企业架构考核边界</a>
+            
+              <a href="#可直接背诵答案" class="toc-link toc-level-1">可直接背诵答案</a>
+            
+              <a href="#英文题面常见问法" class="toc-link toc-level-2">英文题面常见问法</a>
+            
+              <a href="#题-1-ddd-战略设计与战术设计" class="toc-link toc-level-2">题 1：DDD 战略设计与战术设计</a>
+            
+              <a href="#题-2-聚合模式相对普通面向对象设计的价值" class="toc-link toc-level-2">题 2：聚合模式相对普通面向对象设计的价值</a>
+            
+              <a href="#题-3-企业架构及其数字化转型作用" class="toc-link toc-level-2">题 3：企业架构及其数字化转型作用</a>
+            
+              <a href="#精选来源" class="toc-link toc-level-1">精选来源</a>
+            
+          </nav>
+        </details>
+      
+
+      <div class="post-body">
+        <h1 id="05-ddd%E3%80%81%E4%BA%8B%E4%BB%B6%E9%A3%8E%E6%9A%B4%E4%B8%8E%E4%BC%81%E4%B8%9A%E6%9E%B6%E6%9E%84" tabindex="-1"><a class="header-anchor" href="#05-ddd%E3%80%81%E4%BA%8B%E4%BB%B6%E9%A3%8E%E6%9A%B4%E4%B8%8E%E4%BC%81%E4%B8%9A%E6%9E%B6%E6%9E%84">#</a> 05 DDD、事件风暴与企业架构</h1>
+<p>**设计题优先页：**纪要指出 DDD 设计分析题曾作为约 20 分题目；本页把 DDD 的分析框架、企业架构理论题与历年高频问题合并成答题训练清单。</p>
+<h1 id="ddd%EF%BC%9A%E5%85%88%E5%88%A4%E6%96%AD%E6%98%AF%E5%90%A6%E5%80%BC%E5%BE%97%E7%94%A8" tabindex="-1"><a class="header-anchor" href="#ddd%EF%BC%9A%E5%85%88%E5%88%A4%E6%96%AD%E6%98%AF%E5%90%A6%E5%80%BC%E5%BE%97%E7%94%A8">#</a> DDD：先判断是否值得用</h1>
+<h2 id="%E8%84%91%E5%9B%BE%EF%BC%9Addd-%E8%AE%BE%E8%AE%A1%E5%88%86%E6%9E%90%E9%A2%98%E6%80%8E%E4%B9%88%E5%B1%95%E5%BC%80" tabindex="-1"><a class="header-anchor" href="#%E8%84%91%E5%9B%BE%EF%BC%9Addd-%E8%AE%BE%E8%AE%A1%E5%88%86%E6%9E%90%E9%A2%98%E6%80%8E%E4%B9%88%E5%B1%95%E5%BC%80">#</a> 脑图：DDD 设计分析题怎么展开</h2>
+<p>**记忆方法：**DDD 题先判断是否需要 DDD，再从问题空间进入解空间，最后落到聚合、事件和重构收益。</p>
+<h3 id="%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF" tabindex="-1"><a class="header-anchor" href="#%E9%80%82%E7%94%A8%E5%9C%BA%E6%99%AF">#</a> 适用场景</h3>
+<ul>
+<li>
+<p>业务复杂，概念多且规则不断变化。</p>
+</li>
+<li>
+<p>不同上下文对同一名词含义不同。</p>
+</li>
+<li>
+<p>需要把业务边界落实为软件边界。</p>
+</li>
+</ul>
+<h3 id="%E4%B8%8D%E5%AE%9C%E6%BB%A5%E7%94%A8" tabindex="-1"><a class="header-anchor" href="#%E4%B8%8D%E5%AE%9C%E6%BB%A5%E7%94%A8">#</a> 不宜滥用</h3>
+<ul>
+<li>
+<p>简单 CRUD、小型低变化系统。</p>
+</li>
+<li>
+<p>规则很少、引入完整建模成本过高。</p>
+</li>
+<li>
+<p>只套术语而没有<strong>领域专家</strong>协作。</p>
+</li>
+</ul>
+<h2 id="%E6%88%98%E7%95%A5%E8%AE%BE%E8%AE%A1%E4%B8%8E%E6%88%98%E6%9C%AF%E8%AE%BE%E8%AE%A1" tabindex="-1"><a class="header-anchor" href="#%E6%88%98%E7%95%A5%E8%AE%BE%E8%AE%A1%E4%B8%8E%E6%88%98%E6%9C%AF%E8%AE%BE%E8%AE%A1">#</a> 战略设计与战术设计</h2>
+<table>
+<thead>
+<tr>
+<th>层面</th>
+<th>核心问题</th>
+<th>关键元素</th>
+<th>电商示例</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>战略设计<br><strong>strategic design</strong></td>
+<td>业务怎么分边界、怎么集成</td>
+<td>子领域、核心域、限界上下文、上下文映射、统一语言</td>
+<td>划分订单、库存、支付上下文</td>
+</tr>
+<tr>
+<td>战术设计<br><strong>tactical design</strong></td>
+<td>上下文内部怎样实现规则</td>
+<td>实体、值对象、聚合、聚合根、领域事件、资源库</td>
+<td>订单聚合根维护<strong>订单项一致性</strong>并发布<strong>订单已创建事件</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>限界上下文是什么：限界上下文（Bounded Context）<strong>是 DDD 中给模型划定的</strong>语义边界</strong>。在这个边界内，同一套<strong>领域模型</strong>和<strong>统一语言</strong>保持一致；出了这个边界，同一个词可以有不同含义。</p>
+<p><strong>例子：</strong>“课程”在<strong>选课上下文</strong>里关注容量、时间、先修要求；在<strong>支付上下文</strong>里可能只是订单商品项；在<strong>教学上下文</strong>里关注章节、作业和评分。划清限界上下文，就是避免把这些语义硬塞进一个“大一统模型”。</p>
+<p><strong>答题句：<strong>限界上下文不是普通代码模块，而是</strong>模型和语言的一致性边界</strong>；它帮助团队明确业务边界、降低模型歧义，并为服务拆分、上下文映射和集成方式提供依据。</p>
+<h2 id="ddd-%E5%AE%9E%E6%88%98%E8%AF%BE%E8%A1%A5%E5%85%85%EF%BC%9A%E4%BB%8E%E6%A6%82%E5%BF%B5%E5%88%B0%E7%94%BB%E5%9B%BE%E7%AD%94%E6%A1%88" tabindex="-1"><a class="header-anchor" href="#ddd-%E5%AE%9E%E6%88%98%E8%AF%BE%E8%A1%A5%E5%85%85%EF%BC%9A%E4%BB%8E%E6%A6%82%E5%BF%B5%E5%88%B0%E7%94%BB%E5%9B%BE%E7%AD%94%E6%A1%88">#</a> DDD 实战课补充：从概念到画图答案</h2>
+<p><strong>补充定位：</strong><code>slides/领域驱动设计项目实战讲解.pdf</code> 更适合补“怎么做、怎么画、怎么把例子写进设计题”。考试答题时仍沿用上面的六步，但可以用本节的<strong>研发过程</strong>、<strong>限界上下文 vs 模块</strong>、<strong>聚合规则</strong>和<strong>事件风暴例子</strong>把答案写实。</p>
+<h3 id="ddd-%E7%A0%94%E5%8F%91%E8%BF%87%E7%A8%8B%EF%BC%9A%E4%BB%8E%E9%97%AE%E9%A2%98%E7%A9%BA%E9%97%B4%E8%BF%9B%E5%85%A5%E8%A7%A3%E7%A9%BA%E9%97%B4" tabindex="-1"><a class="header-anchor" href="#ddd-%E7%A0%94%E5%8F%91%E8%BF%87%E7%A8%8B%EF%BC%9A%E4%BB%8E%E9%97%AE%E9%A2%98%E7%A9%BA%E9%97%B4%E8%BF%9B%E5%85%A5%E8%A7%A3%E7%A9%BA%E9%97%B4">#</a> DDD 研发过程：从问题空间进入解空间</h3>
+<ul>
+<li>
+<p>**问题空间：<strong>先让领域专家和开发团队用</strong>统一语言（Ubiquitous Language）**描述业务，明确业务需求和期望。</p>
+</li>
+<li>
+<p><strong>战略设计（Strategic Design）：<strong>把业务拆成</strong>子领域（Subdomain）</strong>、<strong>限界上下文（Bounded Context）</strong>，并说明上下文之间怎样集成。</p>
+</li>
+<li>
+<p><strong>战术设计（Tactical Design）：<strong>在单个上下文内部，用</strong>实体、值对象、聚合、聚合根、领域事件、资源库、工厂、领域服务</strong>表达业务规则。</p>
+</li>
+<li>
+<p>**答题表述：**DDD 不是先画代码分层，而是先把业务语义和边界讲清楚，再说明领域模型怎样落到架构与代码。</p>
+</li>
+</ul>
+<h3 id="%E9%99%90%E7%95%8C%E4%B8%8A%E4%B8%8B%E6%96%87-vs-%E6%A8%A1%E5%9D%97%EF%BC%9A%E4%B8%80%E4%B8%AA%E6%8C%89%E4%B8%9A%E5%8A%A1%E8%AF%AD%E4%B9%89%E5%88%87%EF%BC%8C%E4%B8%80%E4%B8%AA%E6%8C%89%E6%8A%80%E6%9C%AF%E5%B1%82%E6%AC%A1%E5%88%87" tabindex="-1"><a class="header-anchor" href="#%E9%99%90%E7%95%8C%E4%B8%8A%E4%B8%8B%E6%96%87-vs-%E6%A8%A1%E5%9D%97%EF%BC%9A%E4%B8%80%E4%B8%AA%E6%8C%89%E4%B8%9A%E5%8A%A1%E8%AF%AD%E4%B9%89%E5%88%87%EF%BC%8C%E4%B8%80%E4%B8%AA%E6%8C%89%E6%8A%80%E6%9C%AF%E5%B1%82%E6%AC%A1%E5%88%87">#</a> 限界上下文 vs 模块：一个按业务语义切，一个按技术层次切</h3>
+<h3 id="%E6%A8%A1%E5%9D%97" tabindex="-1"><a class="header-anchor" href="#%E6%A8%A1%E5%9D%97">#</a> 模块</h3>
+<ul>
+<li>
+<p>先按<strong>技术维度</strong>水平分层，例如页面、业务、持久化。</p>
+</li>
+<li>
+<p>业务模块往往只是业务层的一部分，不能独立表达完整业务能力。</p>
+</li>
+<li>
+<p>需求变化时，展现层、业务层和数据层可能一起被牵动。</p>
+</li>
+</ul>
+<h3 id="%E9%99%90%E7%95%8C%E4%B8%8A%E4%B8%8B%E6%96%87" tabindex="-1"><a class="header-anchor" href="#%E9%99%90%E7%95%8C%E4%B8%8A%E4%B8%8B%E6%96%87">#</a> 限界上下文</h3>
+<ul>
+<li>
+<p>先按<strong>领域维度</strong>纵向切分，形成模型和语言的一致性边界。</p>
+</li>
+<li>
+<p>一个上下文内部可以再按技术关注点分层。</p>
+</li>
+<li>
+<p>同一个词在不同上下文可以有不同含义，例如 <strong>Product</strong> 在采购、订单、库存、运输中关注的规则不同。</p>
+</li>
+</ul>
+<p><strong>例题写法：<strong>看到“大一统商品模型字段过多、多个业务都依赖 Product”的题目，可以写：问题不只是类太大，而是没有按</strong>知识语境</strong>划分限界上下文。应把商品、采购、订单、库存、运输分别放到对应上下文中，让每个上下文只保留自己关心的 Product 概念和规则。</p>
+<h3 id="%E8%81%9A%E5%90%88%E8%A7%84%E5%88%99%EF%BC%9A%E6%8A%8A%E4%B8%80%E8%87%B4%E6%80%A7%E8%BE%B9%E7%95%8C%E7%94%BB%E5%87%BA%E6%9D%A5" tabindex="-1"><a class="header-anchor" href="#%E8%81%9A%E5%90%88%E8%A7%84%E5%88%99%EF%BC%9A%E6%8A%8A%E4%B8%80%E8%87%B4%E6%80%A7%E8%BE%B9%E7%95%8C%E7%94%BB%E5%87%BA%E6%9D%A5">#</a> 聚合规则：把一致性边界画出来</h3>
+<h3 id="ddd-%E6%88%98%E6%9C%AF%E6%A6%82%E5%BF%B5%E9%80%9F%E6%9F%A5%EF%BC%9A%E5%AE%9E%E4%BD%93%E3%80%81%E5%80%BC%E5%AF%B9%E8%B1%A1%E3%80%81%E4%BA%8B%E4%BB%B6%E4%B8%8E%E4%B8%8D%E5%8F%98%E9%87%8F" tabindex="-1"><a class="header-anchor" href="#ddd-%E6%88%98%E6%9C%AF%E6%A6%82%E5%BF%B5%E9%80%9F%E6%9F%A5%EF%BC%9A%E5%AE%9E%E4%BD%93%E3%80%81%E5%80%BC%E5%AF%B9%E8%B1%A1%E3%80%81%E4%BA%8B%E4%BB%B6%E4%B8%8E%E4%B8%8D%E5%8F%98%E9%87%8F">#</a> DDD 战术概念速查：实体、值对象、事件与不变量</h3>
+<p><strong>记忆方法：实体</strong>看身份，<strong>值对象</strong>看属性值，<strong>聚合</strong>看一致性边界，<strong>领域事件</strong>看已经发生的业务事实，<strong>业务不变量</strong>看必须始终成立的规则。</p>
+<h3 id="%E5%AF%B9%E8%B1%A1%E6%80%8E%E4%B9%88%E5%88%86" tabindex="-1"><a class="header-anchor" href="#%E5%AF%B9%E8%B1%A1%E6%80%8E%E4%B9%88%E5%88%86">#</a> 对象怎么分</h3>
+<ul>
+<li>
+<p>**实体（Entity）：**有稳定身份，生命周期中属性可以变化，但身份连续。例如 <code>Order</code> 或 <code>Customer</code>，订单状态会变，但订单号代表的订单仍是同一个。</p>
+</li>
+<li>
+<p>**值对象（Value Object）：**没有独立身份，用一组属性值表达概念，通常不可变。例如 <code>Money</code>、<code>Address</code>、<code>OrderId</code>；两个值对象属性相同，就可以视为同一个值。</p>
+</li>
+<li>
+<p>**聚合（Aggregate）：**把一组实体和值对象组织成一致性单元，外部通过聚合根访问，避免对象之间随意互相引用。</p>
+</li>
+</ul>
+<h3 id="%E8%A7%84%E5%88%99%E6%80%8E%E4%B9%88%E5%AE%88" tabindex="-1"><a class="header-anchor" href="#%E8%A7%84%E5%88%99%E6%80%8E%E4%B9%88%E5%AE%88">#</a> 规则怎么守</h3>
+<ul>
+<li>
+<p>**聚合根（Aggregate Root）：**聚合唯一入口和出口，负责检查和维护聚合内部规则。例如 <code>Order</code> 负责添加订单项、计算总价、推进状态。</p>
+</li>
+<li>
+<p>**业务不变量（Business Invariant）：**系统必须始终保证成立的业务规则。例如订单总价必须等于订单项金额之和，已支付订单不能直接删除，库存不能被扣成负数。</p>
+</li>
+<li>
+<p>**领域事件（Domain Event）：**已经发生且业务关心的事实，通常用过去式命名。例如 <code>OrderCreated</code>、<code>OrderPaid</code>、<code>InventoryDeducted</code>；可用于触发跨上下文协作。</p>
+</li>
+</ul>
+<p>**答题表述：**战术建模不是把类改名成 Entity 或 Service，而是先识别哪些对象有身份、哪些只是值，哪些规则必须由聚合根保护，再用领域事件表达跨对象或跨上下文的业务变化。</p>
+<p><strong>知识出处：</strong><code>slides/领域驱动设计项目实战讲解.pdf</code> 的 DDD 核心模式、聚合结构与事件风暴部分；对应 OCR：<code>sources/slides-ocr/2026-05-27/pdftotext-triage/领域驱动设计项目实战讲解.txt:142-176, 380-430, 1347-1380</code>。其中“业务不变量”是对聚合根维护一致性规则的答题化表述。</p>
+<ul>
+<li>
+<p><strong>聚合（Aggregate）<strong>是领域模型的</strong>概念边界</strong>，把一组相关实体和值对象封装成一致性单元。</p>
+</li>
+<li>
+<p>**聚合根（Aggregate Root）**是聚合唯一入口和出口，外部对象不应绕过聚合根直接修改内部对象。</p>
+</li>
+<li>
+<p><strong>聚合之间</strong>尽量通过聚合根标识或领域事件协作，避免对象引用互相缠绕。</p>
+</li>
+<li>
+<p>**答题表述：**引入聚合是为了减少领域对象数量和依赖关系带来的复杂度，把业务不变量集中到聚合根维护，避免贫血模型。</p>
+</li>
+</ul>
+<h3 id="%E4%BA%8B%E4%BB%B6%E9%A3%8E%E6%9A%B4%E4%BE%8B%E5%AD%90%EF%BC%9A%E4%B8%BA%E5%AD%A6%E8%AF%BE%E5%A0%82%E6%80%8E%E4%B9%88%E4%BB%8E%E4%BA%8B%E4%BB%B6%E8%B5%B0%E5%88%B0%E6%A8%A1%E5%9E%8B" tabindex="-1"><a class="header-anchor" href="#%E4%BA%8B%E4%BB%B6%E9%A3%8E%E6%9A%B4%E4%BE%8B%E5%AD%90%EF%BC%9A%E4%B8%BA%E5%AD%A6%E8%AF%BE%E5%A0%82%E6%80%8E%E4%B9%88%E4%BB%8E%E4%BA%8B%E4%BB%B6%E8%B5%B0%E5%88%B0%E6%A8%A1%E5%9E%8B">#</a> 事件风暴例子：为学课堂怎么从事件走到模型</h3>
+<ol>
+<li>
+<p>**先找领域事件：**事件是已经发生的业务事实，命名通常用过去式，例如“订单已提交”“课程名额已锁定”。</p>
+</li>
+<li>
+<p>**再找参与者：**角色、策略、外部系统、前置事件都可能驱动事件发生。</p>
+</li>
+<li>
+<p>**再找命令和聚合：**一个事件通常只对应一个聚合；如果出现多个写模型，要检查是否遗漏事件或聚合边界不清。</p>
+</li>
+<li>
+<p>**最后归属读模型：**读模型要说明属于哪个限界上下文；如果不是当前上下文，就用遵奉者、自己的读模型或 ID 值对象建立关联。</p>
+</li>
+</ol>
+<p><strong>知识出处：</strong><code>slides/领域驱动设计项目实战讲解.pdf</code>；对应 OCR：<code>sources/slides-ocr/2026-05-27/pdftotext-triage/领域驱动设计项目实战讲解.txt:52-88, 123-176, 380-430, 526-620, 617-762, 768-840, 930-1010, 1315-1463, 1465-1640</code>。</p>
+<hr>
+<h1 id="ddd-%E8%AE%BE%E8%AE%A1%E9%A2%98%E7%AD%94%E9%A2%98%E6%A8%A1%E6%9D%BF" tabindex="-1"><a class="header-anchor" href="#ddd-%E8%AE%BE%E8%AE%A1%E9%A2%98%E7%AD%94%E9%A2%98%E6%A8%A1%E6%9D%BF">#</a> DDD 设计题答题模板</h1>
+<p>**统一表述：**本页所有 <strong>DDD 设计题</strong>统一按下面 6 步组织答案；案例、真题和贫血模型解释只是在这个模板上替换业务素材，不再单独定义另一套流程。</p>
+<p>**常见判断：**贫血模型只存数据、行为全堆在服务层；DDD 倾向让核心业务行为回到聚合/领域对象，并以聚合根保护一致性。</p>
+<p>**贫血模型是什么：贫血模型（Anemic Domain Model）**指领域对象只有数据字段和 getter/setter，几乎没有业务行为；真正的业务规则都堆在 Service、Manager 或脚本里。它看起来有很多“对象”，但对象本身不负责业务，只像数据库表的一层包装。</p>
+<p><strong>更容易懂的例子：<strong>如果 <code>Order</code> 只保存订单号、金额、状态，而“能不能取消订单”“支付后如何改状态”“订单项金额是否一致”都写在 <code>OrderService</code> 里，那么 <code>Order</code> 就偏贫血。DDD 更希望把</strong>订单相关的不变量和行为</strong>放回 <code>Order</code> 聚合根中，由它保护一致性。</p>
+<p>**为什么不好：**业务规则分散在服务层，容易重复、遗漏或绕过对象边界；对象不能自我保护，一改需求就要到处找逻辑。答设计题时不要另起一套步骤，应回到上方统一六步：先说明适用性与痛点，再统一语言与事件，划定限界上下文，识别聚合根和业务不变量，安排协作落地，最后说明收益与代价。</p>
+<p><strong>补充事实源：</strong><a href="https://tech.meituan.com/2017/12/22/ddd-in-practice.html">美团技术团队｜DDD在大众点评交易系统演进中的应用</a> 用大众点评交易系统实践说明：当业务逻辑都堆在 Service 中时，Domain Object 会退化为只承载数据的贫血模型；DDD 更强调把业务行为放回领域对象，并通过限界上下文、上下文映射等方式组织模型边界。</p>
+<p><a href="https://cloud.tencent.com/developer/article/2661952">腾讯云开发者｜DDD的宏观架构模式</a> 可作为 DDD 宏观概念补充入口，用于复习 <strong>Bounded Context</strong>、<strong>Context Map</strong> 与 Layers 等结构化概念。使用边界：两篇均为工程实践/技术文章，补充说明 DDD 落地，不替代老师纪要、原始 slides 与本地回忆题。</p>
+<h2 id="ddd-%E8%AE%BE%E8%AE%A1%E9%A2%98%E4%BE%8B%E9%A2%98%EF%BC%9A%E4%B8%A4%E7%AF%87%E5%A4%96%E9%83%A8%E6%A1%88%E4%BE%8B%E6%80%8E%E4%B9%88%E5%A5%97%E7%BB%9F%E4%B8%80%E6%A8%A1%E6%9D%BF" tabindex="-1"><a class="header-anchor" href="#ddd-%E8%AE%BE%E8%AE%A1%E9%A2%98%E4%BE%8B%E9%A2%98%EF%BC%9A%E4%B8%A4%E7%AF%87%E5%A4%96%E9%83%A8%E6%A1%88%E4%BE%8B%E6%80%8E%E4%B9%88%E5%A5%97%E7%BB%9F%E4%B8%80%E6%A8%A1%E6%9D%BF">#</a> DDD 设计题例题：两篇外部案例怎么套统一模板</h2>
+<p>**套用规则：**下面两个例题都按上方“适用性与痛点 → 统一语言与事件 → 限界上下文与上下文映射 → 战术建模 → 协作与落地 → 收益与代价”展开；区别只在案例素材，不再重复发明步骤。</p>
+<h3 id="%E4%BE%8B%E9%A2%98%E4%B8%80%EF%BC%9A%E7%BE%8E%E5%9B%A2%E6%8A%BD%E5%A5%96%2F%E4%BA%A4%E6%98%93%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%B7%B5%E5%9E%8B-ddd-%E8%AE%BE%E8%AE%A1%E9%A2%98" tabindex="-1"><a class="header-anchor" href="#%E4%BE%8B%E9%A2%98%E4%B8%80%EF%BC%9A%E7%BE%8E%E5%9B%A2%E6%8A%BD%E5%A5%96%2F%E4%BA%A4%E6%98%93%E7%B3%BB%E7%BB%9F%E5%AE%9E%E8%B7%B5%E5%9E%8B-ddd-%E8%AE%BE%E8%AE%A1%E9%A2%98">#</a> 例题一：美团抽奖/交易系统实践型 DDD 设计题</h3>
+<p>**题目示例：**某互联网业务从简单 CRUD 演化为复杂交易/抽奖系统，订单、评价、支付、库存、风控、奖品发放等逻辑互相耦合，大量业务规则堆在 Service 中，领域对象只保存数据。请用 DDD 思路进行架构改进。</p>
+<ol>
+<li>
+<p><strong>适用性与痛点：<strong>业务已经从简单 CRUD 进入复杂规则组合场景；Service 层承担过多业务规则，领域对象退化为</strong>贫血模型</strong>，修改评价、支付或风控逻辑时容易影响核心交易路径。</p>
+</li>
+<li>
+<p>**统一语言与事件：**围绕业务方和开发方共同理解的词汇建模，例如抽奖活动、奖池、奖品、用户群体、活动准入、库存、计数、风控、发券；事件可命名为“用户已中奖”“奖品库存已扣减”。</p>
+</li>
+<li>
+<p><strong>限界上下文与上下文映射：<strong>按业务语义而不是技术分层拆分，可划为</strong>抽奖上下文</strong>、<strong>活动准入上下文</strong>、<strong>库存上下文</strong>、<strong>风控上下文</strong>、<strong>计数上下文</strong>等；对券码、平台券等外部系统使用**防腐层（ACL）**隔离外部模型。</p>
+</li>
+<li>
+<p>**战术建模：**在抽奖上下文中识别实体、值对象和聚合根。例如奖池可作为承载抽奖规则的领域对象，抽奖概率选择、奖品可用性校验等核心规则回到聚合/领域对象中。</p>
+</li>
+<li>
+<p>**协作与落地：**应用服务编排“参与抽奖”用例，领域对象完成规则判断，Repository 隔离库存和活动数据持久化，领域事件触发发券、通知或计数更新。</p>
+</li>
+<li>
+<p>**收益与代价：**收益是业务边界更清晰，复杂规则不再散落，系统能按上下文独立演进；代价是前期建模和跨团队语言对齐成本更高，需要持续校正模型。</p>
+</li>
+</ol>
+<h3 id="%E4%BE%8B%E9%A2%98%E4%BA%8C%EF%BC%9A%E8%85%BE%E8%AE%AF%E4%BA%91-ddd-%E6%A6%82%E5%BF%B5%E6%A1%86%E6%9E%B6%E5%9E%8B%E8%AE%BE%E8%AE%A1%E9%A2%98" tabindex="-1"><a class="header-anchor" href="#%E4%BE%8B%E9%A2%98%E4%BA%8C%EF%BC%9A%E8%85%BE%E8%AE%AF%E4%BA%91-ddd-%E6%A6%82%E5%BF%B5%E6%A1%86%E6%9E%B6%E5%9E%8B%E8%AE%BE%E8%AE%A1%E9%A2%98">#</a> 例题二：腾讯云 DDD 概念框架型设计题</h3>
+<p>**题目示例：**给定一个复杂业务系统，请说明如何用 DDD 从业务概念出发完成领域建模，并解释分层架构/六边形架构如何支撑领域模型落地。</p>
+<ol>
+<li>
+<p>**适用性与痛点：**先判断业务是否足够复杂：规则变化快、概念多、团队沟通成本高、数据库表或技术框架已经不能清楚表达业务知识。</p>
+</li>
+<li>
+<p>**统一语言与事件：**开发人员与领域专家围绕同一组业务词汇沟通，并让这些词汇进入模型、接口和代码命名；用领域事件表达已经发生的业务事实。</p>
+</li>
+<li>
+<p>**限界上下文与上下文映射：**一个大领域中不同子问题可能有不同模型，同一个词在不同上下文中含义可能不同；因此要为模型划边界，并用上下文映射说明上下游关系。</p>
+</li>
+<li>
+<p><strong>战术建模：<strong>在每个上下文内部识别</strong>实体</strong>、<strong>值对象</strong>、<strong>聚合</strong>、<strong>聚合根</strong>和<strong>领域事件</strong>。实体强调身份连续性，值对象强调属性值，聚合根负责保护一致性边界。</p>
+</li>
+<li>
+<p>**协作与落地：**可用分层架构或六边形架构保护领域层：应用层编排用例，领域层放核心规则，基础设施层处理数据库、消息、外部服务等技术细节，并通过依赖倒置避免领域模型依赖框架。</p>
+</li>
+<li>
+<p>**收益与代价：**统一语言降低沟通歧义，限界上下文控制模型边界，聚合根保护一致性，架构分层保护领域规则；代价是需要持续建模和维护边界。</p>
+</li>
+</ol>
+<p>**考场迁移句：**美团例子适合回答“复杂业务如何从贫血模型走向领域模型”；腾讯云例子适合回答“DDD 设计题应该按哪些概念与架构层次组织答案”。两者都必须回到上方统一六步。</p>
+<h2 id="%E4%BA%8B%E4%BB%B6%E9%A3%8E%E6%9A%B4%E7%AE%80%E8%AE%B0" tabindex="-1"><a class="header-anchor" href="#%E4%BA%8B%E4%BB%B6%E9%A3%8E%E6%9A%B4%E7%AE%80%E8%AE%B0">#</a> 事件风暴简记</h2>
+<h3 id="%E4%BA%8B%E4%BB%B6%E9%A3%8E%E6%9A%B4%E5%9B%BE%E4%BE%8B%E9%80%9F%E6%9F%A5%EF%BC%9A%E8%B4%B4%E7%BA%B8%E4%BB%A3%E8%A1%A8%E4%BB%80%E4%B9%88" tabindex="-1"><a class="header-anchor" href="#%E4%BA%8B%E4%BB%B6%E9%A3%8E%E6%9A%B4%E5%9B%BE%E4%BE%8B%E9%80%9F%E6%9F%A5%EF%BC%9A%E8%B4%B4%E7%BA%B8%E4%BB%A3%E8%A1%A8%E4%BB%80%E4%B9%88">#</a> 事件风暴图例速查：贴纸代表什么</h3>
+<p><strong>一句话：事件风暴（Event Storming）<strong>先用</strong>领域事件</strong>把业务事实按时间排出来，再补充谁触发、为什么触发、影响哪个写模型和读模型，最后用聚类帮助发现<strong>聚合</strong>与<strong>限界上下文</strong>。</p>
+<h3 id="%E4%B8%BB%E7%BA%BF%E5%BB%BA%E6%A8%A1%E5%85%83%E7%B4%A0" tabindex="-1"><a class="header-anchor" href="#%E4%B8%BB%E7%BA%BF%E5%BB%BA%E6%A8%A1%E5%85%83%E7%B4%A0">#</a> 主线建模元素</h3>
+<ul>
+<li>
+<p>**事件（Event）：**已经发生的业务事实，通常放在时间轴主线上，例如“订单已提交”“支付已完成”。</p>
+</li>
+<li>
+<p>**决策 / 命令（Decision / Command）：**触发事件的意图或动作，用来说明“为什么会发生这个事件”。</p>
+</li>
+<li>
+<p>**读模型（Read Model）：**查询或展示所需的数据视图，答题时要说明它属于哪个限界上下文。</p>
+</li>
+<li>
+<p>**聚合（Aggregate）：**处理命令、保护业务不变量的写模型边界；一个事件通常对应一个主要聚合。</p>
+</li>
+</ul>
+<h3 id="%E5%8F%91%E7%8E%B0%E4%B8%8E%E8%BE%B9%E7%95%8C%E5%85%83%E7%B4%A0" tabindex="-1"><a class="header-anchor" href="#%E5%8F%91%E7%8E%B0%E4%B8%8E%E8%BE%B9%E7%95%8C%E5%85%83%E7%B4%A0">#</a> 发现与边界元素</h3>
+<ul>
+<li>
+<p>**角色（Role）：**触发事件的人或业务参与者。</p>
+</li>
+<li>
+<p>**热点（HotSpot）：**有分歧、暂不处理、需要强调或风险较高的事件/规则。</p>
+</li>
+<li>
+<p>**策略（Policy）：**触发事件的业务规则；可理解为“规则 + 触发时机”。</p>
+</li>
+<li>
+<p>**外部系统（External System）：**事件流中需要交互但不属于当前领域的系统。</p>
+</li>
+<li>
+<p>**前置事件（Previous Event）：**驱动当前事件发生的上游业务事实。</p>
+</li>
+<li>
+<p>**限界上下文（Bounded Context）：**把一簇语义一致、变化原因相近的事件和模型圈成边界。</p>
+</li>
+</ul>
+<ol>
+<li>
+<p><strong>画图顺序：<strong>先排</strong>事件时间轴</strong>，再补<strong>角色 / 策略 / 外部系统 / 前置事件</strong>，然后标出<strong>热点</strong>，最后从<strong>命令 → 聚合 → 读模型 → 限界上下文</strong>收束到领域设计。</p>
+</li>
+<li>
+<p>**答题表述：**事件风暴不是消息队列设计图，而是 DDD 的协作建模方法；它帮助团队统一语言、暴露争议点，并把业务事件逐步转化为聚合、读模型和上下文边界。</p>
+</li>
+</ol>
+<p>**知识出处：**用户提供的“事件风暴图例”截图；对应本地 OCR：<code>sources/slides-ocr/2026-05-27/pdftotext-triage/领域驱动设计项目实战讲解.txt:1315-1328, 1347-1380, 1419-1458</code>。</p>
+<table>
+<thead>
+<tr>
+<th>步骤</th>
+<th>结果</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>识别领域事件</td>
+<td>形成按时间排序的业务事实流</td>
+</tr>
+<tr>
+<td>标注参与者、命令与规则</td>
+<td>明确是谁为何触发变化</td>
+</tr>
+<tr>
+<td>聚类事件与热点</td>
+<td>发现限界上下文与争议点</td>
+</tr>
+<tr>
+<td>识别聚合与读模型</td>
+<td>进入可实现的领域设计</td>
+</tr>
+</tbody>
+</table>
+<h3 id="%E4%BA%8B%E4%BB%B6%E9%A3%8E%E6%9A%B4%E7%94%BB%E6%9D%BF%EF%BC%9A%E4%BB%8E%E4%B8%9A%E5%8A%A1%E4%BA%8B%E5%AE%9E%E5%88%B0%E4%B8%8A%E4%B8%8B%E6%96%87%E8%BE%B9%E7%95%8C" tabindex="-1"><a class="header-anchor" href="#%E4%BA%8B%E4%BB%B6%E9%A3%8E%E6%9A%B4%E7%94%BB%E6%9D%BF%EF%BC%9A%E4%BB%8E%E4%B8%9A%E5%8A%A1%E4%BA%8B%E5%AE%9E%E5%88%B0%E4%B8%8A%E4%B8%8B%E6%96%87%E8%BE%B9%E7%95%8C">#</a> 事件风暴画板：从业务事实到上下文边界</h3>
+<p><strong>出处精确到本地资料：</strong></p>
+<ul>
+<li>
+<p><strong>复习课纪要：</strong><code>sources/supplemental/2026-05-28/recording-review/软件体系结构复习课录音整理版.md:163-175</code>。该段标题为“领域驱动设计、事件风暴与 AI 赋能 DDD（01:41:35-01:45:39）”，说明 DDD 从问题空间到解空间，事件风暴要识别领域事件、按时间轴梳理事件、识别参与者/策略/外部系统/前置事件，再划分聚合与限界上下文，并区分读模型和写模型。</p>
+</li>
+<li>
+<p><strong>原始 slides：</strong><code>sources/slides-ocr/2026-05-27/pdftotext-triage/11-12Domain-Driven_Design_-_Event_Storming.txt:1462-1469</code>。该处明确写有“通过事件风暴开展领域建模”，并在图例中列出事件、命令、决策、读模型、聚合。</p>
+</li>
+<li>
+<p><strong>原始 slides：</strong><code>sources/slides-ocr/2026-05-27/pdftotext-triage/11-12Domain-Driven_Design_-_Event_Storming.txt:1564-1607</code>。该处说明事件参与者包括角色、策略、外部系统、前置事件，并在领域分析建模中强调事件、命令、聚合、读模型及读模型所属限界上下文。</p>
+</li>
+<li>
+<p><strong>补充 slides：</strong><code>sources/slides-ocr/2026-05-27/pdftotext-triage/领域驱动设计项目实战讲解.txt:37-40, 64-67</code>。该课件目录把“领域驱动设计”和“事件风暴”并列为 DDD 实战内容，并说明通过子领域与限界上下文划分降低业务复杂度。</p>
+</li>
+</ul>
+<p>**答题边界：**事件风暴不是最终架构，而是 DDD 的协作建模/发现方法；它把业务事件组织成时间线，帮助统一语言、识别参与者与策略、发现聚合和读模型，并辅助划分限界上下文。</p>
+<hr>
+<h1 id="%E4%BC%81%E4%B8%9A%E6%9E%B6%E6%9E%84%EF%BC%9A%E7%90%86%E8%AE%BA%E9%A2%98%E6%8B%BF%E5%88%86%E6%A1%86%E6%9E%B6" tabindex="-1"><a class="header-anchor" href="#%E4%BC%81%E4%B8%9A%E6%9E%B6%E6%9E%84%EF%BC%9A%E7%90%86%E8%AE%BA%E9%A2%98%E6%8B%BF%E5%88%86%E6%A1%86%E6%9E%B6">#</a> 企业架构：理论题拿分框架</h1>
+<h2 id="%E8%84%91%E5%9B%BE%EF%BC%9A%E4%BC%81%E4%B8%9A%E6%9E%B6%E6%9E%84%E4%BB%8E%E6%88%98%E7%95%A5%E5%88%B0%E5%AE%9E%E6%96%BD" tabindex="-1"><a class="header-anchor" href="#%E8%84%91%E5%9B%BE%EF%BC%9A%E4%BC%81%E4%B8%9A%E6%9E%B6%E6%9E%84%E4%BB%8E%E6%88%98%E7%95%A5%E5%88%B0%E5%AE%9E%E6%96%BD">#</a> 脑图：企业架构从战略到实施</h2>
+<p>**记忆方法：**企业架构题不要只列 4A；按“战略 → 能力 → 4A → 治理 → 路线图”写成一条实施路径。</p>
+<table>
+<thead>
+<tr>
+<th>4A 维度</th>
+<th>回答的问题</th>
+<th>典型产出</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>业务架构</td>
+<td>企业要做什么、能力怎样组织</td>
+<td>能力地图、流程、业务组件</td>
+</tr>
+<tr>
+<td>数据架构</td>
+<td>核心业务对象与数据标准是什么</td>
+<td>主题域、实体关系、数据标准</td>
+</tr>
+<tr>
+<td>应用架构</td>
+<td>哪些应用支撑哪些能力</td>
+<td>应用组合、服务/API 映射</td>
+</tr>
+<tr>
+<td>技术架构</td>
+<td>底层平台和基础设施怎样承载应用</td>
+<td>技术平台、部署与标准组件</td>
+</tr>
+</tbody>
+</table>
+<h2 id="%E4%BC%81%E4%B8%9A%E6%9E%B6%E6%9E%84-4a%EF%BC%9A%E4%BB%8E%E6%88%98%E7%95%A5%E5%88%B0%E6%95%B0%E5%AD%97%E5%8C%96%E5%AE%9E%E6%96%BD" tabindex="-1"><a class="header-anchor" href="#%E4%BC%81%E4%B8%9A%E6%9E%B6%E6%9E%84-4a%EF%BC%9A%E4%BB%8E%E6%88%98%E7%95%A5%E5%88%B0%E6%95%B0%E5%AD%97%E5%8C%96%E5%AE%9E%E6%96%BD">#</a> 企业架构 4A：从战略到数字化实施</h2>
+<p><strong>背诵重点</strong>**：<strong>企业架构不是只列四个名词，而是说明</strong>战略目标<strong>怎样经由</strong>业务、数据、应用、技术架构**落成能力、数据资产、服务/API 与平台基础设施，并由治理和标准化持续约束。</p>
+<h3 id="togaf" tabindex="-1"><a class="header-anchor" href="#togaf">#</a> TOGAF</h3>
+<p>重点记 ADM 的过程与治理：以方法推进架构开发和持续治理。</p>
+<h3 id="cbm" tabindex="-1"><a class="header-anchor" href="#cbm">#</a> CBM</h3>
+<p>重点记业务组件：用能力与责任切分企业，支持组合和转型。</p>
+<h2 id="%E4%BC%81%E4%B8%9A%E6%9E%B6%E6%9E%84%E7%AD%94%E9%A2%98%E9%AA%A8%E6%9E%B6%EF%BC%9A%E6%88%98%E7%95%A5%E3%80%81%E8%83%BD%E5%8A%9B%E3%80%814a%E3%80%81%E6%B2%BB%E7%90%86" tabindex="-1"><a class="header-anchor" href="#%E4%BC%81%E4%B8%9A%E6%9E%B6%E6%9E%84%E7%AD%94%E9%A2%98%E9%AA%A8%E6%9E%B6%EF%BC%9A%E6%88%98%E7%95%A5%E3%80%81%E8%83%BD%E5%8A%9B%E3%80%814a%E3%80%81%E6%B2%BB%E7%90%86">#</a> 企业架构答题骨架：战略、能力、4A、治理</h2>
+<p><strong>一句话定义：企业架构</strong>描述具有共同目标的组织集合体的基本组成部分、内外部关系，以及支撑设计和演进的治理原则；考试答题要把它写成<strong>战略目标</strong>到<strong>业务能力</strong>、<strong>数据资产</strong>、<strong>应用服务</strong>、<strong>技术平台</strong>的连续实施链条。</p>
+<table>
+<thead>
+<tr>
+<th>层次</th>
+<th>怎么写</th>
+<th>常见要点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>战略</strong></td>
+<td>先说明企业目标、市场环境、商业模式或数字化转型诉求。</td>
+<td>客户、产品、渠道、运营模式、风险与治理目标。</td>
+</tr>
+<tr>
+<td><strong>能力</strong></td>
+<td>把战略拆成可建设、可复用、可治理的业务能力。</td>
+<td>能力地图、价值链、流程分解、业务组件。</td>
+</tr>
+<tr>
+<td><strong>4A</strong></td>
+<td>分别说明业务、数据、应用、技术架构怎样支撑能力。</td>
+<td>流程模型、主题域、应用组合、平台/中间件/网络/标准。</td>
+</tr>
+<tr>
+<td><strong>治理</strong></td>
+<td>用原则、标准、评审和迁移路线保证架构持续演进。</td>
+<td>架构愿景、迁移规划、实施治理、架构变更管理。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="togaf-%2F-adm-%2F-cbm%EF%BC%9A%E5%AE%9A%E6%80%A7%E4%B8%8E%E5%8C%BA%E5%88%86" tabindex="-1"><a class="header-anchor" href="#togaf-%2F-adm-%2F-cbm%EF%BC%9A%E5%AE%9A%E6%80%A7%E4%B8%8E%E5%8C%BA%E5%88%86">#</a> TOGAF / ADM / CBM：定性与区分</h2>
+<p>**先定性：**三者不是同一层级。<strong>TOGAF</strong> 是企业架构框架，<strong>ADM</strong> 是 TOGAF 的开发流程，<strong>CBM</strong> 是业务能力/组件建模方法。</p>
+<ul>
+<li>
+<p>**TOGAF（The Open Group Architecture Framework）：企业架构框架。**管企业架构整体怎么组织、治理和演进，覆盖业务、数据、应用、技术等架构域。</p>
+</li>
+<li>
+<p>**ADM（Architecture Development Method）：架构开发方法 / 流程。**是 TOGAF 的核心，管从架构愿景到业务架构、数据/应用架构、技术架构、迁移规划、实施治理和变更管理怎么推进。</p>
+</li>
+<li>
+<p>**CBM（Component Business Model / Business Component Modeling）：业务组件建模。**管业务能力怎么拆成可复用、可组合的业务组件，用于识别业务边界并推导应用服务。</p>
+</li>
+</ul>
+<blockquote>
+<p>**好记：**TOGAF 管整体，ADM 管流程，CBM 管业务能力拆分。</p>
+</blockquote>
+<p><strong>记忆方法：TOGAF</strong> 记“框架和治理”，<strong>ADM</strong> 记“开发流程”，<strong>CBM</strong> 记“业务能力拆组件”。企业架构题先定性，再用“<strong>战略</strong> → <strong>业务建模</strong> → <strong>4A</strong> → <strong>迁移治理</strong>”串起来。</p>
+<h3 id="togaf%EF%BC%9A%E7%AE%A1%E6%95%B4%E4%BD%93" tabindex="-1"><a class="header-anchor" href="#togaf%EF%BC%9A%E7%AE%A1%E6%95%B4%E4%BD%93">#</a> TOGAF：管整体</h3>
+<p><strong>The Open Group Architecture Framework</strong>，是企业架构框架。记成“把企业架构工作组织起来”：范围、原则、治理、架构域和持续演进。</p>
+<h3 id="adm%EF%BC%9A%E7%AE%A1%E6%B5%81%E7%A8%8B" tabindex="-1"><a class="header-anchor" href="#adm%EF%BC%9A%E7%AE%A1%E6%B5%81%E7%A8%8B">#</a> ADM：管流程</h3>
+<p><strong>Architecture Development Method</strong>，是 TOGAF 的核心流程。记成“按步骤推进”：愿景、业务、数据/应用、技术、迁移、实施治理、变更管理。</p>
+<h3 id="cbm%EF%BC%9A%E7%AE%A1%E8%83%BD%E5%8A%9B%E6%8B%86%E5%88%86" tabindex="-1"><a class="header-anchor" href="#cbm%EF%BC%9A%E7%AE%A1%E8%83%BD%E5%8A%9B%E6%8B%86%E5%88%86">#</a> CBM：管能力拆分</h3>
+<p><strong>Component Business Model</strong>，是业务组件建模方法。记成“从业务能力切边界”：把能力拆成高内聚、低耦合、可复用、可组合的业务组件。</p>
+<ul>
+<li>
+<p><strong>4A 快速带出：业务架构</strong>看客户、产品、渠道、流程和组件；<strong>数据架构</strong>看数据资产、标准和责任；<strong>应用架构</strong>看应用蓝图、应用组件、服务共享和系统关系；<strong>技术架构</strong>看技术组件、基础设施、平台能力和技术标准。</p>
+</li>
+<li>
+<p><strong>其他方法只作补充：Zachman</strong> 偏多视角描述，<strong>DoDAF</strong> 偏复杂系统/国防视图，<strong>DDD</strong> 偏从业务分析到服务边界，<strong>中台</strong>偏企业实践与商业价值结合；考试主线仍优先写 <strong>TOGAF / ADM / CBM</strong>。</p>
+</li>
+</ul>
+<h2 id="%E4%BC%81%E4%B8%9A%E6%9E%B6%E6%9E%84%E5%AE%9E%E6%96%BD%E8%B7%AF%E5%BE%84" tabindex="-1"><a class="header-anchor" href="#%E4%BC%81%E4%B8%9A%E6%9E%B6%E6%9E%84%E5%AE%9E%E6%96%BD%E8%B7%AF%E5%BE%84">#</a> 企业架构实施路径</h2>
+<h2 id="%E7%BA%AA%E8%A6%81%E8%A1%A5%E5%85%85%EF%BC%9Addd-%E5%BB%BA%E6%A8%A1%E5%AF%B9%E6%AF%94%E5%92%8C%E8%AE%BE%E8%AE%A1%E9%A2%98%E8%A6%81%E7%82%B9" tabindex="-1"><a class="header-anchor" href="#%E7%BA%AA%E8%A6%81%E8%A1%A5%E5%85%85%EF%BC%9Addd-%E5%BB%BA%E6%A8%A1%E5%AF%B9%E6%AF%94%E5%92%8C%E8%AE%BE%E8%AE%A1%E9%A2%98%E8%A6%81%E7%82%B9">#</a> 纪要补充：DDD 建模对比和设计题要点</h2>
+<p><strong>回到总结页：</strong><a href="https://my.feishu.cn/docx/GVzbdsMMuolSoRxxbqoclqmunqd#doxcnXAOKPpx8SHZVkikCfTQCpf">纪要可能考查方式索引</a> 已把本知识点与相关训练题互链，复习时可从题型反查本节。</p>
+<p>**考试用法：**DDD 设计题先判断是否值得用，再从问题空间走到解空间；不要把 DDD 写成固定分层代码模板。</p>
+<table>
+<thead>
+<tr>
+<th>补充点</th>
+<th>答题要点</th>
+<th>常见误区</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>领域建模 vs 数据建模</td>
+<td>领域建模围绕业务行为、规则和语言；数据建模围绕数据结构和持久化。</td>
+<td>不要用表结构直接替代领域对象。</td>
+</tr>
+<tr>
+<td>限界上下文 vs 模块</td>
+<td>限界上下文定义模型语义边界和统一语言；模块更偏代码组织。</td>
+<td>同名概念在不同上下文中语义可能不同。</td>
+</tr>
+<tr>
+<td>事件风暴</td>
+<td>领域事件用“已经发生的业务事实”命名，再从事件反推命令、聚合和上下文边界。</td>
+<td>事件不是技术消息队列名，而是业务事实。</td>
+</tr>
+<tr>
+<td>错误 OO 到 DDD 重构</td>
+<td>识别贫血模型/逻辑散落 → 划上下文 → 找聚合根 → 放回业务规则 → 用事件解耦协作。</td>
+<td>不要只把类改名为 Entity/Service。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="%E7%BA%AA%E8%A6%81%E8%A1%A5%E5%85%85%EF%BC%9A%E4%BC%81%E4%B8%9A%E6%9E%B6%E6%9E%84%E8%80%83%E6%A0%B8%E8%BE%B9%E7%95%8C" tabindex="-1"><a class="header-anchor" href="#%E7%BA%AA%E8%A6%81%E8%A1%A5%E5%85%85%EF%BC%9A%E4%BC%81%E4%B8%9A%E6%9E%B6%E6%9E%84%E8%80%83%E6%A0%B8%E8%BE%B9%E7%95%8C">#</a> 纪要补充：企业架构考核边界</h2>
+<p><strong>回到总结页：</strong><a href="https://my.feishu.cn/docx/GVzbdsMMuolSoRxxbqoclqmunqd#doxcnXAOKPpx8SHZVkikCfTQCpf">纪要可能考查方式索引</a> 已把本知识点与相关训练题互链，复习时可从题型反查本节。</p>
+<table>
+<thead>
+<tr>
+<th>方向</th>
+<th>需要掌握</th>
+<th>答题边界</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>理论体系</td>
+<td>4A、TOGAF/ADM、CBM 业务组件模型</td>
+<td>偏理解和分析检查，不要求展开企业级实施细节。</td>
+</tr>
+<tr>
+<td>实施路径</td>
+<td>自顶向下战略业务建模；自底向上通用能力积累和中台构建</td>
+<td>举例时回到战略、业务能力、数据对象、应用和技术支撑。</td>
+</tr>
+<tr>
+<td>大模型支持</td>
+<td>背景了解即可</td>
+<td>纪要明确不作为考试内容，不进入必背内容。</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>
+<p><strong>自顶向下：<strong>从战略规划出发，解析价值驱动和高阶业务需求，形成</strong>战略能力</strong>。</p>
+</li>
+<li>
+<p>**流程建模：**用企业级建模方法把战略能力细化为流程能力、关键指标和改善机会。</p>
+</li>
+<li>
+<p><strong>应用设计：<strong>基于业务能力和数据责任设计应用组合、服务边界和集成关系，形成</strong>应用能力</strong>。</p>
+</li>
+<li>
+<p>**技术承载：**用平台、基础设施、中间件、网络、部署标准支撑应用服务交付。</p>
+</li>
+<li>
+<p>**持续治理：**通过原则、标准、评审、路线图和变更管理控制架构演进，避免系统各自为政。</p>
+</li>
+</ol>
+<p><strong>复习提示：<strong>本段综合 slides/企业架构设计实战课、10Enterprise Architecture 与复习课录音。遇到企业架构题，不要只背 4A 名词；更稳的是写出</strong>战略 - 能力 - 4A - 治理 - 路线图</strong>。</p>
+<hr>
+<h1 id="%E5%8F%AF%E7%9B%B4%E6%8E%A5%E8%83%8C%E8%AF%B5%E7%AD%94%E6%A1%88" tabindex="-1"><a class="header-anchor" href="#%E5%8F%AF%E7%9B%B4%E6%8E%A5%E8%83%8C%E8%AF%B5%E7%AD%94%E6%A1%88">#</a> 可直接背诵答案</h1>
+<h2 id="%E8%8B%B1%E6%96%87%E9%A2%98%E9%9D%A2%E5%B8%B8%E8%A7%81%E9%97%AE%E6%B3%95" tabindex="-1"><a class="header-anchor" href="#%E8%8B%B1%E6%96%87%E9%A2%98%E9%9D%A2%E5%B8%B8%E8%A7%81%E9%97%AE%E6%B3%95">#</a> 英文题面常见问法</h2>
+<table>
+<thead>
+<tr>
+<th>English prompt</th>
+<th>答题要点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>When is Domain-Driven Design appropriate?</td>
+<td>业务复杂、规则变化快、耦合变化关系复杂；简单 CRUD 不宜过度使用。</td>
+</tr>
+<tr>
+<td>Compare strategic design and tactical design in DDD.</td>
+<td>Strategic Design 划子领域、限界上下文、上下文映射；Tactical Design 处理实体、值对象、聚合、事件、Repository。</td>
+</tr>
+<tr>
+<td>What is a Bounded Context?</td>
+<td>统一语言和模型保持一致的语义边界。</td>
+</tr>
+<tr>
+<td>What is Event Storming?</td>
+<td>从已发生的领域事件出发，识别命令、参与者、聚合和上下文边界。</td>
+</tr>
+<tr>
+<td>What is the value of Aggregate Pattern compared with ordinary OOP?</td>
+<td>明确一致性边界，把业务规则放回领域对象，减少贫血模型和跨边界修改。</td>
+</tr>
+<tr>
+<td>Explain Enterprise Architecture and its main methods.</td>
+<td>4A/5A、TOGAF/ADM、CBM；回答战略到业务、数据、应用、技术和治理实施。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="%E9%A2%98-1%EF%BC%9Addd-%E6%88%98%E7%95%A5%E8%AE%BE%E8%AE%A1%E4%B8%8E%E6%88%98%E6%9C%AF%E8%AE%BE%E8%AE%A1" tabindex="-1"><a class="header-anchor" href="#%E9%A2%98-1%EF%BC%9Addd-%E6%88%98%E7%95%A5%E8%AE%BE%E8%AE%A1%E4%B8%8E%E6%88%98%E6%9C%AF%E8%AE%BE%E8%AE%A1">#</a> 题 1：DDD 战略设计与战术设计</h2>
+<blockquote>
+<p>DDD 适用于业务规则复杂且变化关系复杂的系统。战略设计关注宏观边界：划分子领域、识别核心域和限界上下文、形成统一语言，并用上下文映射描述不同边界之间如何协作。战术设计关注上下文内部的实现：通过实体、值对象、聚合、聚合根、领域事件、Repository 和 Factory 表达具体业务规则。前者解决“边界如何划”，后者解决“边界内部怎样保持一致”。</p>
+</blockquote>
+<h2 id="%E9%A2%98-2%EF%BC%9A%E8%81%9A%E5%90%88%E6%A8%A1%E5%BC%8F%E7%9B%B8%E5%AF%B9%E6%99%AE%E9%80%9A%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1%E7%9A%84%E4%BB%B7%E5%80%BC" tabindex="-1"><a class="header-anchor" href="#%E9%A2%98-2%EF%BC%9A%E8%81%9A%E5%90%88%E6%A8%A1%E5%BC%8F%E7%9B%B8%E5%AF%B9%E6%99%AE%E9%80%9A%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E8%AE%BE%E8%AE%A1%E7%9A%84%E4%BB%B7%E5%80%BC">#</a> 题 2：聚合模式相对普通面向对象设计的价值</h2>
+<blockquote>
+<p>聚合通过聚合根定义明确的一致性边界，外部对象只能通过聚合根访问和修改聚合内部状态。这样可以将业务不变量集中在领域对象中，防止服务层越过边界直接改数据；同时，聚合之间通过标识和领域事件协作，减少强耦合。因此聚合有助于提高封装性、一致性、可修改性和业务模型的可理解性。</p>
+</blockquote>
+<h2 id="%E9%A2%98-3%EF%BC%9A%E4%BC%81%E4%B8%9A%E6%9E%B6%E6%9E%84%E5%8F%8A%E5%85%B6%E6%95%B0%E5%AD%97%E5%8C%96%E8%BD%AC%E5%9E%8B%E4%BD%9C%E7%94%A8" tabindex="-1"><a class="header-anchor" href="#%E9%A2%98-3%EF%BC%9A%E4%BC%81%E4%B8%9A%E6%9E%B6%E6%9E%84%E5%8F%8A%E5%85%B6%E6%95%B0%E5%AD%97%E5%8C%96%E8%BD%AC%E5%9E%8B%E4%BD%9C%E7%94%A8">#</a> 题 3：企业架构及其数字化转型作用</h2>
+<blockquote>
+<p>企业架构描述企业核心组成部分、关系和指导其设计演进的治理原则。它通过 4A 将战略落到执行：业务架构定义能力和流程，数据架构组织业务对象和数据标准，应用架构说明应用如何支撑能力，技术架构提供平台和基础设施。企业架构在数字化转型中的作用是统一目标、标准化建设、降低复杂度并支持治理。TOGAF 强调过程与治理，CBM 强调用业务组件组织能力。</p>
+</blockquote>
+<h1 id="%E7%B2%BE%E9%80%89%E6%9D%A5%E6%BA%90" tabindex="-1"><a class="header-anchor" href="#%E7%B2%BE%E9%80%89%E6%9D%A5%E6%BA%90">#</a> 精选来源</h1>
+<ul>
+<li>
+<p>飞书纪要：老师关于 DDD、企业架构和考试题型/分值重点的复习提示。</p>
+</li>
+<li>
+<p>上传资料：《扫描文档20260526_192514.pdf》（MinerU OCR）的课程目录将 Domain-Driven Design 与 Enterprise &amp; Business Architecture 列入复习路径。</p>
+</li>
+<li>
+<p>专题内容依据：老师智能纪要中关于 DDD 设计题、事件风暴、4A、TOGAF/CBM 和企业架构考法的说明。</p>
+</li>
+<li>
+<p>专题补充依据：原始课件 `slides/11-12Domain-Driven Design - Event Storming.pdf` 与 `slides/10Enterprise Architecture.pdf`。</p>
+</li>
+<li>
+<p>本地《2025软件系统设计回忆.md》《研究生往年题版.md》仅作为练题线索，不替代老师课件与纪要。</p>
+</li>
+<li>
+<p><strong>新增复习录音事实源：</strong><code>sources/supplemental/2026-05-28/recording-review/软件体系结构复习课录音整理版.docx</code>，用于核对事件风暴流程、七类设计决定、4A 与考试范围；整理稿不替代原始 slides。</p>
+</li>
+<li>
+<p><strong>新增原始课件：</strong><code>slides/领域驱动设计项目实战讲解.pdf</code> 与 <code>slides/企业架构设计实战课-南京大学_课件版.pdf</code> 已离线 OCR 并纳入专题补充。</p>
+</li>
+<li>
+<p><strong>新增外部实践参考：</strong><a href="https://tech.meituan.com/2017/12/22/ddd-in-practice.html">美团技术团队｜DDD在大众点评交易系统演进中的应用</a>：用于补充贫血模型、业务逻辑回归领域对象、限界上下文与微服务边界划分的实践解释。</p>
+</li>
+<li>
+<p><strong>新增外部概念参考：</strong><a href="https://cloud.tencent.com/developer/article/2661952">腾讯云开发者｜DDD的宏观架构模式</a>：用于补充 DDD 宏观架构模式、Bounded Context、Context Map 与分层等概念入口。</p>
+</li>
+<li>
+<p>未收入重复考题 PDF 与作业提交件；如需回溯原题，可回到本地目录查看原始文件。</p>
+</li>
+</ul>
+<blockquote>
+<p>(注：内容由 AI 生成，请谨慎参考）</p>
+</blockquote>
+
+      </div>
+
+      <footer class="post-footer">
+        <div class="post-nav">
+          <a href="/" class="post-nav-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            返回首页
+          </a>
+        </div>
+      </footer>
+    </article>
+  </main>
+</div>
+
+
+  <footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <span class="footer-logo">ASIMOV&#39;S Blog</span>
+        <p class="footer-desc">ASIMOV的老巢</p>
+        <div class="footer-social">
+          
+            <a href="https://github.com/chendingya" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+          
+          
+            <a href="https://twitter.com/yourname" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          
+          
+            <a href="mailto:your@email.com" class="social-link" aria-label="Email">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </a>
+          
+          
+            <a href="/feed.xml" class="social-link" aria-label="RSS">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20C5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1z"/></svg>
+            </a>
+          
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">导航</h4>
+        <ul class="footer-links">
+          
+            <li><a href="/">首页</a></li>
+          
+            <li><a href="/archive/">归档</a></li>
+          
+            <li><a href="/tags/">标签</a></li>
+          
+            <li><a href="/categories/">分类</a></li>
+          
+            <li><a href="/comments/">留言</a></li>
+          
+            <li><a href="/projects/">项目</a></li>
+          
+          <li><a href="/archive/">归档</a></li>
+          <li><a href="/tags/">标签</a></li>
+          <li><a href="/categories/">分类</a></li>
+        </ul>
+      </div>
+
+      
+      <div class="footer-col">
+        <h4 class="footer-heading">友链</h4>
+        <ul class="footer-links">
+          
+            <li><a href="https://example.com" target="_blank" rel="noopener noreferrer">示例友链</a></li>
+          
+        </ul>
+      </div>
+      
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 ASIMOV&#39;S Blog</p>
+      
+    </div>
+  </div>
+</footer>
+
+
+  <button class="back-to-top" aria-label="返回顶部">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+  </button>
+
+  <script src="/assets/js/main.js" defer></script>
+  <script src="/plugins/comments/comments-assets/editor.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ASIMOV的老巢">
+  <title>ASIMOV&#39;S Blog</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Noto+Serif+SC:wght@400;500;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/css/style.css">
+  
+  <link rel="stylesheet" href="/assets/css/highlight.css">
+  
+
+  
+  <style>:root {
+  --font-display: 'Playfair Display', 'Noto Serif SC', Georgia, 'Times New Roman', serif;
+  --font-body: 'Public Sans', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'Fira Code', 'Cascadia Code', 'JetBrains Mono', monospace;
+  --bg-cream: #FEFAF6;
+  --bg-cream-alpha: rgba(254,250,246,0.85);
+  --bg-surface: #FFFFFF;
+  --bg-warm: #FDF5EB;
+  --text-primary: #2C1810;
+  --text-secondary: #8B7355;
+  --text-muted: #C4A882;
+  --text-on-accent: #FFFFFF;
+  --border: #E8D5C4;
+  --border-light: #F0E3D5;
+  --shadow-sm: 0 1px 2px rgba(44,24,16,0.04);
+  --shadow-md: 0 4px 12px rgba(44,24,16,0.06);
+  --shadow-lg: 0 12px 32px rgba(44,24,16,0.08);
+  --code-bg: #1E1E1E;
+  --code-text: #E0E0E0;
+  --brand: var(--accent-coral);
+  --brand-hover: #FF5252;
+  --brand-alpha: rgba(255,107,107,0.08);
+  --brand-alpha-heavy: rgba(255,107,107,0.15);
+  --selection-bg: rgba(255,107,107,0.2);
+  --accent-coral: #FF6B6B;
+  --accent-coral-hover: #FF5252;
+  --accent-amber: #F4A261;
+  --accent-mint: #90BE6D;
+  --accent-lavender: #9B72AA;
+  --accent-sky: #4ECDC4;
+  --accent-sun: #F9C74F;
+  --accent-rose: #FF6B8A;
+  --accent-blue: #577590;
+  --max-width: 1200px;
+  --content-width: 720px;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 5rem;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+}
+
+[data-theme="dark"] {
+  --bg-cream: #1A1614;
+  --bg-cream-alpha: rgba(26,22,20,0.85);
+  --bg-surface: #2C2420;
+  --bg-warm: #241E1A;
+  --text-primary: #E8D5C4;
+  --text-secondary: #B8A088;
+  --text-muted: #8B7355;
+  --text-on-accent: #FFFFFF;
+  --border: #3D3028;
+  --border-light: #332A22;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.25);
+  --shadow-lg: 0 12px 32px rgba(0,0,0,0.3);
+  --code-bg: #111111;
+  --code-text: #E0E0E0;
+  --brand: var(--accent-coral);
+  --brand-hover: #FF8A8A;
+  --brand-alpha: rgba(255,107,107,0.12);
+  --brand-alpha-heavy: rgba(255,107,107,0.2);
+  --selection-bg: rgba(255,107,107,0.2);
+}</style>
+  
+
+  <link rel="stylesheet" href="/plugins/comments/comments-assets/style.css">
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23FF6B6B'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='20' fill='white'>A</text></svg>">
+
+  
+  <link rel="alternate" type="application/rss+xml" title="ASIMOV&#39;S Blog" href="/feed.xml">
+  
+
+  <meta property="og:title" content="ASIMOV&#39;S Blog">
+  <meta property="og:description" content="ASIMOV的老巢">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://chendingya.github.io//posts/leetcode/java-linkedllist实现的queue/">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ASIMOV&#39;S Blog">
+  <meta name="twitter:description" content="ASIMOV的老巢">
+  
+</head>
+<body class="post-page">
+  <div class="reading-progress"></div>
+
+  <header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="/" class="site-brand">
+        
+          <span class="brand-title">ASIMOV&#39;S Blog</span>
+        
+      </a>
+
+      <nav class="site-nav" data-target="main-nav">
+        <ul class="nav-list">
+          
+            <li class="nav-item">
+              <a href="/" class="nav-link">首页</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/archive/" class="nav-link">归档</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/tags/" class="nav-link">标签</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/categories/" class="nav-link">分类</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/comments/" class="nav-link">留言</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/projects/" class="nav-link">项目</a>
+            </li>
+          
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" data-action="toggle-theme" aria-label="切换暗色模式">
+          <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+
+        <button class="icon-btn menu-btn" data-action="toggle-menu" aria-label="菜单">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  <div class="container">
+  <main class="main-content">
+    <article class="post-article">
+      <header class="post-header">
+        
+        <h1 class="post-title"></h1>
+        <div class="post-meta">
+          <time datetime="2026-06-11T13:48:04.065Z">
+            2026年6月11日
+          </time>
+          
+            <span class="meta-divider">&middot;</span>
+            <span class="post-author">ASIMOV</span>
+          
+        </div>
+        
+      </header>
+
+      
+        <details class="toc-wrap">
+          <summary class="toc-title">目录</summary>
+          <nav class="toc-nav">
+            
+              <a href="#arraydeque" class="toc-link toc-level-1">ArrayDeque</a>
+            
+              <a href="#初始化" class="toc-link toc-level-3">初始化</a>
+            
+              <a href="#作为队列使用" class="toc-link toc-level-3">作为队列使用</a>
+            
+              <a href="#作为栈使用" class="toc-link toc-level-3">作为栈使用</a>
+            
+              <a href="#其他常用方法" class="toc-link toc-level-3">其他常用方法</a>
+            
+              <a href="#注意事项" class="toc-link toc-level-3">注意事项</a>
+            
+              <a href="#linkedlist" class="toc-link toc-level-1">LinkedList</a>
+            
+              <a href="#1-创建linkedlist队列" class="toc-link toc-level-3">1. 创建LinkedList队列</a>
+            
+              <a href="#2-向队列中添加元素" class="toc-link toc-level-3">2. 向队列中添加元素</a>
+            
+              <a href="#3-从队列中移除元素" class="toc-link toc-level-3">3. 从队列中移除元素</a>
+            
+              <a href="#4-查看队列头部的元素" class="toc-link toc-level-3">4. 查看队列头部的元素</a>
+            
+              <a href="#5-完整示例" class="toc-link toc-level-3">5. 完整示例</a>
+            
+          </nav>
+        </details>
+      
+
+      <div class="post-body">
+        <p>2025.1.4</p>
+<h1 id="arraydeque" tabindex="-1"><a class="header-anchor" href="#arraydeque">#</a> ArrayDeque</h1>
+<p><code>ArrayDeque</code> 是 Java 中的一个类，它实现了 <code>Deque</code> 接口，可以作为栈（Stack）或者队列（Queue）使用。<code>ArrayDeque</code> 是基于数组实现的，因此它具有更好的性能特性，特别是对于固定大小的操作集合，它比 <code>LinkedList</code> 更高效。</p>
+<p>以下是 <code>ArrayDeque</code> 的一些基本使用方法：</p>
+<h3 id="%E5%88%9D%E5%A7%8B%E5%8C%96" tabindex="-1"><a class="header-anchor" href="#%E5%88%9D%E5%A7%8B%E5%8C%96">#</a> 初始化</h3>
+<pre><code>import java.util.ArrayDeque;
+
+// 创建一个空的 ArrayDeque
+ArrayDeque&lt;Integer&gt; deque = new ArrayDeque&lt;&gt;();
+
+// 创建一个带有初始元素的 ArrayDeque
+ArrayDeque&lt;Integer&gt; dequeWithElements = new ArrayDeque&lt;&gt;(Arrays.asList(1, 2, 3));
+</code></pre>
+<h3 id="%E4%BD%9C%E4%B8%BA%E9%98%9F%E5%88%97%E4%BD%BF%E7%94%A8" tabindex="-1"><a class="header-anchor" href="#%E4%BD%9C%E4%B8%BA%E9%98%9F%E5%88%97%E4%BD%BF%E7%94%A8">#</a> 作为队列使用</h3>
+<pre><code>// 添加元素到队列尾部
+deque.offer(1);
+deque.offer(2);
+deque.offer(3);
+
+// 检查队列头部元素
+Integer head = deque.peek(); // 返回队列头部元素，但不删除它
+
+// 移除队列头部元素
+Integer removedHead = deque.poll(); // 返回并移除队列头部元素
+
+// 检查队列是否为空
+boolean isEmpty = deque.isEmpty();
+
+// 获取队列的大小
+int size = deque.size();
+</code></pre>
+<h3 id="%E4%BD%9C%E4%B8%BA%E6%A0%88%E4%BD%BF%E7%94%A8" tabindex="-1"><a class="header-anchor" href="#%E4%BD%9C%E4%B8%BA%E6%A0%88%E4%BD%BF%E7%94%A8">#</a> 作为栈使用</h3>
+<pre><code>// 将元素推入栈顶
+deque.push(1);
+deque.push(2);
+deque.push(3);
+
+// 查看栈顶元素
+Integer top = deque.peek(); // 返回栈顶元素，但不删除它
+
+// 移除栈顶元素
+Integer poppedTop = deque.pop(); // 返回并移除栈顶元素
+</code></pre>
+<h3 id="%E5%85%B6%E4%BB%96%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95" tabindex="-1"><a class="header-anchor" href="#%E5%85%B6%E4%BB%96%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95">#</a> 其他常用方法</h3>
+<pre><code>// 检查是否包含某个元素
+boolean contains = deque.contains(2);
+
+// 清空队列/栈
+deque.clear();
+
+// 使用迭代器遍历
+for (Integer item : deque) {
+    System.out.println(item);
+}
+
+// 或者使用增强的 for 循环
+Iterator&lt;Integer&gt; iterator = deque.iterator();
+while (iterator.hasNext()) {
+    System.out.println(iterator.next());
+}
+</code></pre>
+<h3 id="%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9" tabindex="-1"><a class="header-anchor" href="#%E6%B3%A8%E6%84%8F%E4%BA%8B%E9%A1%B9">#</a> 注意事项</h3>
+<ul>
+<li><code>ArrayDeque</code> 不支持插入 <code>null</code> 元素，如果你尝试插入 <code>null</code>，它将抛出 <code>NullPointerException</code>。</li>
+<li><code>ArrayDeque</code> 没有容量限制，它会根据需要自动增长。</li>
+<li>与 <code>LinkedList</code> 相比，<code>ArrayDeque</code> 在大多数操作上通常更快，特别是对于固定大小的操作集合。</li>
+</ul>
+<p>使用 <code>ArrayDeque</code> 时，你应该根据你的具体需求来选择它作为队列还是栈。由于 <code>ArrayDeque</code> 实现了 <code>Deque</code> 接口，它可以很容易地在这两种数据结构之间切换。</p>
+<h1 id="linkedlist" tabindex="-1"><a class="header-anchor" href="#linkedlist">#</a> LinkedList</h1>
+<p><code>LinkedList</code>在Java中实现了<code>Queue</code>接口，因此它可以被当作队列使用。</p>
+<h3 id="1.-%E5%88%9B%E5%BB%BAlinkedlist%E9%98%9F%E5%88%97" tabindex="-1"><a class="header-anchor" href="#1.-%E5%88%9B%E5%BB%BAlinkedlist%E9%98%9F%E5%88%97">#</a> 1. 创建<code>LinkedList</code>队列</h3>
+<p>要创建一个<code>LinkedList</code>并将其用作队列，可以这样做：</p>
+<pre><code>import java.util.Queue;
+import java.util.LinkedList;
+
+Queue&lt;String&gt; queue = new LinkedList&lt;&gt;();
+</code></pre>
+<h3 id="2.-%E5%90%91%E9%98%9F%E5%88%97%E4%B8%AD%E6%B7%BB%E5%8A%A0%E5%85%83%E7%B4%A0" tabindex="-1"><a class="header-anchor" href="#2.-%E5%90%91%E9%98%9F%E5%88%97%E4%B8%AD%E6%B7%BB%E5%8A%A0%E5%85%83%E7%B4%A0">#</a> 2. 向队列中添加元素</h3>
+<p>可以使用<code>add()</code>或<code>offer()</code>方法向队列中添加元素。<code>add()</code>方法在添加失败时抛出异常，而<code>offer()</code>方法在添加失败时返回<code>false</code>。</p>
+<pre><code>queue.add(&quot;Element1&quot;); // 添加元素到队列尾部
+queue.offer(&quot;Element2&quot;); // 添加元素到队列尾部
+</code></pre>
+<h3 id="3.-%E4%BB%8E%E9%98%9F%E5%88%97%E4%B8%AD%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0" tabindex="-1"><a class="header-anchor" href="#3.-%E4%BB%8E%E9%98%9F%E5%88%97%E4%B8%AD%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0">#</a> 3. 从队列中移除元素</h3>
+<p>可以使用<code>remove()</code>或<code>poll()</code>方法从队列中移除元素。<code>remove()</code>方法在队列为空时抛出异常，而<code>poll()</code>方法在队列为空时返回<code>null</code>。</p>
+<pre><code>String removedElement = queue.remove(); // 移除队列头部的元素
+String polledElement = queue.poll(); // 移除队列头部的元素，如果队列为空，返回null
+</code></pre>
+<h3 id="4.-%E6%9F%A5%E7%9C%8B%E9%98%9F%E5%88%97%E5%A4%B4%E9%83%A8%E7%9A%84%E5%85%83%E7%B4%A0" tabindex="-1"><a class="header-anchor" href="#4.-%E6%9F%A5%E7%9C%8B%E9%98%9F%E5%88%97%E5%A4%B4%E9%83%A8%E7%9A%84%E5%85%83%E7%B4%A0">#</a> 4. 查看队列头部的元素</h3>
+<p>可以使用<code>element()</code>或<code>peek()</code>方法查看队列头部的元素。<code>element()</code>方法在队列为空时抛出异常，而<code>peek()</code>方法在队列为空时返回<code>null</code>。</p>
+<pre><code>String headElement = queue.element(); // 查看队列头部的元素，不删除
+String peekedElement = queue.peek(); // 查看队列头部的元素，不删除，如果队列为空，返回null
+</code></pre>
+<h3 id="5.-%E5%AE%8C%E6%95%B4%E7%A4%BA%E4%BE%8B" tabindex="-1"><a class="header-anchor" href="#5.-%E5%AE%8C%E6%95%B4%E7%A4%BA%E4%BE%8B">#</a> 5. 完整示例</h3>
+<p>以下是一个使用<code>LinkedList</code>作为队列的完整示例：</p>
+<pre><code>import java.util.Queue;
+import java.util.LinkedList;
+
+public class LinkedListQueueExample {
+    public static void main(String[] args) {
+        Queue&lt;String&gt; queue = new LinkedList&lt;&gt;();
+
+        // 添加元素
+        queue.offer(&quot;Apple&quot;);
+        queue.offer(&quot;Banana&quot;);
+        queue.offer(&quot;Cherry&quot;);
+
+        // 查看队列头部元素
+        System.out.println(&quot;Queue head: &quot; + queue.peek()); // 输出: Queue head: Apple
+
+        // 移除并打印所有元素
+        while (!queue.isEmpty()) {
+            String element = queue.poll();
+            System.out.println(&quot;Removed: &quot; + element);
+        }
+
+        // 队列现在为空
+        System.out.println(&quot;Is the queue empty? &quot; + queue.isEmpty()); // 输出: Is the queue empty? true
+    }
+}
+</code></pre>
+<p>在这个例子中，我们创建了一个<code>LinkedList</code>队列，添加了三个元素，然后逐个移除并打印它们。最后，我们检查队列是否为空。</p>
+
+      </div>
+
+      <footer class="post-footer">
+        <div class="post-nav">
+          <a href="/" class="post-nav-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            返回首页
+          </a>
+        </div>
+      </footer>
+    </article>
+  </main>
+</div>
+
+
+  <footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <span class="footer-logo">ASIMOV&#39;S Blog</span>
+        <p class="footer-desc">ASIMOV的老巢</p>
+        <div class="footer-social">
+          
+            <a href="https://github.com/chendingya" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+          
+          
+            <a href="https://twitter.com/yourname" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          
+          
+            <a href="mailto:your@email.com" class="social-link" aria-label="Email">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </a>
+          
+          
+            <a href="/feed.xml" class="social-link" aria-label="RSS">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20C5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1z"/></svg>
+            </a>
+          
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">导航</h4>
+        <ul class="footer-links">
+          
+            <li><a href="/">首页</a></li>
+          
+            <li><a href="/archive/">归档</a></li>
+          
+            <li><a href="/tags/">标签</a></li>
+          
+            <li><a href="/categories/">分类</a></li>
+          
+            <li><a href="/comments/">留言</a></li>
+          
+            <li><a href="/projects/">项目</a></li>
+          
+          <li><a href="/archive/">归档</a></li>
+          <li><a href="/tags/">标签</a></li>
+          <li><a href="/categories/">分类</a></li>
+        </ul>
+      </div>
+
+      
+      <div class="footer-col">
+        <h4 class="footer-heading">友链</h4>
+        <ul class="footer-links">
+          
+            <li><a href="https://example.com" target="_blank" rel="noopener noreferrer">示例友链</a></li>
+          
+        </ul>
+      </div>
+      
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 ASIMOV&#39;S Blog</p>
+      
+    </div>
+  </div>
+</footer>
+
+
+  <button class="back-to-top" aria-label="返回顶部">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+  </button>
+
+  <script src="/assets/js/main.js" defer></script>
+  <script src="/plugins/comments/comments-assets/editor.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ASIMOV的老巢">
+  <title>考试导向与复习路线 - ASIMOV&#39;S Blog</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Noto+Serif+SC:wght@400;500;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/css/style.css">
+  
+  <link rel="stylesheet" href="/assets/css/highlight.css">
+  
+
+  
+  <style>:root {
+  --font-display: 'Playfair Display', 'Noto Serif SC', Georgia, 'Times New Roman', serif;
+  --font-body: 'Public Sans', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'Fira Code', 'Cascadia Code', 'JetBrains Mono', monospace;
+  --bg-cream: #FEFAF6;
+  --bg-cream-alpha: rgba(254,250,246,0.85);
+  --bg-surface: #FFFFFF;
+  --bg-warm: #FDF5EB;
+  --text-primary: #2C1810;
+  --text-secondary: #8B7355;
+  --text-muted: #C4A882;
+  --text-on-accent: #FFFFFF;
+  --border: #E8D5C4;
+  --border-light: #F0E3D5;
+  --shadow-sm: 0 1px 2px rgba(44,24,16,0.04);
+  --shadow-md: 0 4px 12px rgba(44,24,16,0.06);
+  --shadow-lg: 0 12px 32px rgba(44,24,16,0.08);
+  --code-bg: #1E1E1E;
+  --code-text: #E0E0E0;
+  --brand: var(--accent-coral);
+  --brand-hover: #FF5252;
+  --brand-alpha: rgba(255,107,107,0.08);
+  --brand-alpha-heavy: rgba(255,107,107,0.15);
+  --selection-bg: rgba(255,107,107,0.2);
+  --accent-coral: #FF6B6B;
+  --accent-coral-hover: #FF5252;
+  --accent-amber: #F4A261;
+  --accent-mint: #90BE6D;
+  --accent-lavender: #9B72AA;
+  --accent-sky: #4ECDC4;
+  --accent-sun: #F9C74F;
+  --accent-rose: #FF6B8A;
+  --accent-blue: #577590;
+  --max-width: 1200px;
+  --content-width: 720px;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 5rem;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+}
+
+[data-theme="dark"] {
+  --bg-cream: #1A1614;
+  --bg-cream-alpha: rgba(26,22,20,0.85);
+  --bg-surface: #2C2420;
+  --bg-warm: #241E1A;
+  --text-primary: #E8D5C4;
+  --text-secondary: #B8A088;
+  --text-muted: #8B7355;
+  --text-on-accent: #FFFFFF;
+  --border: #3D3028;
+  --border-light: #332A22;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.25);
+  --shadow-lg: 0 12px 32px rgba(0,0,0,0.3);
+  --code-bg: #111111;
+  --code-text: #E0E0E0;
+  --brand: var(--accent-coral);
+  --brand-hover: #FF8A8A;
+  --brand-alpha: rgba(255,107,107,0.12);
+  --brand-alpha-heavy: rgba(255,107,107,0.2);
+  --selection-bg: rgba(255,107,107,0.2);
+}</style>
+  
+
+  <link rel="stylesheet" href="/plugins/comments/comments-assets/style.css">
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23FF6B6B'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='20' fill='white'>A</text></svg>">
+
+  
+  <link rel="alternate" type="application/rss+xml" title="ASIMOV&#39;S Blog" href="/feed.xml">
+  
+
+  <meta property="og:title" content="考试导向与复习路线">
+  <meta property="og:description" content="ASIMOV的老巢">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://chendingya.github.io//posts/26-软件系统架构/01-考试导向与复习路线/">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="考试导向与复习路线">
+  <meta name="twitter:description" content="ASIMOV的老巢">
+  
+</head>
+<body class="post-page">
+  <div class="reading-progress"></div>
+
+  <header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="/" class="site-brand">
+        
+          <span class="brand-title">ASIMOV&#39;S Blog</span>
+        
+      </a>
+
+      <nav class="site-nav" data-target="main-nav">
+        <ul class="nav-list">
+          
+            <li class="nav-item">
+              <a href="/" class="nav-link">首页</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/archive/" class="nav-link">归档</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/tags/" class="nav-link">标签</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/categories/" class="nav-link">分类</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/comments/" class="nav-link">留言</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/projects/" class="nav-link">项目</a>
+            </li>
+          
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" data-action="toggle-theme" aria-label="切换暗色模式">
+          <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+
+        <button class="icon-btn menu-btn" data-action="toggle-menu" aria-label="菜单">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  <div class="container">
+  <main class="main-content">
+    <article class="post-article">
+      <header class="post-header">
+        
+          <div class="post-header-cats">
+            
+              <a href="/categories/软件架构设计/" class="meta-cat accent">软件架构设计</a>
+            
+          </div>
+        
+        <h1 class="post-title">考试导向与复习路线</h1>
+        <div class="post-meta">
+          <time datetime="2026-06-02T00:00:00.000Z">
+            2026年6月2日
+          </time>
+          
+            <span class="meta-divider">&middot;</span>
+            <span class="post-author">heleyang</span>
+          
+        </div>
+        
+          <div class="post-header-tags">
+            
+              <a href="/tags/软件架构设计/" class="tag">软件架构设计</a>
+            
+              <a href="/tags/期末复习/" class="tag">期末复习</a>
+            
+          </div>
+        
+      </header>
+
+      
+        <details class="toc-wrap">
+          <summary class="toc-title">目录</summary>
+          <nav class="toc-nav">
+            
+              <a href="#01-考试导向与复习路线" class="toc-link toc-level-1">01 考试导向与复习路线</a>
+            
+              <a href="#考试信息速记" class="toc-link toc-level-1">考试信息速记</a>
+            
+              <a href="#按分值风险安排复习" class="toc-link toc-level-1">按分值风险安排复习</a>
+            
+              <a href="#第一优先级-会写会画" class="toc-link toc-level-3">第一优先级：会写会画</a>
+            
+              <a href="#第二优先级-概念稳拿分" class="toc-link toc-level-3">第二优先级：概念稳拿分</a>
+            
+              <a href="#老师复习中强调的信号" class="toc-link toc-level-2">老师复习中强调的信号</a>
+            
+              <a href="#三份纪要统一说明画板" class="toc-link toc-level-2">三份纪要统一说明画板</a>
+            
+              <a href="#补充资料筛选规则" class="toc-link toc-level-2">补充资料筛选规则</a>
+            
+              <a href="#纪要可能考查方式索引" class="toc-link toc-level-2">纪要可能考查方式索引</a>
+            
+              <a href="#三轮冲刺路线" class="toc-link toc-level-1">三轮冲刺路线</a>
+            
+              <a href="#来源与筛选说明" class="toc-link toc-level-1">来源与筛选说明</a>
+            
+              <a href="#可直接背诵-考试范围与复习策略" class="toc-link toc-level-1">可直接背诵：考试范围与复习策略</a>
+            
+          </nav>
+        </details>
+      
+
+      <div class="post-body">
+        <h1 id="01-%E8%80%83%E8%AF%95%E5%AF%BC%E5%90%91%E4%B8%8E%E5%A4%8D%E4%B9%A0%E8%B7%AF%E7%BA%BF" tabindex="-1"><a class="header-anchor" href="#01-%E8%80%83%E8%AF%95%E5%AF%BC%E5%90%91%E4%B8%8E%E5%A4%8D%E4%B9%A0%E8%B7%AF%E7%BA%BF">#</a> 01 考试导向与复习路线</h1>
+<p>**先看考试范围：**本页依据老师考前复习纪要整理。</p>
+<ul>
+<li>
+<p>**考试主干：**基础概念、质量属性与 ADD、架构模式与微服务、DDD、企业架构。</p>
+</li>
+<li>
+<p>**排除内容：**三份飞书纪要明确 <strong>AI 增强 / AI 原生</strong> 属于考试后两次课或背景介绍内容，<strong>不纳入期末考试要求</strong>。</p>
+</li>
+<li>
+<p>**复习动作：**遇到 AI-native 相关资料，只保留为背景了解，不放入必背范围。</p>
+</li>
+</ul>
+<h1 id="%E8%80%83%E8%AF%95%E4%BF%A1%E6%81%AF%E9%80%9F%E8%AE%B0" tabindex="-1"><a class="header-anchor" href="#%E8%80%83%E8%AF%95%E4%BF%A1%E6%81%AF%E9%80%9F%E8%AE%B0">#</a> 考试信息速记</h1>
+<table>
+<thead>
+<tr>
+<th>项目</th>
+<th>确认信息</th>
+<th>复习含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>成绩构成</td>
+<td>平时作业 40%，期末考试 60%</td>
+<td>复习重点直接服务期末答题</td>
+</tr>
+<tr>
+<td>题型</td>
+<td>简答题、论述题、设计分析题</td>
+<td>既要背框架，也要会分析案例</td>
+</tr>
+<tr>
+<td>作答语言</td>
+<td>题目可能为英文；答案可中文或英文，但不要中英混用</td>
+<td>提前固定术语对照与答题语言</td>
+</tr>
+<tr>
+<td>图示要求</td>
+<td>个别题可能需要画图</td>
+<td>会画 4+1、场景六要素、模式骨架或 DDD 边界</td>
+</tr>
+<tr>
+<td>范围边界</td>
+<td><strong>AI 增强 / AI 原生</strong>不纳入考试要求</td>
+<td>从考试范围排除；仅作为考后课程或背景资料了解</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="%E6%8C%89%E5%88%86%E5%80%BC%E9%A3%8E%E9%99%A9%E5%AE%89%E6%8E%92%E5%A4%8D%E4%B9%A0" tabindex="-1"><a class="header-anchor" href="#%E6%8C%89%E5%88%86%E5%80%BC%E9%A3%8E%E9%99%A9%E5%AE%89%E6%8E%92%E5%A4%8D%E4%B9%A0">#</a> 按分值风险安排复习</h1>
+<h3 id="%E7%AC%AC%E4%B8%80%E4%BC%98%E5%85%88%E7%BA%A7%EF%BC%9A%E4%BC%9A%E5%86%99%E4%BC%9A%E7%94%BB" tabindex="-1"><a class="header-anchor" href="#%E7%AC%AC%E4%B8%80%E4%BC%98%E5%85%88%E7%BA%A7%EF%BC%9A%E4%BC%9A%E5%86%99%E4%BC%9A%E7%94%BB">#</a> 第一优先级：会写会画</h3>
+<ul>
+<li>
+<p>质量属性场景六要素、ASR 与效用树</p>
+</li>
+<li>
+<p>ADD 3.0 的迭代设计流程（纪要明确七步与案例复习）</p>
+</li>
+<li>
+<p>DDD 战略/战术设计与聚合重构</p>
+</li>
+<li>
+<p>微服务特点、模式与 SOA 对比</p>
+</li>
+</ul>
+<h3 id="%E7%AC%AC%E4%BA%8C%E4%BC%98%E5%85%88%E7%BA%A7%EF%BC%9A%E6%A6%82%E5%BF%B5%E7%A8%B3%E6%8B%BF%E5%88%86" tabindex="-1"><a class="header-anchor" href="#%E7%AC%AC%E4%BA%8C%E4%BC%98%E5%85%88%E7%BA%A7%EF%BC%9A%E6%A6%82%E5%BF%B5%E7%A8%B3%E6%8B%BF%E5%88%86">#</a> 第二优先级：概念稳拿分</h3>
+<ul>
+<li>
+<p>架构、结构、设计的关系</p>
+</li>
+<li>
+<p>4+1 视图与架构师职责</p>
+</li>
+<li>
+<p>架构文档与决策关系</p>
+</li>
+<li>
+<p>企业架构 4A、TOGAF、CBM</p>
+</li>
+</ul>
+<h2 id="%E8%80%81%E5%B8%88%E5%A4%8D%E4%B9%A0%E4%B8%AD%E5%BC%BA%E8%B0%83%E7%9A%84%E4%BF%A1%E5%8F%B7" tabindex="-1"><a class="header-anchor" href="#%E8%80%81%E5%B8%88%E5%A4%8D%E4%B9%A0%E4%B8%AD%E5%BC%BA%E8%B0%83%E7%9A%84%E4%BF%A1%E5%8F%B7">#</a> 老师复习中强调的信号</h2>
+<table>
+<thead>
+<tr>
+<th>主题</th>
+<th>可能考法</th>
+<th>准备动作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>架构模式演进</td>
+<td>解释为何产生、解决什么矛盾、付出什么代价</td>
+<td>用“痛点 → 变化 → 新代价”三句答题</td>
+</tr>
+<tr>
+<td>ADD / 微服务 / DDD / 企业架构</td>
+<td>合计可能构成 30–40 分的复习重点</td>
+<td>掌握过程、适用场景和案例分析框架</td>
+</tr>
+<tr>
+<td>DDD 设计分析</td>
+<td>往年有约 20 分设计题，可能要求评价并重构</td>
+<td>能识别聚合边界、聚合根、领域事件</td>
+</tr>
+</tbody>
+</table>
+<h2 id="%E4%B8%89%E4%BB%BD%E7%BA%AA%E8%A6%81%E7%BB%9F%E4%B8%80%E8%AF%B4%E6%98%8E%E7%94%BB%E6%9D%BF" tabindex="-1"><a class="header-anchor" href="#%E4%B8%89%E4%BB%BD%E7%BA%AA%E8%A6%81%E7%BB%9F%E4%B8%80%E8%AF%B4%E6%98%8E%E7%94%BB%E6%9D%BF">#</a> 三份纪要统一说明画板</h2>
+<p>**结论：**三份飞书纪要说明一致：考试围绕基础概念、质量属性、ADD 3.0、架构模式与微服务、DDD、企业架构展开；<strong>AI 增强 / AI 原生不纳入期末考试要求</strong>。</p>
+<h2 id="%E8%A1%A5%E5%85%85%E8%B5%84%E6%96%99%E7%AD%9B%E9%80%89%E8%A7%84%E5%88%99" tabindex="-1"><a class="header-anchor" href="#%E8%A1%A5%E5%85%85%E8%B5%84%E6%96%99%E7%AD%9B%E9%80%89%E8%A7%84%E5%88%99">#</a> 补充资料筛选规则</h2>
+<p>**使用说明：**三份飞书纪要是考试范围的最高优先级依据；语雀、EagleBear 和历年题只用来补充遗漏、补例子和组织训练，不扩张考试范围。</p>
+<table>
+<thead>
+<tr>
+<th>来源类型</th>
+<th>吸收内容</th>
+<th>排除内容</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>飞书纪要</td>
+<td>考试安排、题型、考试范围、老师明确强调的重点</td>
+<td>智能纪要误听词需回到课件或上下文核对</td>
+</tr>
+<tr>
+<td>语雀整合资料</td>
+<td>对应考试范围的答题模板、题型索引、画图训练入口</td>
+<td>AI-native、AI4SE、AI 辅助代码生成等非考核扩展</td>
+</tr>
+<tr>
+<td>EagleBear 页面</td>
+<td>质量属性、ADD、模式、微服务、DDD、企业架构的补充遗漏细节</td>
+<td>相邻课程的详细设计内容、博客分类页、友情链接和考试后内容</td>
+</tr>
+</tbody>
+</table>
+<h2 id="%E7%BA%AA%E8%A6%81%E5%8F%AF%E8%83%BD%E8%80%83%E6%9F%A5%E6%96%B9%E5%BC%8F%E7%B4%A2%E5%BC%95" tabindex="-1"><a class="header-anchor" href="#%E7%BA%AA%E8%A6%81%E5%8F%AF%E8%83%BD%E8%80%83%E6%9F%A5%E6%96%B9%E5%BC%8F%E7%B4%A2%E5%BC%95">#</a> 纪要可能考查方式索引</h2>
+<p>**使用方法：**本表只列三份纪要明确出现或强暗示的考查方式。复习时从“可能怎么考”跳到知识点，再回到 06 页对应题目训练；与本表无关的 AI-native / AI4SE 内容不进入考试范围。</p>
+<table>
+<thead>
+<tr>
+<th>纪要信号</th>
+<th>可能考查方式</th>
+<th>知识点链接</th>
+<th>题目链接</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>简答题考基本概念的理解和运用</td>
+<td>解释架构定义、架构/结构/设计关系、架构师职责、4+1 视图</td>
+<td><a href="https://my.feishu.cn/docx/PL9PdQJYaoEIH9xFxSdcO0Cdn9b#doxcnc1luerPBZo60jxhqDhHcgh">Architecture / Structure / Design</a>；<a href="https://my.feishu.cn/docx/PL9PdQJYaoEIH9xFxSdcO0Cdn9b#doxcn1tLKct2cKFnlMgn0WKlVwc">4+1 视图</a></td>
+<td><a href="https://my.feishu.cn/docx/IJzqdRwGco31QMxWrFYcC4TmnGc#doxcnFq1nfyYqe0J1GMB3RBQAuD">2023-01 定义和重要性</a>；<a href="https://my.feishu.cn/docx/IJzqdRwGco31QMxWrFYcC4TmnGc#doxcnVlnkTjhlJJTjKAIZu7vpfb">2023-06 4+1</a></td>
+</tr>
+<tr>
+<td>质量需求需用 stimulus-response 场景建模</td>
+<td>写六要素场景、识别 ASR、画刺激-响应图、说明效用树优先级</td>
+<td><a href="https://my.feishu.cn/docx/QLG6dgNoWoFujcxjfSlcAaaHntb#doxcnJ3xJMtsuc5OGtwQoJGQ8qd">质量属性六要素</a>；<a href="https://my.feishu.cn/docx/QLG6dgNoWoFujcxjfSlcAaaHntb#doxcn9YYltJpjqsI0QcyK1JSj5c">ASR 与 Utility Tree</a></td>
+<td><a href="https://my.feishu.cn/docx/IJzqdRwGco31QMxWrFYcC4TmnGc#doxcnwSpMHy5abEs72DmniGJ5xd">2023-02 ASR</a>；<a href="https://my.feishu.cn/docx/IJzqdRwGco31QMxWrFYcC4TmnGc#doxcn2aBYzGSK6tYVS7avYZO5wh">2023-03 质量属性建模</a>；<a href="https://my.feishu.cn/docx/IJzqdRwGco31QMxWrFYcC4TmnGc#doxcn2oIVJ39qRsoELfEtJSIzmc">2024-03 刺激-响应图</a></td>
+</tr>
+<tr>
+<td>设计分析题围绕 ADD 等方法，ADD / 微服务 / DDD / 企业架构约 30-40 分</td>
+<td>按 ADD 3.0 七步分析案例，说明驱动因素、设计决策、文档化和评审</td>
+<td><a href="https://my.feishu.cn/docx/QLG6dgNoWoFujcxjfSlcAaaHntb#doxcnwXuywmah41R1A6ojIbNutd">ADD 设计重点</a>；<a href="https://my.feishu.cn/docx/QLG6dgNoWoFujcxjfSlcAaaHntb#doxcnwWWj09bKcgoLuUuLw2QClh">七类设计决策</a></td>
+<td><a href="https://my.feishu.cn/docx/IJzqdRwGco31QMxWrFYcC4TmnGc#doxcn64R0iH1ST5cpIdUhNOcZoe">2024-06 ADD 流程</a>；<a href="https://my.feishu.cn/docx/IJzqdRwGco31QMxWrFYcC4TmnGc#doxcnpnOOsq5Wb6rYEcw4UGAVLd">2024-07 七类设计决策</a></td>
+</tr>
+<tr>
+<td>架构模式可能让解释语句、画框架、分析迁移原因</td>
+<td>按“出现原因 → 解决矛盾 → 质量属性取舍 → 新痛点”作答，必要时画 SOA 或 C&amp;C/P2P</td>
+<td><a href="https://my.feishu.cn/docx/Ev63dXi5soBgVcxIEPCcWP83nIb#doxcn78v7SxnUXYPWwZKnUEkvdc">架构演进重点</a>；<a href="https://my.feishu.cn/docx/Ev63dXi5soBgVcxIEPCcWP83nIb#doxcnO4sflZYn0YK8fzgCqtD5Qg">SOA 骨架</a></td>
+<td><a href="https://my.feishu.cn/docx/IJzqdRwGco31QMxWrFYcC4TmnGc#doxcnXnpynIsn0bJNMoFyXUB8fg">2023-07 Broker</a>；<a href="https://my.feishu.cn/docx/IJzqdRwGco31QMxWrFYcC4TmnGc#doxcnYbCo33zULEtvNhtACn3kcc">2023-08 C&amp;C 与 SOA</a>；<a href="https://my.feishu.cn/docx/IJzqdRwGco31QMxWrFYcC4TmnGc#doxcnONZ1gIHwW0mb94S5G6QMxh">2024-04 Layered / Multi-tier</a></td>
+</tr>
+<tr>
+<td>微服务不重点考定义，考特性、对比、设计模式</td>
+<td>比较 SOA / 分层 / 微服务，说明服务拆分、通信韧性、部署和可观测性模式</td>
+<td><a href="https://my.feishu.cn/docx/Ev63dXi5soBgVcxIEPCcWP83nIb#doxcnF7xKh99aebKwhb2anRwjHe">微服务重点</a>；<a href="https://my.feishu.cn/docx/Ev63dXi5soBgVcxIEPCcWP83nIb#doxcnqqiCPGBN0Hq3ZHLzke1IrA">微服务相关模式</a></td>
+<td><a href="https://my.feishu.cn/docx/IJzqdRwGco31QMxWrFYcC4TmnGc#doxcneOW51tnkbKJs5do7zpb70g">2023-11 微服务部署</a>；<a href="https://my.feishu.cn/docx/IJzqdRwGco31QMxWrFYcC4TmnGc#doxcnV0RADPzeMp7eBN1chUckTe">2024-08 容器部署</a>；<a href="https://my.feishu.cn/docx/IJzqdRwGco31QMxWrFYcC4TmnGc#doxcnTMfLL0GnYrszvW18R9eYZe">2024-11 分层/SOA/微服务</a></td>
+</tr>
+<tr>
+<td>DDD 设计题大概率延续，往年约 20 分</td>
+<td>判断适用范围，划分领域/限界上下文/聚合，用领域事件和重构理由评价设计</td>
+<td><a href="https://my.feishu.cn/docx/DNIvdqN7do2QMGxXUZ0ca3wKnee#doxcnkidzMwT0w79wJVzAbbk4Uf">DDD 适用范围</a>；<a href="https://my.feishu.cn/docx/DNIvdqN7do2QMGxXUZ0ca3wKnee#doxcnHAkppOIIjYoiGlWzQcu7Nb">DDD 设计题模板</a></td>
+<td><a href="https://my.feishu.cn/docx/IJzqdRwGco31QMxWrFYcC4TmnGc#doxcn4OTu7O4PJ53k6tMjzijwUf">2023-04 DDD 战略/战术</a>；<a href="https://my.feishu.cn/docx/IJzqdRwGco31QMxWrFYcC4TmnGc#doxcnOt2DtBuo2xqrICK1y0Voeg">2023-09 聚合价值</a>；<a href="https://my.feishu.cn/docx/IJzqdRwGco31QMxWrFYcC4TmnGc#doxcnRPylPlECa55hVaZ1FSZ6fA">2024-09 DDD 一般过程</a></td>
+</tr>
+<tr>
+<td>企业架构从分析和检查视角出题，偏理论体系</td>
+<td>解释 4A/5A、TOGAF/ADM、CBM，以及自顶向下/自底向上实施路径</td>
+<td><a href="https://my.feishu.cn/docx/DNIvdqN7do2QMGxXUZ0ca3wKnee#doxcnIfH64KMZc3UxCNsQi8Glle">企业架构框架</a>；<a href="https://my.feishu.cn/docx/DNIvdqN7do2QMGxXUZ0ca3wKnee#doxcnx0sXyROmpDFHenTKTg9hnb">企业架构</a><a href="https://my.feishu.cn/docx/DNIvdqN7do2QMGxXUZ0ca3wKnee#doxcnx0sXyROmpDFHenTKTg9hnb">实施</a><a href="https://my.feishu.cn/docx/DNIvdqN7do2QMGxXUZ0ca3wKnee#doxcnx0sXyROmpDFHenTKTg9hnb">路径</a></td>
+<td><a href="https://my.feishu.cn/docx/IJzqdRwGco31QMxWrFYcC4TmnGc#doxcnkleUR7hxXOX0gMmhohvs4c">2023-10 企业架构过程</a>；<a href="https://my.feishu.cn/docx/IJzqdRwGco31QMxWrFYcC4TmnGc#doxcnd72XvYroRDifxsbPGKVqxc">2024-10 企业架构功能</a></td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h1 id="%E4%B8%89%E8%BD%AE%E5%86%B2%E5%88%BA%E8%B7%AF%E7%BA%BF" tabindex="-1"><a class="header-anchor" href="#%E4%B8%89%E8%BD%AE%E5%86%B2%E5%88%BA%E8%B7%AF%E7%BA%BF">#</a> 三轮冲刺路线</h1>
+<ol>
+<li>
+<p>**建框架：**先读“核心概念与架构过程”及“质量属性、ASR 与 ADD”，把术语关系和设计主链记牢。</p>
+</li>
+<li>
+<p>**会比较：**读“架构模式演进与微服务”，练习每种模式的上下文、收益与代价。</p>
+</li>
+<li>
+<p>**练输出：**读“DDD、企业架构与历年题”，按历年题写提纲，并练一遍设计题表达。</p>
+</li>
+</ol>
+<p>**考场提醒：**论述题不要只写名词解释；设计题先写判断依据，再画/描述结构，最后落到质量属性或领域规则的改进。</p>
+<h1 id="%E6%9D%A5%E6%BA%90%E4%B8%8E%E7%AD%9B%E9%80%89%E8%AF%B4%E6%98%8E" tabindex="-1"><a class="header-anchor" href="#%E6%9D%A5%E6%BA%90%E4%B8%8E%E7%AD%9B%E9%80%89%E8%AF%B4%E6%98%8E">#</a> 来源与筛选说明</h1>
+<ul>
+<li>
+<p>事实依据：三份飞书智能纪要中关于考试安排、范围和老师强调重点的内容。</p>
+</li>
+<li>
+<p>上传资料：《扫描文档20260526_192514.pdf》（MinerU OCR），其中给出考试说明和目录顺序：软件架构、质量属性、架构模式、软件架构设计、微服务、DDD、企业与业务架构。资料中若出现 <strong>AI 增强 / AI 原生</strong>，按三份飞书纪要说明处理为考后或背景内容，<strong>不纳入期末考试要求</strong>。</p>
+</li>
+<li>
+<p>专题补充依据：`slides/` 下的原始课件；历年题整理仅用于题型训练和自测，不替代课件与智能纪要。</p>
+</li>
+<li>
+<p>未纳入：重复 PDF 副本、作业提交文件、与考前复习范围重复的原始材料。</p>
+</li>
+</ul>
+<hr>
+<h1 id="%E5%8F%AF%E7%9B%B4%E6%8E%A5%E8%83%8C%E8%AF%B5%EF%BC%9A%E8%80%83%E8%AF%95%E8%8C%83%E5%9B%B4%E4%B8%8E%E5%A4%8D%E4%B9%A0%E7%AD%96%E7%95%A5" tabindex="-1"><a class="header-anchor" href="#%E5%8F%AF%E7%9B%B4%E6%8E%A5%E8%83%8C%E8%AF%B5%EF%BC%9A%E8%80%83%E8%AF%95%E8%8C%83%E5%9B%B4%E4%B8%8E%E5%A4%8D%E4%B9%A0%E7%AD%96%E7%95%A5">#</a> 可直接背诵：考试范围与复习策略</h1>
+<p><strong>背诵稿：</strong></p>
+<ul>
+<li>
+<p>**成绩构成：**期末考试占总成绩 60%，平时成绩占 40%。</p>
+</li>
+<li>
+<p>**题型：**简答题、论述或问答题、设计分析题；题目可能用英文呈现，答案可中文或英文，但不应混用。</p>
+</li>
+<li>
+<p>**可能画图：**个别题需要画图，优先准备 4+1、质量属性场景、模式骨架和 DDD 边界。</p>
+</li>
+<li>
+<p>**复习范围：**软件架构、质量属性、模式、设计、微服务、DDD 与企业架构。</p>
+</li>
+<li>
+<p>**重点分析：**老师纪要明确 ADD 3.0、微服务、DDD 和企业架构需要会分析案例。</p>
+</li>
+<li>
+<p><strong>排除边界：AI 增强 / AI 原生</strong> 安排在考试后或作为背景介绍，<strong>不作为考试要求</strong>。</p>
+</li>
+</ul>
+<blockquote>
+<p>(注：内容由 AI 生成，请谨慎参考）</p>
+</blockquote>
+
+      </div>
+
+      <footer class="post-footer">
+        <div class="post-nav">
+          <a href="/" class="post-nav-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            返回首页
+          </a>
+        </div>
+      </footer>
+    </article>
+  </main>
+</div>
+
+
+  <footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <span class="footer-logo">ASIMOV&#39;S Blog</span>
+        <p class="footer-desc">ASIMOV的老巢</p>
+        <div class="footer-social">
+          
+            <a href="https://github.com/chendingya" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+          
+          
+            <a href="https://twitter.com/yourname" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          
+          
+            <a href="mailto:your@email.com" class="social-link" aria-label="Email">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </a>
+          
+          
+            <a href="/feed.xml" class="social-link" aria-label="RSS">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20C5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1z"/></svg>
+            </a>
+          
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">导航</h4>
+        <ul class="footer-links">
+          
+            <li><a href="/">首页</a></li>
+          
+            <li><a href="/archive/">归档</a></li>
+          
+            <li><a href="/tags/">标签</a></li>
+          
+            <li><a href="/categories/">分类</a></li>
+          
+            <li><a href="/comments/">留言</a></li>
+          
+            <li><a href="/projects/">项目</a></li>
+          
+          <li><a href="/archive/">归档</a></li>
+          <li><a href="/tags/">标签</a></li>
+          <li><a href="/categories/">分类</a></li>
+        </ul>
+      </div>
+
+      
+      <div class="footer-col">
+        <h4 class="footer-heading">友链</h4>
+        <ul class="footer-links">
+          
+            <li><a href="https://example.com" target="_blank" rel="noopener noreferrer">示例友链</a></li>
+          
+        </ul>
+      </div>
+      
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 ASIMOV&#39;S Blog</p>
+      
+    </div>
+  </div>
+</footer>
+
+
+  <button class="back-to-top" aria-label="返回顶部">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+  </button>
+
+  <script src="/assets/js/main.js" defer></script>
+  <script src="/plugins/comments/comments-assets/editor.js" defer></script>
+</body>
+</html>

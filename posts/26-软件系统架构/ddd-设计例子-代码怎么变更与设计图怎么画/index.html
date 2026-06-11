@@ -1,0 +1,1285 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ASIMOV的老巢">
+  <title>DDD 设计例子：代码怎么变更与设计图怎么画 - ASIMOV&#39;S Blog</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Noto+Serif+SC:wght@400;500;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/css/style.css">
+  
+  <link rel="stylesheet" href="/assets/css/highlight.css">
+  
+
+  
+  <style>:root {
+  --font-display: 'Playfair Display', 'Noto Serif SC', Georgia, 'Times New Roman', serif;
+  --font-body: 'Public Sans', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'Fira Code', 'Cascadia Code', 'JetBrains Mono', monospace;
+  --bg-cream: #FEFAF6;
+  --bg-cream-alpha: rgba(254,250,246,0.85);
+  --bg-surface: #FFFFFF;
+  --bg-warm: #FDF5EB;
+  --text-primary: #2C1810;
+  --text-secondary: #8B7355;
+  --text-muted: #C4A882;
+  --text-on-accent: #FFFFFF;
+  --border: #E8D5C4;
+  --border-light: #F0E3D5;
+  --shadow-sm: 0 1px 2px rgba(44,24,16,0.04);
+  --shadow-md: 0 4px 12px rgba(44,24,16,0.06);
+  --shadow-lg: 0 12px 32px rgba(44,24,16,0.08);
+  --code-bg: #1E1E1E;
+  --code-text: #E0E0E0;
+  --brand: var(--accent-coral);
+  --brand-hover: #FF5252;
+  --brand-alpha: rgba(255,107,107,0.08);
+  --brand-alpha-heavy: rgba(255,107,107,0.15);
+  --selection-bg: rgba(255,107,107,0.2);
+  --accent-coral: #FF6B6B;
+  --accent-coral-hover: #FF5252;
+  --accent-amber: #F4A261;
+  --accent-mint: #90BE6D;
+  --accent-lavender: #9B72AA;
+  --accent-sky: #4ECDC4;
+  --accent-sun: #F9C74F;
+  --accent-rose: #FF6B8A;
+  --accent-blue: #577590;
+  --max-width: 1200px;
+  --content-width: 720px;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 5rem;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+}
+
+[data-theme="dark"] {
+  --bg-cream: #1A1614;
+  --bg-cream-alpha: rgba(26,22,20,0.85);
+  --bg-surface: #2C2420;
+  --bg-warm: #241E1A;
+  --text-primary: #E8D5C4;
+  --text-secondary: #B8A088;
+  --text-muted: #8B7355;
+  --text-on-accent: #FFFFFF;
+  --border: #3D3028;
+  --border-light: #332A22;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.25);
+  --shadow-lg: 0 12px 32px rgba(0,0,0,0.3);
+  --code-bg: #111111;
+  --code-text: #E0E0E0;
+  --brand: var(--accent-coral);
+  --brand-hover: #FF8A8A;
+  --brand-alpha: rgba(255,107,107,0.12);
+  --brand-alpha-heavy: rgba(255,107,107,0.2);
+  --selection-bg: rgba(255,107,107,0.2);
+}</style>
+  
+
+  <link rel="stylesheet" href="/plugins/comments/comments-assets/style.css">
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23FF6B6B'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='20' fill='white'>A</text></svg>">
+
+  
+  <link rel="alternate" type="application/rss+xml" title="ASIMOV&#39;S Blog" href="/feed.xml">
+  
+
+  <meta property="og:title" content="DDD 设计例子：代码怎么变更与设计图怎么画">
+  <meta property="og:description" content="ASIMOV的老巢">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://chendingya.github.io//posts/26-软件系统架构/ddd-设计例子-代码怎么变更与设计图怎么画/">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="DDD 设计例子：代码怎么变更与设计图怎么画">
+  <meta name="twitter:description" content="ASIMOV的老巢">
+  
+</head>
+<body class="post-page">
+  <div class="reading-progress"></div>
+
+  <header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="/" class="site-brand">
+        
+          <span class="brand-title">ASIMOV&#39;S Blog</span>
+        
+      </a>
+
+      <nav class="site-nav" data-target="main-nav">
+        <ul class="nav-list">
+          
+            <li class="nav-item">
+              <a href="/" class="nav-link">首页</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/archive/" class="nav-link">归档</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/tags/" class="nav-link">标签</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/categories/" class="nav-link">分类</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/comments/" class="nav-link">留言</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/projects/" class="nav-link">项目</a>
+            </li>
+          
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" data-action="toggle-theme" aria-label="切换暗色模式">
+          <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+
+        <button class="icon-btn menu-btn" data-action="toggle-menu" aria-label="菜单">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  <div class="container">
+  <main class="main-content">
+    <article class="post-article">
+      <header class="post-header">
+        
+          <div class="post-header-cats">
+            
+              <a href="/categories/软件架构设计/" class="meta-cat accent">软件架构设计</a>
+            
+          </div>
+        
+        <h1 class="post-title">DDD 设计例子：代码怎么变更与设计图怎么画</h1>
+        <div class="post-meta">
+          <time datetime="2026-06-02T00:00:00.000Z">
+            2026年6月2日
+          </time>
+          
+            <span class="meta-divider">&middot;</span>
+            <span class="post-author">heleyang</span>
+          
+        </div>
+        
+          <div class="post-header-tags">
+            
+              <a href="/tags/软件架构设计/" class="tag">软件架构设计</a>
+            
+              <a href="/tags/期末复习/" class="tag">期末复习</a>
+            
+          </div>
+        
+      </header>
+
+      
+        <details class="toc-wrap">
+          <summary class="toc-title">目录</summary>
+          <nav class="toc-nav">
+            
+              <a href="#ddd-设计例子-代码怎么变更与设计图怎么画" class="toc-link toc-level-1">DDD 设计例子：代码怎么变更与设计图怎么画</a>
+            
+              <a href="#一-先记住-ddd-代码怎么改" class="toc-link toc-level-1">一、先记住：DDD 代码怎么改</a>
+            
+              <a href="#二-例子-1-超市收银员-从-拆别人内部结构-改成-对象自己完成行为" class="toc-link toc-level-1">二、例子 1：超市收银员，从“拆别人内部结构”改成“对象自己完成行为”</a>
+            
+              <a href="#修改前" class="toc-link toc-level-3">修改前</a>
+            
+              <a href="#修改后" class="toc-link toc-level-3">修改后</a>
+            
+              <a href="#该画什么图" class="toc-link toc-level-2">该画什么图</a>
+            
+              <a href="#三-例子-2-订单聚合-用聚合根保护一致性边界" class="toc-link toc-level-1">三、例子 2：订单聚合，用聚合根保护一致性边界</a>
+            
+              <a href="#四-例子-3-结算系统-从过胖-service-改成领域模型-端口适配器" class="toc-link toc-level-1">四、例子 3：结算系统，从过胖 Service 改成领域模型 \+ 端口适配器</a>
+            
+              <a href="#修改后的核心代码" class="toc-link toc-level-2">修改后的核心代码</a>
+            
+              <a href="#该画什么图" class="toc-link toc-level-2">该画什么图</a>
+            
+              <a href="#五-例子-4-限界上下文-不要把所有字段塞进一个大-product" class="toc-link toc-level-1">五、例子 4：限界上下文，不要把所有字段塞进一个大 Product</a>
+            
+              <a href="#六-例子-5-为学课堂-用事件风暴推导代码边界" class="toc-link toc-level-1">六、例子 5：为学课堂，用事件风暴推导代码边界</a>
+            
+              <a href="#七-设计图速查-每种图用来回答什么" class="toc-link toc-level-1">七、设计图速查：每种图用来回答什么</a>
+            
+              <a href="#八-考试-作业答题模板" class="toc-link toc-level-1">八、考试/作业答题模板</a>
+            
+              <a href="#九-mock-题-研究生选课系统-手把手按-ddd-写回答" class="toc-link toc-level-1">九、Mock 题：研究生选课系统，手把手按 DDD 写回答</a>
+            
+              <a href="#题目" class="toc-link toc-level-2">题目</a>
+            
+              <a href="#第-1-步-先找核心业务规则" class="toc-link toc-level-2">第 1 步：先找核心业务规则</a>
+            
+              <a href="#第-2-步-事件风暴-先找-发生过的事实" class="toc-link toc-level-2">第 2 步：事件风暴，先找“发生过的事实”</a>
+            
+              <a href="#第-3-步-划分限界上下文" class="toc-link toc-level-2">第 3 步：划分限界上下文</a>
+            
+              <a href="#第-4-步-设计聚合-实体和值对象" class="toc-link toc-level-2">第 4 步：设计聚合、实体和值对象</a>
+            
+              <a href="#第-5-步-写聚合根伪代码-让业务规则回到领域对象" class="toc-link toc-level-2">第 5 步：写聚合根伪代码，让业务规则回到领域对象</a>
+            
+              <a href="#第-6-步-跨聚合规则放领域服务" class="toc-link toc-level-2">第 6 步：跨聚合规则放领域服务</a>
+            
+              <a href="#第-7-步-应用服务只做流程编排" class="toc-link toc-level-2">第 7 步：应用服务只做流程编排</a>
+            
+              <a href="#第-8-步-画调用时序图" class="toc-link toc-level-2">第 8 步：画调用时序图</a>
+            
+              <a href="#第-9-步-画包图-分层图" class="toc-link toc-level-2">第 9 步：画包图 / 分层图</a>
+            
+              <a href="#最终答题模板" class="toc-link toc-level-2">最终答题模板</a>
+            
+              <a href="#十-slides-原有代码改造-mock-题-按标准步骤答题" class="toc-link toc-level-1">十、Slides 原有代码改造 Mock 题：按标准步骤答题</a>
+            
+              <a href="#mock-题-a-超市收银员-如何把-拆别人内部结构-的代码改掉" class="toc-link toc-level-2">Mock 题 A：超市收银员，如何把“拆别人内部结构”的代码改掉</a>
+            
+              <a href="#step-1-识别问题" class="toc-link toc-level-3">Step 1：识别问题</a>
+            
+              <a href="#step-2-提炼领域概念" class="toc-link toc-level-3">Step 2：提炼领域概念</a>
+            
+              <a href="#step-3-重新分配职责" class="toc-link toc-level-3">Step 3：重新分配职责</a>
+            
+              <a href="#step-4-设计领域模型" class="toc-link toc-level-3">Step 4：设计领域模型</a>
+            
+              <a href="#step-5-写修改后的伪代码" class="toc-link toc-level-3">Step 5：写修改后的伪代码</a>
+            
+              <a href="#step-6-画图和答题句" class="toc-link toc-level-3">Step 6：画图和答题句</a>
+            
+              <a href="#mock-题-b-结算账单导出系统-如何从贫血模型改成领域模型-端口适配器" class="toc-link toc-level-2">Mock 题 B：结算账单导出系统，如何从贫血模型改成领域模型 \+ 端口适配器</a>
+            
+              <a href="#step-1-识别问题" class="toc-link toc-level-3">Step 1：识别问题</a>
+            
+              <a href="#step-2-提炼领域概念" class="toc-link toc-level-3">Step 2：提炼领域概念</a>
+            
+              <a href="#step-3-划分边界和端口" class="toc-link toc-level-3">Step 3：划分边界和端口</a>
+            
+              <a href="#step-4-设计领域模型" class="toc-link toc-level-3">Step 4：设计领域模型</a>
+            
+              <a href="#step-5-写修改后的伪代码" class="toc-link toc-level-3">Step 5：写修改后的伪代码</a>
+            
+              <a href="#step-6-画图和答题句" class="toc-link toc-level-3">Step 6：画图和答题句</a>
+            
+              <a href="#这类题的统一答题模板" class="toc-link toc-level-2">这类题的统一答题模板</a>
+            
+              <a href="#十一-mock-题-星空在线影院票务系统-按标准步骤答题" class="toc-link toc-level-1">十一、Mock 题：星空在线影院票务系统，按标准步骤答题</a>
+            
+              <a href="#题目" class="toc-link toc-level-2">题目</a>
+            
+              <a href="#step-1-先抓业务不变量" class="toc-link toc-level-2">Step 1：先抓业务不变量</a>
+            
+              <a href="#step-2-事件风暴" class="toc-link toc-level-2">Step 2：事件风暴</a>
+            
+              <a href="#step-3-战略设计-限界上下文和-context-map" class="toc-link toc-level-2">Step 3：战略设计：限界上下文和 Context Map</a>
+            
+              <a href="#step-4-战术设计-聚合-实体和值对象" class="toc-link toc-level-2">Step 4：战术设计：聚合、实体和值对象</a>
+            
+              <a href="#step-5-伪代码-把规则写进领域对象" class="toc-link toc-level-2">Step 5：伪代码：把规则写进领域对象</a>
+            
+              <a href="#step-6-补充流程图和答题句" class="toc-link toc-level-2">Step 6：补充流程图和答题句</a>
+            
+              <a href="#知识出处" class="toc-link toc-level-2">知识出处</a>
+            
+          </nav>
+        </details>
+      
+
+      <div class="post-body">
+        <h1 id="ddd-%E8%AE%BE%E8%AE%A1%E4%BE%8B%E5%AD%90%EF%BC%9A%E4%BB%A3%E7%A0%81%E6%80%8E%E4%B9%88%E5%8F%98%E6%9B%B4%E4%B8%8E%E8%AE%BE%E8%AE%A1%E5%9B%BE%E6%80%8E%E4%B9%88%E7%94%BB" tabindex="-1"><a class="header-anchor" href="#ddd-%E8%AE%BE%E8%AE%A1%E4%BE%8B%E5%AD%90%EF%BC%9A%E4%BB%A3%E7%A0%81%E6%80%8E%E4%B9%88%E5%8F%98%E6%9B%B4%E4%B8%8E%E8%AE%BE%E8%AE%A1%E5%9B%BE%E6%80%8E%E4%B9%88%E7%94%BB">#</a> DDD 设计例子：代码怎么变更与设计图怎么画</h1>
+<p>**一句话：**这份课件的设计例子可以按“<strong>事件风暴找业务事实 → 限界上下文切边界 → 类图/聚合图表达领域模型 → 包图/分层图表达代码位置 → 端口适配器图隔离基础设施 → 时序图说明一次业务流程</strong>”来复习。</p>
+<h1 id="%E4%B8%80%E3%80%81%E5%85%88%E8%AE%B0%E4%BD%8F%EF%BC%9Addd-%E4%BB%A3%E7%A0%81%E6%80%8E%E4%B9%88%E6%94%B9" tabindex="-1"><a class="header-anchor" href="#%E4%B8%80%E3%80%81%E5%85%88%E8%AE%B0%E4%BD%8F%EF%BC%9Addd-%E4%BB%A3%E7%A0%81%E6%80%8E%E4%B9%88%E6%94%B9">#</a> 一、先记住：DDD 代码怎么改</h1>
+<ol>
+<li>
+<p><strong>坏代码：Service / Controller</strong> 直接拼流程、读写技术对象。</p>
+</li>
+<li>
+<p><strong>事件风暴：<strong>找</strong>事件</strong>、<strong>命令</strong>、<strong>角色</strong>、<strong>策略</strong>，把流程语言改成业务语言。</p>
+</li>
+<li>
+<p><strong>战略设计：<strong>识别</strong>子领域</strong>、划分<strong>限界上下文</strong>，并说明<strong>上下文映射</strong>。</p>
+</li>
+<li>
+<p><strong>战术设计：<strong>建模</strong>实体</strong>、<strong>值对象</strong>、<strong>聚合根</strong>、<strong>领域事件</strong>。</p>
+</li>
+<li>
+<p><strong>代码落地：<strong>用</strong>应用服务</strong>编排用例，把业务规则放回<strong>领域模型</strong>；用<strong>仓储接口</strong>和<strong>适配器</strong>隔离数据库、Excel、HTTP、消息队列、第三方系统。</p>
+</li>
+<li>
+<p><strong>评审：<strong>检查</strong>一致性</strong>、<strong>耦合</strong>、<strong>可修改性</strong>和<strong>技术隔离</strong>，确认改造后领域规则不再散落在 Service / Controller 里。</p>
+</li>
+</ol>
+<h1 id="%E4%BA%8C%E3%80%81%E4%BE%8B%E5%AD%90-1%EF%BC%9A%E8%B6%85%E5%B8%82%E6%94%B6%E9%93%B6%E5%91%98%EF%BC%8C%E4%BB%8E%E2%80%9C%E6%8B%86%E5%88%AB%E4%BA%BA%E5%86%85%E9%83%A8%E7%BB%93%E6%9E%84%E2%80%9D%E6%94%B9%E6%88%90%E2%80%9C%E5%AF%B9%E8%B1%A1%E8%87%AA%E5%B7%B1%E5%AE%8C%E6%88%90%E8%A1%8C%E4%B8%BA%E2%80%9D" tabindex="-1"><a class="header-anchor" href="#%E4%BA%8C%E3%80%81%E4%BE%8B%E5%AD%90-1%EF%BC%9A%E8%B6%85%E5%B8%82%E6%94%B6%E9%93%B6%E5%91%98%EF%BC%8C%E4%BB%8E%E2%80%9C%E6%8B%86%E5%88%AB%E4%BA%BA%E5%86%85%E9%83%A8%E7%BB%93%E6%9E%84%E2%80%9D%E6%94%B9%E6%88%90%E2%80%9C%E5%AF%B9%E8%B1%A1%E8%87%AA%E5%B7%B1%E5%AE%8C%E6%88%90%E8%A1%8C%E4%B8%BA%E2%80%9D">#</a> 二、例子 1：超市收银员，从“拆别人内部结构”改成“对象自己完成行为”</h1>
+<p><strong>课件问题：Cashier</strong> 通过 <code>customer.getWallet()</code> 拿到 <strong>Wallet</strong>，再检查余额和扣钱。这样 <strong>Cashier</strong> 认识了“朋友的朋友”，违反 <strong>迪米特法则</strong>。</p>
+<h3 id="%E4%BF%AE%E6%94%B9%E5%89%8D" tabindex="-1"><a class="header-anchor" href="#%E4%BF%AE%E6%94%B9%E5%89%8D">#</a> 修改前</h3>
+<pre><code class="language-java">public void charge(Customer customer, Money payment) {
+    Wallet wallet = customer.getWallet();
+    if (wallet.isEnough(payment)) {
+        wallet.subtractMoney(payment);
+    } else {
+        throw new NotEnoughMoneyException();
+    }
+}
+</code></pre>
+<h3 id="%E4%BF%AE%E6%94%B9%E5%90%8E" tabindex="-1"><a class="header-anchor" href="#%E4%BF%AE%E6%94%B9%E5%90%8E">#</a> 修改后</h3>
+<pre><code class="language-java">public void charge(Customer customer, Money payment) {
+    customer.pay(payment);
+}
+
+public class Customer {
+    private Wallet wallet;
+
+    public void pay(Money payment) {
+        wallet.pay(payment);
+    }
+}
+</code></pre>
+<h2 id="%E8%AF%A5%E7%94%BB%E4%BB%80%E4%B9%88%E5%9B%BE" tabindex="-1"><a class="header-anchor" href="#%E8%AF%A5%E7%94%BB%E4%BB%80%E4%B9%88%E5%9B%BE">#</a> 该画什么图</h2>
+<ul>
+<li>
+<p>**类图 / Class Diagram：**画 <strong>Cashier</strong>、<strong>Customer</strong>、<strong>Wallet</strong> 的关系，突出行为从 <strong>Cashier</strong> 移到 <strong>Customer.pay()</strong>。</p>
+</li>
+<li>
+<p>**时序图 / Sequence Diagram：**画一次收费流程：<strong>Cashier → Customer → Wallet</strong>，说明外部对象不再越级访问。</p>
+</li>
+</ul>
+<h1 id="%E4%B8%89%E3%80%81%E4%BE%8B%E5%AD%90-2%EF%BC%9A%E8%AE%A2%E5%8D%95%E8%81%9A%E5%90%88%EF%BC%8C%E7%94%A8%E8%81%9A%E5%90%88%E6%A0%B9%E4%BF%9D%E6%8A%A4%E4%B8%80%E8%87%B4%E6%80%A7%E8%BE%B9%E7%95%8C" tabindex="-1"><a class="header-anchor" href="#%E4%B8%89%E3%80%81%E4%BE%8B%E5%AD%90-2%EF%BC%9A%E8%AE%A2%E5%8D%95%E8%81%9A%E5%90%88%EF%BC%8C%E7%94%A8%E8%81%9A%E5%90%88%E6%A0%B9%E4%BF%9D%E6%8A%A4%E4%B8%80%E8%87%B4%E6%80%A7%E8%BE%B9%E7%95%8C">#</a> 三、例子 2：订单聚合，用聚合根保护一致性边界</h1>
+<p><strong>聚合 / Aggregate</strong> 是领域模型的概念边界；<strong>聚合根 / Aggregate Root</strong> 是唯一入口和出口。外部不能随便改内部对象，只能通过聚合根方法改变状态。</p>
+<ul>
+<li>
+<p>**代码变更：**把原本散落在 Service 中的“加商品、发货、校验地址、计算金额”等规则收拢到 <strong>Order</strong> 聚合根。</p>
+</li>
+<li>
+<p>**图上要标：**哪个是 <strong>Aggregate Root</strong>，哪些是内部实体和值对象，外部访问入口在哪里。</p>
+</li>
+<li>
+<p>**答题句：**聚合根维护内部业务不变量，聚合之间尽量通过 ID 值对象关联，减少对象网状依赖。</p>
+</li>
+</ul>
+<h1 id="%E5%9B%9B%E3%80%81%E4%BE%8B%E5%AD%90-3%EF%BC%9A%E7%BB%93%E7%AE%97%E7%B3%BB%E7%BB%9F%EF%BC%8C%E4%BB%8E%E8%BF%87%E8%83%96-service-%E6%94%B9%E6%88%90%E9%A2%86%E5%9F%9F%E6%A8%A1%E5%9E%8B-%2B-%E7%AB%AF%E5%8F%A3%E9%80%82%E9%85%8D%E5%99%A8" tabindex="-1"><a class="header-anchor" href="#%E5%9B%9B%E3%80%81%E4%BE%8B%E5%AD%90-3%EF%BC%9A%E7%BB%93%E7%AE%97%E7%B3%BB%E7%BB%9F%EF%BC%8C%E4%BB%8E%E8%BF%87%E8%83%96-service-%E6%94%B9%E6%88%90%E9%A2%86%E5%9F%9F%E6%A8%A1%E5%9E%8B-%2B-%E7%AB%AF%E5%8F%A3%E9%80%82%E9%85%8D%E5%99%A8">#</a> 四、例子 3：结算系统，从过胖 Service 改成领域模型 + 端口适配器</h1>
+<p><strong>修改前的问题：InternalSettlementBill</strong> 只有字段没有行为，是贫血模型；<strong>BillReviewService</strong> 同时读 Excel、填单元格、下载文件；<strong>HSSFWorkbook</strong>、<strong>PoiUtils</strong> 等技术对象泄漏到业务流程。</p>
+<h2 id="%E4%BF%AE%E6%94%B9%E5%90%8E%E7%9A%84%E6%A0%B8%E5%BF%83%E4%BB%A3%E7%A0%81" tabindex="-1"><a class="header-anchor" href="#%E4%BF%AE%E6%94%B9%E5%90%8E%E7%9A%84%E6%A0%B8%E5%BF%83%E4%BB%A3%E7%A0%81">#</a> 修改后的核心代码</h2>
+<pre><code class="language-java">public void export(OutputStreamProvider streamProvider,
+                   String templateName,
+                   String billNumber) {
+    SettlementBillTemplate template =
+        templateRepo.loadBy(templateName, billNumber);
+    SettlementBill bill = billRepo.loadBy(templateName);
+    bill.fillWith(template);
+    billRepo.save(bill, templateName);
+}
+</code></pre>
+<ul>
+<li>
+<p><strong>SettlementBill</strong> 负责 <code>fillWith(template)</code>。</p>
+</li>
+<li>
+<p><strong>Workbook / Sheet / Row / Cell</strong> 负责 <code>replaceOrSet()</code>。</p>
+</li>
+<li>
+<p><strong>SettlementBillRepository</strong> 封装账单加载与保存。</p>
+</li>
+<li>
+<p><strong>HSSFWorkbookAdapter</strong> 等适配器把 POI 技术对象转换成领域模型可用的抽象。</p>
+</li>
+</ul>
+<h2 id="%E8%AF%A5%E7%94%BB%E4%BB%80%E4%B9%88%E5%9B%BE-1" tabindex="-1"><a class="header-anchor" href="#%E8%AF%A5%E7%94%BB%E4%BB%80%E4%B9%88%E5%9B%BE-1">#</a> 该画什么图</h2>
+<ul>
+<li>
+<p>**包图 / Package Diagram：**画 UI、Application、Domain、Infrastructure 四层。</p>
+</li>
+<li>
+<p>**类图 / Class Diagram：**画 <strong>SettlementBill</strong>、<strong>Workbook</strong>、<strong>Sheet</strong>、<strong>Row</strong>、<strong>Cell</strong>、Repository 接口和 Adapter。</p>
+</li>
+<li>
+<p>**端口适配器图：**画领域层依赖端口，基础设施层实现端口。</p>
+</li>
+<li>
+<p>**时序图：**画一次导出流程：AppService 调用领域服务，领域服务加载账单和模板，账单填充，仓储保存。</p>
+</li>
+</ul>
+<h1 id="%E4%BA%94%E3%80%81%E4%BE%8B%E5%AD%90-4%EF%BC%9A%E9%99%90%E7%95%8C%E4%B8%8A%E4%B8%8B%E6%96%87%EF%BC%8C%E4%B8%8D%E8%A6%81%E6%8A%8A%E6%89%80%E6%9C%89%E5%AD%97%E6%AE%B5%E5%A1%9E%E8%BF%9B%E4%B8%80%E4%B8%AA%E5%A4%A7-product" tabindex="-1"><a class="header-anchor" href="#%E4%BA%94%E3%80%81%E4%BE%8B%E5%AD%90-4%EF%BC%9A%E9%99%90%E7%95%8C%E4%B8%8A%E4%B8%8B%E6%96%87%EF%BC%8C%E4%B8%8D%E8%A6%81%E6%8A%8A%E6%89%80%E6%9C%89%E5%AD%97%E6%AE%B5%E5%A1%9E%E8%BF%9B%E4%B8%80%E4%B8%AA%E5%A4%A7-product">#</a> 五、例子 4：限界上下文，不要把所有字段塞进一个大 Product</h1>
+<p>课件里的供应链例子说明：如果按普通模块分类，容易把采购、订单、库存、运输关心的字段都塞进一个巨大 <strong>Product</strong>。DDD 更强调按 <strong>限界上下文 / Bounded Context</strong> 切分，同一个词在不同上下文中可以有不同模型。</p>
+<ul>
+<li>
+<p>**代码变更：**不要创建一个万能 <strong>Product</strong> 类；在不同上下文内建立各自的 Product 模型或引用模型。</p>
+</li>
+<li>
+<p>**图上要标：**上下文名称、每个上下文公开的业务能力、上下文之间的依赖或映射关系。</p>
+</li>
+<li>
+<p>**答题句：**限界上下文是按领域能力纵向切分，不是按技术层水平拆模块。</p>
+</li>
+</ul>
+<h1 id="%E5%85%AD%E3%80%81%E4%BE%8B%E5%AD%90-5%EF%BC%9A%E4%B8%BA%E5%AD%A6%E8%AF%BE%E5%A0%82%EF%BC%8C%E7%94%A8%E4%BA%8B%E4%BB%B6%E9%A3%8E%E6%9A%B4%E6%8E%A8%E5%AF%BC%E4%BB%A3%E7%A0%81%E8%BE%B9%E7%95%8C" tabindex="-1"><a class="header-anchor" href="#%E5%85%AD%E3%80%81%E4%BE%8B%E5%AD%90-5%EF%BC%9A%E4%B8%BA%E5%AD%A6%E8%AF%BE%E5%A0%82%EF%BC%8C%E7%94%A8%E4%BA%8B%E4%BB%B6%E9%A3%8E%E6%9A%B4%E6%8E%A8%E5%AF%BC%E4%BB%A3%E7%A0%81%E8%BE%B9%E7%95%8C">#</a> 六、例子 5：为学课堂，用事件风暴推导代码边界</h1>
+<p>事件风暴先找已经发生的业务事实，再识别命令、角色、策略、外部系统、聚合和读模型。课件里的事件包括 <strong>试卷已生成</strong>、<strong>试卷已提交</strong>、<strong>诊断已完成</strong>、<strong>课程已推荐</strong>、<strong>订单已提交</strong>、<strong>支付已完成</strong>、<strong>报名已完成</strong>、<strong>课程名额已锁定/已释放</strong>。</p>
+<ul>
+<li>
+<p><strong>事件</strong> 可以落成 <code>DomainEvent</code>，例如 <code>PaymentCompleted</code>。</p>
+</li>
+<li>
+<p><strong>命令</strong> 可以落成 <code>Command</code>，例如 <code>SubmitOrderCommand</code>。</p>
+</li>
+<li>
+<p><strong>聚合根</strong> 处理命令并维护一致性，例如 <code>Order.submit()</code>、<code>Enrollment.complete()</code>。</p>
+</li>
+<li>
+<p><strong>读模型</strong> 服务查询展示，不直接承载核心业务规则。</p>
+</li>
+</ul>
+<h1 id="%E4%B8%83%E3%80%81%E8%AE%BE%E8%AE%A1%E5%9B%BE%E9%80%9F%E6%9F%A5%EF%BC%9A%E6%AF%8F%E7%A7%8D%E5%9B%BE%E7%94%A8%E6%9D%A5%E5%9B%9E%E7%AD%94%E4%BB%80%E4%B9%88" tabindex="-1"><a class="header-anchor" href="#%E4%B8%83%E3%80%81%E8%AE%BE%E8%AE%A1%E5%9B%BE%E9%80%9F%E6%9F%A5%EF%BC%9A%E6%AF%8F%E7%A7%8D%E5%9B%BE%E7%94%A8%E6%9D%A5%E5%9B%9E%E7%AD%94%E4%BB%80%E4%B9%88">#</a> 七、设计图速查：每种图用来回答什么</h1>
+<table>
+<thead>
+<tr>
+<th>图</th>
+<th>回答的问题</th>
+<th>DDD 题里怎么用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>类图 / Class Diagram</strong></td>
+<td>领域对象有哪些，谁持有哪些属性和行为。</td>
+<td>画实体、值对象、聚合根、领域服务、仓储接口；说明业务行为移到领域对象。</td>
+</tr>
+<tr>
+<td><strong>聚合结构图</strong></td>
+<td>一致性边界在哪里，谁是唯一入口。</td>
+<td>标出 Aggregate Root、内部实体和值对象；说明外部只能通过根修改聚合。</td>
+</tr>
+<tr>
+<td><strong>包图 / Package Diagram</strong></td>
+<td>代码分层和依赖方向。</td>
+<td>画 UI、Application、Domain、Infrastructure；强调领域层不依赖技术实现。</td>
+</tr>
+<tr>
+<td><strong>端口适配器图</strong></td>
+<td>领域逻辑如何隔离技术细节。</td>
+<td>画 Repository/Client/Writer 等端口和 Adapter；说明 Excel、DB、HTTP 不进入领域逻辑。</td>
+</tr>
+<tr>
+<td><strong>限界上下文图</strong></td>
+<td>业务能力边界怎么切。</td>
+<td>按采购、订单、库存、运输等上下文拆模型，而不是把所有字段放到一个大类。</td>
+</tr>
+<tr>
+<td><strong>上下文映射图 / Context Map</strong></td>
+<td>上下文之间如何协作。</td>
+<td>标出 ACL、OHS、PL、Customer/Supplier、Conformist、Partnership、Shared Kernel 等关系。</td>
+</tr>
+<tr>
+<td><strong>事件风暴图</strong></td>
+<td>业务流程如何从事件推导出模型。</td>
+<td>按时间线画事件、命令、角色、策略、外部系统、读模型、聚合。</td>
+</tr>
+<tr>
+<td><strong>时序图 / Sequence Diagram</strong></td>
+<td>一次业务流程中对象怎么交互。</td>
+<td>画 AppService、Domain Service、Repository、Aggregate、External System 的调用顺序。</td>
+</tr>
+</tbody>
+</table>
+<h1 id="%E5%85%AB%E3%80%81%E8%80%83%E8%AF%95%2F%E4%BD%9C%E4%B8%9A%E7%AD%94%E9%A2%98%E6%A8%A1%E6%9D%BF" tabindex="-1"><a class="header-anchor" href="#%E5%85%AB%E3%80%81%E8%80%83%E8%AF%95%2F%E4%BD%9C%E4%B8%9A%E7%AD%94%E9%A2%98%E6%A8%A1%E6%9D%BF">#</a> 八、考试/作业答题模板</h1>
+<ol>
+<li>
+<p>**先指出旧代码问题：**是否是贫血模型、Service 过胖、技术细节泄漏、对象越级访问、边界不清。</p>
+</li>
+<li>
+<p>**再说明 DDD 改法：**领域对象承担行为，聚合根维护一致性，Repository 管生命周期，Adapter 隔离技术。</p>
+</li>
+<li>
+<p>**配图：**至少画一个类图/聚合图；如果涉及系统边界，再画限界上下文图；如果涉及流程，再画事件风暴图或时序图。</p>
+</li>
+<li>
+<p>**最后回扣收益与代价：**收益是可理解、可修改、业务规则集中、技术隔离；代价是模型设计成本更高，需要维护边界和事件契约。</p>
+</li>
+</ol>
+<p><strong>知识出处：</strong><code>slides/领域驱动设计项目实战讲解.pdf</code>；本地文本抽取：<code>sources/slides-ocr/2026-05-27/pdftotext-triage/领域驱动设计项目实战讲解.txt</code>，重点片段包括“超市收银员”“订单聚合”“DDD 设计，从错误到正确”“结算系统”“菱形对称架构”“事件风暴”“为学课堂”。</p>
+<h1 id="%E4%B9%9D%E3%80%81mock-%E9%A2%98%EF%BC%9A%E7%A0%94%E7%A9%B6%E7%94%9F%E9%80%89%E8%AF%BE%E7%B3%BB%E7%BB%9F%EF%BC%8C%E6%89%8B%E6%8A%8A%E6%89%8B%E6%8C%89-ddd-%E5%86%99%E5%9B%9E%E7%AD%94" tabindex="-1"><a class="header-anchor" href="#%E4%B9%9D%E3%80%81mock-%E9%A2%98%EF%BC%9A%E7%A0%94%E7%A9%B6%E7%94%9F%E9%80%89%E8%AF%BE%E7%B3%BB%E7%BB%9F%EF%BC%8C%E6%89%8B%E6%8A%8A%E6%89%8B%E6%8C%89-ddd-%E5%86%99%E5%9B%9E%E7%AD%94">#</a> 九、Mock 题：研究生选课系统，手把手按 DDD 写回答</h1>
+<p><strong>一句话记忆：<strong>DDD 设计题不要一上来写数据库表，先从</strong>业务不变量</strong>和<strong>领域事件</strong>出发，再落到<strong>限界上下文</strong>、<strong>聚合</strong>、<strong>领域服务</strong>、<strong>应用服务</strong>和设计图。</p>
+<h2 id="%E9%A2%98%E7%9B%AE" tabindex="-1"><a class="header-anchor" href="#%E9%A2%98%E7%9B%AE">#</a> 题目</h2>
+<p>某高校要建设一个<strong>研究生选课系统</strong>。学生可以浏览课程、提交选课申请、退课；课程有容量上限，不能超过人数；学生不能选择时间冲突的课程；课程满员后可以进入候补队列；退课后系统自动通知候补队列中的下一位学生补位。请用 <strong>DDD / Domain-Driven Design</strong> 方法进行领域建模，说明主要<strong>限界上下文</strong>、<strong>聚合</strong>、<strong>实体</strong>、<strong>值对象</strong>、<strong>领域事件</strong>，并给出关键伪代码和设计图。</p>
+<h2 id="%E7%AC%AC-1-%E6%AD%A5%EF%BC%9A%E5%85%88%E6%89%BE%E6%A0%B8%E5%BF%83%E4%B8%9A%E5%8A%A1%E8%A7%84%E5%88%99" tabindex="-1"><a class="header-anchor" href="#%E7%AC%AC-1-%E6%AD%A5%EF%BC%9A%E5%85%88%E6%89%BE%E6%A0%B8%E5%BF%83%E4%B8%9A%E5%8A%A1%E8%A7%84%E5%88%99">#</a> 第 1 步：先找核心业务规则</h2>
+<p>本题的核心领域是<strong>选课</strong>，不是“课程表 CRUD”。先把会影响正确性的规则列出来：</p>
+<ul>
+<li>
+<p><strong>课程容量不能超限</strong>：已选人数不能超过容量上限。</p>
+</li>
+<li>
+<p><strong>学生课程时间不能冲突</strong>：同一学生不能选择时间重叠的课程。</p>
+</li>
+<li>
+<p><strong>退课后要释放名额</strong>：退课会改变课程名额状态。</p>
+</li>
+<li>
+<p><strong>满员后进入候补队列</strong>：候补要保持先后顺序。</p>
+</li>
+<li>
+<p><strong>有空位时自动推进候补</strong>：退课后通知或提升候补队列中的下一位学生。</p>
+</li>
+</ul>
+<p>这些规则如果全部写在 <code>CourseSelectionService</code> 里，就容易形成<strong>贫血模型</strong>：对象只有字段，业务规则都堆在 Service。DDD 更推荐把容量、退课、候补推进等规则放回<strong>聚合根</strong>或<strong>领域服务</strong>中。</p>
+<h2 id="%E7%AC%AC-2-%E6%AD%A5%EF%BC%9A%E4%BA%8B%E4%BB%B6%E9%A3%8E%E6%9A%B4%EF%BC%8C%E5%85%88%E6%89%BE%E2%80%9C%E5%8F%91%E7%94%9F%E8%BF%87%E7%9A%84%E4%BA%8B%E5%AE%9E%E2%80%9D" tabindex="-1"><a class="header-anchor" href="#%E7%AC%AC-2-%E6%AD%A5%EF%BC%9A%E4%BA%8B%E4%BB%B6%E9%A3%8E%E6%9A%B4%EF%BC%8C%E5%85%88%E6%89%BE%E2%80%9C%E5%8F%91%E7%94%9F%E8%BF%87%E7%9A%84%E4%BA%8B%E5%AE%9E%E2%80%9D">#</a> 第 2 步：事件风暴，先找“发生过的事实”</h2>
+<p>可以先写命令和领域事件，再反推模型边界：</p>
+<ul>
+<li>
+<p><strong>Command / 命令</strong>：<code>SelectCourse</code>、<code>DropCourse</code>。</p>
+</li>
+<li>
+<p><strong>Domain Event / 领域事件</strong>：<code>CourseSelected</code>、<code>StudentWaitlisted</code>、<code>SeatReleased</code>、<code>WaitlistedStudentPromoted</code>、<code>WaitlistedStudentNotified</code>。</p>
+</li>
+<li>
+<p><strong>Policy / 策略</strong>：检查时间冲突、课程满员后进入候补、释放名额后推进候补。</p>
+</li>
+</ul>
+<h2 id="%E7%AC%AC-3-%E6%AD%A5%EF%BC%9A%E5%88%92%E5%88%86%E9%99%90%E7%95%8C%E4%B8%8A%E4%B8%8B%E6%96%87" tabindex="-1"><a class="header-anchor" href="#%E7%AC%AC-3-%E6%AD%A5%EF%BC%9A%E5%88%92%E5%88%86%E9%99%90%E7%95%8C%E4%B8%8A%E4%B8%8B%E6%96%87">#</a> 第 3 步：划分限界上下文</h2>
+<p>不要把所有对象塞进一个大模型。这里至少可以拆成三个上下文：</p>
+<ul>
+<li>
+<p><strong>Course Catalog Context / 课程目录上下文</strong>：维护课程名称、教师、时间、学分等基础信息。</p>
+</li>
+<li>
+<p><strong>Course Selection Context / 选课上下文</strong>：处理选课、退课、容量、候补队列，是本题的<strong>核心域</strong>。</p>
+</li>
+<li>
+<p><strong>Notification Context / 通知上下文</strong>：接收领域事件，负责站内信、邮件或短信通知。</p>
+</li>
+</ul>
+<h2 id="%E7%AC%AC-4-%E6%AD%A5%EF%BC%9A%E8%AE%BE%E8%AE%A1%E8%81%9A%E5%90%88%E3%80%81%E5%AE%9E%E4%BD%93%E5%92%8C%E5%80%BC%E5%AF%B9%E8%B1%A1" tabindex="-1"><a class="header-anchor" href="#%E7%AC%AC-4-%E6%AD%A5%EF%BC%9A%E8%AE%BE%E8%AE%A1%E8%81%9A%E5%90%88%E3%80%81%E5%AE%9E%E4%BD%93%E5%92%8C%E5%80%BC%E5%AF%B9%E8%B1%A1">#</a> 第 4 步：设计聚合、实体和值对象</h2>
+<p>核心聚合可以选 <strong>CourseOffering / 课程开课实例</strong>，因为容量、候补队列、已选学生都围绕“一门课的一次开课”变化。</p>
+<ul>
+<li>
+<p><strong>CourseOffering</strong>：聚合根，保护课程容量、选课状态和候补队列的一致性。</p>
+</li>
+<li>
+<p><strong>Enrollment</strong>：实体，表示某个学生在某门课中的选课记录。</p>
+</li>
+<li>
+<p><strong>Schedule</strong>：值对象，用来判断课程时间是否冲突。</p>
+</li>
+<li>
+<p><strong>Capacity</strong>：值对象，封装容量上限、占用、释放等规则。</p>
+</li>
+<li>
+<p><strong>Waitlist</strong>：聚合内部对象，维护候补队列顺序。</p>
+</li>
+<li>
+<p><strong>CourseConflictService</strong>：领域服务，负责跨课程的时间冲突判断。</p>
+</li>
+</ul>
+<h2 id="%E7%AC%AC-5-%E6%AD%A5%EF%BC%9A%E5%86%99%E8%81%9A%E5%90%88%E6%A0%B9%E4%BC%AA%E4%BB%A3%E7%A0%81%EF%BC%8C%E8%AE%A9%E4%B8%9A%E5%8A%A1%E8%A7%84%E5%88%99%E5%9B%9E%E5%88%B0%E9%A2%86%E5%9F%9F%E5%AF%B9%E8%B1%A1" tabindex="-1"><a class="header-anchor" href="#%E7%AC%AC-5-%E6%AD%A5%EF%BC%9A%E5%86%99%E8%81%9A%E5%90%88%E6%A0%B9%E4%BC%AA%E4%BB%A3%E7%A0%81%EF%BC%8C%E8%AE%A9%E4%B8%9A%E5%8A%A1%E8%A7%84%E5%88%99%E5%9B%9E%E5%88%B0%E9%A2%86%E5%9F%9F%E5%AF%B9%E8%B1%A1">#</a> 第 5 步：写聚合根伪代码，让业务规则回到领域对象</h2>
+<p>核心要点是：不要在应用服务里到处 <code>setStatus()</code>，而是让 <strong>CourseOffering</strong> 自己完成选课、退课、候补推进。</p>
+<pre><code class="language-java">class CourseOffering {
+    private CourseOfferingId id;
+    private CourseId courseId;
+    private Capacity capacity;
+    private Schedule schedule;
+    private List&lt;Enrollment&gt; enrollments;
+    private Waitlist waitlist;
+    private List&lt;DomainEvent&gt; events;
+
+    public void select(StudentId studentId) {
+        if (hasSelected(studentId)) {
+            throw new DomainException(&quot;学生已经选择该课程&quot;);
+        }
+
+        if (capacity.hasAvailableSeat()) {
+            capacity.occupy();
+            enrollments.add(Enrollment.selected(studentId));
+            events.add(new CourseSelected(id, studentId));
+        } else {
+            waitlist.enqueue(studentId);
+            events.add(new StudentWaitlisted(id, studentId));
+        }
+    }
+
+    public void drop(StudentId studentId) {
+        Enrollment enrollment = findEnrollment(studentId);
+        enrollment.drop();
+
+        capacity.release();
+        events.add(new SeatReleased(id, studentId));
+
+        waitlist.dequeue().ifPresent(nextStudent -&gt; {
+            capacity.occupy();
+            enrollments.add(Enrollment.selected(nextStudent));
+            events.add(new WaitlistedStudentPromoted(id, nextStudent));
+        });
+    }
+
+    private boolean hasSelected(StudentId studentId) {
+        return enrollments.stream()
+            .anyMatch(e -&gt; e.belongsTo(studentId) &amp;&amp; e.isSelected());
+    }
+}
+</code></pre>
+<h2 id="%E7%AC%AC-6-%E6%AD%A5%EF%BC%9A%E8%B7%A8%E8%81%9A%E5%90%88%E8%A7%84%E5%88%99%E6%94%BE%E9%A2%86%E5%9F%9F%E6%9C%8D%E5%8A%A1" tabindex="-1"><a class="header-anchor" href="#%E7%AC%AC-6-%E6%AD%A5%EF%BC%9A%E8%B7%A8%E8%81%9A%E5%90%88%E8%A7%84%E5%88%99%E6%94%BE%E9%A2%86%E5%9F%9F%E6%9C%8D%E5%8A%A1">#</a> 第 6 步：跨聚合规则放领域服务</h2>
+<p><strong>时间冲突</strong>需要比较学生已经选择的多门课，它不是单个课程实例自己能完整判断的规则，所以可以放在<strong>领域服务</strong>中。</p>
+<pre><code class="language-java">class CourseConflictService {
+    public void checkNoConflict(
+        StudentId studentId,
+        CourseOffering target,
+        List&lt;CourseOffering&gt; selectedCourses
+    ) {
+        for (CourseOffering selected : selectedCourses) {
+            if (target.schedule().conflictsWith(selected.schedule())) {
+                throw new DomainException(&quot;课程时间冲突&quot;);
+            }
+        }
+    }
+}
+</code></pre>
+<h2 id="%E7%AC%AC-7-%E6%AD%A5%EF%BC%9A%E5%BA%94%E7%94%A8%E6%9C%8D%E5%8A%A1%E5%8F%AA%E5%81%9A%E6%B5%81%E7%A8%8B%E7%BC%96%E6%8E%92" tabindex="-1"><a class="header-anchor" href="#%E7%AC%AC-7-%E6%AD%A5%EF%BC%9A%E5%BA%94%E7%94%A8%E6%9C%8D%E5%8A%A1%E5%8F%AA%E5%81%9A%E6%B5%81%E7%A8%8B%E7%BC%96%E6%8E%92">#</a> 第 7 步：应用服务只做流程编排</h2>
+<p><strong>Application Service / 应用服务</strong>负责加载聚合、调用领域行为、保存聚合、发布领域事件，不承载核心业务判断。</p>
+<pre><code class="language-java">class CourseSelectionApplicationService {
+    private CourseOfferingRepository courseRepo;
+    private StudentScheduleRepository scheduleRepo;
+    private CourseConflictService conflictService;
+    private DomainEventPublisher eventPublisher;
+
+    public void selectCourse(StudentId studentId, CourseOfferingId courseOfferingId) {
+        CourseOffering target = courseRepo.findById(courseOfferingId);
+        List&lt;CourseOffering&gt; selectedCourses = scheduleRepo.findSelectedCourses(studentId);
+
+        conflictService.checkNoConflict(studentId, target, selectedCourses);
+        target.select(studentId);
+
+        courseRepo.save(target);
+        eventPublisher.publish(target.domainEvents());
+    }
+
+    public void dropCourse(StudentId studentId, CourseOfferingId courseOfferingId) {
+        CourseOffering target = courseRepo.findById(courseOfferingId);
+
+        target.drop(studentId);
+
+        courseRepo.save(target);
+        eventPublisher.publish(target.domainEvents());
+    }
+}
+</code></pre>
+<h2 id="%E7%AC%AC-8-%E6%AD%A5%EF%BC%9A%E7%94%BB%E8%B0%83%E7%94%A8%E6%97%B6%E5%BA%8F%E5%9B%BE" tabindex="-1"><a class="header-anchor" href="#%E7%AC%AC-8-%E6%AD%A5%EF%BC%9A%E7%94%BB%E8%B0%83%E7%94%A8%E6%97%B6%E5%BA%8F%E5%9B%BE">#</a> 第 8 步：画调用时序图</h2>
+<p>时序图适合回答“选课请求在系统里怎么协作”。</p>
+<h2 id="%E7%AC%AC-9-%E6%AD%A5%EF%BC%9A%E7%94%BB%E5%8C%85%E5%9B%BE-%2F-%E5%88%86%E5%B1%82%E5%9B%BE" tabindex="-1"><a class="header-anchor" href="#%E7%AC%AC-9-%E6%AD%A5%EF%BC%9A%E7%94%BB%E5%8C%85%E5%9B%BE-%2F-%E5%88%86%E5%B1%82%E5%9B%BE">#</a> 第 9 步：画包图 / 分层图</h2>
+<p>包图或分层图适合回答“代码结构怎么组织”。核心依赖方向应指向<strong>领域层</strong>，避免领域层依赖数据库或 Web 框架。</p>
+<h2 id="%E6%9C%80%E7%BB%88%E7%AD%94%E9%A2%98%E6%A8%A1%E6%9D%BF" tabindex="-1"><a class="header-anchor" href="#%E6%9C%80%E7%BB%88%E7%AD%94%E9%A2%98%E6%A8%A1%E6%9D%BF">#</a> 最终答题模板</h2>
+<ol>
+<li>
+<p><strong>识别核心领域</strong>：本题核心是选课，关键规则是容量限制、时间冲突、候补队列和退课补位。</p>
+</li>
+<li>
+<p><strong>事件风暴</strong>：识别 <code>SelectCourse</code>、<code>DropCourse</code> 命令，以及 <code>CourseSelected</code>、<code>StudentWaitlisted</code>、<code>SeatReleased</code>、<code>WaitlistedStudentPromoted</code> 等领域事件。</p>
+</li>
+<li>
+<p><strong>划分限界上下文</strong>：拆为课程目录上下文、选课上下文、通知上下文，其中选课上下文是核心域。</p>
+</li>
+<li>
+<p><strong>设计聚合</strong>：以 <code>CourseOffering</code> 为聚合根，内部维护 <code>Enrollment</code>、<code>Capacity</code>、<code>Schedule</code>、<code>Waitlist</code>。</p>
+</li>
+<li>
+<p><strong>设计领域服务</strong>：跨课程的时间冲突判断由 <code>CourseConflictService</code> 完成。</p>
+</li>
+<li>
+<p><strong>设计应用服务</strong>：应用服务负责加载聚合、调用领域行为、保存聚合、发布领域事件。</p>
+</li>
+<li>
+<p><strong>避免贫血模型</strong>：容量占用、退课释放、候补补位等规则放入领域模型，而不是全部堆在 Service 中。</p>
+</li>
+<li>
+<p><strong>补充设计图</strong>：画限界上下文图、聚合类图、调用时序图和分层包图。</p>
+</li>
+</ol>
+<p>**知识出处：**本题是复习用 mock 题；选课系统场景可联系 <code>slides/软件架构模式演进：从主机到 AI 原生</code> 中反复使用的选课系统案例，DDD 答题步骤与概念表述沿用本页前面整理的 <code>slides/领域驱动设计项目实战讲解.pdf</code>。</p>
+<h1 id="%E5%8D%81%E3%80%81slides-%E5%8E%9F%E6%9C%89%E4%BB%A3%E7%A0%81%E6%94%B9%E9%80%A0-mock-%E9%A2%98%EF%BC%9A%E6%8C%89%E6%A0%87%E5%87%86%E6%AD%A5%E9%AA%A4%E7%AD%94%E9%A2%98" tabindex="-1"><a class="header-anchor" href="#%E5%8D%81%E3%80%81slides-%E5%8E%9F%E6%9C%89%E4%BB%A3%E7%A0%81%E6%94%B9%E9%80%A0-mock-%E9%A2%98%EF%BC%9A%E6%8C%89%E6%A0%87%E5%87%86%E6%AD%A5%E9%AA%A4%E7%AD%94%E9%A2%98">#</a> 十、Slides 原有代码改造 Mock 题：按标准步骤答题</h1>
+<p>**标准步骤：**这类题不要只写“改成 DDD”。建议固定按 <strong>Step 1 识别问题 → Step 2 提炼领域概念 → Step 3 划边界和职责 → Step 4 设计领域模型 → Step 5 写伪代码 → Step 6 画图和总结答题句</strong> 来答。</p>
+<h2 id="mock-%E9%A2%98-a%EF%BC%9A%E8%B6%85%E5%B8%82%E6%94%B6%E9%93%B6%E5%91%98%EF%BC%8C%E5%A6%82%E4%BD%95%E6%8A%8A%E2%80%9C%E6%8B%86%E5%88%AB%E4%BA%BA%E5%86%85%E9%83%A8%E7%BB%93%E6%9E%84%E2%80%9D%E7%9A%84%E4%BB%A3%E7%A0%81%E6%94%B9%E6%8E%89" tabindex="-1"><a class="header-anchor" href="#mock-%E9%A2%98-a%EF%BC%9A%E8%B6%85%E5%B8%82%E6%94%B6%E9%93%B6%E5%91%98%EF%BC%8C%E5%A6%82%E4%BD%95%E6%8A%8A%E2%80%9C%E6%8B%86%E5%88%AB%E4%BA%BA%E5%86%85%E9%83%A8%E7%BB%93%E6%9E%84%E2%80%9D%E7%9A%84%E4%BB%A3%E7%A0%81%E6%94%B9%E6%8E%89">#</a> Mock 题 A：超市收银员，如何把“拆别人内部结构”的代码改掉</h2>
+<p>**题目：**某超市收银系统中，<code>Cashier</code> 负责向顾客收费。现有代码如下，请按 DDD / 面向对象设计方法指出问题并改造。</p>
+<pre><code class="language-java">class Cashier {
+    public void charge(Customer customer, float payment) {
+        Wallet wallet = customer.getWallet();
+
+        if (wallet.getTotalMoney() &gt;= payment) {
+            wallet.subtractMoney(payment);
+        } else {
+            throw new NotEnoughMoneyException();
+        }
+    }
+}
+
+class Customer {
+    private Wallet myWallet;
+
+    public Wallet getWallet() {
+        return myWallet;
+    }
+}
+
+class Wallet {
+    private float value;
+
+    public float getTotalMoney() {
+        return value;
+    }
+
+    public void subtractMoney(float debit) {
+        value -= debit;
+    }
+}
+</code></pre>
+<h3 id="step-1%EF%BC%9A%E8%AF%86%E5%88%AB%E9%97%AE%E9%A2%98" tabindex="-1"><a class="header-anchor" href="#step-1%EF%BC%9A%E8%AF%86%E5%88%AB%E9%97%AE%E9%A2%98">#</a> Step 1：识别问题</h3>
+<ul>
+<li>
+<p><strong>越过对象边界</strong>：<code>Cashier</code> 通过 <code>customer.getWallet()</code> 拿到 <code>Wallet</code>，再直接调用 <code>getTotalMoney()</code> 和 <code>subtractMoney()</code>。</p>
+</li>
+<li>
+<p><strong>违反迪米特法则 / Law of Demeter</strong>：<code>Customer</code> 是 <code>Cashier</code> 的朋友，<code>Wallet</code> 是 <code>Customer</code> 的朋友；朋友的朋友不是自己的朋友。</p>
+</li>
+<li>
+<p><strong>破坏封装</strong>：<code>Customer</code> 变成了钱包数据的提供者，而不是有行为的领域对象。</p>
+</li>
+<li>
+<p><strong>职责错位</strong>：是否余额足够、如何扣款，不应该由 <code>Cashier</code> 判断。</p>
+</li>
+</ul>
+<h3 id="step-2%EF%BC%9A%E6%8F%90%E7%82%BC%E9%A2%86%E5%9F%9F%E6%A6%82%E5%BF%B5" tabindex="-1"><a class="header-anchor" href="#step-2%EF%BC%9A%E6%8F%90%E7%82%BC%E9%A2%86%E5%9F%9F%E6%A6%82%E5%BF%B5">#</a> Step 2：提炼领域概念</h3>
+<ul>
+<li>
+<p><strong>Cashier / 收银员</strong>：发起收费，不关心顾客钱包内部结构。</p>
+</li>
+<li>
+<p><strong>Customer / 顾客</strong>：承担支付行为，封装自己的钱包。</p>
+</li>
+<li>
+<p><strong>Wallet / 钱包</strong>：负责余额判断和扣款。</p>
+</li>
+<li>
+<p><strong>NotEnoughMoneyException</strong>：支付失败时的领域异常。</p>
+</li>
+</ul>
+<h3 id="step-3%EF%BC%9A%E9%87%8D%E6%96%B0%E5%88%86%E9%85%8D%E8%81%8C%E8%B4%A3" tabindex="-1"><a class="header-anchor" href="#step-3%EF%BC%9A%E9%87%8D%E6%96%B0%E5%88%86%E9%85%8D%E8%81%8C%E8%B4%A3">#</a> Step 3：重新分配职责</h3>
+<p>按照“谁持有信息，谁承担行为”的原则，把 <code>pay(payment)</code> 放到 <strong>Customer</strong>，把 <code>isEnough(payment)</code> 和 <code>subtractMoney(payment)</code> 放到 <strong>Wallet</strong>。<strong>Cashier</strong> 只调用 <code>customer.pay(payment)</code>。</p>
+<h3 id="step-4%EF%BC%9A%E8%AE%BE%E8%AE%A1%E9%A2%86%E5%9F%9F%E6%A8%A1%E5%9E%8B" tabindex="-1"><a class="header-anchor" href="#step-4%EF%BC%9A%E8%AE%BE%E8%AE%A1%E9%A2%86%E5%9F%9F%E6%A8%A1%E5%9E%8B">#</a> Step 4：设计领域模型</h3>
+<ul>
+<li>
+<p><strong>Customer</strong> 可以看成当前小模型中的核心实体，负责保护自己的支付行为。</p>
+</li>
+<li>
+<p><strong>Wallet</strong> 是 <code>Customer</code> 内部对象，封装余额相关行为。</p>
+</li>
+<li>
+<p>如果题目进一步要求系统级设计，可把 <strong>Cashier</strong> 作为收银聚合根，引入 <strong>CashierService</strong>、<strong>CashierRepository</strong>，并划分 <strong>Cashier Context / 收银上下文</strong> 与 <strong>Customer Context / 顾客上下文</strong>。</p>
+</li>
+</ul>
+<h3 id="step-5%EF%BC%9A%E5%86%99%E4%BF%AE%E6%94%B9%E5%90%8E%E7%9A%84%E4%BC%AA%E4%BB%A3%E7%A0%81" tabindex="-1"><a class="header-anchor" href="#step-5%EF%BC%9A%E5%86%99%E4%BF%AE%E6%94%B9%E5%90%8E%E7%9A%84%E4%BC%AA%E4%BB%A3%E7%A0%81">#</a> Step 5：写修改后的伪代码</h3>
+<pre><code class="language-java">class Cashier {
+    public void charge(Customer customer, float payment) {
+        customer.pay(payment);
+    }
+}
+
+class Customer {
+    private Wallet myWallet;
+
+    public void pay(float payment) {
+        if (myWallet.isEnough(payment)) {
+            myWallet.subtractMoney(payment);
+        } else {
+            throw new NotEnoughMoneyException();
+        }
+    }
+}
+
+class Wallet {
+    private float value;
+
+    public boolean isEnough(float payment) {
+        return value &gt;= payment;
+    }
+
+    public void subtractMoney(float debit) {
+        value -= debit;
+    }
+}
+</code></pre>
+<h3 id="step-6%EF%BC%9A%E7%94%BB%E5%9B%BE%E5%92%8C%E7%AD%94%E9%A2%98%E5%8F%A5" tabindex="-1"><a class="header-anchor" href="#step-6%EF%BC%9A%E7%94%BB%E5%9B%BE%E5%92%8C%E7%AD%94%E9%A2%98%E5%8F%A5">#</a> Step 6：画图和答题句</h3>
+<p>**答题句：**修改后的设计把“余额判断和扣款”从 <code>Cashier</code> 下沉到 <code>Customer</code> 与 <code>Wallet</code>，让对象通过行为协作，避免把领域对象退化成数据提供者。</p>
+<h2 id="mock-%E9%A2%98-b%EF%BC%9A%E7%BB%93%E7%AE%97%E8%B4%A6%E5%8D%95%E5%AF%BC%E5%87%BA%E7%B3%BB%E7%BB%9F%EF%BC%8C%E5%A6%82%E4%BD%95%E4%BB%8E%E8%B4%AB%E8%A1%80%E6%A8%A1%E5%9E%8B%E6%94%B9%E6%88%90%E9%A2%86%E5%9F%9F%E6%A8%A1%E5%9E%8B-%2B-%E7%AB%AF%E5%8F%A3%E9%80%82%E9%85%8D%E5%99%A8" tabindex="-1"><a class="header-anchor" href="#mock-%E9%A2%98-b%EF%BC%9A%E7%BB%93%E7%AE%97%E8%B4%A6%E5%8D%95%E5%AF%BC%E5%87%BA%E7%B3%BB%E7%BB%9F%EF%BC%8C%E5%A6%82%E4%BD%95%E4%BB%8E%E8%B4%AB%E8%A1%80%E6%A8%A1%E5%9E%8B%E6%94%B9%E6%88%90%E9%A2%86%E5%9F%9F%E6%A8%A1%E5%9E%8B-%2B-%E7%AB%AF%E5%8F%A3%E9%80%82%E9%85%8D%E5%99%A8">#</a> Mock 题 B：结算账单导出系统，如何从贫血模型改成领域模型 + 端口适配器</h2>
+<p>**题目：**某结算系统需要导入 Excel 账单模板，从数据库读取结算账单数据，替换模板中的变量，最终导出 Excel 报表。现有设计如下，请按 DDD 标准步骤改造。</p>
+<pre><code class="language-java">class InternalSettlementBill {
+    private String billNumber;
+    private String flightIdentity;
+    private String flightRoute;
+    private BigDecimal totalCost;
+}
+
+class InternalSettlementBillService
+        extends BaseBillReviewExportTemplate&lt;InternalSettlementBill&gt; {
+
+    private InternalSettlementBillRepository repository;
+
+    protected InternalSettlementBill queryFilledDataBy(String billNumber) {
+        return repository.queryByBillNumber(billNumber);
+    }
+
+    protected List&lt;TemplateReplacement&gt; composeTemplateReplacements(
+            InternalSettlementBill bill) {
+        List&lt;TemplateReplacement&gt; replacements = new ArrayList&lt;&gt;();
+        replacements.add(new TemplateReplacement(0, 0, bill.getBillNumber()));
+        replacements.add(new TemplateReplacement(1, 2, bill.getFlightRoute()));
+        return replacements;
+    }
+}
+
+class BillReviewService {
+    private PoiUtils poiUtils;
+    private FileDownloader fileDownloader;
+
+    public void exportBillReviewByTemplate(
+            HttpServletResponse response,
+            String billNumber,
+            String templateName) {
+        HSSFWorkbook workbook = poiUtils.getHssfWorkbook(templateName);
+        List&lt;TemplateReplacement&gt; replacements = templateReplacementsBy(billNumber);
+        poiUtils.fillCells(workbook, 0, &quot;${}&quot;, replacements);
+        fileDownloader.downloadHSSFFile(response, workbook, templateName);
+    }
+}
+</code></pre>
+<h3 id="step-1%EF%BC%9A%E8%AF%86%E5%88%AB%E9%97%AE%E9%A2%98-1" tabindex="-1"><a class="header-anchor" href="#step-1%EF%BC%9A%E8%AF%86%E5%88%AB%E9%97%AE%E9%A2%98-1">#</a> Step 1：识别问题</h3>
+<ul>
+<li>
+<p><strong>贫血模型</strong>：<code>InternalSettlementBill</code> 只有数据，没有“如何生成模板变量”的领域行为。</p>
+</li>
+<li>
+<p><strong>职责错位</strong>：<code>InternalSettlementBillService</code> 组装 <code>TemplateReplacement</code>，但这些变量来自账单自身，应由持有领域信息的对象生成。</p>
+</li>
+<li>
+<p><strong>领域概念放错层</strong>：<code>TemplateReplacement</code> 表达的是模板变量替换规则，不应只是基础设施工具对象，更适合抽象为 <strong>TemplateVariable</strong>。</p>
+</li>
+<li>
+<p><strong>技术细节泄漏</strong>：<code>HSSFWorkbook</code>、<code>PoiUtils</code>、<code>FileDownloader</code> 混入应用/领域流程。</p>
+</li>
+</ul>
+<h3 id="step-2%EF%BC%9A%E6%8F%90%E7%82%BC%E9%A2%86%E5%9F%9F%E6%A6%82%E5%BF%B5-1" tabindex="-1"><a class="header-anchor" href="#step-2%EF%BC%9A%E6%8F%90%E7%82%BC%E9%A2%86%E5%9F%9F%E6%A6%82%E5%BF%B5-1">#</a> Step 2：提炼领域概念</h3>
+<ul>
+<li>
+<p><strong>SettlementBill / 结算账单</strong>：被填充和导出的账单对象。</p>
+</li>
+<li>
+<p><strong>SettlementBillTemplate / 结算账单模板数据</strong>：能够生成需要替换的模板变量。</p>
+</li>
+<li>
+<p><strong>InternalSettlementBillTemplate / 内部结算账单模板</strong>：内部结算场景下的具体模板数据。</p>
+</li>
+<li>
+<p><strong>TemplateVariable / 模板变量</strong>：包含行号、列号和替换值。</p>
+</li>
+<li>
+<p><strong>Workbook / Sheet / Row</strong>：对 Excel 工作薄、工作表、行的领域侧抽象。</p>
+</li>
+</ul>
+<h3 id="step-3%EF%BC%9A%E5%88%92%E5%88%86%E8%BE%B9%E7%95%8C%E5%92%8C%E7%AB%AF%E5%8F%A3" tabindex="-1"><a class="header-anchor" href="#step-3%EF%BC%9A%E5%88%92%E5%88%86%E8%BE%B9%E7%95%8C%E5%92%8C%E7%AB%AF%E5%8F%A3">#</a> Step 3：划分边界和端口</h3>
+<ul>
+<li>
+<p><strong>领域层</strong>：保留 <code>SettlementBill</code>、<code>SettlementBillTemplate</code>、<code>TemplateVariable</code>、<code>Workbook</code>、<code>SettlementBillService</code>。</p>
+</li>
+<li>
+<p><strong>端口 / Port</strong>：定义 <code>WorkbookReader</code>、<code>WorkbookWriter</code>、<code>SettlementBillTemplateRepository</code>、<code>OutputStreamProvider</code>。</p>
+</li>
+<li>
+<p><strong>基础设施层</strong>：用 POI Adapter、Repository Adapter、Download Adapter 实现端口。</p>
+</li>
+<li>
+<p><strong>应用层</strong>：接收导出请求，调用领域服务，不直接操作 POI、数据库或 HTTP 响应。</p>
+</li>
+</ul>
+<h3 id="step-4%EF%BC%9A%E8%AE%BE%E8%AE%A1%E9%A2%86%E5%9F%9F%E6%A8%A1%E5%9E%8B-1" tabindex="-1"><a class="header-anchor" href="#step-4%EF%BC%9A%E8%AE%BE%E8%AE%A1%E9%A2%86%E5%9F%9F%E6%A8%A1%E5%9E%8B-1">#</a> Step 4：设计领域模型</h3>
+<p><strong>InternalSettlementBillTemplate</strong> 实现 <code>SettlementBillTemplate</code>，负责 <code>composeVariables()</code>；<strong>SettlementBill</strong> 持有 <code>Workbook</code>，负责 <code>fillWith(template)</code>；<strong>Workbook</strong>、<strong>Sheet</strong> 负责 <code>replaceOrSet()</code>。这样替换规则回到领域模型，具体 Excel 技术留在适配器。</p>
+<h3 id="step-5%EF%BC%9A%E5%86%99%E4%BF%AE%E6%94%B9%E5%90%8E%E7%9A%84%E4%BC%AA%E4%BB%A3%E7%A0%81-1" tabindex="-1"><a class="header-anchor" href="#step-5%EF%BC%9A%E5%86%99%E4%BF%AE%E6%94%B9%E5%90%8E%E7%9A%84%E4%BC%AA%E4%BB%A3%E7%A0%81-1">#</a> Step 5：写修改后的伪代码</h3>
+<pre><code class="language-java">interface SettlementBillTemplate {
+    List&lt;TemplateVariable&gt; composeVariables();
+}
+
+class InternalSettlementBillTemplate implements SettlementBillTemplate {
+    private String billNumber;
+    private String flightIdentity;
+    private String flightRoute;
+    private BigDecimal totalCost;
+
+    public List&lt;TemplateVariable&gt; composeVariables() {
+        return List.of(
+            new TemplateVariable(0, 0, billNumber),
+            new TemplateVariable(1, 0, flightIdentity),
+            new TemplateVariable(1, 2, flightRoute)
+        );
+    }
+}
+
+class TemplateVariable {
+    private int rowIndex;
+    private int cellNum;
+    private String replaceValue;
+}
+</code></pre>
+<pre><code class="language-java">class SettlementBill {
+    private Workbook workbook;
+
+    public void setWorkbook(Workbook workbook) {
+        this.workbook = workbook;
+    }
+
+    public void fillWith(
+            SettlementBillTemplate template,
+            int sheetIndex,
+            String replacePattern) {
+        workbook.fillWith(template, sheetIndex, replacePattern);
+    }
+}
+
+abstract class Workbook {
+    protected abstract Sheet getSheetAt(int sheetIndex);
+
+    public void fillWith(
+            SettlementBillTemplate template,
+            int sheetIndex,
+            String replacePattern) {
+        Sheet sheet = getSheetAt(sheetIndex);
+        for (TemplateVariable variable : template.composeVariables()) {
+            sheet.replaceOrSet(variable, replacePattern);
+        }
+    }
+}
+</code></pre>
+<pre><code class="language-java">class SettlementBillService {
+    private WorkbookReader reader;
+    private WorkbookWriter writer;
+    private SettlementBillTemplateRepository repository;
+
+    public void export(
+            OutputStreamProvider streamProvider,
+            String templateName,
+            String billNumber) {
+        SettlementBillTemplate template =
+            repository.loadBy(templateName, billNumber);
+
+        SettlementBill bill =
+            reader.readFrom(templateName);
+
+        bill.fillWith(template, 0, &quot;${}&quot;);
+
+        writer.writeTo(streamProvider, bill, templateName);
+    }
+}
+</code></pre>
+<h3 id="step-6%EF%BC%9A%E7%94%BB%E5%9B%BE%E5%92%8C%E7%AD%94%E9%A2%98%E5%8F%A5-1" tabindex="-1"><a class="header-anchor" href="#step-6%EF%BC%9A%E7%94%BB%E5%9B%BE%E5%92%8C%E7%AD%94%E9%A2%98%E5%8F%A5-1">#</a> Step 6：画图和答题句</h3>
+<p>**答题句：**改造后的设计把模板变量生成、账单填充等业务规则放入领域模型，把 Excel、数据库和下载等技术实现放到基础设施适配器中；领域服务只依赖端口，因此核心业务逻辑更稳定、更容易测试。</p>
+<h2 id="%E8%BF%99%E7%B1%BB%E9%A2%98%E7%9A%84%E7%BB%9F%E4%B8%80%E7%AD%94%E9%A2%98%E6%A8%A1%E6%9D%BF" tabindex="-1"><a class="header-anchor" href="#%E8%BF%99%E7%B1%BB%E9%A2%98%E7%9A%84%E7%BB%9F%E4%B8%80%E7%AD%94%E9%A2%98%E6%A8%A1%E6%9D%BF">#</a> 这类题的统一答题模板</h2>
+<ol>
+<li>
+<p><strong>识别坏味道</strong>：贫血模型、越过对象边界、职责错位、技术细节泄漏。</p>
+</li>
+<li>
+<p><strong>提炼领域概念</strong>：从业务语言中找实体、值对象、聚合、领域服务、领域事件或领域异常。</p>
+</li>
+<li>
+<p><strong>划分边界</strong>：区分领域层、应用层、基础设施层；必要时划分限界上下文。</p>
+</li>
+<li>
+<p><strong>重新分配职责</strong>：谁持有领域信息，谁优先承担相关行为；跨聚合规则才放领域服务。</p>
+</li>
+<li>
+<p><strong>写伪代码</strong>：展示领域对象方法、领域服务流程和端口接口。</p>
+</li>
+<li>
+<p><strong>补设计图</strong>：小对象改造画类图/协作图；系统级改造画分层图、端口适配器图、时序图。</p>
+</li>
+</ol>
+<p><strong>知识出处：</strong><code>slides/领域驱动设计项目实战讲解.pdf</code>：超市收银员案例、迪米特法则、修改后的超市收银员、引入聚合/限界上下文、结算系统、修改前后设计模型、结算账单模板与领域服务定义。</p>
+<h1 id="%E5%8D%81%E4%B8%80%E3%80%81mock-%E9%A2%98%EF%BC%9A%E6%98%9F%E7%A9%BA%E5%9C%A8%E7%BA%BF%E5%BD%B1%E9%99%A2%E7%A5%A8%E5%8A%A1%E7%B3%BB%E7%BB%9F%EF%BC%8C%E6%8C%89%E6%A0%87%E5%87%86%E6%AD%A5%E9%AA%A4%E7%AD%94%E9%A2%98" tabindex="-1"><a class="header-anchor" href="#%E5%8D%81%E4%B8%80%E3%80%81mock-%E9%A2%98%EF%BC%9A%E6%98%9F%E7%A9%BA%E5%9C%A8%E7%BA%BF%E5%BD%B1%E9%99%A2%E7%A5%A8%E5%8A%A1%E7%B3%BB%E7%BB%9F%EF%BC%8C%E6%8C%89%E6%A0%87%E5%87%86%E6%AD%A5%E9%AA%A4%E7%AD%94%E9%A2%98">#</a> 十一、Mock 题：星空在线影院票务系统，按标准步骤答题</h1>
+<p>**核心记忆：**这题考的是把“选座购票”从流程描述翻译成 <strong>事件风暴</strong>、<strong>限界上下文</strong>、<strong>聚合设计</strong> 和 <strong>领域行为代码</strong>。答题时不要只写 CRUD 表结构，要把“锁座、超时取消、支付成功出票”这些业务规则放回领域模型里。</p>
+<h2 id="%E9%A2%98%E7%9B%AE-1" tabindex="-1"><a class="header-anchor" href="#%E9%A2%98%E7%9B%AE-1">#</a> 题目</h2>
+<p>某公司要设计一个 <strong>在线影院票务系统</strong>。用户可以在 App 上浏览当前上映的电影、影院和排片场次。用户选择某个场次后进入选座页面，选择座位并点击提交订单后，系统必须把这些座位锁定，不能让别人买走。</p>
+<p>锁定成功后，系统生成一个 <strong>待支付订单</strong>。用户必须在 <strong>15 分钟内完成支付</strong>。如果支付成功，系统出票并生成带二维码的电影票；如果 15 分钟未支付，或者用户主动取消，系统需要取消订单，并释放锁定座位，允许其他用户再次购买。</p>
+<p>**任务：**按照 DDD 的设计思想，完成事件风暴分析、战略设计和战术设计，并给出能体现领域行为的伪代码。</p>
+<h2 id="step-1%EF%BC%9A%E5%85%88%E6%8A%93%E4%B8%9A%E5%8A%A1%E4%B8%8D%E5%8F%98%E9%87%8F" tabindex="-1"><a class="header-anchor" href="#step-1%EF%BC%9A%E5%85%88%E6%8A%93%E4%B8%9A%E5%8A%A1%E4%B8%8D%E5%8F%98%E9%87%8F">#</a> Step 1：先抓业务不变量</h2>
+<ul>
+<li>
+<p>**座位锁定不变量：**提交订单时，目标座位必须存在且处于可售状态；锁定后，其他用户不能再购买这些座位。</p>
+</li>
+<li>
+<p>**订单生命周期不变量：**新订单初始状态是待支付；只有待支付订单可以取消；支付成功后不能再按普通取消流程释放座位。</p>
+</li>
+<li>
+<p>**支付时限不变量：**订单必须在 15 分钟内支付，否则由超时策略取消订单并释放座位。</p>
+</li>
+<li>
+<p>**出票不变量：**只有支付成功的订单才能出票；出票结果可以是带二维码的电影票。</p>
+</li>
+</ul>
+<p>**答题表述：**这类题先不要急着设计表。先把不可破坏的业务规则写出来，再决定哪些规则应该放进聚合方法，哪些规则应该交给策略或应用服务编排。</p>
+<h2 id="step-2%EF%BC%9A%E4%BA%8B%E4%BB%B6%E9%A3%8E%E6%9A%B4" tabindex="-1"><a class="header-anchor" href="#step-2%EF%BC%9A%E4%BA%8B%E4%BB%B6%E9%A3%8E%E6%9A%B4">#</a> Step 2：事件风暴</h2>
+<ul>
+<li>
+<p>**角色：**购票用户。</p>
+</li>
+<li>
+<p><strong>命令：</strong><code>SubmitOrder</code>、<code>PayOrder</code>、<code>CancelOrder</code>、<code>ExpireOrder</code>、<code>IssueTicket</code>。</p>
+</li>
+<li>
+<p><strong>领域事件：</strong><code>SeatsLocked</code>、<code>OrderCreated</code>、<code>PaymentCompleted</code>、<code>OrderCancelled</code>、<code>SeatsReleased</code>、<code>TicketIssued</code>。</p>
+</li>
+<li>
+<p>**策略：**提交订单成功后锁座并创建订单；支付成功后触发出票；15 分钟未支付或用户取消后，取消订单并释放座位。</p>
+</li>
+</ul>
+<h2 id="step-3%EF%BC%9A%E6%88%98%E7%95%A5%E8%AE%BE%E8%AE%A1%EF%BC%9A%E9%99%90%E7%95%8C%E4%B8%8A%E4%B8%8B%E6%96%87%E5%92%8C-context-map" tabindex="-1"><a class="header-anchor" href="#step-3%EF%BC%9A%E6%88%98%E7%95%A5%E8%AE%BE%E8%AE%A1%EF%BC%9A%E9%99%90%E7%95%8C%E4%B8%8A%E4%B8%8B%E6%96%87%E5%92%8C-context-map">#</a> Step 3：战略设计：限界上下文和 Context Map</h2>
+<ul>
+<li>
+<p>**Catalog Context / 目录上下文：**负责电影、影院、排片场次展示。它主要提供查询能力，是支撑域。</p>
+</li>
+<li>
+<p>**Booking Context / 订票上下文：**负责选座、锁座、订单生命周期，是核心域。锁座和订单创建都应该围绕它展开。</p>
+</li>
+<li>
+<p>**Payment Context / 支付上下文：**负责对接第三方支付渠道，通常是通用域或外部系统适配。</p>
+</li>
+<li>
+<p>**Ticket Context / 票务上下文：**负责生成电影票、二维码和验票凭证。</p>
+</li>
+</ul>
+<p><strong>Context Map：Booking</strong> 依赖 <strong>Catalog</strong> 的场次信息，可以写成 <strong>Conformist / 遵奉者</strong>；<strong>Booking</strong>、<strong>Payment</strong> 和 <strong>Ticket</strong> 之间更适合用 <strong>领域事件</strong> 解耦，例如支付上下文发布 <code>PaymentCompleted</code>，票务上下文监听后签发电影票。</p>
+<h2 id="step-4%EF%BC%9A%E6%88%98%E6%9C%AF%E8%AE%BE%E8%AE%A1%EF%BC%9A%E8%81%9A%E5%90%88%E3%80%81%E5%AE%9E%E4%BD%93%E5%92%8C%E5%80%BC%E5%AF%B9%E8%B1%A1" tabindex="-1"><a class="header-anchor" href="#step-4%EF%BC%9A%E6%88%98%E6%9C%AF%E8%AE%BE%E8%AE%A1%EF%BC%9A%E8%81%9A%E5%90%88%E3%80%81%E5%AE%9E%E4%BD%93%E5%92%8C%E5%80%BC%E5%AF%B9%E8%B1%A1">#</a> Step 4：战术设计：聚合、实体和值对象</h2>
+<p>这题不要把场次座位和订单都塞进一个巨大聚合。<strong>锁座</strong>关注座位并发一致性，<strong>订单</strong>关注支付和取消生命周期，两者变化原因不同，适合拆成两个聚合。</p>
+<ul>
+<li>
+<p>**Showtime 聚合：**聚合根是 <code>Showtime</code>，内部实体是 <code>Seat</code>，值对象包括 <code>SeatId</code> 和 <code>SeatStatus</code>。它负责判断座位是否可锁、执行锁定和释放。</p>
+</li>
+<li>
+<p>**Order 聚合：**聚合根是 <code>Order</code>，值对象包括 <code>OrderId</code>、<code>OrderAmount</code> 和 <code>OrderStatus</code>。它负责订单创建、取消、支付完成等状态变化。</p>
+</li>
+<li>
+<p><strong>应用服务：</strong><code>BookingAppService</code> 负责编排事务：加载场次、调用领域方法锁座、创建订单、保存聚合。它不直接写座位状态细节。</p>
+</li>
+</ul>
+<h2 id="step-5%EF%BC%9A%E4%BC%AA%E4%BB%A3%E7%A0%81%EF%BC%9A%E6%8A%8A%E8%A7%84%E5%88%99%E5%86%99%E8%BF%9B%E9%A2%86%E5%9F%9F%E5%AF%B9%E8%B1%A1" tabindex="-1"><a class="header-anchor" href="#step-5%EF%BC%9A%E4%BC%AA%E4%BB%A3%E7%A0%81%EF%BC%9A%E6%8A%8A%E8%A7%84%E5%88%99%E5%86%99%E8%BF%9B%E9%A2%86%E5%9F%9F%E5%AF%B9%E8%B1%A1">#</a> Step 5：伪代码：把规则写进领域对象</h2>
+<p>下面的代码重点不是语法完整，而是展示 <strong>贫血模型应该被去掉</strong>：锁座、释放、取消订单这些规则应该进入聚合方法，而不是散落在 Controller 或 SQL 更新语句里。</p>
+<pre><code class="language-Java">public enum SeatStatus {
+    AVAILABLE, LOCKED, SOLD
+}
+
+public class Showtime extends AggregateRoot {
+    private String showtimeId;
+    private List&lt;Seat&gt; seats;
+
+    public void lockSeats(List&lt;String&gt; targetSeatIds) {
+        for (String seatId : targetSeatIds) {
+            Seat seat = findSeat(seatId);
+            if (seat == null || seat.getStatus() != SeatStatus.AVAILABLE) {
+                throw new DomainException(&quot;座位已被占用或不存在: &quot; + seatId);
+            }
+            seat.lock();
+        }
+        registerEvent(new SeatsLockedEvent(showtimeId, targetSeatIds));
+    }
+
+    public void releaseSeats(List&lt;String&gt; targetSeatIds) {
+        for (String seatId : targetSeatIds) {
+            Seat seat = findSeat(seatId);
+            if (seat != null &amp;&amp; seat.getStatus() == SeatStatus.LOCKED) {
+                seat.release();
+            }
+        }
+        registerEvent(new SeatsReleasedEvent(showtimeId, targetSeatIds));
+    }
+}
+
+public class Order extends AggregateRoot {
+    private OrderId orderId;
+    private OrderStatus status;
+    private List&lt;String&gt; seatIds;
+    private Money totalAmount;
+    private LocalDateTime createTime;
+
+    public Order(String showtimeId, List&lt;String&gt; seatIds, Money totalAmount) {
+        this.orderId = new OrderId();
+        this.status = OrderStatus.PENDING;
+        this.seatIds = seatIds;
+        this.totalAmount = totalAmount;
+        this.createTime = LocalDateTime.now();
+        registerEvent(new OrderCreatedEvent(orderId, showtimeId, seatIds));
+    }
+
+    public void cancel() {
+        if (status != OrderStatus.PENDING) {
+            throw new DomainException(&quot;只能取消待支付订单&quot;);
+        }
+        status = OrderStatus.CANCELLED;
+        registerEvent(new OrderCancelledEvent(orderId, seatIds));
+    }
+
+    public void markPaid() {
+        if (status != OrderStatus.PENDING) {
+            throw new DomainException(&quot;只有待支付订单可以支付&quot;);
+        }
+        status = OrderStatus.PAID;
+        registerEvent(new PaymentCompletedEvent(orderId));
+    }
+}
+
+@Service
+public class BookingAppService {
+    @Resource
+    private ShowtimeRepository showtimeRepo;
+    @Resource
+    private OrderRepository orderRepo;
+
+    @Transactional
+    public String createOrder(String showtimeId, List&lt;String&gt; seatIds) {
+        Showtime showtime = showtimeRepo.findById(showtimeId);
+
+        showtime.lockSeats(seatIds);
+        showtimeRepo.save(showtime);
+
+        Order order = new Order(showtimeId, seatIds, calculatePrice(seatIds));
+        orderRepo.save(order);
+
+        return order.getOrderId().getValue();
+    }
+}
+</code></pre>
+<h2 id="step-6%EF%BC%9A%E8%A1%A5%E5%85%85%E6%B5%81%E7%A8%8B%E5%9B%BE%E5%92%8C%E7%AD%94%E9%A2%98%E5%8F%A5" tabindex="-1"><a class="header-anchor" href="#step-6%EF%BC%9A%E8%A1%A5%E5%85%85%E6%B5%81%E7%A8%8B%E5%9B%BE%E5%92%8C%E7%AD%94%E9%A2%98%E5%8F%A5">#</a> Step 6：补充流程图和答题句</h2>
+<p>**答案句：**本题可以把 <strong>Booking Context</strong> 作为核心域，用 <strong>Showtime 聚合</strong> 保证座位锁定一致性，用 <strong>Order 聚合</strong> 管理订单生命周期；支付和出票通过 <strong>领域事件</strong> 与订票上下文解耦，超时取消通过 <strong>Policy / 策略</strong> 触发订单取消和座位释放。</p>
+<h2 id="%E7%9F%A5%E8%AF%86%E5%87%BA%E5%A4%84" tabindex="-1"><a class="header-anchor" href="#%E7%9F%A5%E8%AF%86%E5%87%BA%E5%A4%84">#</a> 知识出处</h2>
+<ul>
+<li>
+<p>用户补充截图：<strong>DDD 设计题目：星空在线影院票务系统</strong>，用于补充本 mock 题的题面、事件风暴、上下文拆分、聚合建模和伪代码示例。</p>
+</li>
+<li>
+<p>本页前文：<strong>DDD 设计题答题模板</strong>、<strong>事件风暴</strong>、<strong>战略设计</strong> 和 <strong>战术设计</strong> 的统一步骤。</p>
+</li>
+</ul>
+<blockquote>
+<p>(注：内容由 AI 生成，请谨慎参考）</p>
+</blockquote>
+
+      </div>
+
+      <footer class="post-footer">
+        <div class="post-nav">
+          <a href="/" class="post-nav-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            返回首页
+          </a>
+        </div>
+      </footer>
+    </article>
+  </main>
+</div>
+
+
+  <footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <span class="footer-logo">ASIMOV&#39;S Blog</span>
+        <p class="footer-desc">ASIMOV的老巢</p>
+        <div class="footer-social">
+          
+            <a href="https://github.com/chendingya" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+          
+          
+            <a href="https://twitter.com/yourname" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          
+          
+            <a href="mailto:your@email.com" class="social-link" aria-label="Email">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </a>
+          
+          
+            <a href="/feed.xml" class="social-link" aria-label="RSS">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20C5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1z"/></svg>
+            </a>
+          
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">导航</h4>
+        <ul class="footer-links">
+          
+            <li><a href="/">首页</a></li>
+          
+            <li><a href="/archive/">归档</a></li>
+          
+            <li><a href="/tags/">标签</a></li>
+          
+            <li><a href="/categories/">分类</a></li>
+          
+            <li><a href="/comments/">留言</a></li>
+          
+            <li><a href="/projects/">项目</a></li>
+          
+          <li><a href="/archive/">归档</a></li>
+          <li><a href="/tags/">标签</a></li>
+          <li><a href="/categories/">分类</a></li>
+        </ul>
+      </div>
+
+      
+      <div class="footer-col">
+        <h4 class="footer-heading">友链</h4>
+        <ul class="footer-links">
+          
+            <li><a href="https://example.com" target="_blank" rel="noopener noreferrer">示例友链</a></li>
+          
+        </ul>
+      </div>
+      
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 ASIMOV&#39;S Blog</p>
+      
+    </div>
+  </div>
+</footer>
+
+
+  <button class="back-to-top" aria-label="返回顶部">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+  </button>
+
+  <script src="/assets/js/main.js" defer></script>
+  <script src="/plugins/comments/comments-assets/editor.js" defer></script>
+</body>
+</html>

@@ -1,0 +1,485 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ASIMOV的老巢">
+  <title>SE-II-ch00-题目 - ASIMOV&#39;S Blog</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Noto+Serif+SC:wght@400;500;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/css/style.css">
+  
+  <link rel="stylesheet" href="/assets/css/highlight.css">
+  
+
+  
+  <style>:root {
+  --font-display: 'Playfair Display', 'Noto Serif SC', Georgia, 'Times New Roman', serif;
+  --font-body: 'Public Sans', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'Fira Code', 'Cascadia Code', 'JetBrains Mono', monospace;
+  --bg-cream: #FEFAF6;
+  --bg-cream-alpha: rgba(254,250,246,0.85);
+  --bg-surface: #FFFFFF;
+  --bg-warm: #FDF5EB;
+  --text-primary: #2C1810;
+  --text-secondary: #8B7355;
+  --text-muted: #C4A882;
+  --text-on-accent: #FFFFFF;
+  --border: #E8D5C4;
+  --border-light: #F0E3D5;
+  --shadow-sm: 0 1px 2px rgba(44,24,16,0.04);
+  --shadow-md: 0 4px 12px rgba(44,24,16,0.06);
+  --shadow-lg: 0 12px 32px rgba(44,24,16,0.08);
+  --code-bg: #1E1E1E;
+  --code-text: #E0E0E0;
+  --brand: var(--accent-coral);
+  --brand-hover: #FF5252;
+  --brand-alpha: rgba(255,107,107,0.08);
+  --brand-alpha-heavy: rgba(255,107,107,0.15);
+  --selection-bg: rgba(255,107,107,0.2);
+  --accent-coral: #FF6B6B;
+  --accent-coral-hover: #FF5252;
+  --accent-amber: #F4A261;
+  --accent-mint: #90BE6D;
+  --accent-lavender: #9B72AA;
+  --accent-sky: #4ECDC4;
+  --accent-sun: #F9C74F;
+  --accent-rose: #FF6B8A;
+  --accent-blue: #577590;
+  --max-width: 1200px;
+  --content-width: 720px;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 5rem;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+}
+
+[data-theme="dark"] {
+  --bg-cream: #1A1614;
+  --bg-cream-alpha: rgba(26,22,20,0.85);
+  --bg-surface: #2C2420;
+  --bg-warm: #241E1A;
+  --text-primary: #E8D5C4;
+  --text-secondary: #B8A088;
+  --text-muted: #8B7355;
+  --text-on-accent: #FFFFFF;
+  --border: #3D3028;
+  --border-light: #332A22;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.25);
+  --shadow-lg: 0 12px 32px rgba(0,0,0,0.3);
+  --code-bg: #111111;
+  --code-text: #E0E0E0;
+  --brand: var(--accent-coral);
+  --brand-hover: #FF8A8A;
+  --brand-alpha: rgba(255,107,107,0.12);
+  --brand-alpha-heavy: rgba(255,107,107,0.2);
+  --selection-bg: rgba(255,107,107,0.2);
+}</style>
+  
+
+  <link rel="stylesheet" href="/plugins/comments/comments-assets/style.css">
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23FF6B6B'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='20' fill='white'>A</text></svg>">
+
+  
+  <link rel="alternate" type="application/rss+xml" title="ASIMOV&#39;S Blog" href="/feed.xml">
+  
+
+  <meta property="og:title" content="SE-II-ch00-题目">
+  <meta property="og:description" content="ASIMOV的老巢">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://chendingya.github.io//posts/se-ii笔记/00-题目/">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SE-II-ch00-题目">
+  <meta name="twitter:description" content="ASIMOV的老巢">
+  
+</head>
+<body class="post-page">
+  <div class="reading-progress"></div>
+
+  <header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="/" class="site-brand">
+        
+          <span class="brand-title">ASIMOV&#39;S Blog</span>
+        
+      </a>
+
+      <nav class="site-nav" data-target="main-nav">
+        <ul class="nav-list">
+          
+            <li class="nav-item">
+              <a href="/" class="nav-link">首页</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/archive/" class="nav-link">归档</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/tags/" class="nav-link">标签</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/categories/" class="nav-link">分类</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/comments/" class="nav-link">留言</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/projects/" class="nav-link">项目</a>
+            </li>
+          
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" data-action="toggle-theme" aria-label="切换暗色模式">
+          <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+
+        <button class="icon-btn menu-btn" data-action="toggle-menu" aria-label="菜单">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  <div class="container">
+  <main class="main-content">
+    <article class="post-article">
+      <header class="post-header">
+        
+          <div class="post-header-cats">
+            
+              <a href="/categories/软件工程与计算II/" class="meta-cat accent">软件工程与计算II</a>
+            
+          </div>
+        
+        <h1 class="post-title">SE-II-ch00-题目</h1>
+        <div class="post-meta">
+          <time datetime="2022-06-16T16:02:34.000Z">
+            2022年6月16日
+          </time>
+          
+            <span class="meta-divider">&middot;</span>
+            <span class="post-author">ASIMOV</span>
+          
+        </div>
+        
+          <div class="post-header-tags">
+            
+              <a href="/tags/软件工程与计算II/" class="tag">软件工程与计算II</a>
+            
+          </div>
+        
+      </header>
+
+      
+        <details class="toc-wrap">
+          <summary class="toc-title">目录</summary>
+          <nav class="toc-nav">
+            
+              <a href="#1-说明以下需求属于哪种类型" class="toc-link toc-level-1">1. 说明以下需求属于哪种类型</a>
+            
+              <a href="#2-判断需求的正确性或者问题" class="toc-link toc-level-1">2. 判断需求的正确性或者问题</a>
+            
+              <a href="#3-考试情况" class="toc-link toc-level-1">3. 考试情况</a>
+            
+          </nav>
+        </details>
+      
+
+      <div class="post-body">
+        <!-- TOC -->
+<ul>
+<li><a href="#1-%E8%AF%B4%E6%98%8E%E4%BB%A5%E4%B8%8B%E9%9C%80%E6%B1%82%E5%B1%9E%E4%BA%8E%E5%93%AA%E7%A7%8D%E7%B1%BB%E5%9E%8B">1. 说明以下需求属于哪种类型</a></li>
+<li><a href="#2-%E5%88%A4%E6%96%AD%E9%9C%80%E6%B1%82%E7%9A%84%E6%AD%A3%E7%A1%AE%E6%80%A7%E6%88%96%E8%80%85%E9%97%AE%E9%A2%98">2. 判断需求的正确性或者问题</a></li>
+<li><a href="#3-%E8%80%83%E8%AF%95%E6%83%85%E5%86%B5">3. 考试情况</a></li>
+</ul>
+<!-- /TOC -->
+<h1 id="1.-%E8%AF%B4%E6%98%8E%E4%BB%A5%E4%B8%8B%E9%9C%80%E6%B1%82%E5%B1%9E%E4%BA%8E%E5%93%AA%E7%A7%8D%E7%B1%BB%E5%9E%8B" tabindex="-1"><a class="header-anchor" href="#1.-%E8%AF%B4%E6%98%8E%E4%BB%A5%E4%B8%8B%E9%9C%80%E6%B1%82%E5%B1%9E%E4%BA%8E%E5%93%AA%E7%A7%8D%E7%B1%BB%E5%9E%8B">#</a> 1. 说明以下需求属于哪种类型</h1>
+<table>
+<thead>
+<tr>
+<th>需求描述</th>
+<th>需求类别</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>系统<strong>需要</strong>存储一年内的销售记录</td>
+<td>数据需求</td>
+<td>-</td>
+</tr>
+<tr>
+<td>系统<strong>应该能够</strong>存储3年的交易数据</td>
+<td>性能需求</td>
+<td>-</td>
+</tr>
+<tr>
+<td>系统使用之前，需要对收银员进行10天的专门培训</td>
+<td>其他需求(人力需求。</td>
+<td>在交付之前</td>
+</tr>
+<tr>
+<td>经过10天培训的收银员就能够熟练使用系统</td>
+<td><strong>软件需求(中的质量需求)</strong></td>
+<td>-</td>
+</tr>
+<tr>
+<td>反映了用户与系统的<strong>交互细节</strong></td>
+<td>系统需求</td>
+<td>-</td>
+</tr>
+<tr>
+<td>反映了用户与系统的<strong>交互</strong></td>
+<td>用户需求</td>
+<td>-</td>
+</tr>
+<tr>
+<td>在存储设备发生故障时，系统要在10秒内发现</td>
+<td>质量需求(可靠性需求)</td>
+<td>故障是非正常状态，还一种系统需求。</td>
+</tr>
+<tr>
+<td>在存储设备发生故障时，系统要在0.5秒内向用户发出<strong>警报</strong></td>
+<td>功能需求</td>
+<td>故障不是系统的正常状态</td>
+</tr>
+<tr>
+<td>检测到病人异常后，监控器必须在0.5秒内发出警报</td>
+<td>性能需求</td>
+<td>-</td>
+</tr>
+<tr>
+<td>该软件管理工具的开发过程<strong>自身</strong>必须符合CMMI-4的评估</td>
+<td>过程需求</td>
+<td>是软件自身</td>
+</tr>
+<tr>
+<td>该软件管理工具软件必须<strong>帮助</strong>项目管理者进行开发管理工作，以通过CMMI-4的评估</td>
+<td>用户需求</td>
+<td>-</td>
+</tr>
+<tr>
+<td>系统能够为用户提供库存分析报告、商品/利润报告和过期商品报告</td>
+<td>用户需求</td>
+<td>-</td>
+</tr>
+<tr>
+<td>产品在发布1年之后内，必须在出版的A、B、C三个产品评论刊物中被评为最可靠产品。</td>
+<td>业务需求</td>
+<td>相当与一个目的</td>
+</tr>
+<tr>
+<td>系统必须能够与Oracle数据库交互。</td>
+<td>约束</td>
+<td>Oracle是系统的一个环境，环境本身在约束部分，比如Tomcat等等</td>
+</tr>
+<tr>
+<td>开发团队需要给出SRS文档。</td>
+<td>过程需求</td>
+<td>-</td>
+</tr>
+<tr>
+<td>使用扫描仪扫描文件，传递回的数据为pdf格式 文件。</td>
+<td>对外接口</td>
+<td>软件和扫描仪之间的交互</td>
+</tr>
+<tr>
+<td>商品的标识由0-24位字母、数字混合组成的字符串。</td>
+<td>数据需求</td>
+<td>-</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>其他描述用例是需求的一种组织和表达形式。√</li>
+</ol>
+<h1 id="2.-%E5%88%A4%E6%96%AD%E9%9C%80%E6%B1%82%E7%9A%84%E6%AD%A3%E7%A1%AE%E6%80%A7%E6%88%96%E8%80%85%E9%97%AE%E9%A2%98" tabindex="-1"><a class="header-anchor" href="#2.-%E5%88%A4%E6%96%AD%E9%9C%80%E6%B1%82%E7%9A%84%E6%AD%A3%E7%A1%AE%E6%80%A7%E6%88%96%E8%80%85%E9%97%AE%E9%A2%98">#</a> 2. 判断需求的正确性或者问题</h1>
+<table>
+<thead>
+<tr>
+<th>需求描述</th>
+<th>需求正确与否</th>
+<th>问题</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>After the payment process is complete, the relevant information should be appended to a log ﬁle.</td>
+<td>错误</td>
+<td>模糊</td>
+</tr>
+<tr>
+<td>The system should be constructed so that it will be easy to add new functionality in the future.</td>
+<td>错误</td>
+<td>模糊</td>
+</tr>
+<tr>
+<td>The price of a gasoline purchase is computed as the price per gallon for the type of gas purchased, multiplied by the number of gallons purchased (use two decimal points for representing fractions of gallons).</td>
+<td>正确</td>
+<td>-</td>
+</tr>
+<tr>
+<td>The system should be available 24 hours a day, 7 days a week.</td>
+<td>错误</td>
+<td>不切实际</td>
+</tr>
+</tbody>
+</table>
+<h1 id="3.-%E8%80%83%E8%AF%95%E6%83%85%E5%86%B5" tabindex="-1"><a class="header-anchor" href="#3.-%E8%80%83%E8%AF%95%E6%83%85%E5%86%B5">#</a> 3. 考试情况</h1>
+<ol>
+<li>什么是软件工程
+<ol>
+<li>应用系统的、规范的、可量化的方法来开发、运行和维护软件，即将工程应用到软件。</li>
+<li>对1)中各种方法的研究。</li>
+</ol>
+</li>
+<li>什么是演化模型
+<ol>
+<li>演化模型将软件互动组织为多个迭代、并行的瀑布式开发活动。</li>
+</ol>
+</li>
+<li>完成一个税务系统的设计，综合考察文档设计，文档设计，文档设计，UML图绘制，UML图绘制，UML图绘制。</li>
+<li>人机交互设计原则
+<ol>
+<li>简洁设计</li>
+<li>一致性设计</li>
+<li>低出错率设计</li>
+<li>易记性设计</li>
+</ol>
+</li>
+<li>表驱动</li>
+<li>测试
+<ol>
+<li>黑盒测试:黑盒测试是将测试对象作为一个黑盒子，完全基于输入和输出数据来判断测试对象的正确性。</li>
+<li>白盒测试:白盒测试是将测试对象看做透明的，不关心测试对象的规格，而是按照测试对象内部的程序结构来设计测试用例进行测试工作。</li>
+<li>语句覆盖:语句覆盖设计测试用例的标注是保证被测试的对象的每一行代码都至少执行了一次。</li>
+<li>条件覆盖:条件覆盖设计测试用例的标准是确保程序中每个判断的每个结果都至少满足一次。</li>
+<li>路径覆盖:路径覆盖测试用例的标准是确保程序中每一条独立执行的路径都至少执行一次。</li>
+</ol>
+</li>
+<li>题量很大，请务必加快速度。文档设计这种东西，写了就有分数，所以绝对不要空。</li>
+</ol>
+
+      </div>
+
+      <footer class="post-footer">
+        <div class="post-nav">
+          <a href="/" class="post-nav-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            返回首页
+          </a>
+        </div>
+      </footer>
+    </article>
+  </main>
+</div>
+
+
+  <footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <span class="footer-logo">ASIMOV&#39;S Blog</span>
+        <p class="footer-desc">ASIMOV的老巢</p>
+        <div class="footer-social">
+          
+            <a href="https://github.com/chendingya" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+          
+          
+            <a href="https://twitter.com/yourname" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          
+          
+            <a href="mailto:your@email.com" class="social-link" aria-label="Email">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </a>
+          
+          
+            <a href="/feed.xml" class="social-link" aria-label="RSS">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20C5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1z"/></svg>
+            </a>
+          
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">导航</h4>
+        <ul class="footer-links">
+          
+            <li><a href="/">首页</a></li>
+          
+            <li><a href="/archive/">归档</a></li>
+          
+            <li><a href="/tags/">标签</a></li>
+          
+            <li><a href="/categories/">分类</a></li>
+          
+            <li><a href="/comments/">留言</a></li>
+          
+            <li><a href="/projects/">项目</a></li>
+          
+          <li><a href="/archive/">归档</a></li>
+          <li><a href="/tags/">标签</a></li>
+          <li><a href="/categories/">分类</a></li>
+        </ul>
+      </div>
+
+      
+      <div class="footer-col">
+        <h4 class="footer-heading">友链</h4>
+        <ul class="footer-links">
+          
+            <li><a href="https://example.com" target="_blank" rel="noopener noreferrer">示例友链</a></li>
+          
+        </ul>
+      </div>
+      
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 ASIMOV&#39;S Blog</p>
+      
+    </div>
+  </div>
+</footer>
+
+
+  <button class="back-to-top" aria-label="返回顶部">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+  </button>
+
+  <script src="/assets/js/main.js" defer></script>
+  <script src="/plugins/comments/comments-assets/editor.js" defer></script>
+</body>
+</html>

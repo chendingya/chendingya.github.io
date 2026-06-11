@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ASIMOV的老巢">
+  <title>ch07- LL(1) 语法分析器 - ASIMOV&#39;S Blog</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Noto+Serif+SC:wght@400;500;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/css/style.css">
+  
+  <link rel="stylesheet" href="/assets/css/highlight.css">
+  
+
+  
+  <style>:root {
+  --font-display: 'Playfair Display', 'Noto Serif SC', Georgia, 'Times New Roman', serif;
+  --font-body: 'Public Sans', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'Fira Code', 'Cascadia Code', 'JetBrains Mono', monospace;
+  --bg-cream: #FEFAF6;
+  --bg-cream-alpha: rgba(254,250,246,0.85);
+  --bg-surface: #FFFFFF;
+  --bg-warm: #FDF5EB;
+  --text-primary: #2C1810;
+  --text-secondary: #8B7355;
+  --text-muted: #C4A882;
+  --text-on-accent: #FFFFFF;
+  --border: #E8D5C4;
+  --border-light: #F0E3D5;
+  --shadow-sm: 0 1px 2px rgba(44,24,16,0.04);
+  --shadow-md: 0 4px 12px rgba(44,24,16,0.06);
+  --shadow-lg: 0 12px 32px rgba(44,24,16,0.08);
+  --code-bg: #1E1E1E;
+  --code-text: #E0E0E0;
+  --brand: var(--accent-coral);
+  --brand-hover: #FF5252;
+  --brand-alpha: rgba(255,107,107,0.08);
+  --brand-alpha-heavy: rgba(255,107,107,0.15);
+  --selection-bg: rgba(255,107,107,0.2);
+  --accent-coral: #FF6B6B;
+  --accent-coral-hover: #FF5252;
+  --accent-amber: #F4A261;
+  --accent-mint: #90BE6D;
+  --accent-lavender: #9B72AA;
+  --accent-sky: #4ECDC4;
+  --accent-sun: #F9C74F;
+  --accent-rose: #FF6B8A;
+  --accent-blue: #577590;
+  --max-width: 1200px;
+  --content-width: 720px;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 5rem;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+}
+
+[data-theme="dark"] {
+  --bg-cream: #1A1614;
+  --bg-cream-alpha: rgba(26,22,20,0.85);
+  --bg-surface: #2C2420;
+  --bg-warm: #241E1A;
+  --text-primary: #E8D5C4;
+  --text-secondary: #B8A088;
+  --text-muted: #8B7355;
+  --text-on-accent: #FFFFFF;
+  --border: #3D3028;
+  --border-light: #332A22;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.25);
+  --shadow-lg: 0 12px 32px rgba(0,0,0,0.3);
+  --code-bg: #111111;
+  --code-text: #E0E0E0;
+  --brand: var(--accent-coral);
+  --brand-hover: #FF8A8A;
+  --brand-alpha: rgba(255,107,107,0.12);
+  --brand-alpha-heavy: rgba(255,107,107,0.2);
+  --selection-bg: rgba(255,107,107,0.2);
+}</style>
+  
+
+  <link rel="stylesheet" href="/plugins/comments/comments-assets/style.css">
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23FF6B6B'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='20' fill='white'>A</text></svg>">
+
+  
+  <link rel="alternate" type="application/rss+xml" title="ASIMOV&#39;S Blog" href="/feed.xml">
+  
+
+  <meta property="og:title" content="ch07- LL(1) 语法分析器">
+  <meta property="og:description" content="ASIMOV的老巢">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://chendingya.github.io//posts/23-compilers/ch07/">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="ch07- LL(1) 语法分析器">
+  <meta name="twitter:description" content="ASIMOV的老巢">
+  
+</head>
+<body class="post-page">
+  <div class="reading-progress"></div>
+
+  <header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="/" class="site-brand">
+        
+          <span class="brand-title">ASIMOV&#39;S Blog</span>
+        
+      </a>
+
+      <nav class="site-nav" data-target="main-nav">
+        <ul class="nav-list">
+          
+            <li class="nav-item">
+              <a href="/" class="nav-link">首页</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/archive/" class="nav-link">归档</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/tags/" class="nav-link">标签</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/categories/" class="nav-link">分类</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/comments/" class="nav-link">留言</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/projects/" class="nav-link">项目</a>
+            </li>
+          
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" data-action="toggle-theme" aria-label="切换暗色模式">
+          <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+
+        <button class="icon-btn menu-btn" data-action="toggle-menu" aria-label="菜单">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  <div class="container">
+  <main class="main-content">
+    <article class="post-article">
+      <header class="post-header">
+        
+          <div class="post-header-cats">
+            
+              <a href="/categories/编译原理/" class="meta-cat accent">编译原理</a>
+            
+          </div>
+        
+        <h1 class="post-title">ch07- LL(1) 语法分析器</h1>
+        <div class="post-meta">
+          <time datetime="2023-03-30T10:02:34.000Z">
+            2023年3月30日
+          </time>
+          
+            <span class="meta-divider">&middot;</span>
+            <span class="post-author">ASIMOV</span>
+          
+        </div>
+        
+          <div class="post-header-tags">
+            
+              <a href="/tags/编译原理/" class="tag">编译原理</a>
+            
+          </div>
+        
+      </header>
+
+      
+        <details class="toc-wrap">
+          <summary class="toc-title">目录</summary>
+          <nav class="toc-nav">
+            
+              <a href="#ch07" class="toc-link toc-level-1">ch07</a>
+            
+              <a href="#自顶向下构建语法分析树" class="toc-link toc-level-2">自顶向下构建语法分析树</a>
+            
+              <a href="#递归下降" class="toc-link toc-level-3">递归下降</a>
+            
+              <a href="#实现过程" class="toc-link toc-level-4">实现过程</a>
+            
+              <a href="#优缺点" class="toc-link toc-level-3">优缺点</a>
+            
+              <a href="#优点" class="toc-link toc-level-4">优点</a>
+            
+              <a href="#缺点" class="toc-link toc-level-4">缺点</a>
+            
+              <a href="#演示递归下降过程" class="toc-link toc-level-3">演示递归下降过程</a>
+            
+              <a href="#同样是展开非终结符-s-为什么前两次选择了-s-s-f-而第三次选择了-s-f" class="toc-link toc-level-4">同样是展开非终结符 S, 为什么前两次选择了 S → (S + F), 而第三次选择了 S → F?</a>
+            
+              <a href="#使用-预测分析表-确定产生式" class="toc-link toc-level-4">使用==预测分析表==确定产生式</a>
+            
+              <a href="#ll-1-文法definition" class="toc-link toc-level-3">LL(1) 文法Definition ：</a>
+            
+              <a href="#递归下降的-预测分析实现方法" class="toc-link toc-level-3">递归下降的、预测分析实现方法</a>
+            
+              <a href="#框架" class="toc-link toc-level-4">框架：</a>
+            
+              <a href="#计算给定文法-g-的预测分析表" class="toc-link toc-level-3">计算给定文法 G 的预测分析表</a>
+            
+              <a href="#什么时候选择非终结符的-产生式" class="toc-link toc-level-4">什么时候选择非终结符的ε产生式</a>
+            
+              <a href="#first-集合-definition" class="toc-link toc-level-4">First(α) 集合 Definition</a>
+            
+              <a href="#follow-a-集合-definition" class="toc-link toc-level-4">Follow(A) 集合 Definition</a>
+            
+              <a href="#计算算法" class="toc-link toc-level-4">计算算法</a>
+            
+              <a href="#先计算每个符号-x-的-first-x-集合" class="toc-link toc-level-5">先计算每个符号 X 的 First(X) 集合</a>
+            
+              <a href="#再计算每个符号串-的-first" class="toc-link toc-level-5">再计算每个符号串 α 的 First(α)</a>
+            
+              <a href="#例子" class="toc-link toc-level-5">例子</a>
+            
+              <a href="#为每个非终结符-x-计算-follow-x-集合" class="toc-link toc-level-5">为每个非终结符 X 计算 Follow(X) 集合</a>
+            
+              <a href="#例子" class="toc-link toc-level-5">例子</a>
+            
+              <a href="#根据first-与-follow-集合计算给定文法-g-的预测分析表" class="toc-link toc-level-3">根据First 与 Follow 集合计算给定文法 G 的预测分析表</a>
+            
+              <a href="#例子" class="toc-link toc-level-5">例子</a>
+            
+              <a href="#ll-1-文法-definition" class="toc-link toc-level-3">LL(1) 文法 Definition</a>
+            
+              <a href="#ll-1-文法不能够处理的" class="toc-link toc-level-3">LL(1) 文法不能够处理的</a>
+            
+              <a href="#总结ll-1-语法分析器" class="toc-link toc-level-3">总结LL(1) 语法分析器</a>
+            
+              <a href="#ll-0" class="toc-link toc-level-3">LL(0)</a>
+            
+              <a href="#非递归的预测分析算法-非重点-现在一般写递归的-模块性强" class="toc-link toc-level-3">非递归的预测分析算法（非重点，现在一般写递归的，模块性强）</a>
+            
+              <a href="#不是ll-1-文法的改造文法办法" class="toc-link toc-level-3">不是LL(1)文法的改造文法办法</a>
+            
+              <a href="#直接左递归-direct-left-recursion-消除左递归" class="toc-link toc-level-3">直接左递归 (Direct Left Recursion)消除左递归</a>
+            
+              <a href="#例子" class="toc-link toc-level-4">例子：</a>
+            
+              <a href="#范式" class="toc-link toc-level-4">范式</a>
+            
+              <a href="#间接左递归-indirect-left-recursion-消除左递归" class="toc-link toc-level-3">间接左递归 (Indirect Left Recursion)消除左递归</a>
+            
+              <a href="#提取左公因子-left-factoring" class="toc-link toc-level-3">提取左公因子 (Left-Factoring)</a>
+            
+          </nav>
+        </details>
+      
+
+      <div class="post-body">
+        <h1 id="ch07" tabindex="-1"><a class="header-anchor" href="#ch07">#</a> ch07</h1>
+<p>LL(1) 语法分析器</p>
+<p>构建语法分析树: 自顶向下 vs. 自底向上</p>
+<p>只考虑无二义性的文法 这意味着, 每个句子对应唯一的一棵语法分析树</p>
+<p>自顶向下的、 递归下降的、 基于预测分析表的、 适用于LL(1) 文法的、 LL(1) 语法分析器</p>
+<h2 id="%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E6%9E%84%E5%BB%BA%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E6%A0%91" tabindex="-1"><a class="header-anchor" href="#%E8%87%AA%E9%A1%B6%E5%90%91%E4%B8%8B%E6%9E%84%E5%BB%BA%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E6%A0%91">#</a> 自顶向下构建语法分析树</h2>
+<ul>
+<li>根节点是文法的起始符号 S</li>
+<li>每个中间节点表示对某个非终结符应用某个产生式进行推导 (Q : 选择哪个非终结符, 以及选择哪个产生式)</li>
+<li>在推导的每一步, L<strong>L</strong>(1) 总是选择最左边的非终结符进行展开</li>
+<li><strong>L</strong>L(1): 从左向右读入词法单元</li>
+<li>叶节点是词法单元流 w$ 仅包含终结符号与特殊的文件结束符 $ (EOF)</li>
+</ul>
+<h3 id="%E9%80%92%E5%BD%92%E4%B8%8B%E9%99%8D" tabindex="-1"><a class="header-anchor" href="#%E9%80%92%E5%BD%92%E4%B8%8B%E9%99%8D">#</a> 递归下降</h3>
+<p><img src="/23-Compilers/ch07/image-20230407130558399.png" alt="" class="" loading="lazy"></p>
+<p>递归下降是LL(1)语法分析器常用的实现方式</p>
+<p>为每个非终结符写一个递归函数 内部按需调用其它非终结符对应的递归函数, 下降一层</p>
+<p>为了实现额外的任务，可以加参数和返回值</p>
+<h4 id="%E5%AE%9E%E7%8E%B0%E8%BF%87%E7%A8%8B" tabindex="-1"><a class="header-anchor" href="#%E5%AE%9E%E7%8E%B0%E8%BF%87%E7%A8%8B">#</a> 实现过程</h4>
+<ul>
+<li>先选择一个A的产生式，1-k</li>
+<li>for循环处理每个X~1~ ~ X ~k~</li>
+<li>X为非终结符，调用X对应的递归函数</li>
+<li>X为终结符
+<ul>
+<li>X~i~=a 匹配上当前的词法单元</li>
+<li>X~i~！=a 出现错误</li>
+</ul>
+</li>
+</ul>
+<h3 id="%E4%BC%98%E7%BC%BA%E7%82%B9" tabindex="-1"><a class="header-anchor" href="#%E4%BC%98%E7%BC%BA%E7%82%B9">#</a> 优缺点</h3>
+<h4 id="%E4%BC%98%E7%82%B9" tabindex="-1"><a class="header-anchor" href="#%E4%BC%98%E7%82%B9">#</a> 优点</h4>
+<p>算法简单</p>
+<h4 id="%E7%BC%BA%E7%82%B9" tabindex="-1"><a class="header-anchor" href="#%E7%BC%BA%E7%82%B9">#</a> 缺点</h4>
+<p>能处理文法（上下文无关文法）的种类很少</p>
+<p>如果不能处理，改造文法复杂</p>
+<h3 id="%E6%BC%94%E7%A4%BA%E9%80%92%E5%BD%92%E4%B8%8B%E9%99%8D%E8%BF%87%E7%A8%8B" tabindex="-1"><a class="header-anchor" href="#%E6%BC%94%E7%A4%BA%E9%80%92%E5%BD%92%E4%B8%8B%E9%99%8D%E8%BF%87%E7%A8%8B">#</a> 演示递归下降过程</h3>
+<p><img src="/23-Compilers/ch07/image-20230407131743295.png" alt="" class="" loading="lazy"></p>
+<p>每次都选择语法分析树最左边的非终结符进行展开</p>
+<h4 id="%E5%90%8C%E6%A0%B7%E6%98%AF%E5%B1%95%E5%BC%80%E9%9D%9E%E7%BB%88%E7%BB%93%E7%AC%A6-s%2C-%E4%B8%BA%E4%BB%80%E4%B9%88%E5%89%8D%E4%B8%A4%E6%AC%A1%E9%80%89%E6%8B%A9%E4%BA%86-s-%E2%86%92-(s-%2B-f)%2C-%E8%80%8C%E7%AC%AC%E4%B8%89%E6%AC%A1%E9%80%89%E6%8B%A9%E4%BA%86-s-%E2%86%92-f%3F" tabindex="-1"><a class="header-anchor" href="#%E5%90%8C%E6%A0%B7%E6%98%AF%E5%B1%95%E5%BC%80%E9%9D%9E%E7%BB%88%E7%BB%93%E7%AC%A6-s%2C-%E4%B8%BA%E4%BB%80%E4%B9%88%E5%89%8D%E4%B8%A4%E6%AC%A1%E9%80%89%E6%8B%A9%E4%BA%86-s-%E2%86%92-(s-%2B-f)%2C-%E8%80%8C%E7%AC%AC%E4%B8%89%E6%AC%A1%E9%80%89%E6%8B%A9%E4%BA%86-s-%E2%86%92-f%3F">#</a> 同样是展开非终结符 S, 为什么前两次选择了 S → (S + F), 而第三次选择了 S → F?</h4>
+<p>因为它们面对的当前词法单元不同</p>
+<h4 id="%E4%BD%BF%E7%94%A8%3D%3D%E9%A2%84%E6%B5%8B%E5%88%86%E6%9E%90%E8%A1%A8%3D%3D%E7%A1%AE%E5%AE%9A%E4%BA%A7%E7%94%9F%E5%BC%8F" tabindex="-1"><a class="header-anchor" href="#%E4%BD%BF%E7%94%A8%3D%3D%E9%A2%84%E6%B5%8B%E5%88%86%E6%9E%90%E8%A1%A8%3D%3D%E7%A1%AE%E5%AE%9A%E4%BA%A7%E7%94%9F%E5%BC%8F">#</a> 使用==预测分析表==确定产生式</h4>
+<p><img src="/23-Compilers/ch07/image-20230407131921718.png" alt="" class="" loading="lazy"></p>
+<p>指明了每个<strong>非终结符</strong>在面对不同的<strong>词法单元或文件结束符</strong>时, 该选择哪个<strong>产生式</strong> (按编号进行索引) 或者<strong>报错</strong> (空单元格)</p>
+<ul>
+<li>只有第二条会产生小括号，如果读入字符是（，就只能选第二条</li>
+<li>第三次是F，面对的读入字符是a，所以只会选择3</li>
+</ul>
+<h3 id="ll(1)-%E6%96%87%E6%B3%95definition-%EF%BC%9A" tabindex="-1"><a class="header-anchor" href="#ll(1)-%E6%96%87%E6%B3%95definition-%EF%BC%9A">#</a> LL(1) 文法Definition ：</h3>
+<p>如果文法 G 的预测分析表是无冲突的, 则 G 是 LL(1) 文法。</p>
+<p>无冲突: 每个单元格里只有一个产生式 (编号)</p>
+<p>对于当前选择的<strong>非终结符</strong>, 仅根据输入中<strong>当前的词法单元</strong> (LL(1)) 即可确定需要使用哪条<strong>产生式</strong></p>
+<h3 id="%E9%80%92%E5%BD%92%E4%B8%8B%E9%99%8D%E7%9A%84%E3%80%81%E9%A2%84%E6%B5%8B%E5%88%86%E6%9E%90%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95" tabindex="-1"><a class="header-anchor" href="#%E9%80%92%E5%BD%92%E4%B8%8B%E9%99%8D%E7%9A%84%E3%80%81%E9%A2%84%E6%B5%8B%E5%88%86%E6%9E%90%E5%AE%9E%E7%8E%B0%E6%96%B9%E6%B3%95">#</a> 递归下降的、预测分析实现方法</h3>
+<h4 id="%E6%A1%86%E6%9E%B6%EF%BC%9A" tabindex="-1"><a class="header-anchor" href="#%E6%A1%86%E6%9E%B6%EF%BC%9A">#</a> 框架：</h4>
+<p>假定<strong>预测分析表</strong>已经被构建出来了</p>
+<pre><code class="language-c">procedure match(t)
+ if token = t then
+ token ← next-token()
+ else
+ error(token, t)
+     
+procedure S()
+ if token = ‘(’ then
+ match(‘(’)
+ S()
+ match(‘+’)
+ F()
+ match(‘)’)
+ else if token = ‘a’ then
+ F()
+ else
+ error(token, {‘(’, ‘a’})
+
+procedure F()
+ if token = ‘a’ then
+ match(‘a’)
+ else
+ error(token, {‘a’})
+
+</code></pre>
+<h3 id="%E8%AE%A1%E7%AE%97%E7%BB%99%E5%AE%9A%E6%96%87%E6%B3%95-g-%E7%9A%84%E9%A2%84%E6%B5%8B%E5%88%86%E6%9E%90%E8%A1%A8" tabindex="-1"><a class="header-anchor" href="#%E8%AE%A1%E7%AE%97%E7%BB%99%E5%AE%9A%E6%96%87%E6%B3%95-g-%E7%9A%84%E9%A2%84%E6%B5%8B%E5%88%86%E6%9E%90%E8%A1%A8">#</a> 计算给定文法 G 的预测分析表</h3>
+<p><img src="/23-Compilers/ch07/image-20230407173718296.png" alt="" class="" loading="lazy"></p>
+<ul>
+<li>选择decl展开因为只有这样才能在后面产生int</li>
+<li>选择func_call是因为只有这样才能产生ID这个终结符</li>
+</ul>
+<p><img src="/23-Compilers/ch07/image-20230407182730941.png" alt="" class="" loading="lazy"></p>
+<h4 id="%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E9%80%89%E6%8B%A9%E9%9D%9E%E7%BB%88%E7%BB%93%E7%AC%A6%E7%9A%84%CE%B5%E4%BA%A7%E7%94%9F%E5%BC%8F" tabindex="-1"><a class="header-anchor" href="#%E4%BB%80%E4%B9%88%E6%97%B6%E5%80%99%E9%80%89%E6%8B%A9%E9%9D%9E%E7%BB%88%E7%BB%93%E7%AC%A6%E7%9A%84%CE%B5%E4%BA%A7%E7%94%9F%E5%BC%8F">#</a> 什么时候选择非终结符的ε产生式</h4>
+<p>只有在这个非终结符的后面的这个终结符可能是我想要的终结符的情况下，才可以选择将其变无</p>
+<p>如果有一个终结符，而且这个终结符有一个产生式，变成ε，或者经过很多步推导可以生成ε，后面的非终结符使我们接下来要匹配的终结符，接下来要匹配的终结符最好就是当前指针要指向的终结符</p>
+<p>要看这个非终结符有哪些终结符跟在后面</p>
+<h4 id="first(%CE%B1)-%E9%9B%86%E5%90%88-definition" tabindex="-1"><a class="header-anchor" href="#first(%CE%B1)-%E9%9B%86%E5%90%88-definition">#</a> First(α) 集合 Definition</h4>
+<p><strong>First(α) 是可从 α 推导得到的句型的==首终结符号==的集合</strong></p>
+<p>对于任意的 (产生式的右部) α ∈ (N ∪ T) ∗ :</p>
+<p>First(α) = { t ∈ T ∪ {ϵ} | α ∗=⇒ tβ ∨ α ∗=⇒ ϵ } .  （*==&gt;指经过任意步推导）β是任意非终结符和终结符的集合，可能为空</p>
+<p>考虑非终结符 A 的所有产生式 A → α1, A → α2, . . . , A → αm, 如果它们<strong>对应的 First(αi) 集合互不相交</strong>, 则只需查看当前输入词法单元, 即可确定选择哪个产生式 (<strong>或报错</strong>)</p>
+<p>例：</p>
+<p>First(prog) = {‘int’, ID}</p>
+<p><strong>First是想知道，如果选择了某种特定的展开方式，会产生哪些首终结符，有没有可能是指针指向的字符</strong></p>
+<h4 id="follow(a)-%E9%9B%86%E5%90%88-definition" tabindex="-1"><a class="header-anchor" href="#follow(a)-%E9%9B%86%E5%90%88-definition">#</a> Follow(A) 集合 Definition</h4>
+<p><strong>Follow(A) 是可能在某些句型中紧跟在 A 右边的终结符的集合</strong></p>
+<p>对于任意的 (产生式的左部) 非终结符 A ∈ N :</p>
+<p>​	Follow(A) = { t ∈ T ∪ {$} | ∃s. S ∗=⇒ s ≜ βAtγ } .</p>
+<p>β和γ是任意非终结符和终结符的集合，可能为空</p>
+<p>如果退出来A这个非终结符，而且后面是终结符，t ∈ Follow(A)， t有可能是$（s是开始符号，而$是输入右端的结束标记）</p>
+<p>考虑产生式 A → α, <strong>如果从 α 可能推导出空串 (α ∗=⇒ ϵ), 则只有当当前词法单元 t ∈ Follow(A), 才可以选择该产生式</strong>(意味着A会消失)</p>
+<h4 id="%E8%AE%A1%E7%AE%97%E7%AE%97%E6%B3%95" tabindex="-1"><a class="header-anchor" href="#%E8%AE%A1%E7%AE%97%E7%AE%97%E6%B3%95">#</a> 计算算法</h4>
+<h5 id="%E5%85%88%E8%AE%A1%E7%AE%97%E6%AF%8F%E4%B8%AA%E7%AC%A6%E5%8F%B7-x-%E7%9A%84-first(x)-%E9%9B%86%E5%90%88" tabindex="-1"><a class="header-anchor" href="#%E5%85%88%E8%AE%A1%E7%AE%97%E6%AF%8F%E4%B8%AA%E7%AC%A6%E5%8F%B7-x-%E7%9A%84-first(x)-%E9%9B%86%E5%90%88">#</a> 先计算每个符号 X 的 First(X) 集合</h5>
+<pre><code class="language-c">procedure first(X)
+ if X ∈ T then ▷ 规则 1: X 是终结符
+ 	First(X) = X
+ for X → Y1Y2 . . . Yk do ▷ 规则 2: X 是非终结符
+     //Y的首终结符包含于X的首终结符
+     //Y如果变成ε不代表X也会变成ε
+ 	First(X) ← First(X) ∪ {First(Y1) \ {ϵ}}  
+ 	for i ← 2 to k do
+        //看ε能不能由Y1推出来
+ 		if ϵ ∈ L(Y1 . . . Yi−1) then
+ 			First(X) ← First(X) ∪ {First(Yi) \ {ϵ}}
+	//看完1~k
+	//L(Y1 . . . Yk)表示Y1~Yk都能退出ε
+ 	if ϵ ∈ L(Y1 . . . Yk) then ▷ 规则 3: X 可推导出空串
+ 		First(X) ← First(X) ∪ {ϵ}
+</code></pre>
+<p>不断应用上面的规则, 直到每个 First(X) 都不再变化 <strong>(不动点!!!)</strong></p>
+<h5 id="%E5%86%8D%E8%AE%A1%E7%AE%97%E6%AF%8F%E4%B8%AA%E7%AC%A6%E5%8F%B7%E4%B8%B2-%CE%B1-%E7%9A%84-first(%CE%B1)" tabindex="-1"><a class="header-anchor" href="#%E5%86%8D%E8%AE%A1%E7%AE%97%E6%AF%8F%E4%B8%AA%E7%AC%A6%E5%8F%B7%E4%B8%B2-%CE%B1-%E7%9A%84-first(%CE%B1)">#</a> 再计算每个符号串 α 的 First(α)</h5>
+<p><img src="/23-Compilers/ch07/image-20230407190235069.png" alt="" class="" loading="lazy"></p>
+<h5 id="%E4%BE%8B%E5%AD%90" tabindex="-1"><a class="header-anchor" href="#%E4%BE%8B%E5%AD%90">#</a> 例子</h5>
+<p><img src="/23-Compilers/ch07/image-20230407190325780.png" alt="" class="" loading="lazy"></p>
+<h5 id="%E4%B8%BA%E6%AF%8F%E4%B8%AA%E9%9D%9E%E7%BB%88%E7%BB%93%E7%AC%A6-x-%E8%AE%A1%E7%AE%97-follow(x)-%E9%9B%86%E5%90%88" tabindex="-1"><a class="header-anchor" href="#%E4%B8%BA%E6%AF%8F%E4%B8%AA%E9%9D%9E%E7%BB%88%E7%BB%93%E7%AC%A6-x-%E8%AE%A1%E7%AE%97-follow(x)-%E9%9B%86%E5%90%88">#</a> 为每个非终结符 X 计算 Follow(X) 集合</h5>
+<pre><code class="language-c"> procedure follow(X)
+ 	for X 是开始符号 do ▷ 规则 1: X 是开始符号
+ 		Follow(X) ← Follow(X) ∪ {$}
+ 	for A → αX do ▷ 规则 2: X 是某产生式右部的最后一个符号
+        //所有能跟在A后的终结符都可能跟在S后面
+ 		Follow(X) ← Follow(X) ∪ Follow(A)
+ 	for A → αXβ do ▷ 规则 3: X 是某产生式右部中间的一个符号、
+        //X是某个产生式中间的符号
+        //β能推出来的终结符一定能跟在X后面
+        //ε不一定在X后面
+ 		Follow(X) ← Follow(X) ∪ (First(β) \ {ϵ})
+ 		if ϵ ∈ First(β) then
+			 Follow(X) ← Follow(X) ∪ Follow(A)
+</code></pre>
+<p>不断应用上面的规则, 直到每个 Follow(X) 都不再变化 <strong>(不动点!!!)</strong></p>
+<h5 id="%E4%BE%8B%E5%AD%90-1" tabindex="-1"><a class="header-anchor" href="#%E4%BE%8B%E5%AD%90-1">#</a> 例子</h5>
+<p><img src="/23-Compilers/ch07/image-20230407191229025.png" alt="" class="" loading="lazy"></p>
+<p>FL(X)先看F(Y)，再看F(Z)，再看ε是否属于F(XYZ)</p>
+<p>FL(X)⊆FL(Y)  F(Z)⊆FL(Y)，再看Z能不能产生ε，不能，FL(Y)结束</p>
+<p>FL(Z)⊆FL(Z) FL(Z)=∅</p>
+<h3 id="%E6%A0%B9%E6%8D%AEfirst-%E4%B8%8E-follow-%E9%9B%86%E5%90%88%E8%AE%A1%E7%AE%97%E7%BB%99%E5%AE%9A%E6%96%87%E6%B3%95-g-%E7%9A%84%E9%A2%84%E6%B5%8B%E5%88%86%E6%9E%90%E8%A1%A8" tabindex="-1"><a class="header-anchor" href="#%E6%A0%B9%E6%8D%AEfirst-%E4%B8%8E-follow-%E9%9B%86%E5%90%88%E8%AE%A1%E7%AE%97%E7%BB%99%E5%AE%9A%E6%96%87%E6%B3%95-g-%E7%9A%84%E9%A2%84%E6%B5%8B%E5%88%86%E6%9E%90%E8%A1%A8">#</a> 根据First 与 Follow 集合计算给定文法 G 的预测分析表</h3>
+<p>对应每条产生式 A → α 与终结符 t, 如果</p>
+<ul>
+<li>
+<p>t ∈ First(α)</p>
+</li>
+<li>
+<p>α ∗=⇒ ϵ ∧ t ∈ Follow(A)  //α被变为ε消掉</p>
+</li>
+</ul>
+<p>则在表格 [A,t] 中填入 A → α (编号)。</p>
+<h5 id="%E4%BE%8B%E5%AD%90-2" tabindex="-1"><a class="header-anchor" href="#%E4%BE%8B%E5%AD%90-2">#</a> 例子</h5>
+<p><img src="/23-Compilers/ch07/image-20230407200206884.png" alt="" class="" loading="lazy"></p>
+<p>(Y,3)出现冲突，该文法不是LL(1)文法</p>
+<h3 id="ll(1)-%E6%96%87%E6%B3%95-definition" tabindex="-1"><a class="header-anchor" href="#ll(1)-%E6%96%87%E6%B3%95-definition">#</a> LL(1) 文法 Definition</h3>
+<p>如果文法 G 的==预测分析表==是无冲突的, 则 G 是 LL(1) 文法。</p>
+<h3 id="ll(1)-%E6%96%87%E6%B3%95%E4%B8%8D%E8%83%BD%E5%A4%9F%E5%A4%84%E7%90%86%E7%9A%84" tabindex="-1"><a class="header-anchor" href="#ll(1)-%E6%96%87%E6%B3%95%E4%B8%8D%E8%83%BD%E5%A4%9F%E5%A4%84%E7%90%86%E7%9A%84">#</a> LL(1) 文法不能够处理的</h3>
+<p>当前要展开A，看到t这个词法单元，可以选择一个没有冲突的、唯一的产生式，但不意味着接着走下去不会出错</p>
+<ul>
+<li>
+<p>t ∈ First(α) (1)</p>
+</li>
+<li>
+<p>ϵ ∈ First(α) ∧ t ∈ Follow(A) (2)</p>
+</li>
+</ul>
+<p>当下的选择未必正确, 但 “你别无选择”。</p>
+<h3 id="%E6%80%BB%E7%BB%93ll(1)-%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8" tabindex="-1"><a class="header-anchor" href="#%E6%80%BB%E7%BB%93ll(1)-%E8%AF%AD%E6%B3%95%E5%88%86%E6%9E%90%E5%99%A8">#</a> 总结LL(1) 语法分析器</h3>
+<ul>
+<li>
+<p>L : 从左向右 (left-to-right) 扫描输入</p>
+</li>
+<li>
+<p>L : 构建最左 (leftmost) 推导</p>
+</li>
+<li>
+<p>1 : 只需向前看一个输入符号便可确定使用哪条产生式</p>
+</li>
+</ul>
+<h3 id="ll(0)" tabindex="-1"><a class="header-anchor" href="#ll(0)">#</a> LL(0)</h3>
+<p>输入什么都不看，闭着眼的语法分析器:</p>
+<p>只包含一个字符串的文法</p>
+<p><img src="/23-Compilers/ch07/image-20230407200810018.png" alt="" class="" loading="lazy"></p>
+<h3 id="%E9%9D%9E%E9%80%92%E5%BD%92%E7%9A%84%E9%A2%84%E6%B5%8B%E5%88%86%E6%9E%90%E7%AE%97%E6%B3%95%EF%BC%88%E9%9D%9E%E9%87%8D%E7%82%B9%EF%BC%8C%E7%8E%B0%E5%9C%A8%E4%B8%80%E8%88%AC%E5%86%99%E9%80%92%E5%BD%92%E7%9A%84%EF%BC%8C%E6%A8%A1%E5%9D%97%E6%80%A7%E5%BC%BA%EF%BC%89" tabindex="-1"><a class="header-anchor" href="#%E9%9D%9E%E9%80%92%E5%BD%92%E7%9A%84%E9%A2%84%E6%B5%8B%E5%88%86%E6%9E%90%E7%AE%97%E6%B3%95%EF%BC%88%E9%9D%9E%E9%87%8D%E7%82%B9%EF%BC%8C%E7%8E%B0%E5%9C%A8%E4%B8%80%E8%88%AC%E5%86%99%E9%80%92%E5%BD%92%E7%9A%84%EF%BC%8C%E6%A8%A1%E5%9D%97%E6%80%A7%E5%BC%BA%EF%BC%89">#</a> 非递归的预测分析算法（非重点，现在一般写递归的，模块性强）</h3>
+<p><img src="/23-Compilers/ch07/image-20230407200908885.png" alt="" class="" loading="lazy"></p>
+<p><img src="/23-Compilers/ch07/image-20230407200929058.png" alt="" class="" loading="lazy"></p>
+<h3 id="%E4%B8%8D%E6%98%AFll(1)%E6%96%87%E6%B3%95%E7%9A%84%E6%94%B9%E9%80%A0%E6%96%87%E6%B3%95%E5%8A%9E%E6%B3%95" tabindex="-1"><a class="header-anchor" href="#%E4%B8%8D%E6%98%AFll(1)%E6%96%87%E6%B3%95%E7%9A%84%E6%94%B9%E9%80%A0%E6%96%87%E6%B3%95%E5%8A%9E%E6%B3%95">#</a> 不是LL(1)文法的改造文法办法</h3>
+<ul>
+<li><strong>消除左递归</strong></li>
+<li><strong>提取左公因子</strong></li>
+</ul>
+<p><img src="/23-Compilers/ch07/image-20230407201805026.png" alt="" class="" loading="lazy"></p>
+<p>左递归改完是左递归</p>
+<p>E 在不消耗任何词法单元的情况下, 直接递归调用 E, 造成死循环</p>
+<p>解决方案：</p>
+<p>左递归改为右递归</p>
+<p><img src="/23-Compilers/ch07/image-20230412111153214.png" alt="" class="" loading="lazy"></p>
+<p><img src="/23-Compilers/ch07/image-20230412111233114.png" alt="" class="" loading="lazy"></p>
+<h3 id="%E7%9B%B4%E6%8E%A5%E5%B7%A6%E9%80%92%E5%BD%92-(direct-left-recursion)%E6%B6%88%E9%99%A4%E5%B7%A6%E9%80%92%E5%BD%92" tabindex="-1"><a class="header-anchor" href="#%E7%9B%B4%E6%8E%A5%E5%B7%A6%E9%80%92%E5%BD%92-(direct-left-recursion)%E6%B6%88%E9%99%A4%E5%B7%A6%E9%80%92%E5%BD%92">#</a> 直接左递归 (Direct Left Recursion)消除左递归</h3>
+<h4 id="%E4%BE%8B%E5%AD%90%EF%BC%9A" tabindex="-1"><a class="header-anchor" href="#%E4%BE%8B%E5%AD%90%EF%BC%9A">#</a> 例子：</h4>
+<ul>
+<li>
+<p>A → Aα | β</p>
+</li>
+<li>
+<p>A → βA′</p>
+<p>A ′ → αA′ | ϵ</p>
+</li>
+</ul>
+<h4 id="%E8%8C%83%E5%BC%8F" tabindex="-1"><a class="header-anchor" href="#%E8%8C%83%E5%BC%8F">#</a> 范式</h4>
+<ul>
+<li>A → Aα1 | Aα2 | . . . Aαm | β1 | β2 | . . . βn</li>
+<li>其中, βi 都不以 A 开头</li>
+</ul>
+<p>改为：</p>
+<ul>
+<li>
+<p>A → β1A ′ | β2A ′ | · · · | βnA′</p>
+<p>A ′ → α1A ′ | α2A ′ | · · · | αmA ′ | ϵ</p>
+</li>
+</ul>
+<h3 id="%E9%97%B4%E6%8E%A5%E5%B7%A6%E9%80%92%E5%BD%92-(indirect-left-recursion)%E6%B6%88%E9%99%A4%E5%B7%A6%E9%80%92%E5%BD%92" tabindex="-1"><a class="header-anchor" href="#%E9%97%B4%E6%8E%A5%E5%B7%A6%E9%80%92%E5%BD%92-(indirect-left-recursion)%E6%B6%88%E9%99%A4%E5%B7%A6%E9%80%92%E5%BD%92">#</a> 间接左递归 (Indirect Left Recursion)消除左递归</h3>
+<p>单看每一条产生式都没有左递归</p>
+<ul>
+<li>
+<p>S → Ac | c</p>
+<p>A → Bb | b</p>
+<p>B → Sa | a</p>
+<ul>
+<li>S =⇒ Ac =⇒ Bbc =⇒ Sabc：构成了左递归</li>
+</ul>
+</li>
+</ul>
+<p>改间接左递归比较麻烦，绕了一圈回到自己，消除需要满足这样的性质：</p>
+<p>如果对满足这样条件的产生式：</p>
+<p>A~i~ → A~j~α =⇒ i &lt; j</p>
+<p>即：如果右部第一个为非终结符，则要求i &lt; j</p>
+<p>即：每推一步，产生出来的非终结符的编号越来越大，所以不可能绕回自己，不可能产生左递归</p>
+<p><img src="/23-Compilers/ch07/image-20230412170532841.png" alt="" class="" loading="lazy"></p>
+<ul>
+<li>产生直接左递归：可以按照之前的方式处理了</li>
+<li>算法要求:
+<ul>
+<li>文法中不存在环 (形如 A ∗=⇒ A 的推导)</li>
+<li>文法中不存在 ϵ 产生式 (形如 A → ϵ 的产生式)</li>
+</ul>
+</li>
+</ul>
+<p>间接左递归的处理在工程上不是必须的：很多实用的文法不会有间接左递归，为了少量的文法在工程上实现一个理论可行的东西是不明智的</p>
+<h3 id="%E6%8F%90%E5%8F%96%E5%B7%A6%E5%85%AC%E5%9B%A0%E5%AD%90-(left-factoring)" tabindex="-1"><a class="header-anchor" href="#%E6%8F%90%E5%8F%96%E5%B7%A6%E5%85%AC%E5%9B%A0%E5%AD%90-(left-factoring)">#</a> 提取左公因子 (Left-Factoring)</h3>
+<p><img src="/23-Compilers/ch07/image-20230412170913024.png" alt="" class="" loading="lazy"></p>
+<p><strong>ANTLR 4 可以处理有左公因子的文法，不需要自己提取</strong></p>
+<p>提取公共部分’int’ ID</p>
+<p>如果提取完是空就空着</p>
+<p><img src="/23-Compilers/ch07/image-20230412171009946.png" alt="" class="" loading="lazy"></p>
+<p>很明显, <strong>提取左公因子无助于消除文法二义性</strong></p>
+
+      </div>
+
+      <footer class="post-footer">
+        <div class="post-nav">
+          <a href="/" class="post-nav-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            返回首页
+          </a>
+        </div>
+      </footer>
+    </article>
+  </main>
+</div>
+
+
+  <footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <span class="footer-logo">ASIMOV&#39;S Blog</span>
+        <p class="footer-desc">ASIMOV的老巢</p>
+        <div class="footer-social">
+          
+            <a href="https://github.com/chendingya" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+          
+          
+            <a href="https://twitter.com/yourname" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          
+          
+            <a href="mailto:your@email.com" class="social-link" aria-label="Email">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </a>
+          
+          
+            <a href="/feed.xml" class="social-link" aria-label="RSS">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20C5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1z"/></svg>
+            </a>
+          
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">导航</h4>
+        <ul class="footer-links">
+          
+            <li><a href="/">首页</a></li>
+          
+            <li><a href="/archive/">归档</a></li>
+          
+            <li><a href="/tags/">标签</a></li>
+          
+            <li><a href="/categories/">分类</a></li>
+          
+            <li><a href="/comments/">留言</a></li>
+          
+            <li><a href="/projects/">项目</a></li>
+          
+          <li><a href="/archive/">归档</a></li>
+          <li><a href="/tags/">标签</a></li>
+          <li><a href="/categories/">分类</a></li>
+        </ul>
+      </div>
+
+      
+      <div class="footer-col">
+        <h4 class="footer-heading">友链</h4>
+        <ul class="footer-links">
+          
+            <li><a href="https://example.com" target="_blank" rel="noopener noreferrer">示例友链</a></li>
+          
+        </ul>
+      </div>
+      
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 ASIMOV&#39;S Blog</p>
+      
+    </div>
+  </div>
+</footer>
+
+
+  <button class="back-to-top" aria-label="返回顶部">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+  </button>
+
+  <script src="/assets/js/main.js" defer></script>
+  <script src="/plugins/comments/comments-assets/editor.js" defer></script>
+</body>
+</html>

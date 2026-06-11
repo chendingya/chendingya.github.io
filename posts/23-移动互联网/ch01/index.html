@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ASIMOV的老巢">
+  <title>移动互联网-ch01-HarmonyOS开发简介 - ASIMOV&#39;S Blog</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Noto+Serif+SC:wght@400;500;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/css/style.css">
+  
+  <link rel="stylesheet" href="/assets/css/highlight.css">
+  
+
+  
+  <style>:root {
+  --font-display: 'Playfair Display', 'Noto Serif SC', Georgia, 'Times New Roman', serif;
+  --font-body: 'Public Sans', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'Fira Code', 'Cascadia Code', 'JetBrains Mono', monospace;
+  --bg-cream: #FEFAF6;
+  --bg-cream-alpha: rgba(254,250,246,0.85);
+  --bg-surface: #FFFFFF;
+  --bg-warm: #FDF5EB;
+  --text-primary: #2C1810;
+  --text-secondary: #8B7355;
+  --text-muted: #C4A882;
+  --text-on-accent: #FFFFFF;
+  --border: #E8D5C4;
+  --border-light: #F0E3D5;
+  --shadow-sm: 0 1px 2px rgba(44,24,16,0.04);
+  --shadow-md: 0 4px 12px rgba(44,24,16,0.06);
+  --shadow-lg: 0 12px 32px rgba(44,24,16,0.08);
+  --code-bg: #1E1E1E;
+  --code-text: #E0E0E0;
+  --brand: var(--accent-coral);
+  --brand-hover: #FF5252;
+  --brand-alpha: rgba(255,107,107,0.08);
+  --brand-alpha-heavy: rgba(255,107,107,0.15);
+  --selection-bg: rgba(255,107,107,0.2);
+  --accent-coral: #FF6B6B;
+  --accent-coral-hover: #FF5252;
+  --accent-amber: #F4A261;
+  --accent-mint: #90BE6D;
+  --accent-lavender: #9B72AA;
+  --accent-sky: #4ECDC4;
+  --accent-sun: #F9C74F;
+  --accent-rose: #FF6B8A;
+  --accent-blue: #577590;
+  --max-width: 1200px;
+  --content-width: 720px;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 5rem;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+}
+
+[data-theme="dark"] {
+  --bg-cream: #1A1614;
+  --bg-cream-alpha: rgba(26,22,20,0.85);
+  --bg-surface: #2C2420;
+  --bg-warm: #241E1A;
+  --text-primary: #E8D5C4;
+  --text-secondary: #B8A088;
+  --text-muted: #8B7355;
+  --text-on-accent: #FFFFFF;
+  --border: #3D3028;
+  --border-light: #332A22;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.25);
+  --shadow-lg: 0 12px 32px rgba(0,0,0,0.3);
+  --code-bg: #111111;
+  --code-text: #E0E0E0;
+  --brand: var(--accent-coral);
+  --brand-hover: #FF8A8A;
+  --brand-alpha: rgba(255,107,107,0.12);
+  --brand-alpha-heavy: rgba(255,107,107,0.2);
+  --selection-bg: rgba(255,107,107,0.2);
+}</style>
+  
+
+  <link rel="stylesheet" href="/plugins/comments/comments-assets/style.css">
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23FF6B6B'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='20' fill='white'>A</text></svg>">
+
+  
+  <link rel="alternate" type="application/rss+xml" title="ASIMOV&#39;S Blog" href="/feed.xml">
+  
+
+  <meta property="og:title" content="移动互联网-ch01-HarmonyOS开发简介">
+  <meta property="og:description" content="ASIMOV的老巢">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://chendingya.github.io//posts/23-移动互联网/ch01/">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="移动互联网-ch01-HarmonyOS开发简介">
+  <meta name="twitter:description" content="ASIMOV的老巢">
+  
+</head>
+<body class="post-page">
+  <div class="reading-progress"></div>
+
+  <header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="/" class="site-brand">
+        
+          <span class="brand-title">ASIMOV&#39;S Blog</span>
+        
+      </a>
+
+      <nav class="site-nav" data-target="main-nav">
+        <ul class="nav-list">
+          
+            <li class="nav-item">
+              <a href="/" class="nav-link">首页</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/archive/" class="nav-link">归档</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/tags/" class="nav-link">标签</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/categories/" class="nav-link">分类</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/comments/" class="nav-link">留言</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/projects/" class="nav-link">项目</a>
+            </li>
+          
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" data-action="toggle-theme" aria-label="切换暗色模式">
+          <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+
+        <button class="icon-btn menu-btn" data-action="toggle-menu" aria-label="菜单">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  <div class="container">
+  <main class="main-content">
+    <article class="post-article">
+      <header class="post-header">
+        
+          <div class="post-header-cats">
+            
+              <a href="/categories/openharmony/" class="meta-cat accent">openharmony</a>
+            
+          </div>
+        
+        <h1 class="post-title">移动互联网-ch01-HarmonyOS开发简介</h1>
+        <div class="post-meta">
+          <time datetime="2023-10-04T11:40:36.000Z">
+            2023年10月4日
+          </time>
+          
+            <span class="meta-divider">&middot;</span>
+            <span class="post-author">ASIMOV</span>
+          
+        </div>
+        
+          <div class="post-header-tags">
+            
+              <a href="/tags/openharmony/" class="tag">openharmony</a>
+            
+          </div>
+        
+      </header>
+
+      
+        <details class="toc-wrap">
+          <summary class="toc-title">目录</summary>
+          <nav class="toc-nav">
+            
+              <a href="#ch01" class="toc-link toc-level-1">ch01</a>
+            
+              <a href="#harmonyos开发" class="toc-link toc-level-2">HarmonyOS开发</a>
+            
+              <a href="#系统架构-整体架构" class="toc-link toc-level-3">系统架构 – 整体架构</a>
+            
+              <a href="#内核层" class="toc-link toc-level-3">内核层</a>
+            
+              <a href="#系统服务层" class="toc-link toc-level-3">系统服务层</a>
+            
+              <a href="#框架层" class="toc-link toc-level-3">框架层</a>
+            
+              <a href="#应用层" class="toc-link toc-level-3">应用层</a>
+            
+              <a href="#系统技术特性" class="toc-link toc-level-3">系统技术特性</a>
+            
+              <a href="#系统安全-身份安全" class="toc-link toc-level-3">系统安全 — 身份安全</a>
+            
+              <a href="#系统安全-数据安全" class="toc-link toc-level-3">系统安全 — 数据安全</a>
+            
+              <a href="#应-开发" class="toc-link toc-level-3">应⽤开发</a>
+            
+              <a href="#hap-harmony-ability-package" class="toc-link toc-level-3">HAP（Harmony  Ability Package）</a>
+            
+              <a href="#app结构" class="toc-link toc-level-3">App结构</a>
+            
+              <a href="#stage" class="toc-link toc-level-3">Stage</a>
+            
+              <a href="#应-配置-件-stage模型" class="toc-link toc-level-3">应⽤配置⽂件（Stage模型）</a>
+            
+              <a href="#uiability" class="toc-link toc-level-3">UIAbility</a>
+            
+              <a href="#uiability-命周期" class="toc-link toc-level-3">UIAbility⽣命周期</a>
+            
+              <a href="#windowstage" class="toc-link toc-level-3">WindowStage</a>
+            
+              <a href="#uiability启动模式" class="toc-link toc-level-3">UIAbility启动模式</a>
+            
+              <a href="#specified-mode" class="toc-link toc-level-4">Specified Mode</a>
+            
+              <a href="#指定启动页面" class="toc-link toc-level-3">指定启动页面</a>
+            
+              <a href="#获取上下文" class="toc-link toc-level-3">获取上下文</a>
+            
+              <a href="#上下-继承关系" class="toc-link toc-level-3">上下⽂继承关系</a>
+            
+          </nav>
+        </details>
+      
+
+      <div class="post-body">
+        <h1 id="ch01" tabindex="-1"><a class="header-anchor" href="#ch01">#</a> ch01</h1>
+<h2 id="harmonyos%E5%BC%80%E5%8F%91" tabindex="-1"><a class="header-anchor" href="#harmonyos%E5%BC%80%E5%8F%91">#</a> HarmonyOS开发</h2>
+<h3 id="%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84-%E2%80%93-%E6%95%B4%E4%BD%93%E6%9E%B6%E6%9E%84" tabindex="-1"><a class="header-anchor" href="#%E7%B3%BB%E7%BB%9F%E6%9E%B6%E6%9E%84-%E2%80%93-%E6%95%B4%E4%BD%93%E6%9E%B6%E6%9E%84">#</a> 系统架构 – 整体架构</h3>
+<p>内核层、系统服务层、框架层和应用层</p>
+<p><img src="/23-移动互联网/ch01/image-20230915144150813.png" alt="" class="" loading="lazy"></p>
+<h3 id="%E5%86%85%E6%A0%B8%E5%B1%82" tabindex="-1"><a class="header-anchor" href="#%E5%86%85%E6%A0%B8%E5%B1%82">#</a> 内核层</h3>
+<p>内核层是整个操作系统的核心，提供操作系统最基础的服务，主要分为内核子系 统和驱动子系统</p>
+<p>特别是适合物联⽹设备的LiteOS，能够为HarmonyOS的“同⼀套系统能⼒，适配多种终端形态” 的分布式理念提供坚实的基础 。</p>
+<h3 id="%E7%B3%BB%E7%BB%9F%E6%9C%8D%E5%8A%A1%E5%B1%82" tabindex="-1"><a class="header-anchor" href="#%E7%B3%BB%E7%BB%9F%E6%9C%8D%E5%8A%A1%E5%B1%82">#</a> 系统服务层</h3>
+<ul>
+<li>系统服务层是HarmonyOS的核⼼能⼒集合，通过框架层对应⽤程序提供服务，包括：</li>
+<li>系统基础能⼒⼦系统
+<ul>
+<li>为分布式应⽤在HarmonyOS多设备上的运⾏、调度、迁移等操作提供了基础能⼒</li>
+</ul>
+</li>
+<li>基础软件服务⼦系统
+<ul>
+<li>主要是⼀些设备之间公共的、通⽤的软件服务。</li>
+</ul>
+</li>
+<li>增强软件服务⼦系统
+<ul>
+<li>提供针对不同设备的、差异化的能⼒增强型软件服务</li>
+</ul>
+</li>
+<li>硬件服务⼦系统
+<ul>
+<li>提供硬件服务，由位置服务、⽣物特征识别、穿戴专有硬件服务、IoT专有硬件服务等⼦系统组成</li>
+</ul>
+</li>
+</ul>
+<h3 id="%E6%A1%86%E6%9E%B6%E5%B1%82" tabindex="-1"><a class="header-anchor" href="#%E6%A1%86%E6%9E%B6%E5%B1%82">#</a> 框架层</h3>
+<p>框架层提供了⽤户语⾔框架、Ability框架和UI框架</p>
+<ul>
+<li>⽤户语⾔框架⽀持了Java/C/C++/JS等多种编程语⾔ 。</li>
+<li>Ability框架则是对系统服务能⼒的⼀种抽象的框架 。</li>
+<li>Harmony的UI框架提供了适⽤于JS语⾔的JS UI框架 。</li>
+</ul>
+<h3 id="%E5%BA%94%E7%94%A8%E5%B1%82" tabindex="-1"><a class="header-anchor" href="#%E5%BA%94%E7%94%A8%E5%B1%82">#</a> 应用层</h3>
+<p>应⽤层包括系统应⽤和扩展应⽤/第三⽅⾮系统应 ⽤ 。</p>
+<p>Stage模型：HarmonyOS 3.1 Develper Preview 版本开始新增的模型，是⽬前主推且会⻓期演进 的模型。在该模型中，由于提供了AbilityStage、 WindowStage等类作为应⽤组件和Window窗⼝ 的“舞台”，因此称这种应⽤模型为Stage模型</p>
+<p><img src="/23-移动互联网/ch01/image-20230915144442535.png" alt="" class="" loading="lazy"></p>
+<h3 id="%E7%B3%BB%E7%BB%9F%E6%8A%80%E6%9C%AF%E7%89%B9%E6%80%A7" tabindex="-1"><a class="header-anchor" href="#%E7%B3%BB%E7%BB%9F%E6%8A%80%E6%9C%AF%E7%89%B9%E6%80%A7">#</a> 系统技术特性</h3>
+<p>HarmonyOS是⼀个多设备互连的分布式操作系统，通过<strong>分布式软总线、分 布式设备虚拟化、分布式数据管理和分布式任务调度</strong>从⽽达到“硬件互助， 资源共享” 。</p>
+<p>分布式软总线是多种终端设备的统⼀基座，为设备之间的互连互通提供了统 ⼀的分布式通信能⼒，能够快速发现并连接设备，⾼效地分发任务和传输数 据</p>
+<p>软总线构建在基础通信的协议栈之上，利⽤总线中枢实现设备的发现和连 接，以及组⽹和拓扑管理，这样多种终端设备就可以形成有效的连接。然后 再通过任务和数据总线，实现不同抽象层次的任务分发和数据传输</p>
+<p><img src="/23-移动互联网/ch01/image-20230915144533377.png" alt="" class="" loading="lazy"></p>
+<p>有了超级虚拟终端和基于分布式软总线的能⼒，HarmonyOS可以实现应⽤程序数 据和⽤户数据的分布式管理 。</p>
+<p>对开发者来说，HarmonyOS能够**“⼀次开发，多端部署”**</p>
+<h3 id="%E7%B3%BB%E7%BB%9F%E5%AE%89%E5%85%A8-%E2%80%94-%E8%BA%AB%E4%BB%BD%E5%AE%89%E5%85%A8" tabindex="-1"><a class="header-anchor" href="#%E7%B3%BB%E7%BB%9F%E5%AE%89%E5%85%A8-%E2%80%94-%E8%BA%AB%E4%BB%BD%E5%AE%89%E5%85%A8">#</a> 系统安全 — 身份安全</h3>
+<p>HarmonyOS通过以下三个⽅⾯来实现协同身份认证：</p>
+<ul>
+<li>零信任模型：HarmonyOS基于零信任模型，实现对⽤户的认证和数据的访问控制</li>
+<li>多因素融合认证：HarmonyOS通过⽤户身份管理，将不同设备上标识同⼀⽤户的认证凭据关联起来，⽤于标识⼀个⽤户，来提⾼认证的准确度。</li>
+<li>协同互助认证：HarmonyOS通过将硬件和认证能⼒解耦（即信息采集和认证可以在不同 的设备上完成）实现不同设备的资源池化以及能⼒的互助与共享，让⾼安全等级的设备 协助低安全等级的设备完成⽤户身份认证</li>
+</ul>
+<h3 id="%E7%B3%BB%E7%BB%9F%E5%AE%89%E5%85%A8-%E2%80%94-%E6%95%B0%E6%8D%AE%E5%AE%89%E5%85%A8" tabindex="-1"><a class="header-anchor" href="#%E7%B3%BB%E7%BB%9F%E5%AE%89%E5%85%A8-%E2%80%94-%E6%95%B0%E6%8D%AE%E5%AE%89%E5%85%A8">#</a> 系统安全 — 数据安全</h3>
+<p>HarmonyOS围绕数据的⽣成、存储、使⽤、传输以及销毁过程进⾏全⽣命周期的保护，从⽽ 保证个⼈数据与隐私以及系统的机密数据（如密钥）不泄漏 。</p>
+<ul>
+<li>数据⽣成：根据数据所在的国家或组织的法律法规与标准规范，对数据进⾏分类分级，并且根据分类设置相 应的保护等级 。</li>
+<li>数据存储：HarmonyOS通过区分数据的安全等级，将数据存储到不同安全防护能⼒的分区，对数据进⾏安全 保护 。</li>
+<li>数据使⽤：HarmonyOS通过硬件为设备提供可信执⾏环境 。</li>
+<li>数据传输：建⽴了信任关系（多个设备通过华为帐号建⽴配对关系），并能够在验证信任关系后，建⽴安全 的连接通道，按照数据流动的规则，安全地传输数据 。</li>
+<li>数据销毁：销毁密钥即销毁数据 。</li>
+</ul>
+<h3 id="%E5%BA%94%E2%BD%A4%E5%BC%80%E5%8F%91" tabindex="-1"><a class="header-anchor" href="#%E5%BA%94%E2%BD%A4%E5%BC%80%E5%8F%91">#</a> 应⽤开发</h3>
+<p>在开发态，⼀个应⽤包含⼀个或者多个Module，可以在DevEco Studio⼯程中创建⼀个或者多个 Module。</p>
+<p>Module是HarmonyOS应⽤/服务的基本功能单元，包含了源代码、资源⽂件、第三⽅库及应⽤/服 务配置⽂件，每⼀个Module都可以独⽴进⾏编译和运⾏。</p>
+<p>Module分为“Ability”和“Library”两种类型，“Ability”类型的Module对应于编译后的HAP（Harmony  Ability Package）；“Library”类型的Module对应于HAR（Harmony Archive），或者HSP （Harmony Shared Package）</p>
+<h3 id="hap%EF%BC%88harmony-ability-package%EF%BC%89" tabindex="-1"><a class="header-anchor" href="#hap%EF%BC%88harmony-ability-package%EF%BC%89">#</a> HAP（Harmony  Ability Package）</h3>
+<p>开发者通过DevEco Studio把应⽤程序编译为⼀个或者多个.hap后缀的⽂件，即HAP。</p>
+<p>HAP是HarmonyOS应⽤安 装的基本单位，包含了编译后的代码、资源、三⽅库及配置⽂件。</p>
+<p>HAP可分为Entry和Feature两种类型。</p>
+<ul>
+<li>Entry类型的HAP：是应⽤的主模块，在module.json5配置⽂件中的type标签配置为“entry”类型。在同⼀个应 ⽤中，同⼀设备类型只⽀持⼀个Entry类型的HAP，通常⽤于实现应⽤的⼊⼝界⾯、⼊⼝图标、主特性功能等。</li>
+<li>Feature类型的HAP：是应⽤的动态特性模块，在module.json5配置⽂件中的type标签配置为“feature”类型。</li>
+<li>⼀个应⽤程序包可以包含⼀个或多个Feature类型的HAP，也可以不包含；Feature类型的HAP通常⽤于实现应⽤ 的特性功能，可以配置成按需下载安装，也可以配置成随Entry类型的HAP⼀起下载安装（请参⻅module对象内 部结构中的“deliveryWithInstall”）。</li>
+<li>每个HarmonyOS应⽤可以包含多个.hap⽂件，⼀个应⽤中的.hap⽂件合在⼀起称为⼀个Bundle，⽽bundleName 就是应⽤的唯⼀标识（请参⻅app.json5配置⽂件中的bundleName标签）。</li>
+<li>需要特别说明的是：在应⽤上架到应⽤ 市场时，需要把应⽤包含的所有.hap⽂件（即Bundle）打包为⼀个.app后缀的⽂件⽤于上架，这个.app⽂件称为 App Pack（Application Package），其中同时包含了描述App Pack属性的pack.info⽂件；在云端（服务器）分发 和终端设备安装时，都是以HAP为单位进⾏分发和安装的</li>
+</ul>
+<h3 id="app%E7%BB%93%E6%9E%84" tabindex="-1"><a class="header-anchor" href="#app%E7%BB%93%E6%9E%84">#</a> App结构</h3>
+<p><img src="/23-移动互联网/ch01/image-20230915152512345.png" alt="" class="" loading="lazy"></p>
+<ul>
+<li>ets⽬录⽤于存放应⽤代码编译后的字节码⽂件</li>
+<li>libs⽬录⽤于存放库⽂件。库⽂件是HarmonyOS应⽤依赖的第三⽅代码（.so ⼆进制⽂件）。</li>
+<li>resources⽬录⽤于存放应⽤的资源⽂件（字符串、图⽚等），便于开发者使 ⽤和维护，详⻅资源分类与访问。</li>
+<li>resources.index是资源索引表，由IDE编译⼯程时⽣成。</li>
+<li>module.json是HAP的配置⽂件，内容由⼯程配置中的module.json5和 app.json5组成，该⽂件是HAP中必不可少的⽂件。IDE会⾃动⽣成⼀部分默认配置，开发者按需修改其中的配置。详细字段请参⻅应⽤配置⽂件。</li>
+<li>pack.info是Bundle中⽤于描述每个HAP属性的⽂件，例如app中的 bundleName和versionCode信息、module中的name、type和abilities等信息， 由IDE⼯具⽣成Bundle包时⾃动⽣成</li>
+</ul>
+<h3 id="stage" tabindex="-1"><a class="header-anchor" href="#stage">#</a> Stage</h3>
+<p><img src="/23-移动互联网/ch01/image-20230915152619615.png" alt="" class="" loading="lazy"></p>
+<p>Stage模型⼯程⽬录</p>
+<p><img src="/23-移动互联网/ch01/image-20230915152649170.png" alt="" class="" loading="lazy"></p>
+<h3 id="%E5%BA%94%E2%BD%A4%E9%85%8D%E7%BD%AE%E2%BD%82%E4%BB%B6%EF%BC%88stage%E6%A8%A1%E5%9E%8B%EF%BC%89" tabindex="-1"><a class="header-anchor" href="#%E5%BA%94%E2%BD%A4%E9%85%8D%E7%BD%AE%E2%BD%82%E4%BB%B6%EF%BC%88stage%E6%A8%A1%E5%9E%8B%EF%BC%89">#</a> 应⽤配置⽂件（Stage模型）</h3>
+<p>在基于Stage模型开发的应⽤项⽬代码下，都存在⼀个app.json5及⼀个或多个module.json5这两种配置⽂ 件。</p>
+<ul>
+<li>app.json5主要包含以下内容：
+<ul>
+<li>应⽤的全局配置信息，包含应⽤的包名、开发⼚商、版本号等基本信息。</li>
+<li>特定设备类型的配置信息。</li>
+</ul>
+</li>
+<li>module.json5主要包含以下内容：
+<ul>
+<li>Module的基本配置信息，例如Module名称、类型、描述、⽀持的设备类型等基本信息。</li>
+<li>应⽤组件信息，包含UIAbility组件和ExtensionAbility组件的描述信息。</li>
+<li>应⽤运⾏过程中所需的权限信息。</li>
+</ul>
+</li>
+</ul>
+<h3 id="uiability" tabindex="-1"><a class="header-anchor" href="#uiability">#</a> UIAbility</h3>
+<p><img src="/23-移动互联网/ch01/image-20230915153540001.png" alt="" class="" loading="lazy"></p>
+<h3 id="uiability%E2%BD%A3%E5%91%BD%E5%91%A8%E6%9C%9F" tabindex="-1"><a class="header-anchor" href="#uiability%E2%BD%A3%E5%91%BD%E5%91%A8%E6%9C%9F">#</a> UIAbility⽣命周期</h3>
+<p><img src="/23-移动互联网/ch01/image-20230915153603562.png" alt="" class="" loading="lazy"></p>
+<h3 id="windowstage" tabindex="-1"><a class="header-anchor" href="#windowstage">#</a> WindowStage</h3>
+<p><img src="/23-移动互联网/ch01/image-20230915153619776.png" alt="" class="" loading="lazy"></p>
+<h3 id="uiability%E5%90%AF%E5%8A%A8%E6%A8%A1%E5%BC%8F" tabindex="-1"><a class="header-anchor" href="#uiability%E5%90%AF%E5%8A%A8%E6%A8%A1%E5%BC%8F">#</a> UIAbility启动模式</h3>
+<p>UIAbility的启动模式是指UIAbility实例在启动 时的不同呈现状态。针对不同的业务场景， 系统提供了三种启动模式：</p>
+<ul>
+<li>singleton（单实例模式）</li>
+<li>standard（标准实例模式）</li>
+<li>specified（指定实例模式）</li>
+</ul>
+<p>打开⽂件A，对应启动⼀个新的UIAbility实例，例如启动“UIAbility 实例1”。</p>
+<ul>
+<li>在最近任务列表中关闭⽂件A的进程，此时UIAbility实例1被销毁，</li>
+<li>回到桌⾯，再次打开⽂件A，此时对应启动⼀个新的UIAbility实例，例 如启动“UIAbility实例2”</li>
+<li>回到桌⾯，打开⽂件B，此时对应启动⼀个新的UIAbility实例，例 如启动“UIAbility实例3”。</li>
+<li>回到桌⾯，再次打开⽂件A，此时对应启动的还是之前的“UIAbility 实例2”</li>
+</ul>
+<h4 id="specified-mode" tabindex="-1"><a class="header-anchor" href="#specified-mode">#</a> Specified Mode</h4>
+<p>specified启动模式为指定实例模式，针对⼀些特殊场景使⽤</p>
+<p>（例如⽂档应⽤中每次新建⽂档希望都能新建⼀个⽂档实例，重复打开⼀个已保存的⽂档希望打开的都是同⼀个⽂档实例）。</p>
+<p>在UIAbility实例创建之前，允许开发者为该实例创建⼀个唯⼀的字符串Key，创建的UIAbility实例绑定Key之后，后续每次调⽤startAbility()⽅法时，都会询问应⽤使⽤哪个Key对应的UIAbility实例来响应startAbility()请求。</p>
+<p>运⾏时由UIAbility内部业务决定是否创 建多实例，如果匹配有该UIAbility实例的Key，则直接拉起与之绑定的UIAbility实例，否则创建⼀个新的UIAbility实例</p>
+<h3 id="%E6%8C%87%E5%AE%9A%E5%90%AF%E5%8A%A8%E9%A1%B5%E9%9D%A2" tabindex="-1"><a class="header-anchor" href="#%E6%8C%87%E5%AE%9A%E5%90%AF%E5%8A%A8%E9%A1%B5%E9%9D%A2">#</a> 指定启动页面</h3>
+<p><img src="/23-移动互联网/ch01/image-20230915154446667.png" alt="" class="" loading="lazy"></p>
+<h3 id="%E8%8E%B7%E5%8F%96%E4%B8%8A%E4%B8%8B%E6%96%87" tabindex="-1"><a class="header-anchor" href="#%E8%8E%B7%E5%8F%96%E4%B8%8A%E4%B8%8B%E6%96%87">#</a> 获取上下文</h3>
+<p><img src="/23-移动互联网/ch01/image-20230915154506464.png" alt="" class="" loading="lazy"></p>
+<h3 id="%E4%B8%8A%E4%B8%8B%E2%BD%82%E7%BB%A7%E6%89%BF%E5%85%B3%E7%B3%BB" tabindex="-1"><a class="header-anchor" href="#%E4%B8%8A%E4%B8%8B%E2%BD%82%E7%BB%A7%E6%89%BF%E5%85%B3%E7%B3%BB">#</a> 上下⽂继承关系</h3>
+
+      </div>
+
+      <footer class="post-footer">
+        <div class="post-nav">
+          <a href="/" class="post-nav-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            返回首页
+          </a>
+        </div>
+      </footer>
+    </article>
+  </main>
+</div>
+
+
+  <footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <span class="footer-logo">ASIMOV&#39;S Blog</span>
+        <p class="footer-desc">ASIMOV的老巢</p>
+        <div class="footer-social">
+          
+            <a href="https://github.com/chendingya" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+          
+          
+            <a href="https://twitter.com/yourname" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          
+          
+            <a href="mailto:your@email.com" class="social-link" aria-label="Email">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </a>
+          
+          
+            <a href="/feed.xml" class="social-link" aria-label="RSS">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20C5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1z"/></svg>
+            </a>
+          
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">导航</h4>
+        <ul class="footer-links">
+          
+            <li><a href="/">首页</a></li>
+          
+            <li><a href="/archive/">归档</a></li>
+          
+            <li><a href="/tags/">标签</a></li>
+          
+            <li><a href="/categories/">分类</a></li>
+          
+            <li><a href="/comments/">留言</a></li>
+          
+            <li><a href="/projects/">项目</a></li>
+          
+          <li><a href="/archive/">归档</a></li>
+          <li><a href="/tags/">标签</a></li>
+          <li><a href="/categories/">分类</a></li>
+        </ul>
+      </div>
+
+      
+      <div class="footer-col">
+        <h4 class="footer-heading">友链</h4>
+        <ul class="footer-links">
+          
+            <li><a href="https://example.com" target="_blank" rel="noopener noreferrer">示例友链</a></li>
+          
+        </ul>
+      </div>
+      
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 ASIMOV&#39;S Blog</p>
+      
+    </div>
+  </div>
+</footer>
+
+
+  <button class="back-to-top" aria-label="返回顶部">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+  </button>
+
+  <script src="/assets/js/main.js" defer></script>
+  <script src="/plugins/comments/comments-assets/editor.js" defer></script>
+</body>
+</html>

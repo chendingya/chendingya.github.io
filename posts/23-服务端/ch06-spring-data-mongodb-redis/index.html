@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ASIMOV的老巢">
+  <title>服务端-ch06-Spring Data Mongodb、Redis - ASIMOV&#39;S Blog</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Noto+Serif+SC:wght@400;500;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/css/style.css">
+  
+  <link rel="stylesheet" href="/assets/css/highlight.css">
+  
+
+  
+  <style>:root {
+  --font-display: 'Playfair Display', 'Noto Serif SC', Georgia, 'Times New Roman', serif;
+  --font-body: 'Public Sans', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'Fira Code', 'Cascadia Code', 'JetBrains Mono', monospace;
+  --bg-cream: #FEFAF6;
+  --bg-cream-alpha: rgba(254,250,246,0.85);
+  --bg-surface: #FFFFFF;
+  --bg-warm: #FDF5EB;
+  --text-primary: #2C1810;
+  --text-secondary: #8B7355;
+  --text-muted: #C4A882;
+  --text-on-accent: #FFFFFF;
+  --border: #E8D5C4;
+  --border-light: #F0E3D5;
+  --shadow-sm: 0 1px 2px rgba(44,24,16,0.04);
+  --shadow-md: 0 4px 12px rgba(44,24,16,0.06);
+  --shadow-lg: 0 12px 32px rgba(44,24,16,0.08);
+  --code-bg: #1E1E1E;
+  --code-text: #E0E0E0;
+  --brand: var(--accent-coral);
+  --brand-hover: #FF5252;
+  --brand-alpha: rgba(255,107,107,0.08);
+  --brand-alpha-heavy: rgba(255,107,107,0.15);
+  --selection-bg: rgba(255,107,107,0.2);
+  --accent-coral: #FF6B6B;
+  --accent-coral-hover: #FF5252;
+  --accent-amber: #F4A261;
+  --accent-mint: #90BE6D;
+  --accent-lavender: #9B72AA;
+  --accent-sky: #4ECDC4;
+  --accent-sun: #F9C74F;
+  --accent-rose: #FF6B8A;
+  --accent-blue: #577590;
+  --max-width: 1200px;
+  --content-width: 720px;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 5rem;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+}
+
+[data-theme="dark"] {
+  --bg-cream: #1A1614;
+  --bg-cream-alpha: rgba(26,22,20,0.85);
+  --bg-surface: #2C2420;
+  --bg-warm: #241E1A;
+  --text-primary: #E8D5C4;
+  --text-secondary: #B8A088;
+  --text-muted: #8B7355;
+  --text-on-accent: #FFFFFF;
+  --border: #3D3028;
+  --border-light: #332A22;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.25);
+  --shadow-lg: 0 12px 32px rgba(0,0,0,0.3);
+  --code-bg: #111111;
+  --code-text: #E0E0E0;
+  --brand: var(--accent-coral);
+  --brand-hover: #FF8A8A;
+  --brand-alpha: rgba(255,107,107,0.12);
+  --brand-alpha-heavy: rgba(255,107,107,0.2);
+  --selection-bg: rgba(255,107,107,0.2);
+}</style>
+  
+
+  <link rel="stylesheet" href="/plugins/comments/comments-assets/style.css">
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23FF6B6B'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='20' fill='white'>A</text></svg>">
+
+  
+  <link rel="alternate" type="application/rss+xml" title="ASIMOV&#39;S Blog" href="/feed.xml">
+  
+
+  <meta property="og:title" content="服务端-ch06-Spring Data Mongodb、Redis">
+  <meta property="og:description" content="ASIMOV的老巢">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://chendingya.github.io//posts/23-服务端/ch06-spring-data-mongodb-redis/">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="服务端-ch06-Spring Data Mongodb、Redis">
+  <meta name="twitter:description" content="ASIMOV的老巢">
+  
+</head>
+<body class="post-page">
+  <div class="reading-progress"></div>
+
+  <header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="/" class="site-brand">
+        
+          <span class="brand-title">ASIMOV&#39;S Blog</span>
+        
+      </a>
+
+      <nav class="site-nav" data-target="main-nav">
+        <ul class="nav-list">
+          
+            <li class="nav-item">
+              <a href="/" class="nav-link">首页</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/archive/" class="nav-link">归档</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/tags/" class="nav-link">标签</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/categories/" class="nav-link">分类</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/comments/" class="nav-link">留言</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/projects/" class="nav-link">项目</a>
+            </li>
+          
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" data-action="toggle-theme" aria-label="切换暗色模式">
+          <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+
+        <button class="icon-btn menu-btn" data-action="toggle-menu" aria-label="菜单">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  <div class="container">
+  <main class="main-content">
+    <article class="post-article">
+      <header class="post-header">
+        
+          <div class="post-header-cats">
+            
+              <a href="/categories/服务端开发/" class="meta-cat accent">服务端开发</a>
+            
+          </div>
+        
+        <h1 class="post-title">服务端-ch06-Spring Data Mongodb、Redis</h1>
+        <div class="post-meta">
+          <time datetime="2023-10-12T18:32:34.000Z">
+            2023年10月12日
+          </time>
+          
+            <span class="meta-divider">&middot;</span>
+            <span class="post-author">ASIMOV</span>
+          
+        </div>
+        
+          <div class="post-header-tags">
+            
+              <a href="/tags/服务端开发/" class="tag">服务端开发</a>
+            
+          </div>
+        
+      </header>
+
+      
+        <details class="toc-wrap">
+          <summary class="toc-title">目录</summary>
+          <nav class="toc-nav">
+            
+              <a href="#ch06-spring-data-mongodb-redis" class="toc-link toc-level-1">ch06-Spring Data Mongodb、Redis</a>
+            
+              <a href="#nosql" class="toc-link toc-level-2">NoSQL</a>
+            
+              <a href="#mongodb" class="toc-link toc-level-2">MongoDB</a>
+            
+              <a href="#mongodb-shell" class="toc-link toc-level-3">MongoDB Shell</a>
+            
+              <a href="#mongodb-概念" class="toc-link toc-level-3">MongoDB 概念</a>
+            
+              <a href="#spring-data-mongodb" class="toc-link toc-level-3">Spring data mongodb</a>
+            
+              <a href="#工具java-faker" class="toc-link toc-level-2">工具java-faker</a>
+            
+              <a href="#redis" class="toc-link toc-level-2">Redis</a>
+            
+              <a href="#redis-命令" class="toc-link toc-level-3">Redis 命令</a>
+            
+              <a href="#redis数据类型" class="toc-link toc-level-3">Redis数据类型</a>
+            
+              <a href="#jedis和lettuce" class="toc-link toc-level-3">Jedis和Lettuce</a>
+            
+              <a href="#spring-data-redis" class="toc-link toc-level-3">spring data redis</a>
+            
+              <a href="#使用redistemplate" class="toc-link toc-level-3">使用RedisTemplate</a>
+            
+              <a href="#redistemplate的子api" class="toc-link toc-level-3">RedisTemplate的子API</a>
+            
+              <a href="#指定序列化器" class="toc-link toc-level-3">指定序列化器</a>
+            
+              <a href="#json序列化" class="toc-link toc-level-4">JSON序列化</a>
+            
+          </nav>
+        </details>
+      
+
+      <div class="post-body">
+        <h1 id="ch06-spring-data-mongodb%E3%80%81redis" tabindex="-1"><a class="header-anchor" href="#ch06-spring-data-mongodb%E3%80%81redis">#</a> ch06-Spring Data Mongodb、Redis</h1>
+<h2 id="nosql" tabindex="-1"><a class="header-anchor" href="#nosql">#</a> NoSQL</h2>
+<ul>
+<li>NoSQL(Not Only SQL) ，指的是非关系型的数据库</li>
+<li>没有声明性查询语言</li>
+<li>没有预定义的模式</li>
+<li>键-值对存储、列存储、文档存储、图形数据库</li>
+</ul>
+<h2 id="mongodb" tabindex="-1"><a class="header-anchor" href="#mongodb">#</a> MongoDB</h2>
+<ul>
+<li>MongoDB 是由C++语言编写的，是一个基于分布式文件存储的开源数据库系统。</li>
+<li>文档存储一般用类似json的格式存储，存储的内容是文档型的。这样也就有机会对某些字段建立索引，实现关系数据库的某些功能</li>
+</ul>
+<p><img src="/23-服务端/ch06-Spring Data Mongodb、Redis/image-20231013185139876.png" alt="" class="" loading="lazy"></p>
+<h3 id="mongodb-shell" tabindex="-1"><a class="header-anchor" href="#mongodb-shell">#</a> MongoDB Shell</h3>
+<ul>
+<li>mongosh</li>
+<li>MongoDB Shell是MongoDB自带的交互式Javascript shell,用来对MongoDB进行操作和管理的交互式环境</li>
+</ul>
+<h3 id="mongodb-%E6%A6%82%E5%BF%B5" tabindex="-1"><a class="header-anchor" href="#mongodb-%E6%A6%82%E5%BF%B5">#</a> MongoDB 概念</h3>
+<table>
+<thead>
+<tr>
+<th>SQL术语/概念</th>
+<th>MongoDB术语/概念</th>
+<th>解释/说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>database</td>
+<td>database</td>
+<td>数据库</td>
+</tr>
+<tr>
+<td>table</td>
+<td>collection</td>
+<td>数据库表/集合</td>
+</tr>
+<tr>
+<td>row</td>
+<td>document</td>
+<td>数据记录行/文档</td>
+</tr>
+<tr>
+<td>column</td>
+<td>field</td>
+<td>数据字段/域</td>
+</tr>
+</tbody>
+</table>
+<p><img src="/23-服务端/ch06-Spring Data Mongodb、Redis/image-20231013185449105.png" alt="" class="" loading="lazy"></p>
+<h3 id="spring-data-mongodb" tabindex="-1"><a class="header-anchor" href="#spring-data-mongodb">#</a> Spring data mongodb</h3>
+<ol>
+<li><strong>添加依赖</strong></li>
+</ol>
+<pre><code class="language-xml">&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;
+    	spring-boot-starter-data-mongodb
+    &lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+<p><strong>使用docker（可选）/安装windows程序</strong></p>
+<ul>
+<li>MongoDB</li>
+<li>（1）创建网络 docker network create mongo-net</li>
+<li>（2）启动Server docker run --name my-mongo --network  mongo-net -p 27017:27017 -d mongo:latest</li>
+<li>（3）客户端访问 docker run -it --network mongo-net --rm  mongo mongosh --host my-mongo</li>
+</ul>
+<blockquote>
+<p>var idObject =Objectld0)
+idObject.getTimestamp()
+idObject.str
+show dbs
+db
+db.something.insertOne({x:10))
+db.something.find0</p>
+</blockquote>
+<ol start="2">
+<li><strong>添加接口</strong></li>
+</ol>
+<p>IngredientRepository</p>
+<pre><code class="language-java">package tacos.data;
+
+import org.springframework.data.repository.CrudRepository;
+
+import tacos.Ingredient;
+
+public interface IngredientRepository 
+         extends CrudRepository&lt;Ingredient, String&gt; {
+  
+}
+
+</code></pre>
+<ol start="3">
+<li><strong>添加注解</strong></li>
+</ol>
+<p>Ingredient</p>
+<ul>
+<li>@Document：</li>
+<li>@Id：string类型，可以让spring自动生成id</li>
+</ul>
+<pre><code class="language-java">package tacos;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+import lombok.AccessLevel;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@Document
+@AllArgsConstructor
+@NoArgsConstructor(access=AccessLevel.PRIVATE, force=true)
+public class Ingredient {
+
+  @Id
+  private String id;
+  private String name;
+  private Type type;
+
+  public enum Type {
+    WRAP, PROTEIN, VEGGIES, CHEESE, SAUCE
+  }
+
+}
+
+</code></pre>
+<p>Test中的MongoDBClien</p>
+<pre><code class="language-java">package tacos.client;
+
+import com.mongodb.client.*;
+import com.mongodb.client.model.Filters;
+import org.bson.Document;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class MongoDBClient {
+    public static void main(String args[]) {
+        try {
+            MongoClient mongoClient = MongoClients.create();
+
+            MongoDatabase mongoDatabase = mongoClient.getDatabase(&quot;test&quot;);
+
+            //有就get返回，无就create mytable
+            MongoCollection&lt;Document&gt; collection = mongoDatabase.getCollection(&quot;mytable&quot;);
+            
+            //删除满足筛选条件
+            collection.deleteMany(Filters.eq(&quot;name&quot;, &quot;taozs&quot;));
+
+            //插入
+            Document document = new Document(&quot;name&quot;, &quot;taozs&quot;).
+                    append(&quot;age&quot;, 18).
+                    append(&quot;memo&quot;, &quot;taozhaosheng&quot;);
+
+            List&lt;Document&gt; documents = new ArrayList&lt;&gt;();
+            documents.add(document);
+            collection.insertMany(documents);
+
+            //删除符合条件的第一个文档
+//            collection.deleteOne(Filters.eq(&quot;age&quot;, 18));
+
+            //删除所有符合条件的文档
+//            collection.deleteMany(Filters.eq(&quot;age&quot;, 18));
+
+            //查询
+            FindIterable&lt;Document&gt; findIterable = collection.find();
+
+            MongoCursor&lt;Document&gt; mongoCursor = findIterable.iterator();
+            while (mongoCursor.hasNext()) {
+                Document doc =mongoCursor.next();
+                System.out.println(doc);
+                System.out.println(doc.toJson());
+            }
+
+            mongoClient.close();
+
+        } catch (Exception e) {
+            System.err.println(e.getClass().getName() + &quot;: &quot; + e.getMessage());
+        }
+    }
+}
+
+</code></pre>
+<p>4.业务层代码不用做变更：taco也不用加document注解</p>
+<p>Taco</p>
+<pre><code class="language-java">package tacos;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import lombok.Data;
+
+@Data
+public class Taco {
+
+  @NotNull
+  @Size(min=5, message=&quot;Name must be at least 5 characters long&quot;)
+  private String name;
+
+  private Date createdAt = new Date();
+
+  @Size(min=1, message=&quot;You must choose at least 1 ingredient&quot;)
+  private List&lt;Ingredient&gt; ingredients = new ArrayList&lt;&gt;();
+  
+  public void addIngredient(Ingredient ingredient) {
+    this.ingredients.add(ingredient);
+  }
+
+}
+
+</code></pre>
+<p>Credit Card #: 6317758315000646578</p>
+<p>基于Spring data</p>
+<ul>
+<li>数据库连接配置 :	application.yml中可以通过下面的命令更改端口号
+<ul>
+<li>spring.data.mongodb.uri=mongodb://localhost:27017/test</li>
+</ul>
+</li>
+<li>接口定义</li>
+<li>领域类注解
+<ul>
+<li>org.springframework.data.mongodb.core.mapping.Document</li>
+</ul>
+</li>
+</ul>
+<h2 id="%E5%B7%A5%E5%85%B7java-faker" tabindex="-1"><a class="header-anchor" href="#%E5%B7%A5%E5%85%B7java-faker">#</a> 工具java-faker</h2>
+<p><a href="https://github.com/DiUS/java-faker">https://github.com/DiUS/java-faker</a></p>
+<p>添加依赖</p>
+<pre><code class="language-xml">&lt;dependency&gt;
+    &lt;groupId&gt;com.github.javafaker&lt;/groupId&gt;
+    &lt;artifactId&gt;javafaker&lt;/artifactId&gt;
+    &lt;version&gt;1.0.2&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+<p>FakerTest</p>
+<pre><code class="language-java">package tacos.perf;
+
+import com.github.javafaker.Faker;
+import org.junit.jupiter.api.Test;
+
+import java.util.Locale;
+
+public class FakerTest {
+
+    @Test
+    public void fakerTest() {
+        Faker faker = new Faker(Locale.CHINA);
+
+        System.out.println(faker.address().streetAddress());
+//
+//        System.out.println(faker.name().fullName());
+//
+//        System.out.println(faker.book().title());
+//
+//        System.out.println(faker.phoneNumber().cellPhone());
+//
+//        System.out.println(faker.app().name());
+//
+//        System.out.println(faker.color().name());
+//
+//        System.out.println(faker.date().birthday());
+//
+//        System.out.println(faker.idNumber().invalid());
+    }
+}
+
+</code></pre>
+<p>documenttest</p>
+<pre><code class="language-java">package tacos.perf;
+
+import com.github.javafaker.Faker;
+import com.mongodb.client.MongoClient;
+import com.mongodb.client.MongoClients;
+import com.mongodb.client.MongoCollection;
+import com.mongodb.client.MongoDatabase;
+import org.bson.Document;
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.Test;
+
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
+
+/**
+ * 批量插入数据（Document版本）
+ */
+public class DocumentTest {
+
+    public static final int BATCH_SIZE = 100;
+    public static final int TOTAL_COUNT = 10000;
+    public static final int ARRAY_LEN = 5;
+    public static final String[] PHONE_TYPE = new String[]{&quot;home&quot;, &quot;work&quot;, &quot;cell&quot;};
+
+    private static MongoDatabase mongoDatabase;
+
+    @BeforeAll
+    static public void beforeClass() {
+        MongoClient mongoClient = MongoClients.create();
+        mongoDatabase = mongoClient.getDatabase(&quot;demo&quot;);
+    }
+
+    @Test
+    public void insertDataDocument() {
+        MongoCollection&lt;Document&gt; coll = mongoDatabase.getCollection(&quot;Person&quot;, Document.class);
+        Faker faker = new Faker();
+        List&lt;Document&gt; data = new ArrayList&lt;&gt;();
+        for (int i = 0; i &lt; TOTAL_COUNT; i++) {
+            // 每条数据中含有ARRAY_LEN数量的颜色数组
+            List&lt;String&gt; colors = new ArrayList&lt;&gt;();
+            for (int j = 0; j &lt; ARRAY_LEN; j++) {
+                colors.add(faker.color().name());
+            }
+
+            Date bDay = faker.date().birthday();
+            int age = (int) ((new Date().getTime() - bDay.getTime()) / 3600 / 24 / 365 / 1000);
+
+            List&lt;Document&gt; phones = new ArrayList&lt;&gt;();
+            for (int j = 0; j &lt; PHONE_TYPE.length; j++) {
+                Document phone = new Document(&quot;type&quot;, PHONE_TYPE[j]);
+                phone.append(&quot;number&quot;, faker.phoneNumber().phoneNumber());
+                phones.add(phone);
+            }
+            Document person = new Document();
+            person.put(&quot;name&quot;, faker.name().fullName());
+            person.put(&quot;address&quot;, faker.address().fullAddress());
+            person.put(&quot;birthday&quot;, bDay);
+            person.put(&quot;favouriteColor&quot;, colors);
+            person.put(&quot;age&quot;, age);
+            person.put(&quot;amount&quot;, new BigDecimal(faker.number().numberBetween(10, 100)));
+            person.put(&quot;phones&quot;, phones);
+            data.add(person);
+            // 使用批量方式插入以提高效率
+            if (i % BATCH_SIZE == 0) {
+                coll.insertMany(data);
+                data.clear();
+            }
+        }
+        if (data.size() &gt; 0) {
+            coll.insertMany(data);
+        }
+        System.out.println(String.format(&quot;====%d documents generated!&quot;, TOTAL_COUNT));
+    }
+}
+
+</code></pre>
+<h2 id="redis" tabindex="-1"><a class="header-anchor" href="#redis">#</a> Redis</h2>
+<ul>
+<li>下载：<a href="https://redis.io/download">https://redis.io/download</a></li>
+<li>key-value的Hash表结构，value是某数据结构</li>
+<li>内存数据库（<strong>缓存</strong>）</li>
+<li>可以集群式部署</li>
+<li>主从（master/slave）复制 ，主机写，从机并发读</li>
+<li>数据持久化</li>
+<li>注意key、value区分大小写</li>
+</ul>
+<h3 id="redis-%E5%91%BD%E4%BB%A4" tabindex="-1"><a class="header-anchor" href="#redis-%E5%91%BD%E4%BB%A4">#</a> Redis 命令</h3>
+<ul>
+<li>redis-server
+<ul>
+<li>Redis配置，redis.conf</li>
+<li>默认端口号6379</li>
+</ul>
+</li>
+<li>redis-cli，客户端程序，redis-cli -h host -p port -a password</li>
+<li>client list命令，用于查看当前所有连接到服务器的客户端信息，其中包括当前客户端所使用的数据库ID</li>
+<li>info命令，可以查看当前数据库的信息，其中包括所使用的内存、键值对数量、客户端连接数等</li>
+<li>config get命令，可以查看Redis服务器的配置参数，如：config get maxclients、 config get databases（获取默认的数据库个 数）</li>
+<li>select 0-15，选择数据库</li>
+<li>flushdb，删除当前数据库中的所有key</li>
+<li>flushall，删除所有数据库中的key</li>
+<li>Redis 命令参考：<a href="http://doc.redisfans.com/">http://doc.redisfans.com/</a></li>
+</ul>
+<h3 id="redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B" tabindex="-1"><a class="header-anchor" href="#redis%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B">#</a> Redis数据类型</h3>
+<ul>
+<li>指的是value类型</li>
+<li>String</li>
+<li>List</li>
+<li>Hash</li>
+<li>Set</li>
+</ul>
+<p>在cilent内：</p>
+<p><code>type</code>查看value类型
+<code>lrang mylist 0 -1</code>：查看list内容
+<code>lpush</code>,<code>rpush</code>插入数据
+<code>sadd mysqet 1 2 3 4</code>：add set
+<code>smember myset</code>：查看set内容</p>
+<p>CartTest</p>
+<ul>
+<li>opsForList()是对列表的操作</li>
+<li>opsForValue()是对单个key-value的操作</li>
+<li>redisTemplate.boundListOps(“cart”)绑定列表到一个对象</li>
+</ul>
+<pre><code class="language-java">package com.example.demo;
+
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.data.redis.connection.RedisConnectionFactory;
+import org.springframework.data.redis.core.BoundListOperations;
+import org.springframework.data.redis.core.RedisTemplate;
+import org.springframework.data.redis.core.StringRedisTemplate;
+import org.springframework.data.redis.serializer.Jackson2JsonRedisSerializer;
+import org.springframework.data.redis.serializer.StringRedisSerializer;
+
+import java.util.List;
+import java.util.Set;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
+@SpringBootTest
+public class CartTest {
+
+    /*
+     * IMPORTANT: This test class requires that a Redis server be running on
+     *            localhost and listening on port 6379 (the default port).
+     */
+
+    @Autowired
+    private RedisConnectionFactory cf;
+
+    @Autowired
+    private RedisTemplate&lt;String, Product&gt; redisTemplate;
+
+    @BeforeEach
+    public void setup() {
+        redisTemplate.delete(&quot;9781617291203&quot;);
+        redisTemplate.delete(&quot;cart&quot;);
+        redisTemplate.delete(&quot;cart1&quot;);
+        redisTemplate.delete(&quot;cart2&quot;);
+    }
+
+    @Test
+    public void workingWithSimpleValues() {
+        Product product = new Product();
+        product.setSku(&quot;9781617291203&quot;);
+        product.setName(&quot;Spring in Action&quot;);
+        product.setPrice(39.99f);
+
+        //我存入一个key一个value
+        redisTemplate.opsForValue().set(product.getSku(), product);
+
+        //返回一个key 一个value
+        Product found = redisTemplate.opsForValue().get(product.getSku());
+        assertEquals(product.getSku(), found.getSku());
+        assertEquals(product.getName(), found.getName());
+        assertEquals(product.getPrice(), found.getPrice(), 0.005);
+    }
+
+    @Test
+    public void workingWithLists() {
+        Product product1 = new Product();
+        product1.setSku(&quot;9781617291203&quot;);
+        product1.setName(&quot;Spring in Action&quot;);
+        product1.setPrice(39.99f);
+
+        Product product2 = new Product();
+        product2.setSku(&quot;9781935182436&quot;);
+        product2.setName(&quot;Spring Integration in Action&quot;);
+        product2.setPrice(49.99f);
+
+        Product product3 = new Product();
+        product3.setSku(&quot;9781935182955&quot;);
+        product3.setName(&quot;Spring Batch in Action&quot;);
+        product3.setPrice(49.99f);
+
+        //opsForList()是对列表的操作
+        redisTemplate.opsForList().rightPush(&quot;cart&quot;, product1);
+        redisTemplate.opsForList().rightPush(&quot;cart&quot;, product2);
+        redisTemplate.opsForList().rightPush(&quot;cart&quot;, product3);
+
+        assertEquals(3, redisTemplate.opsForList().size(&quot;cart&quot;).longValue());
+
+        Product first = redisTemplate.opsForList().leftPop(&quot;cart&quot;);
+        Product last = redisTemplate.opsForList().rightPop(&quot;cart&quot;);
+
+        assertEquals(product1.getSku(), first.getSku());
+        assertEquals(product1.getName(), first.getName());
+        assertEquals(product1.getPrice(), first.getPrice(), 0.005);
+
+        assertEquals(product3.getSku(), last.getSku());
+        assertEquals(product3.getName(), last.getName());
+        assertEquals(product3.getPrice(), last.getPrice(), 0.005);
+
+        assertEquals(1, redisTemplate.opsForList().size(&quot;cart&quot;).longValue());
+    }
+
+    @Test
+    public void workingWithLists_range() {
+        for (int i = 0; i &lt; 30; i++) {
+            Product product = new Product();
+            product.setSku(&quot;SKU-&quot; + i);
+            product.setName(&quot;PRODUCT &quot; + i);
+            product.setPrice(i + 0.99f);
+            redisTemplate.opsForList().rightPush(&quot;cart&quot;, product);
+        }
+
+        assertEquals(30, redisTemplate.opsForList().size(&quot;cart&quot;).longValue());
+
+        List&lt;Product&gt; products = redisTemplate.opsForList().range(&quot;cart&quot;, 2, 12);
+        for (int i = 0; i &lt; products.size(); i++) {
+            Product product = products.get(i);
+            assertEquals(&quot;SKU-&quot; + (i + 2), product.getSku());
+            assertEquals(&quot;PRODUCT &quot; + (i + 2), product.getName());
+            assertEquals(i + 2 + 0.99f, product.getPrice(), 0.005);
+        }
+    }
+
+    @Test
+    public void performingOperationsOnSets() {
+        Product product = new Product();
+        product.setSku(&quot;9781617291203&quot;);
+        product.setName(&quot;Spring in Action&quot;);
+        product.setPrice(39.99f);
+
+        redisTemplate.opsForSet().add(&quot;cart&quot;, product);
+        assertEquals(1, redisTemplate.opsForSet().size(&quot;cart&quot;).longValue());
+    }
+
+    @Test
+    public void performingOperationsOnSets_setOperations() {
+        for (int i = 0; i &lt; 30; i++) {
+            Product product = new Product();
+            product.setSku(&quot;SKU-&quot; + i);
+            product.setName(&quot;PRODUCT &quot; + i);
+            product.setPrice(i + 0.99f);
+            redisTemplate.opsForSet().add(&quot;cart1&quot;, product);
+            if (i % 3 == 0) {
+                redisTemplate.opsForSet().add(&quot;cart2&quot;, product);
+            }
+        }
+
+        Set&lt;Product&gt; diff = redisTemplate.opsForSet().difference(&quot;cart1&quot;, &quot;cart2&quot;);
+        Set&lt;Product&gt; union = redisTemplate.opsForSet().union(&quot;cart1&quot;, &quot;cart2&quot;);
+        Set&lt;Product&gt; isect = redisTemplate.opsForSet().intersect(&quot;cart1&quot;, &quot;cart2&quot;);
+
+        assertEquals(20, diff.size());
+        assertEquals(30, union.size());
+        assertEquals(10, isect.size());
+
+        Product random = redisTemplate.opsForSet().randomMember(&quot;cart1&quot;);
+        // not sure what to assert here...the result will be random
+        assertNotNull(random);
+    }
+
+    @Test
+    public void bindingToAKey() {
+        Product product1 = new Product();
+        product1.setSku(&quot;9781617291203&quot;);
+        product1.setName(&quot;Spring in Action&quot;);
+        product1.setPrice(39.99f);
+
+        Product product2 = new Product();
+        product2.setSku(&quot;9781935182436&quot;);
+        product2.setName(&quot;Spring Integration in Action&quot;);
+        product2.setPrice(49.99f);
+
+        Product product3 = new Product();
+        product3.setSku(&quot;9781935182955&quot;);
+        product3.setName(&quot;Spring Batch in Action&quot;);
+        product3.setPrice(49.99f);
+
+        //redisTemplate.boundListOps(&quot;cart&quot;)绑定列表到一个对象
+        BoundListOperations&lt;String, Product&gt; cart = redisTemplate.boundListOps(&quot;cart&quot;);
+        cart.rightPush(product1);
+        cart.rightPush(product2);
+        cart.rightPush(product3);
+
+        assertEquals(3, cart.size().longValue());
+
+        Product first = cart.leftPop();
+        Product last = cart.rightPop();
+
+        assertEquals(product1.getSku(), first.getSku());
+        assertEquals(product1.getName(), first.getName());
+        assertEquals(product1.getPrice(), first.getPrice(), 0.005);
+
+        assertEquals(product3.getSku(), last.getSku());
+        assertEquals(product3.getName(), last.getName());
+        assertEquals(product3.getPrice(), last.getPrice(), 0.005);
+
+        assertEquals(1, cart.size().longValue());
+    }
+
+    @Test
+    public void settingKeyAndValueSerializers() {
+        // need a local version so we can tweak the serializer
+        RedisTemplate&lt;String, Product&gt; redis = new RedisTemplate&lt;&gt;();
+        redis.setConnectionFactory(cf);
+
+        redis.setKeySerializer(new StringRedisSerializer());
+        redis.setValueSerializer(new Jackson2JsonRedisSerializer&lt;Product&gt;(Product.class));
+        redis.afterPropertiesSet(); // if this were declared as a bean, you wouldn't have to do this
+
+        Product product = new Product();
+        product.setSku(&quot;9781617291203&quot;);
+        product.setName(&quot;Spring in Action&quot;);
+        product.setPrice(39.99f);
+
+        redis.opsForValue().set(product.getSku(), product);
+
+        Product found = redis.opsForValue().get(product.getSku());
+        assertEquals(product.getSku(), found.getSku());
+        assertEquals(product.getName(), found.getName());
+        assertEquals(product.getPrice(), found.getPrice(), 0.005);
+
+        //new StringRedisTemplate(cf)一律把value当做string
+        StringRedisTemplate stringRedis = new StringRedisTemplate(cf);
+        String json = stringRedis.opsForValue().get(product.getSku());
+        assertEquals(&quot;{\&quot;sku\&quot;:\&quot;9781617291203\&quot;,\&quot;name\&quot;:\&quot;Spring in Action\&quot;,\&quot;price\&quot;:39.99}&quot;, json);
+    }
+}
+</code></pre>
+<h3 id="jedis%E5%92%8Clettuce" tabindex="-1"><a class="header-anchor" href="#jedis%E5%92%8Clettuce">#</a> Jedis和Lettuce</h3>
+<ul>
+<li>Jedis 和Lettuce都是连接Redis Server的客户端程序</li>
+<li>RedisConnectionFactory接口，JedisConnectionFactory</li>
+<li>SpringBoot2.x 后默认使用的不再是Jedis而是lettuce，所以spring-boot-starter-data-redis 依赖了： lettuce-core、spring-data-redis、spring-boot-starter</li>
+<li>RedisConnectionFactory接口实现自动生成在上下文中，可直接注入使用</li>
+</ul>
+<h3 id="spring-data-redis" tabindex="-1"><a class="header-anchor" href="#spring-data-redis">#</a> spring data redis</h3>
+<pre><code class="language-xml">&lt;dependency&gt;
+    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;
+    &lt;artifactId&gt;spring-boot-starter-data-redis&lt;/artifactId&gt;
+&lt;/dependency&gt;
+</code></pre>
+<h3 id="%E4%BD%BF%E7%94%A8redistemplate" tabindex="-1"><a class="header-anchor" href="#%E4%BD%BF%E7%94%A8redistemplate">#</a> 使用RedisTemplate</h3>
+<ul>
+<li>RedisTemplate</li>
+<li>StringRedisTemplate</li>
+</ul>
+<h3 id="redistemplate%E7%9A%84%E5%AD%90api" tabindex="-1"><a class="header-anchor" href="#redistemplate%E7%9A%84%E5%AD%90api">#</a> RedisTemplate的子API</h3>
+<ul>
+<li>使用简单的值
+<ul>
+<li>opsForValue()----ValueOperations</li>
+<li>set、get</li>
+</ul>
+</li>
+<li>使用List类型的值</li>
+<li>opsForList()----ListOperations</li>
+<li>rightPush、leftPop、range</li>
+<li>在Set上执行操作</li>
+<li>opsForSet()----SetOperations</li>
+<li>add、difference、union、intersect</li>
+<li>绑定到某个key上</li>
+<li>boundListOps(“cart”）</li>
+</ul>
+<h3 id="%E6%8C%87%E5%AE%9A%E5%BA%8F%E5%88%97%E5%8C%96%E5%99%A8" tabindex="-1"><a class="header-anchor" href="#%E6%8C%87%E5%AE%9A%E5%BA%8F%E5%88%97%E5%8C%96%E5%99%A8">#</a> 指定序列化器</h3>
+<ul>
+<li>默认处理：JdkSerializationRedisSerializer，对象需要实现Serializable接口</li>
+<li>Jackson2JsonRedisSerializer</li>
+<li>StringRedisSerializer</li>
+</ul>
+<h4 id="json%E5%BA%8F%E5%88%97%E5%8C%96" tabindex="-1"><a class="header-anchor" href="#json%E5%BA%8F%E5%88%97%E5%8C%96">#</a> JSON序列化</h4>
+<pre><code class="language-java">redis.setKeySerializer(new StringRedisSerializer())
+redis.setVAlueSerializer(new Jackson2JsonRedisSerializer&lt;Product.class&gt;)
+</code></pre>
+<ol>
+<li>Key比较简单，可以直接用String序列化</li>
+<li>指定Value使用<code>Jackson2JsonRedisSerializer</code>进行序列化</li>
+</ol>
+<p>对数据存取操作的代码没有影响。</p>
+<p>可读性更好。</p>
+<p>直接使用<strong>RedisTemplate</strong>获取的Value会经过反序列化，仍然为Java对象</p>
+<p>如果想要获取String，可以使用<strong>StringRedisTemplate</strong>读取Value。</p>
+
+      </div>
+
+      <footer class="post-footer">
+        <div class="post-nav">
+          <a href="/" class="post-nav-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            返回首页
+          </a>
+        </div>
+      </footer>
+    </article>
+  </main>
+</div>
+
+
+  <footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <span class="footer-logo">ASIMOV&#39;S Blog</span>
+        <p class="footer-desc">ASIMOV的老巢</p>
+        <div class="footer-social">
+          
+            <a href="https://github.com/chendingya" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+          
+          
+            <a href="https://twitter.com/yourname" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          
+          
+            <a href="mailto:your@email.com" class="social-link" aria-label="Email">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </a>
+          
+          
+            <a href="/feed.xml" class="social-link" aria-label="RSS">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20C5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1z"/></svg>
+            </a>
+          
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">导航</h4>
+        <ul class="footer-links">
+          
+            <li><a href="/">首页</a></li>
+          
+            <li><a href="/archive/">归档</a></li>
+          
+            <li><a href="/tags/">标签</a></li>
+          
+            <li><a href="/categories/">分类</a></li>
+          
+            <li><a href="/comments/">留言</a></li>
+          
+            <li><a href="/projects/">项目</a></li>
+          
+          <li><a href="/archive/">归档</a></li>
+          <li><a href="/tags/">标签</a></li>
+          <li><a href="/categories/">分类</a></li>
+        </ul>
+      </div>
+
+      
+      <div class="footer-col">
+        <h4 class="footer-heading">友链</h4>
+        <ul class="footer-links">
+          
+            <li><a href="https://example.com" target="_blank" rel="noopener noreferrer">示例友链</a></li>
+          
+        </ul>
+      </div>
+      
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 ASIMOV&#39;S Blog</p>
+      
+    </div>
+  </div>
+</footer>
+
+
+  <button class="back-to-top" aria-label="返回顶部">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+  </button>
+
+  <script src="/assets/js/main.js" defer></script>
+  <script src="/plugins/comments/comments-assets/editor.js" defer></script>
+</body>
+</html>

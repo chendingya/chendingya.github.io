@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="ASIMOV的老巢">
+  <title>架构模式演进与微服务 - ASIMOV&#39;S Blog</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700&family=Public+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Noto+Serif+SC:wght@400;500;600;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/assets/css/style.css">
+  
+  <link rel="stylesheet" href="/assets/css/highlight.css">
+  
+
+  
+  <style>:root {
+  --font-display: 'Playfair Display', 'Noto Serif SC', Georgia, 'Times New Roman', serif;
+  --font-body: 'Public Sans', 'Noto Sans SC', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'Fira Code', 'Cascadia Code', 'JetBrains Mono', monospace;
+  --bg-cream: #FEFAF6;
+  --bg-cream-alpha: rgba(254,250,246,0.85);
+  --bg-surface: #FFFFFF;
+  --bg-warm: #FDF5EB;
+  --text-primary: #2C1810;
+  --text-secondary: #8B7355;
+  --text-muted: #C4A882;
+  --text-on-accent: #FFFFFF;
+  --border: #E8D5C4;
+  --border-light: #F0E3D5;
+  --shadow-sm: 0 1px 2px rgba(44,24,16,0.04);
+  --shadow-md: 0 4px 12px rgba(44,24,16,0.06);
+  --shadow-lg: 0 12px 32px rgba(44,24,16,0.08);
+  --code-bg: #1E1E1E;
+  --code-text: #E0E0E0;
+  --brand: var(--accent-coral);
+  --brand-hover: #FF5252;
+  --brand-alpha: rgba(255,107,107,0.08);
+  --brand-alpha-heavy: rgba(255,107,107,0.15);
+  --selection-bg: rgba(255,107,107,0.2);
+  --accent-coral: #FF6B6B;
+  --accent-coral-hover: #FF5252;
+  --accent-amber: #F4A261;
+  --accent-mint: #90BE6D;
+  --accent-lavender: #9B72AA;
+  --accent-sky: #4ECDC4;
+  --accent-sun: #F9C74F;
+  --accent-rose: #FF6B8A;
+  --accent-blue: #577590;
+  --max-width: 1200px;
+  --content-width: 720px;
+  --space-xs: 0.25rem;
+  --space-sm: 0.5rem;
+  --space-md: 1rem;
+  --space-lg: 1.5rem;
+  --space-xl: 2rem;
+  --space-2xl: 3rem;
+  --space-3xl: 5rem;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --duration-fast: 150ms;
+  --duration-normal: 300ms;
+  --duration-slow: 500ms;
+}
+
+[data-theme="dark"] {
+  --bg-cream: #1A1614;
+  --bg-cream-alpha: rgba(26,22,20,0.85);
+  --bg-surface: #2C2420;
+  --bg-warm: #241E1A;
+  --text-primary: #E8D5C4;
+  --text-secondary: #B8A088;
+  --text-muted: #8B7355;
+  --text-on-accent: #FFFFFF;
+  --border: #3D3028;
+  --border-light: #332A22;
+  --shadow-sm: 0 1px 2px rgba(0,0,0,0.2);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.25);
+  --shadow-lg: 0 12px 32px rgba(0,0,0,0.3);
+  --code-bg: #111111;
+  --code-text: #E0E0E0;
+  --brand: var(--accent-coral);
+  --brand-hover: #FF8A8A;
+  --brand-alpha: rgba(255,107,107,0.12);
+  --brand-alpha-heavy: rgba(255,107,107,0.2);
+  --selection-bg: rgba(255,107,107,0.2);
+}</style>
+  
+
+  <link rel="stylesheet" href="/plugins/comments/comments-assets/style.css">
+
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='6' fill='%23FF6B6B'/><text x='50%25' y='55%25' dominant-baseline='middle' text-anchor='middle' font-family='serif' font-size='20' fill='white'>A</text></svg>">
+
+  
+  <link rel="alternate" type="application/rss+xml" title="ASIMOV&#39;S Blog" href="/feed.xml">
+  
+
+  <meta property="og:title" content="架构模式演进与微服务">
+  <meta property="og:description" content="ASIMOV的老巢">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://chendingya.github.io//posts/26-软件系统架构/04-架构模式演进与微服务/">
+  
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="架构模式演进与微服务">
+  <meta name="twitter:description" content="ASIMOV的老巢">
+  
+</head>
+<body class="post-page">
+  <div class="reading-progress"></div>
+
+  <header class="site-header">
+  <div class="container">
+    <div class="header-inner">
+      <a href="/" class="site-brand">
+        
+          <span class="brand-title">ASIMOV&#39;S Blog</span>
+        
+      </a>
+
+      <nav class="site-nav" data-target="main-nav">
+        <ul class="nav-list">
+          
+            <li class="nav-item">
+              <a href="/" class="nav-link">首页</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/archive/" class="nav-link">归档</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/tags/" class="nav-link">标签</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/categories/" class="nav-link">分类</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/comments/" class="nav-link">留言</a>
+            </li>
+          
+            <li class="nav-item">
+              <a href="/projects/" class="nav-link">项目</a>
+            </li>
+          
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="icon-btn" data-action="toggle-theme" aria-label="切换暗色模式">
+          <svg class="icon-sun" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+          <svg class="icon-moon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+        </button>
+
+        <button class="icon-btn menu-btn" data-action="toggle-menu" aria-label="菜单">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  <div class="container">
+  <main class="main-content">
+    <article class="post-article">
+      <header class="post-header">
+        
+          <div class="post-header-cats">
+            
+              <a href="/categories/软件架构设计/" class="meta-cat accent">软件架构设计</a>
+            
+          </div>
+        
+        <h1 class="post-title">架构模式演进与微服务</h1>
+        <div class="post-meta">
+          <time datetime="2026-06-02T00:00:00.000Z">
+            2026年6月2日
+          </time>
+          
+            <span class="meta-divider">&middot;</span>
+            <span class="post-author">heleyang</span>
+          
+        </div>
+        
+          <div class="post-header-tags">
+            
+              <a href="/tags/软件架构设计/" class="tag">软件架构设计</a>
+            
+              <a href="/tags/期末复习/" class="tag">期末复习</a>
+            
+          </div>
+        
+      </header>
+
+      
+        <details class="toc-wrap">
+          <summary class="toc-title">目录</summary>
+          <nav class="toc-nav">
+            
+              <a href="#04-架构模式演进与微服务" class="toc-link toc-level-1">04 架构模式演进与微服务</a>
+            
+              <a href="#架构演进-每一步都是取舍" class="toc-link toc-level-1">架构演进：每一步都是取舍</a>
+            
+              <a href="#脑图-架构模式与微服务速记" class="toc-link toc-level-2">脑图：架构模式与微服务速记</a>
+            
+              <a href="#纪要补充-架构演进链和-soa-骨架" class="toc-link toc-level-2">纪要补充：架构演进链和 SOA 骨架</a>
+            
+              <a href="#pattern-tactic-与-style" class="toc-link toc-level-1">Pattern、Tactic 与 Style</a>
+            
+              <a href="#tactic" class="toc-link toc-level-3">Tactic</a>
+            
+              <a href="#pattern" class="toc-link toc-level-3">Pattern</a>
+            
+              <a href="#style" class="toc-link toc-level-3">Style</a>
+            
+              <a href="#常见模式复习卡" class="toc-link toc-level-2">常见模式复习卡</a>
+            
+              <a href="#常见-pattern-分别属于什么-style" class="toc-link toc-level-2">常见 Pattern 分别属于什么 Style</a>
+            
+              <a href="#架构模式速判图-layered-multi-tier-c-c" class="toc-link toc-level-2">架构模式速判图：Layered / Multi\-tier / C\&amp;C</a>
+            
+              <a href="#常见-pattern-结构图补充" class="toc-link toc-level-2">常见 Pattern 结构图补充</a>
+            
+              <a href="#mvc-结构图" class="toc-link toc-level-3">MVC 结构图</a>
+            
+              <a href="#client-server-结构图" class="toc-link toc-level-3">Client\-Server 结构图</a>
+            
+              <a href="#broker-结构图" class="toc-link toc-level-3">Broker 结构图</a>
+            
+              <a href="#pipe-and-filter-结构图" class="toc-link toc-level-3">Pipe\-and\-Filter 结构图</a>
+            
+              <a href="#p2p-结构图" class="toc-link toc-level-3">P2P 结构图</a>
+            
+              <a href="#publish-subscribe-结构图" class="toc-link toc-level-3">Publish\-Subscribe 结构图</a>
+            
+              <a href="#shared-data-结构图" class="toc-link toc-level-3">Shared\-Data 结构图</a>
+            
+              <a href="#map-reduce-结构图" class="toc-link toc-level-3">Map\-Reduce 结构图</a>
+            
+              <a href="#microservices-结构图" class="toc-link toc-level-3">Microservices 结构图</a>
+            
+              <a href="#微服务-不要只背定义" class="toc-link toc-level-1">微服务：不要只背定义</a>
+            
+              <a href="#六个应答关键词" class="toc-link toc-level-2">六个应答关键词</a>
+            
+              <a href="#soa-与微服务比较" class="toc-link toc-level-2">SOA 与微服务比较</a>
+            
+              <a href="#soa-模式结构-消费者-服务总线与提供者" class="toc-link toc-level-2">SOA 模式结构：消费者、服务总线与提供者</a>
+            
+              <a href="#微服务相关模式要会举例" class="toc-link toc-level-2">微服务相关模式要会举例</a>
+            
+              <a href="#拆分-decomposition" class="toc-link toc-level-3">拆分 / Decomposition</a>
+            
+              <a href="#通信-communication" class="toc-link toc-level-3">通信 / Communication</a>
+            
+              <a href="#部署-deployment" class="toc-link toc-level-3">部署 / Deployment</a>
+            
+              <a href="#可观测性-observability" class="toc-link toc-level-3">可观测性 / Observability</a>
+            
+              <a href="#微服务相关模式-人话版解释" class="toc-link toc-level-3">微服务相关模式：人话版解释</a>
+            
+              <a href="#微服务部署与迁移决策" class="toc-link toc-level-2">微服务部署与迁移决策</a>
+            
+              <a href="#纪要补充-微服务考点只抓特性-对比和模式" class="toc-link toc-level-2">纪要补充：微服务考点只抓特性、对比和模式</a>
+            
+              <a href="#可直接背诵答案" class="toc-link toc-level-1">可直接背诵答案</a>
+            
+              <a href="#英文题面常见问法" class="toc-link toc-level-2">英文题面常见问法</a>
+            
+              <a href="#题-1-架构模式怎样作答" class="toc-link toc-level-2">题 1：架构模式怎样作答</a>
+            
+              <a href="#题-2-架构演进的逻辑" class="toc-link toc-level-2">题 2：架构演进的逻辑</a>
+            
+              <a href="#题-3-微服务与-soa-比较" class="toc-link toc-level-2">题 3：微服务与 SOA 比较</a>
+            
+              <a href="#精选来源" class="toc-link toc-level-1">精选来源</a>
+            
+          </nav>
+        </details>
+      
+
+      <div class="post-body">
+        <h1 id="04-%E6%9E%B6%E6%9E%84%E6%A8%A1%E5%BC%8F%E6%BC%94%E8%BF%9B%E4%B8%8E%E5%BE%AE%E6%9C%8D%E5%8A%A1" tabindex="-1"><a class="header-anchor" href="#04-%E6%9E%B6%E6%9E%84%E6%A8%A1%E5%BC%8F%E6%BC%94%E8%BF%9B%E4%B8%8E%E5%BE%AE%E6%9C%8D%E5%8A%A1">#</a> 04 架构模式演进与微服务</h1>
+<p>**扫描资料与纪要共同给出的答题方向：**架构模式不是背定义，而是解释“当时的核心矛盾是什么、改变了什么管理对象、解决了什么、又引入了什么代价”。扫描资料的总结句是：在新的成本结构下，重新划定边界和协作方式。</p>
+<h1 id="%E6%9E%B6%E6%9E%84%E6%BC%94%E8%BF%9B%EF%BC%9A%E6%AF%8F%E4%B8%80%E6%AD%A5%E9%83%BD%E6%98%AF%E5%8F%96%E8%88%8D" tabindex="-1"><a class="header-anchor" href="#%E6%9E%B6%E6%9E%84%E6%BC%94%E8%BF%9B%EF%BC%9A%E6%AF%8F%E4%B8%80%E6%AD%A5%E9%83%BD%E6%98%AF%E5%8F%96%E8%88%8D">#</a> 架构演进：每一步都是取舍</h1>
+<h2 id="%E8%84%91%E5%9B%BE%EF%BC%9A%E6%9E%B6%E6%9E%84%E6%A8%A1%E5%BC%8F%E4%B8%8E%E5%BE%AE%E6%9C%8D%E5%8A%A1%E9%80%9F%E8%AE%B0" tabindex="-1"><a class="header-anchor" href="#%E8%84%91%E5%9B%BE%EF%BC%9A%E6%9E%B6%E6%9E%84%E6%A8%A1%E5%BC%8F%E4%B8%8E%E5%BE%AE%E6%9C%8D%E5%8A%A1%E9%80%9F%E8%AE%B0">#</a> 脑图：架构模式与微服务速记</h2>
+<p>**记忆方法：**模式题按“上下文、问题、结构、收益、代价”作答；微服务题再补部署、治理和分布式代价。</p>
+<h2 id="%E7%BA%AA%E8%A6%81%E8%A1%A5%E5%85%85%EF%BC%9A%E6%9E%B6%E6%9E%84%E6%BC%94%E8%BF%9B%E9%93%BE%E5%92%8C-soa-%E9%AA%A8%E6%9E%B6" tabindex="-1"><a class="header-anchor" href="#%E7%BA%AA%E8%A6%81%E8%A1%A5%E5%85%85%EF%BC%9A%E6%9E%B6%E6%9E%84%E6%BC%94%E8%BF%9B%E9%93%BE%E5%92%8C-soa-%E9%AA%A8%E6%9E%B6">#</a> 纪要补充：架构演进链和 SOA 骨架</h2>
+<p><strong>回到总结页：</strong><a href="https://my.feishu.cn/docx/GVzbdsMMuolSoRxxbqoclqmunqd#doxcnXAOKPpx8SHZVkikCfTQCpf">纪要可能考查方式索引</a> 已把本知识点与相关训练题互链，复习时可从题型反查本节。</p>
+<p>**作答原则：**模式题不靠名词解释拿分，要解释“为什么出现、改变了什么、牺牲了什么、带来什么新问题”。</p>
+<table>
+<thead>
+<tr>
+<th>可能画图</th>
+<th>必须出现</th>
+<th>可写取舍</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SOA 骨架</td>
+<td>消费者、服务总线/注册与治理、服务提供者</td>
+<td>服务复用和集成能力提升，但总线/治理复杂，局部自治不如微服务。</td>
+</tr>
+<tr>
+<td>C&amp;C / P2P</td>
+<td>运行时组件、连接器、交互关系</td>
+<td>适合解释动态通信，不要画成静态类图。</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>想解决的痛点</th>
+<th>获得的能力</th>
+<th>新代价 / 下一步原因</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>主机终端</td>
+<td>机器昂贵，需要共享计算资源</td>
+<td>集中管控、一致性与可靠性</td>
+<td>终端弱，交互体验不足</td>
+</tr>
+<tr>
+<td>Client / Server</td>
+<td>改善用户交互体验<br></td>
+<td>客户端利用本地算力</td>
+<td>胖客户端难部署、难维护</td>
+</tr>
+<tr>
+<td>分层 / SOA</td>
+<td>统一入口、降低维护耦合</td>
+<td>职责分工、复用与集成</td>
+<td>集中协调重、独立发布不足、性能开销</td>
+</tr>
+<tr>
+<td>微服务</td>
+<td>独立迭代与局部自治</td>
+<td>按业务能力拆分、独立部署扩缩容</td>
+<td>分布式故障、运维与长期稳定运行复杂</td>
+</tr>
+<tr>
+<td>云原生 / 事件驱动</td>
+<td>支撑大量服务稳定运行与弹性</td>
+<td>容器化、编排、异步解耦、可观测</td>
+<td>时序、一致性与故障定位更难</td>
+</tr>
+</tbody>
+</table>
+<p>**论述题模板：**先给场景背景，再指出最关键质量属性，接着解释结构变化，最后写收益与引入的新风险。</p>
+<hr>
+<h1 id="pattern%E3%80%81tactic-%E4%B8%8E-style" tabindex="-1"><a class="header-anchor" href="#pattern%E3%80%81tactic-%E4%B8%8E-style">#</a> Pattern、Tactic 与 Style</h1>
+<h3 id="tactic" tabindex="-1"><a class="header-anchor" href="#tactic">#</a> Tactic</h3>
+<p>控制单个质量响应的<strong>原子动作</strong>，如冗余、限制依赖、缓存。</p>
+<h3 id="pattern" tabindex="-1"><a class="header-anchor" href="#pattern">#</a> Pattern</h3>
+<p>针对反复出现问题的一组<strong>决策组合</strong>，如分层、Broker、Pipe-and-Filter。</p>
+<h3 id="style" tabindex="-1"><a class="header-anchor" href="#style">#</a> Style</h3>
+<p>描述元素和关系类型的<strong>组织方式</strong>，如微服务风格。</p>
+<h2 id="%E5%B8%B8%E8%A7%81%E6%A8%A1%E5%BC%8F%E5%A4%8D%E4%B9%A0%E5%8D%A1" tabindex="-1"><a class="header-anchor" href="#%E5%B8%B8%E8%A7%81%E6%A8%A1%E5%BC%8F%E5%A4%8D%E4%B9%A0%E5%8D%A1">#</a> 常见模式复习卡</h2>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>核心结构</th>
+<th>优势</th>
+<th>限制</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Layered</strong></td>
+<td>按抽象层次组织模块</td>
+<td>关注点分离、可修改</td>
+<td>跨层开销、严格分层不灵活</td>
+</tr>
+<tr>
+<td><strong>Multi-tier</strong></td>
+<td>将运行元素部署到不同节点</td>
+<td>部署隔离与扩展</td>
+<td>网络与运维成本</td>
+</tr>
+<tr>
+<td><strong>Broker</strong></td>
+<td>代理协调客户端与服务端通信</td>
+<td>位置透明、可扩展</td>
+<td>中介瓶颈、安全和测试复杂</td>
+</tr>
+<tr>
+<td><strong>Pipe-and-Filter</strong></td>
+<td>数据依次通过过滤器转换</td>
+<td>复用、并行、可组合</td>
+<td>交互式处理和共享状态不佳</td>
+</tr>
+<tr>
+<td><strong>P2P</strong></td>
+<td>各 peer 既可请求也可提供服务</td>
+<td>去中心化、资源聚合</td>
+<td>协调、安全与一致性复杂</td>
+</tr>
+<tr>
+<td><strong>SOA</strong></td>
+<td>服务、注册表、ESB/编排</td>
+<td>企业集成、服务复用</td>
+<td>中间件复杂与发布粒度粗</td>
+</tr>
+</tbody>
+</table>
+<h2 id="%E5%B8%B8%E8%A7%81-pattern-%E5%88%86%E5%88%AB%E5%B1%9E%E4%BA%8E%E4%BB%80%E4%B9%88-style" tabindex="-1"><a class="header-anchor" href="#%E5%B8%B8%E8%A7%81-pattern-%E5%88%86%E5%88%AB%E5%B1%9E%E4%BA%8E%E4%BB%80%E4%B9%88-style">#</a> 常见 Pattern 分别属于什么 Style</h2>
+<p><strong>判断口诀：<strong>看这个 pattern 的主问题是什么。若主要描述</strong>静态代码/模块如何分组和依赖</strong>，归入 <strong>Module Style</strong>；若主要描述<strong>运行期组件如何交互</strong>，归入 <strong>Component-and-Connector（C&amp;C）Style</strong>；若主要描述<strong>软件元素如何映射到机器、进程、团队或部署环境</strong>，归入 <strong>Allocation Style</strong>。</p>
+<table>
+<thead>
+<tr>
+<th>Pattern</th>
+<th>主要 Style</th>
+<th>理由</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Layered</strong></td>
+<td><strong>Module Style</strong></td>
+<td>核心是把模块按抽象层次分组，并规定 allowed-to-use 依赖方向；讨论的是静态分解与依赖控制。</td>
+</tr>
+<tr>
+<td><strong>MVC</strong></td>
+<td><strong>C&amp;C Style</strong></td>
+<td>Model、View、Controller 作为运行期组件协作，关键关系是通知、调用与状态更新；重点不是部署位置。</td>
+</tr>
+<tr>
+<td><strong>Pipe-and-Filter</strong></td>
+<td><strong>C&amp;C Style / Data-flow Style</strong></td>
+<td>Filter 是组件，Pipe 是连接器，数据沿连接器被连续转换；判断点是运行期数据流。</td>
+</tr>
+<tr>
+<td><strong>Broker</strong></td>
+<td><strong>C&amp;C Style</strong></td>
+<td>Client、Server、Broker、Proxy 通过通信连接器协作；Broker 解决的是运行期定位、转发与解耦。</td>
+</tr>
+<tr>
+<td><strong>Client-Server</strong></td>
+<td><strong>C&amp;C Style</strong></td>
+<td>核心是 Client 通过 request/reply connector 调用 Server 服务；它可能被部署成多层，但模式本身先描述交互关系。</td>
+</tr>
+<tr>
+<td><strong>P2P</strong></td>
+<td><strong>C&amp;C Style</strong></td>
+<td>Peer 既请求也提供服务，运行期连接关系可变化；重点是对等组件之间的通信与协作。</td>
+</tr>
+<tr>
+<td><strong>SOA</strong></td>
+<td><strong>C&amp;C Style / Service Style</strong></td>
+<td>Service Provider、Consumer、Registry、ESB、Orchestration 通过 SOAP/REST/消息连接器协作；本质是服务组件和连接器的组织方式。</td>
+</tr>
+<tr>
+<td><strong>Publish-Subscribe</strong></td>
+<td><strong>C&amp;C Style / Event-based Style</strong></td>
+<td>发布者和订阅者通过事件分发连接器通信；关注点是事件通知、订阅关系和异步交互。</td>
+</tr>
+<tr>
+<td><strong>Shared-Data</strong></td>
+<td><strong>C&amp;C Style / Data-centered Style</strong></td>
+<td>数据访问组件通过共享数据存储通信；共享 store 既是协调中心，也带来耦合、瓶颈和单点风险。</td>
+</tr>
+<tr>
+<td><strong>Map-Reduce</strong></td>
+<td><strong>Allocation Style</strong></td>
+<td>课程材料把它归为 Allocation Pattern，因为重点是 Map/Reduce 实例如何分配到处理器并由基础设施部署、监控和恢复。</td>
+</tr>
+<tr>
+<td><strong>Multi-tier</strong></td>
+<td><strong>Allocation Style</strong></td>
+<td>Tier 是运行元素的逻辑分组，经常映射到不同平台或节点；它回答“部署到哪里、如何隔离和扩展”。</td>
+</tr>
+<tr>
+<td><strong>Microservices</strong></td>
+<td><strong>C&amp;C Style + Allocation 关注点</strong></td>
+<td>服务本身是独立运行组件，通过轻量 API、消息或网关交互；同时强调独立部署、DevOps 与运行治理，所以答题可先归 C&amp;C，再补部署/运维维度。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>考试提醒：<strong>一个 pattern 可以体现多个 style 的味道，但答题要抓</strong>主导结构</strong>。例如 <strong>Client-Server</strong> 可部署成多层系统，但它的基本定义是运行期请求/响应交互，所以先归 <strong>C&amp;C</strong>；<strong>Multi-tier</strong> 则直接讨论 tier 到执行环境的映射，所以归 <strong>Allocation</strong>。</p>
+<p><strong>知识出处：</strong><a href="https://my.feishu.cn/wiki/TugcwyaYciuLXjkMw55c5BWrnNg">04 架构模式演进与微服务</a>、<a href="https://my.feishu.cn/wiki/BQ9FwI4cHilhzhkJexhcmAT3n4c">06 往年题与训练题</a>；补充证据：<code>扫描文档20260526_192514.pdf</code>、<code>slides/05_Patterns.pdf</code> 与 <code>研究生版/研究生往年题版.md</code>。</p>
+<h2 id="%E6%9E%B6%E6%9E%84%E6%A8%A1%E5%BC%8F%E9%80%9F%E5%88%A4%E5%9B%BE%EF%BC%9Alayered-%2F-multi-tier-%2F-c%26c" tabindex="-1"><a class="header-anchor" href="#%E6%9E%B6%E6%9E%84%E6%A8%A1%E5%BC%8F%E9%80%9F%E5%88%A4%E5%9B%BE%EF%BC%9Alayered-%2F-multi-tier-%2F-c%26c">#</a> 架构模式速判图：Layered / Multi-tier / C&amp;C</h2>
+<p><strong>定位：<strong>上面的表格是</strong>文字版归属判断</strong>，这张图保留为<strong>图解版速判</strong>。考试时先看主导关系：模块依赖看 <strong>Layered / Module</strong>，部署映射看 <strong>Multi-tier / Allocation</strong>，运行交互看 <strong>C&amp;C</strong>。</p>
+<h2 id="%E5%B8%B8%E8%A7%81-pattern-%E7%BB%93%E6%9E%84%E5%9B%BE%E8%A1%A5%E5%85%85" tabindex="-1"><a class="header-anchor" href="#%E5%B8%B8%E8%A7%81-pattern-%E7%BB%93%E6%9E%84%E5%9B%BE%E8%A1%A5%E5%85%85">#</a> 常见 Pattern 结构图补充</h2>
+<p><strong>补图范围：<strong>速判图已作为</strong>图解版</strong>保留；这里优先使用 <strong>UML/PlantUML</strong> 补充常见具体模式的结构图，重点看<strong>元素</strong>和<strong>连接关系</strong>。</p>
+<h3 id="mvc-%E7%BB%93%E6%9E%84%E5%9B%BE" tabindex="-1"><a class="header-anchor" href="#mvc-%E7%BB%93%E6%9E%84%E5%9B%BE">#</a> MVC 结构图</h3>
+<h3 id="client-server-%E7%BB%93%E6%9E%84%E5%9B%BE" tabindex="-1"><a class="header-anchor" href="#client-server-%E7%BB%93%E6%9E%84%E5%9B%BE">#</a> Client-Server 结构图</h3>
+<h3 id="broker-%E7%BB%93%E6%9E%84%E5%9B%BE" tabindex="-1"><a class="header-anchor" href="#broker-%E7%BB%93%E6%9E%84%E5%9B%BE">#</a> Broker 结构图</h3>
+<h3 id="pipe-and-filter-%E7%BB%93%E6%9E%84%E5%9B%BE" tabindex="-1"><a class="header-anchor" href="#pipe-and-filter-%E7%BB%93%E6%9E%84%E5%9B%BE">#</a> Pipe-and-Filter 结构图</h3>
+<h3 id="p2p-%E7%BB%93%E6%9E%84%E5%9B%BE" tabindex="-1"><a class="header-anchor" href="#p2p-%E7%BB%93%E6%9E%84%E5%9B%BE">#</a> P2P 结构图</h3>
+<h3 id="publish-subscribe-%E7%BB%93%E6%9E%84%E5%9B%BE" tabindex="-1"><a class="header-anchor" href="#publish-subscribe-%E7%BB%93%E6%9E%84%E5%9B%BE">#</a> Publish-Subscribe 结构图</h3>
+<h3 id="shared-data-%E7%BB%93%E6%9E%84%E5%9B%BE" tabindex="-1"><a class="header-anchor" href="#shared-data-%E7%BB%93%E6%9E%84%E5%9B%BE">#</a> Shared-Data 结构图</h3>
+<h3 id="map-reduce-%E7%BB%93%E6%9E%84%E5%9B%BE" tabindex="-1"><a class="header-anchor" href="#map-reduce-%E7%BB%93%E6%9E%84%E5%9B%BE">#</a> Map-Reduce 结构图</h3>
+<h3 id="microservices-%E7%BB%93%E6%9E%84%E5%9B%BE" tabindex="-1"><a class="header-anchor" href="#microservices-%E7%BB%93%E6%9E%84%E5%9B%BE">#</a> Microservices 结构图</h3>
+<p><strong>读图方法：<strong>考试作图不用追求工具细节，优先标出</strong>组件/模块名称</strong>、<strong>连接器类型</strong>和<strong>主导约束</strong>。例如 Pipe-and-Filter 要画 Pipe，Broker 要画 Broker，SOA 要画 Registry 与 ESB，Microservices 要画 API Gateway、独立服务与独立数据。</p>
+<p><strong>知识出处：</strong><a href="https://my.feishu.cn/wiki/TugcwyaYciuLXjkMw55c5BWrnNg">04 架构模式演进与微服务</a>；补充证据：<code>slides/05_Patterns.pdf</code>、<code>slides/08Microservices Architecture.pdf</code>、<code>扫描文档20260526_192514.pdf</code>。</p>
+<hr>
+<h1 id="%E5%BE%AE%E6%9C%8D%E5%8A%A1%EF%BC%9A%E4%B8%8D%E8%A6%81%E5%8F%AA%E8%83%8C%E5%AE%9A%E4%B9%89" tabindex="-1"><a class="header-anchor" href="#%E5%BE%AE%E6%9C%8D%E5%8A%A1%EF%BC%9A%E4%B8%8D%E8%A6%81%E5%8F%AA%E8%83%8C%E5%AE%9A%E4%B9%89">#</a> 微服务：不要只背定义</h1>
+<h2 id="%E5%85%AD%E4%B8%AA%E5%BA%94%E7%AD%94%E5%85%B3%E9%94%AE%E8%AF%8D" tabindex="-1"><a class="header-anchor" href="#%E5%85%AD%E4%B8%AA%E5%BA%94%E7%AD%94%E5%85%B3%E9%94%AE%E8%AF%8D">#</a> 六个应答关键词</h2>
+<ul>
+<li>
+<p>**服务组件化：**小服务通过轻量通信协作。</p>
+</li>
+<li>
+<p><strong>围绕业务能力组织：<strong>服务边界不是技术分层，而是</strong>业务职责</strong>。</p>
+</li>
+<li>
+<p>**独立自治：**服务可独立开发、部署与扩缩容。</p>
+</li>
+<li>
+<p>**去中心化：**治理和数据管理更分散，但一致性更难。</p>
+</li>
+<li>
+<p>**基础设施自动化：**持续交付、容器化与编排成为前提。</p>
+</li>
+<li>
+<p>**演进与故障设计：**必须面向故障、监控和渐进变化。</p>
+</li>
+</ul>
+<h2 id="soa-%E4%B8%8E%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%AF%94%E8%BE%83" tabindex="-1"><a class="header-anchor" href="#soa-%E4%B8%8E%E5%BE%AE%E6%9C%8D%E5%8A%A1%E6%AF%94%E8%BE%83">#</a> SOA 与微服务比较</h2>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>SOA</th>
+<th>微服务</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>主要目标</td>
+<td>企业服务集成与复用</td>
+<td>快速独立演进与部署</td>
+</tr>
+<tr>
+<td>通信/中介</td>
+<td>常依赖 <strong>ESB</strong> 与较重治理</td>
+<td>轻量 API/消息、API Gateway</td>
+</tr>
+<tr>
+<td>服务粒度</td>
+<td>相对更粗</td>
+<td>围绕业务能力更细</td>
+</tr>
+<tr>
+<td>关键风险</td>
+<td>中介复杂、集中瓶颈</td>
+<td>分布式事务、故障定位与运维复杂</td>
+</tr>
+</tbody>
+</table>
+<h2 id="soa-%E6%A8%A1%E5%BC%8F%E7%BB%93%E6%9E%84%EF%BC%9A%E6%B6%88%E8%B4%B9%E8%80%85%E3%80%81%E6%9C%8D%E5%8A%A1%E6%80%BB%E7%BA%BF%E4%B8%8E%E6%8F%90%E4%BE%9B%E8%80%85" tabindex="-1"><a class="header-anchor" href="#soa-%E6%A8%A1%E5%BC%8F%E7%BB%93%E6%9E%84%EF%BC%9A%E6%B6%88%E8%B4%B9%E8%80%85%E3%80%81%E6%9C%8D%E5%8A%A1%E6%80%BB%E7%BA%BF%E4%B8%8E%E6%8F%90%E4%BE%9B%E8%80%85">#</a> SOA 模式结构：消费者、服务总线与提供者</h2>
+<p>**画图落点：**不要只写 SOA 与微服务的差异；SOA 模式题应画出 <strong>Service Consumer → ESB / Orchestration → Service Provider</strong>，并标出 <strong>Service Registry</strong> 的发布与发现关系。</p>
+<p><strong>ESB 是什么：ESB</strong> 是 <strong>Enterprise Service Bus</strong>（企业服务总线）。在 <strong>SOA</strong> 中，它相当于企业内部的“服务中介/集成层”，负责把服务消费者和服务提供者连接起来，并承担<strong>路由</strong>、<strong>协议转换</strong>、<strong>消息格式转换</strong>、<strong>服务编排</strong>、<strong>安全与治理</strong>等工作。优点是便于企业系统集成和服务复用；代价是中间件变重，ESB 可能成为性能瓶颈或集中治理瓶颈，所以微服务更强调轻量 API、消息代理或点对点通信。</p>
+<p><strong>知识出处：</strong><a href="https://my.feishu.cn/wiki/TugcwyaYciuLXjkMw55c5BWrnNg">04 架构模式演进与微服务</a>；补充证据：<code>slides/08Microservices Architecture.pdf</code>、<code>软件架构模式演进：从主机到 AI 原生</code>。</p>
+<p><strong>来源：</strong><code>slides/05_Patterns.pdf</code>、《软件体系结构复习课录音整理版.docx》，以及补充课件中关于<strong>架构模式演进</strong>的部分。若原文件标题含 AI 原生，仅作为考后或背景内容来源边界，不纳入本页考试范围。</p>
+<h2 id="%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3%E6%A8%A1%E5%BC%8F%E8%A6%81%E4%BC%9A%E4%B8%BE%E4%BE%8B" tabindex="-1"><a class="header-anchor" href="#%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3%E6%A8%A1%E5%BC%8F%E8%A6%81%E4%BC%9A%E4%B8%BE%E4%BE%8B">#</a> 微服务相关模式要会举例</h2>
+<h3 id="%E6%8B%86%E5%88%86-%2F-decomposition" tabindex="-1"><a class="header-anchor" href="#%E6%8B%86%E5%88%86-%2F-decomposition">#</a> 拆分 / Decomposition</h3>
+<ul>
+<li>
+<p>**Business Capability：**按业务能力拆服务。</p>
+</li>
+<li>
+<p>**Subdomain：**按 DDD 子域拆服务。</p>
+</li>
+<li>
+<p>**Strangler Fig：**逐步替换旧单体。</p>
+</li>
+<li>
+<p>**Database per Service：**明确数据归属和自治边界。</p>
+</li>
+</ul>
+<h3 id="%E9%80%9A%E4%BF%A1-%2F-communication" tabindex="-1"><a class="header-anchor" href="#%E9%80%9A%E4%BF%A1-%2F-communication">#</a> 通信 / Communication</h3>
+<ul>
+<li>
+<p>**API Gateway：**统一入口、鉴权、限流和路由。</p>
+</li>
+<li>
+<p>**Service Discovery：**定位动态实例。</p>
+</li>
+<li>
+<p>**Messaging / Event-driven：**异步解耦。</p>
+</li>
+<li>
+<p>**Circuit Breaker / Saga：**故障隔离与跨服务一致性。</p>
+</li>
+</ul>
+<h3 id="%E9%83%A8%E7%BD%B2-%2F-deployment" tabindex="-1"><a class="header-anchor" href="#%E9%83%A8%E7%BD%B2-%2F-deployment">#</a> 部署 / Deployment</h3>
+<ul>
+<li>
+<p>**Service Instance per Host：**隔离强。</p>
+</li>
+<li>
+<p>**Multiple Service Instances per Host：**资源利用高。</p>
+</li>
+<li>
+<p>**Service Instance per Container：**容器化独立发布。</p>
+</li>
+<li>
+<p>**Serverless / FaaS：**事件触发，按需运行。</p>
+</li>
+</ul>
+<h3 id="%E5%8F%AF%E8%A7%82%E6%B5%8B%E6%80%A7-%2F-observability" tabindex="-1"><a class="header-anchor" href="#%E5%8F%AF%E8%A7%82%E6%B5%8B%E6%80%A7-%2F-observability">#</a> 可观测性 / Observability</h3>
+<ul>
+<li>
+<p>**Log Aggregation：**集中日志。</p>
+</li>
+<li>
+<p>**Distributed Tracing：**跨服务调用链。</p>
+</li>
+<li>
+<p>**Health Check API：**健康探测与摘流。</p>
+</li>
+<li>
+<p>**Metrics / Monitoring：**指标、容量和告警。</p>
+</li>
+</ul>
+<h3 id="%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3%E6%A8%A1%E5%BC%8F%EF%BC%9A%E4%BA%BA%E8%AF%9D%E7%89%88%E8%A7%A3%E9%87%8A" tabindex="-1"><a class="header-anchor" href="#%E5%BE%AE%E6%9C%8D%E5%8A%A1%E7%9B%B8%E5%85%B3%E6%A8%A1%E5%BC%8F%EF%BC%9A%E4%BA%BA%E8%AF%9D%E7%89%88%E8%A7%A3%E9%87%8A">#</a> 微服务相关模式：人话版解释</h3>
+<p><strong>一句话理解：<strong>微服务把一个大系统拆成很多小服务，好处是能独立开发和部署；坏处是</strong>服务变多、网络调用变多、故障点变多、排查更难</strong>。下面这些模式，就是给这些新麻烦配的工具。</p>
+<table>
+<thead>
+<tr>
+<th>模式</th>
+<th>它在解决什么问题</th>
+<th>更容易懂的解释</th>
+<th>例子 / 代价</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>服务拆分</strong><br>Decomposition</td>
+<td>一个大系统太难改、太难发布。</td>
+<td>把“大厨房”拆成多个窗口：课程、订单、支付、库存各管各的，哪个服务改了就发布哪个。</td>
+<td>**例子：**支付服务单独升级不影响选课服务。<br>**代价：**边界划错会导致服务之间频繁互相调用。</td>
+</tr>
+<tr>
+<td><strong>断路器</strong><br>Circuit Breaker</td>
+<td>一个服务坏了，其他服务一直等它，最后全系统被拖垮。</td>
+<td>像家里的空气开关：下游连续失败时先“跳闸”，调用方快速失败或走降级，不再傻等。</td>
+<td>**例子：**支付接口挂了，订单服务先提示稍后支付。<br>**代价：**阈值难调，太敏感会误熔断。</td>
+</tr>
+<tr>
+<td><strong>服务注册与发现</strong><br>Registry / Discovery</td>
+<td>服务实例会动态扩缩容，调用方不知道该找哪台机器。</td>
+<td>像通讯录：服务启动时登记地址，调用方先查通讯录，再去找可用实例。</td>
+<td>**例子：**订单服务查注册中心，找到当前可用的库存服务。<br>**代价：**注册中心本身要高可用。</td>
+</tr>
+<tr>
+<td><strong>API 网关 / 边缘网关</strong><br>API Gateway</td>
+<td>客户端如果直接调用很多服务，会很乱，也难统一鉴权、限流和路由。</td>
+<td>像商场总服务台：用户只找一个入口，网关负责转发到课程、订单、支付等服务。</td>
+<td>**例子：**网关统一做登录校验、限流、灰度路由。<br>**代价：**网关可能成为瓶颈或单点风险。</td>
+</tr>
+<tr>
+<td><strong>容器化</strong><br>Containerization</td>
+<td>服务太多，部署环境不一致，发布和扩容麻烦。</td>
+<td>把每个服务连同运行环境打包成“标准盒子”，到哪里都按同样方式运行。</td>
+<td>**例子：**选课服务高峰期复制多个容器实例。<br>**代价：**需要编排、镜像治理和运维平台。</td>
+</tr>
+<tr>
+<td><strong>Serverless</strong></td>
+<td>有些能力不是一直运行，自己维护服务和机器不划算。</td>
+<td>按事件触发函数，平时不占资源，用到时再运行。</td>
+<td>**例子：**支付成功后触发发送通知函数。<br>**代价：**冷启动、调试和厂商绑定。</td>
+</tr>
+<tr>
+<td><strong>可观测性</strong><br>Logs / Metrics / Tracing</td>
+<td>请求跨多个服务，出问题时不知道卡在哪一步。</td>
+<td>给系统装“行车记录仪”：日志看发生了什么，指标看是否变慢，调用链看请求经过了哪些服务。</td>
+<td>**例子：**一次下单慢了，调用链显示卡在库存服务。<br>**代价：**采集、存储和告警本身也有成本。</td>
+</tr>
+<tr>
+<td><strong>健康检查</strong><br>Health Check</td>
+<td>服务实例可能已经坏了，但负载均衡还在把请求打过去。</td>
+<td>平台定期问服务“你还好吗？”不健康就先摘掉，等恢复再放回流量池。</td>
+<td>**例子：**支付服务数据库连不上，健康检查失败，网关停止转发。<br>**代价：**检查太频繁会增加额外负载。</td>
+</tr>
+</tbody>
+</table>
+<p><strong>答题模板：<strong>微服务相关模式不要只背名字，要按“<strong>拆小之后产生的问题 → 用什么模式处理 → 带来什么代价</strong>”来写。例如：服务拆小后故障会沿调用链传播，所以用</strong>断路器</strong>快速失败和降级；但它需要合理阈值，否则可能误熔断。</p>
+<h2 id="%E5%BE%AE%E6%9C%8D%E5%8A%A1%E9%83%A8%E7%BD%B2%E4%B8%8E%E8%BF%81%E7%A7%BB%E5%86%B3%E7%AD%96" tabindex="-1"><a class="header-anchor" href="#%E5%BE%AE%E6%9C%8D%E5%8A%A1%E9%83%A8%E7%BD%B2%E4%B8%8E%E8%BF%81%E7%A7%BB%E5%86%B3%E7%AD%96">#</a> 微服务部署与迁移决策</h2>
+<h2 id="%E7%BA%AA%E8%A6%81%E8%A1%A5%E5%85%85%EF%BC%9A%E5%BE%AE%E6%9C%8D%E5%8A%A1%E8%80%83%E7%82%B9%E5%8F%AA%E6%8A%93%E7%89%B9%E6%80%A7%E3%80%81%E5%AF%B9%E6%AF%94%E5%92%8C%E6%A8%A1%E5%BC%8F" tabindex="-1"><a class="header-anchor" href="#%E7%BA%AA%E8%A6%81%E8%A1%A5%E5%85%85%EF%BC%9A%E5%BE%AE%E6%9C%8D%E5%8A%A1%E8%80%83%E7%82%B9%E5%8F%AA%E6%8A%93%E7%89%B9%E6%80%A7%E3%80%81%E5%AF%B9%E6%AF%94%E5%92%8C%E6%A8%A1%E5%BC%8F">#</a> 纪要补充：微服务考点只抓特性、对比和模式</h2>
+<p><strong>回到总结页：</strong><a href="https://my.feishu.cn/docx/GVzbdsMMuolSoRxxbqoclqmunqd#doxcnXAOKPpx8SHZVkikCfTQCpf">纪要可能考查方式索引</a> 已把本知识点与相关训练题互链，复习时可从题型反查本节。</p>
+<p>**老师<strong><strong>说明</strong></strong>：**微服务基础部分不重点考定义，更可能考特性、与其他架构风格的对比、服务边界与关键模式。</p>
+<table>
+<thead>
+<tr>
+<th>考点</th>
+<th>答题要点</th>
+<th>例子</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>为什么从 SOA 走向微服务</td>
+<td>SOA 分层不够细，独立部署发布能力不足，局部迭代慢</td>
+<td>订单、支付、库存不能每次都等统一版本发布。</td>
+</tr>
+<tr>
+<td>服务拆分 / 边界识别</td>
+<td>按业务能力、操作流程、限界上下文识别服务与 API</td>
+<td>报价、库存、订单分别有独立模型和发布节奏。</td>
+</tr>
+<tr>
+<td>通信与韧性</td>
+<td>断路器、服务注册与发现、边缘网关</td>
+<td>下游故障时熔断，调用方快速失败并保护系统。</td>
+</tr>
+<tr>
+<td>部署与运行</td>
+<td>容器化、Serverless、可观测性、健康检查</td>
+<td>用日志、指标、追踪定位跨服务问题。</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>部署选择</th>
+<th>适用与收益</th>
+<th>主要代价</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Single-host</strong></td>
+<td>服务少、资源有限；最简单且部署快</td>
+<td>隔离弱，单机故障影响大</td>
+</tr>
+<tr>
+<td><strong>Multi-host / VM</strong></td>
+<td>需要隔离或独立伸缩；故障域更清晰</td>
+<td>资源开销和运维工作增加</td>
+</tr>
+<tr>
+<td><strong>Container / Platform</strong></td>
+<td>服务多且高频发布；易编排、扩缩与滚动更新</td>
+<td>平台治理、观测与故障排查更复杂</td>
+</tr>
+</tbody>
+</table>
+<ol>
+<li>
+<p>**识别边界：**按业务能力或限界上下文选择先拆的服务。</p>
+</li>
+<li>
+<p>**选择部署：**根据隔离、伸缩、发布频率选择满足需求的最轻量方案。</p>
+</li>
+<li>
+<p>**渐进迁移：**通过网关将新请求导向新服务，规划数据迁移与兼容。</p>
+</li>
+<li>
+<p>**验证权衡：**用可用性、可伸缩性、部署性与运维复杂度检验方案。</p>
+</li>
+</ol>
+<hr>
+<h1 id="%E5%8F%AF%E7%9B%B4%E6%8E%A5%E8%83%8C%E8%AF%B5%E7%AD%94%E6%A1%88" tabindex="-1"><a class="header-anchor" href="#%E5%8F%AF%E7%9B%B4%E6%8E%A5%E8%83%8C%E8%AF%B5%E7%AD%94%E6%A1%88">#</a> 可直接背诵答案</h1>
+<h2 id="%E8%8B%B1%E6%96%87%E9%A2%98%E9%9D%A2%E5%B8%B8%E8%A7%81%E9%97%AE%E6%B3%95" tabindex="-1"><a class="header-anchor" href="#%E8%8B%B1%E6%96%87%E9%A2%98%E9%9D%A2%E5%B8%B8%E8%A7%81%E9%97%AE%E6%B3%95">#</a> 英文题面常见问法</h2>
+<table>
+<thead>
+<tr>
+<th>English prompt</th>
+<th>答题要点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Compare Layered Pattern and Multi-Tier Pattern.</td>
+<td>Layered 偏逻辑职责分层；Multi-Tier 偏物理部署分层；分别说明收益和限制。</td>
+</tr>
+<tr>
+<td>Explain Broker Pattern / MVC / Pipe-and-Filter.</td>
+<td>按 Context → Problem → Structure → Benefit → Limitation 写。</td>
+</tr>
+<tr>
+<td>Compare SOA and Microservice Architecture.</td>
+<td>服务粒度、部署自治、治理方式、通信复杂度、组织和运维代价。</td>
+</tr>
+<tr>
+<td>Why did architecture evolve from CS to SOA and then to microservices?</td>
+<td>每一步都围绕质量属性取舍：交互体验、可维护性、独立部署、运行治理。</td>
+</tr>
+<tr>
+<td>List common microservice patterns.</td>
+<td>Decomposition, Circuit Breaker, Service Registry and Discovery, API Gateway, Containerization, Observability。</td>
+</tr>
+</tbody>
+</table>
+<h2 id="%E9%A2%98-1%EF%BC%9A%E6%9E%B6%E6%9E%84%E6%A8%A1%E5%BC%8F%E6%80%8E%E6%A0%B7%E4%BD%9C%E7%AD%94" tabindex="-1"><a class="header-anchor" href="#%E9%A2%98-1%EF%BC%9A%E6%9E%B6%E6%9E%84%E6%A8%A1%E5%BC%8F%E6%80%8E%E6%A0%B7%E4%BD%9C%E7%AD%94">#</a> 题 1：架构模式怎样作答</h2>
+<blockquote>
+<p>架构模式是针对重复出现的设计问题而形成的一组可复用架构决策。回答模式题时，应先说明其适用上下文和要解决的问题，再描述方案中的元素、关系与约束，最后分析它改善了哪些质量属性以及带来了哪些限制。例如，Pipe-and-Filter 将数据处理分解为由管道连接的过滤器，利于复用和组合，但不适合需要复杂交互或大量共享状态的场景。</p>
+</blockquote>
+<h2 id="%E9%A2%98-2%EF%BC%9A%E6%9E%B6%E6%9E%84%E6%BC%94%E8%BF%9B%E7%9A%84%E9%80%BB%E8%BE%91" tabindex="-1"><a class="header-anchor" href="#%E9%A2%98-2%EF%BC%9A%E6%9E%B6%E6%9E%84%E6%BC%94%E8%BF%9B%E7%9A%84%E9%80%BB%E8%BE%91">#</a> 题 2：架构演进的逻辑</h2>
+<blockquote>
+<p><strong>架构演进</strong>是为了在新环境和新成本约束下重新安排协作方式。主机终端以集中资源换取可靠管理，却损失交互体验；Client/Server 改善用户体验，却产生胖客户端维护问题；分层和 SOA 加强分工与集成，但独立发布和性能受限；微服务提高局部自治与独立部署能力，却引入分布式故障、一致性和运维复杂性；云原生与事件驱动增强弹性和解耦，同时使时序与排错更困难。</p>
+</blockquote>
+<h2 id="%E9%A2%98-3%EF%BC%9A%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%B8%8E-soa-%E6%AF%94%E8%BE%83" tabindex="-1"><a class="header-anchor" href="#%E9%A2%98-3%EF%BC%9A%E5%BE%AE%E6%9C%8D%E5%8A%A1%E4%B8%8E-soa-%E6%AF%94%E8%BE%83">#</a> 题 3：微服务与 SOA 比较</h2>
+<blockquote>
+<p>SOA 与微服务都通过服务化协作支持大型系统。SOA 更关注企业集成和服务复用，常依赖注册表、ESB 与编排；微服务更关注围绕业务能力的小粒度拆分、轻量通信、独立部署与持续交付，并借助网关、服务发现、断路器、容器化与可观测性应对运行问题。微服务的优势是迭代和扩展更灵活，代价是分布式系统的故障、一致性和运维成本更高。</p>
+</blockquote>
+<h1 id="%E7%B2%BE%E9%80%89%E6%9D%A5%E6%BA%90" tabindex="-1"><a class="header-anchor" href="#%E7%B2%BE%E9%80%89%E6%9D%A5%E6%BA%90">#</a> 精选来源</h1>
+<ul>
+<li>
+<p>飞书纪要：老师关于架构演进、模式考法与微服务重点的讲解。</p>
+</li>
+<li>
+<p>上传资料：《扫描文档20260526_192514.pdf》（MinerU OCR）的模式演进页面，从主机/终端、C/S、三层/分层、SOA、微服务到事件驱动/云原生梳理结构与质量属性取舍。</p>
+</li>
+<li>
+<p>专题补充依据：原始课件 `slides/05_Patterns.pdf` 与 `slides/08Microservices Architecture.pdf`。</p>
+</li>
+<li>
+<p>本地《研究生往年题版.md》仅作为训练题线索，不作为概念与结论的主依据。</p>
+</li>
+</ul>
+<blockquote>
+<p>(注：内容由 AI 生成，请谨慎参考）</p>
+</blockquote>
+
+      </div>
+
+      <footer class="post-footer">
+        <div class="post-nav">
+          <a href="/" class="post-nav-link">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/></svg>
+            返回首页
+          </a>
+        </div>
+      </footer>
+    </article>
+  </main>
+</div>
+
+
+  <footer class="site-footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <span class="footer-logo">ASIMOV&#39;S Blog</span>
+        <p class="footer-desc">ASIMOV的老巢</p>
+        <div class="footer-social">
+          
+            <a href="https://github.com/chendingya" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="GitHub">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+            </a>
+          
+          
+            <a href="https://twitter.com/yourname" target="_blank" rel="noopener noreferrer" class="social-link" aria-label="Twitter">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+            </a>
+          
+          
+            <a href="mailto:your@email.com" class="social-link" aria-label="Email">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+            </a>
+          
+          
+            <a href="/feed.xml" class="social-link" aria-label="RSS">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M6.18 15.64a2.18 2.18 0 0 1 2.18 2.18C8.36 19 7.38 20 6.18 20C5 20 4 19 4 17.82a2.18 2.18 0 0 1 2.18-2.18M4 4.44A15.56 15.56 0 0 1 19.56 20h-2.83A12.73 12.73 0 0 0 4 7.27V4.44m0 5.66a9.9 9.9 0 0 1 9.9 9.9h-2.83A7.07 7.07 0 0 0 4 12.93V10.1z"/></svg>
+            </a>
+          
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4 class="footer-heading">导航</h4>
+        <ul class="footer-links">
+          
+            <li><a href="/">首页</a></li>
+          
+            <li><a href="/archive/">归档</a></li>
+          
+            <li><a href="/tags/">标签</a></li>
+          
+            <li><a href="/categories/">分类</a></li>
+          
+            <li><a href="/comments/">留言</a></li>
+          
+            <li><a href="/projects/">项目</a></li>
+          
+          <li><a href="/archive/">归档</a></li>
+          <li><a href="/tags/">标签</a></li>
+          <li><a href="/categories/">分类</a></li>
+        </ul>
+      </div>
+
+      
+      <div class="footer-col">
+        <h4 class="footer-heading">友链</h4>
+        <ul class="footer-links">
+          
+            <li><a href="https://example.com" target="_blank" rel="noopener noreferrer">示例友链</a></li>
+          
+        </ul>
+      </div>
+      
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-copy">&copy; 2026 ASIMOV&#39;S Blog</p>
+      
+    </div>
+  </div>
+</footer>
+
+
+  <button class="back-to-top" aria-label="返回顶部">
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="19" x2="12" y2="5"/><polyline points="5 12 12 5 19 12"/></svg>
+  </button>
+
+  <script src="/assets/js/main.js" defer></script>
+  <script src="/plugins/comments/comments-assets/editor.js" defer></script>
+</body>
+</html>
